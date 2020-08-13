@@ -7,9 +7,8 @@ export const actions = {
         });
  
     },
-    
     //  Получить одну новость по ID 
-    async _NewsId({store}, id) {
+    async _NewsId({}, id) {
         return await this.$axios.$get(`/news/detail/?id=${id}`).then(res=>{
             return res;
         });

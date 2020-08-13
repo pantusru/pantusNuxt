@@ -6,19 +6,38 @@ export const state = () => ({
 })
 export const mutations  =  {
     SetNewsPage(store, data){
-        store.NewsIndex[page.page] = data.dataset;
-    }
+        store.NewsPage[data.page] = data.dataset;
+    },
+    SetNewsVisible(store, data){
+        store.NewsVisible = data;
+    },
+    SetKovloNewws(store, data){
+        store.KovloNews = data;
+    },
 }
 export const actions = { 
-    async _NewsIndex({store,dispatch, commit}, page = 1){
-        let offets = page * store.limit;
-        let  data =  await dispatch("News/axios/_NewsAll", {offets:offets, limit:store.limit}, { root: true });
-        commit("SetNewsIndex", {dataset: data, page: page });
-         
+    async _NewsPage({store,dispatch, commit, getters}, page = 1){
+        if(getters.GetNewsPage[page] === undefined){// данные не загруженны!
+            let offets = (page - 1) * getters.GetLimit;
+            let  data =  await dispatch("News/axios/_NewsAll", {offets:offets, limit: getters.GetLimit}, { root: true });
+            if(getters.GetKovloNews === 0){
+                commit("SetKovloNewws", data.count);
+            }
+            let dataset = data.results; 
+            commit("SetNewsPage", {dataset: dataset, page: page -1 });
+            commit("SetNewsVisible", dataset);
+        }else{ // данные загруженны!
+            commit("SetNewsVisible", getters.GetNewsPage[page -1 ]);
+        }
+ 
     }
 }
 export const getters = {
-    GetNewsIndex: s => s.NewsIndex,
+    GetNewsPage: s => s.NewsPage, 
+    GetNewsVisible: s => s.NewsVisible,
+    GetKovloNews: s => s.KovloNews,
+    GetLimit: s => s.limit,
+    GetPage: s => Number(s.KovloNews / s.limit)
 }
 
 //  отображает новости на главной странице

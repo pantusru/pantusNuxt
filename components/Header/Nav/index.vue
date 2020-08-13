@@ -1,7 +1,7 @@
 <template>
  <div class="container">
   <b-navbar toggleable="lg">
-    <b-navbar-brand href="#"><img src="~assets/img/logo.png" alt=""></b-navbar-brand>
+    <b-navbar-brand to="/"><img src="~assets/img/logo.png" alt=""></b-navbar-brand>
       <!-- center -->
         <b-navbar-nav class="flex-row col-12 col-lg-6 order-4 order-lg-0 mt-2 mt-lg-0">
             <input  class=" border-danger w-100 p-2 rounded-left bl-0" placeholder="Введите номер или название детали"/>

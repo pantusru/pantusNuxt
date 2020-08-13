@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import VueNewsIndex from "../components/Index/News/index"
+import VueNewsIndex from "../components/News/index"
 import VuepopularProduct from "../components/Index/Carousel/popularProduct"
 export default {
     components:{
@@ -15,7 +15,6 @@ export default {
     },
     async fetch({store}){
         await store.dispatch("News/NewsIndex/_NewsIndex");
-        console.log(store.getters["News/NewsIndex/GetNewsIndex"]);
     }
 }
 </script>

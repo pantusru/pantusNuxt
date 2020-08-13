@@ -1,0 +1,29 @@
+.link-danger:hover{
+    text-decoration: none;
+    color: var(--danger)!important;
+}
+.border-danger{
+    border: 2px solid var(--danger);
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.bl-0{
+    border-right: 0;
+}
+.fz-1{
+    font-size: 2rem;
+}
+.fz-2{
+    font-size: 1.8rem;
+}
+.fz-3{
+    font-size: 1.3rem;
+}
+.fz-4{
+    font-size: 1rem;
+}
+.fz-5{
+    font-size: 0.8rem; 
+}

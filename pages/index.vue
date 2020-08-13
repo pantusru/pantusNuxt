@@ -1,13 +1,22 @@
 <template>
-  <VuepopularProduct/>
+  <main>
+      <VuepopularProduct/>
+      <VueNewsIndex/>
+  </main>
 </template>
 
 <script>
+import VueNewsIndex from "../components/Index/News/index"
 import VuepopularProduct from "../components/Index/Carousel/popularProduct"
 export default {
     components:{
         VuepopularProduct,
+        VueNewsIndex
     },
+    async fetch({store}){
+        await store.dispatch("News/NewsIndex/_NewsIndex");
+        console.log(store.getters["News/NewsIndex/GetNewsIndex"]);
+    }
 }
 </script>
 

@@ -14,6 +14,9 @@ export default {
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
+ server: {
+  port: 8000,
+ },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -37,6 +40,7 @@ export default {
   */
   plugins: [
     {src: './plugins/vue-slick-carousel.js'},
+    {src: './plugins/ConfingAxios.js'},
   ],
   /*
   ** Auto import components
@@ -63,12 +67,17 @@ export default {
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    // baseURL: "http://10.0.30.95:8000/api/v1"
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
   },
- 
+  env: {
+    api: "http://10.0.30.95:8000/api/v1",
+    apiMedia: "http://10.0.30.95:8000",
+  }
 }

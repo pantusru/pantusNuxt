@@ -1,4 +1,4 @@
-.link-danger:hover{
+a.link-danger:hover{
     text-decoration: none;
     color: var(--danger)!important;
 }
@@ -27,3 +27,4 @@ img{
 .fz-5{
     font-size: 0.8rem; 
 }
+

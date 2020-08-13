@@ -36,6 +36,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    {src: './plugins/vue-slick-carousel.js'},
   ],
   /*
   ** Auto import components
@@ -52,7 +53,9 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
+    ['bootstrap-vue/nuxt',{
+      icons: true,
+    }],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],

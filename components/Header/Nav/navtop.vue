@@ -4,7 +4,10 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <Dropdown/>
+                    <!-- Выплывающий список и прост ссылка -->
+                    <VueDropdown class="d-none d-lg-block" />
+                    <b-nav-item to="" link-classes="text-body link-danger d-lg-none">О компании </b-nav-item> 
+                    <!-- Выплывающий список и прост ссылка -->
                     <b-nav-item 
                     link-classes="text-body link-danger"  
                     v-for="data in links" :key="data.id"> 
@@ -21,7 +24,7 @@
 </template>
 
 <script>
-import Dropdown from "../Dropdown/top"
+import VueDropdown from "../Dropdown/Navtop"
 export default {
     data(){
         return{
@@ -36,7 +39,7 @@ export default {
         }
     },
     components:{
-        Dropdown,
+        VueDropdown,
     }
 }
 </script>

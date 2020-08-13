@@ -12,8 +12,8 @@
         <div class="d-flex mr-5 align-items-center">
             <div class="icons-nav"><img src="~/assets/img/icons/icon-avatar.png" alt=""/></div>
             <div class="d-flex flex-column ml-3">
-                <nuxt-link to="#" class="text-secondary link-danger">Вход</nuxt-link>
-                <nuxt-link to="#" class="text-secondary link-danger">Регистрация</nuxt-link>
+                <nuxt-link to="" class="text-secondary link-danger">Вход</nuxt-link>
+                <nuxt-link to="" class="text-secondary link-danger">Регистрация</nuxt-link>
             </div>
         </div>
         <div class="d-flex align-items-center">

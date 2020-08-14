@@ -8,7 +8,7 @@
                     <VueDropdown class="d-none d-lg-block" />
                     <b-nav-item to="" link-classes="text-body link-danger d-lg-none">О компании </b-nav-item> 
                     <!-- Выплывающий список и прост ссылка -->
-                    <b-nav-item 
+                    <b-nav-item :to="data.to"
                     link-classes="text-body link-danger"  
                     v-for="data in links" :key="data.id"> 
                         {{ data.text }}
@@ -32,7 +32,7 @@ export default {
                 {to:"", text:"Мобильное приложение"},
                 {to:"", text:"Доставка"},
                 {to:"", text:"Оплата"},
-                {to:"", text:"Новости"},
+                {to:"/news/", text:"Новости"},
                 {to:"", text:"Помощь"},
                 {to:"", text:"Контакты"},
             ]

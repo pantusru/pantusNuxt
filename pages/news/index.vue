@@ -7,7 +7,7 @@
             </b-col>
         </b-row>
         <h3 class="mb-3">Новости</h3>
-        <NewsPageIndex :dataset="NewsPage" />
+        <NewsPageIndex :dataset="NewsPage" :Kovlo="Kovlo" />
     </div>
 </section>
  
@@ -38,6 +38,9 @@ export default {
          CategoriesAll(){ 
             return this.$store.getters['News/CategoriesAll/GetNewsCategories']
         },
+        Kovlo(){
+            return this.$store.getters['News/NewsPage/GetPage']
+        }
     },
     watch:{ // при изменения page 
         $route() {

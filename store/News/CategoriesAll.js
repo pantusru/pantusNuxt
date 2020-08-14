@@ -7,10 +7,11 @@ export const mutations  =  {
     }
 }
 export const actions = { 
-    async _NewsCategories({store,dispatch, commit}, id){
-        let  data = await dispatch("News/axios/_NewsСategoriesAll", id, { root: true });
-        commit("SetNewsCategories", data);
-         
+    async _NewsCategories({store,dispatch, commit, getters}, id){
+        if(getters.GetNewsCategories.length === 0){
+            let  data = await dispatch("News/axios/_NewsСategoriesAll", id, { root: true });
+            commit("SetNewsCategories", data);
+        }  
     }
 }
 export const getters = {

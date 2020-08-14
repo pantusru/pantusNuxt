@@ -19,9 +19,13 @@ export const actions = {
         return await this.$axios.$get(`${process.env.api}/news/category/list`).then(res=>{
             return res;
         });
- 
     },
-    
+    // Получить новости по категории 
+    async _CategoriesNews({}, data) {
+        return await this.$axios.$get(`${process.env.api}/news/category/?id=${data.id}&limit=${data.limit}&offset=${data.offets}`).then(res=>{
+            return res;
+        });
+    },  
 }
 
  

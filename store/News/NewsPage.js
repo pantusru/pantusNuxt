@@ -40,7 +40,13 @@ export const getters = {
     GetNewsVisible: s => s.NewsVisible,
     GetKovloNews: s => s.KovloNews,
     GetLimit: s => s.limit,
-    GetPage: s => Number(s.KovloNews / s.limit)
+    GetPage: s => {
+        if(s.KovloNews % s.limit != 0){
+            return Number(s.KovloNews / s.limit) + 1        
+        }else{
+            return Number(s.KovloNews / s.limit)
+        }
+    }  
 }
 
 //  отображает новости на главной странице

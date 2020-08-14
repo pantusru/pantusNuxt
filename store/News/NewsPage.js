@@ -16,7 +16,10 @@ export const mutations  =  {
     },
 }
 export const actions = { 
-    async _NewsPage({store,dispatch, commit, getters}, page = 1){
+    async _NewsPage({store,dispatch, commit, getters}, page){
+        if(page === undefined){ // проверка что пришло!
+            page = 1;
+        }
         if(getters.GetNewsPage[page] === undefined){// данные не загруженны!
             let offets = (page - 1) * getters.GetLimit;
             let  data =  await dispatch("News/axios/_NewsAll", {offets:offets, limit: getters.GetLimit}, { root: true });
@@ -24,10 +27,10 @@ export const actions = {
                 commit("SetKovloNewws", data.count);
             }
             let dataset = data.results; 
-            commit("SetNewsPage", {dataset: dataset, page: page -1 });
+            commit("SetNewsPage", {dataset: dataset, page: page });
             commit("SetNewsVisible", dataset);
         }else{ // данные загруженны!
-            commit("SetNewsVisible", getters.GetNewsPage[page -1 ]);
+            commit("SetNewsVisible", getters.GetNewsPage[page]);
         }
  
     }

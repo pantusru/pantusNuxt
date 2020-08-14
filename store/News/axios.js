@@ -9,11 +9,19 @@ export const actions = {
     },
     //  Получить одну новость по ID 
     async _NewsId({}, id) {
-        return await this.$axios.$get(`/news/detail/?id=${id}`).then(res=>{
+        return await this.$axios.$get(`${process.env.api}/news/detail/?id=${id}`).then(res=>{
             return res;
         });
  
     },
+    // Получить все категории новостей
+    async _NewsСategoriesAll({}) {
+        return await this.$axios.$get(`${process.env.api}/news/category/list`).then(res=>{
+            return res;
+        });
+ 
+    },
+    
 }
 
  

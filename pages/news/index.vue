@@ -1,44 +1,50 @@
 <template>
 <section class="my-5"  v-if="NewsPage"> 
     <div class="container">
-        <b-row>
-            <VueBlogNews v-for="data in NewsPage" :key="data.id" :data="data" />
-        </b-row>   
-        <div class="overflow-auto">
-            <b-pagination-nav :link-gen="linkGen" :number-of-pages="Kovlo" align="center" use-router></b-pagination-nav>
-        </div>
+        <b-row class="mb-4">
+            <b-col cols=12 sm=6 lg=3  v-for="data in CategoriesAll" :key="data.id">
+                <NewsCategoriesAll :dataset="data" />
+            </b-col>
+        </b-row>
+        <h3 class="mb-3">Новости</h3>
+        <NewsPageIndex :dataset="NewsPage" />
     </div>
 </section>
  
 </template>
 
 <script>
-import VueBlogNews from "~/components/News/blog"
-  export default {
-      async fetch({query, store, getters}){
-          if(query.page != undefined){
-              await store.dispatch("News/NewsPage/_NewsPage", query.page)
-          }else{
-            await store.dispatch("News/NewsPage/_NewsPage")
-          }
-      },
-      data(){
-          return{
-              Kovlo: this.$store.getters['News/NewsPage/GetPage']
-          }
-      },
+import NewsCategoriesAll from "~/components/News/Categories/index"
+import NewsPageIndex from "~/components/News/page"
+export default {
+    async fetch({query, store, getters}){
+        console.log(query.page);
+        await store.dispatch("News/CategoriesAll/_NewsCategories")
+        await store.dispatch("News/NewsPage/_NewsPage", query.page);
+    },
     methods: {
-      linkGen(pageNum) {
-        return pageNum === 1 ? '?' : `?page=${pageNum}`;
-      } 
+        async Add(){ // Закачка товара при клике на ссылку
+            await this.$store.dispatch("News/NewsPage/_NewsPage", this.$route.query.page)
+        }
     }, 
     components:{
-        VueBlogNews,
+        NewsPageIndex,
+        NewsCategoriesAll,
     },
     computed:{
         NewsPage(){ 
             return this.$store.getters['News/NewsPage/GetNewsVisible']
         },
+         CategoriesAll(){ 
+            return this.$store.getters['News/CategoriesAll/GetNewsCategories']
+        },
+    },
+    watch:{ // при изменения page 
+        $route() {
+            this.Add();
+            window.scrollTo(0, 0);
+        }
     }
-  }
+}
+
 </script>

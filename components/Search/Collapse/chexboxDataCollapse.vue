@@ -33,9 +33,7 @@ export default {
         }
     },
     methods:{
-        bntText(){
-            this.text = "Скрыть"
-        }
+       
     },
      computed: {
         SearchElem() {

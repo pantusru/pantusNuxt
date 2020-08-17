@@ -32,5 +32,16 @@ export default {
 </script>
 
 <style>
-
+.range-slider{
+    position: relative;
+}
+.range-slider input[type=range]{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+input[type=range]::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+}
 </style>

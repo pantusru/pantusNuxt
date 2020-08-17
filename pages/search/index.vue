@@ -2,7 +2,7 @@
 <section class="mt-5">
   <div class="container">
       <b-row>
-          <b-col cols="12" lg="2">
+          <b-col cols="12" lg="3">
             <FilterForm/>
           </b-col>
       </b-row>

@@ -4,10 +4,10 @@
         <span v-if="dataset.children.length ===  0">{{dataset.name}}</span> 
         <!-- ЕСТЬ ПОТОМКИ -->
         <b-form-group class="mb-0" v-if="dataset.children.length !=  0">
-            <div class="d-flex">
-                <p class="m-0"> {{dataset.name}}</p>
+            <div class="d-flex align-items-center">
+                <p> {{dataset.name}}</p>
                 <b-button variant="white" class="link-danger p-0" v-b-toggle="String(dataset.id)">
-                    <b-icon-chevron-down font-scale = "0.9"></b-icon-chevron-down>
+                    <b-icon-chevron-down  font-scale = "0.9"></b-icon-chevron-down>
                 </b-button>
             </div>
             <!-- Отображение в массиве потомков -->

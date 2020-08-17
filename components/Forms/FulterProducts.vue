@@ -2,9 +2,9 @@
     <b-form>
         <VueRange/> <!-- ЦЕНА-->
         <!-- Брэнд-->
-        <!-- <b-form-checkbox-group v-model="checkboxBrand" class="mb-3">
+        <b-form-checkbox-group v-model="checkboxBrand" class="mb-3">
             <chexboxData items="Брэнд" :data="brand"  id="brand"  />
-        </b-form-checkbox-group> -->
+        </b-form-checkbox-group>
         <!-- Категории -->  
          <b-form-checkbox-group v-model="checkboxCategories" class="mb-3">
             <chexboxDataCollapse items="Категории" :data="categories" id="categories"/>
@@ -14,6 +14,7 @@
 
 <script>
 import VueRange  from "../Search/range";
+import chexboxData  from "../Search/chexboxData";
 import chexboxDataCollapse  from "../Search/Collapse/chexboxDataCollapse";
 export default {
     data() {
@@ -60,6 +61,7 @@ export default {
     components:{
         VueRange,
         chexboxDataCollapse,
+        chexboxData,
     }
 }
 </script>

@@ -4,17 +4,19 @@
         <b-input v-model="search" class="mb-3" placeholder="Поиск"></b-input>
         <div class="overflow mb-2 pb-2 d-flex flex-column">
             <!--  ПЕРВЫЕ 5 ЗАписей -->
-            <ChexboxCollapse  class="mb-2"
-                :dataset="dataset"
+            <b-form-checkbox :value="dataset.id"  class="mb-2"
                 v-for="dataset in SearchElem.slice(0,5)" 
-                :key="dataset.id"/>
+                :key="dataset.id">
+                    {{ dataset.name}}
+                </b-form-checkbox>
             <!--  ОСтальные   ЗАписей показывающиеся при клике -->
             <b-collapse :id="id">
                 <div class="d-flex flex-column">
-                    <ChexboxCollapse class="mb-2"
-                    :dataset="dataset"
-                    v-for="dataset in SearchElem.slice(5)" 
-                    :key="dataset.id"/>
+                   <b-form-checkbox :value="dataset.id" class="mb-2"
+                        v-for="dataset in SearchElem.slice(0,5)" 
+                        :key="dataset.id">
+                            {{ dataset.name}}
+                    </b-form-checkbox>
                 </div>
             </b-collapse>
         </div>
@@ -26,7 +28,6 @@
 </template>
 
 <script>
-import ChexboxCollapse from "./ChexboxCollapse"
 export default {
     data(){
         return{
@@ -42,12 +43,8 @@ export default {
         },
     },
     props:["items", "data", "id"],
-    components:{
-        ChexboxCollapse,
-    }
 }
 </script>
-
 
 <style>
 .overflow{

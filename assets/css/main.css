@@ -1,4 +1,4 @@
-a.link-danger:hover{
+a.link-danger:hover , button.link-danger:hover{
     text-decoration: none;
     color: var(--danger)!important;
 }

@@ -13,7 +13,7 @@
             <b-collapse :id="id">
                 <div class="d-flex flex-column">
                    <b-form-checkbox :value="dataset.id" class="mb-2"
-                        v-for="dataset in SearchElem.slice(0,5)" 
+                        v-for="dataset in SearchElem.slice(5)" 
                         :key="dataset.id">
                             {{ dataset.name}}
                     </b-form-checkbox>
@@ -36,7 +36,7 @@ export default {
     },
     methods:{
        
-    },
+    },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
      computed: {
         SearchElem() {
             return this.data.filter(item => item.name.indexOf(this.search) !== -1)

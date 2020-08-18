@@ -57,28 +57,42 @@ export default {
                     this.ResultSearch.push(item);
                 }else if(item.children.length > 0){
                     console.log('нету совпадении но есть потомки');
-                    this.CheckChildren(item.children);
+                    console.log("Передаваймый ID Родителя" + item.id);
+                    let arr = [];
+                    arr.push(item.id);
+                    this.CheckChildren(item.children, arr);
                 }else{
                    console.log('нету совпадении нету потомков'); 
                 }
             })
         },
-        CheckChildren(dataset){
-            dataset.filter( (item, index) =>{
+        CheckChildren(dataset, arr){
+            console.log("ПОИСК СРЕДИ ПОТОМКОВ" + arr);
+            dataset.forEach((item, index) => {
                 if(item.name.indexOf(this.search) !== -1){
-                    console.log("Данные потомка с поиском совпадают" + item);
-                    // this.ResultSearch.push(item);
+                    console.log("Найдено совпадение У потомка");
+                    arr.push(item.id);
+
+                    return; 
+                }else if(item.children.length > 0){
+                    console.log("Совпадении нету ищем nuxt потомок");
+                    arr.push(item.id);
+                    this.CheckChildren(item.children, arr);
                 }else{
-                    console.log("Данные потомка с поиском не совпадают");
-                }
-            })
+                    console.log("Потомков нет");
+                }  
+            });
         }
     },
     // ДРУГАЯ ЛОГИКА ПОИСКА
      computed: {
         SearchElem() {
-            this.checkParent();
-            return this.ResultSearch;
+            if(this.search.length != 0){
+                this.checkParent();
+                return this.ResultSearch;
+            }else{
+                return this.data;
+            }
         },
     },
     // ДРУГАЯ ЛОГИКА ПОИСКА

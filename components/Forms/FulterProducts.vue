@@ -5,21 +5,23 @@
         <PanelBrand 
             :data="brand" 
             id="brand" 
-            valueName="Brand/chexbox/SetBrandChexbox" />
+            valueName="form/SetBrandChexbox" />
         <!-- Категории -->  
         <PanelCategories
             :data="categories" 
             id="categories" 
-            valueName="Categories/chexbox/SetCategoriesChexbox"
+            valueName="form/SetCategoriesChexbox"
             item ="Категории"
         />
+        <Buttons/>
     </b-form>
 </template> 
 
 <script>
 import VueRange  from "../Search/range";
- import PanelBrand  from "../Search/Panel/SlotChexbox";
-  import PanelCategories  from "../Search/Panel/SlotCollapse";
+import PanelBrand  from "../Search/Panel/SlotChexbox";
+import PanelCategories  from "../Search/Panel/SlotCollapse";
+import Buttons from "../Search/buttons"
 export default {
     data() {
         return {
@@ -63,7 +65,8 @@ export default {
     components:{
         VueRange,
         PanelBrand,
-        PanelCategories
+        PanelCategories,
+        Buttons
     }
 }
 </script>

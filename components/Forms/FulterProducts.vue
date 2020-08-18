@@ -2,25 +2,27 @@
     <b-form>
         <VueRange/> <!-- ЦЕНА-->
         <!-- Брэнд-->
-        <b-form-checkbox-group v-model="checkboxBrand" class="mb-3">
-            <chexboxData items="Брэнд" :data="brand"  id="brand"  />
-        </b-form-checkbox-group>
+        <PanelBrand 
+            :data="brand" 
+            id="brand" 
+            valueName="Brand/chexbox/SetBrandChexbox" />
         <!-- Категории -->  
-         <b-form-checkbox-group v-model="checkboxCategories" class="mb-3">
-            <chexboxDataCollapse items="Категории" :data="categories" id="categories"/>
-        </b-form-checkbox-group>
+        <PanelCategories
+            :data="categories" 
+            id="categories" 
+            valueName="Categories/chexbox/SetCategoriesChexbox"
+            item ="Категории"
+        />
     </b-form>
 </template> 
 
 <script>
 import VueRange  from "../Search/range";
-import chexboxData  from "../Search/chexboxData";
-import chexboxDataCollapse  from "../Search/Collapse/chexboxDataCollapse";
+ import PanelBrand  from "../Search/Panel/SlotChexbox";
+  import PanelCategories  from "../Search/Panel/SlotCollapse";
 export default {
     data() {
         return {
-            checkboxBrand:[],
-             checkboxCategories:[],
             brand:[
                 {id:1 , name:" спорт"},
                 {id:2 , name:" QUALITY5"},
@@ -38,7 +40,7 @@ export default {
                 {id:14 , name:" 3ton1"},
             ],
              categories:[
-            {id:1 , name:" спорт", children:[{id: 300, name: "Жилеты", children:[{id: 410, name: "Жилеты светоотражающие", children:[]}]}] },
+                 {id:1 , name:" спорт", children:[{id: 300, name: "Жилеты", children:[{id: 410, name: "Жилеты светоотражающие", children:[]}]}] },
                 {id:2 , name:" QUALITY5", children:[], },
                 {id:3 , name:" спорт" , children:[] },
                 {id:4 , name:" Ablton1", children:[]},
@@ -60,11 +62,15 @@ export default {
     },
     components:{
         VueRange,
-        chexboxDataCollapse,
-        chexboxData,
+        PanelBrand,
+        PanelCategories
     }
 }
 </script>
 
 <style>
+.collapsed > .when-open,
+.not-collapsed > .when-closed {
+  display: none;
+}
 </style>

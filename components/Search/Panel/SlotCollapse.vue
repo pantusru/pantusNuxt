@@ -47,50 +47,10 @@ export default {
         }
     },
     methods:{
-        checkParent(){
-            this.ResultSearch = [];
-            console.log("----------------------------------------")
-            this.data.filter( (item, index) =>{
-                if(item.name.indexOf(this.search) !== -1){
-                    console.log("Данные с поиском совпадают" + item);
-                    this.ResultSearch.push(item);
-                }else if(item.children.length > 0){
-                    console.log('нету совпадении но есть потомки');
-                    console.log("Передаваймый ID Родителя" + item.id);
-                    let arr = [];
-                    arr.push(item.id);
-                    this.CheckChildren(item.children, arr);
-                }else{
-                   console.log('нету совпадении нету потомков'); 
-                }
-            })
-        },
-        CheckChildren(dataset, arr){
-            console.log("ПОИСК СРЕДИ ПОТОМКОВ" + arr);
-            dataset.forEach((item, index) => {
-                if(item.name.indexOf(this.search) !== -1){
-                    console.log("Найдено совпадение У потомка");
-                    arr.push(item.id);
-
-                    return; 
-                }else if(item.children.length > 0){
-                    console.log("Совпадении нету ищем nuxt потомок");
-                    arr.push(item.id);
-                    this.CheckChildren(item.children, arr);
-                }else{
-                    console.log("Потомков нет");
-                }  
-            });
-        }
     },
      computed: {
         SearchElem() {
-            if(this.search.length != 0){
-                this.checkParent();
-                return this.ResultSearch;
-            }else{
-                return this.data;
-            }
+            return this.data.filter(item => item.name.indexOf(this.search) !== -1);
         },
         chexbox:{
             get() {

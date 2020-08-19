@@ -55,7 +55,6 @@ export default {
             },
             set(value){
                 this.$store.commit(this.SetName, value);
-                console.log(this.$store.getters[this.GetName]);
             }
         }
     },

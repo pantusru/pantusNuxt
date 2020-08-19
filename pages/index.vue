@@ -1,6 +1,5 @@
 <template>
   <main>
-      <VuepopularProduct/>
       <VueNewsIndex/>
   </main>
 </template>

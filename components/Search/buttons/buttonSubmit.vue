@@ -28,10 +28,10 @@ export default {
             }else{
                delete this.$route.query.categories; 
             }
-            console.log(this.$route);
-            this.$router.push({ path: '/search', query: {... this.$route.query} });
+            this.$router.push({ path:"/search", query: {... this.$route.query} });
         },
-    }
+    },
+ 
 }
 </script>
 

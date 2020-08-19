@@ -1,5 +1,5 @@
 <template>
-    <b-form>
+    <b-form > 
         <VueRange/> <!-- ЦЕНА-->
         <!-- Брэнд-->
         <PanelBrand 
@@ -47,26 +47,9 @@ export default {
                 {id:13 , name:" 4U"},
                 {id:14 , name:" 3ton1"},
             ],
-             categories:[
-                 {id:1 , name:" спорт", children:[{id: 300, name: "Жилеты", children:[{id: 410, name: "Жилеты светоотражающие", children:[]}]}] },
-                {id:2 , name:" QUALITY5", children:[], },
-                {id:3 , name:" спорт" , children:[] },
-                {id:4 , name:" Ablton1", children:[]},
-                {id:5 , name:" спорт", children:[]},
-                {id:6 , name:" спорт", children:[]},
-                {id:7 , name:" 3F", children:[]},
-                {id:8 , name:" спорт", children:[]},
-                {id:9 , name:" QUALITY5", children:[]},
-                {id:10 , name:" спорт", children:[]},
-                {id:11 , name:" 3M36", children:[]},
-                {id:12 , name:" Bearing2ABC2б", children:[]},
-                {id:13 , name:" 4U", children:[]},
-                {id:14 , name:" 3ton1", children:[]},
-            ],
         }
     },
     methods:{
-        // методы 
     },
     components:{
         VueRange,
@@ -74,7 +57,13 @@ export default {
         PanelCategories,
         Reset,
         Submit
+    },
+    computed:{
+        categories(){
+            return this.$store.getters["Categories/CategoriesAll/GetCategories"];
+        }
     }
+
 }
 </script>
 

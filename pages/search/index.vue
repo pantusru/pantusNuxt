@@ -15,8 +15,8 @@ import FilterForm from "~/components/Forms/FulterProducts"
 export default {
   //  ПРОВЕРИТЬ ЗАПРОС НА QUERY
    async fetch({query, store, getters, commit}){
-     store.dispatch("Categories/CategoriesAll/_Categories");
-     console.log(store.getters["Categories/CategoriesAll/GetCategories"]);
+     await store.dispatch("Categories/CategoriesAll/_Categories");
+     console.log(store.getters["Categories/CategoriesAll/GetCategories"])
     if(query.minvalue != undefined){
         store.commit("formSearch/SetMinValue", query.minvalue);
     }

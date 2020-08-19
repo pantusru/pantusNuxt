@@ -1,9 +1,9 @@
 <template>
     <b-form-checkbox :value="dataset.id" class="min-h-auto">
         <!-- НЕТ потомков -->
-        <span v-if="dataset.children.length ===  0">{{dataset.name}}</span> 
+        <span v-if="dataset.children ===  undefined">{{dataset.name}}</span> 
         <!-- ЕСТЬ ПОТОМКИ -->
-        <b-form-group class="mb-0" v-if="dataset.children.length !=  0">
+        <b-form-group class="mb-0" v-if="dataset.children !=  undefined">
             <div class="d-flex align-items-center">
                 <p> {{dataset.name}}</p>
                 <b-button variant="white" class="link-danger p-0" v-b-toggle="String(dataset.id)">

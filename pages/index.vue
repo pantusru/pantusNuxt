@@ -7,10 +7,8 @@
 
 <script>
 import VueNewsIndex from "../components/News/index"
-import VuepopularProduct from "../components/Index/Carousel/popularProduct"
 export default {
     components:{
-        VuepopularProduct,
         VueNewsIndex
     },
     async fetch({store}){

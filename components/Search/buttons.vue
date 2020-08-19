@@ -11,7 +11,6 @@ export default {
         pushParams(event){
             event.preventDefault();
             if(this.$store.getters["form/GetMinValue"] != 0){
-                console.log( this.$route.query.minvalue);
                 this.$route.query.minvalue = this.$store.getters["form/GetMinValue"];
             }
             if(this.$store.getters["form/GetMinValue"] !=0){
@@ -23,7 +22,7 @@ export default {
              if(this.$store.getters["form/GetCategoriesChexbox"] !=0){
                 this.$route.query.caregories = this.$store.getters["form/GetCategoriesChexbox"];
             }
-            console.log(this.$route.query);
+            this.$store.
         }
     }
 }

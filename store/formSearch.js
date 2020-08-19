@@ -2,7 +2,7 @@ export const state = () => ({
     CategoriesChexbox: [],
     BrandChexbox: [],
     MinValue: 0,
-    MaxValue: 0,
+    MaxValue: 60000,
 })
 export const mutations  =  {
     SetCategoriesChexbox(store, data){
@@ -17,6 +17,12 @@ export const mutations  =  {
     SetMaxValue(store, data){
         store.MaxValue = data;
     },
+    AddBrandChexbox(store, data){
+        store.BrandChexbox.push(data);
+    },
+    AddCategoriesChexbox(store, data){
+        store.CategoriesChexbox.push(data);
+    }
 }
  
 export const getters = {

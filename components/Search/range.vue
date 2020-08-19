@@ -11,12 +11,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            valueMax: 60000,
-            valueMin: 0,
-        }
-    },
     methods:{
         CheckValue(){
             if(this.valueMin > this.valueMax){
@@ -26,14 +20,24 @@ export default {
             } 
         }   
     },
-    watch:{
-        valueMax(){
-            this.$store.commit("form/SetMaxValue", this.valueMax);
+    computed: {
+        valueMin:{
+            get(){
+                return this.$store.getters["formSearch/GetMinValue"]
+            },
+            set(value){
+                this.$store.commit('formSearch/SetMinValue', value)
+            }
         },
-        valueMin(){
-            this.$store.commit("form/SetMinValue", this.valueMin);
-        }
-    },
+        valueMax:{
+            get(){
+                return this.$store.getters["formSearch/GetMaxValue"]
+            },
+            set(value){
+                this.$store.commit('formSearch/SetMaxValue', value)
+            }
+        },
+    }
 }
 </script>
 

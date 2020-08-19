@@ -36,28 +36,29 @@
 <script>
 import Panel from "./index"
 export default {
-    props:["data", "id", "valueName"],
+    props:["data", "id", "SetName", "GetName"],
     components:{
         Panel,
     },
     data(){
         return{
             search: "",
-            chexbox: [],
         }
     },
      computed: {
         SearchElem() {
             return this.data.filter(item => item.name.indexOf(this.search) !== -1)
         },
-    },
-    watch:{
-        // Метод когда будет отправка на поиск товара или оставлять так!!
-        chexbox(){
-            this.$store.commit(this.valueName, this.chexbox);
+        chexbox:{
+            get() {
+                return this.$store.getters[this.GetName]; 
+            },
+            set(value){
+                this.$store.commit(this.SetName, value);
+                console.log(this.$store.getters[this.GetName]);
+            }
         }
-        // 
-    }
+    },
 }
 </script>
 

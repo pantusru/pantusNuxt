@@ -18,8 +18,7 @@ import NewsCategoriesAll from "~/components/News/Categories/index"
 import NewsPageIndex from "~/components/News/page"
 export default {
     async fetch({query, store, getters}){
-        console.log(query.page);
-        await store.dispatch("News/CategoriesAll/_NewsCategories")
+        await store.dispatch("News/CategoriesAll/_NewsCategories");
         await store.dispatch("News/NewsPage/_NewsPage", query.page);
     },
     methods: {

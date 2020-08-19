@@ -35,7 +35,7 @@
 import Panel from "./index"
 import ChexboxCollapse from "./ChexboxCollapse"
 export default {
-    props:["data", "id", "valueName", "item"],
+    props:["data", "id", "SetName", "GetName", "item"],
     components:{
         Panel,
         ChexboxCollapse
@@ -43,7 +43,6 @@ export default {
     data(){
         return{
             search: "",
-            chexbox: [],
             ResultSearch:[],
         }
     },
@@ -84,7 +83,6 @@ export default {
             });
         }
     },
-    // ДРУГАЯ ЛОГИКА ПОИСКА
      computed: {
         SearchElem() {
             if(this.search.length != 0){
@@ -94,15 +92,16 @@ export default {
                 return this.data;
             }
         },
-    },
-    // ДРУГАЯ ЛОГИКА ПОИСКА
-    watch:{
-        // Метод когда будет отправка на поиск товара или оставлять так!!
-        chexbox(){
-            this.$store.commit(this.valueName, this.chexbox);
+        chexbox:{
+            get() {
+                return this.$store.getters[this.GetName]; 
+            },
+            set(value){
+                this.$store.commit(this.SetName, value);
+                console.log(this.$store.getters[this.GetName]);
+            }
         }
-        // 
-    }
+    },
 }
 </script>
 

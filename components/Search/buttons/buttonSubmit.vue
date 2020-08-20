@@ -20,7 +20,10 @@ export default {
             }
              if(this.$store.getters["formSearch/GetCategoriesChexbox"] !=0){
                 a.categories = this.$store.getters["formSearch/GetCategoriesChexbox"].join();
-            }         
+            }  
+             if(this.$store.getters["formSearch/GetApplicabilitiesChexbox"] !=0){
+                a.applicabilities= this.$store.getters["formSearch/GetApplicabilitiesChexbox"].join();
+            }        
             this.$router.push({ name:"search", query: {... a} });
         },
     },

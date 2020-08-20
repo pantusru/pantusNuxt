@@ -36,8 +36,14 @@ export default {
       categories.forEach(element => {
         store.commit("formSearch/AddCategoriesChexbox",  Number(element));
       });
-      //   ПРОВЕРКА QUERY
     }
+    if(query.applicabilities != undefined){
+      let  applicabilities = query.applicabilities.split(',');
+      applicabilities.forEach(element => {
+        store.commit("formSearch/AddApplicabilitiesChexbox",  Number(element));
+      });
+    }
+    //   ПРОВЕРКА QUERY
   },
     components:{
         FilterForm,

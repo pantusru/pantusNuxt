@@ -13,6 +13,13 @@ export const mutations  =  {
     AddCategoriesChexbox(store, data){
         store.CategoriesChexbox.push(data);
     },
+    deleteCategoriesChexbox(store, id){
+        delete  store.CategoriesChexbox.find((element) => {
+            if(element === id){
+                return element
+            }
+        });
+    },
     //  Брэнд  Chexbox
     SetBrandChexbox(store, data){
         store.BrandChexbox = data;
@@ -34,6 +41,13 @@ export const mutations  =  {
     },
     SetApplicabilitiesChexbox(store, data){
         store.ApplicabilitiesChexbox = data;
+    },
+    deleteApplicabilitiesChexbox(store, id){
+        delete store.ApplicabilitiesChexbox.find((element) => {
+            if(element === id){
+                return element
+            }
+        });
     },
 }
  

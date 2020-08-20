@@ -14,7 +14,7 @@
             <b-collapse :id="String(dataset.id)">
                 <div class="d-flex flex-column">
                     <ChexboxCollapse class="pl-3" 
-                    :dataset="data"  :SetName="SetName"
+                    :dataset="data"  :SetName="SetName" :DeleteName="DeleteName"
                     v-for="data in dataset.children" 
                     :key="data.id" />
                 </div>
@@ -28,7 +28,7 @@
 export default {
     name: "ChexboxCollapse",
     props:[   
-        "dataset", "SetName",
+        "dataset", "SetName", "DeleteName",
     ],
     methods:{
         checkParent(elem){

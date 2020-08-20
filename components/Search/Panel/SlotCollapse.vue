@@ -47,10 +47,13 @@ export default {
         }
     },
     methods:{
+        setCheck(){
+            
+        }
     },
      computed: {
         SearchElem() {
-            return this.data.filter(item => item.name.indexOf(this.search) !== -1);
+            return this.data.filter(item => item.name.indexOf(this.search) !== -1)
         },
         chexbox:{
             get() {
@@ -58,7 +61,6 @@ export default {
             },
             set(value){
                 this.$store.commit(this.SetName, value);
-                console.log(this.$store.getters[this.GetName]);
             }
         }
     },

@@ -6,29 +6,25 @@
 export default {
     methods:{
         //  ОТПРАВИТЬ ЗАПРОС!
-        pushParams(event){
+         pushParams(event){
             event.preventDefault();
+            let  a = {};
             if(this.$store.getters["formSearch/GetMinValue"] != 0){
-                this.$route.query.minvalue = this.$store.getters["formSearch/GetMinValue"];
-            }else{
-                delete this.$route.query.minvalue;
+                a.minvalue = this.$store.getters["formSearch/GetMinValue"];
             }
-            if(this.$store.getters["formSearch/GetMinValue"] !=0){
-                this.$route.query.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
-            }else{
-               delete this.$route.query.maxvalue;
+            if(this.$store.getters["formSearch/GetMaxValue"] != 60000){
+                a.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
             }
             if(this.$store.getters["formSearch/GetBrandChexbox"] !=0){
-                this.$route.query.brand = this.$store.getters["formSearch/GetBrandChexbox"].join();
-            }else{``
-               delete this.$route.query.brand; 
+                a.brand = this.$store.getters["formSearch/GetBrandChexbox"].join();
             }
              if(this.$store.getters["formSearch/GetCategoriesChexbox"] !=0){
-                this.$route.query.categories = this.$store.getters["formSearch/GetCategoriesChexbox"].join();
-            }else{
-               delete this.$route.query.categories; 
-            }
-            this.$router.push({ path:"/search", query: {... this.$route.query} });
+                a.categories = this.$store.getters["formSearch/GetCategoriesChexbox"].join();
+            }            
+            console.log(a.toString());
+            // history.pushState({}, null, `/search? ${this.$route.query}`);
+            // this.$router.push({ name:"search", query: {... this.$route.query} });
+            //  this.$router.push({path: `/search/ ${this.$route.query}`});
         },
     },
  

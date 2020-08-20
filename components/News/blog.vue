@@ -10,7 +10,7 @@
                     <time class="month">{{data.created_at[0].month}}</time>
                     <time class="year">{{data.created_at[0].year}}</time>
                 </div>
-                <nuxt-link class="text-body fz-5" :to="'news/' + data.id">{{data.title}}</nuxt-link>
+                <nuxt-link class="text-body fz-5" :to="'new/' + data.id">{{data.title}}</nuxt-link>
             </b-col>
         </b-row>
         <p class="mt-3 fz-5">{{data.body_text_preview}}</p>

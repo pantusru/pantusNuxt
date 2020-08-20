@@ -8,7 +8,7 @@ export const mutations  =  {
 }
 export const actions = { 
     async _NewsId({store,dispatch, commit}, id){
-        let  data = await dispatch("News/axios/_NewsAll", id, { root: true });
+        let  data = await dispatch("News/axios/_NewsId", id, { root: true });
         commit("SetNewsId", data);
          
     }

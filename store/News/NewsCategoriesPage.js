@@ -40,7 +40,6 @@ export const actions = {
             commit("SetKovloNewws", dataset[0].category.amount_news); // ИЗМЕНИТЬ КОГДА АНДРЕЙ ПОФИКсИТ!
             commit("SetNewsCategoriesPage", {dataset: dataset, page: data.page , name:data.id});
             commit("SetNewsVisible", dataset);
-            console.log(getters.GetNewsCategoriesPage);
         }else{ // данные загруженны!
             commit("SetNewsVisible", getters.GetNewsCategoriesPage[data.id][data.page]);
         }

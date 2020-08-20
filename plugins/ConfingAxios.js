@@ -12,6 +12,6 @@ export default function ({ $axios, redirect }) { // ПЕРЕХВАТЧИК ЗА�
   })
 
   $axios.onError(error => { // ПЕРЕХВАТЧИК ОШИБКИ
-    // redirect("/505");
+    redirect("/505");
   })
-}
+} 

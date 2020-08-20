@@ -2,7 +2,7 @@
     <b-col cols=12 md="6" lg=4 class="mb-4">
         <b-row no-gutters>
             <b-col cols="5">
-                <img class="img-100" :src="MediaUrl + data.image" alt="">
+                <b-img-lazy class="img-100" :src="MediaUrl + data.image" alt="" />
             </b-col>
             <b-col cols="7" class="pl-3">
                 <div class="date">

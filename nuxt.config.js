@@ -35,7 +35,7 @@ export default {
   ** Global CSS
   */
   css: [
-    "~assets/css/main.css"
+    "@/assets/css/main.css",
   ],
   /*
   ** Plugins to load before mounting the App
@@ -44,6 +44,7 @@ export default {
   plugins: [
     {src: './plugins/vue-slick-carousel.js'},
     {src: './plugins/ConfingAxios.js'},
+
   ],
   /*
   ** Auto import components
@@ -78,6 +79,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extractCSS: true,
   },
   env: {
     api: "http://10.0.30.95:8000/api/v1",

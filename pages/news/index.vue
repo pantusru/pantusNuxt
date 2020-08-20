@@ -18,8 +18,10 @@ import NewsCategoriesAll from "~/components/News/Categories/index"
 import NewsPageIndex from "~/components/News/page"
 export default {
     async fetch({query, store, getters}){
-        await store.dispatch("News/CategoriesAll/_NewsCategories");
-        await store.dispatch("News/NewsPage/_NewsPage", query.page);
+        await Promise.all([
+            store.dispatch("News/CategoriesAll/_NewsCategories"),
+            store.dispatch("News/NewsPage/_NewsPage", query.page)
+        ])
     },
     methods: {
         async Add(){ // Закачка товара при клике на ссылку

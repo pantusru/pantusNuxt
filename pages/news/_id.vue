@@ -32,9 +32,8 @@ export default {
     },
     watch:{ // при изменения page 
         async $route() {
-            this.$route.push();    
-            await this.Add();
             window.scrollTo(0, 0);
+            await this.Add();
         }
     }
 }

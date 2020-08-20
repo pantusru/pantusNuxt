@@ -1,5 +1,5 @@
 <template>
-    <b-form-checkbox :value="dataset.id" class="min-h-auto">
+    <b-form-checkbox :value="dataset.id" class="min-h-auto" :data-level="dataset.level"  @change="getStatus()">
         <!-- НЕТ потомков -->
         <span v-if="dataset.children ==  undefined">{{dataset.name}}</span> 
         <!-- ЕСТЬ ПОТОМКИ -->
@@ -12,10 +12,12 @@
             </div>
             <!-- Отображение в массиве потомков -->
             <b-collapse :id="String(dataset.id)">
-                <ChexboxCollapse class="pl-3" 
-                :dataset="data"
-                v-for="data in dataset.children" 
-                :key="data.id" />
+                <div class="d-flex flex-column">
+                    <ChexboxCollapse class="pl-3" 
+                    :dataset="data"  :SetName="SetName"
+                    v-for="data in dataset.children" 
+                    :key="data.id" />
+                </div>
             </b-collapse> 
         </b-form-group>
     </b-form-checkbox>
@@ -25,9 +27,26 @@
 
 export default {
     name: "ChexboxCollapse",
-    props:[
-        "dataset",
+    props:[   
+        "dataset", "SetName",
     ],
+    methods:{
+        checkParent(elem){
+            if(elem.dataset.parent != null){
+                this.$store.commit(this.SetName, elem.dataset.parent );
+                let parend = elem.$parent.$parent.$parent.$parent; // добираемся до следующего chexbox
+                this.checkParent(parend);
+            }
+        },
+        getStatus(){
+            if(this.dataset.parent != null){
+                this.checkParent(this);
+            }
+            if(this.dataset.children != undefined ){
+                console.log(this.dataset.children);
+            }
+        }
+    }
 }
 </script>
 

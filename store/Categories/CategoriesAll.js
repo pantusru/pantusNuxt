@@ -16,9 +16,6 @@ export const actions = {
 }
 export const getters = {
     GetCategories: s => s.Categories,
-    GetCategoriesId: s => id => {
-        
-    }
 }
 
-//  Отображает данные всех категории новостей
+//  Отображает данные всех категории товаров

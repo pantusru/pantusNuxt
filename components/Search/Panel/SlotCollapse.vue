@@ -7,7 +7,7 @@
             <b-form-checkbox-group v-model="chexbox" class="mb-3">  
                 <div class="d-flex flex-column">  
                     <ChexboxCollapse  class="mb-2"
-                        :dataset="dataset"
+                        :dataset="dataset" :SetName="AddName"
                         v-for="dataset in SearchElem.slice(0,5)" 
                         :key="dataset.id"/>
                 </div>
@@ -15,7 +15,7 @@
                 <b-collapse :id="id">
                     <div class="d-flex flex-column">
                         <ChexboxCollapse class="mb-2"
-                            :dataset="dataset"
+                            :dataset="dataset"  :SetName="AddName"
                             v-for="dataset in SearchElem.slice(5)" 
                             :key="dataset.id"/>
                     </div>
@@ -35,7 +35,7 @@
 import Panel from "./index"
 import ChexboxCollapse from "./ChexboxCollapse"
 export default {
-    props:["data", "id", "SetName", "GetName", "item"],
+    props:["data", "id", "SetName", "GetName","AddName", "item"],
     components:{
         Panel,
         ChexboxCollapse

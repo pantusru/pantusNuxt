@@ -13,10 +13,11 @@
 <script>
 import FilterForm from "~/components/Forms/FulterProducts"
 export default {
-  //  ПРОВЕРИТЬ ЗАПРОС НА QUERY
    async fetch({query, store, getters, commit}){
      await store.dispatch("Categories/CategoriesAll/_Categories");
-     console.log(store.getters["Categories/CategoriesAll/GetCategories"])
+     await store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess");
+     console.log(store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"])
+    //   ПРОВЕРКА QUERY
     if(query.minvalue != undefined){
         store.commit("formSearch/SetMinValue", query.minvalue);
     }
@@ -35,6 +36,7 @@ export default {
       categories.forEach(element => {
         store.commit("formSearch/AddCategoriesChexbox",  Number(element));
       });
+      //   ПРОВЕРКА QUERY
     }
   },
     components:{

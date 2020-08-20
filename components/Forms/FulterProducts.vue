@@ -12,8 +12,17 @@
             :data="categories" 
             id="categories" 
             SetName="formSearch/SetCategoriesChexbox"
+            AddName="formSearch/AddCategoriesChexbox"
             GetName="formSearch/GetCategoriesChexbox"
             item ="Категории"
+        />
+        <PanelCategories
+            :data="applicabilities" 
+            id="applicabilities" 
+            SetName="formSearch/SetApplicabilitiesChexbox"
+            AddName="formSearch/AddApplicabilitiesChexbox"
+            GetName="formSearch/GetApplicabilitiesChexbox"
+            item ="Применимость"
         />
         <b-button-group>
             <Submit/>
@@ -61,7 +70,10 @@ export default {
     computed:{
         categories(){
             return this.$store.getters["Categories/CategoriesAll/GetCategories"];
-        }
+        },
+        applicabilities(){
+            return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"];
+        },
     }
 
 }

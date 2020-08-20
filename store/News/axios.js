@@ -9,7 +9,7 @@ export const actions = {
     },
     //  Получить одну новость по ID 
     async _NewsId({}, id) {
-        return await this.$axios.$get(`${process.env.api}/news/detail/?id=${id}`).then(res=>{
+        return await this.$axios.$get(`${process.env.api}/news/detail?id=${id}`).then(res=>{
             return res;
         });
  

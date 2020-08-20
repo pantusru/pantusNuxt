@@ -20,11 +20,8 @@ export default {
             }
              if(this.$store.getters["formSearch/GetCategoriesChexbox"] !=0){
                 a.categories = this.$store.getters["formSearch/GetCategoriesChexbox"].join();
-            }            
-            console.log(a.toString());
-            // history.pushState({}, null, `/search? ${this.$route.query}`);
-            // this.$router.push({ name:"search", query: {... this.$route.query} });
-            //  this.$router.push({path: `/search/ ${this.$route.query}`});
+            }         
+            this.$router.push({ name:"search", query: {... a} });
         },
     },
  

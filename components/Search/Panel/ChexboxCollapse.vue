@@ -34,16 +34,16 @@ export default {
         checkParent(elem){
             if(elem.dataset.parent != null){
                 this.$store.commit(this.SetName, elem.dataset.parent );
+                console.log(elem);
                 let parend = elem.$parent.$parent.$parent.$parent; // добираемся до следующего chexbox
                 this.checkParent(parend);
             }
         },
         getStatus(){
-            if(this.dataset.parent != null){
+            if(this.dataset.parent != null){// Есть родитель
                 this.checkParent(this);
             }
-            if(this.dataset.children != undefined ){
-                console.log(this.dataset.children);
+            if(this.dataset.children != undefined ){// Есть потомок
             }
         }
     }

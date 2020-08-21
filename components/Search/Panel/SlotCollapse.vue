@@ -47,8 +47,7 @@ export default {
         }
     },
     methods:{
-        //  Поиск
-        SearchSubstr(name){
+        searchSubstr(name){
             if((name.indexOf(this.search) != -1)){
                 return true;
             }else{
@@ -57,32 +56,25 @@ export default {
         },
         setCheck(data){
             let check = false;
-            //  Определяем Массив
-            let dataset;
-            if(data.length === undefined){
-                dataset = [];
-                dataset.push(data);
-            }else{
-                dataset = data;
-            }
-             //  Прогоняем Массив
-            dataset.forEach(element => {
+            data.forEach(element => {
                 let visible;
                 let name = element.name;
-                if(data.children != undefined){ // Есть потомок
-                    visible = this.setCheck(data.children);
+                if(element.children != undefined){ // Есть потомок
+                    visible = this.setCheck(element.children);
                     if(visible == false) {
-                        visible =   this.SearchSubstr(name);
+                        visible = this.searchSubstr(name);   
                     }
+                    console.log("123");
                 }
                 // ПРОВЕРЯЕМ СТРОКУ
-                else {
-                    visible = this.SearchSubstr(name);
+                else{
+                    visible = this.searchSubstr(name);
                 }
                 //  Сохраняем значения
                 if(visible){    
                     check = true;
                 }
+                // alert(check);
                 this.$store.commit("Catalog/Visible/SetVisible", {data: element, value: visible});
             });
             return check;

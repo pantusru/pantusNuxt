@@ -47,6 +47,13 @@ export default {
         }
     },
     methods:{
+        SearchSubstr(name){
+            if((name.indexOf(this.search) != -1)){
+                return true;
+            }else{
+                return false;
+            }
+        },
         setCheck(data){
             let check = false;
             //  Определяем Массив
@@ -63,19 +70,13 @@ export default {
                 let name = element.name;
                 if(data.children != undefined){ // Есть потомок
                     visible = this.setCheck(data.children);
-                }
-                if(visible == false) {
-                    if( (name.indexOf(this.search) != -1)){
-                        visible = true;
-                    }else{
-                        visible = false;
-                    }    
+                    if(visible == false) {
+                        visible =   this.SearchSubstr(name);
+                    }
                 }
                 // ПРОВЕРЯЕМ СТРОКУ
-                else if((name.indexOf(this.search) != -1)){
-                    visible = true;
-                }else{
-                   visible = false;
+                else {
+                    visible = this.SearchSubstr(name);
                 }
                 //  Сохраняем значения
                 if(visible){    

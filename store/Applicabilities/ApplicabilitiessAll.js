@@ -10,7 +10,9 @@ export const actions = {
     async _Applicabilitiess({store,dispatch, commit, getters}){
         if(getters.GetApplicabilities.length === 0){
             let  data = await dispatch("Applicabilities/axios/_Applicabilities", {} , { root: true });
+            dispatch("Catalog/Visible/CheckSetVisible" , data,{ root: true });
             commit("SetApplicabilities", data);
+            
         }  
     }
 }

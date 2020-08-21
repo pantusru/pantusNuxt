@@ -1,5 +1,5 @@
 <template>
-    <b-form-checkbox :value="dataset.id" class="min-h-auto" :data-level="dataset.level"  @change="checkClilndren()">
+    <b-form-checkbox :value="dataset.id" class="min-h-auto" v-if="dataset.visible">
         <!-- НЕТ потомков -->
         <span v-if="dataset.children ==  undefined">{{dataset.name}}</span> 
         <!-- ЕСТЬ ПОТОМКИ -->
@@ -31,10 +31,8 @@ export default {
         "dataset", "SetName", "DeleteName",
     ],
     methods:{
-        checkClilndren(elem=this){
-            console.log(elem);
-        },
-    }
+
+    },
 }
 </script>
 

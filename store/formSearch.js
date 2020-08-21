@@ -6,6 +6,7 @@ export const state = () => ({
     MaxValue: 60000,
 })
 export const mutations  =  {
+    // РЕШИТЬ ЗАДАЧУ С ВЛОЖЕННОСТЬЮ И  ПОУДАЛЯТЬ ЛИШНЕЕ
     //  Категории Chexbox
     SetCategoriesChexbox(store, data){
         store.CategoriesChexbox = data;

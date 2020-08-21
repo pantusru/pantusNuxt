@@ -47,6 +47,7 @@ export default {
         }
     },
     methods:{
+        //  Поиск
         SearchSubstr(name){
             if((name.indexOf(this.search) != -1)){
                 return true;
@@ -82,7 +83,6 @@ export default {
                 if(visible){    
                     check = true;
                 }
-                // alert(check);
                 this.$store.commit("Catalog/Visible/SetVisible", {data: element, value: visible});
             });
             return check;

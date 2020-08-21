@@ -1,5 +1,5 @@
 <template>
-    <b-form-checkbox :value="dataset.id" class="min-h-auto" :data-level="dataset.level"  @change="getStatus()">
+    <b-form-checkbox :value="dataset.id" class="min-h-auto" :data-level="dataset.level"  @change="checkClilndren()">
         <!-- НЕТ потомков -->
         <span v-if="dataset.children ==  undefined">{{dataset.name}}</span> 
         <!-- ЕСТЬ ПОТОМКИ -->
@@ -31,21 +31,9 @@ export default {
         "dataset", "SetName", "DeleteName",
     ],
     methods:{
-        checkParent(elem){
-            if(elem.dataset.parent != null){
-                this.$store.commit(this.SetName, elem.dataset.parent );
-                console.log(elem);
-                let parend = elem.$parent.$parent.$parent.$parent; // добираемся до следующего chexbox
-                this.checkParent(parend);
-            }
+        checkClilndren(elem=this){
+            console.log(elem);
         },
-        getStatus(){
-            if(this.dataset.parent != null){// Есть родитель
-                this.checkParent(this);
-            }
-            if(this.dataset.children != undefined ){// Есть потомок
-            }
-        }
     }
 }
 </script>

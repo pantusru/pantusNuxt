@@ -18,7 +18,6 @@ export default {
       store.dispatch("Categories/CategoriesAll/_Categories"),
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess")
     ])
-      console.log(store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"])
     //   ПРОВЕРКА QUERY
     if(query.minvalue != undefined){
         store.commit("formSearch/SetMinValue", query.minvalue);

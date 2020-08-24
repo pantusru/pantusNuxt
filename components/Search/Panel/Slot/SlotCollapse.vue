@@ -6,7 +6,7 @@
         <template v-slot:data>
             <b-form-checkbox-group class="mb-3">  
                 <div class="d-flex flex-column">  
-                    <ChexboxCollapse  class="mb-2"
+                    <ChexboxCollapse
                         :dataset="dataset"
                         v-for="dataset in data.slice(0,5)" 
                         :key="dataset.id"/>
@@ -14,7 +14,7 @@
                 <!--  ОСтальные   ЗАписей показывающиеся при клике -->
                 <b-collapse :id="id">
                     <div class="d-flex flex-column">
-                        <ChexboxCollapse class="mb-2"
+                        <ChexboxCollapse
                             :dataset="dataset"
                             v-for="dataset in data.slice(5)" 
                             :key="dataset.id" />

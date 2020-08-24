@@ -1,6 +1,9 @@
 <template>
-    <div v-if="dataset.visible != undefined">
-        <Collapse :dataset="dataset" v-if="dataset.children != undefined" />
+    <div v-if="dataset.visible != undefined" class="min-h-auto">
+        <Collapse 
+            :id="dataset.id.toString()"
+            :name="dataset.name" 
+            :flavours="dataset.children"  v-if="dataset.children != undefined" />
         <VueChexbox :dataset="dataset" v-if="dataset.children === undefined" />
     </div>
 </template>
@@ -16,7 +19,7 @@ export default {
     components:{
         VueChexbox,
         Collapse
-    }
+    },
 }
 </script>
 

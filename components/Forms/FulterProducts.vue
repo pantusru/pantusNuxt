@@ -11,19 +11,11 @@
         <PanelCategories
             :data="categories" 
             id="categories" 
-            SetName="formSearch/SetCategoriesChexbox"
-            AddName="formSearch/AddCategoriesChexbox"
-            GetName="formSearch/GetCategoriesChexbox"
-            DeleteName="formSearch/deleteCategoriesChexbox"
             item ="Категории"
         />
         <PanelCategories
             :data="applicabilities" 
             id="applicabilities" 
-            SetName="formSearch/SetApplicabilitiesChexbox"
-            AddName="formSearch/AddApplicabilitiesChexbox"
-            GetName="formSearch/GetApplicabilitiesChexbox"
-            DeleteName="formSearch/deleteApplicabilitiesChexbox"
             item ="Применимость"
         />
         <b-button-group>

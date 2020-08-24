@@ -4,10 +4,10 @@
                 <VueInput :data="data"/>
         </template>
         <template v-slot:data>
-            <b-form-checkbox-group v-model="chexbox" class="mb-3">  
+            <b-form-checkbox-group class="mb-3">  
                 <div class="d-flex flex-column">  
                     <ChexboxCollapse  class="mb-2"
-                        :dataset="dataset" :SetName="AddName" :DeleteName="DeleteName"
+                        :dataset="dataset"
                         v-for="dataset in data.slice(0,5)" 
                         :key="dataset.id"/>
                 </div>
@@ -15,42 +15,34 @@
                 <b-collapse :id="id">
                     <div class="d-flex flex-column">
                         <ChexboxCollapse class="mb-2"
-                            :dataset="dataset"  :SetName="AddName" :DeleteName="DeleteName"
+                            :dataset="dataset"
                             v-for="dataset in data.slice(5)" 
                             :key="dataset.id"/>
                     </div>
                 </b-collapse>
             </b-form-checkbox-group>
         </template>
+        <!-- ПЕРЕДЕЛАТЬ ЛОГИКУ -->
         <template v-slot:button>
             <b-button variant="white" class="link-danger" v-b-toggle="id" v-if="data.length > 5" >
                 <span class = "when-closed">Показать еще</span>
                 <span class = "when-open">Скрыть</span>
             </b-button>
         </template>
+        <!-- ПЕРЕДЕЛАТЬ ЛОГИКУ -->
     </Panel>
 </template>
 
 <script>
 import Panel from "../index"
 import VueInput from "../Input/index"
-import ChexboxCollapse from "../ChexboxCollapse"
+import ChexboxCollapse from "../Chexbox/Collapse"
 export default {
-    props:["data", "id", "SetName", "GetName","AddName", "item", "DeleteName"],
+    props:["data", "id", "item"],
     components:{
         Panel,
         ChexboxCollapse,
         VueInput
-    },
-    computed:{    
-        chexbox:{
-            get() {
-                return this.$store.getters[this.GetName]; 
-            },
-            set(value){
-                this.$store.commit(this.SetName, value);
-            }
-        },
     },
 }
 </script>

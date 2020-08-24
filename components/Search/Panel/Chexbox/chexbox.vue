@@ -1,10 +1,15 @@
 <template>
-    <b-form-checkbox :value="dataset.id">{{dataset.name}}</b-form-checkbox>
+  <b-form-checkbox v-model="selected" :value="dataset.id">{{ dataset.name }}</b-form-checkbox>
 </template>
 
 <script>
 export default {
-    props:["dataset"]
+    props:["dataset"],
+    data() {
+        return {
+            selected: [],
+        }
+    },
 }
 </script>
 

@@ -39,9 +39,6 @@
 
 <script>
   export default {
-      created () {
-          console.log(this.flavours.children);
-      },
     name: "VueChexbox",
     props:["flavours", "name", "id"],
     data() {

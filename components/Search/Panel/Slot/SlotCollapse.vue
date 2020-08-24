@@ -4,21 +4,13 @@
                 <VueInput :data="data"/>
         </template>
         <template v-slot:data>
-            <b-form-checkbox-group class="mb-3">  
-                <div class="d-flex flex-column">  
-                    <ChexboxCollapse
-                        :dataset="dataset"
-                        v-for="dataset in data.slice(0,5)" 
-                        :key="dataset.id"/>
-                </div>
+            <b-form-checkbox-group>  
+                <ChexboxCollapse
+                    :dataset="data.slice(0,5)"/>
                 <!--  ОСтальные   ЗАписей показывающиеся при клике -->
                 <b-collapse :id="id">
-                    <div class="d-flex flex-column">
                         <ChexboxCollapse
-                            :dataset="dataset"
-                            v-for="dataset in data.slice(5)" 
-                            :key="dataset.id" />
-                    </div>
+                            :dataset="data.slice(5)" />
                 </b-collapse>
             </b-form-checkbox-group>
         </template>

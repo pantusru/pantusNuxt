@@ -1,11 +1,16 @@
 <template>
-    <div v-if="dataset.visible != undefined" class="min-h-auto">
-        <Collapse 
-            :id="dataset.id.toString()"
-            :name="dataset.name" 
-            :flavours="dataset.children"  v-if="dataset.children != undefined" />
-        <VueChexbox :dataset="dataset" v-if="dataset.children === undefined" />
+    <div class="d-flex flex-column">  
+        <div v-for="data in dataset" :key="data.id" >
+            <div class="min-h-auto"  v-if="data.visible != undefined">
+                <Collapse 
+                    :id="data.id.toString()"
+                    :name="data.name" 
+                    :flavours="data.children"  v-if="data.children != undefined" />
+                <VueChexbox :dataset="data" v-if="data.children === undefined" />
+            </div>
+        </div>
     </div>
+ 
 </template>
 
 <script>

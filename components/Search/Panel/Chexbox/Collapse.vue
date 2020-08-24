@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form-group class="mb-1">
+    <b-form-group class="mb-2">
       <template v-slot:label>
             <b-form-checkbox
             v-model="allSelected"
@@ -20,7 +20,7 @@
                 :id="id"
                 v-model="selected"
                 name="flavors"
-                class="ml-4"
+                class="ml-4 mb-2"
                 aria-label="Individual flavours"
                 stacked
                 v-for="data in flavours"

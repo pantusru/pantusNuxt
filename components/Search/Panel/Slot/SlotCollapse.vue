@@ -17,7 +17,7 @@
                         <ChexboxCollapse class="mb-2"
                             :dataset="dataset"
                             v-for="dataset in data.slice(5)" 
-                            :key="dataset.id"/>
+                            :key="dataset.id" />
                     </div>
                 </b-collapse>
             </b-form-checkbox-group>
@@ -36,7 +36,7 @@
 <script>
 import Panel from "../index"
 import VueInput from "../Input/index"
-import ChexboxCollapse from "../Chexbox/Collapse"
+import ChexboxCollapse from "../Chexbox/CollapseSlot"
 export default {
     props:["data", "id", "item"],
     components:{

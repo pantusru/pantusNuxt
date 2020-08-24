@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Panel from "./index"
+import Panel from "../index"
 export default {
     props:["data", "id", "SetName", "GetName"],
     components:{

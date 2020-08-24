@@ -1,7 +1,7 @@
 <template>
     <Panel :items="item">
         <template v-slot:input>
-             <b-input v-model="search" class="mb-3" placeholder="Поиск"></b-input>
+                <VueInput :data="data"/>
         </template>
         <template v-slot:data>
             <b-form-checkbox-group v-model="chexbox" class="mb-3">  
@@ -32,59 +32,15 @@
 </template>
 
 <script>
-import Panel from "./index"
-import ChexboxCollapse from "./ChexboxCollapse"
+import Panel from "../index"
+import VueInput from "../Input/index"
+import ChexboxCollapse from "../ChexboxCollapse"
 export default {
     props:["data", "id", "SetName", "GetName","AddName", "item", "DeleteName"],
     components:{
         Panel,
-        ChexboxCollapse
-    },
-    data(){
-        return{
-            search: "",
-            ResultSearch:[],
-        }
-    },
-    methods:{
-        searchSubstr(name){
-            if((name.indexOf(this.search) != -1)){
-                return true;
-            }else{
-                return false;
-            }
-        },
-        setCheck(data){
-            let check = false;
-            data.forEach(element => {
-                let visible;
-                let name = element.name;
-                if(element.children != undefined){ // Есть потомок
-                    visible = this.setCheck(element.children);
-                    if(visible == false) {
-                        visible = this.searchSubstr(name);   
-                    }
-                    console.log("123");
-                }
-                // ПРОВЕРЯЕМ СТРОКУ
-                else{
-                    visible = this.searchSubstr(name);
-                }
-                //  Сохраняем значения
-                if(visible){    
-                    check = true;
-                }
-                // alert(check);
-                this.$store.commit("Catalog/Visible/SetVisible", {data: element, value: visible});
-            });
-            return check;
-        }
-    },
-     watch: {
-        search() {
-            this.setCheck(this.data);
-            return this.data;
-        },
+        ChexboxCollapse,
+        VueInput
     },
     computed:{    
         chexbox:{

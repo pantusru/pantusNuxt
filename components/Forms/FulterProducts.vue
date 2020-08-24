@@ -35,8 +35,8 @@
 
 <script>
 import VueRange  from "../Search/range";
-import PanelBrand  from "../Search/Panel/SlotChexbox";
-import PanelCategories  from "../Search/Panel/SlotCollapse";
+import PanelBrand  from "../Search/Panel/Slot/SlotChexbox";
+import PanelCategories  from "../Search/Panel/Slot/SlotCollapse";
 import Reset from "../Search/buttons/buttonsReset"
 import Submit from "../Search/buttons/buttonSubmit"
 export default {

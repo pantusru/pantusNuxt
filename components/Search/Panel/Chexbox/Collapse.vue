@@ -22,7 +22,7 @@
                 v-for="data in flavours"
                 :key="data.id">
                 <b-form-checkbox  
-                    v-if="data.children === null"
+                    v-if="data.children.length === 0"
                     v-model="selected"
                     :value="data.id.toString()">
                         {{ data.name}}
@@ -34,7 +34,7 @@
                     :id="data.id.toString()"  
                     :GetName="GetName" 
                     :flavours="data.children" 
-                    v-if="data.children != null"/>
+                    v-if="data.children.length != 0"/>
             </b-form-checkbox-group>
          </b-collapse>
        <!--  ПОТОМКИ -->

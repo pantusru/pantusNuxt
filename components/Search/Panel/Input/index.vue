@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props:["data"],
+    props:["data", "KolvoVisible"],
     data(){
         return{
             search: "",
@@ -19,14 +19,11 @@ export default {
             }
         },
         setCheck(data){
-            if(this.search.length === 0){
-                return true;
-            }
             let check = false;
             data.forEach(element => {
                 let visible;
                 let name = element.name;
-                if(element.children != undefined){ // Есть потомок
+                if(element.children.length != 0){ // Есть потомок
                     visible = this.setCheck(element.children);
                     if(visible == false) {
                         visible = this.searchSubstr(name);   
@@ -37,7 +34,9 @@ export default {
                     visible = this.searchSubstr(name);
                 }
                 //  Сохраняем значения
-                if(visible){    
+                if(visible){
+                    this.$store.commit("Catalog/KovloVisible/AddKolvoVisible", this.KolvoVisible);
+                    // console.log(this.$store.getters["Catalog/KovloVisible/GetCategoriesKolvoVisible"]);    
                     check = true;
                 }
                 // alert(check);
@@ -48,8 +47,12 @@ export default {
     },
     watch: {
         search() {
+            this.$store.commit("Catalog/KovloVisible/ResetolvoVisible", this.KolvoVisible);
             this.setCheck(this.data);
         },
+    },
+    created () {
+        // console.log(this.KolvoVisible);
     },
 }
 </script>

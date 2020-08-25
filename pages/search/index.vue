@@ -16,7 +16,8 @@ export default {
    async fetch({query, store, getters, commit}){
     await Promise.all([
       store.dispatch("Categories/CategoriesAll/_Categories"),
-      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess")
+      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"),
+      store.dispatch("Brand/BrandAll/_Brands")
     ])
     //   ПРОВЕРКА QUERY
     if(query.minvalue != undefined){

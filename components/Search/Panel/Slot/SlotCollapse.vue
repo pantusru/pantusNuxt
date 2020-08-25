@@ -1,7 +1,7 @@
 <template>
     <Panel :items="item">
         <template v-slot:input>
-                <VueInput :data="data"/>
+                <VueInput :data="data" :KolvoVisible="KolvoVisible" />
         </template>
         <template v-slot:data>
             <b-form-checkbox-group>  
@@ -32,7 +32,7 @@ import Panel from "../index"
 import VueInput from "../Input/index"
 import ChexboxCollapse from "../Chexbox/CollapseSlot"
 export default {
-    props:["data", "id", "item", "GetName"],
+    props:["data", "id", "item", "GetName" , "KolvoVisible"],
     components:{
         Panel,
         ChexboxCollapse,

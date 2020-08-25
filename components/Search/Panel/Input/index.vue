@@ -40,7 +40,10 @@ export default {
                     check = true;
                 }
                 // alert(check);
-                this.$store.commit("Catalog/Visible/SetVisible", {data: element, value: visible});
+                if(check){
+                    console.log("Названия ПРОВЕРКИ - " + name + "ЕГО ИСТИНОСТЬ - " + check);
+                }
+                this.$store.commit("Catalog/Visible/SetVisible", {data: element, value: check});
             });
             return check;
         }
@@ -49,6 +52,7 @@ export default {
         search() {
             this.$store.commit("Catalog/KovloVisible/ResetolvoVisible", this.KolvoVisible);
             this.setCheck(this.data);
+            console.log("---------------------------------------------------------------------------");
         },
     },
     created () {

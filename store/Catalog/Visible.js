@@ -9,7 +9,7 @@ export const actions = {
     CheckSetVisible({commit, dispatch}, data){
         data.forEach(element => {
             commit("SetVisible", {data:element, value:true});
-            if(element.children !== undefined){
+            if(element.children !== null){
                 dispatch("CheckSetVisible", element.children)
             } 
         });

@@ -6,10 +6,12 @@
         <template v-slot:data>
             <b-form-checkbox-group>  
                 <ChexboxCollapse
+                    :GetName="GetName"
                     :dataset="data.slice(0,5)"/>
                 <!--  ОСтальные   ЗАписей показывающиеся при клике -->
                 <b-collapse :id="id">
                         <ChexboxCollapse
+                            :GetName="GetName"
                             :dataset="data.slice(5)" />
                 </b-collapse>
             </b-form-checkbox-group>
@@ -30,7 +32,7 @@ import Panel from "../index"
 import VueInput from "../Input/index"
 import ChexboxCollapse from "../Chexbox/CollapseSlot"
 export default {
-    props:["data", "id", "item"],
+    props:["data", "id", "item", "GetName"],
     components:{
         Panel,
         ChexboxCollapse,

@@ -8,15 +8,17 @@
             SetName="formSearch/SetBrandChexbox"
             GetName="formSearch/GetBrandChexbox" />
         <!-- Категории -->  
-        <PanelCategories
+        <Panel
             :data="categories" 
             id="categories" 
             item ="Категории"
+            GetName="formSearch/CategoriesChexbox"
         />
-        <PanelCategories
+        <Panel
             :data="applicabilities" 
             id="applicabilities" 
             item ="Применимость"
+           GetName="formSearch/ApplicabilitiesChexbox"
         />
         <b-button-group>
             <Submit/>
@@ -28,7 +30,7 @@
 <script>
 import VueRange  from "../Search/range";
 import PanelBrand  from "../Search/Panel/Slot/SlotChexbox";
-import PanelCategories  from "../Search/Panel/Slot/SlotCollapse";
+import Panel  from "../Search/Panel/Slot/SlotCollapse";
 import Reset from "../Search/buttons/buttonsReset"
 import Submit from "../Search/buttons/buttonSubmit"
 export default {
@@ -57,7 +59,7 @@ export default {
     components:{
         VueRange,
         PanelBrand,
-        PanelCategories,
+        Panel,
         Reset,
         Submit
     },

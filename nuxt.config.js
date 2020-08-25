@@ -82,7 +82,7 @@ export default {
     extractCSS: true,
   },
   env: {
-    api: "http://10.0.30.95:8000/api/v1",
-    apiMedia: "http://10.0.30.95:8000",
+    api: "http://194.67.113.201:8080",
+    // apiMedia: "http://10.0.30.95:8000",
   }
 }

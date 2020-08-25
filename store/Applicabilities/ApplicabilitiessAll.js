@@ -11,7 +11,7 @@ export const actions = {
         if(getters.GetApplicabilities.length === 0){
             let  data = await dispatch("Applicabilities/axios/_Applicabilities", {} , { root: true });
             dispatch("Catalog/Visible/CheckSetVisible" , data,{ root: true });
-            // dispatch("Catalog/Visible/CheckChildrenAll" , data,{ root: true });
+            dispatch("Catalog/Children/CheckChildrenAll" , data,{ root: true });
             commit("SetApplicabilities", data);
             
         }  

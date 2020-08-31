@@ -6,7 +6,7 @@
 export default {
     methods:{
         //  ОТПРАВИТЬ ЗАПРОС!
-         pushParams(event){
+        async pushParams(event){
             event.preventDefault();
             let  a = {};
             if(this.$store.getters["formSearch/GetMinValue"] != 0){
@@ -15,15 +15,18 @@ export default {
             if(this.$store.getters["formSearch/GetMaxValue"] != 60000){
                 a.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
             }
-            if(this.$store.getters["formSearch/GetBrandChexbox"] !=0){
-                a.brand = this.$store.getters["formSearch/GetBrandChexbox"].join();
+            a.categories = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"] ); 
+            a.applicabilities = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"] ); 
+            if( a.categories.length != 0){ // КАТЕГОРИИ
+                a.categories = a.categories.join();
+            }else{
+                delete a.categories;
             }
-             if(this.$store.getters["formSearch/GetCategoriesChexbox"] !=0){
-                a.categories = this.$store.getters["formSearch/GetCategoriesChexbox"].join();
-            }  
-             if(this.$store.getters["formSearch/GetApplicabilitiesChexbox"] !=0){
-                a.applicabilities= this.$store.getters["formSearch/GetApplicabilitiesChexbox"].join();
-            }        
+            if( a.applicabilities.length != 0){ // ПРИНЯНИМОСТИ
+                a.applicabilities = a.applicabilities.join();
+            }else{
+                delete a.applicabilities;
+            }
             this.$router.push({ name:"search", query: {... a} });
         },
     },

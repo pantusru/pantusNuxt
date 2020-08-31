@@ -6,11 +6,12 @@
 export default {
     methods:{
         //  Обнулить форму!
+        // ТУТ БОЛЬ + убрать все chexbox
         Reset(event){
             event.preventDefault();
-            this.$store.commit("formSearch/SetCategoriesChexbox", []);
-            this.$store.commit("formSearch/SetBrandChexbox", []);
-            this.$store.commit("formSearch/SetApplicabilitiesChexbox", []);
+            this.$store.dispatch("Catalog/All/_AllChexbox", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
+            this.$store.dispatch("Catalog/All/_AllChexbox", this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
+            // 
             this.$store.commit("formSearch/SetMaxValue", 60000);
             this.$store.commit("formSearch/SetMinValue", 0);
             this.$router.push({ name:"search"});            

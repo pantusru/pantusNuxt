@@ -10,8 +10,7 @@ export const actions = {
     async _Categories({store,dispatch, commit, getters}){
         if(getters.GetCategories.length === 0){
             let  data = await dispatch("Categories/axios/_CategoriesStrAll", {} , { root: true });
-            dispatch("Catalog/Visible/CheckSetVisible" , data,{ root: true });
-            dispatch("Catalog/Children/CheckChildrenAll" , data,{ root: true });
+            dispatch("Catalog/All/_All" , data,{ root: true });
             commit("SetCategories", data);
         }  
     }

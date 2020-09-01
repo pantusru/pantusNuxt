@@ -1,11 +1,15 @@
 <template>
   <div class="overflow">
        <Collapse
-          :dataset="data.slice(0,5)"/>
+          v-for="(dataset, index) in data.slice(0,5)"
+          :key="index"
+          :dataset="dataset"/>
         <!--  ОСтальные   зАписей показывающиеся при клике -->
         <b-collapse :id="name">
           <Collapse
-            :dataset="data.slice(5)" />
+           v-for="(dataset, index) in data.slice(5)"
+           :key="index"
+            :dataset="dataset" />
         </b-collapse>
   </div>
 </template>

@@ -6,6 +6,7 @@
             items="Категории"
             ArrayData="Categories/CategoriesAll/GetCategories"
             name="categories"
+            SetValue="Categories/CategoriesAll/SetCategories"
             >
         </Panel>
         <!-- ПРиминимости -->
@@ -13,6 +14,7 @@
             items="Принимаемость"
             ArrayData="Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             name="applicabilities"
+            SetValue="Applicabilities/ApplicabilitiessAll/SetApplicabilities"
             >
         </Panel>
 

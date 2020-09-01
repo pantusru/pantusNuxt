@@ -1,0 +1,89 @@
+<template>
+    <b-input v-model="search" class="mb-3" placeholder="Поиск"></b-input>
+</template>
+
+<script>
+export default {
+    props:["data"],
+    inject: ['SetValue'],
+    data(){
+        return{
+            search: "",
+        }
+    },
+    methods:{
+        searchSubstr(name){
+            if(name == undefined) {
+                return false;
+            }
+
+            if((name.search(this.search) != -1)){
+                return true;
+            }else{
+                return false;
+            }
+        },
+         setCheck(data){
+            data.visible = false;
+            let has_visible_childs = false;
+            // tree
+            if(data.children.length != 0) {    
+                data.children.forEach(element => {
+                    element = this.setCheck(element);
+                    if(element.visible == true) {
+                        has_visible_childs = true;
+                    }
+                });
+                // check visible childs
+                if (has_visible_childs == true) {
+                    data.visible = true;
+                } else {
+                    data.visible = this.searchSubstr(data.name);
+                }
+
+            // leaf
+            } else {
+                data.visible = this.searchSubstr(data.name);
+            }
+            
+            return data;
+        }
+    },
+    watch: {
+        search() {
+            // КОСТЫЛИ НАШЕ ВСЁ!!
+            let dataset_local = {
+                children:[]
+            };
+            dataset_local.children = JSON.parse(JSON.stringify(this.data));
+            // КОСТЫЛИ НАШЕ ВСЁ!!
+            let dataset = this.setCheck(dataset_local);
+            if(this.search.length != 0){ // есть поиск сортируем по visible
+                dataset.children.sort((a,b) =>{
+                    if( a.visible === true && b.visible != true){
+                        return -1;
+                    }else if (a.visible != true && b.visible === true){
+                        return 1 ;
+                    }
+                    return 0;
+                });
+            }else{ // нету поиска сортируем по name
+                 dataset.children.sort((a,b) =>{
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    if (a.name < b.name) {
+                        return -1;
+                    }
+                    return 0;
+                 })
+            }
+            this.$store.commit(this.SetValue, dataset.children);
+        },
+    },
+}
+</script>
+
+<style>
+
+</style>

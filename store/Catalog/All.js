@@ -1,14 +1,15 @@
 export const actions = { 
-    _ChexboxPush({commit, dispatch} , data){ 
+    _ChexboxAll({commit, dispatch} , data){ 
         commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
         commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
+        commit("Catalog/Visible/SetAllVisible", {data:data, value: true}, { root: true });
     },
     //  ДЕЙСТВИЯ КОТОРЫЕ ВЫЗЫВАЮТ МУТАЦИЮ
 
     // ДЕЙСТВИЯ КОТОРЫЕ ПЕРЕБИРАЮТ МАССИВ
     _All({commit, dispatch}, data){// первая иницилизация данных!
         data.forEach(element => {
-            dispatch("_ChexboxPush", element);
+            dispatch("_ChexboxAll", element);
             if(element.children.length != 0){
                 dispatch("_All", element.children);
             }
@@ -44,7 +45,6 @@ export const actions = {
                 let ids = data.ids;
                 for (const keyid in ids) {
                     if(ids[keyid] == dataset[key].id){
-                        console.log("ID НАЙДЕН!")
                         commit("Catalog/Chexbox/SetChecboxCheckedType", {data: dataset[key], value: true }, {root: true})
                         // return;
                     }

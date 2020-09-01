@@ -1,5 +1,5 @@
 <template>
-    <b-button variant="white" class="link-danger" v-b-toggle="name" >
+    <b-button variant="white" class="link-danger" v-b-toggle="name" v-if="data[5].visible" >
         <span class = "when-closed">Показать еще</span>
         <span class = "when-open">Скрыть</span>
     </b-button>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    props:["name"]
+    props:["name", "data"]
 }
 </script>
 
@@ -16,4 +16,5 @@ export default {
 .not-collapsed > .when-closed {
   display: none;
 }
+/* v-if="data[5].visible == true" */
 </style>

@@ -6,8 +6,6 @@ export const mutations  =  {
         data.data.Indeterminate = data.value;
     },
 }
-
-
 export const actions = { // ПОИСК ID
     async ChexboxCheckAll({store, commit, dispatch, getters}, data){
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять

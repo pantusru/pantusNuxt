@@ -8,7 +8,7 @@ export default {
     inject: ['SetValue'],
     data(){
         return{
-            search: "",
+            search: ``,
         }
     },
     methods:{
@@ -17,7 +17,7 @@ export default {
                 return false;
             }
 
-            if((name.search(this.search) != -1)){
+            if((name.toLowerCase().search(escape( this.search.toLowerCase() )) != -1)){
                 return true;
             }else{
                 return false;

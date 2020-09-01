@@ -1,8 +1,9 @@
- export default function ({ $axios, redirect }) {  
+
+export default function ({ $axios, redirect ,app, request}) {  
   $axios.onRequest(config => {// ПЕРЕХВАТЧИК ЗАПРОСА
-    // if (localStorage.getItem('Token')  !== undefined) {
-    //   request.headers.common['Authorization'] = localStorage.getItem('Token'); // Передача токена в каждом запросе
-    // }
+    if (app.$cookies.get("IdUser")  !== undefined) {
+      $axios.defaults.headers.common['Authorization'] = app.$cookies.get("IdUser"); // Передача токена в каждом запросе
+    }
     console.log('Making request to ' + config.url)
   })
   $axios.onResponse(res  => { // ПЕРЕХВАТЧИК ОТВЕТА
@@ -16,5 +17,5 @@
 
   $axios.onError(error => { // ПЕРЕХВАТЧИК ОШИБКИ
     redirect("/505");
-  })
+  }) 
 } 

@@ -1,5 +1,5 @@
 <template>
-    <b-input v-model="search" class="mb-3" placeholder="Поиск"></b-input>
+    <b-input v-model.trim="search" class="mb-3" placeholder="Поиск"></b-input>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
                 return false;
             }
 
-            if((name.toLowerCase().search(escape( this.search.toLowerCase() )) != -1)){
+            if((name.toLowerCase().search(this.search.toLowerCase() ) != -1)){
                 return true;
             }else{
                 return false;

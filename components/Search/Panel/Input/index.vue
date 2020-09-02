@@ -1,14 +1,19 @@
 <template>
-    <b-input v-model.trim="search" class="mb-3" placeholder="Поиск"></b-input>
+    <div>
+        <b-input v-model.trim="search" class="mb-3" placeholder="Поиск"></b-input>
+        <div class="error mb-3" v-if="error">Строка поиска не может содержать указанный вами символ</div>
+    </div>
 </template>
 
 <script>
+import { alphaNum } from 'vuelidate/lib/validators'
 export default {
     props:["data"],
     inject: ['SetValue'],
     data(){
         return{
             search: ``,
+            error: false,
         }
     },
     methods:{
@@ -51,34 +56,40 @@ export default {
     },
     watch: {
         search() {
-            // КОСТЫЛИ НАШЕ ВСЁ!!
-            let dataset_local = {
-                children:[]
-            };
-            dataset_local.children = JSON.parse(JSON.stringify(this.data));
-            // КОСТЫЛИ НАШЕ ВСЁ!!
-            let dataset = this.setCheck(dataset_local);
-            if(this.search.length != 0){ // есть поиск сортируем по visible
-                dataset.children.sort((a,b) =>{
-                    if( a.visible === true && b.visible != true){
-                        return -1;
-                    }else if (a.visible != true && b.visible === true){
-                        return 1 ;
-                    }
-                    return 0;
-                });
-            }else{ // нету поиска сортируем по name
-                 dataset.children.sort((a,b) =>{
-                    if (a.name > b.name) {
-                        return 1;
-                    }
-                    if (a.name < b.name) {
-                        return -1;
-                    }
-                    return 0;
-                 })
+            let reg = new RegExp("^[0-9A-Za-zА-Яа-яЁё\s]+$");
+            let check = reg.test(this.search);
+            if(check || this.search.length == 0){
+                this.error = false;
+                let dataset_local = {
+                    children:[]
+                };
+                dataset_local.children = JSON.parse(JSON.stringify(this.data));
+                // КОСТЫЛИ НАШЕ ВСЁ!!
+                let dataset = this.setCheck(dataset_local);
+                if(this.search.length != 0){ // есть поиск сортируем по visible
+                    dataset.children.sort((a,b) =>{
+                        if( a.visible === true && b.visible != true){
+                            return -1;
+                        }else if (a.visible != true && b.visible === true){
+                            return 1 ;
+                        }
+                        return 0;
+                    });
+                }else{ // нету поиска сортируем по name
+                    dataset.children.sort((a,b) =>{
+                        if (a.name > b.name) {
+                            return 1;
+                        }
+                        if (a.name < b.name) {
+                            return -1;
+                        }
+                        return 0;
+                    })
+                }
+                this.$store.commit(this.SetValue, dataset.children);
+            }else{
+                this.error = true;
             }
-            this.$store.commit(this.SetValue, dataset.children);
         },
     },
 }

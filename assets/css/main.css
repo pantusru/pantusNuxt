@@ -1,10 +1,10 @@
+/* Link */
 a.link-danger:hover , button.link-danger:hover{
     text-decoration: none;
     color: var(--danger)!important;
 }
-.border-danger{
-    border: 2px solid var(--danger);
-}
+ 
+/* img */
 img{
     width: 100%;
     height: auto;
@@ -14,9 +14,14 @@ img{
     height: 100%;
     object-fit: cover;
 }
+/* border */
 .bl-0{
     border-right: 0;
 }
+.border-danger{
+    border: 2px solid var(--danger);
+}
+/*  font-size */
 .fz-1{
     font-size: 2rem;
 }
@@ -32,4 +37,7 @@ img{
 .fz-5{
     font-size: 0.8rem; 
 }
-
+/*  error */
+.error{
+    color:red;
+}

@@ -2,11 +2,11 @@
   <div class="d-flex flex-column" v-if="dataset.visible">
       <b-form-group class="mb-0"  v-if="dataset.children.length != 0">
           <Vchexbox :dataset="dataset">
-            <b-button variant="white" class="link-danger p-0" v-b-toggle="dataset.id.toString()">
+            <b-button variant="white" class="link-danger p-0" v-on:click="showGo">
               <b-icon-chevron-down  font-scale = "0.9"></b-icon-chevron-down>
             </b-button>
           </Vchexbox>
-          <b-collapse :id="dataset.id.toString()">
+          <b-collapse  :visible="show" v-if="show">
               <b-form-checkbox-group
                   class="ml-4"
                   name="flavors"
@@ -30,6 +30,16 @@
 <script>
 import Vchexbox from "./chexbox"
   export default {
+    methods:{
+      showGo() {
+        this.show = !this.show;
+      }
+    },
+    data() {
+      return {
+        show: false,
+      }
+    },
     name: "VueChexbox",
     props:["dataset"],
     components: {

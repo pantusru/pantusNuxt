@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" v-if="dataset.visible">
+  <div class="d-flex flex-column">
       <b-form-group class="mb-0"  v-if="dataset.children.length != 0">
           <Vchexbox :dataset="dataset">
             <b-button variant="white" class="link-danger p-0" v-on:click="showGo">
@@ -9,13 +9,11 @@
           <b-collapse  :visible="show" v-if="show">
               <b-form-checkbox-group
                   class="ml-4"
-                  name="flavors"
                   v-for="data in dataset.children"
                   :key="data.id">
-                  <Vchexbox 
+                  <Vchexbox  
                     :dataset="data" 
-                    v-if="data.children.length === 0"
-                  />
+                    v-if="data.children.length === 0"/>
                   <VueChexbox
                     :dataset="data"
                     v-if="data.children.length != 0"

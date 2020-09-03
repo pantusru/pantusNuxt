@@ -6,6 +6,7 @@ export const actions = {
     },
     _ChexboxPush({commit}, data){
         commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
+        commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
     },
     //  ДЕЙСТВИЯ КОТОРЫЕ ВЫЗЫВАЮТ МУТАЦИЮ
 

@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    props:["SearchElem"],
+    props:["SearchElem", "GetChecbox", "SetChecbox"],
     computed: {
         chexbox:{
             get() {

@@ -2,7 +2,7 @@
     <b-form-group class="fz-5 border  px-3 py-2 border-light">
         <h3 class="mb-3">{{items}}</h3> 
         <Vinput v-on:Vsearch="ValueSet"  :GetName="GetName" />
-        <Data :SearchElem="SearchElem" />
+        <Data :SearchElem="SearchElem" :GetChecbox="GetChecbox" :SetChecbox="SetChecbox" />
     </b-form-group>
 </template>
 

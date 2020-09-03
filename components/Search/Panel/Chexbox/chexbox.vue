@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form-checkbox  class="min-h-auto mb-3"
+        <b-form-checkbox class="min-h-auto mb-3"
         @change="checxboxGo" 
         v-model="dataset.CheckedType"  
         :indeterminate="dataset.Indeterminate"
@@ -12,13 +12,11 @@
 </template>
 
 <script>
-export default {
+export default {    
     props:["dataset"],
     inject: ['ArrayData'],
     methods: {
         checxboxGo(event){
-            event = this.dataset.CheckedType;
-            console.log(this.dataset.CheckedType);
             this.$store.commit("Catalog/Chexbox/SetChecboxCheckedType", { data: this.dataset, value: !this.dataset.CheckedType });
             this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll" , 
                 {arr:this.$store.getters[ this.ArrayData], 
@@ -26,10 +24,6 @@ export default {
                 id:this.dataset.id} );
         }
     },
-    created(event){
-        event = this.dataset.CheckedType;
-        console.log(event);
-    }
 }
 </script>
 

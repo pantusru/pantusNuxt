@@ -1,10 +1,11 @@
 <template>
-    <b-container class="mt-3">
+    <b-container>
         <Vinput 
             class="w-25 mx-auto" 
             v-on:Vsearch="ValueSet"  
             :GetName="GetName" 
         />
+        <h1>Брэнды</h1>
         <b-row class="mt-5">
             <Brand v-for="data in SearchElem" :key="data.id" :dataset="data" />
         </b-row>

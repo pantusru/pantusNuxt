@@ -4,6 +4,7 @@
             class="w-25 mx-auto" 
             :data="dataset"
         /> 
+         <h1>Категории</h1>
         <b-row class="">
             <Categories 
                 v-for="data in dataset" 

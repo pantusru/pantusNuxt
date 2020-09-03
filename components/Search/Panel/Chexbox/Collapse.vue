@@ -7,7 +7,7 @@
             </b-button>
           </Vchexbox>
           <b-collapse  :visible="show" v-if="show">
-              <b-form-checkbox-group
+              <b-form-group
                   class="ml-4"
                   v-for="data in dataset.children"
                   :key="data.id">
@@ -18,7 +18,7 @@
                     :dataset="data"
                     v-if="data.children.length != 0"
                   />
-              </b-form-checkbox-group>
+              </b-form-group>
           </b-collapse>
       </b-form-group>
       <Vchexbox :dataset="dataset" v-if="dataset.children.length === 0" />

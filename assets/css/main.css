@@ -2,8 +2,15 @@
 a.link-danger:hover , button.link-danger:hover{
     text-decoration: none;
     color: var(--danger)!important;
+} 
+a.link-decoration-none:hover{
+    text-decoration: none;
 }
- 
+
+/*  text */
+._text-danger{
+    color: var(--danger)!important;
+}
 /* img */
 img{
     width: 100%;
@@ -40,4 +47,13 @@ img{
 /*  error */
 .error{
     color:red;
+}
+.text-decoration{
+    text-decoration: underline;
+}
+.h-100vh{
+    height: 100vh;
+}
+.shadow{
+    box-shadow: 5px 5px 9px 1px #ccc
 }

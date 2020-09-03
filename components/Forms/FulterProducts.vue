@@ -19,7 +19,7 @@
         </Panel>
         <!-- ПРиминимости -->
         <Panel 
-            items="Принимаемость"
+            items="Применимость"
             ArrayData="Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             name="applicabilities"
             SetValue="Applicabilities/ApplicabilitiessAll/SetApplicabilities"

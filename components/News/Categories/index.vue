@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style>
-.shadow{
-    box-shadow: 5px 5px 9px 1px #ccc
-}
+ 
 </style>

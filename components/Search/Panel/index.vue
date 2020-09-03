@@ -3,7 +3,6 @@
         <h3 class="mb-3">{{items}}</h3> 
         <VInput :data="data"> </VInput>
         <Data :name="name" :data="data" />
-        <ButtonFull :name="name" :data="data" />
 
   </b-form-group>
 </template>

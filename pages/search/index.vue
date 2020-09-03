@@ -17,7 +17,7 @@ export default {
     await Promise.all([
       store.dispatch("Categories/CategoriesAll/_Categories"),
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"),
-      // store.dispatch("Brand/BrandAll/_Brands")
+      store.dispatch("Brand/BrandAll/_Brands")
     ])
     //   ПРОВЕРКА QUERY
     if(query != undefined){
@@ -26,6 +26,12 @@ export default {
       }
       if(query.maxvalue != undefined){// ПРОВЕРКА МАКСИМУМА
         store.commit("formSearch/SetMaxValue", query.maxvalue);
+      }
+      if(query.brand != undefined){// ПРОВЕРКА БРЕНДА
+        let  brand = query.brand.split(',');
+        brand.forEach(element => {
+        store.commit("formSearch/SetBrandsChecked",  Number(element));
+      });
       }
       if(query.categories !=undefined){ // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");

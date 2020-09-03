@@ -4,6 +4,9 @@ export const actions = {
         commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
         commit("Catalog/Visible/SetAllVisible", {data:data, value: true}, { root: true });
     },
+    _ChexboxPush({commit}, data){
+        commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
+    },
     //  ДЕЙСТВИЯ КОТОРЫЕ ВЫЗЫВАЮТ МУТАЦИЮ
 
     // ДЕЙСТВИЯ КОТОРЫЕ ПЕРЕБИРАЮТ МАССИВ
@@ -19,7 +22,7 @@ export const actions = {
         data.forEach(element => {
             dispatch("_ChexboxPush", element);
             if(element.children.length != 0){
-                dispatch("_All", element.children);
+                dispatch("_AllChexbox", element.children);
             }
         });
     },

@@ -4,30 +4,40 @@
 
 <script>
 export default {
+    data() {
+        return {
+            form: {}
+        }
+    },
     methods:{
+        check(data){
+            if(this.form[data].length !=0){
+                this.form[data] = this.form[data].join();
+            }else{
+                delete this.form[data];
+            }
+        },
         //  ОТПРАВИТЬ ЗАПРОС!
         async pushParams(event){
             event.preventDefault();
-            let  a = {};
-            if(this.$store.getters["formSearch/GetMinValue"] != 0){
-                a.minvalue = this.$store.getters["formSearch/GetMinValue"];
+            if(this.$store.getters["formSearch/GetMinValue"] != 0){ // ЦЕНА МИНИМУМ
+                this.form.minvalue = this.$store.getters["formSearch/GetMinValue"];
             }
-            if(this.$store.getters["formSearch/GetMaxValue"] != 60000){
-                a.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
+            if(this.$store.getters["formSearch/GetMaxValue"] != 60000){// ЦЕНА МАКСИМУМ
+                this.form.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
             }
-            a.categories = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"] ); 
-            a.applicabilities = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"] ); 
-            if( a.categories.length != 0){ // КАТЕГОРИИ
-                a.categories = a.categories.join();
-            }else{
-                delete a.categories;
+            if(this.$store.getters["formSearch/GetBrandsChecked"].length !=0){ // БРАНД
+                this.form.brand = this.$store.getters["formSearch/GetBrandsChecked"];
+                 this.form.brand = this.form.brand.join();
             }
-            if( a.applicabilities.length != 0){ // ПРИНЯНИМОСТИ
-                a.applicabilities = a.applicabilities.join();
-            }else{
-                delete a.applicabilities;
-            }
-            this.$router.push({ name:"search", query: {... a} });
+            // КАТЕГОРИИ
+            this.form.categories = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"] ); 
+            this.check("categories");
+            // ПРИМИНИМОСТИ
+            this.form.applicabilities = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"] ); 
+            this.check("applicabilities");
+            // НОВЫЙ URL
+            this.$router.push({ name:"search", query: {... this.form} });
         },
     },
  

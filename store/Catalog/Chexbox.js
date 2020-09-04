@@ -1,6 +1,5 @@
 export const mutations  =  {
     SetChecboxCheckedType(state, data) {
-        console.log(data);
         data.data.CheckedType = data.value;
     },
     SetChecboxIndeterminate(state, data) {

@@ -39,21 +39,22 @@ export const actions = {
         };
         return IdChexbox.flat(Infinity);
     },
+
     async _AllChexboxTrue({store, commit, dispatch}, data){ // Найди ID с url и сделать ему checked = true
         let dataset = data.data;
-        for (const key in dataset) {
-            if(dataset[key].children.length != 0){
-                await dispatch("_AllChexboxTrue", {data:dataset[key].children, ids:data.ids});
-            }   
-            else{
-                let ids = data.ids;
-                for (const keyid in ids) {
-                    if(ids[keyid] == dataset[key].id){
-                        commit("Catalog/Chexbox/SetChecboxCheckedType", {data: dataset[key], value: true }, {root: true})
-                        // return;
+        let ids = data.ids;
+        for (const keyid in ids) {
+            for (const key in dataset) {
+                if(ids[keyid] == dataset[key].id){
+                    console.log("Id найден");
+                    commit("Catalog/Chexbox/SetChecboxCheckedType", {data: dataset[key], value: true }, {root: true})
+                    if(dataset[key].children.lenght != 0){
+                        // dispatch("Catalog/Chexbox/ChexboxChildren", {data: dataset[key].children, value: true} , {root: true});
                     }
-                }
+                }else if(dataset[key].children.length != 0){
+                    await dispatch("_AllChexboxTrue", {data:dataset[key].children, ids:data.ids});
+                } 
             }
-        };
+        }
     }
 }

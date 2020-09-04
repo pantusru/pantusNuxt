@@ -4,8 +4,16 @@
             class="w-25 mx-auto" 
             :data="dataset"
         /> 
-         <h1>Применимости</h1>
-         {{dataset }}
+        <h1 class="mb-5">Применимости</h1>
+        <b-row>
+            <b-col cols="12" lg="2" v-for="data in dataset" :key="data.id">
+                <b-alert :show="true"  variant="secondary">
+                    <nuxt-link :to="'/search?applicabilities=' + data.id" class="text-danger">
+                        {{ data.name }}
+                    </nuxt-link>
+                </b-alert>
+            </b-col>
+        </b-row>
     </b-container>
 </template>
 

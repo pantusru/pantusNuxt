@@ -36,12 +36,10 @@ export default {
       if(query.categories !=undefined){ // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");
         store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Categories/CategoriesAll/GetCategories"], ids:ids });
-        store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {arr: store.getters["Categories/CategoriesAll/GetCategories"]});
       }
        if(query.applicabilities !=undefined){// ПРОВЕРКА ПРИМИНИМОСТИ
         let ids = query.applicabilities.split(",");
         store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
-        store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {arr: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]});
       }
     }
     //   ПРОВЕРКА QUERY

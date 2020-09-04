@@ -43,5 +43,10 @@ import Vchexbox from "./chexbox"
     components: {
       Vchexbox,
     },
+    created(){
+      if(this.dataset.CheckedType || this.dataset.Indeterminate){
+        this.show = true;
+      }
+    }
   }
 </script>

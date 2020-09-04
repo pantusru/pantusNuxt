@@ -44,17 +44,7 @@ export const actions = {
         let dataset = data.data;
         let ids = data.ids;
         for (const keyid in ids) {
-            for (const key in dataset) {
-                if(ids[keyid] == dataset[key].id){
-                    console.log("Id найден");
-                    commit("Catalog/Chexbox/SetChecboxCheckedType", {data: dataset[key], value: true }, {root: true})
-                    if(dataset[key].children.lenght != 0){
-                        // dispatch("Catalog/Chexbox/ChexboxChildren", {data: dataset[key].children, value: true} , {root: true});
-                    }
-                }else if(dataset[key].children.length != 0){
-                    await dispatch("_AllChexboxTrue", {data:dataset[key].children, ids:data.ids});
-                } 
-            }
+            await dispatch("Catalog/Chexbox/ChexboxCheckAll", {arr: dataset, id: ids[keyid], value: true}, {root:true});
         }
     }
 }

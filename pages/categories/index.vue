@@ -5,13 +5,13 @@
             :data="dataset"
         /> 
          <h1>Категории</h1>
-        <b-row class="">
-            <Categories 
+         <b-card-group columns  class="column-count-1 column-count-sm-2 column-count-lg-4 ">
+            <Categories  class="mb-3"
                 v-for="data in dataset" 
                 :key="data.id" 
                 :dataset="data"
             />
-        </b-row>
+        </b-card-group>
     </b-container>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     },
     data() {
         return {
-           
+            
         }
     },
     components:{
@@ -45,5 +45,5 @@ export default {
 </script>
 
 <style>
-
+ 
 </style>

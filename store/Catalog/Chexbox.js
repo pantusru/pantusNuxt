@@ -18,6 +18,7 @@ export const actions = { // ПОИСК ID
                 ParentID = true;
             } 
             if(arr[key].id == data.id){// Найден выбранный CHEXBOX
+                commit("SetChecboxCheckedType", {data:arr[key] , value: data.value});
                 if(arr[key].children.lenght != 0){
                     dispatch("ChexboxChildren", {data:arr[key].children , value: data.value});
                 }

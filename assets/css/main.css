@@ -48,12 +48,32 @@ img{
 .error{
     color:red;
 }
+/* COLORS */
 .text-decoration{
     text-decoration: underline;
 }
+/* ВЫСОТА */
 .h-100vh{
     height: 100vh;
 }
+/* ПРОЧЕЕ*/
+.break-avoid{
+    break-inside: avoid;
+}
 .shadow{
     box-shadow: 5px 5px 9px 1px #ccc
+}
+/* column-count*/
+.column-count-1{
+    column-count: 1;
+}
+@media (min-width: 576px) {
+    .column-count-sm-2{
+        column-count: 2;  
+    }
+  }
+@media (min-width: 992px) {
+    .column-count-lg-4{
+        column-count: 4;
+    }
 }

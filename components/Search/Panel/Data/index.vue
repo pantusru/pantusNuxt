@@ -3,7 +3,8 @@
        <Collapse
           v-for="(dataset, index) in data"
           :key="index"
-          :dataset="dataset"/>
+          :dataset="dataset"
+        />
         <!--  ОСтальные   зАписей показывающиеся при клике -->
         <!-- <b-collapse :id="name">
           <Collapse

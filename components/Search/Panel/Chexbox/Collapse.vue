@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column" v-if="dataset.visible">
       <b-form-group class="mb-0"  v-if="dataset.children.length != 0">
           <Vchexbox :dataset="dataset">
             <b-button variant="white" class="link-danger p-0" v-on:click="showGo">

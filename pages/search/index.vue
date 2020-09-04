@@ -3,7 +3,7 @@
   <div class="container">
       <b-row>
           <b-col cols="12" lg="3">
-            <FilterForm/>
+            <FilterForm />
           </b-col>
       </b-row>
   </div>

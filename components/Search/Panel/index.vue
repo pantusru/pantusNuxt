@@ -1,14 +1,14 @@
 <template>
   <b-form-group class="fz-5 border  px-3 py-2 border-light">
         <h3 class="mb-3">{{items}}</h3> 
-        <VInput :data="data"> </VInput>
+        <VInputV :data="data"> </VInputV>
         <Data :name="name" :data="data" />
 
   </b-form-group>
 </template>
 
 <script>
-import VInput from "./Input/index"
+import VInputV from "@/components/Search/Panel/Input/index"
 import Data from "./Data/index"
 import ButtonFull from "./button/getfull"
 export default {
@@ -22,7 +22,7 @@ export default {
     components: {
             ButtonFull,
             Data,
-            VInput
+            VInputV
     },
     computed:{
         data(){

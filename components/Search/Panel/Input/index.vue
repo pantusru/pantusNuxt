@@ -12,7 +12,7 @@ export default {
     inject: ['SetValue'],
     data(){
         return{
-            search: ``,
+            search: '',
             error: false,
         }
     },
@@ -55,6 +55,7 @@ export default {
     },
     watch: {
         search() {
+
             let reg = new RegExp("^[0-9A-Za-zА-Яа-яЁё\s]+$");
             let check = reg.test(this.search);
             if(check || this.search.length == 0){

@@ -3,9 +3,18 @@
   <b-navbar toggleable="lg">
     <b-navbar-brand to="/"><img src="~assets/img/logo.png" alt=""></b-navbar-brand>
       <!-- center -->
-        <b-navbar-nav class="flex-row col-12 col-lg-6 order-4 order-lg-0 mt-2 mt-lg-0">
-            <input  class=" border-danger w-100 p-2 rounded-left bl-0" placeholder="Введите номер или название детали"/>
-            <button   class="bg-danger px-2 border-danger rounded-right text-light" type="submit">Найти</button>
+        <b-navbar-nav class="flex-row col-12 col-lg-6 order-4 order-lg-0 mt-2 mt-lg-0 align-items-center">
+            <input 
+                v-model="search"  
+                class=" border-danger border-right-0 w-100 p-2 rounded-left bl-0" 
+                placeholder="Введите номер или название детали"
+            />
+            <nuxt-link 
+                :to="'/search?name=' +  search"   
+                class="bg-danger px-2 py-2 border-danger rounded-right text-light" 
+                type="submit">
+                    Найти
+            </nuxt-link>
         </b-navbar-nav>
         <!-- right -->
       <b-navbar-nav class="ml-0 ml-lg-auto flex-row fz-5">
@@ -30,7 +39,11 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            search: ''
+        }
+    },
 }
 </script>
 

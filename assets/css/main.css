@@ -7,10 +7,6 @@ a.link-decoration-none:hover{
     text-decoration: none;
 }
 
-/*  text */
-._text-danger{
-    color: var(--danger)!important;
-}
 /* img */
 img{
     width: 100%;
@@ -21,6 +17,8 @@ img{
     height: 100%;
     object-fit: cover;
 }
+
+
 /* border */
 .bl-0{
     border-right: 0;
@@ -44,25 +42,40 @@ img{
 .fz-5{
     font-size: 0.8rem; 
 }
+
+
 /*  error */
 .error{
     color:red;
 }
+
 /* COLORS */
 .text-decoration{
     text-decoration: underline;
 }
+._text-danger{
+    color: var(--danger)!important;
+}
+
+
 /* ВЫСОТА */
 .h-100vh{
     height: 100vh;
 }
+
+
 /* ПРОЧЕЕ*/
+
+
 .break-avoid{
     break-inside: avoid;
 }
 .shadow{
     box-shadow: 5px 5px 9px 1px #ccc
 }
+
+
+
 /* column-count*/
 .column-count-1{
     column-count: 1;

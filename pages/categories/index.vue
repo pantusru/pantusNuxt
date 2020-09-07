@@ -5,7 +5,7 @@
             :data="dataset"
         /> 
          <h1>Категории</h1>
-         <b-card-group columns  class="column-count-1 column-count-sm-2 column-count-lg-4 ">
+         <b-card-group columns  class="column-count-1 column-count-sm-2 column-count-lg-4">
             <Categories  class="mb-3"
                 v-for="data in dataset" 
                 :key="data.id" 

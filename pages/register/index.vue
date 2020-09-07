@@ -11,11 +11,7 @@
                 <h3 v-if="buyer === 'Wholesale'">Заполните данные о себе и организаци:</h3>
             </div>
             <b-form-group>
-                <div class="col-4 mb-2">
-                    <label for="surname">Фамилия:</label>
-                    <b-form-input @change="check" v-model.trim="$v.Form.surname.$model" id="surname" size="sm"></b-form-input>
-                    <div v-if="!$v.Form.surname.required && $v.Form.surname.$dirty"> Укажите вашу фамилию</div>
-                </div>
+                <VInput name="surname" :error="error.surname" />
                 <div class="col-4 mb-2">
                     <label for="name">Имя:</label>
                     <b-form-input v-model.trim="$v.Form.name.$model" id="name" size="sm"></b-form-input>
@@ -71,8 +67,17 @@
 </template>
 
 <script>
+import VInput from "@/components/register/index"
 import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validators'
 export default {
+    components:{
+        VInput
+    },
+    provide(){
+        return{
+            $v: this.$v,
+        }
+    },
     methods:{
         check(){
             console.log(this.$v.Form.surname);
@@ -85,6 +90,14 @@ export default {
              Form: {
                 surname: '',
                 name: ''
+            },
+            error:{
+                surname:[
+                    {
+                        ifv: "required",
+                        text:"Укажите вашу фамилию",
+                    }
+                ]
             }
         }
     },
@@ -146,9 +159,6 @@ export default {
                     inn:{
                         required,
                     },
-
-
-
                 }
             } 
         }

@@ -45,19 +45,34 @@ var email = [
     },
 ]
 var inn = [
-
+    {
+        ifv: "required",
+        text:"Укажите ваш ИНН",
+    },
 ]
 var organization = [
-
+    {
+        ifv: "required",
+        text:"Укажите название вашей организации",
+    },
 ]
 var country = [
-
+    {
+        ifv: "required",
+        text:"Укажите название вашей страны",
+    },
 ]
 var telephone = [
-
+    {
+        ifv: "required",
+        text:"Укажите ваш телефон",
+    },
 ]
 var address = [
-
+    {
+        ifv: "required",
+        text:"Укажите ваш адрес",
+    },
 ]
 
 export default {
@@ -73,6 +88,7 @@ export default {
                 organization:organization,
                 country:country,
                 telephone:telephone,
+                address: address,
             }
          }
      },

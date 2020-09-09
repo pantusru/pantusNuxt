@@ -2,14 +2,13 @@
   <b-form class="mt-4 mb-3">
       <b-container>
           <h3 class="mb-3">Зарегистрироваться как:</h3>
-          <button v-on:click.prevent="check">ПОКАЗАТЬ В КОНСОЛИ</button>
             <radioForm  v-bind:buyer.sync="buyer" />  
             <b-form-group>
-                <VInput items="Фамилия" name="surname" :error="error.surname"></VInput>
-                <VInput items="Имя" name="name" :error="error.name"/>
-                <VInput items="Email" name="email" :error="error.email"/>
-                <VInput type="password" items="Пароль" name="password" :error="error.password"/>    
-                <VInput type="password" items=" Повторите Пароль" name="password2" :error="error.password2"/>
+                <VInput items="Фамилия:" name="surname" :error="error.surname"></VInput>
+                <VInput items="Имя:" name="name" :error="error.name"/>
+                <VInput items="Email:" name="email" :error="error.email"/>
+                <VInput type="password" items="Пароль:" name="password" :error="error.password"/>    
+                <VInput type="password" items=" Повторите Пароль:" name="password2" :error="error.password2"/>
                 
                 
                 <div class="col-4 mb-2">
@@ -25,19 +24,16 @@
                 <VInput :slots="true" items="Физический адрес" name="address" :error="error.address">
                     <b-form-textarea  no-resize type="text" id="address" size="lg"></b-form-textarea>
                 </VInput>
-                <div class="col-4 mb-2">
-                    <label for="organization">Название организаци:</label>
-                    <b-form-input type="text" id="organization" size="sm"></b-form-input>
-                </div>  
-                <!-- <VInput items="Инн" name="inn" :error="error.inn"/> -->
+                <VInput items="Название организаци" name="organization" :error="error.organization"/>  
+                <VInput items="Инн" name="inn" :error="error.inn"/>
             </b-form-group>
-            <div class="col-4 mb-2">
+            <VInput :slots="true">
                 <b-form-checkbox>
                     <p>Я принимаю условия <nuxt-link to="">Соглашения сторон</nuxt-link> и соглашаюсь
                         на обработку персональных данных, размещаемых на <nuxt-link to="">pantus.ru</nuxt-link>
                     </p>        
                 </b-form-checkbox>
-            </div>
+            </VInput>  
             <div class="col-4 text-center">
                 <b-button size="md" class="bg-danger border-danger">Зарегистрироваться</b-button>
             </div>
@@ -53,13 +49,9 @@ import VInput from "@/components/register/index"
 import radioForm from "@/components/register/radioForm"
 export default {
     mixins:[MixinsError, MixinsValidations],
-    mounted(){  
-        console.log(this.$v);
-        console.log(this);
-    },
-    methods:{
-        check() {       
-             console.log(this.$v.Form);
+    watch:{
+        async $v(){
+            
         }
     },
     components:{

@@ -2,6 +2,7 @@
     <div class="col-4 mb-2">
         <label :for="name">{{ items }}:</label>
         <b-form-input v-if="slots== false"
+            @input="check"
             :type="type" 
             v-model.trim="$v.Form[name].$model" 
             :id="name" 
@@ -32,7 +33,7 @@ export default {
     inject:["$v"],
     methods:{
         check(){
-            console.log(this.$v);
+            console.log(this.$v.Form);
         }
     }
 }

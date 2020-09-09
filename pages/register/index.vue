@@ -2,6 +2,7 @@
   <b-form class="mt-4 mb-3">
       <b-container>
           <h3 class="mb-3">Зарегистрироваться как:</h3>
+          <button v-on:click.prevent="check">ПОКАЗАТЬ В КОНСОЛИ</button>
             <radioForm  v-bind:buyer.sync="buyer" />  
             <b-form-group>
                 <VInput items="Фамилия" name="surname" :error="error.surname"></VInput>
@@ -45,8 +46,6 @@
 </template>
 
 <script>
-// this.error массив ошибок 
-// this.$v валидация таблицы
 import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validators'
 import MixinsError from "@/mixins/Form/register/error"
 import MixinsValidations from "@/mixins/Form/register/validator"
@@ -56,7 +55,12 @@ export default {
     mixins:[MixinsError, MixinsValidations],
     mounted(){  
         console.log(this.$v);
-          console.log(this);
+        console.log(this);
+    },
+    methods:{
+        check() {       
+             console.log(this.$v.Form);
+        }
     },
     components:{
         VInput,

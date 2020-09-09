@@ -10,28 +10,18 @@
                 <h3 v-if="buyer === 'Retail'">Заполните данные о себе:</h3>
                 <h3 v-if="buyer === 'Wholesale'">Заполните данные о себе и организаци:</h3>
             </div>
+            
             <b-form-group>
-                <VInput name="surname" :error="error.surname" />
-                <div class="col-4 mb-2">
-                    <label for="name">Имя:</label>
-                    <b-form-input v-model.trim="$v.Form.name.$model" id="name" size="sm"></b-form-input>
-                    <div v-if="!$v.Form.name.required && $v.Form.name.$dirty"> Укажите вашу Имя</div>
-                </div>
-                <div class="col-4 mb-2">
-                    <label for="email">E-mail:</label>
-                    <b-form-input id="email" size="sm"></b-form-input>
-                </div>
-                <div class="col-4 mb-2">
-                    <label for="password">Пароль</label>
-                    <b-form-input type="password" id="password" size="sm"></b-form-input>
-                </div>
-                <div class="col-4 mb-2">
-                    <label for="password2">Подвердите пароль</label>
-                    <b-form-input type="password" id="password2" size="sm"></b-form-input>
-                </div>
+                <VInput items="Фамилия" name="surname" :error="error.surname"></VInput>
+                <VInput items="Имя" name="name" :error="error.name"/>
+                <VInput items="Email" name="email" :error="error.email"/>
+                <VInput type="password" items="Пароль" name="password" :error="error.password"/>    
+                <VInput type="password" items=" Повторите Пароль" name="password2" :error="error.password2"/>
+                
+                
                 <div class="col-4 mb-2">
                     <label for="telephone">Мобильный телефон</label>
-                    <b-form-input type="password" id="telephone" size="sm"></b-form-input>
+                    <b-form-input id="telephone" size="sm"></b-form-input>
                 </div>
             </b-form-group>
             <b-form-group v-if="buyer === 'Wholesale'">
@@ -39,18 +29,14 @@
                     <label for="country">Страна</label>
                       <!-- РЕШИТЬ ПРОБЛЕМУ!  -->
                 </div>
-                <div class="col-4 mb-2">
-                    <label for="address">Фактический адрес:</label>
+                <VInput :slots="true" items="Физический адрес" name="address" :error="error.address">
                     <b-form-textarea  no-resize type="text" id="address" size="lg"></b-form-textarea>
-                </div>
+                </VInput>
                 <div class="col-4 mb-2">
                     <label for="organization">Название организаци:</label>
                     <b-form-input type="text" id="organization" size="sm"></b-form-input>
                 </div>
-                <div class="col-4 mb-2">
-                    <label for="inn">ИНН:</label>
-                    <b-form-input type="text" id="inn" size="sm"></b-form-input>
-                </div>
+                <!-- <VInput items="Инн" name="inn" :error="error.inn"/> -->
             </b-form-group>
             <div class="col-4 mb-2">
                 <b-form-checkbox>
@@ -67,9 +53,18 @@
 </template>
 
 <script>
-import VInput from "@/components/register/index"
+// this.error массив ошибок 
+// this.$v валидация таблицы
 import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validators'
+import MixinsError from "@/mixins/Form/register/error"
+import MixinsValidations from "@/mixins/Form/register/validator"
+import VInput from "@/components/register/index"
 export default {
+    mixins:[MixinsError, MixinsValidations],
+    mounted(){  
+        console.log(this.$v);
+          console.log(this);
+    },
     components:{
         VInput
     },
@@ -78,91 +73,11 @@ export default {
             $v: this.$v,
         }
     },
-    methods:{
-        check(){
-            console.log(this.$v.Form.surname);
-        }
-    },
     data() {
         return {
             buyer: "Retail",
-            size: 1,
-             Form: {
-                surname: '',
-                name: ''
-            },
-            error:{
-                surname:[
-                    {
-                        ifv: "required",
-                        text:"Укажите вашу фамилию",
-                    }
-                ]
-            }
         }
     },
-    validations() {
-        if(this.buyer == "Retail"){
-            return{
-                Form:{
-                    surname:{
-                        required,
-                    },
-                    name:{
-                        required,
-                    },
-                    email:{
-                        required,
-                    },
-                    password:{
-                        required,
-                    } ,
-                    password2:{
-
-                    },
-                    telephone:{
-                        required,
-                    }
-                }
-            }   
-        }
-        else{
-            return{
-                Form:{
-                    surname:{
-                        required,
-                    },
-                    name:{
-                        required,
-                    },
-                    email:{
-                        required,
-                    },  
-                    password:{
-                        required,
-                    } ,
-                    password2:{
-                        required,
-                    },
-                    telephone:{
-                        required,
-                    },
-                    country:{
-                        required,
-                    },
-                    address:{
-                        required,
-                    },
-                    organization:{
-                        required,
-                    },
-                    inn:{
-                        required,
-                    },
-                }
-            } 
-        }
-    }
 }
 </script>
 

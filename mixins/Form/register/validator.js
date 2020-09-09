@@ -31,7 +31,7 @@ let address = {
     required
 }
 
-address
+
 // let all поля которые есть в 2 формах
 let all  = {
     name:name,
@@ -40,6 +40,12 @@ let all  = {
     password:password,
     password2:password2,
     telephone:telephone
+}
+let Wholesale = {
+    inn:inn,
+    organization:organization,
+    country:country,
+    address:address
 }
 
 export default {
@@ -60,7 +66,7 @@ export default {
         }
     },
     validations(){
-        if(this.buyer == "Retail"){
+        if(this.buyer === "Retail"){
             return{
                 Form:{
                     ... all
@@ -71,10 +77,7 @@ export default {
             return {
                 Form:{
                     ... all,
-                    inn,
-                    organization,
-                    country,
-                    address
+                    ... Wholesale
                 }
             }
         }

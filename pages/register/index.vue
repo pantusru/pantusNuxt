@@ -2,15 +2,7 @@
   <b-form class="mt-4 mb-3">
       <b-container>
           <h3 class="mb-3">Зарегистрироваться как:</h3>
-            <b-form-radio-group v-model="buyer" class="mb-4">
-                <b-form-radio name="some-radios" value="Retail">Розничный покупатель</b-form-radio>
-                <b-form-radio name="some-radios" value="Wholesale">Оптовый покупатель</b-form-radio>
-            </b-form-radio-group>
-            <div class="mb-3">
-                <h3 v-if="buyer === 'Retail'">Заполните данные о себе:</h3>
-                <h3 v-if="buyer === 'Wholesale'">Заполните данные о себе и организаци:</h3>
-            </div>
-            
+            <radioForm  v-bind:buyer.sync="buyer" />  
             <b-form-group>
                 <VInput items="Фамилия" name="surname" :error="error.surname"></VInput>
                 <VInput items="Имя" name="name" :error="error.name"/>
@@ -35,7 +27,7 @@
                 <div class="col-4 mb-2">
                     <label for="organization">Название организаци:</label>
                     <b-form-input type="text" id="organization" size="sm"></b-form-input>
-                </div>
+                </div>  
                 <!-- <VInput items="Инн" name="inn" :error="error.inn"/> -->
             </b-form-group>
             <div class="col-4 mb-2">
@@ -59,6 +51,7 @@ import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validator
 import MixinsError from "@/mixins/Form/register/error"
 import MixinsValidations from "@/mixins/Form/register/validator"
 import VInput from "@/components/register/index"
+import radioForm from "@/components/register/radioForm"
 export default {
     mixins:[MixinsError, MixinsValidations],
     mounted(){  
@@ -66,7 +59,8 @@ export default {
           console.log(this);
     },
     components:{
-        VInput
+        VInput,
+        radioForm,
     },
     provide(){
         return{
@@ -77,7 +71,7 @@ export default {
         return {
             buyer: "Retail",
         }
-    },
+    }
 }
 </script>
 

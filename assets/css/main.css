@@ -1,11 +1,12 @@
 /* Link */
-a.link-danger:hover , button.link-danger:hover{
+a.link-danger:hover , button.link-danger:hover, .link-danger:hover{
     text-decoration: none;
     color: var(--danger)!important;
 } 
 a.link-decoration-none:hover{
     text-decoration: none;
 }
+/* link bg */
 
 /* img */
 img{
@@ -89,4 +90,9 @@ img{
     .column-count-lg-4{
         column-count: 4;
     }
+}
+
+/*cursor */
+.cursor-pointer{
+    cursor: pointer;
 }

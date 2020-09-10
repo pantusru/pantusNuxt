@@ -44,7 +44,8 @@ export default {
   plugins: [
     {src: './plugins/vue-slick-carousel.js'},
     {src: './plugins/ConfingAxios.js'},
-    {src:'./plugins/vuelidate.js'}
+    {src:'./plugins/vuelidate.js'},
+    {src:'./plugins/v-mask.js'}
 
   ],
   /*
@@ -61,31 +62,21 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
     [
       'bootstrap-vue/nuxt',{
       icons: true,
     }],
     ["cookie-universal-nuxt"],
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
+
   axios: {
-    // baseURL: "http://10.0.30.95:8000/api/v1"
   },
-  /*
-  ** Build configuration
-  ** See https://nuxtjs.org/api/configuration-build/
-  */
+
   build: {
     extractCSS: true,
   },
   env: {
     api: "http://194.67.113.201:8080",
-    // apiMedia: "http://10.0.30.95:8000",
   }
 }

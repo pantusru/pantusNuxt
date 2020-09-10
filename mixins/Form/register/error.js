@@ -20,9 +20,13 @@ var password = [
         text:"Пароль состоит только из латинских символов и цифр",
     }, 
     {
-        ifv: "between",
-        text:"Пароль должен состоять от 8 до 25 символов",
+        ifv: "minLength",
+        text:"Пароль должен состоять не менее 8",
     }, 
+    {
+        ifv: "maxLength",
+        text:"Пароль должен состоять не более 25 символов ",
+    },
 ]
 var password2 = [
     {
@@ -49,6 +53,10 @@ var inn = [
         ifv: "required",
         text:"Укажите ваш ИНН",
     },
+    {
+        ifv: "minLength",
+        text:"Укажите корректный ИНН",
+    },
 ]
 var organization = [
     {
@@ -65,7 +73,11 @@ var country = [
 var telephone = [
     {
         ifv: "required",
-        text:"Укажите ваш телефон",
+        text:"Укажите ваш номер телефона",
+    },
+    {
+        ifv: "minLength",
+        text:"Укажите корректный номер телефона",
     },
 ]
 var address = [
@@ -74,7 +86,12 @@ var address = [
         text:"Укажите ваш адрес",
     },
 ]
-
+var  checbox = [
+    {
+        ifv: "required",
+        text:"Подтвердите ваше согласие на обработку персональных данных",  
+    }
+]
 export default {
      data() {   
          return {
@@ -89,6 +106,7 @@ export default {
                 country:country,
                 telephone:telephone,
                 address: address,
+                checbox:checbox,
             }
          }
      },

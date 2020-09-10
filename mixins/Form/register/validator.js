@@ -1,4 +1,4 @@
-import { required, minLength, between,  alphaNum ,email} from 'vuelidate/lib/validators'
+import { required, minLength, between, maxLength , alphaNum ,email, sameAs} from 'vuelidate/lib/validators'
 let name = {
     required
 }
@@ -10,16 +10,22 @@ let Myemail = {
     email
 }
 let password = {
-    required
+    required,
+    minLength: minLength(8),
+    maxLength: maxLength(25),
+    alphaNum
 }
 let password2 = {
-    required
+    required,
+    sameAsPassword: sameAs('password')
 }
 let telephone = {
-    required
+    required,
+    minLength: minLength(17)
 }
 let inn = {
-    required
+    required,
+    minLength: minLength(12)
 }
 let organization = {
     required
@@ -30,7 +36,9 @@ let country = {
 let address = {
     required
 }
-
+let checbox = {
+    required:  (value) => value === true
+}
 
 // let all поля которые есть в 2 формах
 let all  = {
@@ -39,7 +47,8 @@ let all  = {
     email:Myemail,
     password:password,
     password2:password2,
-    telephone:telephone
+    telephone:telephone,
+    checbox:checbox,
 }
 let Wholesale = {
     inn:inn,
@@ -61,7 +70,8 @@ export default {
                 country: '',
                 address: '',
                 organization: '',
-                inn: '',    
+                inn: '', 
+                checbox: false,   
             }
         }
     },

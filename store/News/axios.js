@@ -2,7 +2,7 @@ export const actions = {
     // Получить все новости!
     // data:{offets: -с какого числа начинать , limit: -сколько данных, }
     async _NewsAll({}, data) {
-        return await this.$axios.$get(`${process.env.api}/news/?limit=${data.limit}&offset=${data.offets}`).then(res=>{
+        return await this.$axios.$get(`https://www.pantus.ru/api/rest/2.0/news?limit=${data.limit}&offset=${data.offets}`).then(res=>{
             return res;
         });
  
@@ -16,8 +16,8 @@ export const actions = {
     },
     // Получить все категории новостей
     async _NewsСategoriesAll({}) {
-        return await this.$axios.$get(`${process.env.api}/news/category/list`).then(res=>{
-            return res;
+        return await this.$axios.$get("https://www.pantus.ru/api/rest/2.0/news/categories").then(res=>{
+            return res.data;
         });
     },
     // Получить новости по категории 

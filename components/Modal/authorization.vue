@@ -1,0 +1,67 @@
+<template>
+  <b-modal @hidden="reset" id="modal-multi-1"  centered>
+       <template v-slot:modal-header>
+           <div class="d-flex aling-items-center justify-content-between w-100">
+                <h3>Вход</h3>
+           <b-button class="font-weight-bolder" variant="outline-danger" @click="hidden">
+                X
+            </b-button>
+           </div>
+       </template>
+      <b-form>
+          <VInput addClass="mb-2 col-7" name="email" items="Логин" :error="error.email" />
+          <VInput addClass="mb-2 col-7" type="password" items="Пароль:" name="password" :error="error.password"/>
+      </b-form>
+       <template v-slot:modal-footer>
+           <b-button class="bg-danger border-0" @click="check">Войти </b-button>
+           <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль </b-button>
+       </template>
+  </b-modal>
+</template>
+
+<script>
+import { required} from 'vuelidate/lib/validators'
+import MixinsError from "@/mixins/Form/authorization/error"
+import MixinsValidations from "@/mixins/Form/authorization/validator"
+import VInput from "@/components/register/index"
+export default {
+    mixins:[MixinsError, MixinsValidations],
+    provide(){
+        return{
+            $v: this.$v,
+        }
+    },
+    components: {
+        VInput,
+    },
+    methods:{
+        password(){ // переход на страницу забыли пароль
+            this.hidden();
+            this.$router.push("/register");
+        },
+        hidden(){ // принудительно закрыть модальное окно
+            this.$nextTick(() => {
+                this.$bvModal.hide('modal-multi-1');
+            })
+        },
+        reset(){ // При закрытие комального окна удалить все данные
+            this.$v.Form.email.$model = "";
+            this.$v.Form.password.$model = "";
+            this.$v.$reset();
+        },
+        check(bvModalEvt){ // Проверка что данные введены
+            bvModalEvt.preventDefault()
+            this.$v.Form.$touch();
+            if(this.$v.Form.$error === true){
+                return
+            }else{
+                this.hidden();
+            }
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

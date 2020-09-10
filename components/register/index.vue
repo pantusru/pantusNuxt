@@ -1,5 +1,5 @@
 <template>
-    <div class="col-4 mb-2">
+    <div :class="addClass">
         <label :for="name">{{ items }}</label>
         <b-form-input v-if="slots== false"
             :type="type" 
@@ -19,6 +19,9 @@
 <script>
 export default {
     props:{
+        addClass:{
+            default: "col-4 mb-2"
+        },
         name:{},
         error:{},
         items:{},

@@ -26,6 +26,10 @@
             <div class="mb-2"><b> Кол-во, шт:</b></div>
             <VInput @kolvo="SetKolvo" />
         </div>
+        <div class="mb-2">
+            <div><b> Стоимость:</b></div>
+            <div>{{ stoimost }} Р</div>
+        </div>
         <template v-slot:modal-footer= "{close}">
             <b-button class="py-1 px-2 bg-danger border-0" @click="close">Купить</b-button>
         </template>
@@ -35,9 +39,14 @@
 <script>
 import VInput from  "@/components/Products/Input/kolvo"
 export default {
+    computed:{
+        stoimost(){
+            return this.kolvo * this.dataset.ProductOffer.prices.wholesale
+        }
+    },
     data() {
         return {
-            kovlo: 1
+            kolvo: 1
         }
     },
     props:{
@@ -50,8 +59,8 @@ export default {
                 this.$bvModal.hide(`${this.modalId}`);
             })
         },
-        SetKolvo(kovlo){
-            this.kovlo = kovlo;
+        SetKolvo(kolvo){
+            this.kolvo = kolvo.kolvo;
         }
     },
     components:{

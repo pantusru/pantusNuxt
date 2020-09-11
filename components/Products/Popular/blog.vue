@@ -1,7 +1,7 @@
 <template>
     <b-card>
         <template v-slot:header>
-            <h6 class="mb-0">{{ dataset.ProductCard.name }}</h6>
+            <h6 class="mb-0"> <nuxt-link class="text-dark" :to="'/product/'+ dataset.ProductCard.id"> {{ dataset.ProductCard.name }} </nuxt-link></h6>
         </template>
         <div>
             <b-card-img  

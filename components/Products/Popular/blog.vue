@@ -4,7 +4,11 @@
             <h6 class="mb-0">{{ dataset.ProductCard.name }}</h6>
         </template>
         <div>
-            <b-card-img :src="dataset.ProductCard.ProductCardImage.url"></b-card-img>
+            <b-card-img  
+                v-b-modal="'img-' + dataset.ProductCard.id"
+                :src="dataset.ProductCard.ProductCardImage.url">
+            </b-card-img>
+            <ProductImg :dataset="dataset" :idModal="'img-' + dataset.ProductCard.id" />
         </div>
         <div class="mt-3">
             <div class="d-flex justify-content-between mb-1 border-bottom">
@@ -49,15 +53,17 @@
 
 <script>
 import BntBuy from  "@/components/Products/Button/buyIndex"
-import ModalBuy from  "@/components/modal/buyProduct"
+import ModalBuy from  "@/components/Modal/buyProduct"
+import ProductImg from  "@/components/Modal/ProductImg"
 export default {
     props:{
         dataset:{},
     },
     components:{
         BntBuy,
-        ModalBuy
-    }
+        ModalBuy,
+        ProductImg
+    },
 }
 </script>
 

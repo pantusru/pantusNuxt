@@ -1,18 +1,24 @@
 <template>
   <main>
       <VueNewsIndex/>
+      <VueProductsIndex/>
   </main>
 </template>
 
 <script>
-import VueNewsIndex from "../components/News/index"
+import VueNewsIndex from "@/components/News/index"
+import VueProductsIndex from "@/components/Products/Popular/index"
 export default {
     components:{
-        VueNewsIndex
+        VueNewsIndex,
+        VueProductsIndex
     },
     async fetch({store}){
-        await store.dispatch("News/NewsIndex/_NewsIndex");
-    }
+        await Promise.all([
+            store.dispatch("News/NewsIndex/_NewsIndex"),
+            store.dispatch("Products/popular/_ProductPopual"),
+        ])
+    },
 }
 </script>
 

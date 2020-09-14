@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <b-overlay :show="show" rounded="sm">
-      <VueHeader/>
+      <VueHeader class="mb-5"/>
       <Nuxt />
     </b-overlay>
   </div>

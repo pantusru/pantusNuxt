@@ -1,5 +1,5 @@
 <template>
-  <b-modal @hidden="reset" id="modal-multi-1"  centered>
+  <b-modal @hidden="reset" id="authorization" centered>
        <template v-slot:modal-header>
            <div class="d-flex aling-items-center justify-content-between w-100">
                 <h3>Вход</h3>
@@ -41,7 +41,7 @@ export default {
         },
         hidden(){ // принудительно закрыть модальное окно
             this.$nextTick(() => {
-                this.$bvModal.hide('modal-multi-1');
+                this.$bvModal.hide('authorization');
             })
         },
         reset(){ // При закрытие комального окна удалить все данные

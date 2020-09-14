@@ -21,7 +21,7 @@
         <div class="d-flex mr-5 align-items-center">
             <div class="icons-nav"><img src="~/assets/img/icons/icon-avatar.png" alt=""/></div>
             <div class="d-flex flex-column ml-3">
-                <nuxt-link to="" v-b-modal.modal-multi-1 class="text-secondary link-danger">Вход</nuxt-link>
+                <nuxt-link to="" v-b-modal.authorization class="text-secondary link-danger">Вход</nuxt-link>
                 <authorization/>
                 <!-- <nuxt-link to="" class="text-secondary link-danger">Вход</nuxt-link> -->
                 <nuxt-link to="/register" class="text-secondary link-danger">Регистрация</nuxt-link>

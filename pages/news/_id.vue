@@ -1,5 +1,5 @@
 <template>
-<section class="my-5"  v-if="NewsPage"> 
+<section class=""  v-if="NewsPage"> 
     <div class="container">
         <h3 class="mb-3">Новости</h3>
         <NewsPageIndex :dataset="NewsPage" :Kovlo="Kovlo" />

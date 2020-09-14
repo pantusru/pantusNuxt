@@ -27,13 +27,13 @@
                 <nuxt-link to="/register" class="text-secondary link-danger">Регистрация</nuxt-link>
             </div>
         </div>
-        <div class="d-flex align-items-center">
+        <nuxt-link to="/cart" class="d-flex align-items-center link-decoration-none">
             <div class="icons-nav"><img src="~/assets/img/icons/icon-shopping-cart.png" alt=""/></div>
             <div class="d-flex flex-column ml-3 text-secondary">
                 <div><span>Корзина</span><b>: 2</b></div>
                 <strong>1200 р</strong>
             </div>
-        </div>
+        </nuxt-link>
       </b-navbar-nav>
   </b-navbar>
 </div>

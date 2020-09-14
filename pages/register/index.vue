@@ -1,5 +1,5 @@
 <template>
-  <b-form class="mt-4 mb-3">
+  <b-form class="mb-3">
       <b-container>
           <h3 class="mb-3">Зарегистрироваться как:</h3>
             <radioForm  v-bind:buyer.sync="buyer" />  

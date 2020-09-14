@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <div class="content mt-5" v-html="NewsId.body">
+    <div class="content" v-html="NewsId.body">
 
     </div>
 </div>

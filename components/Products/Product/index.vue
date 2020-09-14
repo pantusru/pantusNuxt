@@ -19,13 +19,26 @@
                 </div>
             </b-col>
         </b-col>
-        <b-col cols="9">
-            
+        <b-col cols="8">
+            <h2>{{ dataset.ProductCard.name }}</h2>
+            <b-row>
+                <b-col cols="4">
+                    Производитель: <span> {{ dataset.ProductCard.brand.name }}</span>  
+                </b-col>
+                <b-col cols="4">
+                    Артикул: <span>{{ dataset.ProductCard.sku.original }}</span> 
+                </b-col>
+                 <b-col cols="4">
+                    <b-icon-reply v-b-modal="'share'" class="h3 cursor-pointer link-danger"></b-icon-reply>
+                    <Share/>
+                </b-col>
+            </b-row>
         </b-col>
     </b-row>
 </template>
 
 <script>
+import Share from "@/components/Modal/share"
 import mixins from "@/mixins/Product/album"
 export default {
     mixins:[mixins],
@@ -34,6 +47,9 @@ export default {
     },
     methods:{
 
+    },
+    components:{
+        Share,
     }
 }
 </script>

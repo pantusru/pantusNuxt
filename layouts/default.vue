@@ -17,7 +17,7 @@ import VueHeader from "../components/Header/index"
         return this.$store.getters["Getshow"];
       }
     },
-    mounted(){
+    mounted(){ // при прогрузке странице
       this.$store.commit("SetShow", false);
     },
     watch:{ // при изменения page 
@@ -25,7 +25,7 @@ import VueHeader from "../components/Header/index"
         this.$store.commit("SetShow", true);
       }
     },
-    updated(){
+    updated(){// при обновление страницы
       this.$store.commit("SetShow", false);
     }
 }

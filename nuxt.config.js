@@ -45,7 +45,8 @@ export default {
     {src: './plugins/vue-slick-carousel.js'},
     {src: './plugins/ConfingAxios.js'},
     {src:'./plugins/vuelidate.js'},
-    {src:'./plugins/v-mask.js'}
+    {src:'./plugins/v-mask.js'},
+    {src:'./plugins/Clipboard.js'}
 
   ],
   /*

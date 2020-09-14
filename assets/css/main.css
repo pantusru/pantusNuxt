@@ -6,8 +6,13 @@ a.link-danger:hover , button.link-danger:hover, .link-danger:hover{
 a.link-decoration-none:hover{
     text-decoration: none;
 }
+button.link-light:hover{
+    color: var(--light)!important; 
+}
 /* link bg */
-
+button.bg-link-danger:hover{
+    background-color: var(--danger)!important;
+}
 /* img */
 img{
     width: 100%;

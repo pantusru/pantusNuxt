@@ -1,17 +1,23 @@
 <template>
     <b-container>
         <h3 class="mb-5">Мой заказ</h3>
-        <h5 class="mb-2">Контактное лицо</h5>
         <b-row>
             <b-col cols="6">
-                <Contact></Contact>
+                <h5 class="mb-2">Контактное лицо</h5>
+                <Contact class="pr-5"></Contact>
             </b-col>
+            <b-col cols="6">
+                <h3 class="mb-2">Споособ оплаты</h3>
+                <Payment></Payment>
+            </b-col>
+                 
         </b-row>
     </b-container>
 </template>
 
 <script>
 import Contact from "@/components/Order/Form/contact"
+import Payment from "@/components/Order/Form/payment"
 export default {
     middleware({ store, redirect }) {
         if(true){ // ПОльзователь не авторизован
@@ -20,6 +26,7 @@ export default {
     },
     components:{
         Contact,
+        Payment
     }
 }
 </script>

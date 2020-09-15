@@ -1,4 +1,4 @@
-var Surname = [
+var surname = [
     {
         ifv: "required",
         text:"Укажите вашу фамилию",
@@ -20,13 +20,20 @@ var Telephone = [
         text:"Укажите корректный номер телефона",
     },
 ]
+var Town = [
+    {
+        ifv: "required",
+        text:"Укажите  город доставки",
+    },
+]
 export default {
      data() {   
          return {
             error:{
-                Surname: Surname,
+                surname: surname,
                 Name: Name,
                 Telephone:Telephone,
+                Town:Town,
             }
          }
      },

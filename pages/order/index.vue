@@ -10,15 +10,27 @@
                 <h3 class="mb-2">Споособ оплаты</h3>
                 <Payment></Payment>
             </b-col>
-                 
         </b-row>
+        <b-row>
+            <b-col cols="6" class="mt-5">
+                <h3 class="mb-2">Споособ доставки</h3>
+                <Payment></Payment>
+            </b-col>
+            <b-col cols="6" class="mt-5">
+                <Product></Product>
+            </b-col>
+        </b-row>     
     </b-container>
 </template>
 
 <script>
 import Contact from "@/components/Order/Form/contact"
 import Payment from "@/components/Order/Form/payment"
+import Product from "@/components/Order/Form/product"
 export default {
+    async fetch({store}){
+        await  store.dispatch("Order/Payment/Index/_Payment");
+    },
     middleware({ store, redirect }) {
         if(true){ // ПОльзователь не авторизован
             // return redirect('/cart?reg=true');
@@ -26,7 +38,8 @@ export default {
     },
     components:{
         Contact,
-        Payment
+        Payment,
+        Product
     }
 }
 </script>

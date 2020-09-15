@@ -4,7 +4,7 @@
         <vInput items="Имя"  name="Name" :error="error['Name']" />
         <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="Telephone" :error="error['Telephone']"/>
         <vInput :slots="true" items="Город"  name="Town" :error="error['Town']">
-            <Town name="Town" />
+            <Town name="Town"/>
         </vInput>
     </b-form>
 </template>
@@ -24,9 +24,6 @@ export default {
     components:{
         vInput,
         Town
-    },
-    created(){
-        console.log(this.$v)
     },
     provide(){
         return{

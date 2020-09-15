@@ -10,27 +10,15 @@
 </template>
 
 <script>
+import mixitError from "@/mixins/Form/order/contact/error"
 import vInput from "@/components/Order/Input/Input"
 import Town from "@/components/Order/Input/Town"
-import mixitError from "@/mixins/Form/order/contact/error"
-import mixitValid from "@/mixins/Form/order/contact/validator"
 export default {
-    mixins:[mixitError,mixitValid],
-    computed:{
-        Form(){
-            return this.$store.getters["Order/Form/GetContact"];
-        }
-    },
+    mixins:[mixitError],
     components:{
         vInput,
         Town
     },
-    provide(){
-        return{
-            $v: this.$v,
-            VuexSrc: this.Form
-        }
-    }
 }
 </script>
 

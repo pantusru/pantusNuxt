@@ -24,10 +24,12 @@
 </template>
 
 <script>
+import mixitValid from "@/mixins/Form/order/contact/validator"
 import Contact from "@/components/Order/Form/contact"
 import Payment from "@/components/Order/Form/payment"
 import Product from "@/components/Order/Form/product"
 export default {
+    mixins:[mixitValid],
     async fetch({store}){
         await  store.dispatch("Order/Payment/Index/_Payment");
     },
@@ -40,6 +42,17 @@ export default {
         Contact,
         Payment,
         Product
+    },
+    computed:{
+        Form(){
+            return this.$store.getters["Order/Form/GetContact"];
+        }
+    },
+    provide(){
+        return{
+            $v: this.$v,
+            VuexSrc: this.Form
+        }
     }
 }
 </script>

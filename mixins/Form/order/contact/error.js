@@ -1,4 +1,4 @@
-var surname = [
+var Surname = [
     {
         ifv: "required",
         text:"Укажите вашу фамилию",
@@ -30,7 +30,7 @@ export default {
      data() {   
          return {
             error:{
-                surname: surname,
+                Surname: Surname,
                 Name: Name,
                 Telephone:Telephone,
                 Town:Town,

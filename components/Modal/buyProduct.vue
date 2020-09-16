@@ -1,5 +1,5 @@
 <template>
-    <b-modal :id="'buy'">
+    <b-modal :id="'buy'" @hidden="hidden">
         <template v-slot:modal-header  = "{close}">
             <h5>Товар будет добавлен в корзину</h5>
             <b-button class="font-weight-bolder" variant="outline-danger" @click="close()">
@@ -53,14 +53,18 @@ export default {
         productOffer:{},
         ProductCard:{},
     },
-    mounted(){
-        console.log(this.modalId);
+    watch:{
+        kolvo(){
+            console.log(this.kolvo);
+        }
     },
     methods:{
         hidden(){ // принудительно закрыть модальное окно
-            this.$nextTick(() => {
-                this.$bvModal.hide(`${this.modalId}`);
-            })
+            this.kolvo = 1;
+            // this.$nextTick(() => {
+            //     this.kolvo = 1;
+            //     this.$bvModal.hide(`${this.modalId}`);
+            // })
         },
         SetKolvo(kolvo){
             this.kolvo = kolvo.kolvo;

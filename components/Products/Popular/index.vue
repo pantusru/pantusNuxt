@@ -1,12 +1,11 @@
 <template>
     <b-container>
         <b-row>
-            <b-col cols=4>
-                <PopularProduct 
-                        v-for="data in popular"
-                        :key="data.id"
-                        :dataset="data"
-                    />
+            <b-col cols=4                         
+                 v-for="data in popular"
+                :key="data.id"
+                >
+                <PopularProduct  :dataset="data"/>
             </b-col>
         </b-row>
     </b-container>

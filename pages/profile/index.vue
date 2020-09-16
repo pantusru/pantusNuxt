@@ -15,9 +15,9 @@
             <b-col>
                 <div>
                     <h2 class="mb-4"> Личные данные </h2>
-                    <ElementForm name="login" :items="'Логин (e-mail):'"  :value="'m.semenov@pantus.ru'" />
-                    <ElementForm name="name" :items="'Имя:'" :value="'Максим'" />
-                    <ElementForm name="surname" :items="'Фамилия:'"  :value="'Семенов'" />
+                    <ElementForm name="login" :items="'Логин (e-mail):'"  />
+                    <ElementForm name="name" :items="'Имя:'" />
+                    <ElementForm name="surname" :items="'Фамилия:'" :value="'Семенов'" />
                     <ElementForm name="patronymic" :items="'Отчество:'" :value="'Александрович'" />
                     <ElementForm name="telephone" :items="'Телефон:'"  :value="'+7 (937) 147-91-57'" />
                 </div>
@@ -35,7 +35,7 @@ export default {
     },
     computed:{
         Form(){
-            return this.$store.getters["User/index/FormData"];
+            return this.$store.getters["User/FormData"];
         }
     },
     provide(){

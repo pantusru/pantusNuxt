@@ -16,8 +16,14 @@
 
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
+import mixitVuex from "@/mixins/Input/VuexInput" //  Указывать nameSet
 export default {
-    mixins:[mixitProps],
+    data() {
+        return {
+            nameSet: "User/SetFull",
+        }
+    },
+    mixins:[mixitProps, mixitVuex],
 }
 </script>
 

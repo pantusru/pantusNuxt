@@ -7,8 +7,13 @@
 </template>
 
 <script>
-import mixit from "@/mixins/Input/order"
+import mixit from "@/mixins/Input/VuexInput"
 export default {
+    data() {
+        return {
+            nameSet: "Order/Form/SetFull"
+        }
+    },
     mixins:[mixit],
     props:{
         name:{}

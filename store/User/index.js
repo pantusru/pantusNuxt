@@ -1,13 +1,17 @@
 export const state = () => ({
     FormData:{
-        login: '',
+        login: 'email',
         name: '',
         surname: '',
         tlf:'',
         patronymic: '',
     }
 })
-
+export const mutations  =  {
+    SetFull(store, data){
+        data.data[data.name] = data.value;
+    },
+}
 export const getters = {
-    FormData: s => s.Form.FormData,
+    FormData: s => s.FormData,
 }

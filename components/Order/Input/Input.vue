@@ -21,9 +21,14 @@
 
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
-import mixit from "@/mixins/Input/order"
+import mixit from "@/mixins/Input/VuexInput"
 export default {
     mixins:[mixit, mixitProps],
+    data(){
+        return{
+            nameSet: "Order/Form/SetFull",
+        }
+    },
     props:{
         addClass:{
             default: "mb-2"

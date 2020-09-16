@@ -2,7 +2,6 @@ export default {
     props:{
         name:{},
         items:{},
-        value:{},
         error:{},
         type:{
             default: "text",

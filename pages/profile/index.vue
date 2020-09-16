@@ -13,17 +13,21 @@
                  </div>
             </b-col>
             <b-col>
-                <b-form>
+                <div>
+                    <h2 class="mb-4"> Личные данные </h2>
                     <ElementForm :name="'Логин (e-mail):'"  :value="'m.semenov@pantus.ru'" />
-                    <ElementForm :name="'Имя:'"  :value="'Максим'" />
+                    <ElementForm :name="'Имя:'" :value="'Максим'" />
                     <ElementForm :name="'Фамилия:'"  :value="'Семенов'" />
-                </b-form>
+                    <ElementForm :name="'Отчество:'" :value="'Александрович'" />
+                    <ElementForm :name="'Телефон:'"  :value="'+7 (937) 147-91-57'" />
+                </div>
             </b-col>
         </b-row>
     </b-container>
 </template>
 
 <script>
+// УКАЗАТЬ mixit 
 import ElementForm from "@/components/Profile/span"
 export default {
     components:{

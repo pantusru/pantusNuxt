@@ -16,14 +16,15 @@
 
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
-import mixitVuex from "@/mixins/Input/VuexInput" //  Указывать nameSet
+import mixitVuex from "@/mixins/Input/VuexNoValid" //  Указывать nameSet
 export default {
+    mixins:[mixitProps, mixitVuex],
     data() {
         return {
             nameSet: "User/SetFull",
+            value: this.$store.getters["User/FormData"][this.name],
         }
     },
-    mixins:[mixitProps, mixitVuex],
 }
 </script>
 

@@ -25,7 +25,6 @@
         </b-row>
     </b-container>
 </template>
-
 <script>
 // УКАЗАТЬ mixit 
 import ElementForm from "@/components/Profile/input"

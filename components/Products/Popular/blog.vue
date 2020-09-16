@@ -39,12 +39,12 @@
             <b-row align-h="between" class="mt-1">
                 <b-col>
                     <div class="mb-3">Цена</div>
-                    <div><b>{{ dataset.ProductOffer[0].prices }} Р</b></div>
+                    <div><b>{{ dataset.productOffer[0].prices }} Р</b></div>
                 </b-col>
                 <b-col class="text-right">
-                    <div class="text-success mb-2">{{ dataset.ProductOffer[0].quantity }}</div>
+                    <div class="text-success mb-2">{{ dataset.productOffer[0].quantity }}</div>
                     <BntBuy :modalId="dataset.ProductCard.id"/>
-                    <ModalBuy :dataset="dataset" :modalId="dataset.ProductCard.id" />
+                    <ModalBuy :ProductCard="dataset.ProductCard" :productOffer="dataset.productOffer[0]" :modalId="dataset.ProductCard.id" />
                 </b-col>
             </b-row>
         </template>

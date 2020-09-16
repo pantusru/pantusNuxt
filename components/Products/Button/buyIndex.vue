@@ -33,6 +33,9 @@ export default {
         }else{ // Товар не в корзизне
             this.userBasket = false;
         }
+    },
+    mounted(){
+        console.log(this.modalId);
     }
 }
 </script>

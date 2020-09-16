@@ -8,15 +8,15 @@
         </template>
         <div class="mb-2">
             <div><b>Название:</b></div>
-            <div>{{ dataset.ProductCard.name }}</div>
+            <div>{{ ProductCard.name }}</div>
         </div>
         <div class="mb-2">
             <div><b>Артикул:</b></div>
-            <div>{{ dataset.ProductCard.sku.original }}</div>
+            <div>{{ ProductCard.sku.original }}</div>
         </div>
         <div class="mb-2">
             <div><b> Цена:</b></div>
-            <div>{{ dataset.ProductOffer[0].prices }} Р</div>
+            <div>{{ productOffer.prices }} Р</div>
         </div>
         <div class="mb-2">
             <div><b> Кратность:</b></div>
@@ -41,7 +41,7 @@ import VInput from  "@/components/Products/Input/kolvo"
 export default {
     computed:{
         stoimost(){
-            return this.kolvo * this.dataset.ProductOffer[0].prices
+            return this.kolvo * this.productOffer.prices
         }
     },
     data() {
@@ -51,7 +51,11 @@ export default {
     },
     props:{
         modalId:{},
-        dataset:{},
+        productOffer:{},
+        ProductCard:{},
+    },
+    mounted(){
+        console.log(this.modalId);
     },
     methods:{
         hidden(){ // принудительно закрыть модальное окно

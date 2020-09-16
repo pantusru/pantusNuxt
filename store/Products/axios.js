@@ -28,8 +28,9 @@ export const actions = {
                         name: "A-Sport"
                     }
                 },
-                ProductOffer:[
+                productOffer:[
                     {
+                        id:3,
                         prices: 356,
                         quantity: 411,
                         supplier:{
@@ -38,6 +39,7 @@ export const actions = {
                         }
                     },
                     {
+                        id:13,
                         prices: 451,
                         quantity: 211,
                         supplier:{
@@ -46,6 +48,7 @@ export const actions = {
                         }
                     }, 
                     {
+                        id:23,
                         prices: 1566,
                         quantity: 71,
                         supplier:{

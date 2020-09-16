@@ -16,7 +16,7 @@
         </div>
         <div class="mb-2">
             <div><b> Цена:</b></div>
-            <div>{{ dataset.ProductOffer.prices.wholesale }} Р</div>
+            <div>{{ dataset.ProductOffer[0].prices }} Р</div>
         </div>
         <div class="mb-2">
             <div><b> Кратность:</b></div>
@@ -41,7 +41,7 @@ import VInput from  "@/components/Products/Input/kolvo"
 export default {
     computed:{
         stoimost(){
-            return this.kolvo * this.dataset.ProductOffer.prices.wholesale
+            return this.kolvo * this.dataset.ProductOffer[0].prices
         }
     },
     data() {

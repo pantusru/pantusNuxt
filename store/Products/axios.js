@@ -28,12 +28,12 @@ export const actions = {
                         name: "A-Sport"
                     }
                 },
-                ProductOffer:{
-                    prices:{
-                        wholesale: "356"
-                    },
-                    quantity: 411
-                }
+                ProductOffer:[
+                    {
+                        prices: 356,
+                        quantity: 411
+                    }    
+                ]
             }
         ];
     return product;

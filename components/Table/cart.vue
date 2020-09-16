@@ -13,7 +13,6 @@
             <template v-slot:cell(img)="data">
                 <div v-if="data.item.ProductCard.ProductCardImage.url">
                     <b-icon-camera-fill v-b-modal="toString(data.item.id)"  class="cursor-pointer"></b-icon-camera-fill>
-                    <ImgModal :dataset="data.item" :idModal="toString(data.item)"/>
                 </div>
             </template>
             <template v-slot:cell(price)="data">
@@ -31,6 +30,7 @@
              <template v-slot:cell(Delete)="data">
                 <b-button @click="deleteProduct(data.index)" class="bg-danger border-0 py-1">X</b-button>
             </template>
+            <ImgModal/>
         </b-table>
 </template>
 

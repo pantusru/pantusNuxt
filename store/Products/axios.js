@@ -60,7 +60,7 @@ export const actions = {
             },
             {
                 ProductCard:{
-                    id: 30,
+                    id: 35,
                     name: "Товар1",
                     sku:{
                         original: "6534-ку",
@@ -86,7 +86,7 @@ export const actions = {
                 },
                 productOffer:[
                     {
-                        id:3,
+                        id:3333,
                         prices: 356,
                         quantity: 411,
                         supplier:{
@@ -95,7 +95,7 @@ export const actions = {
                         }
                     },
                     {
-                        id:13,
+                        id:121,
                         prices: 451,
                         quantity: 211,
                         supplier:{
@@ -104,7 +104,7 @@ export const actions = {
                         }
                     }, 
                     {
-                        id:23,
+                        id:543,
                         prices: 1566,
                         quantity: 71,
                         supplier:{

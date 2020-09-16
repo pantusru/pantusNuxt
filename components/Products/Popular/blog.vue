@@ -8,7 +8,6 @@
                 v-b-modal="'img-' + dataset.ProductCard.id"
                 :src="dataset.ProductCard.ProductCardImage.url">
             </b-card-img>
-            <ProductImg :dataset="dataset" :idModal="'img-' + dataset.ProductCard.id" />
         </div>
         <div class="mt-3">
             <div class="d-flex justify-content-between mb-1 border-bottom">
@@ -44,10 +43,11 @@
                 <b-col class="text-right">
                     <div class="text-success mb-2">{{ dataset.productOffer[0].quantity }}</div>
                     <BntBuy :modalId="dataset.ProductCard.id"/>
-                    <ModalBuy :ProductCard="dataset.ProductCard" :productOffer="dataset.productOffer[0]" :modalId="dataset.ProductCard.id" />
                 </b-col>
             </b-row>
         </template>
+        <!-- <ProductImg /> -->
+        <!-- <ModalBuy  /> -->
     </b-card>
 </template>
 

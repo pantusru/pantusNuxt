@@ -1,5 +1,5 @@
 <template>
-    <b-modal :id="toString(modalId)">
+    <b-modal :id="'buy'">
         <template v-slot:modal-header  = "{close}">
             <h5>Товар будет добавлен в корзину</h5>
             <b-button class="font-weight-bolder" variant="outline-danger" @click="close()">
@@ -50,7 +50,6 @@ export default {
         }
     },
     props:{
-        modalId:{},
         productOffer:{},
         ProductCard:{},
     },

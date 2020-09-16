@@ -20,9 +20,7 @@
                     <b-td :rowspan="product.productOffer.length+1"> {{ product.ProductCard.sku.original }} </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
                         <div class="w-100px">
-                            <b-img fluid v-b-modal="toString(product.ProductCard.id)" :src="product.ProductCard.ProductCardImage.url"/>
-                            {{ product.ProductCard.id }}
-                            <ImgModal :dataset="product" :idModal="toString(product.ProductCard.id)"/>
+                            <b-img @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">{{ product.ProductCard.name }}</b-td>
@@ -33,21 +31,24 @@
                     <b-td>{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td>{{ offer.prices }}</b-td>
                     <b-td>
-                        <BuyButton :modalId="'offer-' + offer.id"/>
-                        {{'offer-' + offer.id}}
-                        <BuyModal :modalId="'offer-' + offer.id" :productOffer="offer" :ProductCard="product.ProductCard" />
+                        <BuyButton @click="ModalProduct(product.ProductCard,offer )" :modalId="'buy'"/>
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
+         <ImgModal :dataset="dataset" v-if="dataset != null" />
+        <BuyModal v-if="productOffer != null"/>
     </b-table-simple>
 </template>
 
 <script>
+import mixitBuy from "@/mixins/Modal/buyProduct"
+import mixitImg from "@/mixins/Modal/ProductImg"
 import BuyModal from "@/components/Modal/buyProduct"
 import BuyButton from "@/components/Products/Button/buyIndex"
 import ImgModal from "@/components/Modal/ProductImg"
 export default {
+    mixins:[mixitImg,mixitBuy],
     computed: {
         Products() {
             return this.$store.getters["Products/popular/GetProductPopual"]; 

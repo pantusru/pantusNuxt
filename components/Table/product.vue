@@ -31,13 +31,13 @@
                     <b-td>{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td>{{ offer.prices }}</b-td>
                     <b-td>
-                        <BuyButton @click="ModalProduct(product.ProductCard,offer )" :modalId="'buy'"/>
+                        <BuyButton @click="ModalProduct(product.ProductCard,offer)" :modalId="'buy'"/>
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
          <ImgModal :dataset="dataset" v-if="dataset != null" />
-        <BuyModal v-if="productOffer != null"/>
+        <BuyModal :ProductCard="ProductCard" :productOffer="productOffer"   v-if="productOffer != null"/>
     </b-table-simple>
 </template>
 

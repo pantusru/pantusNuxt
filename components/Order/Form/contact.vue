@@ -3,9 +3,7 @@
         <vInput items="Фамилия" name="Surname" :error="error['Surname']" />
         <vInput items="Имя"  name="Name" :error="error['Name']" />
         <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="Telephone" :error="error['Telephone']"/>
-        <vInput :slots="true" items="Город"  name="Town" :error="error['Town']">
-            <Town name="Town"/>
-        </vInput>
+        <Town items="Город"  name="Town" :error="error['Town']"/>
     </b-form>
 </template>
 

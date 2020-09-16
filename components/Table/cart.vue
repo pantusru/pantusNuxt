@@ -5,9 +5,7 @@
         bordered	
         >
             <template v-slot:cell(sku)="data">
-                <template>
                     {{ data.item.ProductCard.sku.original}}
-                </template>
             </template>
             <template v-slot:cell(name)="data">
                 {{ data.item.ProductCard.name}}

@@ -2,9 +2,12 @@
 <section class="mt-5">
   <div class="container">
       <b-row>
-          <b-col cols="12" lg="3">
-            <FilterForm />
-          </b-col>
+        <b-col cols="12" lg="3">
+          <FilterForm />
+        </b-col>
+        <b-col class="pl-5" lg="9">
+          <TableProduct/>
+        </b-col>
       </b-row>
   </div>
 </section>
@@ -12,9 +15,11 @@
 
 <script>
 import FilterForm from "@/components/Forms/FulterProducts"
+import TableProduct from "@/components/Table/product"
 export default {
    async fetch({query, store, getters, commit}){
     await Promise.all([
+      store.dispatch("Products/popular/_ProductPopual"),
       store.dispatch("Categories/CategoriesAll/_Categories"),
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"),
       store.dispatch("Brand/BrandAll/_Brands")
@@ -46,6 +51,7 @@ export default {
   },
     components:{
         FilterForm,
+        TableProduct
     },
 }
 </script>

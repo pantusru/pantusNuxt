@@ -31,10 +31,30 @@ export const actions = {
                 ProductOffer:[
                     {
                         prices: 356,
-                        quantity: 411
-                    }    
+                        quantity: 411,
+                        supplier:{
+                            name: "Пантус",
+                            deliveryDelay: "Сегодня"
+                        }
+                    },
+                    {
+                        prices: 451,
+                        quantity: 211,
+                        supplier:{
+                            name: "Пумма",
+                            deliveryDelay: "Завтра"
+                        }
+                    }, 
+                    {
+                        prices: 1566,
+                        quantity: 71,
+                        supplier:{
+                            name: "Зума",
+                            deliveryDelay: "Завтра"
+                        }
+                    },         
                 ]
-            }
+            },
         ];
     return product;
     }  

@@ -15,11 +15,11 @@
             <b-col>
                 <div>
                     <h2 class="mb-4"> Личные данные </h2>
-                    <ElementForm :name="'Логин (e-mail):'"  :value="'m.semenov@pantus.ru'" />
-                    <ElementForm :name="'Имя:'" :value="'Максим'" />
-                    <ElementForm :name="'Фамилия:'"  :value="'Семенов'" />
-                    <ElementForm :name="'Отчество:'" :value="'Александрович'" />
-                    <ElementForm :name="'Телефон:'"  :value="'+7 (937) 147-91-57'" />
+                    <ElementForm name="login" :items="'Логин (e-mail):'"  :value="'m.semenov@pantus.ru'" />
+                    <ElementForm name="name" :items="'Имя:'" :value="'Максим'" />
+                    <ElementForm name="surname" :items="'Фамилия:'"  :value="'Семенов'" />
+                    <ElementForm name="patronymic" :items="'Отчество:'" :value="'Александрович'" />
+                    <ElementForm name="telephone" :items="'Телефон:'"  :value="'+7 (937) 147-91-57'" />
                 </div>
             </b-col>
         </b-row>
@@ -28,11 +28,22 @@
 
 <script>
 // УКАЗАТЬ mixit 
-import ElementForm from "@/components/Profile/span"
+import ElementForm from "@/components/Profile/input"
 export default {
     components:{
         ElementForm,
-    }
+    },
+    computed:{
+        Form(){
+            return this.$store.getters["User/index/FormData"];
+        }
+    },
+    provide(){
+        return{
+            // $v: this.$v,
+            VuexSrc: this.Form
+        }
+    },
 }
 </script>
 

@@ -9,8 +9,8 @@
                 <VInput items="Email:" name="email" :error="error.email"/>
                 <VInput type="password" items="Пароль:" name="password" :error="error.password"/>    
                 <VInput type="password" items=" Повторите Пароль:" name="password2" :error="error.password2"/>
-                <VInput :slots="true" items="Мобильный телефон" name="telephone" :error="error.telephone">
-                    <b-form-input v-mask="'+7(###) ###-##-##'" v-model="$v.Form.telephone.$model"  id="telephone" size="sm"></b-form-input>
+                <VInput  Vmask="+7(###) ###-##-##" items="Мобильный телефон" name="telephone" :error="error.telephone">
+
                 </VInput>
             </b-form-group>
             <b-form-group v-if="buyer === 'Wholesale'">
@@ -21,8 +21,7 @@
                     <b-form-textarea   v-model="$v.Form.address.$model" no-resize type="text" id="address" size="lg"></b-form-textarea>
                 </VInput>
                 <VInput items="Название организаци" name="organization" :error="error.organization"/>  
-                <VInput :slots="true"  items="Инн" name="inn" :error="error.inn">
-                    <b-form-input v-mask="'############'" v-model="$v.Form.inn.$model"  id="telephone" size="sm"></b-form-input>
+                <VInput Vmask="############"  items="Инн" name="inn" :error="error.inn">
                 </VInput>
             </b-form-group>
             <VInput :slots="true" name="checbox" :error="error.checbox">

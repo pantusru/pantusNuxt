@@ -1,6 +1,6 @@
 <template>
   <b-row class="align-items-center mb-3">
-        <b-col cols="2" class="mr-4">{{name}}</b-col>
+        <b-col cols="2" class="mr-4"><label :for="name"> {{items}}</label></b-col>
         <b-col cols="5">
             <b-form-input   
                 v-mask="Vmask"
@@ -15,11 +15,9 @@
 </template>
 
 <script>
+import mixitProps from "@/mixins/Input/Props/index"
 export default {
-    props:{
-        name:{},
-        value:{},
-    }
+    mixins:[mixitProps],
 }
 </script>
 

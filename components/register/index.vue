@@ -2,6 +2,7 @@
     <div :class="addClass">
         <label :for="name">{{ items }}</label>
         <b-form-input v-if="slots== false"
+            v-mask="Vmask"
             :type="type" 
             v-model.trim="$v.Form[name].$model" 
             :id="name" 
@@ -17,16 +18,12 @@
 </template>
 
 <script>
+import mixitProps from "@/mixins/Input/Props/index"
 export default {
+    mixins:[mixitProps],
     props:{
         addClass:{
             default: "col-4 mb-2"
-        },
-        name:{},
-        error:{},
-        items:{},
-        type:{
-            default: "text",
         },
         slots: {
             default: false,

@@ -15,7 +15,7 @@
         </b-thead>
         <b-tbody>
             <template v-for="product in Products"> 
-                <b-tr  :key="product.id">
+                <b-tr :key="product.ProductCard.id" class="hover-true">
                     <b-td :rowspan="product.productOffer.length+1">  {{ product.ProductCard.brand.name }} </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> {{ product.ProductCard.sku.original }} </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
@@ -24,8 +24,11 @@
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">{{ product.ProductCard.name }}</b-td>
+                    <b-td class="position-absolute border-0 left-40">
+                        <Chosen :id="product.ProductCard.id" />
+                    </b-td>
                 </b-tr>
-                <b-tr v-for="offer in product.productOffer" :key="offer.id">
+                <b-tr class="hover-true" v-for="offer in product.productOffer" :key="offer.id">
                     <b-td>{{ offer.supplier.name }}</b-td>
                     <b-td>{{ offer.quantity }}</b-td>
                     <b-td>{{ offer.supplier.deliveryDelay }}</b-td>
@@ -42,6 +45,7 @@
 </template>
 
 <script>
+import Chosen from "@/components/Metka/Chosen"
 import mixitBuy from "@/mixins/Modal/buyProduct"
 import mixitImg from "@/mixins/Modal/ProductImg"
 import BuyModal from "@/components/Modal/buyProduct"
@@ -57,7 +61,8 @@ export default {
     components:{
         ImgModal,
         BuyModal,
-        BuyButton
+        BuyButton,
+        Chosen
     }
 }
 </script>
@@ -65,5 +70,11 @@ export default {
 <style>
 .w-100px{
     width: 100px;
+}
+.left-40{
+    left: 52%;
+}
+.hover-true:hover .d-none-chosen{
+    display: block!important;
 }
 </style>

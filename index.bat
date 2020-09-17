@@ -1,11 +1,8 @@
 @echo off
- 
- git add .
+git add .
 :: Ввод данных:
 set /p Data="Data: "
- 
-:: "Идентификация" данных:
 
 git commit -m echo"%Data%"
-:: git push
+git push
 pause>nul

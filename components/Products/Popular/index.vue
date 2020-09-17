@@ -1,5 +1,6 @@
 <template>
     <b-container>
+        <h2 class="mb-4 mt-4">Популярные товары</h2>
         <b-row>
             <b-col cols=4                         
                  v-for="data in popular"

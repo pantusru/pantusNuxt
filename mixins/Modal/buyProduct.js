@@ -7,10 +7,9 @@ export default {
     },
     methods:{
         ModalProduct(card, offer){
-            console.log("SS");
             this.ProductCard = card;
-            this.productOffer = offer;
-            this.$bvModal.show('buy')	
+            this.productOffer = offer;	
+            this.$bvModal.show('buy');
         }
     }
-}
+}   

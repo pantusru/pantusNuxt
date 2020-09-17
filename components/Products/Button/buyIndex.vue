@@ -21,9 +21,6 @@ export default {
             text: "В корзине"
         }
     },
-    props:{
-        
-    },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
         if(false){ // Товар в корзине
             this.userBasket = true;

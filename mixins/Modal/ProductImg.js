@@ -6,8 +6,9 @@ export default {
     },
     methods:{
         ModalImg(data){
+            console.log( this.$bvModal);
             this.dataset = data;
-            this.$bvModal.show('img')	
+            this.$bvModal.show('img');	
         }
     }
 }

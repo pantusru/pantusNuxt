@@ -1,7 +1,12 @@
 export default {
     data() {
         return {
-            UrlMain: this.dataset.ProductCard.ProductCardImage.url,
+            UrlMain: "",
+        }
+    },
+    created(){
+        if(this.dataset != undefined){
+            this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;
         }
     },
     methods:{

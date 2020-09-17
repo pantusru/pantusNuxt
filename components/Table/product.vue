@@ -20,7 +20,7 @@
                     <b-td :rowspan="product.productOffer.length+1"> {{ product.ProductCard.sku.original }} </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
                         <div class="w-100px">
-                            <b-img @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+                            <b-img class="cursor-pointer" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">{{ product.ProductCard.name }}</b-td>
@@ -31,13 +31,13 @@
                     <b-td>{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td>{{ offer.prices }}</b-td>
                     <b-td>
-                        <BuyButton @click="ModalProduct(product.ProductCard,offer)" :modalId="'buy'"/>
+                        <BuyButton @click="ModalProduct(product.ProductCard, offer)"/>
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
-         <ImgModal :dataset="dataset" v-if="dataset != null" />
-        <BuyModal :ProductCard="ProductCard" :productOffer="productOffer"   v-if="productOffer != null"/>
+        <ImgModal :dataset="dataset"/>
+        <BuyModal :ProductCard="ProductCard" :productOffer="productOffer"/>
     </b-table-simple>
 </template>
 

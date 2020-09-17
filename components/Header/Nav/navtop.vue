@@ -26,6 +26,7 @@
 <script>
 import VueDropdown from "../Dropdown/Navtop"
 export default {
+    name: "NavTop", 
     data(){
         return{
             links:[

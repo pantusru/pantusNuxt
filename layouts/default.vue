@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <b-overlay :show="show" rounded="sm">
-      <VueHeader class="mb-5"/>
-      <Nuxt />
+    <b-overlay :show="show" rounded="sm"> <!-- Спиннер для всего сайта компонент bootstrap 4 -->
+      <VueHeader class="mb-5"/> <!-- Шапка сайта -->
+      <Nuxt/>
     </b-overlay>
   </div>
 </template>
 <script>
-import VueHeader from "../components/Header/index"
+import VueHeader from "../components/Header/Index"
   export default {
     components:{
       VueHeader,
@@ -20,7 +20,7 @@ import VueHeader from "../components/Header/index"
     mounted(){ // при прогрузке странице
       this.$store.commit("SetShow", false);
     },
-    watch:{ // при изменения page 
+    watch:{ // при изменения url 
       $route() {
         this.$store.commit("SetShow", true);
       }
@@ -33,3 +33,5 @@ import VueHeader from "../components/Header/index"
 
 <style>
 </style>
+
+

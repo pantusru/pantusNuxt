@@ -15,7 +15,8 @@
 
 <script>
 import VueDropdown from "../Dropdown/Navbottom"
-export default { 
+export default {
+    name: "NavBottom", 
     data(){
         return{
             links:[

@@ -1,7 +1,7 @@
 <template>
   <main>
-      <VueNewsIndex/>
-      <VueProductsIndex/>
+      <VueNewsIndex/> <!-- Популярные новости -->
+      <VueProductsIndex/> <!-- Популярные Товары -->
   </main>
 </template>
 

@@ -1,7 +1,8 @@
 <template>
  <div class="container">
   <b-navbar toggleable="lg">
-    <b-navbar-brand to="/"><img src="~assets/img/logo.png" alt=""></b-navbar-brand>
+      <!-- Логотип -->
+    <b-navbar-brand to="/"><img src="~assets/img/logo.png" alt="Логотип сайта"></b-navbar-brand>
       <!-- center -->
         <b-navbar-nav class="flex-row col-12 col-lg-6 order-4 order-lg-0 mt-2 mt-lg-0 align-items-center">
             <input 
@@ -19,11 +20,9 @@
         <!-- right -->
       <b-navbar-nav class="ml-0 ml-lg-auto flex-row fz-5">
         <div class="d-flex mr-5 align-items-center">
-            <div class="icons-nav"><img src="~/assets/img/icons/icon-avatar.png" alt=""/></div>
+            <div class="icons-nav"><img src="~/assets/img/icons/icon-avatar.png" alt="Иконка пользователя"/></div>
             <div class="d-flex flex-column ml-3">
                 <nuxt-link to="" v-b-modal.authorization class="text-secondary link-danger">Вход</nuxt-link>
-                <authorization/>
-                <!-- <nuxt-link to="" class="text-secondary link-danger">Вход</nuxt-link> -->
                 <nuxt-link to="/register" class="text-secondary link-danger">Регистрация</nuxt-link>
             </div>
         </div>
@@ -35,20 +34,22 @@
             </div>
         </nuxt-link>
       </b-navbar-nav>
-  </b-navbar>
+    </b-navbar>
+    <ModalAuthorization/>
 </div>
 </template>
 
 <script>
-import authorization from "@/components/Modal/authorization"
+import ModalAuthorization from "@/components/Modal/authorization"
 export default {
+    name: "NavIndex",
     data() {
         return {
             search: ''
         }
     },
     components: {
-            authorization,
+            ModalAuthorization,
     },
 }
 </script>

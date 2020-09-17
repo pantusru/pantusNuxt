@@ -7,7 +7,7 @@
                     <div>m.semenov@pantus.ru</div>
                 </div>
                  <div class="d-flex flex-column">
-                    <nuxt-link to="">Личный кабинет</nuxt-link>
+                    <nuxt-link to="/profile">Личный кабинет</nuxt-link>
                     <nuxt-link to="">История заказов</nuxt-link>
                     <nuxt-link to="">Избранные товары</nuxt-link>
                  </div>

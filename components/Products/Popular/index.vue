@@ -5,7 +5,7 @@
                  v-for="data in popular"
                 :key="data.id"
                 >
-                <PopularProduct  :dataset="data"/>
+                <PopularProduct  :datasetProduct="data"/>
             </b-col>
         </b-row>
     </b-container>

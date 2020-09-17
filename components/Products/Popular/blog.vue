@@ -4,7 +4,7 @@
             <h6 class="mb-0"> <nuxt-link class="text-dark" :to="'/product/'+ datasetProduct.ProductCard.id"> {{ datasetProduct.ProductCard.name }} </nuxt-link></h6>
         </template>
         <div>
-            <b-card-img
+            <b-card-img @click="ModalImg(datasetProduct, true)"
                 :src="datasetProduct.ProductCard.ProductCardImage.url">
             </b-card-img>
         </div>
@@ -41,7 +41,7 @@
                 </b-col>
                 <b-col class="text-right">
                     <div class="text-success mb-2">{{ datasetProduct.productOffer[0].quantity }}</div>
-                    <BuyButton/>
+                    <BuyButton @click="ModalProduct()" />
                 </b-col>
             </b-row>
         </template>
@@ -49,8 +49,11 @@
 </template>
 
 <script>
-import BuyButton from  "@/components/Products/Button/buyIndex" 
+import  mixinsImg from "@/mixins/Modal/ProductImg"
+import  mixinsBuy from "@/mixins/Modal/buyProduct"
+import BuyButton from "@/components/Products/Button/buyIndex" 
 export default {
+    mixins:[mixinsImg, mixinsBuy],
     props:{
         datasetProduct:{},
     },

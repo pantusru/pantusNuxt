@@ -5,9 +5,14 @@ export default {
         }
     },
     methods:{
-        ModalImg(data){
-            this.dataset = data;
-            this.$bvModal.show('img');	
+        ModalImg(data , emit = false){
+            if(emit == true){
+                this.$emit('data', data);
+            }else{
+                this.dataset = data;
+            }
+            console.log(this.dataset);	
+            this.$bvModal.show('img');
         }
     }
 }

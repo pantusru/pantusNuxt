@@ -6,10 +6,13 @@ export default {
         }
     },
     methods:{
-        ModalProduct(card, offer){
+        ModalProduct(card, offer ,emit=false){
             this.ProductCard = card;
             this.productOffer = offer;	
             this.$bvModal.show('buy');
+            if(emit == true){
+                
+            }
         }
     }
 }   

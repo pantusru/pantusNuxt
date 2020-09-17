@@ -12,7 +12,7 @@
             </template>
             <template v-slot:cell(img)="data">
                 <div v-if="data.item.ProductCard.ProductCardImage.url">
-                    <b-icon-camera-fill v-b-modal="toString(data.item.id)"  class="cursor-pointer"></b-icon-camera-fill>
+                    <b-icon-camera-fill @click="ModalImg(data.item)" class="cursor-pointer"></b-icon-camera-fill>
                 </div>
             </template>
             <template v-slot:cell(price)="data">
@@ -30,14 +30,16 @@
              <template v-slot:cell(Delete)="data">
                 <b-button @click="deleteProduct(data.index)" class="bg-danger border-0 py-1">X</b-button>
             </template>
-            <ImgModal/>
+            <ImgModal :dataset="dataset"/>
         </b-table>
 </template>
 
 <script>
+import mixitImg from "@/mixins/Modal/ProductImg"
 import ImgModal from "@/components/Modal/ProductImg"
 import vInput from "@/components/Products/Input/kolvo"
 export default {
+    mixins:[mixitImg],
     data() {
         return {
             fields:[

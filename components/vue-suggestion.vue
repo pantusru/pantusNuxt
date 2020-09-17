@@ -1,12 +1,14 @@
 <template>
-  <div class="autocomplete">
-    <input
-        type="text"
+  <div :class="addClass" class="autocomplete">
+    <b-input
+        autocomplete="off"
+        type="text" 
         @input="onChange"
         v-model="search"
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
         @keydown.enter="onEnter"
+        @focus="isOpen = true"
     />
     <ul
         id="autocomplete-results"
@@ -14,20 +16,22 @@
         class="autocomplete-results"
     >
       <li
-          class="loading"
-          v-if="isLoading"
-      >
-        Loading results...
-      </li>
-      <li
-          v-else
-          v-for="(result, i) in results"
+          v-for="(item, i) in items"
           :key="i"
-          @click="setResult(result)"
+          @click="setResult(item.name, item.id)"
           class="autocomplete-result"
           :class="{ 'is-active': i === arrowCounter }"
       >
-        {{ result }}
+        {{ item.typeShort }}
+        {{ item.name}}
+        <span class="text-muted"  v-for="parent in item.parents" :key="parent.id">
+            <template v-if="parent.typeShort == 'Респ'">
+              {{ parent.typeShort}} {{parent.name }}
+            </template>
+            <template v-else>
+              {{ parent.name}} {{parent.typeShort }}
+            </template>
+        </span>
       </li>
     </ul>
   </div>
@@ -45,50 +49,33 @@ export default {
       required: false,
       default: () => [],
     },
-    isAsync: {
-      type: Boolean,
+    addClass:{
+      type: String,
       required: false,
-      default: false,
-    },
+    }
   },
 
   data() {
     return {
       isOpen: false,
-      results: [],
       search: '',
       isLoading: false,
       arrowCounter: 0,
+      id: 0,
     };
   },
-
   methods: {
     onChange() {
-      // Let's warn the parent that a change was made
-      this.$emit('input', this.search);
-
-      // Is the data given by an outside ajax request?
-      if (this.isAsync) {
-        this.isLoading = true;
-      } else {
-        // Let's  our flat array
-        this.filterResults();
-        this.isOpen = true;
-      }
+      this.$emit('input', {data: this.search , id: this.id});
+      this.isOpen = true;
     },
-
-    filterResults() {
-      // first uncapitalize all the things
-      this.results = this.items.filter((item) => {
-        return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
-      });
-    },
-    setResult(result) {
+    setResult(result ,id) {
+      this.id = id;
       this.search = result;
       this.isOpen = false;
     },
     onArrowDown() {
-      if (this.arrowCounter < this.results.length) {
+      if (this.arrowCounter < this.items.length) {
         this.arrowCounter = this.arrowCounter + 1;
       }
     },
@@ -98,7 +85,7 @@ export default {
       }
     },
     onEnter() {
-      this.search = this.results[this.arrowCounter];
+      this.search = this.items[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },
@@ -108,15 +95,6 @@ export default {
         this.arrowCounter = -1;
       }
     }
-  },
-  watch: {
-    items: function (val, oldValue) {
-      // actually compare them
-      if (val.length !== oldValue.length) {
-        this.results = val;
-        this.isLoading = false;
-      }
-    },
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside)

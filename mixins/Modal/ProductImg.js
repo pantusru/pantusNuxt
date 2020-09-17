@@ -5,13 +5,12 @@ export default {
         }
     },
     methods:{
-        ModalImg(data , emit = false){
+        async ModalImg(data , emit = false){
             if(emit == true){
-                this.$emit('data', data);
+                this.$emit('dataImg', data);
             }else{
                 this.dataset = data;
             }
-            console.log(this.dataset);	
             this.$bvModal.show('img');
         }
     }

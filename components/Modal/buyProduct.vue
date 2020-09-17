@@ -63,10 +63,6 @@ export default {
     methods:{
         hidden(){ // принудительно закрыть модальное окно
             this.kolvo = 1;
-            // this.$nextTick(() => {
-            //     this.kolvo = 1;
-            //     this.$bvModal.hide(`${this.modalId}`);
-            // })
         },
         SetKolvo(kolvo){
             this.kolvo = kolvo.kolvo;

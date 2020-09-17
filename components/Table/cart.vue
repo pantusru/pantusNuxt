@@ -1,4 +1,6 @@
 <template>
+    <div>
+           <ImgModal :dataset="dataset"/>
           <b-table class="mt-4 text-center"
         :fields="fields"
         :items="CartProduct"
@@ -30,8 +32,8 @@
              <template v-slot:cell(Delete)="data">
                 <b-button @click="deleteProduct(data.index)" class="bg-danger border-0 py-1">X</b-button>
             </template>
-            <ImgModal :dataset="dataset"/>
         </b-table>
+    </div>
 </template>
 
 <script>

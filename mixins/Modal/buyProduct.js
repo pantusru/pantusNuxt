@@ -7,12 +7,17 @@ export default {
     },
     methods:{
         ModalProduct(card, offer ,emit=false){
-            this.ProductCard = card;
-            this.productOffer = offer;	
-            this.$bvModal.show('buy');
             if(emit == true){
-                
+                this.$emit('dataProduct', {
+                    ProductCard: card,
+                    productOffer: offer
+                });
             }
+            else{
+                this.ProductCard = card;
+                this.productOffer = offer;	
+            }
+            this.$bvModal.show('buy');
         }
     }
 }   

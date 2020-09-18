@@ -7,6 +7,10 @@ export const actions = {
                 ProductCard:{
                     id: 30,
                     name: "Товар1",
+                    brand:{
+                        id: 5,
+                        name: "A-Sport"
+                    },
                     sku:{
                         original: "6534-ку",
                         normalized: "6534-ru"
@@ -19,15 +23,17 @@ export const actions = {
                     ],
                 },
                 ProductOffer:{
-                    prices:{
-                        wholesale: "356"
-                    },
-                    quantity: 411
+                    prices:356,
+                    quantity: 411,
+                    supplier:{
+                        name: "Пантус",
+                        deliveryDelay: "Сегодня"
+                    }
                 }
             },
             {
                 id:19,
-                kolvo:4,
+                kolvo:7,
                 ProductCard:{
                     id: 30,
                     name: "Товар1",
@@ -35,6 +41,10 @@ export const actions = {
                         original: "6534-ку",
                         normalized: "6534-ru"
                     },
+                    brand:{
+                        id: 5,
+                        name: "A-Sport"
+                    },
                     ProductCardImage:{
                         url: "http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"
                     },
@@ -43,10 +53,12 @@ export const actions = {
                     ],
                 },
                 ProductOffer:{
-                    prices:{
-                        wholesale: "356"
-                    },
-                    quantity: 411
+                    prices:356,
+                    quantity: 411,
+                    supplier:{
+                        name: "Пумма",
+                        deliveryDelay: "Завтра"
+                    }
                 }
             },
             

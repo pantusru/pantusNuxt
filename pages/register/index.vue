@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validators'
 import MixinsError from "@/mixins/Form/register/error"
 import MixinsValidations from "@/mixins/Form/register/validator"
 import VInput from "@/components/register/index"

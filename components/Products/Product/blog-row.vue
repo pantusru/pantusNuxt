@@ -12,26 +12,38 @@
                     <RowAtr class="text-right" name="Поставщик" types="text" :dataset="Product.productOffer[0].supplier.name" />
                     <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original" />
                     <RowAtr name="Срок поставки" types="text" :dataset="Product.productOffer[0].supplier.deliveryDelay" />
-                    <RowAtr slots=true name="Применяемость" :dataset="Product.ProductCard.applicabilities">
-                        <div>
-                            <div v-for="data in Product.ProductCard.applicabilities" :key="data.id">
+                    <RowAtr slots=true>
+                        <template v-slot:header>
+                            <div class="mr-1">Применяемость</div> 
+                            <div class="text-right">{{ Product.ProductCard.applicabilities[0].name }}</div>
+                        </template>
+                        <template v-slot:body>
+                            <div v-for="data in Product.ProductCard.applicabilities.slice(1, Product.ProductCard.applicabilities.length)" :key="data.id">
                                 <nuxt-link class="text-right" :to="'applicabilities/' + data.id">{{ data.name }}</nuxt-link>
                             </div>
-                        </div>
+                        </template>
                     </RowAtr>
-                    <RowAtr  slots=true name="ОЕМ" :dataset="Product.ProductCard.ProductCardOem">
-                        <div>
-                            <div v-for="data in Product.ProductCard.ProductCardOem" :key="data.id">
+                    <RowAtr  slots=true>
+                        <template v-slot:header>
+                            <div class="mr-1">ОЕМ</div> 
+                            <div class="text-right">{{ Product.ProductCard.ProductCardOem[0] }}</div>
+                        </template>
+                        <template v-slot:body>
+                            <div v-for="data in Product.ProductCard.ProductCardOem.slice(1,Product.ProductCard.ProductCardOem.length )" :key="data.id">
                                 <div class="text-right ">{{ data }}</div>
                             </div>
-                        </div>
+                        </template>
                     </RowAtr>
-                    <RowAtr v-if="Product.ProductCard.categories.length > 0"  slots=true name="Категории" :dataset="Product.ProductCard.categories[0].name">
-                        <div>
-                            <div v-for="data in Product.ProductCard.categories" :key="data.id">
+                    <RowAtr slots=true >
+                        <template v-slot:header>
+                            <div class="mr-1">Категории</div>
+                                <div class="text-right">{{ Product.ProductCard.categories[0].name }}</div>
+                        </template>
+                         <template v-slot:body>
+                            <div v-for="data in Product.ProductCard.categories.slice(1, Product.ProductCard.categories.length)" :key="data.id">
                                 <nuxt-link class="text-right" :to="'categories/' + data.id">{{ data.name }}</nuxt-link>
                             </div>
-                        </div>
+                         </template>
                     </RowAtr>
                 </b-row>
         </b-card-body>

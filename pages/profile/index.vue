@@ -2,15 +2,7 @@
     <b-container>
         <b-row>
             <b-col cols="3">
-                <div class="mb-5">
-                    <div class="mb-2">Максим Семенов</div>
-                    <div>m.semenov@pantus.ru</div>
-                </div>
-                 <div class="d-flex flex-column">
-                    <nuxt-link to="/profile">Личный кабинет</nuxt-link>
-                    <nuxt-link to="">История заказов</nuxt-link>
-                    <nuxt-link to="">Избранные товары</nuxt-link>
-                 </div>
+                <NavProfile/>
             </b-col>
             <b-col>
                 <div>
@@ -28,9 +20,11 @@
 <script>
 // УКАЗАТЬ mixit 
 import ElementForm from "@/components/Profile/input"
+import NavProfile from "@/components/Nav/Profile/index"
 export default {
     components:{
         ElementForm,
+        NavProfile
     },
     computed:{
         Form(){

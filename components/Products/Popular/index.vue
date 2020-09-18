@@ -18,14 +18,9 @@
 import ModalImg from  "@/components/Modal/ProductImg"
 import ModalBuy from  "@/components/Modal/buyProduct"
 import PopularProduct from "@/components/Products/Popular/blog"
+import ProductModal from "@/mixins/GetModal/product_all"
 export default {
-    data() {
-        return {
-            dataset: undefined,
-            ProductCard: undefined,
-            productOffer: undefined,
-        }
-    },
+    mixins:[ProductModal],
     computed: {
         popular() {
             return this.$store.getters["Products/popular/GetProductPopual"]
@@ -37,15 +32,6 @@ export default {
         ModalBuy,
 
     },
-    methods:{
-        async Getdataset(data){
-            this.dataset = data;
-        },
-        GetdataProduct(data){
-              this.ProductCard = data.ProductCard;
-              this.productOffer = data.productOffer;
-        }
-    }
 }
 </script>
 

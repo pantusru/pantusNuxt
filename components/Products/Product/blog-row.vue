@@ -1,10 +1,24 @@
 <template>
   <b-card class="mb-4">
-        <b-card-header header-class="border-0 bg-white row align-items-center">
-                <b-col cols="2">
-                    <b-img fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
+        <b-card-header header-class="border-0 bg-white">
+            <b-row class="align-items-center">
+                <b-row class="col-6 align-items-center">
+                    <b-col cols="4">
+                        <b-img @click="ModalImg(Product, true)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
+                    </b-col>
+                    <h2> {{ Product.ProductCard.name}}</h2>
+                </b-row>
+                <b-row class="col-6">
+                   <b-col>
+                    <div class="mb-3">Цена</div>
+                    <div><b>{{ Product.productOffer[0].prices }} Р</b></div>
                 </b-col>
-                <h2> {{ Product.ProductCard.name}}</h2>
+                <b-col class="text-right">
+                    <div class="text-success mb-2">{{ Product.productOffer[0].quantity }}</div>
+                    <BuyButton @click="ModalProduct(Product.ProductCard, Product.productOffer[0], true )" />
+                </b-col>
+                </b-row>
+            </b-row>
         </b-card-header>
         <b-card-body>
                 <b-row class="justify-content-between">
@@ -51,14 +65,19 @@
 </template>
 
 <script>
+import  mixinsImg from "@/mixins/Modal/ProductImg"
+import  mixinsBuy from "@/mixins/Modal/buyProduct"
+import BuyButton from "@/components/Products/Button/buyIndex"
 import RowAtr from "@/components/Products/Product/Element/row"
 export default {
+    mixins:[mixinsImg, mixinsBuy],
     name: "ProductBlogRow",
     props: {
         Product: {}
     },
     components:{
         RowAtr,
+        BuyButton
     }
 }
 </script>

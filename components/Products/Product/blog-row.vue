@@ -1,6 +1,6 @@
 <template>
-  <b-card class="mb-4">
-        <b-card-header header-class="border-0 bg-white">
+  <b-card class="mb-4" >
+        <b-card-header header-class="border-0 bg-white p-0">
             <b-row class="align-items-center">
                 <b-row class="col-6 align-items-center">
                     <b-col cols="4">
@@ -10,7 +10,7 @@
                 </b-row>
                 <b-row class="col-6">
                    <b-col>
-                    <div class="mb-3">Цена</div>
+                    <div class="mb-2">Цена</div>
                     <div><b>{{ Product.productOffer[0].prices }} Р</b></div>
                 </b-col>
                 <b-col class="text-right">
@@ -20,7 +20,7 @@
                 </b-row>
             </b-row>
         </b-card-header>
-        <b-card-body>
+        <b-card-body class="py-0">
                 <b-row class="justify-content-between">
                     <RowAtr name="Бренд" :link="'brand/' + Product.ProductCard.brand.id" :dataset="Product.ProductCard.brand.name" />
                     <RowAtr class="text-right" name="Поставщик" types="text" :dataset="Product.productOffer[0].supplier.name" />

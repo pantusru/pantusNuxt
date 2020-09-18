@@ -2,7 +2,8 @@
     <b-container>
         <h2 class="mb-4 mt-4">Популярные товары</h2>
         <b-row>
-            <b-col cols=4                         
+            <b-col cols=4 
+                class="d-flex"                         
                  v-for="data in popular"
                 :key="data.id"
             >

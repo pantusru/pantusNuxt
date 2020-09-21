@@ -50,7 +50,7 @@
                     </RowAtr>
                 </b-row>
                 <b-row class="justify-content-between flex-column col-7">
-                    <TableOffset/>
+                    <TableOffset @dataProduct="EmitProduct" :offset="Product.productOffer" :Product="Product.ProductCard" />
                 </b-row>
             </div>
         </b-card-body>
@@ -65,6 +65,7 @@ import TableOffset from "@/components/Table/offset"
 export default {
     methods:{
         EmitProduct(data){
+            console.log(data);
             this.$emit('dataProduct', {
                 ProductCard: data.ProductCard,
                 productOffer: data.productOffer

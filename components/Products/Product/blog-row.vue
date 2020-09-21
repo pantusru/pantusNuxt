@@ -1,7 +1,7 @@
 <template>
   <b-card class="mb-4" >
         <b-card-header header-class="border-0 bg-white p-0">
-            <b-row class="align-items-center">
+            <b-row class="align-items-center mb-3">
                 <b-row class="col-6 align-items-center">
                     <b-col cols="4">
                         <b-img @click="ModalImg(Product, true)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
@@ -29,7 +29,7 @@
                     <RowAtr slots=true>
                         <template v-slot:header>
                             <div class="mr-1">Применяемость</div> 
-                            <div class="text-right">{{ Product.ProductCard.applicabilities[0].name }}</div>
+                            <nuxt-link :to="'applicabilities/' + Product.ProductCard.applicabilities[0].id" class="text-right">{{ Product.ProductCard.applicabilities[0].name }}</nuxt-link>
                         </template>
                         <template v-slot:body>
                             <div v-for="data in Product.ProductCard.applicabilities.slice(1, Product.ProductCard.applicabilities.length)" :key="data.id">
@@ -51,7 +51,7 @@
                     <RowAtr slots=true >
                         <template v-slot:header>
                             <div class="mr-1">Категории</div>
-                                <div class="text-right">{{ Product.ProductCard.categories[0].name }}</div>
+                                <nuxt-link :to="'categories/' + Product.ProductCard.categories[0].id" class="text-right">{{ Product.ProductCard.categories[0].name }}</nuxt-link>
                         </template>
                          <template v-slot:body>
                             <div v-for="data in Product.ProductCard.categories.slice(1, Product.ProductCard.categories.length)" :key="data.id">

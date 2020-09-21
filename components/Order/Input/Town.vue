@@ -21,14 +21,15 @@ export default {
     mixins:[mixitProps],
     data() {
         return {
-            nameSet: "Order/Form/SetFull",
+            nameSet: "Order/Form/SetFull", // Изменить
+            nameSetTown: "Order/Form/SetFull",
         }
     },
     methods:{
         async SetValue(data){ // Сохранение в VUEX для дальшейшей отправки на API
             this.$v.Form[this.name].$touch();
-            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "Town", value: data.data});
-            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "TownId", value: data.id});
+            this.$store.commit(this.nameSetTown, {data:this.VuexSrc, name: "Town", value: data.data});
+            this.$store.commit(this.nameSetTown, {data:this.VuexSrc, name: "TownId", value: data.id});
         },
 
     },

@@ -8,10 +8,10 @@
                 <div>
                     <h2 class="mb-4"> Личные данные </h2>
                     <ElementForm name="login" :items="'Логин (e-mail):'"  />
-                    <ElementForm name="name" :items="'Имя:'" />
-                    <ElementForm name="surname" :items="'Фамилия:'" :value="'Семенов'" />
-                    <ElementForm name="patronymic" :items="'Отчество:'" :value="'Александрович'" />
-                    <ElementForm name="telephone" :items="'Телефон:'"  :value="'+7 (937) 147-91-57'" />
+                    <ElementForm name="name" :items="'Имя:'"  />
+                    <ElementForm name="surname" :items="'Фамилия:'"  />
+                    <ElementForm name="patronymic" :items="'Отчество:'"/>
+                    <ElementForm name="telephone" :items="'Телефон:'" />
                 </div>
             </b-col>
         </b-row>

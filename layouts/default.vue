@@ -19,6 +19,7 @@ import VueHeader from "../components/Header/Index"
     },
     mounted(){ // при прогрузке странице
       this.$store.commit("SetShow", false);
+      this.GetUser();  
     },
     watch:{ // при изменения url 
       $route() {
@@ -27,6 +28,11 @@ import VueHeader from "../components/Header/Index"
     },
     updated(){// при обновление страницы
       this.$store.commit("SetShow", false);
+    },
+    methods:{
+      async GetUser(){ // Загрузка Данных User
+        await this.$store.dispatch("User/_User");
+      }
     }
 }
 </script>

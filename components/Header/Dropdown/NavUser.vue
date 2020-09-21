@@ -22,7 +22,7 @@ export default {
             links:[
                 {to:"/profile", text:"Личный кабинет"},
                 {to:"/profile", text:"История заказов"},
-                {to:"/profile", text:"Избранные товары"},
+                {to:"/selected", text:"Избранные товары"},
                 {to:"/profile", text:"Выход"},
             ]
         }

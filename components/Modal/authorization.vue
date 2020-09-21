@@ -37,7 +37,7 @@ export default {
     methods:{
         password(){ // переход на страницу забыли пароль
             this.hidden();
-            this.$router.push("/register");
+            this.$router.push("/forgot_password");
         },
         hidden(){ // принудительно закрыть модальное окно
             this.$nextTick(() => {

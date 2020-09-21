@@ -5,7 +5,7 @@
         <b-row>
             <VInput items="Email:" name="Email" :error="error.Email"></VInput>
         </b-row>
-        <b-button class="bg-danger border-0">Отправить</b-button>
+        <b-button @click="ClickBnt" class="bg-danger border-0">Отправить</b-button>
    </b-container>
 </template>
 
@@ -24,6 +24,14 @@ export default {
             $v: this.$v,
         }
     },
+    methods:{
+        ClickBnt(){
+            this.$v.Form.$touch();
+            if(this.$v.Form.$error === false){
+                // ЗАПРОС  НА СЕРВЕР
+            }
+        }
+    }
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
     <b-container>
         <b-row>
-            <b-col cols="3">
+            <div class="pr-3">
                 <NavProfile/>
-            </b-col>
+            </div>
             <b-col>
                 <div>
                     <h2 class="mb-4"> Избранный товар </h2>

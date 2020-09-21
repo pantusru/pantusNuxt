@@ -1,17 +1,17 @@
 <template>
-<b-col cols="6" class="mb-2">
-        <b-row class="justify-content-between col-10 p-0 border-bottom" v-if="slots == false"> 
+<b-col class="mb-2">
+        <div class="d-flex justify-content-between col-10 p-0 border-bottom" v-if="slots == false"> 
                 <div class="mr-1"> {{name}}</div> 
                 <!-- ЕСЛИ НЕ МОЖЕТ БЫТЬ МАССИВ -->
                 <div>
                     <div v-if="types == 'text'"> {{ dataset}} </div>
                     <nuxt-link :to="link" v-if="types == 'link'"> {{ dataset}} </nuxt-link>
                 </div>
-        </b-row>
-        <b-row class="justify-content-between col-10 p-0 border-bottom"  v-if="slots">
+        </div>
+        <div class=" d-flex justify-content-between col-10 p-0 border-bottom"  v-if="slots">
             <slot name="header"></slot>
-        </b-row>
-        <div v-if="slots" class="text-right col-10">
+        </div>
+        <div v-if="slots" class="text-right col-10 p-0">
           <slot name="body"></slot>
         </div>
 </b-col>

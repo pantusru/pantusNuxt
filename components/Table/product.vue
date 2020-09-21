@@ -25,7 +25,7 @@
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">{{ product.ProductCard.name }}</b-td>
                     <b-td class="position-absolute border-0 left-40">
-                        <Chosen :id="product.ProductCard.id" />
+                        <Chosen :id="product.ProductCard.id"/>
                     </b-td>
                 </b-tr>
                 <b-tr class="hover-true" v-for="offer in product.productOffer" :key="offer.id">

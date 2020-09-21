@@ -2,7 +2,7 @@
   <div>
       <div class="d-flex justify-content-between">
             <label class="mr-3  pl-0" :for="name">{{ items }}</label>
-            <autocomplete addClass="w-75" @input="SetValue"  :items="itemsTown"></autocomplete>
+            <autocomplete addClass="w-75" @input="SetValue"></autocomplete>
             <!-- <b-input class="w-75" v-on:input="goTown" v-model="value" size="sm" :id="name"></b-input> -->
       </div>
         <div class="error-full text-center">
@@ -22,48 +22,15 @@ export default {
     data() {
         return {
             nameSet: "Order/Form/SetFull",
-            itemsTown: [],
-            timerId: null,
-            value: "",
-            valueId : "",
         }
     },
-    props:{
-        name:{}
-    },
-    watch:{
-        value(){
-            console.log(this.value);
-            this.$v.Form[this.name].$touch();
-            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "Town", value:this.value});
-            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "TownId", value:this.valueId});
-        }
-    }, 
     methods:{
-        async GetData(data){
-            this.valueId = data.id;
-            this.value = data.data;  
-            let dataset = await this.$store.dispatch("API/axios/_API_Town", this.value);
-            let result = dataset.result;
-            this.itemsTown = [];
-            if(result.length > 1){
-                result = result.slice(1, result.length);
-                for(let index in result){
-                    this.itemsTown.push({
-                        id: result[index].id,
-                        typeShort: result[index].typeShort,
-                        name: result[index].name,
-                        parents: result[index].parents,  
-                    }); 
-                }
-            }
+        async SetValue(data){ // Сохранение в VUEX для дальшейшей отправки на API
+            this.$v.Form[this.name].$touch();
+            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "Town", value: data.data});
+            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "TownId", value: data.id});
         },
-        SetValue(data){
-            if(this.timerId !=null){
-                clearTimeout(this.timerId);
-            }
-            this.timerId = setTimeout(this.GetData, 1000 , data);
-        },
+
     },
     components:{
         autocomplete,

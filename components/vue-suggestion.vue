@@ -44,11 +44,6 @@ export default {
   name: 'autocomplete',
 
   props: {
-    items: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
     addClass:{
       type: String,
       required: false,
@@ -61,46 +56,72 @@ export default {
   },
   data() {
     return {
-      isOpen: false,
-      search: '',
-      isLoading: false,
-      arrowCounter: 0,
-      id: 0,
+      items: [], // Массив результата города
+      timerId: null, // ID таймер для stop запросов
+      isOpen: false, // состояние открыто ли меню
+      search: '', // что ввел пользователь поиска
+      arrowCounter: 0, // Index выделяющегося элемента списка
+      id: 0, // ID выбранного поиска
     };
   },
   methods: {
-    getItems(){
+    async GetData(){ // Запрос загрузки данных
+      this.items = [];
+      let dataset = await this.$store.dispatch("API/axios/_API_Town", this.search);
+      if(dataset.result.length > 1){
+        let result = dataset.result;
+        result = result.slice(1, result.length);
+        for(let index in result){
+          this.items.push({
+              id: result[index].id,
+              typeShort: result[index].typeShort,
+              name: result[index].name,
+              parents: result[index].parents,  
+          }); 
+        }
+      }
+
+    },
+    getItems(){ //  если items пустой то не отображаем ul
       if(this.items.length > 0){
          this.isOpen = true;
       }else{
         this.isOpen = false;
       }
     },
-    onChange() {
-      this.$emit('input', {data: this.search , id: this.id});
+    SetValue(){ // Избавление от лишних запросов
+       if(this.timerId !=null){
+          clearTimeout(this.timerId);
+       }
+      this.timerId = setTimeout(this.GetData, 1000);
     },
-    setResult(result ,id) {
+    onChange() { // Пока отправлять запрос и измененеие vuex
+      this.$emit('input', {data: this.search , id: this.id});
+      this.SetValue();
+
+    },
+    setResult(result ,id) { // Была выбрана li
       this.id = id;
       this.search = result;
       this.isOpen = false;
       this.$emit('input', {data: this.search , id: this.id});
     },
-    onArrowDown() {
+    onArrowDown() { // Нажата кнопка вниз изменение
       if (this.arrowCounter < this.items.length) {
         this.arrowCounter = this.arrowCounter + 1;
       }
     },
-    onArrowUp() {
+    onArrowUp() { // Нажата кнопка вверх 
       if (this.arrowCounter > 0) {
         this.arrowCounter = this.arrowCounter -1;
       }
     },
-    onEnter() {
+    onEnter() { // нажата кнопка enter 
       this.search = this.items[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },
-    handleClickOutside(evt) {
+    handleClickOutside(evt) { // Клик на body и скрытие ul
       if (!this.$el.contains(evt.target)) {
         this.isOpen = false;
         this.arrowCounter = -1;
@@ -127,7 +148,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 1px solid #eeeeee;
-  height: 120px;
+  height: 200px;
   overflow: auto;
   width: 100%;
 }

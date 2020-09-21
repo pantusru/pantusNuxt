@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import VueDropdown from "../Dropdown/Navtop"
+import VueDropdown from "@/components/Header/Dropdown/Navtop"
 export default {
     name: "NavTop", 
     data(){

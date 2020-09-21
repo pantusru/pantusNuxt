@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import VueDropdown from "../Dropdown/Navbottom"
 import NavUser from "@/components/Header/Dropdown/NavUser"
 import ModalAuthorization from "@/components/Modal/authorization"
 export default {
@@ -54,7 +55,8 @@ export default {
     },
     components: {
         ModalAuthorization,
-        NavUser
+        NavUser,
+        VueDropdown
     },
 }
 </script>

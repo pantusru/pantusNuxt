@@ -8,7 +8,7 @@
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
         @keydown.enter="onEnter"
-        @focus="isOpen = true"
+        @focus="getItems"
     />
     <ul
         id="autocomplete-results"
@@ -54,7 +54,11 @@ export default {
       required: false,
     }
   },
-
+  watch:{
+    items(){
+      this.getItems();
+    }
+  },
   data() {
     return {
       isOpen: false,
@@ -65,14 +69,21 @@ export default {
     };
   },
   methods: {
+    getItems(){
+      if(this.items.length > 0){
+         this.isOpen = true;
+      }else{
+        this.isOpen = false;
+      }
+    },
     onChange() {
       this.$emit('input', {data: this.search , id: this.id});
-      this.isOpen = true;
     },
     setResult(result ,id) {
       this.id = id;
       this.search = result;
       this.isOpen = false;
+      this.$emit('input', {data: this.search , id: this.id});
     },
     onArrowDown() {
       if (this.arrowCounter < this.items.length) {

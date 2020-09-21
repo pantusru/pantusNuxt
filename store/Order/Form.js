@@ -5,6 +5,7 @@ export const state = () => ({
             Name: "",
             Telephone: "",
             Town: "",
+            TownId: "",
         },
         Checxbox:{
             Payment: "35",

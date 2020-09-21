@@ -16,21 +16,33 @@
 <script>
 import autocomplete from "@/components/vue-suggestion"
 import mixitProps from "@/mixins/Input/Props/index"
-import mixit from "@/mixins/Input/VuexInput"
 export default {
+    inject:["$v", "VuexSrc"],
+    mixins:[mixitProps],
     data() {
         return {
             nameSet: "Order/Form/SetFull",
             itemsTown: [],
+            timerId: null,
+            value: "",
+            valueId : "",
         }
     },
-    mixins:[mixit,mixitProps],
     props:{
         name:{}
     },
+    watch:{
+        value(){
+            console.log(this.value);
+            this.$v.Form[this.name].$touch();
+            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "Town", value:this.value});
+            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: "TownId", value:this.valueId});
+        }
+    }, 
     methods:{
-        async SetValue(data){
-            this.value = data.data; 
+        async GetData(data){
+            this.valueId = data.id;
+            this.value = data.data;  
             let dataset = await this.$store.dispatch("API/axios/_API_Town", this.value);
             let result = dataset.result;
             this.itemsTown = [];
@@ -45,6 +57,12 @@ export default {
                     }); 
                 }
             }
+        },
+        SetValue(data){
+            if(this.timerId !=null){
+                clearTimeout(this.timerId);
+            }
+            this.timerId = setTimeout(this.GetData, 1000 , data);
         },
     },
     components:{

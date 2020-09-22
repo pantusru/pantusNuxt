@@ -31,7 +31,6 @@ export default {
         PopularProduct,
         ModalImg,
         ModalBuy,
-
     },
 }
 </script>

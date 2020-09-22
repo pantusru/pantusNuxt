@@ -14,7 +14,7 @@
             </b-tr>
         </b-thead>
         <b-tbody>
-            <template v-for="product in Products"> 
+            <template v-for="product in array"> 
                 <b-tr :key="product.ProductCard.id" class="hover-true">
                     <b-td :rowspan="product.productOffer.length+1">  {{ product.ProductCard.brand.name }} </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> {{ product.ProductCard.sku.original }} </b-td>
@@ -53,16 +53,14 @@ import BuyButton from "@/components/Products/Button/buyIndex"
 import ImgModal from "@/components/Modal/ProductImg"
 export default {
     mixins:[mixitImg,mixitBuy],
-    computed: {
-        Products() {
-            return this.$store.getters["Products/popular/GetProductPopual"]; 
-        },
-    },
     components:{
         ImgModal,
         BuyModal,
         BuyButton,
         Chosen
+    },
+    props:{
+        array:{}
     }
 }
 </script>
@@ -72,7 +70,7 @@ export default {
     width: 100px;
 }
 .left-40{
-    left: 52%;
+    left: 46%;
 }
 .hover-true:hover .d-none-chosen{
     display: block!important;

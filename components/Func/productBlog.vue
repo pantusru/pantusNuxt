@@ -1,6 +1,6 @@
 <template>
     <b-row>
-        <b-col cols="3"
+        <b-col cols="4"
             v-for="data in array"
             :key="data.id">
                 <BlogProduct 

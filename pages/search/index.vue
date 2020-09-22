@@ -5,8 +5,8 @@
         <b-col cols="12" lg="3">
           <FilterForm />
         </b-col>
-        <b-col class="pl-5" lg="9">
-          <TableProduct/>
+        <b-col lg="9">
+            <components v-bind:is="componentsName" :array="Products" />
         </b-col>
       </b-row>
   </div>
@@ -16,7 +16,14 @@
 <script>
 import FilterForm from "@/components/Forms/FulterProducts"
 import TableProduct from "@/components/Table/product"
+import productBlog from "@/components/Func/productBlog"
+import productRow from "@/components/Func/productRow"
 export default {
+  data() {
+    return {
+      componentsName: "productRow"
+    }
+  },
    async fetch({query, store, getters, commit}){
     await Promise.all([
       store.dispatch("Products/popular/_ProductPopual"),
@@ -51,7 +58,14 @@ export default {
   },
     components:{
         FilterForm,
-        TableProduct
+        TableProduct,
+        productBlog,
+        productRow
+    },
+    computed: {
+        Products() {
+            return this.$store.getters["Products/popular/GetProductPopual"]; 
+        },
     },
 }
 </script>

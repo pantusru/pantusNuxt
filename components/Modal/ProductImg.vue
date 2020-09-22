@@ -1,6 +1,6 @@
 <template>
     <b-modal id='img' hide-footer @hidden="reset">
-        <div  v-if="dataset != null">
+        <div  v-if="dataset != undefined">
             <div class="col-7 mb-4">
                 <b-img class="img-100" :src="UrlMain"></b-img>
             </div>
@@ -26,9 +26,6 @@
 import mixins from "@/mixins/Product/album"
 export default {
     mixins:[mixins],
-    props:{
-        dataset:{},
-    }, 
 }
 </script>
 

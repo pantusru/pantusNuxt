@@ -24,5 +24,8 @@ export default {
         dataset(){
             this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;
         }
-    }
+    },
+    props:{
+        dataset:{},
+    }, 
 }   

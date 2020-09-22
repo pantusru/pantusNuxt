@@ -30,9 +30,9 @@ export default {
      data() {   
          return {
             error:{
-                Surname: Surname,
-                Name: Name,
-                Telephone:Telephone,
+                surname: Surname,
+                name: Name,
+                tlf:Telephone,
                 Town:Town,
             }
          }

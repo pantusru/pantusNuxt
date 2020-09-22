@@ -46,12 +46,16 @@ export default {
     computed:{
         Form(){
             return this.$store.getters["Order/Form/GetContact"];
-        }
+        },
+        User(){
+            return this.$store.getters["User/FormData"];
+        },
     },
     provide(){
         return{
             $v: this.$v,
-            VuexSrc: this.Form
+            VuexSrc: this.Form,
+            User: this.User
         }
     }
 }

@@ -1,9 +1,9 @@
 export const state = () => ({
     Form:{
         Contact:{
-            Surname: "",
-            Name: "",
-            Telephone: "",
+            surname: "",
+            name: "",
+            tlf: "",
             Town: "",
             TownId: "",
         },

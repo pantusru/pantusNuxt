@@ -14,9 +14,9 @@ let Town = {
 }
 // let all поля которые есть в 2 формах
 let all  = {
-    Name:Name,
-    Surname:Surname,
-    Telephone:Telephone,
+    name:Name,
+    surname:Surname,
+    tlf:Telephone,
     Town:Town,
 }
 

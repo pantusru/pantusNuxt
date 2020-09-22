@@ -1,8 +1,8 @@
 <template>
     <b-form class="pt-3">
-        <vInput items="Фамилия" name="Surname" :error="error['Surname']" />
-        <vInput items="Имя"  name="Name" :error="error['Name']" />
-        <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="Telephone" :error="error['Telephone']"/>
+        <vInput items="Фамилия" name="surname" :error="error['surname']" />
+        <vInput items="Имя"  name="name" :error="error['name']" />
+        <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="tlf" :error="error['tlf']"/>
         <Town items="Город"  name="Town" :error="error['Town']"/>
     </b-form>
 </template>

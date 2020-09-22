@@ -23,10 +23,15 @@
 import mixitProps from "@/mixins/Input/Props/index"
 import mixit from "@/mixins/Input/VuexInput"
 export default {
-    mixins:[mixit, mixitProps],
-    data(){
+    created(){
+        this.$store.commit(this.nameSet, {data:this.VuexSrc, name: this.name, value:this.value});
+    },
+    mixins:[mixitProps, mixit],
+    inject:["$v", "VuexSrc", "User"], // Переопределено
+    data(){ // Переопределено
         return{
             nameSet: "Order/Form/SetFull",
+            value: this.User[this.name]
         }
     },
     props:{

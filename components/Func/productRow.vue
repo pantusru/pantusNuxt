@@ -20,7 +20,6 @@ import ModalImg from  "@/components/Modal/ProductImg"
 import ModalBuy from  "@/components/Modal/buyProduct"
 export default {
     props:{
-        // componetsName:{},
         array:{},
     },
     mixins:[ProductModal],

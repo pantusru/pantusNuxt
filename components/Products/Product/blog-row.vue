@@ -15,7 +15,7 @@
                 <b-row class="flex-column col-5 p-0">
                     <RowAtr name="Бренд" :link="'brand/' + Product.ProductCard.brand.id" :dataset="Product.ProductCard.brand.name" />
                     <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original" />
-                    <RowAtr slots=true>
+                    <RowAtr slots=true v-if="Product.ProductCard.applicabilities != undefined">
                         <template v-slot:header>
                             <div class="mr-1">Применяемость</div> 
                             <nuxt-link :to="'applicabilities/' + Product.ProductCard.applicabilities[0].id" class="text-right">{{ Product.ProductCard.applicabilities[0].name }}</nuxt-link>
@@ -26,7 +26,7 @@
                             </div>
                         </template>
                     </RowAtr>
-                    <RowAtr  slots=true>
+                    <RowAtr  slots=true v-if="Product.ProductCard.ProductCardOem != undefined">
                         <template v-slot:header>
                             <div class="mr-1">ОЕМ</div> 
                             <div class="text-right">{{ Product.ProductCard.ProductCardOem[0] }}</div>
@@ -37,7 +37,7 @@
                             </div>
                         </template>
                     </RowAtr>
-                    <RowAtr slots=true >
+                    <RowAtr slots=true v-if="Product.ProductCard.categories != undefined">
                         <template v-slot:header>
                             <div class="mr-1">Категории</div>
                                 <nuxt-link :to="'categories/' + Product.ProductCard.categories[0].id" class="text-right">{{ Product.ProductCard.categories[0].name }}</nuxt-link>

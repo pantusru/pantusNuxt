@@ -3,10 +3,10 @@
   <div class="container">
       <b-row>
         <b-col cols="12" lg="3">
-          <FilterForm />
+          <FilterForm/>
         </b-col>
         <b-col lg="9">
-            <components v-bind:is="componentsName" :array="Products" />
+            <components v-bind:is="componentsName" :array="Products"/>
         </b-col>
       </b-row>
   </div>
@@ -21,7 +21,7 @@ import productRow from "@/components/Func/productRow"
 export default {
   data() {
     return {
-      componentsName: "productRow"
+      componentsName: "TableProduct"
     }
   },
    async fetch({query, store, getters, commit}){
@@ -64,7 +64,7 @@ export default {
     },
     computed: {
         Products() {
-            return this.$store.getters["Products/popular/GetProductPopual"]; 
+          return this.$store.getters["Products/popular/GetProductPopual"]; 
         },
     },
 }

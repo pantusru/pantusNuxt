@@ -2,7 +2,7 @@
   <div class="home">
     <b-overlay :show="show" rounded="sm"> <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5"/> <!-- Шапка сайта -->
-      <Nuxt/>
+      <Nuxt v-if="loaderUser"/>
     </b-overlay>
   </div>
 </template>
@@ -15,7 +15,10 @@ import VueHeader from "../components/Header/Index"
     computed:{
       show(){
         return this.$store.getters["Getshow"];
-      }
+      },
+      loaderUser(){
+        return this.$store.getters["User/Loader"];
+      },
     },
     mounted(){ // при прогрузке странице
       this.$store.commit("SetShow", false);

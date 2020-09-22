@@ -1,5 +1,5 @@
 <template>
-   <b-nav-item-dropdown center  no-caret toggle-class="text-body link-danger font-weight-bold fz-5">
+   <b-nav-item-dropdown center  no-caret toggle-class="text-body link-danger font-weight-bold fz-5 px-0">
     <!-- Using 'button-content' slot -->
     <template slot="button-content">
         <b-icon-justify></b-icon-justify>

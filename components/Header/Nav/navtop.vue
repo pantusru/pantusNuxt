@@ -6,7 +6,7 @@
                 <b-navbar-nav>
                     <!-- Выплывающий список и прост ссылка -->
                     <VueDropdown class="d-none d-lg-block" />
-                    <b-nav-item to="" link-classes="text-body link-danger d-lg-none">О компании </b-nav-item> 
+                    <b-nav-item to="" class="px-0" link-classes="text-body link-danger d-lg-none px-0">О компании </b-nav-item> 
                     <!-- Выплывающий список и прост ссылка -->
                     <b-nav-item :to="data.to"
                     link-classes="text-body link-danger"  

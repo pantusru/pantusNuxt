@@ -1,6 +1,6 @@
 <template>
  <div class="container">
-  <b-navbar toggleable="lg">
+  <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
     <b-navbar-brand to="/"><img src="~assets/img/logo.png" alt="Логотип сайта"></b-navbar-brand>
       <!-- center -->

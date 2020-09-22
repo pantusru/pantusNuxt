@@ -65,7 +65,6 @@ import TableOffset from "@/components/Table/offset"
 export default {
     methods:{
         EmitProduct(data){
-            console.log(data);
             this.$emit('dataProduct', {
                 ProductCard: data.ProductCard,
                 productOffer: data.productOffer

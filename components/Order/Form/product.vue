@@ -15,7 +15,7 @@ export default {
             console.log(this.$v.Form);
             this.$v.Form.$touch();
         }
-    }
+    },
 }
 </script>
 

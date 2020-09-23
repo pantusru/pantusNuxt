@@ -27,6 +27,11 @@ export const actions = {
             }
         });
     },
+    _AllVisible({commit, dispatch}, data){ // Reset visible
+        data.forEach(element => {
+            commit("Catalog/Visible/SetAllVisible", {data:element, value: true}, { root: true });
+        });
+    },
     async _AllChexboxId({commit, dispatch}, data){ // Найди ID chexbox у которых checked === true
         let IdChexbox = [];
         for (const key in data) {

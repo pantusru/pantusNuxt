@@ -1,9 +1,13 @@
 export const state = () => ({
     Applicabilities: [],
+    Flag: false,
 })
 export const mutations  =  {
     SetApplicabilities(store, data){
         store.Applicabilities = data;
+    },
+    SetFlag(store, data){
+       store.Flag = data; 
     }
 }
 export const actions = { 
@@ -18,6 +22,7 @@ export const actions = {
 }
 export const getters = {
     GetApplicabilities: s => s.Applicabilities,
+    GetFlag: s=> s.Flag,
 }
 
 //  Отображает данные всех примянимости товаров

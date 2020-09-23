@@ -17,6 +17,7 @@ import Vinput from "@/components/Search/Panel/Input/index"
 export default {
     async fetch({query, store, getters, commit}){
         await store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess");
+        store.commit("Applicabilities/ApplicabilitiessAll/SetFlag" , true);
     },
     provide(){
         return{
@@ -30,8 +31,17 @@ export default {
     computed:{
         dataset(){
             return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
+        },
+        flag(){
+            return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetFlag"];
         }   
-    }
+    },
+    created(){
+        if(this.flag != true){
+            console.log("Обновление visible");
+            this.$store.dispatch("Catalog/All/_AllVisible" , this.dataset);
+        }
+    },
 }
 </script>
 

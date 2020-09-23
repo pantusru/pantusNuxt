@@ -26,6 +26,7 @@ export default {
     },
     async fetch({query, store, getters, commit}){
         await store.dispatch("Categories/CategoriesAll/_Categories");
+        store.commit("Categories/CategoriesAll/SetFlag" , true);
     },
     data() {
         return {
@@ -38,9 +39,19 @@ export default {
     },
     computed:{
         dataset(){
-            return this.$store.getters["Categories/CategoriesAll/GetCategories"]
-        }   
-    }
+            return this.$store.getters["Categories/CategoriesAll/GetCategories"];
+        },
+        flag(){
+            return this.$store.getters["Categories/CategoriesAll/GetFlag"];
+        }
+           
+    },
+    created(){
+        if(this.flag != true){
+            console.log("Обновление visible");
+            this.$store.dispatch("Catalog/All/_AllVisible" , this.dataset);
+        }
+    },
 }
 </script>
 

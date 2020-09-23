@@ -1,8 +1,8 @@
 <template>
     <b-form-group>
-        <h4>Цена</h4>
-        <div class="range-slider">
-            <label class="fz-5 mb-4">от {{valueMin}} до {{valueMax}}</label>
+        <h4 class="fz-5">Цена, Р</h4>
+        <div class="range-slider ">
+            <label class="fz-6 mb-4">от {{valueMin}} до {{valueMax}}</label>
             <b-form-input @change="CheckValue" :value="valueMin"  v-model="valueMin" type="range" min="0" max="60000" step="1"></b-form-input>
             <b-form-input @change="CheckValue" :value="valueMax"  v-model="valueMax" type="range" min="0" max="60000" step="1"></b-form-input>
         </div>

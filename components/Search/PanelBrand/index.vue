@@ -1,6 +1,6 @@
 <template>
-    <b-form-group class="fz-5 border  px-3 py-2 border-light">
-        <h3 class="mb-3">{{items}}</h3> 
+    <b-form-group class="border  px-3 py-2 border-light">
+        <h4 class="mb-3 fz">{{items}}</h4> 
         <Vinput v-on:Vsearch="ValueSet"  :GetName="GetName" />
         <Data :SearchElem="SearchElem" :GetChecbox="GetChecbox" :SetChecbox="SetChecbox" />
     </b-form-group>

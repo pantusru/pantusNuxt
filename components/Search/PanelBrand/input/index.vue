@@ -1,6 +1,6 @@
 <template>
   <div class="input">
-        <b-input v-model.trim="search" class="mb-3" placeholder="Поиск"></b-input>
+        <b-input v-model.trim="search" class="mb-3 fz-6" placeholder="Поиск по списку"></b-input>
        <div class="error mb-3" v-if="error">Строка поиска не может содержать указанный вами символ</div>
   </div>
 </template>

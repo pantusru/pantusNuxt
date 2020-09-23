@@ -2,7 +2,7 @@
     <b-form-checkbox-group v-model="chexbox" class="mb-3 overflow">    
         <div class="d-flex flex-column">
             <b-form-checkbox 
-                :value="dataset.id" class="mb-2"
+                :value="dataset.id" class="mb-2 fz-6"
                 v-for="dataset in SearchElem" 
                 :key="dataset.id">
                     {{dataset.name}}

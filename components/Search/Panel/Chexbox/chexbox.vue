@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form-checkbox class="min-h-auto mb-3"
+        <b-form-checkbox class="min-h-auto mb-2 fz-6"
         @change="checxboxGo" 
         v-model="dataset.CheckedType"  
         :indeterminate="dataset.Indeterminate"

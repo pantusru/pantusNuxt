@@ -72,10 +72,10 @@ export default {
 <style>
 
 .w-100px{
-    /* width: 80px; */
+    width: 50px;
 }
 .left-40{
-    left: 46%;
+    left: 40%;
 }
 .hover-true:hover .d-none-chosen{
     display: block!important;

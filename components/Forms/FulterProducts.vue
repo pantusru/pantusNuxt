@@ -1,5 +1,5 @@
 <template>
-    <b-form > 
+    <b-form class="border p-3" > 
         <VueRange/> <!-- ЦЕНА-->
         <!-- БРЭНД -->
         <PanelBrand

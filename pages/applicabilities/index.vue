@@ -3,6 +3,7 @@
         <Vinput
             class="w-25 mx-auto" 
             :data="dataset"
+            :placeholders="'Поиск по применимостям'"
         /> 
         <h1 class="mb-5">Применимости</h1>
         <b-row>

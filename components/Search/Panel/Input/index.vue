@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-input v-model.trim="search" class="mb-3 fz-6" placeholder="Поиск по списку"></b-input>
+        <b-input v-model.trim="search" class="mb-3 fz-6" :placeholder="placeholders"></b-input>
         <div class="error mb-3" v-if="error">Строка поиска не может содержать указанный вами символ</div>
     </div>
 </template>
@@ -8,7 +8,12 @@
 <script>
 import { alphaNum } from 'vuelidate/lib/validators'
 export default {
-    props:["data"],
+    props:{
+        data:{},
+        placeholders:{
+            default: "Поиск по списку",
+        },
+    },
     inject: ['SetValue'],
     data(){
         return{

@@ -1,13 +1,18 @@
 <template>
   <div class="input">
-        <b-input v-model.trim="search" class="mb-3 fz-6" placeholder="Поиск по списку"></b-input>
+        <b-input v-model.trim="search" class="mb-3 fz-6" :placeholder="placeholders"></b-input>
        <div class="error mb-3" v-if="error">Строка поиска не может содержать указанный вами символ</div>
   </div>
 </template>
 
 <script>
 export default {
-    props:["GetName"],
+    props:{
+        GetName:{},
+        placeholders:{
+            default: "Поиск по списку"
+        }
+    },
     data(){
         return{
             search: "",

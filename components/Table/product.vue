@@ -1,7 +1,9 @@
 <template>
-    <b-table-simple bordered class="text-center">
+    <b-table-simple
+        class="text-center fz-5"
+        >
         <b-thead>
-            <b-tr>
+            <b-tr class="bg-fafafa">
                 <b-th>Бренд</b-th>
                 <b-th>Артикул</b-th>
                 <b-th> <b-icon-camera-fill></b-icon-camera-fill></b-th>
@@ -10,7 +12,7 @@
                 <b-th>Наличие</b-th>
                 <b-th>Срок</b-th>
                 <b-th>Цена</b-th>
-                <b-th></b-th>
+                <b-th><PanelVid/></b-th>
             </b-tr>
         </b-thead>
         <b-tbody>
@@ -45,6 +47,7 @@
 </template>
 
 <script>
+import PanelVid from "@/components/Search/ProductPanel/index"
 import Chosen from "@/components/Metka/Chosen"
 import mixitBuy from "@/mixins/Modal/buyProduct"
 import mixitImg from "@/mixins/Modal/ProductImg"
@@ -57,7 +60,8 @@ export default {
         ImgModal,
         BuyModal,
         BuyButton,
-        Chosen
+        Chosen,
+        PanelVid
     },
     props:{
         array:{}
@@ -66,8 +70,9 @@ export default {
 </script>
 
 <style>
+
 .w-100px{
-    width: 100px;
+    /* width: 80px; */
 }
 .left-40{
     left: 46%;

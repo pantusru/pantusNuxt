@@ -101,3 +101,9 @@ img{
 .cursor-pointer{
     cursor: pointer;
 }
+
+
+/* bg */
+.bg-fafafa{
+    background: #fafafa;
+}

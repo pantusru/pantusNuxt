@@ -2,7 +2,8 @@
   <div class="home">
     <b-overlay :show="show" rounded="sm"> <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5"/> <!-- Шапка сайта -->
-      <Nuxt v-if="loaderUser"/>
+      <!-- <Nuxt v-if="loaderUser"/> -->
+      <Nuxt/>
     </b-overlay>
   </div>
 </template>

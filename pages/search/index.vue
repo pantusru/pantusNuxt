@@ -6,6 +6,7 @@
           <FilterForm/>
         </b-col>
         <b-col lg="9">
+            <PanelVid v-if="componentsName != 'TableProduct'" class="mb-3 panelProductFilter"/>
             <components v-bind:is="componentsName" :array="Products"/>
         </b-col>
       </b-row>
@@ -14,16 +15,12 @@
 </template>
 
 <script>
+import PanelVid from "@/components/Search/ProductPanel/index"
 import FilterForm from "@/components/Forms/FulterProducts"
 import TableProduct from "@/components/Table/product"
 import productBlog from "@/components/Func/productBlog"
 import productRow from "@/components/Func/productRow"
 export default {
-  data() {
-    return {
-      componentsName: "TableProduct"
-    }
-  },
    async fetch({query, store, getters, commit}){
     await Promise.all([
       store.dispatch("Products/popular/_ProductPopual"),
@@ -60,16 +57,24 @@ export default {
         FilterForm,
         TableProduct,
         productBlog,
-        productRow
+        productRow,
+        PanelVid
     },
     computed: {
         Products() {
           return this.$store.getters["Products/popular/GetProductPopual"]; 
+        },
+        componentsName() {
+          return this.$store.getters["getProductType"]; 
         },
     },
 }
 </script>
 
 <style>
-
+.panelProductFilter{
+    background: #fafafa;
+    border: 1px solid #e1e1e1;
+    padding: 0.75rem;
+}
 </style>

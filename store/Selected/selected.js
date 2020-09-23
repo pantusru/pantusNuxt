@@ -4,6 +4,9 @@ export const state = () => ({
 export const mutations  =  {
     SetSelected(store, data){
         store.Selected = data;
+    },
+    DeleteSelected(store, data){
+        store.Selected.splice(data, 1);             
     }
 }
 export const actions = { 

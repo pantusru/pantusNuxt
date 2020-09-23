@@ -87,7 +87,7 @@ export const actions = {
             },
             {
                 ProductCard:{
-                    id: 31,
+                    id: 35,
                     name: "Товар1",
                     sku:{
                         original: "6534-ку",

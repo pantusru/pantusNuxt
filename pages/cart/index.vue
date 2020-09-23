@@ -29,13 +29,8 @@ export default {
             }
         }
     },
-    mounted(){
-        this.ModalGet();
-    },
+
     created(){
-        this.ModalGet();
-    },
-    updated(){
         this.ModalGet();
     },
     components:{

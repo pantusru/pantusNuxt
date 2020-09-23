@@ -3,7 +3,6 @@
         @click="SetChosen" 
         :class="{'activ' : selected}"
         class="cursor-pointer h4 d-none-chosen">
-
     </b-icon-bookmark-plus>
 </template>
 
@@ -21,8 +20,13 @@ export default {
     },
     methods:{
         SetChosen(){
-            this.selected = true;
-            console.log('Сохраненно в избранное' + this.id);
+            if(this.selected){
+                this.selected = false;
+                let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.id);
+                this.$store.commit("Selected/selected/DeleteSelected", index);
+            }else{
+                this.selected = true;
+            }
         }
     },
     computed:{

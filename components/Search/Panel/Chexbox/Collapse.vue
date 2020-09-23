@@ -6,7 +6,7 @@
               <b-icon-chevron-down  font-scale = "0.9"></b-icon-chevron-down>
             </b-button>
           </Vchexbox>
-          <b-collapse  :visible="show" v-if="show">
+          <div :visible="show" v-if="show">
               <b-form-group
                   class="ml-4"
                   v-for="data in dataset.children"
@@ -19,7 +19,7 @@
                     v-if="data.children.length != 0"
                   />
               </b-form-group>
-          </b-collapse>
+          </div>
       </b-form-group>
       <Vchexbox :dataset="dataset" v-if="dataset.children.length === 0" />
     </div>  

@@ -1,8 +1,8 @@
 export const mutations  =  {
-    SetChecboxCheckedType(state, data) {
+    SetChecboxCheckedType(state, data) { // Сохраняет состояние checkbox true/false 
         data.data.CheckedType = data.value;
     },
-    SetChecboxIndeterminate(state, data) {
+    SetChecboxIndeterminate(state, data) { // Сохраняет  состояние не определености checkbox true/false 
         data.data.Indeterminate = data.value;
     },
 }
@@ -13,7 +13,7 @@ export const actions = { // ПОИСК ID
         let valueState = [];
         let  arr = data.arr;
         for (const key in arr) {
-            if(arr[key].parentId != null){
+            if(arr[key].parentId != null){ // Есть ли родитель у выбранного потомка
                 valueState.push(arr[key].CheckedType);
                 ParentID = true;
             } 
@@ -22,7 +22,7 @@ export const actions = { // ПОИСК ID
                 if(arr[key].children.lenght != 0){
                     dispatch("ChexboxChildren", {data:arr[key].children , value: data.value});
                 }
-                if(ParentID === true){
+                if(ParentID === true){ // Сохраняем значение потомков если есть родитель
                     valueState.pop();
                     valueState.push(data.value);
                 }               
@@ -39,7 +39,8 @@ export const actions = { // ПОИСК ID
                 });
             }      
         }
-        if(ParentID){ // ЕСТЬ РОДИТЕЛЬ ТАК ТО!
+
+        if(ParentID){ // ЕСТЬ РОДИТЕЛЬ!
             let ChexboxTrue = valueState.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
                 return elem === true
             });

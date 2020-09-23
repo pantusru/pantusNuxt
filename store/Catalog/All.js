@@ -1,10 +1,10 @@
 export const actions = { 
-    _ChexboxAll({commit, dispatch} , data){ 
+    _ChexboxAll({commit, dispatch} , data){ // все конфинги в false
         commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
         commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
         commit("Catalog/Visible/SetAllVisible", {data:data, value: true}, { root: true });
     },
-    _ChexboxPush({commit}, data){
+    _ChexboxPush({commit}, data){ // Сбросить checbox  в false
         commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
         commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
     },
@@ -19,7 +19,7 @@ export const actions = {
             }
         });
     },
-    _AllChexbox({commit, dispatch}, data){ // СБРОСИТЬ Chexbox в false
+    _AllChexbox({commit, dispatch}, data){ // Reset and уход с страницы фильты
         data.forEach(element => {
             dispatch("_ChexboxPush", element);
             if(element.children.length != 0){

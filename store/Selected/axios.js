@@ -3,7 +3,7 @@ export const actions = {
         let  product = [
             {
                 ProductCard:{
-                    id: 35,
+                    id: 30,
                     name: "Товар1",
                     sku:{
                         original: "6534-ку",
@@ -87,7 +87,7 @@ export const actions = {
             },
             {
                 ProductCard:{
-                    id: 35,
+                    id: 31,
                     name: "Товар1",
                     sku:{
                         original: "6534-ку",

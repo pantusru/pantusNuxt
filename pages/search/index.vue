@@ -25,8 +25,9 @@ export default {
     await Promise.all([
       store.dispatch("Products/popular/_ProductPopual"),
       store.dispatch("Categories/CategoriesAll/_Categories"),
-      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"),
-      store.dispatch("Brand/BrandAll/_Brands")
+      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), 
+      store.dispatch("Brand/BrandAll/_Brands"), // все бренды
+      store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ])
     //   ПРОВЕРКА QUERY
     if(query != undefined){
@@ -69,8 +70,8 @@ export default {
         },
     },
     created(){
-            this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Categories/CategoriesAll/GetCategories"]);
-             this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
+      this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Categories/CategoriesAll/GetCategories"]);
+      this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
     },
 }
 </script>

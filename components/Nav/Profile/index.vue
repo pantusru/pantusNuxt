@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column">
-        <div class="mb-5">
+        <div class="mb-4">
             <div class="mb-2">{{User.surname}} {{User.name}} </div>
             <div>{{User.login}}</div>
         </div>

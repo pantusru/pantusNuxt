@@ -21,7 +21,7 @@ import TableProduct from "@/components/Table/product"
 import productBlog from "@/components/Func/productBlog"
 import productRow from "@/components/Func/productRow"
 export default {
-   async fetch({query, store, getters, commit}){
+  async fetch({query, store, getters, commit}){
     await Promise.all([
       store.dispatch("Products/popular/_ProductPopual"),
       store.dispatch("Categories/CategoriesAll/_Categories"),

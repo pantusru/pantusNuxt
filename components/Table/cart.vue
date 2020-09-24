@@ -37,7 +37,7 @@
             <template v-slot:cell(symma)="data">
                 {{  Number(data.item.kolvo) * data.item.ProductOffer.prices}} Р
             </template>
-             <template v-slot:cell(Delete)="data">
+            <template v-slot:cell(Delete)="data">
                 <b-button @click="deleteProduct(data.index)" class="bg-danger border-0 py-1">X</b-button>
             </template>
         </b-table>

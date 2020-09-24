@@ -52,6 +52,7 @@
                 <b-row class="justify-content-between flex-column col-8">
                     <TableOffset @dataProduct="EmitProduct" :offset="Product.productOffer" :Product="Product.ProductCard" />
                 </b-row>
+                <b-button @click="DeleteSelected" v-if="Selected" class="position-absolute bnt-delete bg-danger border-0"  >X</b-button>
             </div>
         </b-card-body>
   </b-card>
@@ -70,21 +71,36 @@ export default {
                 productOffer: data.productOffer,
                 kolvoCart: data.kolvoCart,
             })
+        },
+        DeleteSelected(){
+           let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.id);
+           this.$store.commit("Selected/selected/DeleteSelected", index);
         }
     },
     mixins:[mixinsImg],
     name: "ProductBlogRow",
     props: {
-        Product: {}
+        Product: {},
+        Selected:{
+            default: false,
+        }
     },
     components:{
         RowAtr,
         BuyButton,
         TableOffset
+    },
+    computed:{
+        SelectedProducts(){
+            return this.$store.getters["Selected/selected/GetSelected"];
+        }
     }
 }
 </script>
 
 <style>
-
+.bnt-delete{
+    top:25px;
+    right: 30px;
+}
 </style>

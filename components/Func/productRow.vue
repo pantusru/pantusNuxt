@@ -6,6 +6,7 @@
             @dataImg="Getdataset" 
             @dataProduct="GetdataProduct" 
             :Product="data"
+            :Selected="Selected"
         >
         </BlogRow>
     <ModalImg :dataset="dataset"/>
@@ -25,13 +26,16 @@ import ModalBuy from  "@/components/Modal/buyProduct"
 export default {
     props:{
         array:{},
+        Selected: {
+            default: false,
+        }
     },
     mixins:[ProductModal],
     components: {
         ModalImg,
         ModalBuy,
         BlogRow
-    }
+    },
 }
 </script>
 

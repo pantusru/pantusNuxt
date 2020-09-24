@@ -19,16 +19,16 @@
             <template v-for="product in array"> 
                 <b-tr :key="product.ProductCard.id" class="hover-true">
                     <b-td :rowspan="product.productOffer.length+1"> 
-                        <nuxt-link class="text-576b77 link-danger font-weight-bold" :to="product.ProductCard.brand.id">{{ product.ProductCard.brand.name }} </nuxt-link> 
+                        <nuxt-link class="text-576b77 link-danger font-weight-bold" :to="toString(product.ProductCard.brand.id)">{{ product.ProductCard.brand.name }} </nuxt-link> 
                     </b-td>
-                    <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
+                    <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="toString(product.ProductCard.id)">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
                         <div class="w-100px">
                             <b-img class="cursor-pointer" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">
-                        <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.brand.id">  {{ product.ProductCard.name }} </nuxt-link>
+                        <nuxt-link class="text-576b77 link-danger" :to="toString(product.ProductCard.id)">  {{ product.ProductCard.name }} </nuxt-link>
                         </b-td>
                     <b-td class="position-absolute border-0 left-40">
                         <Chosen :id="product.ProductCard.id"/>

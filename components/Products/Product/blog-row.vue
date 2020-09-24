@@ -49,7 +49,7 @@
                          </template>
                     </RowAtr>
                 </b-row>
-                <b-row class="justify-content-between flex-column col-7">
+                <b-row class="justify-content-between flex-column col-8">
                     <TableOffset @dataProduct="EmitProduct" :offset="Product.productOffer" :Product="Product.ProductCard" />
                 </b-row>
             </div>

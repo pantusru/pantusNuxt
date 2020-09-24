@@ -23,6 +23,7 @@ export const actions = {
                     ],
                 },
                 ProductOffer:{
+                    id: 3,
                     prices:356,
                     quantity: 411,
                     supplier:{
@@ -53,6 +54,7 @@ export const actions = {
                     ],
                 },
                 ProductOffer:{
+                    id: 1351,
                     prices:356,
                     quantity: 411,
                     supplier:{

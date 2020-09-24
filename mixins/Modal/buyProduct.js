@@ -5,6 +5,9 @@ export default {
             productOffer: null,
         }
     },
+    props:{
+    
+    },
     methods:{
         ModalProduct(card, offer ,emit=false){
             if(emit == true){

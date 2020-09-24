@@ -18,15 +18,28 @@
 export default {
     data() {
         return {
-            userBasket: null,
+            userBasket: false,
             text: "В корзине"
         }
     },
+    props:{
+        idsProduct:{
+            default: null,
+        }
+    },
+    computed:{
+        CartProduct(){
+            return this.$store.getters["Cart/CartAll/GetCartProduct"];
+        }
+    },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
-        if(true){ // Товар в корзине
-            this.userBasket = true;
-        }else{ // Товар не в корзизне
-            this.userBasket = false;
+        console.log(this.idsProduct)
+        for (const key in this.CartProduct ) {
+            if(this.CartProduct[key].ProductOffer.id === this.idsProduct ){
+                console.log(this.CartProduct[key].ProductOffer.id);
+                console.log(this.idsProduct);
+                this.userBasket = true;
+            }
         }
     }
 }

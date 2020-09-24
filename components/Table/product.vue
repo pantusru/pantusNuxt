@@ -40,7 +40,7 @@
                     <b-td  class="border-top-0 text-555">{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td  class="border-top-0 text-555 fz-5 font-weight-bold">{{ offer.prices }} Р</b-td>
                     <b-td  class="border-top-0"> 
-                        <BuyButton @click="ModalProduct(product.ProductCard, offer)"/>
+                        <BuyButton :idsProduct="offer.id" @click="ModalProduct(product.ProductCard, offer)"/>
                     </b-td>
                 </b-tr>
             </template>

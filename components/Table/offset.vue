@@ -16,7 +16,7 @@
                     <td> {{ data.quantity }} </td>
                     <td> {{ data.supplier.deliveryDelay }} </td>
                     <td> {{ data.prices }}Р </td>
-                    <td> <BuyButton @click="ModalProduct(Product, data , true)"/> </td>
+                    <td> <BuyButton :idsProduct="data.id" @click="ModalProduct(Product, data , true)"/> </td>
                 </tr>
             </template>
         </b-tbody>

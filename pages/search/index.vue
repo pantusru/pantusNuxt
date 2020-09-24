@@ -26,6 +26,7 @@ export default {
       store.dispatch("Products/popular/_ProductPopual"),
       store.dispatch("Categories/CategoriesAll/_Categories"),
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), 
+      store.dispatch("Cart/CartAll/_CartProduct"), // Товар в корзине
       store.dispatch("Brand/BrandAll/_Brands"), // все бренды
       store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ])

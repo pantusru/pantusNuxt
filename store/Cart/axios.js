@@ -54,7 +54,7 @@ export const actions = {
                     ],
                 },
                 ProductOffer:{
-                    id: 1351,
+                    id: 13,
                     prices:356,
                     quantity: 411,
                     supplier:{

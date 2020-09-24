@@ -5,7 +5,7 @@
         <VueDropdown/>
         <!-- Выплывающий список все запчасти -->
         <b-nav-item 
-        link-classes="text-body link-danger font-weight-bold fz-5" 
+        link-classes="text-555 link-ec0e1d font-weight-bold fz-5" 
         v-for="data in links" :key="data.id">
             {{ data.text }}
         </b-nav-item>

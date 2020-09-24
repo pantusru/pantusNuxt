@@ -37,6 +37,7 @@ export default {
   css: [
     "@/assets/css/main.css",
     "@/assets/css/reset.css",
+    "@/assets/css/fonts.css",
   ],
   /*
   ** Plugins to load before mounting the App

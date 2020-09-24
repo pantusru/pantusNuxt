@@ -3,7 +3,7 @@
         no-caret
         id="my-nav-dropdown"
         text="О компании"
-        toggle-class="nav-link-custom text-body px-0"
+        toggle-class="nav-link-custom text-4a4a4a link-d56971 pl-0 pr-10px py-0"
         center
     >
         <b-dropdown-item :to="data.to" v-for="data in links" :key="data.id">{{ data.text }}</b-dropdown-item>

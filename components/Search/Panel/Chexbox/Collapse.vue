@@ -8,7 +8,7 @@
           </Vchexbox>
           <b-collapse  :visible="show" v-if="show">
               <b-form-group
-                  class="ml-4"
+                  class="ml-4 mb-0"
                   v-for="data in dataset.children"
                   :key="data.id">
                   <Vchexbox  

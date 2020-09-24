@@ -20,4 +20,10 @@ body{
 .h-100vh{
     height: 100vh;
 }
- 
+button:focus{
+    box-shadow: 0 0 0 0 transparent !important;
+    outline: 0 transparent;
+}
+.custom-control-label::before{
+    top: 0;
+}

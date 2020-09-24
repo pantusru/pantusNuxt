@@ -2,9 +2,10 @@
   <div class="d-flex flex-column" v-if="dataset.visible">
       <b-form-group class="mb-0"  v-if="dataset.children.length != 0">
           <Vchexbox :dataset="dataset">
-            <b-button variant="white" class="link-danger p-0" v-on:click="showGo">
-              <b-icon-chevron-down  font-scale = "0.9"></b-icon-chevron-down>
-            </b-button>
+            <button variant="white" class="link-danger p-0 text-555 border-0 bg-transparent" v-on:click="showGo">
+                <b-icon-chevron-down v-if="show" font-scale = "0.9" rotate="180"></b-icon-chevron-down>
+                <b-icon-chevron-down  v-if="show === false" font-scale = "0.9"></b-icon-chevron-down>
+            </button>
           </Vchexbox>
           <b-collapse  :visible="show" v-if="show">
               <b-form-group
@@ -29,7 +30,8 @@
 import Vchexbox from "./chexbox"
   export default {
     methods:{
-      showGo() {
+      showGo(event) {
+        event.preventDefault();
         this.show = !this.show;
       }
     },

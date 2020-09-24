@@ -2,7 +2,7 @@
     <b-icon-bookmark-plus 
         @click="SetChosen" 
         :class="{'activ' : selected}"
-        class="cursor-pointer h4 d-none-chosen">
+        class="cursor-pointer h4 d-none-chosen fz-5">
     </b-icon-bookmark-plus>
 </template>
 

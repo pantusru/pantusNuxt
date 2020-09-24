@@ -1,5 +1,4 @@
 <template>
-    <div>
         <b-form-checkbox class="min-h-auto mb-2 fz-6"
         @change="checxboxGo" 
         v-model="dataset.CheckedType"  
@@ -8,7 +7,6 @@
             {{ dataset.name }}
             <slot></slot>
         </b-form-checkbox>
-    </div>
 </template>
 
 <script>
@@ -30,5 +28,8 @@ export default {
 <style>
     .min-h-auto{
         min-height: auto;
+    }
+    .checxbox-fix::before{
+        top:0 !important;
     }
 </style>

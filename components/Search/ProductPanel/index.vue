@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex text-secondary justify-content-end fz-4">
+    <div class="d-flex justify-content-end fz-4">
         <b-icon-list 
             class="link-danger mx-1 cursor-pointer" 
             :class="{'text-danger': componentsName=='TableProduct' }"

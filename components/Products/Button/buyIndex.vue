@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-button v-on="$listeners" v-if="!userBasket"  class="py-1 px-2 bg-danger border-0">Купить</b-button>
+        <b-button v-on="$listeners" v-if="!userBasket"  class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
         <div class="d-flex justify-content-end align-items-center" v-if="userBasket" >
             <b-button 
                 @mouseover="text = 'Добавить'"

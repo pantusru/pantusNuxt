@@ -67,7 +67,8 @@ export default {
         EmitProduct(data){
             this.$emit('dataProduct', {
                 ProductCard: data.ProductCard,
-                productOffer: data.productOffer
+                productOffer: data.productOffer,
+                kolvoCart: data.kolvoCart,
             })
         }
     },

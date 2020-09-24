@@ -9,7 +9,11 @@
         >
         </BlogRow>
     <ModalImg :dataset="dataset"/>
-    <ModalBuy :ProductCard="ProductCard" :productOffer="productOffer"  />
+        <ModalBuy 
+        :ProductCard="ProductCard" 
+        :productOffer="productOffer" 
+        :kovloProps="CartKolvo" 
+    />
     </div>
 </template>
 

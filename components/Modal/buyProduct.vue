@@ -25,15 +25,15 @@
             </div>
             <div class="mb-2">
                 <div class="mb-2"><b> Кол-во, шт:</b></div>
-                <VInput @kolvo="SetKolvo" />
+                <VInput @kolvo="SetKolvo" :kolvoProps="kovloProps" />
             </div>
             <div class="mb-2">
                 <div><b> Стоимость:</b></div>
                 <div>{{ stoimost }} Р</div>
             </div>
         </div>
-        <template v-slot:modal-footer= "{close}">
-            <b-button class="py-1 px-2 bg-danger border-0" @click="close">Купить</b-button>
+        <template v-slot:modal-footer= "">
+            <b-button class="py-1 px-2 bg-danger border-0" @click="buy">Купить</b-button>
         </template>
     </b-modal>
 </template>
@@ -48,16 +48,14 @@ export default {
     },
     data() {
         return {
-            kolvo: 1
+            kolvo: this.kovloProps
         }
     },
     props:{
         productOffer:{},
         ProductCard:{},
-    },
-    watch:{
-        kolvo(){
-            console.log(this.kolvo);
+        kovloProps: {
+            default: 1,
         }
     },
     methods:{
@@ -66,6 +64,9 @@ export default {
         },
         SetKolvo(kolvo){
             this.kolvo = kolvo.kolvo;
+        },
+        buy(){
+            console.log(this.kolvo);
         }
     },
     components:{

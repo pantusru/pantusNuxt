@@ -3,6 +3,7 @@ export default {
         return {
             ProductCard: null,
             productOffer: null,
+            kolvoCart: 1,    
         }
     },
     props:{
@@ -13,7 +14,8 @@ export default {
             if(emit == true){
                 this.$emit('dataProduct', {
                     ProductCard: card,
-                    productOffer: offer
+                    productOffer: offer,
+                    kolvoCart: this.kolvoCart,
                 });
             }
             else{
@@ -21,6 +23,9 @@ export default {
                 this.productOffer = offer;	
             }
             this.$bvModal.show('buy');
+        },
+        SetkolvoCart(kolvoCart){ // Количество товара в корзине от кнопки
+            this.kolvoCart = kolvoCart; 
         }
     }
 }   

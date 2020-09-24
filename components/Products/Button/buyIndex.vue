@@ -33,12 +33,13 @@ export default {
         }
     },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
-        console.log(this.idsProduct)
         for (const key in this.CartProduct ) {
             if(this.CartProduct[key].ProductOffer.id === this.idsProduct ){
-                console.log(this.CartProduct[key].ProductOffer.id);
-                console.log(this.idsProduct);
+                console.log(this.CartProduct[key].kolvo);
                 this.userBasket = true;
+                this.$emit('PropskolvoCart',
+                    this.CartProduct[key].kolvo,
+                )
             }
         }
     }

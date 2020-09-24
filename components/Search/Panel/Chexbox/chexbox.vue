@@ -29,7 +29,7 @@ export default {
     .min-h-auto{
         min-height: auto;
     }
-    .checxbox-fix::before{
+    .checxbox-fix::before , .custom-control-label::after {
         top:0 !important;
     }
 </style>

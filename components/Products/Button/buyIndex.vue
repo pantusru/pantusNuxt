@@ -9,7 +9,7 @@
                 class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
                     {{ text }}
                 </b-button>
-                <b-button class=" border-0 text-danger ml-1 py-0  px-1 bg-transparent fz-5_5">X</b-button>
+                <b-button @click="deleteCartProduct" class=" border-0 text-danger ml-1 py-0  px-1 bg-transparent fz-5_5">X</b-button>
         </div>
     </div>
 </template>
@@ -19,12 +19,20 @@ export default {
     data() {
         return {
             userBasket: false,
-            text: "В корзине"
+            text: "В корзине",
         }
     },
     props:{
         idsProduct:{
             default: null,
+        }
+    },
+    methods:{
+        deleteCartProduct(){
+            let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.idsProduct);
+            console.log(index);
+            this.userBasket = false;
+            this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
         }
     },
     computed:{

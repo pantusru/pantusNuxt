@@ -1,9 +1,10 @@
 <template>
     <div>
-        <b-button v-on="$listeners" v-if="!userBasket"  class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
+        <b-button v-on="$listeners"  @click="Click" v-if="!userBasket"  class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
         <div class="d-flex justify-content-end align-items-center" v-if="userBasket" >
             <b-button 
                 v-on="$listeners"
+                @click="Click"
                 @mouseover="text = 'Добавить'"
                 @mouseout="text = 'В корзине'"
                 class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
@@ -20,6 +21,7 @@ export default {
         return {
             userBasket: false,
             text: "В корзине",
+            kolvo: 1,
         }
     },
     props:{
@@ -32,7 +34,14 @@ export default {
             let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.idsProduct);
             console.log(index);
             this.userBasket = false;
+            this.kolvo = 1;
             this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
+        },
+        Click(){
+            console.log( this.kolvo);
+            this.$emit('PropskolvoCart',
+                this.kolvo,
+            )
         }
     },
     computed:{
@@ -44,9 +53,7 @@ export default {
         for (const key in this.CartProduct ) {
             if(this.CartProduct[key].ProductOffer.id === this.idsProduct ){
                 this.userBasket = true;
-                this.$emit('PropskolvoCart',
-                    this.CartProduct[key].kolvo,
-                )
+                this.kolvo =  this.CartProduct[key].kolvo;
             }
         }
     }

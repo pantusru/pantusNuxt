@@ -7,15 +7,15 @@
         >
         </b-icon-list>
         <b-icon-list-ul 
-        class="link-danger mx-1 cursor-pointer"
-        :class="{'text-danger': componentsName=='productRow' }"
-        @click="SetName('productRow')"
+            class="link-danger mx-1 cursor-pointer"
+            :class="{'text-danger': componentsName=='productRow' }"
+            @click="SetName('productRow')"
         >
         </b-icon-list-ul>
         <b-icon-grid-fill 
-        class="link-danger mx-1 cursor-pointer"
-        :class="{'text-danger': componentsName=='productBlog' }"
-        @click="SetName('productBlog')"
+            class="link-danger mx-1 cursor-pointer"
+            :class="{'text-danger': componentsName=='productBlog' }"
+            @click="SetName('productBlog')"
         >
         </b-icon-grid-fill>
 

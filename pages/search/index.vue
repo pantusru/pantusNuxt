@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import PanelVid from "@/components/Search/ProductPanel/index"
+import PanelVid from "@/components/Search/ProductPanel/table"
 import FilterForm from "@/components/Forms/FulterProducts"
 import TableProduct from "@/components/Table/product"
 import productBlog from "@/components/Func/productBlog"

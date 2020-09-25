@@ -18,7 +18,6 @@
 import NavProfile from "@/components/Nav/Profile/index"
 import FuncComponents from "@/components/Func/productRow"
 export default {
-
     async fetch({store}){
         await store.dispatch("Selected/selected/_Selected");
     },

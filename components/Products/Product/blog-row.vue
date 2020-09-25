@@ -75,7 +75,7 @@ import TableOffset from "@/components/Table/offset"
 export default {
     methods:{
         DeleteSelected(){
-           let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.id);
+           let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.Product.ProductCard.id);
            this.$store.commit("Selected/selected/DeleteSelected", index);
         }
     },

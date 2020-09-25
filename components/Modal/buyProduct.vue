@@ -85,6 +85,7 @@ export default {
                 this.$bvModal.hide('buy');
             }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
                 this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.kolvo});
+                this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
                 this.$bvModal.hide('buy');
             }	
         }

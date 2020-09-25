@@ -1,11 +1,15 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
 export const state = () => ({
     CartProduct: [],
+    CheckCartCount: null,
 })
 export const mutations  =  {
     SetCartProduct(store, data){
         store.CartProduct = data;
+    },
+    SetCheckCartCount(store, data){
+        store.CheckCartCount = data;
     },
     SetKolvoProduct(store, data){
         store.CartProduct[data.index].kolvo = data.value;
@@ -28,6 +32,7 @@ export const actions = {
 }
 export const getters = {
     GetCartProduct: s => s.CartProduct,
+    GetCheckCartCount: s=> s.CheckCartCount,
     // GetCartProduct_offersId: (s) => (id) =>{
     //     return s.CartProduct.find(cart => cart.ProductOffer.id == id);
     // },

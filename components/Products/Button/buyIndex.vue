@@ -47,16 +47,26 @@ export default {
     },
     watch:{
         CartProduct(){
-            console.log("ИЗМЕНЕННО!")
             if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
                 this.userBasket = true;
-                // this.kolvo =  this.CartProduct[0].kolvo;
+                this.kolvo = this.CartProduct[0].kolvo;
+            }
+        },
+        CheckCount(){
+            if(this.CheckCount != null){
+                if(this.CartProduct[this.CheckCount].ProductOffer.id === this.idsProduct){
+                    this.kolvo = this.CartProduct[this.CheckCount].kolvo;
+                    this.$store.commit("Cart/CartAll/SetCheckCartCount" , null);
+                }
             }
         }
     },
     computed:{
         CartProduct(){
             return this.$store.getters["Cart/CartAll/GetCartProduct"];
+        },
+        CheckCount(){
+            return this.$store.getters["Cart/CartAll/GetCheckCartCount"];
         }
     },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ

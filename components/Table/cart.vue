@@ -73,7 +73,9 @@ export default {
     },
     methods:{
         Setkolvo(data){
-            this.$store.commit("Cart/CartAll/SetKolvoProduct" , {data:data.array ,value: data.kolvo});
+            console.log(data);
+            this.$store.commit("Cart/CartAll/SetKolvoProductArr" , 
+                {data:data.array ,value: data.kolvo});
         },
         deleteProduct(data){
             this.$store.commit("Cart/CartAll/DeleteCartProduct" , data);

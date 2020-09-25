@@ -13,7 +13,9 @@ export const mutations  =  {
     },
     SetKolvoProduct(store, data){
         store.CartProduct[data.index].kolvo = data.value;
-        // Vue.set(store.CartProduct[data.index] , 'kolvo' , data.value);
+    },
+    SetKolvoProductArr(store, data){
+        data.data.kolvo = data.value;
     },
     PushCartProduct(store, data){
         store.CartProduct.unshift(data);

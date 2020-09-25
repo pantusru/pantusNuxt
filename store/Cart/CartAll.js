@@ -33,9 +33,6 @@ export const actions = {
 export const getters = {
     GetCartProduct: s => s.CartProduct,
     GetCheckCartCount: s=> s.CheckCartCount,
-    // GetCartProduct_offersId: (s) => (id) =>{
-    //     return s.CartProduct.find(cart => cart.ProductOffer.id == id);
-    // },
     GetCartProduct_offersIndex: (s) => (id) =>{
         return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
     }

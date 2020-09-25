@@ -50,9 +50,18 @@
                     </RowAtr>
                 </b-row>
                 <b-row class="justify-content-between flex-column col-8">
-                    <TableOffset @dataProduct="EmitProduct" :offset="Product.productOffer" :Product="Product.ProductCard" />
+                    <TableOffset 
+                        :offset="Product.productOffer" 
+                        :Product="Product.ProductCard" 
+                    />
                 </b-row>
-                <b-button @click="DeleteSelected" v-if="Selected" class="position-absolute bnt-delete bg-danger border-0"  >X</b-button>
+                <b-button 
+                    @click="DeleteSelected" 
+                    v-if="Selected" 
+                    class="position-absolute bnt-delete bg-danger border-0"  
+                >
+                    X
+                </b-button>
             </div>
         </b-card-body>
   </b-card>
@@ -65,13 +74,6 @@ import RowAtr from "@/components/Products/Product/Element/row"
 import TableOffset from "@/components/Table/offset"
 export default {
     methods:{
-        EmitProduct(data){
-            this.$emit('dataProduct', {
-                ProductCard: data.ProductCard,
-                productOffer: data.productOffer,
-                kolvoCart: data.kolvoCart,
-            })
-        },
         DeleteSelected(){
            let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.id);
            this.$store.commit("Selected/selected/DeleteSelected", index);

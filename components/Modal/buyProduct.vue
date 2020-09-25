@@ -44,6 +44,11 @@ export default {
     computed:{
         stoimost(){
             return this.kolvo * this.productOffer.prices
+        },
+    },
+    watch:{
+        kovloProps(){
+            this.kolvo = this.kovloProps;
         }
     },
     data() {

@@ -4,17 +4,15 @@
             v-for="data in array"
             :key="data.id">
                 <BlogProduct 
-                @dataImg="Getdataset" 
-                @dataProduct="GetdataProduct" 
-                :datasetProduct="data"
+                :datasetProduct="data"                
                 >
                 </BlogProduct>
         </b-col>
-    <ModalImg :dataset="dataset"/>
-    <ModalBuy 
-        :ProductCard="ProductCard" 
-        :productOffer="productOffer" 
-        :kovloProps="CartKolvo" 
+    <!-- <ModalImg :dataset="dataset"/> -->
+        <ModalBuy 
+        :ProductCard="DataBuy.ProductCard" 
+        :productOffer="DataBuy.productOffer" 
+        :kovloProps="DataBuy.CartKolvo" 
     />
     </b-row>
 </template>
@@ -34,7 +32,7 @@ export default {
         ModalImg,
         ModalBuy,
         BlogProduct
-    }
+    },
 }
 </script>
 

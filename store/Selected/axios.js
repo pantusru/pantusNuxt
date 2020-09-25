@@ -6,7 +6,7 @@ export const actions = {
                     id: 30,
                     name: "Товар1",
                     sku:{
-                        original: "6534-ку",
+                        original: "3fsdgdffdg-ку",
                         normalized: "6534-ru"
                     },
                     ProductCardImage:{

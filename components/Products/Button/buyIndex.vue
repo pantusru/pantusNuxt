@@ -1,22 +1,28 @@
 <template>
     <div>
-        <b-button v-on="$listeners"  @click="Click" v-if="!userBasket"  class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
-        <div class="d-flex justify-content-end align-items-center" v-if="userBasket" >
-            <b-button 
-                v-on="$listeners"
-                @click="Click"
-                @mouseover="text = 'Добавить'"
-                @mouseout="text = 'В корзине'"
-                class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
-                    {{ text }}
-                </b-button>
+        <b-button 
+            @click="ModalProduct(product , offer , kolvo)" 
+            v-if="!userBasket" 
+            class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
+        <div 
+            class="d-flex justify-content-end align-items-center" 
+            v-if="userBasket" >
+                <b-button 
+                    @click="ModalProduct(product , offer , kolvo)"
+                    @mouseover="text = 'Добавить'"
+                    @mouseout="text = 'В корзине'"
+                    class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
+                        {{ text }}
+                    </b-button>
                 <b-button @click="deleteCartProduct" class=" border-0 text-danger ml-1 py-0  px-1 bg-transparent fz-5_5">X</b-button>
         </div>
     </div>
 </template>
 
 <script>
+import mixitBuy from "@/mixins/Modal/buyProduct"
 export default {
+    mixins:[mixitBuy],
     data() {
         return {
             userBasket: false,
@@ -27,7 +33,9 @@ export default {
     props:{
         idsProduct:{
             default: null,
-        }
+        },
+        product:{},
+        offer: {},
     },
     methods:{
         deleteCartProduct(){
@@ -37,12 +45,6 @@ export default {
             this.kolvo = 1;
             this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
         },
-        Click(){
-            console.log( this.kolvo);
-            this.$emit('PropskolvoCart',
-                this.kolvo,
-            )
-        }
     },
     computed:{
         CartProduct(){

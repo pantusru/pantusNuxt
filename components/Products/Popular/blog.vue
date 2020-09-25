@@ -41,13 +41,11 @@
                 </b-col>
                 <b-col class="text-right">
                     <div class="text-success mb-2">{{ datasetProduct.productOffer[0].quantity }}</div>
-                    <BuyButton  
-                        @PropskolvoCart = SetkolvoCart
-                        :idsProduct="datasetProduct.productOffer[0].id"
-                        @click="ModalProduct(datasetProduct.ProductCard, 
-                            datasetProduct.productOffer[0], 
-                        true )" 
-                    />
+                        <BuyButton  
+                            :idsProduct="datasetProduct.productOffer[0].id" 
+                            :product ="datasetProduct.ProductCard"
+                            :offer="datasetProduct.productOffer[0]"
+                        />
                 </b-col>
             </b-row>
         </template>

@@ -29,7 +29,7 @@
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">
                         <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">  {{ product.ProductCard.name }} </nuxt-link>
-                        </b-td>
+                    </b-td>
                     <b-td class="position-absolute border-0 left-40">
                         <Chosen :id="product.ProductCard.id"/>
                     </b-td>
@@ -41,33 +41,33 @@
                     <b-td  class="border-top-0 text-555 fz-5 font-weight-bold">{{ offer.prices }} Р</b-td>
                     <b-td  class="border-top-0"> 
                         <BuyButton  
-                            @PropskolvoCart = SetkolvoCart 
                             :idsProduct="offer.id" 
-                            @click="ModalProduct(product.ProductCard, offer)"
+                            :product ="product.ProductCard"
+                            :offer="offer"
                         />
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
-        <ImgModal :dataset="dataset"/>
+        <!-- <ImgModal :dataset="dataset"/> -->
         <BuyModal 
-            :ProductCard="ProductCard" 
-            :productOffer="productOffer" 
-            :kovloProps="kolvoCart"  
-        />
+        :ProductCard="DataBuy.ProductCard" 
+        :productOffer="DataBuy.productOffer" 
+        :kovloProps="DataBuy.CartKolvo" 
+    />
     </b-table-simple>
 </template>
 
 <script>
-import PanelVid from "@/components/Search/ProductPanel/index"
-import Chosen from "@/components/Metka/Chosen"
-import mixitBuy from "@/mixins/Modal/buyProduct"
-import mixitImg from "@/mixins/Modal/ProductImg"
+import PanelVid from "@/components/Search/ProductPanel/index" // Панель
+import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
+import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
+import mixitImg from "@/mixins/Modal/ProductImg" // Логика контент в модальке изображении
+import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
+import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
 import BuyModal from "@/components/Modal/buyProduct"
-import BuyButton from "@/components/Products/Button/buyIndex"
-import ImgModal from "@/components/Modal/ProductImg"
 export default {
-    mixins:[mixitImg,mixitBuy],
+    mixins:[mixitImg, product_all],
     components:{
         ImgModal,
         BuyModal,

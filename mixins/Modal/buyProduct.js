@@ -1,31 +1,12 @@
 export default {
-    data() {
-        return {
-            ProductCard: null,
-            productOffer: null,
-            kolvoCart: 1,    
-        }
-    },
-    props:{
-    
-    },
+    inject:["DataBuy"],
     methods:{
-        ModalProduct(card, offer ,emit=false){
-            if(emit == true){
-                this.$emit('dataProduct', {
-                    ProductCard: card,
-                    productOffer: offer,
-                    kolvoCart: this.kolvoCart,
-                });
-            }
-            else{
-                this.ProductCard = card;
-                this.productOffer = offer;	
-            }
+        ModalProduct(card, offer, kolvoCart){
+            console.log(kolvoCart);
+            this.DataBuy.ProductCard = card;
+            this.DataBuy.productOffer = offer;
+            this.DataBuy.CartKolvo = kolvoCart; 	
             this.$bvModal.show('buy');
         },
-        SetkolvoCart(kolvoCart){ // Количество товара в корзине от кнопки
-            this.kolvoCart = kolvoCart; 
-        }
-    }
+    },
 }   

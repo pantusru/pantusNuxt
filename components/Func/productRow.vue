@@ -3,17 +3,15 @@
         <BlogRow 
             v-for="data in array"
             :key="data.id"
-            @dataImg="Getdataset" 
-            @dataProduct="GetdataProduct" 
             :Product="data"
             :Selected="Selected"
         >
         </BlogRow>
-    <ModalImg :dataset="dataset"/>
+    <!-- <ModalImg :dataset="dataset"/> -->
         <ModalBuy 
-        :ProductCard="ProductCard" 
-        :productOffer="productOffer" 
-        :kovloProps="CartKolvo" 
+        :ProductCard="DataBuy.ProductCard" 
+        :productOffer="DataBuy.productOffer" 
+        :kovloProps="DataBuy.CartKolvo" 
     />
     </div>
 </template>

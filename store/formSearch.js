@@ -28,6 +28,7 @@ export const getters = {
     GetMaxValue: s => s.MaxValue,
     GetBrandsChecked: s => s.BrandsChecked,
     GetSortName: s => s.SortName,
+    GetSortType: s => s.SortType,
 }
 
 //  отображает новости на главной странице

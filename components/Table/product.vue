@@ -2,6 +2,7 @@
     <b-table-simple
         class="text-center fz-5_5"
         >
+            <PanelVid/>
         <b-tbody>
             <template v-for="product in array"> 
                 <b-tr :key="product.ProductCard.id" class="hover-true">
@@ -47,7 +48,7 @@
 
 <script>
 
-import PanelVid from "@/components/Search/ProductPanel/index" // Панель
+import PanelVid from "@/components/Search/ProductPanel/table" // Панель
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
 import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар

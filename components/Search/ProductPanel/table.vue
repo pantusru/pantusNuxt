@@ -1,7 +1,4 @@
 <template>
-    <b-table-simple
-    class="text-center fz-5_5"
-    >
     <b-thead class="border">
         <b-tr class="bg-fafafa text-555">
             <tdSort 
@@ -36,7 +33,6 @@
             <b-th><PanelVid/></b-th>
         </b-tr>
     </b-thead>
-    </b-table-simple>
 </template>
 
 <script>

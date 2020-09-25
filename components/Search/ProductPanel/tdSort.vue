@@ -1,5 +1,5 @@
 <template>
-  <b-th>
+  <b-th class="border-top-0">
         <span class="cursor-pointer" @click="SortSet"> {{  label }} </span> 
         <b-icon-arrow-down 
             v-if="SortType == 'ask' && SortName == GetSortName" 
@@ -15,10 +15,18 @@
 
 <script>
 export default {
+    created(){
+        if(this.GetSortType != undefined){
+            this.SortType = this.GetSortType;
+        }
+    },
     computed:{
         GetSortName(){
             return this.$store.getters["formSearch/GetSortName"];
         },
+         GetSortType(){
+            return this.$store.getters["formSearch/GetSortType"];
+        },  
     },
     props:{
         label:{
@@ -37,6 +45,7 @@ export default {
         SetName(SortType, SortName){
             this.$store.commit("formSearch/SetSort" , 
             {SortType:this.SortType, SortName: this.SortName});
+            console.log(this.$route);
         },
         SortSet(){  
             switch (this.SortType) {

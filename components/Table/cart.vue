@@ -1,6 +1,6 @@
 <template>
     <div>
-           <ImgModal :dataset="dataset"/>
+           <ImgModal :dataset="DataImg"/>
           <b-table class="mt-4 text-center"
         :fields="fields"
         :items="CartProduct"
@@ -45,13 +45,12 @@
 </template>
 
 <script>
-import mixitImg from "@/mixins/Modal/ProductImg"
 import ImgModal from "@/components/Modal/ProductImg"
 import vInput from "@/components/Products/Input/kolvo"
 export default {
-    mixins:[mixitImg],
     data() {
         return {
+            DataImg: undefined,
             fields:[
                 {key:"brand" ,label:'Брэнд'},
                 {key:"sku" ,label:'Артикул'},
@@ -79,6 +78,10 @@ export default {
         },
         deleteProduct(data){
             this.$store.commit("Cart/CartAll/DeleteCartProduct" , data);
+        },
+        ModalImg(data){
+            this.DataImg = data;
+            this.$bvModal.show('img');
         }
     },
     components:{

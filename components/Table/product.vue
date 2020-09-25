@@ -70,7 +70,7 @@ export default {
     mixins:[product_all],
     data() {
         return {
-            DataImg: undefined
+            DataImg: undefined,
         }
     },
     methods:{

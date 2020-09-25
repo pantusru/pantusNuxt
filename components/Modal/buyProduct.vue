@@ -71,7 +71,22 @@ export default {
             this.kolvo = kolvo.kolvo;
         },
         buy(){
-            console.log(this.kolvo);
+            let Index  = this.$store.getters
+                ["Cart/CartAll/GetCartProduct_offersIndex"]
+                (this.productOffer.id);
+                console.log(Index);
+            if(Index == -1){ // Товара нету в корзине          
+                let data = {};
+                data.kolvo = this.kolvo;
+                data.ProductOffer = {};
+                data.ProductOffer.id = this.productOffer.id;
+                console.log("data set");
+                this.$store.commit("Cart/CartAll/PushCartProduct" , data);
+                this.$bvModal.hide('buy');
+            }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
+                this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.kolvo});
+                this.$bvModal.hide('buy');
+            }	
         }
     },
     components:{

@@ -2,7 +2,6 @@ export const actions = {
     async _CartProduct(){
         let  product = [
             {
-                id:19,
                 kolvo:4,
                 ProductCard:{
                     id: 30,
@@ -33,7 +32,6 @@ export const actions = {
                 }
             },
             {
-                id:19,
                 kolvo:7,
                 ProductCard:{
                     id: 30,

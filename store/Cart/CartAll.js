@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const state = () => ({
     CartProduct: [],
 })
@@ -6,8 +8,11 @@ export const mutations  =  {
         store.CartProduct = data;
     },
     SetKolvoProduct(store, data){
-        // console.log(data);
-        data.data.kolvo = data.value;
+        store.CartProduct[data.index].kolvo = data.value;
+        // Vue.set(store.CartProduct[data.index] , 'kolvo' , data.value);
+    },
+    PushCartProduct(store, data){
+        store.CartProduct.unshift(data);
     },
     DeleteCartProduct(store, data){
         store.CartProduct.splice(data, 1);             
@@ -23,4 +28,10 @@ export const actions = {
 }
 export const getters = {
     GetCartProduct: s => s.CartProduct,
+    // GetCartProduct_offersId: (s) => (id) =>{
+    //     return s.CartProduct.find(cart => cart.ProductOffer.id == id);
+    // },
+    GetCartProduct_offersIndex: (s) => (id) =>{
+        return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
+    }
 }

@@ -40,11 +40,19 @@ export default {
     methods:{
         deleteCartProduct(){
             let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.idsProduct);
-            console.log(index);
             this.userBasket = false;
             this.kolvo = 1;
             this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
         },
+    },
+    watch:{
+        CartProduct(){
+            console.log("ИЗМЕНЕННО!")
+            if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
+                this.userBasket = true;
+                // this.kolvo =  this.CartProduct[0].kolvo;
+            }
+        }
     },
     computed:{
         CartProduct(){
@@ -52,7 +60,7 @@ export default {
         }
     },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
-        for (const key in this.CartProduct ) {
+        for (const key in this.CartProduct) {
             if(this.CartProduct[key].ProductOffer.id === this.idsProduct ){
                 this.userBasket = true;
                 this.kolvo =  this.CartProduct[key].kolvo;

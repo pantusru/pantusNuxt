@@ -47,9 +47,11 @@ export default {
     },
     watch:{
         CartProduct(){
-            if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
-                this.userBasket = true;
-                this.kolvo = this.CartProduct[0].kolvo;
+            if(this.CartProduct.length > 0){
+                if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
+                    this.userBasket = true;
+                    this.kolvo = this.CartProduct[0].kolvo;
+                }
             }
         },
         CheckCount(){

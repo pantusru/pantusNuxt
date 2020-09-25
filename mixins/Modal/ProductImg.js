@@ -1,16 +1,8 @@
 export default {
-    data() {
-        return {
-            dataset: null,
-        }
-    },
+    inject:["DataImg"],
     methods:{
-        async ModalImg(data , emit = false){
-            if(emit == true){
-                this.$emit('dataImg', data);
-            }else{
-                this.dataset = data;
-            }
+        ModalImg(data){
+            this.DataImg.data = data;
             this.$bvModal.show('img');
         }
     }

@@ -4,7 +4,7 @@
             <b-row class="align-items-center mb-3 justify-content-between">
                 <b-row class="col-5 align-items-center">
                     <b-col cols="4">
-                        <b-img @click="ModalImg(Product, true)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
+                        <b-img @click="ModalImg(Product)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
                     </b-col>
                     <h2> {{ Product.ProductCard.name}}</h2>
                 </b-row>

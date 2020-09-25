@@ -49,7 +49,7 @@
                 </b-tr>
             </template>
         </b-tbody>
-        <!-- <ImgModal :dataset="dataset"/> -->
+        <ImgModal :dataset="DataImg"/>
         <BuyModal 
         :ProductCard="DataBuy.ProductCard" 
         :productOffer="DataBuy.productOffer" 
@@ -59,15 +59,26 @@
 </template>
 
 <script>
+
 import PanelVid from "@/components/Search/ProductPanel/index" // Панель
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
 import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
-import mixitImg from "@/mixins/Modal/ProductImg" // Логика контент в модальке изображении
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
 import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
-import BuyModal from "@/components/Modal/buyProduct"
+import BuyModal from "@/components/Modal/buyProduct"// Компонент модалка купить
 export default {
-    mixins:[mixitImg, product_all],
+    mixins:[product_all],
+    data() {
+        return {
+            DataImg: undefined
+        }
+    },
+    methods:{
+        ModalImg(data){
+            this.DataImg = data;
+            this.$bvModal.show('img');
+        }
+    },
     components:{
         ImgModal,
         BuyModal,

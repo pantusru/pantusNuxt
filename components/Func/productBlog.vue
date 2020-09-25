@@ -8,7 +8,7 @@
                 >
                 </BlogProduct>
         </b-col>
-    <!-- <ModalImg :dataset="dataset"/> -->
+    <ModalImg :dataset="DataImg.data"/>
         <ModalBuy 
         :ProductCard="DataBuy.ProductCard" 
         :productOffer="DataBuy.productOffer" 

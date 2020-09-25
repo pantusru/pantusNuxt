@@ -15,11 +15,6 @@ export default {
 
         }
     },
-    methods:{
-        checkUser(){
-            
-        }
-    },
     created(){
         if(false){// ПОльзователь авторизован
             this.check = true;

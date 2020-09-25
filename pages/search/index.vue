@@ -6,7 +6,7 @@
           <FilterForm/>
         </b-col>
         <b-col lg="9">
-            <PanelVid v-if="componentsName != 'TableProduct'" class="mb-3 panelProductFilter"/>
+            <PanelVid class="panelProductFilter mb-0"/>
             <components v-bind:is="componentsName" :array="Products"/>
         </b-col>
       </b-row>

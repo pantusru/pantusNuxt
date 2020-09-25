@@ -4,14 +4,35 @@
     >
     <b-thead class="border">
         <b-tr class="bg-fafafa text-555">
-            <b-th>Бренд</b-th>
-            <b-th>Артикул</b-th>
+            <tdSort 
+                label="Бренд" 
+                SortName="brand" 
+            />
+            <tdSort 
+                label="Артикул" 
+                SortName="sku" 
+            />
             <b-th> <b-icon-camera-fill></b-icon-camera-fill></b-th>
-            <b-th>Наименование</b-th>
-            <b-th>Поставщик</b-th>
-            <b-th>Наличие</b-th>
-            <b-th>Срок</b-th>
-            <b-th>Цена</b-th>
+            <tdSort 
+                label="Наименование" 
+                SortName="name" 
+            />
+            <tdSort 
+                label="Поставщик" 
+                SortName="supplier" 
+            />
+            <tdSort 
+                label="Наличие" 
+                SortName="quantity" 
+            />
+            <tdSort 
+                label="Срок" 
+                SortName="deliveryDelay" 
+            />
+            <tdSort 
+                label="Цена" 
+                SortName="prices" 
+            />
             <b-th><PanelVid/></b-th>
         </b-tr>
     </b-thead>
@@ -19,10 +40,12 @@
 </template>
 
 <script>
+import tdSort from "@/components/Search/ProductPanel/tdSort"
 import PanelVid from "@/components/Search/ProductPanel/index" // Панель
 export default {
     components:{
-        PanelVid
+        PanelVid,
+        tdSort
     }
 }
 </script>

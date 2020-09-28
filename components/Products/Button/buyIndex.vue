@@ -27,7 +27,7 @@ export default {
         return {
             userBasket: false,
             text: "В корзине",
-            kolvo: 1,
+            kolvo: this.offer.multiplicity,
         }
     },
     props:{
@@ -38,6 +38,7 @@ export default {
         offer: {},
     },
     methods:{
+        // Удалить товар с корзины
         deleteCartProduct(){
             let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.idsProduct);
             this.userBasket = false;
@@ -46,6 +47,7 @@ export default {
         },
     },
     watch:{
+        // Следим за изменением добавление в корзину
         CartProduct(){
             if(this.CartProduct.length > 0){
                 if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
@@ -54,6 +56,7 @@ export default {
                 }
             }
         },
+        // Следим за изменением количество товара в корзине
         CheckCount(){
             if(this.CheckCount != null){
                 if(this.CartProduct[this.CheckCount].ProductOffer.id === this.idsProduct){

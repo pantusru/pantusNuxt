@@ -28,7 +28,8 @@ export const actions = {
                     supplier:{
                         name: "Пантус",
                         deliveryDelay: "Сегодня"
-                    }
+                    },
+                    multiplicity: 2,
                 }
             },
             {
@@ -58,7 +59,8 @@ export const actions = {
                     supplier:{
                         name: "Пумма",
                         deliveryDelay: "Завтра"
-                    }
+                    },
+                    multiplicity: 1,
                 }
             },
             

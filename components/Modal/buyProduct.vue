@@ -21,11 +21,11 @@
             </div>
             <div class="mb-2">
                 <div><b> Кратность:</b></div>
-                <div>1</div>
+                <div>{{ productOffer.multiplicity }}</div>
             </div>
             <div class="mb-2">
                 <div class="mb-2"><b> Кол-во, шт:</b></div>
-                <VInput @kolvo="SetKolvo" :kolvoProps="kovloProps" />
+                <VInput @kolvo="SetKolvo" :kolvoProps="kovloProps" :multiplicity="productOffer.multiplicity" />
             </div>
             <div class="mb-2">
                 <div><b> Стоимость:</b></div>
@@ -46,14 +46,10 @@ export default {
             return this.kolvo * this.productOffer.prices
         },
     },
-    watch:{
-        kovloProps(){
-            this.kolvo = this.kovloProps;
-        }
-    },
     data() {
         return {
-            kolvo: this.kovloProps
+            kolvo: this.kovloProps,
+            close: false,
         }
     },
     props:{
@@ -67,27 +63,28 @@ export default {
         hidden(){ // принудительно закрыть модальное окно
             this.kolvo = 1;
         },
-        SetKolvo(kolvo){
+        SetKolvo(kolvo){ // Emit
             this.kolvo = kolvo.kolvo;
         },
+        // Кнопка купить
         buy(){
             let Index  = this.$store.getters
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
                 (this.productOffer.id);
                 console.log(Index);
-            if(Index == -1){ // Товара нету в корзине          
-                let data = {};
-                data.kolvo = this.kolvo;
-                data.ProductOffer = {};
-                data.ProductOffer.id = this.productOffer.id;
-                console.log("data set");
-                this.$store.commit("Cart/CartAll/PushCartProduct" , data);
-                this.$bvModal.hide('buy');
-            }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
-                this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.kolvo});
-                this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
-                this.$bvModal.hide('buy');
-            }	
+                if(Index == -1){ //Добавить товар в корзину       
+                    let data = {};
+                    data.kolvo = this.kolvo;
+                    data.ProductOffer = {};
+                    data.ProductOffer.id = this.productOffer.id;
+                    console.log("data set");
+                    this.$store.commit("Cart/CartAll/PushCartProduct" , data);
+                    this.$bvModal.hide('buy');
+                }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
+                    this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.kolvo});
+                    this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
+                    this.$bvModal.hide('buy');
+                }
         }
     },
     components:{

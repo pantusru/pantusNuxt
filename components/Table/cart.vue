@@ -32,7 +32,7 @@
                 {{ data.item.ProductOffer.quantity}}
             </template>
             <template v-slot:cell(count)="data">
-                <vInput :AddClassInput="'col-9 p-0'" class="ml-auto mr-auto" :kolvoProps="data.item.kolvo"  :array="data.item" @kolvo="Setkolvo" />
+                <vInput :multiplicity="data.item.ProductOffer.multiplicity" :AddClassInput="'col-9 p-0'" class="ml-auto mr-auto" :kolvoProps="data.item.kolvo"  :array="data.item" @kolvo="Setkolvo" />
             </template>
             <template v-slot:cell(symma)="data">
                 {{  Number(data.item.kolvo) * data.item.ProductOffer.prices}} Р

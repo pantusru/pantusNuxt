@@ -36,7 +36,8 @@ export const actions = {
                         supplier:{
                             name: "Пантус",
                             deliveryDelay: "Сегодня"
-                        }
+                        },
+                        multiplicity: 2,
                     },
                     {
                         id:13,
@@ -54,7 +55,8 @@ export const actions = {
                         supplier:{
                             name: "Зума",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 1,
                     },         
                 ]
             },
@@ -92,7 +94,8 @@ export const actions = {
                         supplier:{
                             name: "Пантус",
                             deliveryDelay: "Сегодня"
-                        }
+                        },
+                        multiplicity: 5,
                     },
                     {
                         id:121,
@@ -110,7 +113,8 @@ export const actions = {
                         supplier:{
                             name: "Зума",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 10,
                     },         
                 ]
             },

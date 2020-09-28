@@ -7,7 +7,7 @@ export default {
             DataBuy:{
                 ProductCard:undefined,
                 productOffer:undefined,
-                CartKolvo:1,
+                CartKolvo: undefined,
             },
         }
     },

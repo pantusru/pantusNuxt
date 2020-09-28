@@ -1,9 +1,12 @@
 <template>
+    <div>
     <b-form class="d-flex p-0 col-3 align-items-center">
         <b-icon-dash class="cursor-pointer" @click="dash"></b-icon-dash>
-        <b-input @input="emitGo" :class="AddClassInput"  v-mask="'#####'" class="ml-2 mr-2 text-center" v-model="kolvo"></b-input>
-        <b-icon-plus class="cursor-pointer" @click="plus"></b-icon-plus>
+        <b-input @input="GetError" @blur="CheckInput" :class="AddClassInput"  v-mask="'#####'" class="ml-2 mr-2 text-center" v-model="kolvo"></b-input>
+        <b-icon-plus class="cursor-pointer" @click="plus"></b-icon-plus>       
     </b-form>
+    <div class="error mt-2" v-if="error == true">Не коррентное количество товара</div>
+    </div>
 </template>
     
 <script>
@@ -11,6 +14,9 @@ export default {
     props:{
         AddClassInput: {},
         kolvoProps:{
+
+        },
+        multiplicity:{
             default: 1,
         },
         array: null,
@@ -18,26 +24,46 @@ export default {
     data() {
         return {
             kolvo: this.kolvoProps,
+            error: false,
         }
     },
     methods:{
+        emitGo(){
+            this.$emit('kolvo',{
+                kolvo: this.kolvo,
+                array: this.array
+            })
+        },
         dash(){
-            if(this.kolvo > 1){
-                this.kolvo --;
+            if(this.kolvo >  this.multiplicity){
+                this.kolvo =  this.kolvo - this.multiplicity;
                 this.emitGo();
             }
         },
         plus(){
-            this.kolvo ++;
+            this.kolvo = Number(this.kolvo) + Number(this.multiplicity);
             this.emitGo();
         },
-        emitGo(){
-            if(this.kolvoProps != this.kolvo){
-                this.$emit('kolvo',{
-                    kolvo: this.kolvo,
-                    array: this.array
-                })
+        GetError(){
+            if(this.error == true){
+                this.error = false;
             }
+            if(this.kolvo < this.multiplicity || this.kolvo == ""){
+                this.error = true;
+            }
+            if(this.kolvo % this.multiplicity > 0){
+                this.error = true;
+            } 
+        },
+        CheckInput(){
+            if(this.kolvo < this.multiplicity || this.kolvo == ""){
+                this.kolvo  = this.multiplicity;
+            }
+            if(this.kolvo % this.multiplicity > 0){
+                this.kolvo = this.kolvo - (this.kolvo % this.multiplicity);
+            }
+            this.error  = false;
+            this.emitGo();
         },
     },
 }

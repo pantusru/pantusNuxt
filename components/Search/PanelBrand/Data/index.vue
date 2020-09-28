@@ -2,12 +2,12 @@
     <b-form-checkbox-group v-model="chexbox" class="mb-3">    
         <div class="d-flex flex-column">
             <VirtualList
-            ref="scroll"
-            class="overflow"
-            :keeps="20"
-            :data-key="'id'"
-            :data-sources="SearchElem"
-            :data-component="itemComponent">
+                ref="scroll"
+                class="overflow"
+                :keeps="20"
+                :data-key="'id'"
+                :data-sources="SearchElem"
+                :data-component="itemComponent">
                 
             </VirtualList>
         </div>

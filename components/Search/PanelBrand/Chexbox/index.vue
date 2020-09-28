@@ -14,9 +14,6 @@
       },
       source: { 
         type: Object,
-        default () {
-          return {}
-        }
       }
     }
   }

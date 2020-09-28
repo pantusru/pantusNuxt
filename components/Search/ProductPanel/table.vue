@@ -24,7 +24,7 @@
             />
             <tdSort 
                 label="Срок" 
-                SortName="deliveryDelay" 
+                SortName="deliverydelay" 
             />
             <tdSort 
                 label="Цена" 

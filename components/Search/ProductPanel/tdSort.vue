@@ -14,10 +14,32 @@
 </template>
 
 <script>
+import SearchSubmit from "@/mixins/SearchSubmit/index"
 export default {
+    mixins:[SearchSubmit],
     created(){
         if(this.GetSortType != undefined){
             this.SortType = this.GetSortType;
+        }
+    },
+    data() {
+        return {
+            SortType: "",
+        }
+    },
+    props:{
+        label:{
+            type: String,
+        },
+        SortName:{
+            type:String,
+        }
+    },
+    watch:{
+        GetSortName(){
+            if(this.GetSortName != this.SortName){
+                this.SortType = "";
+            }
         }
     },
     computed:{
@@ -28,28 +50,17 @@ export default {
             return this.$store.getters["formSearch/GetSortType"];
         },  
     },
-    props:{
-        label:{
-            type: String,
-        },
-        SortName:{
-            type:String,
-        }
-    },
-    data() {
-        return {
-            SortType: undefined,
-        }
-    },
     methods:{
-        SetName(SortType, SortName){
+        async SetName(SortType, SortName){
             this.$store.commit("formSearch/SetSort" , 
-            {SortType:this.SortType, SortName: this.SortName});
-            console.log(this.$route);
+            {SortType: this.SortType, SortName: this.SortName});
+            await this.pushParamsFilter();
+            this.pushParamsSort();
+            this.PushUrl();
         },
         SortSet(){  
             switch (this.SortType) {
-                case undefined: 
+                case "": 
                     this.SortType = "ask"
                     break;
                 case "ask":

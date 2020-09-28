@@ -43,8 +43,8 @@ export default {
       if(query.brand != undefined){// ПРОВЕРКА БРЕНДА
         let  brand = query.brand.split(',');
         brand.forEach(element => {
-        store.commit("formSearch/SetBrandsChecked",  Number(element));
-      });
+          store.commit("formSearch/SetBrandsChecked",  Number(element));
+        });
       }
       if(query.categories !=undefined){ // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");

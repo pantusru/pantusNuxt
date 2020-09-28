@@ -48,7 +48,8 @@ export default {
     {src: './plugins/ConfingAxios.js'},
     {src:'./plugins/vuelidate.js'},
     {src:'./plugins/v-mask.js'},
-    {src:'./plugins/Clipboard.js'}
+    {src:'./plugins/Clipboard.js'},
+    {src:'./plugins/scroll.js'},
 
   ],
   /*

@@ -17,6 +17,7 @@
     "v-clipboard": "^2.2.3",
     "v-mask": "^2.2.3",
     "vue-slick-carousel": "^1.0.6",
+    "vue-virtual-scroller": "^1.0.10",
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {}

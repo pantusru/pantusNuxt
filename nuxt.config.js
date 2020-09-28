@@ -49,7 +49,7 @@ export default {
     {src:'./plugins/vuelidate.js'},
     {src:'./plugins/v-mask.js'},
     {src:'./plugins/Clipboard.js'},
-    {src:'./plugins/scroll.js'},
+    // {src:'./plugins/scroll.js'},
 
   ],
   /*

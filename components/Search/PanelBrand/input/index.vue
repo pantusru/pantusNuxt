@@ -26,7 +26,7 @@ export default {
             let check = reg.test(this.search);
             if(check || this.search.length == 0){
                 this.error = false;
-                data = this.data.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1)
+                data = this.data.filter(item => item.name.toLowerCase().includes(this.search.toLowerCase()))
             }else{
                 this.error = true;
                 data = this.data;

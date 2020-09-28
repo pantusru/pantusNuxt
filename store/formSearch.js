@@ -21,6 +21,9 @@ export const mutations  =  {
     SetSort(store, data){
         store.SortType = data.SortType;
         store.SortName = data.SortName;
+    },
+    SetSortType(store, data){
+        store.SortType = data.SortType;
     }
 }
 export const getters = {

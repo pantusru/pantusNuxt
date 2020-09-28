@@ -71,13 +71,13 @@ export default {
             let Index  = this.$store.getters
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
                 (this.productOffer.id);
-                console.log(Index);
-                if(Index == -1){ //Добавить товар в корзину       
+                if(Index == -1){ //Добавить товар в корзину   
+                    // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     let data = {};
                     data.kolvo = this.kolvo;
                     data.ProductOffer = {};
                     data.ProductOffer.id = this.productOffer.id;
-                    console.log("data set");
+                    // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     this.$store.commit("Cart/CartAll/PushCartProduct" , data);
                     this.$bvModal.hide('buy');
                 }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ

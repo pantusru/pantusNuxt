@@ -1,7 +1,11 @@
-// import Vue from 'vue'
-
 export const state = () => ({
+     /**
+     * @property массив всех товаров в корзине
+     */
     CartProduct: [],
+    /**
+     * @property 
+     */
     CheckCartCount: null,
 })
 export const mutations  =  {

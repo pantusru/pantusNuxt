@@ -1,6 +1,6 @@
 <template>
   <main>
-      <VueNewsIndex/> <!-- Популярные новости -->
+      <!-- <VueNewsIndex/> Популярные новости -->
       <VueProductsIndex/> <!-- Популярные Товары -->
   </main>
 </template>
@@ -15,7 +15,7 @@ export default {
     },
     async fetch({store}){
         await Promise.all([
-            store.dispatch("News/NewsIndex/_NewsIndex"),
+            // store.dispatch("News/NewsIndex/_NewsIndex"),
             store.dispatch("Products/popular/_ProductPopual"),
             store.dispatch("Cart/CartAll/_CartProduct"), // Товар в корзине
         ])

@@ -2,7 +2,7 @@
     <div>
     <b-form class="d-flex p-0 col-3 align-items-center">
         <b-icon-dash class="cursor-pointer" @click="dash"></b-icon-dash>
-        <b-input @input="GetError" @blur="CheckInput" :class="AddClassInput"  v-mask="'#####'" class="ml-2 mr-2 text-center" v-model="kolvo"></b-input>
+        <b-input type="number" @input="GetError" @blur="CheckInput" :class="AddClassInput" class="ml-2 mr-2 text-center" v-model="kolvo"></b-input>
         <b-icon-plus class="cursor-pointer" @click="plus"></b-icon-plus>       
     </b-form>
     <div class="error mt-2" v-if="error == true">Не коррентное количество товара</div>
@@ -28,22 +28,26 @@ export default {
         }
     },
     methods:{
+        //  Передача Emit
         emitGo(){
             this.$emit('kolvo',{
                 kolvo: this.kolvo,
                 array: this.array
             })
         },
+         //  Уменьшать кол-во товар
         dash(){
             if(this.kolvo >  this.multiplicity){
                 this.kolvo =  this.kolvo - this.multiplicity;
                 this.emitGo();
             }
         },
+         //  Увеличить кол-во товар
         plus(){
             this.kolvo = Number(this.kolvo) + Number(this.multiplicity);
             this.emitGo();
         },
+        // Проверка количество товара
         GetError(){
             if(this.error == true){
                 this.error = false;
@@ -55,6 +59,7 @@ export default {
                 this.error = true;
             } 
         },
+        // ОТРАВКА при потери фокуса
         CheckInput(){
             if(this.kolvo < this.multiplicity || this.kolvo == ""){
                 this.kolvo  = this.multiplicity;
@@ -70,5 +75,15 @@ export default {
 </script>
 
 <style>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 </style>

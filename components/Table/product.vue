@@ -28,21 +28,15 @@
                     <b-td  class="border-top-0 text-555">{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td  class="border-top-0 text-555 fz-5 font-weight-bold">{{ offer.prices }} Р</b-td>
                     <b-td  class="border-top-0"> 
-                        <BuyButton  
+                        <!-- <BuyButton  
                             :idsProduct="offer.id" 
-                            :product ="product.ProductCard"
-                            :offer="offer"
-                        />
+                        /> -->
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
-        <ImgModal :dataset="DataImg"/>
-        <BuyModal 
-        :ProductCard="DataBuy.ProductCard" 
-        :productOffer="DataBuy.productOffer" 
-        :kovloProps="DataBuy.CartKolvo" 
-    />
+        <!-- <ImgModal/>
+        <BuyModal/> -->
     </b-table-simple>
 </template>
 
@@ -50,12 +44,12 @@
 
 import PanelVid from "@/components/Search/ProductPanel/table" // Панель
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
-import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
+// import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
 import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
 import BuyModal from "@/components/Modal/buyProduct"// Компонент модалка купить
 export default {
-    mixins:[product_all],
+    // mixins:[product_all],
     data() {
         return {
             DataImg: undefined,

@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import Scroll from "vue-virtual-scroll-list"
 import Vinput from "@/components/Search/PanelBrand/input/index"
 import Brand from "@/components/Catalog/Brand/full"
 export default {
@@ -36,7 +35,6 @@ export default {
     watch:{
         $route(){
             window.scrollTo(0, 0);
-            console.log(this.$route.query.pages);
             this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](this.$route.query.pages);
         }
     },
@@ -62,7 +60,6 @@ export default {
     components:{
         Vinput,
         Brand,
-        Scroll
     },
      methods:{ // получение результата от компонента поиска
         ValueSet(data){

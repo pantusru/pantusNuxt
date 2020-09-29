@@ -1,16 +1,17 @@
 <template>
-    <b-modal id='img' hide-footer @hidden="reset">
-        <div  v-if="Product != undefined && false">
+    <b-modal id='img' hide-footer>
+
+        <div  v-if="IdProductsImg != undefined ">
             <div class="col-7 mb-4">
                 <b-img class="img-100" :src="UrlMain"></b-img>
             </div>
             <b-row>
                 <!-- БЛОК с альбомом -->
                 <b-col cols="2">
-                    <b-img class="img-100 cursor-pointer" :src="Product.ProductCard.ProductCardImage.url" @click="MainTrue()"></b-img>
+                    <b-img class="img-100 cursor-pointer" :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue()"></b-img>
                 </b-col>
                 <b-col cols="2"
-                    v-for="(data,index) in Product.ProductCard.album"
+                    v-for="(data,index) in dataset.ProductCard.album"
                     :key="data.id"
                 >
                 <!-- БЛОК с альбомом -->
@@ -23,17 +24,17 @@
 </template>
 
 <script>
-// import mixins from "@/mixins/Product/album"
+import mixins from "@/mixins/Product/album"
 export default {
+    mixins:[mixins],
     computed:{
-        IdProducts(){
-            return this.$store.getters["Modal/GetModaBuyIdProduct"]
+        IdProductsImg(){
+            return this.$store.getters["Modal/GetModaImgIdProduct"]
         },
-        Product(){
-            return this.$store.getters["Products/popular/GetProductId"](this.IdProducts)
+        dataset(){
+            return this.$store.getters["Products/popular/GetProductId"](this.IdProductsImg)
         },
     },
-    // mixins:[mixins],
 }
 </script>
 

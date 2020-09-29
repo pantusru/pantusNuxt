@@ -4,7 +4,7 @@
             <h6 class="mb-0"> <nuxt-link class="text-dark" :to="'/product/'+ datasetProduct.ProductCard.id"> {{ datasetProduct.ProductCard.name }} </nuxt-link></h6>
         </template>
         <div>
-            <b-card-img @click="ModalImg(datasetProduct)" class="cursor-pointer"
+            <b-card-img @click="ModalImg(datasetProduct.ProductCard.id)" class="cursor-pointer"
                 :src="datasetProduct.ProductCard.ProductCardImage.url">
             </b-card-img>
         </div>

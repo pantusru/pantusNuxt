@@ -1,8 +1,7 @@
 export default {
-    inject:["DataImg"],
     methods:{
-        ModalImg(data){
-            this.DataImg.data = data;
+        ModalImg(id){
+            this.$store.commit("Modal/SetModalImg", id);
             this.$bvModal.show('img');
         }
     }

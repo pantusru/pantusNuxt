@@ -14,6 +14,7 @@ export default {
             this.$store.commit("formSearch/SetMaxValue", 60000);
             this.$store.commit("formSearch/SetMinValue", 0);
             this.$store.commit("formSearch/SetAllBrandsChecked", []);
+            this.$store.commit("formSearch/SetSort", {SortType:"", SortName:""});
             if(event != undefined){ // Проверка что это уход с страницы а не кнопка reset
                 this.$router.push({ name:"search"}); 
             }

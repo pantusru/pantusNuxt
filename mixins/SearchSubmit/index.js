@@ -45,6 +45,7 @@ export default {
         },
         PushUrl(){
             // НОВЫЙ URL
+            window.scrollTo(0,0);
             this.$router.push({ name:"search", query: {... this.form} });
         }
     },

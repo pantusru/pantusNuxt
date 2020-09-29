@@ -54,7 +54,7 @@ export default {
         let ids = query.applicabilities.split(",");
         store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
       }
-      if(query.sort_name !=undefined){
+      if(query.sort_name !=undefined){// ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", 
           {SortType: query.sort_type, SortName: query.sort_name,});
       }

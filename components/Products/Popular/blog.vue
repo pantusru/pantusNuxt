@@ -42,9 +42,8 @@
                 <b-col class="text-right">
                     <div class="text-success mb-2">{{ datasetProduct.productOffer[0].quantity }}</div>
                         <BuyButton  
-                            :idsProduct="datasetProduct.productOffer[0].id" 
-                            :product ="datasetProduct.ProductCard"
-                            :offer="datasetProduct.productOffer[0]"
+                            :LinkOffer="datasetProduct.productOffer[0]"
+                            :idsProduct="datasetProduct.ProductCard.id" 
                         />
                 </b-col>
             </b-row>

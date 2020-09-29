@@ -4,17 +4,17 @@ export default {
             DataImg:{
                 data:undefined,
             },
-            DataBuy:{
-                ProductCard:undefined,
-                productOffer:undefined,
-                CartKolvo: undefined,
-            },
+            // DataBuy:{
+            //     ProductCard:undefined,
+            //     productOffer:undefined,
+            //     CartKolvo: undefined,
+            // },
         }
     },
     provide(){
         return {
             DataImg: this.DataImg,
-            DataBuy: this.DataBuy,
+            // DataBuy: this.DataBuy,
         }
     },
 }   

@@ -1,31 +1,31 @@
 <template>
-    <b-modal :id="'buy'" @hidden="hidden">
+    <b-modal :id="'buy'" @show="ShowModal">
         <template v-slot:modal-header  = "{close}">
             <h5>Товар будет добавлен в корзину</h5>
             <b-button class="font-weight-bolder" variant="outline-danger" @click="close()">
                 X
             </b-button>
         </template>
-        <div v-if="productOffer != undefined">
+        <div v-if="Product != undefined">
             <div class="mb-2">
                 <div><b>Название:</b></div>
-                <div>{{ ProductCard.name }}</div>
+                <div>{{  Product.ProductCard.name }}</div>
             </div>
             <div class="mb-2">
                 <div><b>Артикул:</b></div>
-                <div>{{ ProductCard.sku.original }}</div>
+                <div>{{ Product.ProductCard.sku.original }}</div>
             </div>
             <div class="mb-2">
                 <div><b> Цена:</b></div>
-                <div>{{ productOffer.prices }} Р</div>
+                <div>{{ LinkOffer.prices }} Р</div>
             </div>
             <div class="mb-2">
                 <div><b> Кратность:</b></div>
-                <div>{{ productOffer.multiplicity }}</div>
+                <div>{{ LinkOffer.multiplicity }}</div>
             </div>
             <div class="mb-2">
                 <div class="mb-2"><b> Кол-во, шт:</b></div>
-                <VInput @kolvo="SetKolvo" :kolvoProps="kovloProps" :multiplicity="productOffer.multiplicity" />
+                <VInput @kolvo="SetCount" :kolvoProps="count" :multiplicity="LinkOffer.multiplicity" />
             </div>
             <div class="mb-2">
                 <div><b> Стоимость:</b></div>
@@ -41,55 +41,68 @@
 <script>
 import VInput from  "@/components/Products/Input/kolvo"
 export default {
-    computed:{
-        stoimost(){
-            return this.kolvo * this.productOffer.prices
-        },
-    },
     data() {
         return {
-            kolvo: this.kovloProps,
             close: false,
-        }
-    },
-    props:{
-        productOffer:{},
-        ProductCard:{},
-        kovloProps: {
-            default: 1,
+            count: "",
         }
     },
     methods:{
-        hidden(){ // принудительно закрыть модальное окно
-            this.kolvo = 1;
+        ShowModal(){
+            if(this.CheckCart === true){// Есть в корзине
+                this.count = this.$store.getters
+                    ["Cart/CartAll/GetCartProductId"]
+                    (this.LinkOffer.id)[0].kolvo 
+
+            }else{// Нет в корзине
+                this.count = this.LinkOffer.multiplicity;
+            }
         },
-        SetKolvo(kolvo){ // Emit
-            this.kolvo = kolvo.kolvo;
+        SetCount(kolvo){ // Emit
+            this.count = kolvo.kolvo;
         },
         // Кнопка купить
         buy(){
             let Index  = this.$store.getters
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
-                (this.productOffer.id);
-                if(Index == -1){ //Добавить товар в корзину   
+                (this.LinkOffer.id);
+                if(this.CheckCart == false){ //Добавить товар в корзину   
                     // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     let data = {};
-                    data.kolvo = this.kolvo;
+                    data.kolvo = this.count;
                     data.ProductOffer = {};
-                    data.ProductOffer.id = this.productOffer.id;
+                    data.ProductOffer.id = this.LinkOffer.id;
                     // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     this.$store.commit("Cart/CartAll/PushCartProduct" , data);
                     this.$bvModal.hide('buy');
                 }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
-                    this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.kolvo});
-                    this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
+                    this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.count});
+                    // this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
                     this.$bvModal.hide('buy');
                 }
-        }
+        },
     },
     components:{
         VInput,
-    }
+    },
+    computed:{
+        stoimost(){
+            return this.count * this.LinkOffer.prices
+        },
+        IdProducts(){
+            return this.$store.getters["Modal/GetModaBuyIdProduct"]
+        },
+        LinkOffer(){
+            return this.$store.getters["Modal/GetModaBuyLinkOffer"]
+        },
+        CheckCart(){
+            return this.$store.getters["Modal/GetCheckCart"]
+        },
+        Product(){
+            return this.$store.getters["Products/popular/GetProductId"](this.IdProducts)
+        },
+
+    },
 }
 </script>
 

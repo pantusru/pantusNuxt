@@ -1,12 +1,19 @@
-export default {
-    inject:["DataBuy"],
-    methods:{
-        ModalProduct(card, offer, kolvoCart){
-            console.log(kolvoCart);
-            this.DataBuy.ProductCard = card;
-            this.DataBuy.productOffer = offer;
-            this.DataBuy.CartKolvo = kolvoCart; 	
-            this.$bvModal.show('buy');
-        },
-    },
-}   
+// export default {
+//     // inject:["DataBuy"],
+//     methods:{
+//         /**
+//          * @function ModalProduct - Вызывает 2 мутации для отображение модального окна и открывает модальное окно
+//          * @param {Number} IdProduct -  Id товара  
+//          * @param {Number} idOffer -  Id предложения на товар  
+//          * @param {Boolean} CheckCart - Состояние если ли товар в корзине
+//          */
+//         ModalProduct(IdProduct, LinkOffer, CheckCart){ 
+//             this.$store.commit("Modal/SetModaBuy",{
+//                 IdProduct: IdProduct,
+//                 LinkOffer: LinkOffer,
+//                 CheckCart: CheckCart,
+//             });	
+//             this.$bvModal.show('buy');
+//         },
+//     },
+// }   

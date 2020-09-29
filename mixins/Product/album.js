@@ -1,3 +1,6 @@
+/**
+ * @file album
+ */
 export default {
     data() {
         return {
@@ -19,13 +22,5 @@ export default {
         reset(){
             this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;  
         }
-    },
-    watch:{
-        dataset(){
-            this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;
-        }
-    },
-    props:{
-        dataset:{},
     }, 
 }   

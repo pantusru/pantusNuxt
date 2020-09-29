@@ -9,11 +9,7 @@
                 </BlogProduct>
         </b-col>
     <ModalImg :dataset="DataImg.data"/>
-        <ModalBuy 
-        :ProductCard="DataBuy.ProductCard" 
-        :productOffer="DataBuy.productOffer" 
-        :kovloProps="DataBuy.CartKolvo" 
-    />
+        <ModalBuy/>
     </b-row>
 </template>
 

@@ -1,14 +1,14 @@
 <template>
     <div>
         <b-button 
-            @click="ModalProduct(product , offer , kolvo)" 
+            @click="ModalProduct(idsProduct, LinkOffer, userBasket)" 
             v-if="!userBasket" 
             class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
         <div 
             class="d-flex justify-content-end align-items-center" 
             v-if="userBasket" >
                 <b-button 
-                    @click="ModalProduct(product , offer , kolvo)"
+                    @click="ModalProduct(idsProduct, LinkOffer, userBasket)"
                     @mouseover="text = 'Добавить'"
                     @mouseout="text = 'В корзине'"
                     class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
@@ -20,65 +20,79 @@
 </template>
 
 <script>
-import mixitBuy from "@/mixins/Modal/buyProduct"
+// import mixitBuy from "@/mixins/Modal/buyProduct"
 export default {
-    mixins:[mixitBuy],
+    // mixins:[mixitBuy],
     data() {
         return {
+            /**
+             * @type {Boolean}
+             * @property Есть ли товар в корзине
+             */
             userBasket: false,
+            /**
+             * @type {String}
+             * @property Есть ли товар в корзине
+             */
             text: "В корзине",
-            kolvo: this.offer.multiplicity,
         }
     },
     props:{
-        idsProduct:{
-            default: null,
+        /**
+         * @param {Object} LinkOffer - ссылка на предложения продукта
+         */
+        LinkOffer:{
+            
         },
-        product:{},
-        offer: {},
+        /**
+         * @param {Number} idsProduct - Id продукта
+         */
+        idsProduct:{
+           
+        },
     },
     methods:{
         // Удалить товар с корзины
         deleteCartProduct(){
-            let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.idsProduct);
+            let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.LinkOffer.id);
             this.userBasket = false;
-            this.kolvo = 1;
             this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
+        },
+        /**
+         * @function ModalProduct - Вызывает 2 мутации для отображение модального окна и открывает модальное окно
+         * @param {Number} IdProduct -  Id товара  
+         * @param {Number} idOffer -  Id предложения на товар  
+         * @param {Boolean} CheckCart - Состояние если ли товар в корзине
+         */
+        ModalProduct(IdProduct, LinkOffer, CheckCart){ 
+            this.$store.commit("Modal/SetModaBuy",{
+                IdProduct: IdProduct,
+                LinkOffer: LinkOffer,
+                CheckCart: CheckCart,
+            });	
+            this.$bvModal.show('buy');
         },
     },
     watch:{
-        // Следим за изменением добавление в корзину
+        // Следим за  добавление товара в корзину
         CartProduct(){
             if(this.CartProduct.length > 0){
-                if(this.CartProduct[0].ProductOffer.id === this.idsProduct){
+                if(this.CartProduct[0].ProductOffer.id === this.LinkOffer.id){
                     this.userBasket = true;
-                    this.kolvo = this.CartProduct[0].kolvo;
                 }
             }
         },
-        // Следим за изменением количество товара в корзине
-        CheckCount(){
-            if(this.CheckCount != null){
-                if(this.CartProduct[this.CheckCount].ProductOffer.id === this.idsProduct){
-                    this.kolvo = this.CartProduct[this.CheckCount].kolvo;
-                    this.$store.commit("Cart/CartAll/SetCheckCartCount" , null);
-                }
-            }
-        }
     },
     computed:{
         CartProduct(){
             return this.$store.getters["Cart/CartAll/GetCartProduct"];
         },
-        CheckCount(){
-            return this.$store.getters["Cart/CartAll/GetCheckCartCount"];
-        }
     },
     created(){ // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
         for (const key in this.CartProduct) {
-            if(this.CartProduct[key].ProductOffer.id === this.idsProduct ){
+            if(this.CartProduct[key].ProductOffer.id === this.LinkOffer.id ){
                 this.userBasket = true;
-                this.kolvo =  this.CartProduct[key].kolvo;
+                break;
             }
         }
     }

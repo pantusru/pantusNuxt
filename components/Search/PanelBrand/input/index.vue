@@ -31,7 +31,7 @@ export default {
                 this.error = true;
                 data = this.data;
             }
-            this.$emit("Vsearch", data);
+            this.$emit("Vsearch", {data:data, search:this.search.length});
         }
     },
     computed: {

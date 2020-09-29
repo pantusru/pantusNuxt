@@ -1,5 +1,6 @@
 export const state = () => ({
     Brand: [],
+    limit:100,
 })
 export const mutations  =  {
     SetBrand(store, data){
@@ -16,7 +17,13 @@ export const actions = {
     }
 }
 export const getters = {
-    GetBrand: s => s.Brand,
+    GetBrand: s => s.Brand, 
+    GetBrandPage: (s) => (id=1) =>{   
+        return s.Brand.slice((id-1)*s.limit, id*s.limit)
+    },
+    GetBrandLength: (s)=>{
+        return Math.ceil(s.Brand.length / s.limit);
+    }
 }
 
 //  Отображает данные всех примянимости товаров

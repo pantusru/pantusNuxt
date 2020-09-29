@@ -18,7 +18,7 @@ export default {
     },
     methods:{ // получение результата от компонента поиска
         ValueSet(data){
-            this.SearchElem = data;
+            this.SearchElem = data.data;
         }
     },
     components:{

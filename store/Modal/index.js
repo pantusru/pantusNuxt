@@ -7,7 +7,7 @@ export const state = () => ({
     ModaBuyLinkOffer: undefined,
     /** @property проверка  наличия товара в корзине*/
     CheckCart: false,
-    /** @property проверка  наличия товара в корзине*/
+    /** @property Названия getters для отображения товара в modal buy*/
     NameGettersModal: "",
 })
 export const mutations  =  {
@@ -15,6 +15,7 @@ export const mutations  =  {
     * @param {Number} data.IdProduct -  id товара 
     * @param {Number} data.LinkOffer -  ссылка на предложения товара 
     * @param {Number} data.CheckCart -  состояние если товар в корзине
+    * @param {Number} data.NameGettersModal -  Названия getters для отображения товара в modal buy
     */
     SetModaBuy(store, data){
         store.ModaBuyIdProduct = data.IdProduct;

@@ -31,12 +31,12 @@ export const actions = {
 }
 export const getters = {
     /**
-     * #Вывести всё  бренды
-     * @returns {Array}  Массив всёх брендов
+     * #Вывод всех  брендов
+     * @returns {Array}  Массив всех брендов
      */
     GetBrand: s => s.Brand, 
     /**
-     * #Получить массив брендов для пагинации
+     * #Вывод брендов по пагинации
      * @param {Number} id - номер пагинации страниц
      * @return {Array} массив брендов 
      */

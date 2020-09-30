@@ -29,8 +29,8 @@ export const actions = {
 }
 export const getters = {
     /**
-     * #Вывести всё приминимости
-     * @returns {Array}  Массив всёх приминимостей
+     * #Вывод всех приминимостей
+     * @returns {Array}  Массив всех приминимостей
      */
     GetApplicabilities: s => s.Applicabilities,
 }

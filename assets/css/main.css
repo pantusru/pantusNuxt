@@ -127,10 +127,6 @@ button.bg-link-danger:hover{
 .pl-10px{
     padding-left: 10px!important;
 }
-.overflow{
-    overflow:auto;
-    max-height: 200px;
-}
 
 /*  ВЫСОТА */
 .h-100vh{

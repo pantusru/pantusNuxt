@@ -23,6 +23,9 @@ export default {
     },
     methods:{
         searchSubstr(name){
+            if(name == undefined){
+                return false;
+            }
             if((name.toLowerCase().search(this.search.toLowerCase() ) != -1)){
                 return true;
             }else{

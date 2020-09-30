@@ -16,7 +16,7 @@ export default {
     },
     computed: {
         Product() {
-            return this.$store.getters["Products/GetProduct"][0]
+            return this.$store.getters["Products/GetProduct"][0];
         },
     },
     components: {

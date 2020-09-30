@@ -18,10 +18,8 @@ export const actions = {
         }  
     },
     async _ProductId({store,dispatch, commit, getters}){
-        if(getters.GetProducts.length === 0){
-            let  data = await dispatch("Products/axios/_ProductId", {} , { root: true });
-            commit("SetProduct", data);
-        }  
+        let  data = await dispatch("Products/axios/_ProductId", {} , { root: true });
+        commit("SetProduct", data);
     }
 }
 export const getters = {

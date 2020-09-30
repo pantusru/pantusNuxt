@@ -45,10 +45,12 @@ export default {
         return {
             close: false,
             count: "",
+            Product: undefined,
         }
     },
     methods:{
         ShowModal(){
+            this.Product = this.$store.getters["Products/GetProductId"](this.IdProducts);
             if(this.CheckCart === true){// Есть в корзине
                 this.count = this.$store.getters
                     ["Cart/CartAll/GetCartProductId"]
@@ -98,10 +100,6 @@ export default {
         CheckCart(){
             return this.$store.getters["Modal/GetCheckCart"]
         },
-        Product(){
-            return this.$store.getters["Products/GetProductId"](this.IdProducts)
-        },
-
     },
 }
 </script>

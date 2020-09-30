@@ -53,11 +53,10 @@
 
 <script>
 import  mixinsImg from "@/mixins/Modal/ProductImg"
-import  mixinsBuy from "@/mixins/Modal/buyProduct"
 import BuyButton from "@/components/Products/Button/buyIndex" 
 export default {
     name:"BlogProduct",
-    mixins:[mixinsImg, mixinsBuy],
+    mixins:[mixinsImg],
     props:{
         datasetProduct:{},
     },

@@ -1,15 +1,7 @@
-/**
- * @file album
- */
 export default {
     data() {
         return {
             UrlMain: "",
-        }
-    },
-    created(){
-        if(this.dataset != undefined){
-            this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;
         }
     },
     methods:{

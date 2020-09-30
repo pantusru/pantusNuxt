@@ -1,5 +1,5 @@
 <template>
-    <b-modal id='img' hide-footer>
+    <b-modal id='img' hide-footer @show="MainTrue">
 
         <div  v-if="IdProductsImg != undefined ">
             <div class="col-7 mb-4">

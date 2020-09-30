@@ -2,7 +2,7 @@
     <b-table-simple
         class="text-center fz-5_5"
         >
-            <PanelVid/>
+            <PanelVid :CheckAnalogs="CheckAnalogs"/>
         <b-tbody>
             <template v-for="product in array"> 
                 <b-tr :key="product.ProductCard.id" class="hover-true">
@@ -10,7 +10,7 @@
                         <nuxt-link class="text-576b77 link-danger font-weight-bold" :to="product.ProductCard.brand.id.toString()">{{ product.ProductCard.brand.name }} </nuxt-link> 
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
-                    <b-td :rowspan="product.productOffer.length+1"> 
+                    <b-td :rowspan="product.productOffer.length+1" v-if="CheckAnalogs== false"> 
                         <div class="w-50px">
                             <b-img class="cursor-pointer" @click="ModalImg(product.ProductCard.id)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
@@ -58,7 +58,10 @@ export default {
         PanelVid
     },
     props:{
-        array:{}
+        array:{},
+        CheckAnalogs:{
+            default: false,
+        }
     }
 }
 </script>

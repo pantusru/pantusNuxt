@@ -9,7 +9,7 @@
                 label="Артикул" 
                 SortName="sku" 
             />
-            <b-th> <b-icon-camera-fill></b-icon-camera-fill></b-th>
+            <b-th v-if="CheckAnalogs == false"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
             <tdSort 
                 label="Наименование" 
                 SortName="name" 
@@ -30,7 +30,8 @@
                 label="Цена" 
                 SortName="prices" 
             />
-            <b-th><PanelVid/></b-th>
+            <b-th v-if="CheckAnalogs == false"><PanelVid/></b-th>
+            <b-th v-if="CheckAnalogs == true"></b-th>
         </b-tr>
     </b-thead>
 </template>
@@ -39,6 +40,11 @@
 import tdSort from "@/components/Search/ProductPanel/tdSort"
 import PanelVid from "@/components/Search/ProductPanel/index" // Панель
 export default {
+    props:{
+        CheckAnalogs:{
+            default: false,
+        }
+    },
     components:{
         PanelVid,
         tdSort

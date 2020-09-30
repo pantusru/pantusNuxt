@@ -23,7 +23,3 @@ export default {
     props:["dataset"],
 }
 </script>
-
-<style>
-</style>
-

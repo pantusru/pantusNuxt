@@ -7,8 +7,6 @@ export const state = () => ({
     ModaBuyLinkOffer: undefined,
     /** @property проверка  наличия товара в корзине*/
     CheckCart: false,
-    /** @property Названия getters для отображения товара в modal buy*/
-    NameGettersModal: "",
 })
 export const mutations  =  {
     /** #Сохраняет в Vuex данные для modal buy

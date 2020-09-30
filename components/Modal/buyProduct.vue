@@ -50,7 +50,6 @@ export default {
     },
     methods:{
         ShowModal(){
-            this.Product = this.$store.getters[this.GetModaBuyNameGettersModal](this.IdProducts);
             if(this.CheckCart === true){// Есть в корзине
                 this.count = this.$store.getters
                     ["Cart/CartAll/GetCartProductId"]

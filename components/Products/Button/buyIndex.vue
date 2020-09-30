@@ -53,9 +53,6 @@ export default {
         /**
          * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
          */
-        NameGettersModal:{
-           default: "Products/GetProductId"
-        },
     },
     methods:{
         // Удалить товар с корзины
@@ -72,7 +69,6 @@ export default {
                 IdProduct: this.idsProduct,
                 LinkOffer: this.LinkOffer,
                 CheckCart: this.userBasket,
-                NameGettersModal: this.NameGettersModal,
             });	
             this.$bvModal.show('buy');
         },

@@ -25,5 +25,4 @@ export const actions = {
 export const getters = {
     GetProducts: s => s.Products,
     GetProduct: s => s.Product,
-    GetProductId: s => id => s.Products.filter(product =>product.ProductCard.id ===  id)[0],
 }

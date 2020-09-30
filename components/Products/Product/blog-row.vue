@@ -4,7 +4,7 @@
             <b-row class="align-items-center mb-3 justify-content-between">
                 <b-row class="col-5 align-items-center">
                     <b-col cols="4">
-                        <b-img @click="ModalImg(Product)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
+                        <b-img @click="ModalImg(Product.ProductCard.id)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
                     </b-col>
                     <h2> {{ Product.ProductCard.name}}</h2>
                 </b-row>
@@ -51,8 +51,8 @@
                 </b-row>
                 <b-row class="justify-content-between flex-column col-8">
                     <TableOffset 
-                        :offset="Product.productOffer" 
-                        :Product="Product.ProductCard" 
+                        :Linkoffset="Product.productOffer" 
+                        :ProductId="Product.ProductCard.id" 
                     />
                 </b-row>
                 <b-button 

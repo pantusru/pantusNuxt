@@ -10,7 +10,7 @@
            </b-tr>
        </b-thead>
         <b-tbody>
-            <template v-for="data in offset">
+            <template v-for="data in Linkoffset">
                 <tr :key="data.id">
                     <td> {{ data.supplier.name }} </td>
                     <td> {{ data.quantity }} </td>
@@ -18,9 +18,8 @@
                     <td> {{ data.prices }}Р </td>
                     <td> 
                         <BuyButton  
-                            :idsProduct="data.id" 
-                            :product ="Product"
-                            :offer="data"
+                            :idsProduct ="ProductId"
+                            :LinkOffer="data"
                         />
                         </td>
                 </tr>
@@ -31,12 +30,10 @@
 
 <script>
 import BuyButton from "@/components/Products/Button/buyIndex"
-import mixinsBuy from "@/mixins/Modal/buyProduct"
 export default {
-    mixins:[mixinsBuy],
     props:{
-        offset:{},
-        Product: {},
+        Linkoffset:{},
+        ProductId: {},
     },
     components:{
         BuyButton,

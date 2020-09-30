@@ -12,7 +12,7 @@
                     <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
                         <div class="w-100px">
-                            <b-img class="cursor-pointer" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+                            <b-img class="cursor-pointer" @click="ModalImg(product.ProductCard.id)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">
@@ -28,39 +28,28 @@
                     <b-td  class="border-top-0 text-555">{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td  class="border-top-0 text-555 fz-5 font-weight-bold">{{ offer.prices }} Р</b-td>
                     <b-td  class="border-top-0"> 
-                        <!-- <BuyButton  
-                            :idsProduct="offer.id" 
-                        /> -->
+                        <BuyButton  
+                            :LinkOffer="offer" 
+                            :idsProduct="product.ProductCard.id"
+                        /> 
                     </b-td>
                 </b-tr>
             </template>
         </b-tbody>
-        <!-- <ImgModal/>
-        <BuyModal/> -->
+        <ImgModal/>
+        <BuyModal/>
     </b-table-simple>
 </template>
 
 <script>
-
 import PanelVid from "@/components/Search/ProductPanel/table" // Панель
+import Mixin from "@/mixins/Modal/ProductImg"
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
-// import product_all from "@/mixins/GetModal/product_all" // Mixins для отображение модалок
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
 import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
 import BuyModal from "@/components/Modal/buyProduct"// Компонент модалка купить
 export default {
-    // mixins:[product_all],
-    data() {
-        return {
-            DataImg: undefined,
-        }
-    },
-    methods:{
-        ModalImg(data){
-            this.DataImg = data;
-            this.$bvModal.show('img');
-        }
-    },
+    mixins:[Mixin],
     components:{
         ImgModal,
         BuyModal,

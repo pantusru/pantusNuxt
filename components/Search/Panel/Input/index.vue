@@ -23,9 +23,6 @@ export default {
     },
     methods:{
         searchSubstr(name){
-            if(name == undefined) {
-                return false;
-            }
             if((name.toLowerCase().search(this.search.toLowerCase() ) != -1)){
                 return true;
             }else{
@@ -60,7 +57,6 @@ export default {
     },
     watch: {
         search() {
-
             let reg = new RegExp("^[0-9A-Za-zА-Яа-яЁё\s]+$");
             let check = reg.test(this.search);
             if(check || this.search.length == 0){
@@ -71,27 +67,8 @@ export default {
                 dataset_local.children = JSON.parse(JSON.stringify(this.data));
                 // КОСТЫЛИ НАШЕ ВСЁ!!
                 let dataset = this.setCheck(dataset_local);
-                if(this.search.length != 0){ // есть поиск сортируем по visible
-                    dataset.children.sort((a,b) =>{
-                        if( a.visible === true && b.visible != true){
-                            return -1;
-                        }else if (a.visible != true && b.visible === true){
-                            return 1 ;
-                        }
-                        return 0;
-                    });
-                }else{ // нету поиска сортируем по name
-                    dataset.children.sort((a,b) =>{
-                        if (a.name > b.name) {
-                            return 1;
-                        }
-                        if (a.name < b.name) {
-                            return -1;
-                        }
-                        return 0;
-                    })
-                }
                 this.$store.commit(this.SetValue, dataset.children);
+                // КОСТЫЛИ НАШЕ ВСЁ!!
             }else{
                 this.error = true;
             }

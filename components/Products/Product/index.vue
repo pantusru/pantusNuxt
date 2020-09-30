@@ -3,7 +3,7 @@
         <b-col cols="4" class="d-flex">
             <!-- БЛОК с альбомом -->
             <b-col cols="3">
-                <b-img class="h-25 mb-3" :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue()"></b-img>
+                <b-img class="h-25 mb-3"  :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue"></b-img>
                 <b-img   
                     :key="data.id" 
                     v-for="(data,index) in dataset.ProductCard.album" 
@@ -44,6 +44,9 @@ export default {
     mixins:[mixins],
     props:{
         dataset:{},
+    },
+    created(){
+        this.MainTrue()
     },
     methods:{
 

@@ -52,7 +52,7 @@
                 <b-row class="justify-content-between flex-column col-8">
                     <TableOffset 
                         :Linkoffset="Product.productOffer" 
-                        :ProductId="Product.ProductCard.id" 
+                        :LinkProduct="Product.ProductCard" 
                     />
                 </b-row>
                 <b-button 

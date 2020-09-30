@@ -6,14 +6,14 @@
                 X
             </b-button>
         </template>
-        <div v-if="Product != undefined">
+        <div v-if="LinkProducts != undefined">
             <div class="mb-2">
                 <div><b>Название:</b></div>
-                <div>{{  Product.ProductCard.name }}</div>
+                <div>{{  LinkProducts.name }}</div>
             </div>
             <div class="mb-2">
                 <div><b>Артикул:</b></div>
-                <div>{{ Product.ProductCard.sku.original }}</div>
+                <div>{{ LinkProducts.sku.original }}</div>
             </div>
             <div class="mb-2">
                 <div><b> Цена:</b></div>
@@ -45,7 +45,6 @@ export default {
         return {
             close: false,
             count: "",
-            Product: undefined,
         }
     },
     methods:{
@@ -90,8 +89,8 @@ export default {
         stoimost(){
             return this.count * this.LinkOffer.prices
         },
-        IdProducts(){
-            return this.$store.getters["Modal/GetModaBuyIdProduct"]
+        LinkProducts(){
+            return this.$store.getters["Modal/GetModaBuyLinkProduct"]
         },
         LinkOffer(){
             return this.$store.getters["Modal/GetModaBuyLinkOffer"]
@@ -99,9 +98,6 @@ export default {
         CheckCart(){
             return this.$store.getters["Modal/GetCheckCart"]
         },
-        GetModaBuyNameGettersModal(){
-            return this.$store.getters["Modal/GetModaBuyNameGettersModal"]
-        }
     },
 }
 </script>

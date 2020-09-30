@@ -45,9 +45,9 @@ export default {
             
         },
         /**
-         * @param {Number} idsProduct - Id продукта
+         * @param {Number} LinkProduct - ссылка на продукт
          */
-        idsProduct:{
+        LinkProduct:{
            
         },
         /**
@@ -66,7 +66,7 @@ export default {
          */
         ModalProduct(){ 
             this.$store.commit("Modal/SetModaBuy",{
-                IdProduct: this.idsProduct,
+                LinkProduct: this.LinkProduct,
                 LinkOffer: this.LinkOffer,
                 CheckCart: this.userBasket,
             });	

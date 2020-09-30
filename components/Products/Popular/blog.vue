@@ -41,7 +41,7 @@
                     <div class="text-success mb-2">{{ datasetProduct.productOffer[0].quantity }}</div>
                         <BuyButton  
                             :LinkOffer="datasetProduct.productOffer[0]"
-                            :idsProduct="datasetProduct.ProductCard.id" 
+                            :LinkProduct="datasetProduct.ProductCard" 
                         />
                 </b-col>
             </b-row>

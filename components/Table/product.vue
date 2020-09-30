@@ -30,7 +30,7 @@
                     <b-td  class="border-top-0"> 
                         <BuyButton  
                             :LinkOffer="offer" 
-                            :idsProduct="product.ProductCard.id"
+                            :LinkProduct="product.ProductCard"
                         /> 
                     </b-td>
                 </b-tr>

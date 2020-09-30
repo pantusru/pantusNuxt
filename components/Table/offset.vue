@@ -18,7 +18,7 @@
                     <td> {{ data.prices }}Р </td>
                     <td> 
                         <BuyButton  
-                            :idsProduct ="ProductId"
+                            :LinkProduct ="LinkProduct"
                             :LinkOffer="data"
                         />
                         </td>
@@ -33,7 +33,7 @@ import BuyButton from "@/components/Products/Button/buyIndex"
 export default {
     props:{
         Linkoffset:{},
-        ProductId: {},
+        LinkProduct: {},
     },
     components:{
         BuyButton,

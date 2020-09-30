@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="dataset != undefined">
         <b-row class="mt-5 mb-3">
             <b-col cols="4" class="d-flex">
                 <!-- БЛОК с альбомом -->
@@ -65,7 +65,7 @@ export default {
         dataset:{},
     },
     created(){
-        this.MainTrue()
+        this.MainTrue();
     },
     computed:{
         analogs() {

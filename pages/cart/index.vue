@@ -24,7 +24,6 @@ export default {
     methods:{
         ModalGet(){
             if(this.$route.query.reg != undefined){
-                console.log(this.$bvModal);
                 this.$bvModal.show("authorization");	
             }
         }

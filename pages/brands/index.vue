@@ -63,7 +63,6 @@ export default {
     },
      methods:{ // получение результата от компонента поиска
         ValueSet(data){
-            console.log(data);
             if(data.search > 0){
                 this.SearchElem = data.data;
                 this.CountPages = 1;

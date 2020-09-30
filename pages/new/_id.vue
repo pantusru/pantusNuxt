@@ -23,8 +23,6 @@ export default {
     mounted(){
         let img = document.querySelectorAll(".content img")
         img.forEach(element => {
-             console.log(element);
-           console.log(element.getAttribute("src"));
            element.setAttribute("src" , process.env.apiMedia + element.getAttribute("src"));
        });
     }

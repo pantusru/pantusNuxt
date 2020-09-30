@@ -1,14 +1,14 @@
 <template>
     <div>
         <b-button 
-            @click="ModalProduct(idsProduct, LinkOffer, userBasket)" 
+            @click="ModalProduct()" 
             v-if="!userBasket" 
             class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
         <div 
             class="d-flex justify-content-end align-items-center" 
             v-if="userBasket" >
                 <b-button 
-                    @click="ModalProduct(idsProduct, LinkOffer, userBasket)"
+                    @click="ModalProduct()"
                     @mouseover="text = 'Добавить'"
                     @mouseout="text = 'В корзине'"
                     class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light fz-5_5">
@@ -50,6 +50,12 @@ export default {
         idsProduct:{
            
         },
+        /**
+         * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
+         */
+        NameGettersModal:{
+           default: "Products/GetProductId"
+        },
     },
     methods:{
         // Удалить товар с корзины
@@ -59,16 +65,14 @@ export default {
             this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
         },
         /**
-         * @function ModalProduct - Вызывает 2 мутации для отображение модального окна и открывает модальное окно
-         * @param {Number} IdProduct -  Id товара  
-         * @param {Number} idOffer -  Id предложения на товар  
-         * @param {Boolean} CheckCart - Состояние если ли товар в корзине
+         * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно
          */
-        ModalProduct(IdProduct, LinkOffer, CheckCart){ 
+        ModalProduct(){ 
             this.$store.commit("Modal/SetModaBuy",{
-                IdProduct: IdProduct,
-                LinkOffer: LinkOffer,
-                CheckCart: CheckCart,
+                IdProduct: this.idsProduct,
+                LinkOffer: this.LinkOffer,
+                CheckCart: this.userBasket,
+                NameGettersModal: this.NameGettersModal,
             });	
             this.$bvModal.show('buy');
         },

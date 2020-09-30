@@ -12,7 +12,6 @@ export default {
     inject:["$v"],
     methods:{
         formGo(){
-            console.log(this.$v.Form);
             this.$v.Form.$touch();
         }
     },

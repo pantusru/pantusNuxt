@@ -11,14 +11,14 @@
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> 
-                        <div class="w-100px">
+                        <div class="w-50px">
                             <b-img class="cursor-pointer" @click="ModalImg(product.ProductCard.id)" fluid :src="product.ProductCard.ProductCardImage.url"/>
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">
                         <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">  {{ product.ProductCard.name }} </nuxt-link>
                     </b-td>
-                    <b-td class="position-absolute border-0 left-40">
+                    <b-td class="position-absolute border-0 left-42">
                         <Chosen :id="product.ProductCard.id"/>
                     </b-td>
                 </b-tr>
@@ -63,14 +63,7 @@ export default {
 }
 </script>
 
-<style>
-
-.w-100px{
-    width: 50px;
-}
-.left-40{
-    left: 42%;
-}
+<style> 
 .hover-true:hover .d-none-chosen{
     display: block!important;
 }

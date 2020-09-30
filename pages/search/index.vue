@@ -82,11 +82,3 @@ export default {
     },
 }
 </script>
-
-<style>
-.panelProductFilter{
-    background: #fafafa;
-    border: 1px solid #e1e1e1;
-    padding: 0.75rem;
-}
-</style>

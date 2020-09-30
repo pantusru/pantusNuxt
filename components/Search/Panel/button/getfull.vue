@@ -16,5 +16,4 @@ export default {
 .not-collapsed > .when-closed {
   display: none;
 }
-/* v-if="data[5].visible == true" */
 </style>

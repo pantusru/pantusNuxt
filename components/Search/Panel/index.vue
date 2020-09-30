@@ -31,10 +31,4 @@ export default {
     }
 }
 </script>
-
-<style>
-.overflow{
-    overflow:auto;
-    max-height: 200px;
-}
-</style>
+ 

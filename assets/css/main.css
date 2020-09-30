@@ -24,7 +24,6 @@ button.link-light:hover{
 button.bg-link-danger:hover{
     background-color: #e1002b!important;
 }
-/* img */
 /* border */
 .bl-0{
     border-right: 0;
@@ -131,4 +130,12 @@ button.bg-link-danger:hover{
 .overflow{
     overflow:auto;
     max-height: 200px;
+}
+
+/*  ВЫСОТА */
+.h-100vh{
+    height: 100vh;
+}
+.h-25vh{
+    height: 25vh;
 }

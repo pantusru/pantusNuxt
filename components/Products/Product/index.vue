@@ -54,8 +54,4 @@ export default {
 }
 </script>
 
-<style>
-.h-150{
-    height: 150px;
-}
-</style>
+ 

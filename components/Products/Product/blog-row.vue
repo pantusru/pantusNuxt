@@ -58,7 +58,7 @@
                 <b-button 
                     @click="DeleteSelected" 
                     v-if="Selected" 
-                    class="position-absolute bnt-delete bg-danger border-0"  
+                    class="position-absolute bnt-delete-selected bg-danger border-0"  
                 >
                     X
                 </b-button>
@@ -99,10 +99,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.bnt-delete{
-    top:25px;
-    right: 30px;
-}
-</style>

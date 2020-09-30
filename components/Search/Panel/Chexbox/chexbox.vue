@@ -24,12 +24,3 @@ export default {
     },
 }
 </script>
-
-<style>
-    .min-h-auto{
-        min-height: auto;
-    }
-    .checxbox-fix::before , .custom-control-label::after {
-        top:0 !important;
-    }
-</style>

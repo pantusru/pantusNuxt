@@ -34,10 +34,12 @@
                         <Share/>
                     </b-col>
                 </b-row>
-                <TableOffer  :Linkoffset="dataset.productOffer" :ProductId="dataset.ProductCard.id"/>
+                <TableOffer :Linkoffset="dataset.productOffer" :ProductId="dataset.ProductCard.id"/>
                 <ModalBuy/>
             </b-col>
         </b-row>
+        <h4 class="mb-4">Аналоги и заменители</h4>
+        <Table class="mb-4" :array="analogs" :CheckAnalogs="true"></Table>
         <h5 class="mb-3 text-515151">Кроссы по ОЕМ-номерам и аналогам</h5>
         <b-row class="justify-content-between col-8">
             <b-col cols="4 mb-1"
@@ -52,6 +54,7 @@
 </template>
 
 <script>
+import Table from "@/components/Table/product"
 import ModalBuy from "@/components/Modal/buyProduct"
 import TableOffer from "@/components/Table/offset"
 import Share from "@/components/Modal/share"
@@ -64,10 +67,16 @@ export default {
     created(){
         this.MainTrue()
     },
+    computed:{
+        analogs() {
+            return this.$store.getters["Products/analogs/GetProducts"]
+        },
+    },
     components:{
         Share,
         TableOffer,
-        ModalBuy
+        ModalBuy,
+        Table
     }
 }
 </script>

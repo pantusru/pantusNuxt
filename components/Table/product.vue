@@ -12,14 +12,14 @@
                     <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
                     <b-td :rowspan="product.productOffer.length+1" v-if="CheckAnalogs== false"> 
                         <div class="w-50px">
-                            <b-img class="cursor-pointer" @click="ModalImg(product.ProductCard.id)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+                            <ImgGetModal :product="product" />
                         </div>
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1">
                         <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">  {{ product.ProductCard.name }} </nuxt-link>
                     </b-td>
                     <b-td class="position-absolute border-0 left-42">
-                        <Chosen :id="product.ProductCard.id"/>
+                        <Chosen v-if="CheckAnalogs == false" :id="product.ProductCard.id"/>
                     </b-td>
                 </b-tr>
                 <b-tr class="hover-true border-bottom" v-for="offer in product.productOffer" :key="offer.id">
@@ -36,26 +36,26 @@
                 </b-tr>
             </template>
         </b-tbody>
-        <ImgModal/>
-        <BuyModal/>
+        <ImgModal v-if="CheckAnalogs == false"/>
+        <BuyModal v-if="CheckAnalogs == false"/>
     </b-table-simple>
 </template>
 
 <script>
+import ImgGetModal from "@/components/Products/Product/Element/img"
 import PanelVid from "@/components/Search/ProductPanel/table" // Панель
-import Mixin from "@/mixins/Modal/ProductImg"
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
 import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
 import BuyModal from "@/components/Modal/buyProduct"// Компонент модалка купить
 export default {
-    mixins:[Mixin],
     components:{
         ImgModal,
         BuyModal,
         BuyButton,
         Chosen,
-        PanelVid
+        PanelVid,
+        ImgGetModal
     },
     props:{
         array:{},

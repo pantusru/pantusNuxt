@@ -4,7 +4,7 @@
             <b-row class="align-items-center mb-3 justify-content-between">
                 <b-row class="col-5 align-items-center">
                     <b-col cols="4">
-                        <b-img @click="ModalImg(Product.ProductCard.id)" fluid :src="Product.ProductCard.ProductCardImage.url"></b-img>
+                        <ImgGetModal :product="Product" />
                     </b-col>
                     <h2> {{ Product.ProductCard.name}}</h2>
                 </b-row>
@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import mixinsImg from "@/mixins/Modal/ProductImg"
+import ImgGetModal from "@/components/Products/Product/Element/img"
 import BuyButton from "@/components/Products/Button/buyIndex"
 import RowAtr from "@/components/Products/Product/Element/row"
 import TableOffset from "@/components/Table/offset"
@@ -79,7 +79,6 @@ export default {
            this.$store.commit("Selected/selected/DeleteSelected", index);
         }
     },
-    mixins:[mixinsImg],
     name: "ProductBlogRow",
     props: {
         Product: {},
@@ -90,7 +89,8 @@ export default {
     components:{
         RowAtr,
         BuyButton,
-        TableOffset
+        TableOffset,
+        ImgGetModal
     },
     computed:{
         SelectedProducts(){

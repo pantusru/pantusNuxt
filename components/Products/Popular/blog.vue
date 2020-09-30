@@ -4,9 +4,7 @@
             <h6 class="mb-0"> <nuxt-link class="text-dark" :to="'/product/'+ datasetProduct.ProductCard.id"> {{ datasetProduct.ProductCard.name }} </nuxt-link></h6>
         </template>
         <div>
-            <b-card-img @click="ModalImg(datasetProduct.ProductCard.id)" class="cursor-pointer"
-                :src="datasetProduct.ProductCard.ProductCardImage.url">
-            </b-card-img>
+            <ImgGetModal :product="datasetProduct" />
         </div>
         <div class="mt-3">
             <div class="d-flex justify-content-between mb-1 border-bottom">
@@ -52,16 +50,16 @@
 </template>
 
 <script>
-import  mixinsImg from "@/mixins/Modal/ProductImg"
+import ImgGetModal from "@/components/Products/Product/Element/img"
 import BuyButton from "@/components/Products/Button/buyIndex" 
 export default {
     name:"BlogProduct",
-    mixins:[mixinsImg],
     props:{
         datasetProduct:{},
     },
     components:{
         BuyButton,
+        ImgGetModal
     },
 }
 </script>

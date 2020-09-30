@@ -41,7 +41,6 @@ import VueHeader from "../components/Header/Index"
 }
 </script>
 
-<style>
-</style>
+
 
 

@@ -99,7 +99,7 @@ export default {
             return this.$store.getters["Modal/GetCheckCart"]
         },
         Product(){
-            return this.$store.getters["Products/popular/GetProductId"](this.IdProducts)
+            return this.$store.getters["Products/GetProductId"](this.IdProducts)
         },
 
     },

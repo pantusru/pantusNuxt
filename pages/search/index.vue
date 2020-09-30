@@ -25,7 +25,7 @@ import productRow from "@/components/Func/productRow"
 export default {
   async fetch({query, store, getters, commit}){
     await Promise.all([
-      store.dispatch("Products/popular/_ProductPopual"), // Товары
+      store.dispatch("Products/_ProductAll"), // Товары
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости 
       store.dispatch("Cart/CartAll/_CartProduct"), // Товар в корзине
@@ -70,7 +70,7 @@ export default {
     },
     computed: {
         Products() {
-          return this.$store.getters["Products/popular/GetProductPopual"]; 
+          return this.$store.getters["Products/GetProducts"]; 
         },
         componentsName() {
           return this.$store.getters["getProductType"]; 

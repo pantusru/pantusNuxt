@@ -32,7 +32,7 @@ export default {
             return this.$store.getters["Modal/GetModaImgIdProduct"]
         },
         dataset(){
-            return this.$store.getters["Products/popular/GetProductId"](this.IdProductsImg)
+            return this.$store.getters["Products/GetProductId"](this.IdProductsImg)
         },
     },
 }

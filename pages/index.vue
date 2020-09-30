@@ -16,7 +16,7 @@ export default {
     async fetch({store}){
         await Promise.all([
             // store.dispatch("News/NewsIndex/_NewsIndex"),
-            store.dispatch("Products/popular/_ProductPopual"),
+            store.dispatch("Products/_ProductAll"),
             store.dispatch("Cart/CartAll/_CartProduct"), // Товар в корзине
         ])
     },

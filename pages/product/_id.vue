@@ -8,11 +8,11 @@
 import Product from "@/components/Products/Product/index"
 export default {
     async fetch({store}){
-        await store.dispatch("Products/popular/_ProductPopual");
+        await store.dispatch("Products/_ProductAll");
     },
     computed: {
         popular() {
-            return this.$store.getters["Products/popular/GetProductPopual"][0]
+            return this.$store.getters["Products/GetProducts"][0]
         }
     },
     components: {

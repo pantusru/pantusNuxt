@@ -165,3 +165,4 @@ export default {
   background-color: #4AAE9B;
   color: white;
 }
+</style>

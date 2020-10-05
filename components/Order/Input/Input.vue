@@ -22,13 +22,13 @@
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
-    created(){
-        this.$store.commit(this.nameSet, {name: this.name, value:this.value});
-    },
     watch:{
         value(){
             this.$v.Form[this.name].$touch();
             this.$store.commit(this.nameSet, {name: this.name, value:this.value});
+        },
+        User(){
+            this.value = this.User;
         }
     }, 
     mixins:[mixitProps],
@@ -46,7 +46,7 @@ export default {
     },
     computed:{
         User(){
-            return this.$store.getters["User/FormData"];
+            return this.$store.getters["User/FormData"][this.name];
         },
     }
 }

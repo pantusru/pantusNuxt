@@ -17,7 +17,7 @@
 import autocomplete from "@/components/vue-suggestion"
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
-    inject:["$v", "VuexSrc"],
+    inject:["$v"],
     mixins:[mixitProps],
     data() {
         return {
@@ -28,8 +28,8 @@ export default {
     methods:{
         async SetValue(data){ // Сохранение в VUEX для дальшейшей отправки на API
             this.$v.Form[this.name].$touch();
-            this.$store.commit(this.nameSetTown, {data:this.VuexSrc, name: "Town", value: data.data});
-            this.$store.commit(this.nameSetTown, {data:this.VuexSrc, name: "TownId", value: data.id});
+            this.$store.commit(this.nameSetTown, {name: "Town", value: data.data});
+            this.$store.commit(this.nameSetTown, {name: "TownId", value: data.id});
         },
 
     },

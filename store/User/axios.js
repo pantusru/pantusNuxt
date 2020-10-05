@@ -5,7 +5,7 @@ export const actions = {
             login: "email.ru",
             name: "Макс",
             surname: 'Семенов',
-            tlf:'+7937479157',
+            tlf:'+7(893) 747-91-57',
             patronymic: 'Александрович',
         }
         return User;

@@ -17,11 +17,14 @@
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
+    mounted(){
+        this.value =  this.dataset;
+    },
     mixins:[mixitProps],
     data() {
         return {
             nameSet: "User/SetFull",
-            value: ""
+            value: "",
         }
     },
     watch:{

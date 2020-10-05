@@ -46,7 +46,8 @@ export const actions = {
                         supplier:{
                             name: "Пумма",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 6,
                     }, 
                     {
                         id:23,
@@ -168,7 +169,8 @@ export const actions = {
                         supplier:{
                             name: "Пумма",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 2,
                     }, 
                     {
                         id:23,
@@ -232,7 +234,8 @@ export const actions = {
                         supplier:{
                             name: "Пумма",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 1,
                     }, 
                     {
                         id:23,
@@ -290,7 +293,8 @@ export const actions = {
                         supplier:{
                             name: "Пумма",
                             deliveryDelay: "Завтра"
-                        }
+                        },
+                        multiplicity: 3,
                     }, 
                     {
                         id:543,

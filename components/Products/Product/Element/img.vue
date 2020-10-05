@@ -1,5 +1,5 @@
 <template>
-  <b-img class="cursor-pointer" @click="ModalImg(product.ProductCard.id)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+  <b-img class="cursor-pointer" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 export default {
     methods:{
-        ModalImg(id){
-            this.$store.commit("Modal/SetModalImg", id);
+        ModalImg(data){
+            this.$store.commit("Modal/SetModalImg", data);
             this.$bvModal.show('img');
         }
     }

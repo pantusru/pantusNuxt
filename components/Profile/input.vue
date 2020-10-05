@@ -18,22 +18,13 @@
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
     mixins:[mixitProps],
+        inject:["VuexSrc"],
     data() {
         return {
             nameSet: "User/SetFull",
+            value: this.$store.getters["User/FormData"][this.name],
         }
     },
-    computed:{
-        value:{
-            get(){
-                return this.$store.getters["User/FormData"][this.name];
-            },
-            set(){
-                this.$store.commit(this.nameSet, 
-                {data:this.VuexSrc, name: this.name, value:this.value});
-            }
-        }
-    }
 }
 </script>
 

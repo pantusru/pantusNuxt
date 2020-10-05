@@ -11,7 +11,7 @@
                     <ElementForm name="name" :items="'Имя:'"  />
                     <ElementForm name="surname" :items="'Фамилия:'"  />
                     <ElementForm name="patronymic" :items="'Отчество:'"/>
-                    <ElementForm name="telephone" :items="'Телефон:'" />
+                    <ElementForm name="tlf" Vmask="+7(###) ###-##-##" :items="'Телефон:'" />
                 </div>
             </b-col>
         </b-row>

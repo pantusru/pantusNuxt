@@ -19,7 +19,10 @@ import NavProfile from "@/components/Nav/Profile/index"
 import FuncComponents from "@/components/Func/productRow"
 export default {
     async fetch({store}){
-        await store.dispatch("Selected/selected/_Selected");
+        await Promise.all([
+            store.dispatch("Selected/selected/_Selected"),
+            store.dispatch("Cart/CartAll/_CartProduct"),
+        ])
     },
     components:{
         NavProfile,

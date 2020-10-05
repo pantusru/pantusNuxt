@@ -36,22 +36,22 @@ export default {
     },
     created(){
         let data = this.SelectedProducts;
-        for (const key in data) {
-            if(data[key].ProductCard.id == this.id){
-                this.selected = true;
-                break;
+            for (const key in data) {
+                if(data[key].ProductCard.id == this.id){
+                    this.selected = true;
+                    break;
+                }
             }
-        }
     }
 }
 </script>
 
 <style>
  svg.d-none-chosen{
-    display: none !important;
+    display: none ;
  }
   svg.d-none-chosen.activ{
-    display: block !important;
+    display: block;
   }
 .d-none-chosen:hover , .activ{
     color: red!important;

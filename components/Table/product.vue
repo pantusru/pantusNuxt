@@ -58,7 +58,7 @@ export default {
         ImgGetModal
     },
     props:{
-        array:{},
+        array:{},   
         CheckAnalogs:{
             default: false,
         }

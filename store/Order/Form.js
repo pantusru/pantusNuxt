@@ -15,7 +15,7 @@ export const state = () => ({
 })
 export const mutations  =  {
     SetFull(store, data){
-        data.data[data.name] = data.value;
+        store.Form.Contact[data.name] = data.value;
     },
     SetPayment(store, data){
         store.Form.Checxbox.Payment = data;

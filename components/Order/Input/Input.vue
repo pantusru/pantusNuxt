@@ -23,20 +23,20 @@
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
     created(){
-        this.$store.commit(this.nameSet, {data:this.VuexSrc, name: this.name, value:this.value});
+        this.$store.commit(this.nameSet, {name: this.name, value:this.value});
     },
     watch:{
         value(){
             this.$v.Form[this.name].$touch();
-            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: this.name, value:this.value});
+            this.$store.commit(this.nameSet, {name: this.name, value:this.value});
         }
     }, 
     mixins:[mixitProps],
-    inject:["$v", "VuexSrc", "User"],
+    inject:["$v"],
     data(){ 
         return{
             nameSet: "Order/Form/SetFull",
-            value: this.User[this.name]
+            value: this.User,
         }
     },
     props:{
@@ -44,6 +44,11 @@ export default {
             default: "mb-2"
         },
     },
+    computed:{
+        User(){
+            return this.$store.getters["User/FormData"];
+        },
+    }
 }
 </script>
 

@@ -22,21 +22,21 @@
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
+    created(){
+        this.value = this.User;
+    },
     watch:{
         value(){
             this.$v.Form[this.name].$touch();
             this.$store.commit(this.nameSet, {name: this.name, value:this.value});
         },
-        User(){
-            this.value = this.User;
-        }
     }, 
     mixins:[mixitProps],
     inject:["$v"],
     data(){ 
         return{
             nameSet: "Order/Form/SetFull",
-            value: this.User,
+            value: "",
         }
     },
     props:{

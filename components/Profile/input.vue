@@ -13,11 +13,10 @@
         </b-col>
     </b-row>
 </template>
-
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
 export default {
-    mounted(){
+    created(){
         this.value =  this.dataset;
     },
     mixins:[mixitProps],
@@ -25,11 +24,6 @@ export default {
         return {
             nameSet: "User/SetFull",
             value: "",
-        }
-    },
-    watch:{
-        dataset(){
-            this.value = this.dataset;
         }
     },
     computed:{

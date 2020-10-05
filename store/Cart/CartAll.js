@@ -73,5 +73,12 @@ export const getters = {
         */
     GetCartProduct_offersIndex: (s) => (id) =>{
         return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
+    },
+    GetSymmaAll:s=> {
+        var data = 0;
+        for (const key in s.CartProduct) {
+           data += s.CartProduct[key].kolvo * s.CartProduct[key].ProductOffer.prices;
+        }
+        return data;
     }
 }

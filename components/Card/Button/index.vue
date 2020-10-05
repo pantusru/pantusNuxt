@@ -16,7 +16,7 @@ export default {
         }
     },
     created(){
-        if(false){// ПОльзователь авторизован
+        if(true){// ПОльзователь авторизован
             this.check = true;
         }else{ // ПОльзователь не авторизован
             this.check = false;

@@ -21,14 +21,19 @@
 
 <script>
 import mixitProps from "@/mixins/Input/Props/index"
-import mixit from "@/mixins/Input/VuexInput"
 export default {
     created(){
         this.$store.commit(this.nameSet, {data:this.VuexSrc, name: this.name, value:this.value});
     },
-    mixins:[mixitProps, mixit],
-    inject:["$v", "VuexSrc", "User"], // Переопределено
-    data(){ // Переопределено
+    watch:{
+        value(){
+            this.$v.Form[this.name].$touch();
+            this.$store.commit(this.nameSet, {data:this.VuexSrc, name: this.name, value:this.value});
+        }
+    }, 
+    mixins:[mixitProps],
+    inject:["$v", "VuexSrc", "User"],
+    data(){ 
         return{
             nameSet: "Order/Form/SetFull",
             value: this.User[this.name]

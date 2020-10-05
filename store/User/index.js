@@ -14,17 +14,18 @@ export const state = () => ({
      * 
      */
     FormData:{
-        id: undefined,
-        login: undefined,
-        name: undefined,
-        surname: undefined,
-        tlf:undefined,
-        patronymic: undefined,
+        id: '',
+        login: "",
+        name: "",
+        surname: "",
+        tlf:"",
+        patronymic: "",
     }
 })
 export const mutations  =  {
     SetFull(store, data){
-        data.data[data.name] = data.value;
+        console.log(data);
+        store.FormData[data.name] = data.value;
     },
     SetAll(store, data){
         store.FormData = data;

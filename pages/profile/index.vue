@@ -26,17 +26,6 @@ export default {
         ElementForm,
         NavProfile
     },
-    computed:{
-        Form(){
-            return this.$store.getters["User/FormData"];
-        }
-    },
-    provide(){
-        return{
-            // $v: this.$v,
-            VuexSrc: this.Form
-        }
-    },
 }
 </script>
 

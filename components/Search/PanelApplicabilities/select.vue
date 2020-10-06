@@ -38,7 +38,7 @@
       </b-form-select>
     </b-col>
     <b-col cols="3">
-      <b-input class="mr-3" placeholder="Поколения"></b-input>
+      <b-input class="mr-3" placeholder="Поколения" v-model="SelectGenerations"></b-input>
       <b-form-select :select-size="4" v-model="SelectGenerations">
         <template v-slot:first>
           <b-form-select-option
@@ -56,7 +56,18 @@
 
 <script>
 export default {
-  methods: {
+    watch:{
+        SelectMarka(){
+            // this.dataModel = [];
+            // this.dataGenerations = [];
+            this.SelectModel = "";
+            this.SelectGenerations = "";
+        },
+        SelectModel(){
+            this.SelectGenerations = "";
+        }
+    },
+    methods: {
     setDataModel(index) {
       this.dataModel = this.Applicabilities[index].children;
     },
@@ -68,8 +79,8 @@ export default {
   data() {
     return {
       SelectMarka: "",
-      SelectModel: [],
-      SelectGenerations: [],
+      SelectModel: "",
+      SelectGenerations: "",
       dataModel: [],
       dataGenerations: [],
     };

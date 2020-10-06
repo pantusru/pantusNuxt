@@ -31,11 +31,7 @@ import Product from "@/components/Order/Form/product"
 export default {
     mixins:[mixitValid],
     async fetch({store}){
-        await Promise.all([
-            store.dispatch("Order/Payment/Index/_Payment"),
-            store.dispatch("Cart/CartAll/_CartProduct")
-        ])
-            
+        store.dispatch("Order/Payment/Index/_Payment");        
     },
     middleware({ store, redirect }) {
         if(true){ // ПОльзователь не авторизован

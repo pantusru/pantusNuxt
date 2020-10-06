@@ -11,7 +11,6 @@ export default {
         await Promise.all([
             store.dispatch("Products/_ProductId"),
             store.dispatch("Products/analogs/_ProductAll"),
-            store.dispatch("Cart/CartAll/_CartProduct"),
         ])
     },
     computed: {

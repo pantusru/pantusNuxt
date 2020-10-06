@@ -17,7 +17,6 @@ export default {
         await Promise.all([
             // store.dispatch("News/NewsIndex/_NewsIndex"),
             store.dispatch("Products/_ProductAll"),
-            store.dispatch("Cart/CartAll/_CartProduct"), // Товар в корзине
         ])
     },
 }

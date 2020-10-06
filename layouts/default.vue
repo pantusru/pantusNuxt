@@ -35,7 +35,10 @@ import VueHeader from "../components/Header/Index"
     },
     methods:{
       async GetUser(){ // Загрузка Данных User
-        await this.$store.dispatch("User/_User");
+        await Promise.all([
+          this.$store.dispatch("User/_User"),
+          this.$store.dispatch("Cart/CartAll/_CartProduct")
+        ])
       }
     }
 }

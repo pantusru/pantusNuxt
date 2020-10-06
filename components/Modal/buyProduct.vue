@@ -72,6 +72,7 @@ export default {
                     data.kolvo = this.count;
                     data.ProductOffer = {};
                     data.ProductOffer.id = this.LinkOffer.id;
+                    data.ProductOffer.prices = this.LinkOffer.prices;
                     // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     this.$store.commit("Cart/CartAll/PushCartProduct" , data);
                     this.$bvModal.hide('buy');

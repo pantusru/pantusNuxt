@@ -18,9 +18,6 @@ export default {
             checkGetModal: null,
         }
     },
-    async fetch({store, query}){
-        await store.dispatch("Cart/CartAll/_CartProduct");
-    },
     methods:{
         ModalGet(){
             if(this.$route.query.reg != undefined){

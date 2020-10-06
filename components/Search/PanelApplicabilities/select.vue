@@ -5,9 +5,9 @@
       <b-input
         class="mr-3 form-control"
         placeholder="Марка"
-        :value="SelectMarka"
+         
       ></b-input>
-      <b-form-select :select-size="4" v-model="SelectMarka">
+      <b-form-select v-model="SelectMarka" :select-size="4">
         <template v-slot:first>
           <b-form-select-option
             @click="setDataModel(index)"
@@ -23,13 +23,13 @@
       <b-input
         class="mr-3"
         placeholder="Модель"
-        v-model="SelectModel"
+         
       ></b-input>
-      <b-form-select :select-size="4" v-model="SelectModel">
+      <b-form-select multiple :select-size="4" v-model="SelectModel">
         <template v-slot:first>
           <b-form-select-option
-            @click="setDataGenerations(index)"
-            v-for="(data, index) in dataModel"
+            @click="setDataGenerations(data.id)"
+            v-for="(data) in dataModel"
             :key="data.id"
             :value="data.id"
             >{{ data.name }}</b-form-select-option
@@ -38,8 +38,8 @@
       </b-form-select>
     </b-col>
     <b-col cols="3">
-      <b-input class="mr-3" placeholder="Поколения" v-model="SelectGenerations"></b-input>
-      <b-form-select :select-size="4" v-model="SelectGenerations">
+      <b-input class="mr-3" placeholder="Поколения"></b-input>
+      <b-form-select multiple :select-size="4" v-model="SelectGenerations">
         <template v-slot:first>
           <b-form-select-option
             v-for="(data) in dataGenerations"
@@ -57,30 +57,52 @@
 <script>
 export default {
     watch:{
+        /**
+         * ### Изменения select марки
+         */
         SelectMarka(){
-            // this.dataModel = [];
-            // this.dataGenerations = [];
-            this.SelectModel = "";
-            this.SelectGenerations = "";
+            this.SelectModel = [];
+            this.SelectGenerations = [];
+            this.dataGenerations = [];
         },
+        /**
+         * ### Изменения select модели
+         */
         SelectModel(){
-            this.SelectGenerations = "";
-        }
+            this.SelectGenerations = [];
+        },
+        
     },
     methods: {
+    /**
+     * @function setDataModel -  Сохраняет массив отображаемых моделей взависимости от марки
+     */
     setDataModel(index) {
-      this.dataModel = this.Applicabilities[index].children;
+        this.dataModel = this.Applicabilities[index].children;
     },
-    setDataGenerations(index) {
-      this.dataGenerations = this.dataModel[index].children;
-      console.log(this.dataGenerations);
+    /**
+     * @function setDataGenerations -  Сохраняет массив отображаемых моделей взависимости от марки
+     */
+    setDataGenerations(id) {
+        this.SelectModel.forEach(id => {
+            
+        });
+        // let check  = this.SelectModel.findIndex(data => data == id);
+        // console.log(check);
+         // DELETE
+        // this.dataGenerations = [];
+        // this.check.forEach(element => {
+        //     this.dataModel[element].children.forEach(element => {
+        //         this.dataGenerations.push(element);
+        //     });
+        // });
     },
   },
   data() {
     return {
-      SelectMarka: "",
-      SelectModel: "",
-      SelectGenerations: "",
+      SelectMarka: [],
+      SelectModel: [],
+      SelectGenerations: [],
       dataModel: [],
       dataGenerations: [],
     };

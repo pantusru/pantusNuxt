@@ -1,5 +1,5 @@
 /* Link */
-a.link-danger:hover , button.link-danger:hover, .link-danger:hover{
+a.link-danger:hover , button.link-danger:hover, .link-danger:hover {
     text-decoration: none;
     color: #e1002b!important;
 } 
@@ -24,12 +24,21 @@ button.link-light:hover{
 button.bg-link-danger:hover{
     background-color: #e1002b!important;
 }
+/* link border */
+.border-link-danger:hover{
+    border: 1px solid #e1002b; 
+}
+
+
 /* border */
 .bl-0{
     border-right: 0;
 }
 .border-danger{
     border: 2px solid #e1002b;
+}
+.border-e1{
+    border: 1px solid #e1e1e1;
 }
 /*  font-size */
 .fz-1{
@@ -80,6 +89,9 @@ button.bg-link-danger:hover{
 }
 .text-515151{
     color: #515151;
+}
+.text-666{
+    color: #666;
 }
 /* ПРОЧЕЕ*/
 
@@ -139,10 +151,10 @@ button.bg-link-danger:hover{
     height: 25vh;
 }
 
-/* position */
+/* position
 .bottom-pos-0{
     bottom: 0;
 }
 .z-index-top{
     z-index: 9999;
-}
+} */

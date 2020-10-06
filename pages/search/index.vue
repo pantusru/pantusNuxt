@@ -1,6 +1,7 @@
 <template>
 <section class="mt-5">
   <div class="container">
+      <FilterApplicabilities/>
       <b-row>
         <b-col cols="12" lg="3">
           <FilterForm/>
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import FilterApplicabilities from "@/components/Forms/FilterApplicabilities"
 import PanelVid from "@/components/Search/ProductPanel/table"
 import FilterForm from "@/components/Forms/FulterProducts"
 import TableProduct from "@/components/Table/product"
@@ -65,7 +67,8 @@ export default {
         TableProduct,
         productBlog,
         productRow,
-        PanelVid
+        PanelVid,
+        FilterApplicabilities
     },
     computed: {
         Products() {

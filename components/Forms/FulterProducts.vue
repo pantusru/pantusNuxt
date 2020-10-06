@@ -1,5 +1,6 @@
 <template>
     <b-form class="border p-3" > 
+         <!-- <Submit /> -->
         <VueRange/> <!-- ЦЕНА-->
         <!-- БРЭНД -->
         <PanelBrand
@@ -27,7 +28,7 @@
         </Panel>
 
 
-        <b-button-group>
+        <b-button-group class="pb-2 position-fixed bottom-pos-0 z-index-top">
             <Submit/>
             <Reset/>
         </b-button-group>

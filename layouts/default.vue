@@ -15,7 +15,7 @@ import VueHeader from "../components/Header/Index"
     },
     computed:{
       show(){
-        return this.$store.getters["Getshow"];
+        return this.$store.getters["GetshowLoader"];
       },
       loaderUser(){
         return this.$store.getters["User/Loader"];

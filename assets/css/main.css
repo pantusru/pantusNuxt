@@ -138,3 +138,11 @@ button.bg-link-danger:hover{
 .h-25vh{
     height: 25vh;
 }
+
+/* position */
+.bottom-pos-0{
+    bottom: 0;
+}
+.z-index-top{
+    z-index: 9999;
+}

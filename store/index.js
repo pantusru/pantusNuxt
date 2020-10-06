@@ -1,16 +1,21 @@
 export const state = () => ({
-    show: true,
-    ProductType : 'TableProduct'
+    showLoader: true,
+    ProductType : 'TableProduct',
+    showButtonFilter: true,
 })
 export const mutations  =  {
     SetShow(store, data){
-        store.show = data;
+        store.showLoader = data;
     },
     SetProductType(store, data){
         store.ProductType = data;
     },
+    SetshowButtonFilter(store, data){
+        store.showButtonFilter = data;
+    },
 }
 export const getters = {
-    Getshow: s => s.show,
+    GetshowLoader: s => s.showLoader,
     getProductType: s => s.ProductType,
+    GetshowButtonFilter: s=> s.showButtonFilter,
 }

@@ -28,7 +28,7 @@
         </Panel>
 
 
-        <b-button-group class="pb-2 position-fixed bottom-pos-0 z-index-top">
+        <b-button-group>
             <Submit/>
             <Reset/>
         </b-button-group>

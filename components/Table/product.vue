@@ -19,7 +19,7 @@
                         <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">  {{ product.ProductCard.name }} </nuxt-link>
                     </b-td>
                     <b-td class="position-absolute border-0 left-42">
-                        <Chosen v-if="CheckAnalogs == false" :id="product.ProductCard.id"/>
+                        <Chosen v-if="CheckAnalogs == false && CheckUser == true" :id="product.ProductCard.id"/>
                     </b-td>
                 </b-tr>
                 <b-tr class="hover-true border-bottom" v-for="offer in product.productOffer" :key="offer.id">
@@ -61,6 +61,11 @@ export default {
         array:{},   
         CheckAnalogs:{
             default: false,
+        }
+    },
+    computed:{
+        CheckUser(){
+            return this.$store.getters["User/CheckUser"]
         }
     }
 }

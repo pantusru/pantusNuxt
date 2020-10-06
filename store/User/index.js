@@ -6,7 +6,7 @@ export const state = () => ({
     /**
      * @property  Проверка user авторизованный?
      */
-    CheckUser: true,
+    CheckUser: false,
     /**
      * ### Используется в форме Личные данные
      *  
@@ -18,8 +18,8 @@ export const state = () => ({
         login: "",
         name: "",
         surname: "",
-        tlf:"",
         patronymic: "",
+        tlf:"",
     }
 })
 export const mutations  =  {

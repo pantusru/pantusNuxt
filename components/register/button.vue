@@ -11,6 +11,7 @@ export default {
         go(){
             this.$v.Form.$touch();
             if(this.$v.Form.$error === false){
+                console.log(this.$v.Form.$model);
                 // ЗАПРОС С СОХРАНЕНИЕМ НА СЕРВЕР
             }
         }

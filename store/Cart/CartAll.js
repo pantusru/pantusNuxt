@@ -58,27 +58,36 @@ export const actions = {
 }
 export const getters = {
     /**
-     * #Вывод всех  товаров с корзины
+     * ### Вывод всех  товаров с корзины
      * @returns {Array}  товаров с корзины
      */
     GetCartProduct: s => s.CartProduct,
     /**
-     * #Вывод  товара с корзины по Id
+     * ### Вывод  товара с корзины по Id
      * @returns {Object} объект товара с корзины
      */
     GetCartProductId: s=> id => s.CartProduct.filter(cart => cart.ProductOffer.id == id),
         /**
-        * #Вывод index товара с корзины по Id
+        * ### Вывод index товара с корзины по Id
         * @returns {Number} index товара с корзины
         */
     GetCartProduct_offersIndex: (s) => (id) =>{
         return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
     },
+    /**
+     * ### Вывод сумму всех товаров с корзины 
+     * @returns {Number} сумму товаров с корзины
+     */
     GetSymmaAll:s=> {
         var data = 0;
         for (const key in s.CartProduct) {
            data += s.CartProduct[key].kolvo * s.CartProduct[key].ProductOffer.prices;
         }
         return data;
-    }
+    },
+    /**
+    * ### Вывод количество товара в корзине
+    * @returns {Number} количество товара в корзине
+     */
+    GetLength: s=> s.CartProduct.length
 }

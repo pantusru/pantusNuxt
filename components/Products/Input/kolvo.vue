@@ -52,10 +52,7 @@ export default {
             if(this.error == true){
                 this.error = false;
             }
-            if(this.kolvo < this.multiplicity || this.kolvo == ""){
-                this.error = true;
-            }
-            if(this.kolvo % this.multiplicity > 0){
+            if(this.kolvo < this.multiplicity || this.kolvo == "" || this.kolvo % this.multiplicity > 0){
                 this.error = true;
             } 
         },

@@ -1,10 +1,13 @@
 <template>
-  <b-col cols="4">
-    <div class="mr-3 form-control h-100">
+  <b-col cols="3">
+    <div class="mr-3 form-control h-100 p-2">
       <div v-if="PanelData.length != 0">
         <span v-for="id in Panel" :key="id">
-          {{PanelData.filter((data) => data.id == id)[0].name + ", "}}
- 
+          <template
+            v-if="PanelData.filter((data) => data.id == id)[0] != undefined"
+          >
+            {{ PanelData.filter((data) => data.id == id)[0].name + ", " }}
+          </template>
         </span>
       </div>
     </div>
@@ -21,14 +24,14 @@
     </b-form-select>
   </b-col>
 </template>
-
 <script>
 export default {
   props: {
     Data: {},
     NameSelected: {},
     PanelId: {},
-    NameData:{},
+    NameData: {},
+    NameSelectedClildren: {},
   },
   computed: {
     Panel: {
@@ -38,6 +41,19 @@ export default {
         )[0][this.NameSelected];
       },
       set(value) {
+        // Пустой родитель очищаем потомков
+        if (value.length == 0) {
+          this.$store.commit("Applicabilities/Panel/SetPanel", {
+            id: this.PanelId,
+            value: [],
+            name: this.NameSelectedClildren,
+          });
+           this.$store.commit("Applicabilities/Panel/SetPanel", {
+            id: this.PanelId,
+            value: [],
+            name: this.NameData,
+          });
+        }
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           id: this.PanelId,
           value: value,
@@ -50,19 +66,24 @@ export default {
         this.PanelId
       )[0][this.Data];
     },
+    PanelClildren() {
+      return this.$store.getters["Applicabilities/Panel/PanelId"](
+        this.PanelId
+      )[0][this.NameSelectedClildren];
+    },
   },
   methods: {
     SetVuex(index) {
-      if(this.NameData != undefined){
+      if (this.NameData != undefined) {
         let dataset = [];
-        this.Panel.forEach(id => {
-          let elements =  this.PanelData.filter((data) => data.id == id);
-          elements[0].children.forEach((element)=>{
+        this.Panel.forEach((id) => {
+          let elements = this.PanelData.filter((data) => data.id == id);
+          elements[0].children.forEach((element) => {
             dataset.push(element);
-          })
+          });
         });
         this.$store.commit("Applicabilities/Panel/SetPanel", {
-          id: this.PanelId, 
+          id: this.PanelId,
           value: dataset,
           name: this.NameData,
         });

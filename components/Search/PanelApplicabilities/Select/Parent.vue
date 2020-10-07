@@ -1,6 +1,6 @@
 <template>
   <b-col cols="3">
-    <div class="mr-3 form-control">
+    <div class="mr-3 form-control h-100 p-2">
       <span v-if="Panel.length != 0">
         {{ Applicabilities.filter((data) => data.id == Panel)[0].name }}
       </span>

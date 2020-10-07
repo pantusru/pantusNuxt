@@ -1,5 +1,4 @@
 <template>
-  <!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->
   <b-row class="align-items-center mb-3">
     <Parent :PanelId="PanelId" />
     <Children
@@ -7,6 +6,7 @@
       Data="DataModel"
       NameData="DataGenerations"
       NameSelected="SelectedModel"
+      NameSelectedClildren="SelectedGenerations"
     />
     <Children
       :PanelId="PanelId"
@@ -43,8 +43,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
-
-<!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->

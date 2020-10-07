@@ -2,7 +2,11 @@
   <!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->
   <b-row class="align-items-center">
     <b-col cols="3">
-      <b-input class="mr-3 form-control" placeholder="Марка"></b-input>
+     <div class="mr-3 form-control">
+       <span v-if="SelectMarka.length != 0" >
+          {{ Applicabilities.filter(dataset => dataset.id == SelectMarka)[0].name }}
+       </span>
+      </div>
       <b-form-select v-model="SelectMarka" :select-size="4">
         <template v-slot:first>
           <b-form-select-option
@@ -16,7 +20,11 @@
       </b-form-select>
     </b-col>
     <b-col cols="4">
-      <b-input class="mr-3" placeholder="Модель"></b-input>
+      <div class="mr-3 form-control">
+          <span v-for="id in SelectModel" :key="id">
+            {{ dataModel.filter(dataset => dataset.id == id)[0].name + ', '}}
+          </span>
+        </div>
       <b-form-select multiple :select-size="4" v-model="SelectModel">
         <template v-slot:first>
           <b-form-select-option
@@ -30,7 +38,11 @@
       </b-form-select>
     </b-col>
     <b-col cols="3">
-      <b-input class="mr-3" placeholder="Поколения"></b-input>
+        <div class="mr-3 form-control">
+          <span v-for="id in SelectGenerations" :key="id">
+            {{ dataGenerations.filter(dataset => dataset.id == id)[0].name + ' , '}}
+          </span>
+        </div>
       <b-form-select multiple :select-size="4" v-model="SelectGenerations">
         <template v-slot:first>
           <b-form-select-option
@@ -59,6 +71,7 @@ export default {
     },
     /**
      * ### Изменения select модели
+     * СЛожная реализация!
      */
     SelectModel() {
       this.SelectGenerations = [];

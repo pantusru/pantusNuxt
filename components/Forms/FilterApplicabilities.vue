@@ -1,7 +1,7 @@
 <template>
     <div class="mb-4">
-        <button @click.prevent="showAll=true" v-if="showAll === false" :class="BntClass">Указать применяемость</button>
-        <b-card v-if="showAll == true" class="text-666 border-e1 bg-transparen" no-body>
+        <button @click.prevent="showAll=true" v-show="showAll === false" :class="BntClass">Указать применяемость</button>
+        <b-card v-show="showAll == true" class="text-666 border-e1 bg-transparen" no-body>
             <b-card-body class="px-3 py-2">
             <span @click="showAll=false" class="cursor-pointer link-danger">
                 Указать применяемость

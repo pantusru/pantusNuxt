@@ -23,6 +23,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            data: [],
+        }
+    },
   props: {
     PanelId: {},
   },
@@ -39,18 +44,24 @@ export default {
         )[0]["SelectedMarka"];
       },
       set(value) {
-        this.$store.dispatch("Applicabilities/Panel/SetIdPanel", 
+
+        this.$store.commit("Applicabilities/Panel/SetPanel", 
         { 
             id: this.PanelId,
-            data: value,
-            name: "SelectedMarka" 
+            value: value,
+            name: "SelectedMarka",
         });
       },
     },
   },
   methods: {
-    SetVuex() {
-      //Запрос на VUEX сохранение данных!
+    SetVuex(index) {
+        this.data =  this.Applicabilities[index].children;
+        this.$store.commit("Applicabilities/Panel/SetPanel", {
+            id: this.PanelId,
+            value:  this.data,
+            name: "DataModel",
+        }) 
     },
   },
 };

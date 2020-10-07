@@ -5,9 +5,10 @@ export const state = () => ({
     Panel: [
         {
             id: 1,
-            SelectedMarka:[],
+            SelectedMarka: [],
             SelectedModel: [],
-            SelectedGenerations:[],
+            SelectedGenerations: [],
+            DataModel: [],
         }
     ],
     /**
@@ -24,9 +25,10 @@ export const mutations = {
         store.Ids++;
         store.Panel.push({
             id: store.Ids,
-            SelectedMarka:[],
+            SelectedMarka: [],
             SelectedModel: [],
-            SelectedGenerations:[],
+            SelectedGenerations: [],
+            DataModel: [],
         });
     },
     /**
@@ -36,27 +38,21 @@ export const mutations = {
     DeletePanel(store, data) {
         store.Panel.splice(data, 1);
     },
-    SetIdPanel(store,data){
-        store.Panel[data.index][data.name] = data.data;
+    SetPanel(store, data) {
+        let index = store.Panel.findIndex(panel => panel.id == data.id);
+        store.Panel[index][data.name] = data.value;
     }
 }
 
 export const actions = {
-    DeletePanel({store, commit, getters}, id) {
+    DeletePanel({ store, commit, getters }, id) {
         let index = getters.PanelfindIndex(id);
         commit("DeletePanel", index);
-        if (getters.GetPanel.length == 0) {
-            commit("SetPanelNew");
-        }
     },
-    SetIdPanel({store,commit,getters}, data){
-        let index = getters.PanelfindIndex(data.id);
-        commit("SetIdPanel", {index:index, data: data.data ,name:data.name});   
-    }
 }
 export const getters = {
     GetPanel: s => s.Panel,
     PanelLength: s => s.Panel.length,
-    PanelId: s=> id => s.Panel.filter(data => data.id == id),
-    PanelfindIndex: s=> id => s.Panel.findIndex(panel => panel.id == id)
+    PanelId: s => id => s.Panel.filter(data => data.id == id),
+    PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id)
 }   

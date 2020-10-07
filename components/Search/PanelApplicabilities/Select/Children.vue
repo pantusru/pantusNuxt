@@ -9,7 +9,7 @@
     <b-form-select multiple :select-size="4" v-model="Panel">
       <template v-slot:first>
         <b-form-select-option
-          v-for="element in data"
+          v-for="element in PanelData"
           :key="element.id"
           :value="element.id"
           >{{ element.name }}</b-form-select-option
@@ -21,14 +21,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      data: "",
-    }
-  },
   props: {
-    Name: {},
-    NameParent: {},
+    Data:{},
+    NameSelected: {},
     PanelId:{},
   },
   computed: {
@@ -36,10 +31,15 @@ export default {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
           this.PanelId
-        )[0][this.Name]
+        )[0][this.NameSelected]
       },
       set(value) {},
     },
+    PanelData(){
+      return this.$store.getters["Applicabilities/Panel/PanelId"](
+          this.PanelId
+        )[0][this.Data]
+    }
 
   },
 };

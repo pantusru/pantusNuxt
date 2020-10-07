@@ -4,8 +4,8 @@
     <Parent :PanelId="PanelId" />
     <Children
       :PanelId="PanelId"
-      Name="SelectedModel"
-      NameParent="SelectedMarka"
+      Data="DataModel"
+      NameSelected="SelectedModel"
     />
     <!-- <Children/> -->
     <b-col cols="2">

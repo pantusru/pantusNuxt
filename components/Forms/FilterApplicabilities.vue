@@ -8,7 +8,7 @@
                 <b-icon-arrow-up></b-icon-arrow-up>
             </span>
             <div class="mt-3 mb-2">
-                <Vselect/>
+                <Vpanel/>
             </div>
             </b-card-body>
         </b-card>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Vselect from "@/components/Search/PanelApplicabilities/select"
+import Vpanel from "@/components/Search/PanelApplicabilities/panel"
 export default {
   data() {
     return {
@@ -25,7 +25,7 @@ export default {
     }
   },
   components:{
-      Vselect,
+      Vpanel,
   }
 };
 </script>

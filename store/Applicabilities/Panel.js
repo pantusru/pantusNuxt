@@ -44,10 +44,22 @@ export const mutations = {
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.name] = data.value;
     },
-    ResetAll(store, data){
+    ResetClildren(store, data){
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.NameSelected] = [];
         store.Panel[index][data.NameData] = [];
+    },
+    ResetAll(store){
+        store.Panel = [
+            {
+                id: 1,
+                SelectedMarka: [],
+                SelectedModel: [],
+                SelectedGenerations: [],
+                DataModel: [],
+                DataGenerations:[],
+            }
+        ]
     }
 }
 

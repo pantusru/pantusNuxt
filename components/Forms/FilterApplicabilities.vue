@@ -19,7 +19,8 @@
         </span>
         <div class="mt-3 mb-2">
           <Vpanel v-for="data in Panels" :key="data.id" :PanelId="data.id" />
-          <ButtonAdd></ButtonAdd>
+          <ButtonAdd/>
+          <ButtonReset/>
         </div>
       </b-card-body>
     </b-card>
@@ -28,7 +29,8 @@
 
 <script>
 import Vpanel from "@/components/Search/PanelApplicabilities/Panel";
-import ButtonAdd from "@/components/Search/PanelApplicabilities/ButtonAdd";
+import ButtonAdd from "@/components/Search/PanelApplicabilities/Button/ButtonAdd";
+import ButtonReset from "@/components/Search/PanelApplicabilities/Button/Reset";
 export default {
   data() {
     return {
@@ -40,6 +42,7 @@ export default {
   components: {
     Vpanel,
     ButtonAdd,
+    ButtonReset
   },
   computed: {
     Panels() {

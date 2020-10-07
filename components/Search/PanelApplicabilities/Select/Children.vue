@@ -43,7 +43,7 @@ export default {
       set(value) {
         // Пустой родитель очищаем потомков
         if (value.length == 0 && this.NameSelectedClildren != undefined) {
-          this.$store.commit("Applicabilities/Panel/ResetAll", {
+          this.$store.commit("Applicabilities/Panel/ResetClildren", {
             id: this.PanelId,
             NameSelected: this.NameSelectedClildren,
             NameData: this.NameData,

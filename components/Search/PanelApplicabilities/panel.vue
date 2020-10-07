@@ -95,14 +95,12 @@ export default {
      * @function setDataModel -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataModel(index) {
-      this.SetIdVuex();
       this.dataModel = this.Applicabilities[index].children;
     },
     /**
      * @function setDataGenerations -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataGenerations(id) {
-      this.SetIdVuex();
       this.dataGenerations = [];
       this.SelectModel.forEach((id) => {
         let data = this.dataModel.filter((data) => data.id == id);
@@ -117,18 +115,10 @@ export default {
     DeletePanel() {
       this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.LinkPanel);
     },
-    /**
-     *
-     */
-    SetIdVuex() {
-      this.$store.commit("Applicabilities/Panel/SetPanelId", {
-        link: this.LinkPanel,
-        data: [this.SelectMarka, this.SelectModel, this.SelectGenerations],
-      });
-    },
   },
   data() {
     return {
+      SelectAll:[],
       SelectMarka: [],
       SelectModel: [],
       SelectGenerations: [],

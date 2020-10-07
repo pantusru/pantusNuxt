@@ -3,8 +3,15 @@ export const state = () => ({
      * @property Vuex массив для фильтров select состоящий из массивов
      */
     Panel: [
-        [],
+        {
+            id: 1,
+            Selected: []
+        }
     ],
+    /**
+     * 
+     */
+    Ids: 1,
 })
 export const mutations = {
     /**
@@ -12,7 +19,11 @@ export const mutations = {
      * @function  SetPanelNew - Добавляет новый  пустой массив в Panel
      */
     SetPanelNew(store) {
-        store.Panel.push([]);
+        store.Ids++;
+        store.Panel.push({
+            id: store.Ids,
+            Selected: [],
+        });
     },
     /**
      *  
@@ -21,10 +32,6 @@ export const mutations = {
     DeletePanel(store, data) {
         store.Panel.splice(data, 1);
     },
-    SetPanelId(store,data){
-        console.log(data);
-        data.link = data.data.flat();
-    }
 }
 
 export const actions = {

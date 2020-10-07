@@ -5,8 +5,9 @@ export const state = () => ({
     Panel: [
         {
             id: 1,
-            Selected: [],
-            
+            SelectedMarka:[],
+            SelectedModel: [],
+            SelectedGenerations:[],
         }
     ],
     /**
@@ -23,7 +24,9 @@ export const mutations = {
         store.Ids++;
         store.Panel.push({
             id: store.Ids,
-            Selected: [],
+            SelectedMarka:[],
+            SelectedModel: [],
+            SelectedGenerations:[],
         });
     },
     /**
@@ -34,7 +37,7 @@ export const mutations = {
         store.Panel.splice(data, 1);
     },
     SetIdPanel(store,data){
-        store.Panel[0].Selected = data.data;
+        store.Panel[data.index][data.name] = data.data;
     }
 }
 
@@ -49,8 +52,7 @@ export const actions = {
     SetIdPanel({store,commit,getters}, data){
         let index = getters.PanelfindIndex(data.id);
         console.log(index);
-        commit("SetIdPanel", {index:index, data: data.data});
-        
+        commit("SetIdPanel", {index:index, data: data.data ,name:data.name});   
     }
 }
 export const getters = {

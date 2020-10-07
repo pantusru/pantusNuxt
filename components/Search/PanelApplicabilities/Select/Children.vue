@@ -3,11 +3,10 @@
     <div class="mr-3 form-control">
       <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
       <span>
-          {{SelectedParent}}
       </span>
       <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
     </div>
-    <b-form-select multiple :select-size="4" v-model="Panel[Name]">
+    <b-form-select multiple :select-size="4" v-model="Panel">
       <template v-slot:first>
         <b-form-select-option
           v-for="element in data"
@@ -37,13 +36,11 @@ export default {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
           this.PanelId
-        )[0]
+        )[0][this.Name]
       },
       set(value) {},
     },
-    SelectedParent(){
-      return this.Panel[this.NameParent]
-    }
+
   },
 };
 </script>

@@ -1,9 +1,11 @@
 <template>
   <b-col cols="3">
     <div class="mr-3 form-control">
-      <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
-      <span> </span>
-      <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
+      <span v-if="Panel.length != 0">
+          {{ 
+              Applicabilities.filter(data => data.id == Panel)[0].name
+           }}
+      </span>
     </div>
     <b-form-select v-model="Panel" :select-size="4">
       <template v-slot:first>
@@ -34,7 +36,7 @@ export default {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
           this.PanelId
-        )[0];
+        )[0]["SelectedMarka"];
       },
       set(value) {
         this.$store.dispatch("Applicabilities/Panel/SetIdPanel", 

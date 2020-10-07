@@ -51,7 +51,6 @@ export const actions = {
     },
     SetIdPanel({store,commit,getters}, data){
         let index = getters.PanelfindIndex(data.id);
-        console.log(index);
         commit("SetIdPanel", {index:index, data: data.data ,name:data.name});   
     }
 }

@@ -43,18 +43,43 @@ export const mutations = {
     SetPanel(store, data) {
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.name] = data.value;
+    },
+    ResetAll(store, data){
+        let index = store.Panel.findIndex(panel => panel.id == data.id);
+        store.Panel[index][data.NameSelected] = [];
+        store.Panel[index][data.NameData] = [];
     }
 }
 
 export const actions = {
+    /**
+     *  
+     * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
+     */
     DeletePanel({ store, commit, getters }, id) {
         let index = getters.PanelfindIndex(id);
         commit("DeletePanel", index);
     },
 }
 export const getters = {
+    /**
+     * #Вывод всех Panel
+     * @returns {Array}  Массив всех Panel
+     */
     GetPanel: s => s.Panel,
+    /**
+     * #Вывод количество Panel
+     * @returns {Number}  количество Panel
+     */
     PanelLength: s => s.Panel.length,
-    PanelId: s => id => s.Panel.filter(data => data.id == id),
+    /**
+     * #Вывод одной Panel по id
+     * @returns {Object}  одна Panel
+     */
+    PanelId: s => id => s.Panel.filter(data => data.id == id)[0],
+    /**
+     * #Вывод index панели по id
+     * @returns {Object}  index Panel
+     */
     PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id)
 }   

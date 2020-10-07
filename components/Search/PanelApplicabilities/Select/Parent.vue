@@ -34,7 +34,7 @@ export default {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
           this.PanelId
-        )[0]["SelectedMarka"];
+        )["SelectedMarka"];
       },
       set(value) {
         this.$store.commit("Applicabilities/Panel/SetPanel", {

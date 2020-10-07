@@ -38,21 +38,16 @@ export default {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
           this.PanelId
-        )[0][this.NameSelected];
+        )[this.NameSelected];
       },
       set(value) {
         // Пустой родитель очищаем потомков
         if (value.length == 0) {
-          this.$store.commit("Applicabilities/Panel/SetPanel", {
+          this.$store.commit("Applicabilities/Panel/ResetAll", {
             id: this.PanelId,
-            value: [],
-            name: this.NameSelectedClildren,
-          });
-           this.$store.commit("Applicabilities/Panel/SetPanel", {
-            id: this.PanelId,
-            value: [],
-            name: this.NameData,
-          });
+            NameSelected: this.NameSelectedClildren,
+            NameData: this.NameData,
+          })
         }
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           id: this.PanelId,
@@ -64,12 +59,12 @@ export default {
     PanelData() {
       return this.$store.getters["Applicabilities/Panel/PanelId"](
         this.PanelId
-      )[0][this.Data];
+      )[this.Data];
     },
     PanelClildren() {
       return this.$store.getters["Applicabilities/Panel/PanelId"](
         this.PanelId
-      )[0][this.NameSelectedClildren];
+      )[this.NameSelectedClildren];
     },
   },
   methods: {

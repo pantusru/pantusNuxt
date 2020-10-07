@@ -1,11 +1,14 @@
 <template>
   <!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->
-  <b-row class="align-items-center">
+  <b-row class="align-items-center mb-3">
     <b-col cols="3">
-     <div class="mr-3 form-control">
-       <span v-if="SelectMarka.length != 0" >
-          {{ Applicabilities.filter(dataset => dataset.id == SelectMarka)[0].name }}
-       </span>
+      <div class="mr-3 form-control">
+        <span v-if="SelectMarka.length != 0">
+          {{
+            Applicabilities.filter((dataset) => dataset.id == SelectMarka)[0]
+              .name
+          }}
+        </span>
       </div>
       <b-form-select v-model="SelectMarka" :select-size="4">
         <template v-slot:first>
@@ -21,10 +24,10 @@
     </b-col>
     <b-col cols="4">
       <div class="mr-3 form-control">
-          <span v-for="id in SelectModel" :key="id">
-            {{ dataModel.filter(dataset => dataset.id == id)[0].name + ', '}}
-          </span>
-        </div>
+        <span v-for="id in SelectModel" :key="id">
+          {{ dataModel.filter((dataset) => dataset.id == id)[0].name + ", " }}
+        </span>
+      </div>
       <b-form-select multiple :select-size="4" v-model="SelectModel">
         <template v-slot:first>
           <b-form-select-option
@@ -38,11 +41,14 @@
       </b-form-select>
     </b-col>
     <b-col cols="3">
-        <div class="mr-3 form-control">
-          <span v-for="id in SelectGenerations" :key="id">
-            {{ dataGenerations.filter(dataset => dataset.id == id)[0].name + ' , '}}
-          </span>
-        </div>
+      <div class="mr-3 form-control">
+        <span v-for="id in SelectGenerations" :key="id">
+          {{
+            dataGenerations.filter((dataset) => dataset.id == id)[0].name +
+            " , "
+          }}
+        </span>
+      </div>
       <b-form-select multiple :select-size="4" v-model="SelectGenerations">
         <template v-slot:first>
           <b-form-select-option
@@ -54,7 +60,14 @@
         </template>
       </b-form-select>
     </b-col>
-    <b-col cols="2"> УДАЛИТЬ </b-col>
+    <b-col cols="2">
+      <b-button
+        v-if="PanelLength != 1"
+        class="bg-danger border-0"
+        @click="DeletePanel"
+        >X</b-button
+      >
+    </b-col>
   </b-row>
 </template>
 
@@ -82,18 +95,35 @@ export default {
      * @function setDataModel -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataModel(index) {
+      this.SetIdVuex();
       this.dataModel = this.Applicabilities[index].children;
     },
     /**
      * @function setDataGenerations -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataGenerations(id) {
+      this.SetIdVuex();
       this.dataGenerations = [];
       this.SelectModel.forEach((id) => {
-        let data  = this.dataModel.filter(data => data.id == id);
+        let data = this.dataModel.filter((data) => data.id == id);
         data[0].children.forEach((element) => {
           this.dataGenerations.push(element);
         });
+      });
+    },
+    /**
+     *
+     */
+    DeletePanel() {
+      this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.LinkPanel);
+    },
+    /**
+     *
+     */
+    SetIdVuex() {
+      this.$store.commit("Applicabilities/Panel/SetPanelId", {
+        link: this.LinkPanel,
+        data: [this.SelectMarka, this.SelectModel, this.SelectGenerations],
       });
     },
   },
@@ -106,11 +136,17 @@ export default {
       dataGenerations: [],
     };
   },
+  props: {
+    LinkPanel: {},
+  },
   computed: {
     Applicabilities() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
+    },
+    PanelLength() {
+      return this.$store.getters["Applicabilities/Panel/PanelLength"];
     },
   },
 };

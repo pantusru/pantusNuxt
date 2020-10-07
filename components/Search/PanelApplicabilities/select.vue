@@ -1,12 +1,8 @@
 <template>
-<!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->
+  <!-- БЫДЛО КОД ПОТОМ ИСПРАВЛЯТЬ!!!!!!!!!!!!!!!!!!! -->
   <b-row class="align-items-center">
     <b-col cols="3">
-      <b-input
-        class="mr-3 form-control"
-        placeholder="Марка"
-         
-      ></b-input>
+      <b-input class="mr-3 form-control" placeholder="Марка"></b-input>
       <b-form-select v-model="SelectMarka" :select-size="4">
         <template v-slot:first>
           <b-form-select-option
@@ -20,16 +16,12 @@
       </b-form-select>
     </b-col>
     <b-col cols="4">
-      <b-input
-        class="mr-3"
-        placeholder="Модель"
-         
-      ></b-input>
+      <b-input class="mr-3" placeholder="Модель"></b-input>
       <b-form-select multiple :select-size="4" v-model="SelectModel">
         <template v-slot:first>
           <b-form-select-option
             @click="setDataGenerations(data.id)"
-            v-for="(data) in dataModel"
+            v-for="data in dataModel"
             :key="data.id"
             :value="data.id"
             >{{ data.name }}</b-form-select-option
@@ -42,7 +34,7 @@
       <b-form-select multiple :select-size="4" v-model="SelectGenerations">
         <template v-slot:first>
           <b-form-select-option
-            v-for="(data) in dataGenerations"
+            v-for="data in dataGenerations"
             :key="data.id"
             :value="data.id"
             >{{ data.name }}</b-form-select-option
@@ -56,46 +48,40 @@
 
 <script>
 export default {
-    watch:{
-        /**
-         * ### Изменения select марки
-         */
-        SelectMarka(){
-            this.SelectModel = [];
-            this.SelectGenerations = [];
-            this.dataGenerations = [];
-        },
-        /**
-         * ### Изменения select модели
-         */
-        SelectModel(){
-            this.SelectGenerations = [];
-        },
-        
+  watch: {
+    /**
+     * ### Изменения select марки
+     */
+    SelectMarka() {
+      this.SelectModel = [];
+      this.SelectGenerations = [];
+      this.dataGenerations = [];
     },
-    methods: {
+    /**
+     * ### Изменения select модели
+     */
+    SelectModel() {
+      this.SelectGenerations = [];
+    },
+  },
+  methods: {
     /**
      * @function setDataModel -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataModel(index) {
-        this.dataModel = this.Applicabilities[index].children;
+      this.dataModel = this.Applicabilities[index].children;
     },
     /**
      * @function setDataGenerations -  Сохраняет массив отображаемых моделей взависимости от марки
      */
     setDataGenerations(id) {
-        this.SelectModel.forEach(id => {
-            
+      this.dataGenerations = [];
+      this.SelectModel.forEach((id) => {
+        let data  = this.dataModel.filter(data => data.id == id);
+        data[0].children.forEach((element) => {
+          this.dataGenerations.push(element);
         });
-        // let check  = this.SelectModel.findIndex(data => data == id);
-        // console.log(check);
-         // DELETE
-        // this.dataGenerations = [];
-        // this.check.forEach(element => {
-        //     this.dataModel[element].children.forEach(element => {
-        //         this.dataGenerations.push(element);
-        //     });
-        // });
+      });
     },
   },
   data() {

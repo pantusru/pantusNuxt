@@ -9,6 +9,7 @@ export const state = () => ({
             SelectedModel: [],
             SelectedGenerations: [],
             DataModel: [],
+            DataGenerations:[],
         }
     ],
     /**
@@ -29,6 +30,7 @@ export const mutations = {
             SelectedModel: [],
             SelectedGenerations: [],
             DataModel: [],
+            DataGenerations:[],
         });
     },
     /**

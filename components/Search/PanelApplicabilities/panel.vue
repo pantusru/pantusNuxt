@@ -5,9 +5,14 @@
     <Children
       :PanelId="PanelId"
       Data="DataModel"
+      NameData="DataGenerations"
       NameSelected="SelectedModel"
     />
-    <!-- <Children/> -->
+    <Children
+      :PanelId="PanelId"
+      Data="DataGenerations"
+      NameSelected="SelectedGenerations"
+    />
     <b-col cols="2">
       <b-button
         v-if="PanelLength != 1"
@@ -24,18 +29,6 @@ import Parent from "@/components/Search/PanelApplicabilities/Select/Parent";
 import Children from "@/components/Search/PanelApplicabilities/Select/Children";
 export default {
   methods: {
-    // setDataModel(index) {
-    //   this.dataModel = this.Applicabilities[index].children;
-    // },
-    // setDataGenerations(id) {
-    //   this.dataGenerations = [];
-    //   this.SelectModel.forEach((id) => {
-    //     let data = this.dataModel.filter((data) => data.id == id);
-    //     data[0].children.forEach((element) => {
-    //       this.dataGenerations.push(element);
-    //     });
-    //   });
-    // },
     DeletePanel() {
       this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.PanelId);
     },

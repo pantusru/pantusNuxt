@@ -2,9 +2,7 @@
   <b-col cols="3">
     <div class="mr-3 form-control">
       <span v-if="Panel.length != 0">
-          {{ 
-              Applicabilities.filter(data => data.id == Panel)[0].name
-           }}
+        {{ Applicabilities.filter((data) => data.id == Panel)[0].name }}
       </span>
     </div>
     <b-form-select v-model="Panel" :select-size="4">
@@ -23,11 +21,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-            data: [],
-        }
-    },
   props: {
     PanelId: {},
   },
@@ -44,24 +37,21 @@ export default {
         )[0]["SelectedMarka"];
       },
       set(value) {
-
-        this.$store.commit("Applicabilities/Panel/SetPanel", 
-        { 
-            id: this.PanelId,
-            value: value,
-            name: "SelectedMarka",
+        this.$store.commit("Applicabilities/Panel/SetPanel", {
+          id: this.PanelId,
+          value: value,
+          name: "SelectedMarka",
         });
       },
     },
   },
   methods: {
     SetVuex(index) {
-        this.data =  this.Applicabilities[index].children;
-        this.$store.commit("Applicabilities/Panel/SetPanel", {
-            id: this.PanelId,
-            value:  this.data,
-            name: "DataModel",
-        }) 
+      this.$store.commit("Applicabilities/Panel/SetPanel", {
+        id: this.PanelId,
+        value: this.Applicabilities[index].children,
+        name: "DataModel",
+      });
     },
   },
 };

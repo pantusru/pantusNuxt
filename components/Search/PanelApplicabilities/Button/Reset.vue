@@ -1,5 +1,7 @@
 <template>
-  <b-button @click="ResetAll">Сбросить фильтры</b-button>
+<div class="mt-2">
+  <span class="cursor-pointer" @click="ResetAll">Сбросить фильтры</span>
+</div>
 </template>
 
 <script>
@@ -12,6 +14,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+ 

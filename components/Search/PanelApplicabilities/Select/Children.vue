@@ -1,15 +1,12 @@
 <template>
-<!--            {{ PanelData.filter((data) => data.id == id)[0].name }} -->
   <b-col cols="4">
     <div class="mr-3 form-control h-100">
-      <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
       <div v-if="PanelData.length != 0">
         <span v-for="id in Panel" :key="id">
           {{PanelData.filter((data) => data.id == id)[0].name + ", "}}
  
         </span>
       </div>
-      <!-- ПЕРЕДЕЛАТЬ ПОСЛЕ ПОЯВЛЕНИЕ АДЕКВАТНОГО VUEX -->
     </div>
     <b-form-select multiple :select-size="4" v-model="Panel">
       <template v-slot:first>

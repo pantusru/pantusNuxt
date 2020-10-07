@@ -10,7 +10,7 @@
           }}
         </span>
       </div>
-      <b-form-select v-model="SelectMarka" :select-size="4">
+      <b-form-select v-model="Panel" :select-size="4">
         <template v-slot:first>
           <b-form-select-option
             @click="setDataModel(index)"
@@ -28,7 +28,7 @@
           {{ dataModel.filter((dataset) => dataset.id == id)[0].name + ", " }}
         </span>
       </div>
-      <b-form-select multiple :select-size="4" v-model="SelectModel">
+      <b-form-select multiple :select-size="4" v-model="Panel">
         <template v-slot:first>
           <b-form-select-option
             @click="setDataGenerations(data.id)"
@@ -49,7 +49,7 @@
           }}
         </span>
       </div>
-      <b-form-select multiple :select-size="4" v-model="SelectGenerations">
+      <b-form-select multiple :select-size="4" v-model="Panel">
         <template v-slot:first>
           <b-form-select-option
             v-for="data in dataGenerations"
@@ -67,6 +67,7 @@
         @click="DeletePanel"
         >X</b-button
       >
+      {{Panel}}
     </b-col>
   </b-row>
 </template>
@@ -113,7 +114,7 @@ export default {
      *
      */
     DeletePanel() {
-      this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.LinkPanel);
+      this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.PanelId);
     },
   },
   data() {
@@ -127,7 +128,7 @@ export default {
     };
   },
   props: {
-    LinkPanel: {},
+    PanelId: {},
   },
   computed: {
     Applicabilities() {
@@ -138,6 +139,18 @@ export default {
     PanelLength() {
       return this.$store.getters["Applicabilities/Panel/PanelLength"];
     },
+    Panel:{
+      get(){
+        return this.$store.getters["Applicabilities/Panel/PanelId"](this.PanelId)[0].Selected;
+      },
+      set(value){
+        console.log(value);
+      //   this.$store.commit("Applicabilities/Panel/SetIdPanel" , {
+      //     data: value,
+      //     id: this.PanelId,
+      //   });
+      }
+    }
   },
 };
 </script>

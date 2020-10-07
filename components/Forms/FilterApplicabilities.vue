@@ -18,7 +18,7 @@
           <b-icon-arrow-up></b-icon-arrow-up>
         </span>
         <div class="mt-3 mb-2">
-          <Vpanel v-for="data in Panels" :key="data.id" :LinkPanel="data" />
+          <Vpanel v-for="data in Panels" :key="data.id" :PanelId="data.id" />
           <ButtonAdd></ButtonAdd>
         </div>
       </b-card-body>

@@ -9,7 +9,7 @@ export const state = () => ({
             SelectedModel: [],
             SelectedGenerations: [],
             DataModel: [],
-            DataGenerations:[],
+            DataGenerations: [],
         }
     ],
     /**
@@ -30,7 +30,7 @@ export const mutations = {
             SelectedModel: [],
             SelectedGenerations: [],
             DataModel: [],
-            DataGenerations:[],
+            DataGenerations: [],
         });
     },
     /**
@@ -56,7 +56,7 @@ export const mutations = {
      * @param {String} data.NameSelected - Названия ключа Selected который нужно сбросить в Panel
      * @param {String} data.NameSelected - Названия ключа Data который нужно сбросить в Panel
      */
-    ResetClildren(store, data){
+    ResetClildren(store, data) {
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.NameSelected] = [];
         store.Panel[index][data.NameData] = [];
@@ -65,7 +65,7 @@ export const mutations = {
      * 
      * @function ResetAll - Очищает все Panels
      */
-    ResetAll(store){
+    ResetAll(store) {
         store.Panel = [
             {
                 id: 1,
@@ -73,13 +73,10 @@ export const mutations = {
                 SelectedModel: [],
                 SelectedGenerations: [],
                 DataModel: [],
-                DataGenerations:[],
+                DataGenerations: [],
             }
         ]
     },
-    SetAllIdUrl(store){
-        return store.Panel;
-    }
 }
 
 export const actions = {
@@ -91,6 +88,35 @@ export const actions = {
         let index = getters.PanelfindIndex(id);
         commit("DeletePanel", index);
     },
+    /**
+     * 
+     *  @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
+     * @returns {String}  Строку массива всех выбранных id с Panel
+     */
+    SetAllIdUrl({ state }) {
+        console.log(state);
+        let ids = [];
+        state.Panel.forEach(element => {
+            // ДОбавить SelectedGenerations
+            if (element.SelectedGenerations.length != 0) {
+                ids.push(element.SelectedGenerations);
+                // ДОбавить SelectedModel
+            } else if (element.SelectedModel.length != 0) {
+                ids.push(element.SelectedModel);
+                // ДОбавить SelectedMarka
+            } else if (element.SelectedMarka.length != 0) {
+                ids.push(element.SelectedMarka);
+            }
+        });
+        if (ids.length != 0) {
+            window.scrollTo(0, 0);
+            ids = ids.flat(Infinity);
+            ids = Array.from(
+                new Set(ids)
+            ).join();
+            return ids;
+        }
+    }
 }
 export const getters = {
     /**

@@ -40,15 +40,31 @@ export const mutations = {
     DeletePanel(store, data) {
         store.Panel.splice(data, 1);
     },
+    /**
+     * @function SetPanel - Добавляет Selected или Data в выбранном по id в Panel
+     * @param {Number} data.id - id Panel с которым работать  
+     * @param {String} data.name - Названия ключа который нужно изменить в Panel
+     * @param {Array} data.value -  Значение на которое нужно поменять состояния Panel
+     */
     SetPanel(store, data) {
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.name] = data.value;
     },
+    /**
+     * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 
+     * @param {Number} data.id - id Panel с которым работать 
+     * @param {String} data.NameSelected - Названия ключа Selected который нужно сбросить в Panel
+     * @param {String} data.NameSelected - Названия ключа Data который нужно сбросить в Panel
+     */
     ResetClildren(store, data){
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.NameSelected] = [];
         store.Panel[index][data.NameData] = [];
     },
+    /**
+     * 
+     * @function ResetAll - Очищает все Panels
+     */
     ResetAll(store){
         store.Panel = [
             {
@@ -60,6 +76,9 @@ export const mutations = {
                 DataGenerations:[],
             }
         ]
+    },
+    SetAllIdUrl(store){
+        return store.Panel;
     }
 }
 

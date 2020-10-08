@@ -30,7 +30,7 @@ export default {
       store.dispatch("Products/_ProductAll"), // Товары
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости 
-      store.dispatch("Brand/BrandAll/_Brands"), // все бренды
+      store.dispatch("Brand/BrandAll/_Brands"), // бренды
       store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ])
     //   ПРОВЕРКА QUERY
@@ -51,10 +51,10 @@ export default {
         let ids = query.categories.split(",");
         store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Categories/CategoriesAll/GetCategories"], ids:ids });
       }
-       if(query.applicabilities !=undefined){// ПРОВЕРКА ПРИМИНИМОСТИ
-        let ids = query.applicabilities.split(",");
-        store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
-      }
+      //  if(query.applicabilities !=undefined){// ПРОВЕРКА ПРИМИНИМОСТИ
+      //   let ids = query.applicabilities.split(",");
+      //   store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
+      // }
       if(query.sort_name !=undefined){// ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", 
           {SortType: query.sort_type, SortName: query.sort_name,});
@@ -80,7 +80,7 @@ export default {
     },
     created(){
       this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Categories/CategoriesAll/GetCategories"]);
-      this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
+      // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
     },
 }
 </script>

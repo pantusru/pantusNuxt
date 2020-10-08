@@ -32,7 +32,7 @@ export default {
             sort_type: undefined,
             sort_name: undefined,
             brand: undefined,
-            categories:undefined,
+            categories: undefined,
           },
         });
       }

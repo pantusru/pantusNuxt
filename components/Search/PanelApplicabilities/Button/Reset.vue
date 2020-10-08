@@ -1,15 +1,18 @@
 <template>
   <div class="mt-2">
-    <b-button class="cursor-pointer" @click="ResetAll"
-      >Сбросить фильтры</b-button
+    <span
+      v-on:click.prevent="ResetApplicabilities"
+      class="link-danger cursor-pointer"
     >
+      Сброс фильтры
+    </span>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    ResetAll() {
+    ResetApplicabilities() {
       this.$store.commit("Applicabilities/Panel/ResetAll");
       if (this.$route.query.applicabilities != undefined || true) {
         this.$router.push({

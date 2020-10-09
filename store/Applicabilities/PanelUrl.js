@@ -1,8 +1,8 @@
 export const actions = {
 
     /**
-    * @param data.Marka - Родитель марки
-    * @param data.Model - Родитель модель  
+    *  @param data.Marka - Родитель марки
+    *  @param data.Model - Родитель модель  
     *  @param data.data  - Массив где искать id 
     *  @param data.id - Массив Id по которым искать
     *  @function SetId_Url -  по Url сохраняет выбранные applicabilities в Panel
@@ -101,22 +101,22 @@ export const actions = {
                 }, { root: true });
             }
             if (data.level == 1) {
-                // commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
-                // commit("Applicabilities/Panel/SetPanel", {
-                //     id: rootState.Applicabilities.Panel.Ids,
-                //     name: "SelectedMarka",
-                //     value: data.ids.Marka
-                // }, { root: true });
-                // commit("Applicabilities/Panel/SetPanel", {
-                //     id: rootState.Applicabilities.Panel.Ids,
-                //     name: "SelectedModel",
-                //     value:  data.ids.Model
-                // }, { root: true });
-                // commit("Applicabilities/Panel/SetPanel", {
-                //     id: rootState.Applicabilities.Panel.Ids,
-                //     name: "DataGenerations",
-                //     value: data.link
-                // }, { root: true });
+                commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
+                commit("Applicabilities/Panel/SetPanel", {
+                    id: rootState.Applicabilities.Panel.Ids,
+                    name: "SelectedMarka",
+                    value: data.ids.Marka
+                }, { root: true });
+                commit("Applicabilities/Panel/SetPanel", {
+                    id: rootState.Applicabilities.Panel.Ids,
+                    name: "SelectedModel",
+                    value:  data.ids.Model
+                }, { root: true });
+                commit("Applicabilities/Panel/SetPanel", {
+                    id: rootState.Applicabilities.Panel.Ids,
+                    name: "DataGenerations",
+                    value: data.link
+                }, { root: true });
             }
         }
     },

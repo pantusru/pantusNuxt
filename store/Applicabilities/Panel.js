@@ -44,6 +44,13 @@ export const mutations = {
         store.Panel[index][data.name] = data.value;
     },
     /**
+     * @param {*} data.link - ссылка на Panel selected 
+     *  
+     */
+    PushPanel(store, data){
+        data.link = data.value;
+    },
+    /**
      * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 
      * @param {Number} data.id - id Panel с которым работать 
      * @param {String} data.NameSelected - Названия ключа Selected который нужно сбросить в Panel

@@ -47,7 +47,7 @@ export const mutations = {
      * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 
      * @param {Number} data.id - id Panel с которым работать 
      * @param {String} data.NameSelected - Названия ключа Selected который нужно сбросить в Panel
-     * @param {String} data.NameSelected - Названия ключа Data который нужно сбросить в Panel
+     * @param {String} data.NameData - Названия ключа Data который нужно сбросить в Panel
      */
     ResetClildren(store, data) {
         let index = store.Panel.findIndex(panel => panel.id == data.id);

@@ -48,7 +48,7 @@ export const mutations = {
      *  
      */
     PushPanel(store, data){
-        data.link = data.value;
+        data.link.push(data.value);
     },
     /**
      * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 

@@ -5,7 +5,7 @@ export const actions = {
     *  @param data.Model - Родитель модель  
     *  @param data.data  - Массив где искать id 
     *  @param data.id - Массив Id по которым искать
-    *  @function SetId_Url -  по Url сохраняет выбранные applicabilities в Panel
+    *  @function SetId_Url -  по Url   id ищет  applicabilities
     */
     SetId_Url({ dispatch }, data) {
         for (const keyData in data.data) {
@@ -27,7 +27,8 @@ export const actions = {
                             Marka: data.Marka,
                             Model: data.Model,
                         },
-                        link: data.data[keyData].children,
+                        linkСhildren: data.data[keyData].children,
+                        link: data.data[keyData]
                     });
                     check = true;
                     break;
@@ -51,11 +52,15 @@ export const actions = {
     /**
      * @param {Number} data.level - Показывает в каких Selected искать 
      * @param {Object} data.ids - id которые нужны 
-     * @param {Object} data.link - Ссылка массива с потомками выбранной приминимости
+     * @param {Object} data.link -  Ссылка на Applicabilities 
+     * @param {Object} data.linkСhildren - Ссылка массива с потомками выбранной Applicabilities
      */
     SearchPanelAll({ state, commit, rootState }, data) {
         let check = false;
-        for (const keyPanel in state.Panel) {
+        let arr = rootState.Applicabilities.Panel.Panel;
+        // console.log(state.Panel);
+        console.log( "link Parent id" + data.link.parentId);
+        for (const keyPanel in arr) {
             if (check === true) {
                 break;
             }
@@ -69,25 +74,24 @@ export const actions = {
                     commit("Applicabilities/Panel/SetPanel", {
                         id: rootState.Applicabilities.Panel.Ids,
                         name: "DataModel",
-                        value: data.link
+                        value: data.linkСhildren
                     }, { root: true });
                     check = true;
                     break;
-            }else if (data.level === 1) {
-                console.log("level 1");
-                for (const keySelected in state.Panel[keyPanel].SelectedMarka) {
-                    if (data.ids.Marka == state.Panel[keyPanel].SelectedMarka[keySelected]) {
+            }
+            else if (data.level === 1) {
+                console.log("true level 1");
+                for (const keySelected in arr[keyPanel].SelectedMarka) {
+                    if (data.link.parentId == arr[keyPanel].SelectedMarka[keySelected]) {
                         check = true;
                         break;
                     }
                 }
             }
-            else if (data.level == 2) {
-               
-            }
         }
         if (check === false) {
             if (data.level == 0) {
+                console.log(" false level 0");
                 commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
                 commit("Applicabilities/Panel/SetPanel", {
                     id: rootState.Applicabilities.Panel.Ids,
@@ -97,26 +101,26 @@ export const actions = {
                 commit("Applicabilities/Panel/SetPanel", {
                     id: rootState.Applicabilities.Panel.Ids,
                     name: "DataModel",
-                    value: data.link
+                    value: data.linkСhildren
                 }, { root: true });
-            }
-            if (data.level == 1) {
+            }else if (data.level == 1) {
+                console.log(" false level 1");
                 commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
                 commit("Applicabilities/Panel/SetPanel", {
                     id: rootState.Applicabilities.Panel.Ids,
                     name: "SelectedMarka",
                     value: data.ids.Marka
                 }, { root: true });
-                commit("Applicabilities/Panel/SetPanel", {
-                    id: rootState.Applicabilities.Panel.Ids,
-                    name: "SelectedModel",
-                    value:  data.ids.Model
-                }, { root: true });
-                commit("Applicabilities/Panel/SetPanel", {
-                    id: rootState.Applicabilities.Panel.Ids,
-                    name: "DataGenerations",
-                    value: data.link
-                }, { root: true });
+                // commit("Applicabilities/Panel/SetPanel", {
+                //     id: rootState.Applicabilities.Panel.Ids,
+                //     name: "SelectedModel",
+                //     value:  data.ids.Model
+                // }, { root: true });
+                // commit("Applicabilities/Panel/SetPanel", {
+                //     id: rootState.Applicabilities.Panel.Ids,
+                //     name: "DataGenerations",
+                //     value: data.link
+                // }, { root: true });
             }
         }
     },

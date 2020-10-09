@@ -3,19 +3,12 @@ export const state = () => ({
      * @property Vuex массив для фильтров select состоящий из массивов
      */
     Panel: [
-        {
-            id: 1,
-            SelectedMarka: [],
-            SelectedModel: [],
-            SelectedGenerations: [],
-            DataModel: [],
-            DataGenerations: [],
-        }
+
     ],
     /**
      * @property Последний Id массива в Panel
      */
-    Ids: 1,
+    Ids: 0,
 })
 export const mutations = {
     /**
@@ -94,7 +87,6 @@ export const actions = {
      * @returns {String}  Строку массива всех выбранных id с Panel
      */
     SetAllIdUrl({ state }) {
-        console.log(state);
         let ids = [];
         state.Panel.forEach(element => {
             // ДОбавить SelectedGenerations
@@ -118,13 +110,72 @@ export const actions = {
         }
     },
     /**
-     *  @param data.query  - Массив выбранных applicabilities из url
-     *  @function SetId_Url -  по Url сохраняет выбранные applicabilities в Panel
+    *  @param data.data  - Массив где искать id 
+    *   @param data.id - Массив Id по которым искать
+    *  @function SetId_Url -  по Url сохраняет выбранные applicabilities в Panel
+    */
+    SetId_Url({ dispatch }, data) {
+        for (const keyData in data.data) {
+            if (data.data[keyData].level == 0) {
+                var SelectedMarka = data.data[keyData].id;
+            } else if (data.data[keyData].level == 1) {
+                var SelectedModel = data.data[keyData].id;
+            }
+            for (const keyId in data.id) {
+                if(data.data[keyData].id == data.id[keyId]){
+                    dispatch("SearchPanel", {
+                        level: data.data[keyData].level,
+                        ids: {
+                            Marka: SelectedMarka,
+                            Model: SelectedModel,
+                        }
+                    });
+                }
+            }
+        } 
+    },
+    /**
+     * @param {Number} data.level - Показывает в каких Selected искать 
+     * @param {Object} data.ids - id которые нужны 
      */
-    SetId_Url({}, data){
-        data.query.forEach(element=>{
-            
-        })
+    SearchPanel({ state, commit }, data) {
+        let check = false;
+        
+        for (const keyPanel in state.Panel) {
+            if (check === true) {
+                break;
+            }
+            if(data.level == 0){
+                if (data.level == 0) {
+                    commit("SetPanelNew");
+                    commit("SetPanel",{
+                        id: state.Ids,
+                        name: "SelectedMarka",
+                        value:data.ids.Marka
+                    });
+                    check = true;
+                    break;
+                }
+            }
+            else if (data.level == 1) {
+                for (const keySelected in state.Panel[keyPanel].SelectedMarka) {
+                    if (data.ids.Marka == state.Panel[keyPanel].SelectedMarka[keySelected]) {
+                        check = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (check === false) {
+            if (data.level == 0) {
+                commit("SetPanelNew");
+                commit("SetPanel",{
+                    id: state.Ids,
+                    name: "SelectedMarka",
+                    value:data.ids.Marka
+                });
+            }
+        }
     }
 }
 export const getters = {

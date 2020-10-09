@@ -25,7 +25,7 @@ export const actions = { // ПОИСК ID
                 if(ParentID === true){ // Сохраняем значение потомков если есть родитель
                     valueState.pop();
                     valueState.push(data.value);
-                }               
+                }              
             }
             else if(arr[key].children.lenght != 0){ // НЕ найден ищем в потомках
                 await dispatch("ChexboxCheckAll", {arr:arr[key].children , value: data.value , id:data.id})

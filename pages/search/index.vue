@@ -64,7 +64,7 @@ export default {
       if (query.applicabilities != undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
         let ids = query.applicabilities.split(",");
-        store.dispatch("Applicabilities/Panel/SetId_Url", {
+        store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
           data:
             store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"

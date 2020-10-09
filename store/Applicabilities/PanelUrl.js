@@ -10,21 +10,21 @@ export const actions = {
     SetId_Url({ dispatch }, data) {
         for (const keyData in data.data) {
             let check = false;
-            // DELETE
-            if (data.data[keyData].level == 1 && data.Marka != undefined) {
+            if(data.data[keyData].level == 0){
+                data.Marka = data.data[keyData].id;
+            }else if (data.data[keyData].level == 1) {
                 data.Marka = data.data[keyData].parentId;
                 data.Model = data.data[keyData].id;
-            } else if (data.data[keyData].level == 2 && data.Model != undefined) {
-                data.Model = data.data[keyData].parentId;
             }
-            // DELETE
+            // ПОИСК ID в приминимостей
             for (const keyId in data.id) {
                 if (data.data[keyData].id == data.id[keyId]) {
                     console.log("data level" + data.data[keyData].level);
+                    // Ищем есть ли такое в Panel
                     dispatch("SearchPanelAll", {
                         level: data.data[keyData].level,
                         ids: {
-                            Marka: data.data[keyData].id,
+                            Marka: data.Marka,
                             Model: data.Model,
                         },
                         link: data.data[keyData].children,
@@ -33,6 +33,7 @@ export const actions = {
                     break;
                 }
             }
+            // ПРоверяем был ли найден id
             if (check == true) {
                 continue;
             } else if (data.data[keyData].children.length != 0) {
@@ -100,17 +101,17 @@ export const actions = {
                 }, { root: true });
             }
             if (data.level == 1) {
-                commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
-                commit("Applicabilities/Panel/SetPanel", {
-                    id: rootState.Applicabilities.Panel.Ids,
-                    name: "SelectedMarka",
-                    value: data.ids.Marka
-                }, { root: true });
-                commit("Applicabilities/Panel/SetPanel", {
-                    id: rootState.Applicabilities.Panel.Ids,
-                    name: "SelectedModel",
-                    value:  data.ids.Model
-                }, { root: true });
+                // commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
+                // commit("Applicabilities/Panel/SetPanel", {
+                //     id: rootState.Applicabilities.Panel.Ids,
+                //     name: "SelectedMarka",
+                //     value: data.ids.Marka
+                // }, { root: true });
+                // commit("Applicabilities/Panel/SetPanel", {
+                //     id: rootState.Applicabilities.Panel.Ids,
+                //     name: "SelectedModel",
+                //     value:  data.ids.Model
+                // }, { root: true });
                 // commit("Applicabilities/Panel/SetPanel", {
                 //     id: rootState.Applicabilities.Panel.Ids,
                 //     name: "DataGenerations",

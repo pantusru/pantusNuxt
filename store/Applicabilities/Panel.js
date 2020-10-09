@@ -116,6 +116,15 @@ export const actions = {
             ).join();
             return ids;
         }
+    },
+    /**
+     *  @param data.query  - Массив выбранных applicabilities из url
+     *  @function SetId_Url -  по Url сохраняет выбранные applicabilities в Panel
+     */
+    SetId_Url({}, data){
+        data.query.forEach(element=>{
+            
+        })
     }
 }
 export const getters = {

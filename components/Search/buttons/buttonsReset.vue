@@ -33,6 +33,8 @@ export default {
             sort_name: undefined,
             brand: undefined,
             categories: undefined,
+            minvalue: undefined,
+            maxvalue: undefined,
           },
         });
       }

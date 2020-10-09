@@ -51,10 +51,11 @@ export default {
         let ids = query.categories.split(",");
         store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Categories/CategoriesAll/GetCategories"], ids:ids });
       }
-      //  if(query.applicabilities !=undefined){// ПРОВЕРКА ПРИМИНИМОСТИ
+       if(query.applicabilities !=undefined){// ПРОВЕРКА ПРИМИНИМОСТИ
+       
       //   let ids = query.applicabilities.split(",");
       //   store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
-      // }
+      }
       if(query.sort_name !=undefined){// ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", 
           {SortType: query.sort_type, SortName: query.sort_name,});

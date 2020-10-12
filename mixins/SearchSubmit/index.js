@@ -23,7 +23,6 @@ export default {
                 this.form.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
             }
             if (this.$store.getters["formSearch/GetBrandsChecked"].length != 0) { // БРАНД
-                console.log(this.$store.getters["formSearch/GetBrandsChecked"].length);
                 this.form.brand = this.$store.getters["formSearch/GetBrandsChecked"];
                 this.form.brand = this.form.brand.join();
             }

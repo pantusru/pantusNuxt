@@ -24,7 +24,6 @@ export const state = () => ({
 })
 export const mutations  =  {
     SetFull(store, data){
-        console.log(data);
         store.FormData[data.name] = data.value;
     },
     SetAll(store, data){

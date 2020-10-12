@@ -43,13 +43,32 @@ export const mutations = {
         let index = store.Panel.findIndex(panel => panel.id == data.id);
         store.Panel[index][data.name] = data.value;
     },
+
     /**
-     * @param {*} data.link - ссылка на Panel selected 
-     *  
+     * @param {*} data.id - id на Panel 
+     * @param {*} data.value - Массив значений  который сохранятся  в Panel 
+     * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
      */
-    PushPanel(store, data){
-        data.link.push(data.value);
+    SetPanelObject(store, data){
+        let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
+        data.name.forEach((element, indexData) => {
+            store.Panel[indexPanel][element] = data.value[indexData];
+        });
     },
+
+    /**
+     * @param {*} data.id - id на Panel 
+     * @param {*} data.value - Массив значений  который сохранятся  в Panel 
+     * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
+     */
+    PushPanelObject(store, data){
+         let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
+         data.name.forEach((element, indexData) => {
+             store.Panel[indexPanel][element].push(data.value[indexData]);
+         });
+     },
+
+
     /**
      * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 
      * @param {Number} data.id - id Panel с которым работать 
@@ -90,7 +109,7 @@ export const actions = {
     },
     /**
      * 
-     *  @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
+     * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
      * @returns {String}  Строку массива всех выбранных id с Panel
      */
     SetAllIdUrl({ state }) {

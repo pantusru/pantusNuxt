@@ -112,20 +112,17 @@ export const actions = {
      * @param {Object} data.link -  Ссылка на Applicabilities
      */
     GenerationsSet({ rootState, dispatch, commit }, data) {
+        console.log("НОВЫЙ ВЫЗОВ ФУНКЦИИ");
         let Panel = rootState.Applicabilities.Panel.Panel;
-        let checkMark = false;
-        let checkModel = false;
+        var checkMark = false;
+        var checkModel = false;
         for (const keyPanel in Panel) { // Прогоняем Panel
-            console.log("checkMark" + checkMark);
-            console.log("checkModel" + checkModel);
             if (Panel[keyPanel].SelectedMarka == data.MarkId) { // Ищем совпадения с MarkId
                 checkMark = true;
                 for (const keyModel in Panel[keyPanel].SelectedModel) { // Прогоняем SelectedModel
-                    console.log(Panel[keyModel]?.SelectedModel[keyModel]);
-                    if (Panel[keyModel]?.SelectedModel[keyModel] == data.link.parentId) {// Ищем совпадения с ModelId
-                        console.log("Model есть");
+                    if (Panel[keyPanel]?.SelectedModel[keyModel] == data.link.parentId) {// Ищем совпадения с ModelId
                         checkModel = true;
-                        commit("Applicabilities/Panel/PushPanelObject", {
+                        commit("Applicabilities/Panel/PushPanelObject", { // Сохраняет SelectedGenerations
                             id: Panel[keyPanel].id,
                             name: [
                                 "SelectedGenerations"
@@ -134,51 +131,39 @@ export const actions = {
                                 data.link.id
                             ],
                         }, { root: true });
-                        console.log("Mark True");
                         break;
-                         
                     }
                 }
-            } 
-            else if (checkMark == true) { // Проверяем были ли совпадения в checkMark
-                if (checkModel === true) { // Проверяем были ли совпадения в checkModel
-                    break;
-                } else { // Сохраняем Model в Mark
-                    console.log("Model Null");
-                    commit("Applicabilities/Panel/PushPanelObject", {
-                        id: Panel[keyPanel-1].id,
-                        name: [
-                            "SelectedModel", "SelectedGenerations" ,  
-                        ],
-                        value: [
-                            data.link.parentId, data.link.id
-                        ],
-                    }, { root: true });
-                }
+            }
+            if (checkMark == true && checkModel == true) { // Проверяем были ли совпадения в checkMark
+                break;
+            }else if(checkModel === false && checkMark == true){
+                console.log("Model НЕТ!");
+                commit("Applicabilities/Panel/PushPanelObject", {
+                    id: Panel[keyPanel].id,
+                    name: ["SelectedGenerations",   ],
+                    value: [data.link.id],}, { root: true });
+                dispatch("PushPanelDataGenerations",{
+                    linkPanel:  Panel[keyPanel],
+                    linkApplicabilities:{children: data.DataGenerations, id: data.link.parentId },
+                });
             }
         }
-        console.log("checkMark" + checkMark);
-        console.log("checkModel" + checkModel);
         if(checkMark === false){ // Пройдены все Panel и не найдены совпадения
-            dispatch("MarkaSet",{
+            console.log("MARK НЕТУ")
+            dispatch("MarkaSet",{ // Сохраняет DataModel, selectedMark
                 link:{
                     id: data.MarkId,
                     children: data.DataModel
                 }
             });
-            console.log( data.link.parentId);
-            commit("Applicabilities/Panel/PushPanelObject", {
-                id: Panel[Panel.length - 1].id,
-                name: [
-                    "SelectedModel" , "SelectedGenerations",
-                ],
-                value: [
-                    data.link.parentId, data.link.id
-                ],
-            }, { root: true });
+            commit("Applicabilities/Panel/PushPanelObject", { // СОхраняет SelectedGenerations
+                id: Panel[Panel.length-1].id,
+                name: ["SelectedGenerations",],
+                value: [data.link.id],}, { root: true });
             dispatch("PushPanelDataGenerations",{
                 linkPanel:  Panel[Panel.length - 1],
-                linkApplicabilities:{children: data.DataGenerations},
+                linkApplicabilities:{children: data.DataGenerations, id: data.link.parentId },
             });
         }
     },

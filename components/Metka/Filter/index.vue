@@ -20,9 +20,6 @@ export default {
       if (this.link.CheckedType === undefined) {
         query = this.$route.query.brand.split(",");
         name = "brand";
-        this.$store.commit("formSearch/RemoreBrandsChecked", {
-          id: this.link.id,
-        });
         for (const key in query) {
           // ПРогоняем Query Brand
           if (query[key] == this.link.id) {
@@ -30,6 +27,10 @@ export default {
             break;
           }
         }
+        console.log(this.link.id);  
+        this.$store.commit("formSearch/RemoreBrandsChecked", {
+          id: this.link.id,
+        });
       } else {
         name = "categories";
         await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
@@ -37,9 +38,12 @@ export default {
           value: false,
           id: this.link.id,
         });
-        this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
-        query = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
+        query = await this.$store.dispatch(
+          "Catalog/All/_AllChexboxId",
+          this.$store.getters["Categories/CategoriesAll/GetCategories"]
+        );
       }
+      this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
       this.$router.push({
         // Изменение url
         name: "search",

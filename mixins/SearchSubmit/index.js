@@ -16,6 +16,7 @@ export default {
             if (event != undefined) {
                 event.preventDefault();
             }
+            this.$store.commit("Catalog/Metks/ResetMetks");
             if (this.$store.getters["formSearch/GetMinValue"] != 0) { // ЦЕНА МИНИМУМ
                 this.form.minvalue = this.$store.getters["formSearch/GetMinValue"];
             }
@@ -24,6 +25,10 @@ export default {
             }
             if (this.$store.getters["formSearch/GetBrandsChecked"].length != 0) { // БРАНД
                 this.form.brand = this.$store.getters["formSearch/GetBrandsChecked"];
+                // ДОбавление меток для Brand
+                this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
+                    ids:this.form.brand
+                });
                 this.form.brand = this.form.brand.join();
             }
             // КАТЕГОРИИ

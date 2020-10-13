@@ -24,6 +24,14 @@ export const mutations  =  {
     },
     SetSortType(store, data){
         store.SortType = data.SortType;
+    },
+    /**
+     * 
+     * @param {Number} data.id - Id Удаляемого Checked у Бренда 
+     */
+    RemoreBrandsChecked(store, data){
+        let index = store.BrandsChecked.indexOf(data.id);
+        store.BrandsChecked.splice(index, 1);
     }
 }
 export const getters = {

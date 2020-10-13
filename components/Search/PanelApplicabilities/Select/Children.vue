@@ -25,7 +25,6 @@
   </b-col>
 </template>
 <script>
-console.log(this);  
 export default {
   props: {
     /**

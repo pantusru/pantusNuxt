@@ -7,6 +7,7 @@
           <FilterForm />
         </b-col>
         <b-col lg="9">
+          <MetkaFilter/>
           <b-table-simple class="text-center fz-5_5">
             <PanelVid
               v-if="componentsName != 'TableProduct'"
@@ -27,6 +28,7 @@ import FilterForm from "@/components/Forms/FulterProducts";
 import TableProduct from "@/components/Table/product";
 import productBlog from "@/components/Func/productBlog";
 import productRow from "@/components/Func/productRow";
+import MetkaFilter from "@/components/Metka/Filter/Blog";
 export default {
   async fetch({ query, store, getters, commit }) {
     await Promise.all([
@@ -51,6 +53,9 @@ export default {
         let brand = query.brand.split(",");
         brand.forEach((element) => {
           store.commit("formSearch/SetBrandsChecked", Number(element));
+        });
+        store.dispatch("Catalog/Metks/SetMetksBrand", {
+          ids: brand
         });
       }
       if (query.categories != undefined) {
@@ -93,6 +98,7 @@ export default {
     productRow,
     PanelVid,
     FilterApplicabilities,
+    MetkaFilter
   },
   computed: {
     Products() {

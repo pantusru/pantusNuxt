@@ -39,6 +39,20 @@ export const actions = {
                 }
             }
         }
+    },
+    SetMetksCategories({commit, dispatch} , data){
+        for (const key in data) {
+            if(data[key].CheckedType == true && data[key].Indeterminate == false){
+                commit("PushMetks" , data[key]);
+                continue;
+            }
+            else if(data[key].Indeterminate == false){
+                continue;
+            }
+            else if(data[key].Indeterminate == true && data[key].children.length){
+                dispatch("SetMetksCategories", data[key].children);
+            }
+        }
     }
 }
 export const getters = {

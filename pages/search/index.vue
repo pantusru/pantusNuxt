@@ -7,7 +7,7 @@
           <FilterForm />
         </b-col>
         <b-col lg="9">
-          <MetkaFilter/>
+          <MetkaFilter />
           <b-table-simple class="text-center fz-5_5">
             <PanelVid
               v-if="componentsName != 'TableProduct'"
@@ -30,7 +30,7 @@ import productBlog from "@/components/Func/productBlog";
 import productRow from "@/components/Func/productRow";
 import MetkaFilter from "@/components/Metka/Filter/Blog";
 export default {
-  async fetch({ query, store, getters, commit }) {
+  async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Товары
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
@@ -55,16 +55,19 @@ export default {
           store.commit("formSearch/SetBrandsChecked", Number(element));
         });
         store.dispatch("Catalog/Metks/SetMetksBrand", {
-          ids: brand
+          ids: brand,
         });
       }
       if (query.categories != undefined) {
         // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");
-        store.dispatch("Catalog/All/_AllChexboxTrue", {
+        await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
           ids: ids,
         });
+
+        await store.dispatch("Catalog/Metks/SetMetksCategories", 
+        store.getters["Categories/CategoriesAll/GetCategories"]);
       }
       if (query.applicabilities != undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
@@ -98,7 +101,7 @@ export default {
     productRow,
     PanelVid,
     FilterApplicabilities,
-    MetkaFilter
+    MetkaFilter,
   },
   computed: {
     Products() {

@@ -20,6 +20,7 @@ export default {
                 {arr:this.$store.getters[ this.ArrayData], 
                 value: this.dataset.CheckedType, 
                 id:this.dataset.id} );
+            
         }
     },
 }

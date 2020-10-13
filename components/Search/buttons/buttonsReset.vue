@@ -38,6 +38,7 @@ export default {
           },
         });
       }
+      this.$store.commit("Catalog/Metks/ResetMetks");
       //
     },
   },

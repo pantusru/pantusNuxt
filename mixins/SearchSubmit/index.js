@@ -33,6 +33,7 @@ export default {
             }
             // КАТЕГОРИИ
             this.form.categories = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
+            this.$store.dispatch("Catalog/Metks/SetMetksCategories", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
             this.check("categories");
             // ПРИМИНИМОСТИ
             this.form.applicabilities = await this.$store.dispatch("Applicabilities/Panel/SetAllIdUrl");

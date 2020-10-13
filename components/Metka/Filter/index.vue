@@ -14,32 +14,40 @@ export default {
     link: {},
   },
   methods: {
-    Delete() {
+    async Delete() {
       let query;
+      let name;
       if (this.link.CheckedType === undefined) {
-        this.$store.commit("formSearch/RemoreBrandsChecked",{
-          id: this.link.id
-        });
         query = this.$route.query.brand.split(",");
-        for (const key in query) { // ПРогоняем Query Brand
+        name = "brand";
+        this.$store.commit("formSearch/RemoreBrandsChecked", {
+          id: this.link.id,
+        });
+        for (const key in query) {
+          // ПРогоняем Query Brand
           if (query[key] == this.link.id) {
             query.splice(key, 1);
             break;
           }
         }
-        this.$router.push({ // Изменение url
-          name: "search",
-          query: {
-            ...this.$route.query,
-            brand: query.join(),
-          },
+      } else {
+        name = "categories";
+        await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
+          arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
+          value: false,
+          id: this.link.id,
         });
-      } 
-      else {
-        console.log("Это Категория");
-        query = this.$route.query.categories;
+        this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
+        query = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
       }
-      this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
+      this.$router.push({
+        // Изменение url
+        name: "search",
+        query: {
+          ...this.$route.query,
+          [name]: query.join(),
+        },
+      });
     },
   },
 };

@@ -3,7 +3,7 @@
     <b-overlay :show="show" rounded="sm"> <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5"/> <!-- Шапка сайта -->
       <!-- <Nuxt v-if="loaderUser"/> -->
-      <Nuxt v-if="loaderUser"/>
+      <Nuxt/>
     </b-overlay>
   </div>
 </template>
@@ -17,13 +17,9 @@ import VueHeader from "../components/Header/Index"
       show(){
         return this.$store.getters["GetshowLoader"];
       },
-      loaderUser(){
-        return this.$store.getters["User/Loader"];
-      },
     },
     mounted(){ // при прогрузке странице
-      this.$store.commit("SetShow", false);
-      this.GetUser();  
+      this.$store.commit("SetShow", false);  
     },
     watch:{ // при изменения url 
       $route() {
@@ -33,14 +29,6 @@ import VueHeader from "../components/Header/Index"
     updated(){// при обновление страницы
       this.$store.commit("SetShow", false);
     },
-    methods:{
-      async GetUser(){ // Загрузка Данных User
-        await Promise.all([
-          this.$store.dispatch("User/_User"),
-          this.$store.dispatch("Cart/CartAll/_CartProduct")
-        ])
-      }
-    }
 }
 </script>
 

@@ -1,7 +1,8 @@
 
 export default {
   router: {
-    prefetchLinks: false
+    prefetchLinks: false,
+    middleware: 'user'
   },
   /*
   ** Nuxt rendering mode

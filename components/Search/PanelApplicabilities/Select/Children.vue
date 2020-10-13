@@ -25,15 +25,34 @@
   </b-col>
 </template>
 <script>
+console.log(this);  
 export default {
   props: {
+    /**
+     * @property названия подкатегории текущей select Data
+     */
     Data: {},
+    /**
+     * @property названия подкатегории текущей select выбранные
+     */
     NameSelected: {},
+    /**
+     * @property id текущей Panel в которой находится select
+     */
     PanelId: {},
+    /**
+     * @property названия подкатегории потомка select Data
+     */
     NameData: {},
+    /**
+     * @property названия подкатегории потомка select выбранные
+     */
     NameSelectedClildren: {},
   },
   computed: {
+      /**
+      * @property Выбранные Checbox в текущем select
+      */
     Panel: {
       get() {
         return this.$store.getters["Applicabilities/Panel/PanelId"](
@@ -41,34 +60,36 @@ export default {
         )[this.NameSelected];
       },
       set(value) {
-        // Пустой родитель очищаем потомков
+        // Пустой родитель очищаем потомков и потомки есть
         if (value.length == 0 && this.NameSelectedClildren != undefined) {
-          this.$store.commit("Applicabilities/Panel/ResetClildren", {
+          this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка
             id: this.PanelId,
             NameSelected: this.NameSelectedClildren,
             NameData: this.NameData,
           })
         }
-        this.$store.commit("Applicabilities/Panel/SetPanel", {
+        this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить текущее изменения во VUEX
           id: this.PanelId,
           value: value,
           name: this.NameSelected,
         });
       },
     },
+    /**
+     * @property Отображаемые Checbox в текущем select
+     */
     PanelData() {
       return this.$store.getters["Applicabilities/Panel/PanelId"](
         this.PanelId
       )[this.Data];
     },
-    PanelClildren() {
-      return this.$store.getters["Applicabilities/Panel/PanelId"](
-        this.PanelId
-      )[this.NameSelectedClildren];
-    },
   },
+
   methods: {
-    SetVuex(index) {
+    /**
+     * @function SetVuex - Сохраняет потомков при их наличие в Data
+     */
+    SetVuex() {
       if (this.NameData != undefined) {
         let dataset = [];
         this.Panel.forEach((id) => {
@@ -77,7 +98,7 @@ export default {
             dataset.push(element);
           });
         });
-        this.$store.commit("Applicabilities/Panel/SetPanel", {
+        this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохраняет во VUEX Data потомка
           id: this.PanelId,
           value: dataset,
           name: this.NameData,

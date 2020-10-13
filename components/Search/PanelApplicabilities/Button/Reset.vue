@@ -14,7 +14,7 @@ export default {
   methods: {
     ResetApplicabilities() {
       this.$store.commit("Applicabilities/Panel/ResetAll");
-      if (this.$route.query.applicabilities != undefined || true) {
+      if (this.$route.query.applicabilities != undefined) {
         this.$router.push({
           path: this.$route.path,
           query: { ...this.$route.query, applicabilities: undefined },
@@ -22,6 +22,9 @@ export default {
       }
     },
   },
+  destroyed(){
+    this.$store.commit("Applicabilities/Panel/ResetAll");
+  }
 };
 </script>
 

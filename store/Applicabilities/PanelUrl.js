@@ -112,7 +112,6 @@ export const actions = {
      * @param {Object} data.link -  Ссылка на Applicabilities
      */
     GenerationsSet({ rootState, dispatch, commit }, data) {
-        console.log("НОВЫЙ ВЫЗОВ ФУНКЦИИ");
         let Panel = rootState.Applicabilities.Panel.Panel;
         var checkMark = false;
         var checkModel = false;
@@ -138,7 +137,6 @@ export const actions = {
             if (checkMark == true && checkModel == true) { // Проверяем были ли совпадения в checkMark
                 break;
             }else if(checkModel === false && checkMark == true){
-                console.log("Model НЕТ!");
                 commit("Applicabilities/Panel/PushPanelObject", {
                     id: Panel[keyPanel].id,
                     name: ["SelectedGenerations",   ],
@@ -150,7 +148,6 @@ export const actions = {
             }
         }
         if(checkMark === false){ // Пройдены все Panel и не найдены совпадения
-            console.log("MARK НЕТУ")
             dispatch("MarkaSet",{ // Сохраняет DataModel, selectedMark
                 link:{
                     id: data.MarkId,

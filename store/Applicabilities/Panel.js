@@ -49,7 +49,7 @@ export const mutations = {
      * @param {*} data.value - Массив значений  который сохранятся  в Panel 
      * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
      */
-    SetPanelObject(store, data){
+    SetPanelObject(store, data) {
         let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
         data.name.forEach((element, indexData) => {
             store.Panel[indexPanel][element] = data.value[indexData];
@@ -61,12 +61,12 @@ export const mutations = {
      * @param {*} data.value - Массив значений  который сохранятся  в Panel 
      * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
      */
-    PushPanelObject(store, data){
-         let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
-         data.name.forEach((element, indexData) => {
-             store.Panel[indexPanel][element].push(data.value[indexData]);
-         });
-     },
+    PushPanelObject(store, data) {
+        let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
+        data.name.forEach((element, indexData) => {
+            store.Panel[indexPanel][element].push(data.value[indexData]);
+        });
+    },
 
 
     /**
@@ -118,6 +118,18 @@ export const actions = {
             // ДОбавить SelectedGenerations
             if (element.SelectedGenerations.length != 0) {
                 ids.push(element.SelectedGenerations);
+                for (const keyModel in element.SelectedModel) { // Прогоняем выбранные моделни
+                    let check = false;
+                    for (const keyGenerations in element.SelectedGenerations) { // Прогоняем Поколения
+                        if (element.SelectedModel[keyModel] == element.SelectedGenerations[keyGenerations]) { // Проверяем выбранные 
+                            check = true;
+                            break;
+                        }
+                    }
+                    if(check === false){
+                        ids.push(element.SelectedModel[keyModel]);
+                    }
+                }
                 // ДОбавить SelectedModel
             } else if (element.SelectedModel.length != 0) {
                 ids.push(element.SelectedModel);

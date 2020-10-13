@@ -57,7 +57,7 @@ export const actions = {
     MarkaSet({ rootState, commit }, data) {
         commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
         let Ids = rootState.Applicabilities.Panel.Ids;
-        commit("Applicabilities/Panel/SetPanelObject", {
+        commit("Applicabilities/Panel/SetPanelObject", { // Сохраняет SelectedMarka  DataModel
             id: Ids,
             name: [
                 "SelectedMarka", "DataModel",
@@ -87,8 +87,8 @@ export const actions = {
         if (check === false) {// Все Panel проверены и был ли найден Panel с этим Id
             commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
             let Ids = rootState.Applicabilities.Panel.Ids;
-            commit("Applicabilities/Panel/SetPanelObject", {
-                id: Ids,
+            commit("Applicabilities/Panel/SetPanelObject", { // Сохраняет  SelectedMarka SelectedModel DataGenerations DataModel
+                id: Ids, 
                 name: [
                     "SelectedMarka",
                     "SelectedModel",
@@ -137,7 +137,7 @@ export const actions = {
             if (checkMark == true && checkModel == true) { // Проверяем были ли совпадения в checkMark
                 break;
             }else if(checkModel === false && checkMark == true){
-                commit("Applicabilities/Panel/PushPanelObject", {
+                commit("Applicabilities/Panel/PushPanelObject", { // Сохраняет SelectedGenerations
                     id: Panel[keyPanel].id,
                     name: ["SelectedGenerations",   ],
                     value: [data.link.id],}, { root: true });
@@ -158,7 +158,7 @@ export const actions = {
                 id: Panel[Panel.length-1].id,
                 name: ["SelectedGenerations",],
                 value: [data.link.id],}, { root: true });
-            dispatch("PushPanelDataGenerations",{
+            dispatch("PushPanelDataGenerations",{ //  Сохраняет
                 linkPanel:  Panel[Panel.length - 1],
                 linkApplicabilities:{children: data.DataGenerations, id: data.link.parentId },
             });
@@ -175,12 +175,12 @@ export const actions = {
         } else {// У Панели нету Data
             arr = [...data.linkPanel.DataGenerations, ...data.linkApplicabilities.children];
         }
-        commit("Applicabilities/Panel/PushPanelObject", {
+        commit("Applicabilities/Panel/PushPanelObject", { // СОхраняет SelectedModel
             id: data.linkPanel.id,
             name: ["SelectedModel"],
             value: [data.linkApplicabilities.id],
         }, { root: true });
-        commit("Applicabilities/Panel/SetPanel", {
+        commit("Applicabilities/Panel/SetPanel", { // Сохраняет DataGenerations
             id: data.linkPanel.id,
             name: "DataGenerations",
             value: arr,

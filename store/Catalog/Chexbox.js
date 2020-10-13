@@ -1,12 +1,28 @@
 export const mutations  =  {
-    SetChecboxCheckedType(state, data) { // Сохраняет состояние checkbox true/false 
+    /**
+     * @param {Object} data.data -Ссылка на элемент cataloga который имеет вложеннность
+     * @param {Boolean} data.value - Значение на которое нужно поменять
+     * @function SetChecboxCheckedType - Сохраняет основное состояние у checxbox
+     */
+    SetChecboxCheckedType(state, data) { 
         data.data.CheckedType = data.value;
     },
+    /**
+     * @param {Object} data.data -Ссылка на элемент cataloga который имеет вложеннность
+     * @param {Boolean} data.value - Значение на которое нужно поменять
+     * @function SetChecboxCheckedType - Сохраняет третье состояние у checxbox
+     */
     SetChecboxIndeterminate(state, data) { // Сохраняет  состояние не определености checkbox true/false 
         data.data.Indeterminate = data.value;
     },
 }
-export const actions = { // ПОИСК ID
+export const actions = {  
+    /**
+     * @param {Array} data.arr - Массив в котором ищем Id
+     * @param  {Number} data.id - Id Который нужно найди в массиве
+     * @param {Boolean} data.value - Значение на которое нужно поменять найденный элемент массива
+     * @function  ChexboxCheckAll - ищет в указаном массиве элемент.id == id
+     */
     async ChexboxCheckAll({store, commit, dispatch, getters}, data){
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
         let ParentID = false;
@@ -56,6 +72,11 @@ export const actions = { // ПОИСК ID
           }
         }
     },
+    /**
+     * @function  ChexboxChildren - Меняет всем элементам значения на указанное
+     * @param {Array} dataset.data - Массив элементов который нужно поменять
+     * @param  {Boolean} dataset.value -  Значение на которое нужно поменять
+     */
     ChexboxChildren({commit,dispatch} ,dataset){ // ВСЕХ ПОТОМКАМ ВЫБРАННОГО ID СТАВИМ его значение 
         // ПРИНИМАЕТ DATA массив потомков и VALUE значения этим потомкам
         let data = dataset.data;

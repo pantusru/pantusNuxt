@@ -18,7 +18,7 @@ export const mutations  =  {
     },
     /**
      * @function  DeleteMetks - Удаляет указанную метку
-     * @param {*} data.index - index Удаляймой метки 
+     * @param {Number} data.index - index Удаляймой метки 
      */
     DeleteMetks(store, data){
         store.Metks.splice(data.index , 1);
@@ -26,7 +26,7 @@ export const mutations  =  {
 }
 export const actions = { 
     /**
-     * 
+     * @function SetMetksBrand - Сохраняет все метки Бренда
      * @param {Array} data.ids -  Массив Id Выбранных Брендов 
      */
     SetMetksBrand({commit, rootGetters} , data){
@@ -40,6 +40,10 @@ export const actions = {
             }
         }
     },
+    /**
+     * @function SetMetksBrand - Сохраняет все метки Категории 
+     * @param {Array} data -  Массив с вложенностью  
+     */
     SetMetksCategories({commit, dispatch} , data){
         for (const key in data) {
             if(data[key].CheckedType == true && data[key].Indeterminate == false){
@@ -56,5 +60,8 @@ export const actions = {
     }
 }
 export const getters = {
+    /**
+     * @function  GetMetks - Возвращает всё метки фильтров
+     */
     GetMetks: s => s.Metks,
 }

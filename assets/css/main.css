@@ -116,6 +116,9 @@ button.bg-link-danger:hover{
     .column-count-lg-4{
         column-count: 4;
     }
+    .d-lg-table-header-group{
+        display: table-header-group !important;
+    }
 }
 
 /*cursor */
@@ -149,6 +152,7 @@ button.bg-link-danger:hover{
     height: 25vh;
 }
 
+
 /* position
 .bottom-pos-0{
     bottom: 0;
@@ -156,3 +160,5 @@ button.bg-link-danger:hover{
 .z-index-top{
     z-index: 9999;
 } */
+
+/*DISPLAY*/

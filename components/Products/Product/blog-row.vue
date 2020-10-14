@@ -1,5 +1,5 @@
 <template>
-  <b-card class="mb-4" >
+  <b-card class="mb-4">
         <b-card-header header-class="border-0 bg-white p-0">
             <b-row class="align-items-center mb-3 justify-content-between">
                 <b-row class="col-5 align-items-center">
@@ -11,8 +11,8 @@
             </b-row>
         </b-card-header>
         <b-card-body class="py-0 ">
-            <div class="d-flex">
-                <b-row class="flex-column col-5 p-0">
+            <b-row class="justify-content-between">
+                <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
                     <RowAtr name="Бренд" :link="'brand/' + Product.ProductCard.brand.id" :dataset="Product.ProductCard.brand.name" />
                     <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original" />
                     <RowAtr slots=true v-if="Product.ProductCard.applicabilities != undefined">
@@ -49,7 +49,7 @@
                          </template>
                     </RowAtr>
                 </b-row>
-                <b-row class="justify-content-between flex-column col-8">
+                <b-row no-gutters class="justify-content-between flex-column col-12 col-lg-8">
                     <TableOffset 
                         :Linkoffset="Product.productOffer" 
                         :LinkProduct="Product.ProductCard" 
@@ -62,7 +62,7 @@
                 >
                     X
                 </b-button>
-            </div>
+            </b-row>
         </b-card-body>
   </b-card>
 </template>

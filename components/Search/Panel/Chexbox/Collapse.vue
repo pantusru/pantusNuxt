@@ -46,9 +46,9 @@ import Vchexbox from "./chexbox"
       Vchexbox,
     },
     created(){
-      if(this.dataset.CheckedType || this.dataset.Indeterminate){
-        this.show = true;
-      }
+      // if(this.dataset.CheckedType || this.dataset.Indeterminate){
+      //   this.show = true;
+      // }
     }
   }
 </script>

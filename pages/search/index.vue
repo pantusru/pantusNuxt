@@ -3,16 +3,13 @@
     <div class="container">
       <FilterApplicabilities />
       <b-row>
-        <b-col cols="12" lg="3">
+        <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
           <FilterForm />
         </b-col>
         <b-col lg="9">
           <MetkaFilter />
-          <b-table-simple class="text-center fz-5_5">
-            <PanelVid
-              v-if="componentsName != 'TableProduct'"
-              class="panelProductFilter mb-0"
-            />
+          <b-table-simple class="text-center fz-5_5"  v-if="componentsName != 'TableProduct'">
+            <PanelVid class="panelProductFilter mb-0" />
           </b-table-simple>
           <components v-bind:is="componentsName" :array="Products" />
         </b-col>

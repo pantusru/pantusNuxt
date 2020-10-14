@@ -10,7 +10,7 @@
                         <nuxt-link class="text-576b77 link-danger font-weight-bold" :to="product.ProductCard.brand.id.toString()">{{ product.ProductCard.brand.name }} </nuxt-link> 
                     </b-td>
                     <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
-                    <b-td :rowspan="product.productOffer.length+1" v-if="CheckAnalogs== false"> 
+                    <b-td :rowspan="product.productOffer.length+1" v-if="CheckAnalogs== false" class="d-none d-md-table-cell"> 
                         <div class="w-50px">
                             <ImgGetModal :product="product" />
                         </div>
@@ -25,7 +25,7 @@
                 <b-tr class="hover-true border-bottom" v-for="offer in product.productOffer" :key="offer.id">
                     <b-td class="border-top-0 text-555" >{{ offer.supplier.name }}</b-td>
                     <b-td  class="border-top-0 text-00b91e">{{ offer.quantity }}</b-td>
-                    <b-td  class="border-top-0 text-555">{{ offer.supplier.deliveryDelay }}</b-td>
+                    <b-td  class="border-top-0 text-555 d-none d-md-table-cell">{{ offer.supplier.deliveryDelay }}</b-td>
                     <b-td  class="border-top-0 text-555 fz-5 font-weight-bold">{{ offer.prices }} Р</b-td>
                     <b-td  class="border-top-0"> 
                         <BuyButton  

@@ -1,5 +1,5 @@
 <template>
-    <b-thead class="border">
+    <b-thead class="border d-lg-table-header-group d-none">
         <b-tr class="bg-fafafa text-555">
             <tdSort 
                 label="Бренд" 
@@ -9,7 +9,7 @@
                 label="Артикул" 
                 SortName="sku" 
             />
-            <b-th v-if="CheckAnalogs == false"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
+            <b-th v-if="CheckAnalogs == false" class="d-none d-md-table-cell"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
             <tdSort 
                 label="Наименование" 
                 SortName="name" 
@@ -23,6 +23,7 @@
                 SortName="quantity" 
             />
             <tdSort 
+                class="d-none d-md-table-cell"
                 label="Срок" 
                 SortName="deliverydelay" 
             />

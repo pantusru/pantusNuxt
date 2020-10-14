@@ -11,7 +11,7 @@
 
 <script>
 import VueBlogNews from "./blog"
-urimport PageMixins from "@/mixins/Page/index"
+import PageMixins from "@/mixins/Page/index"
 export default {
     mixins:[PageMixins],
     props:{

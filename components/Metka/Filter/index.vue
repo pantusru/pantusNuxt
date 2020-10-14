@@ -1,7 +1,11 @@
 <template>
   <div class="d-flex align-items-start">
     <span class="fz-5">{{ link.name }}</span>
-    <b-badge @click="Delete" variant="light" pill class="mr-1 cursor-pointer"
+    <b-badge
+      @click="DeleteCheck"
+      variant="light"
+      pill
+      class="mr-1 cursor-pointer"
       >X</b-badge
     >
   </div>
@@ -14,34 +18,20 @@ export default {
     link: {},
   },
   methods: {
-    async Delete() {
+    /**
+     * @async
+     * @function DeleteCheck - Проверяет чем является метка brand или categories удаляет метку и вызывает router push
+     */
+    async DeleteCheck() {
       let query;
       let name;
       if (this.link.CheckedType === undefined) {
-        query = this.$route.query.brand.split(",");
         name = "brand";
-        for (const key in query) {
-          // ПРогоняем Query Brand
-          if (query[key] == this.link.id) {
-            query.splice(key, 1);
-            break;
-          }
-        }
-        console.log(this.link.id);  
-        this.$store.commit("formSearch/RemoreBrandsChecked", {
-          id: this.link.id,
-        });
+        query = this.DeleteBrand();
       } else {
+        // Это категория
         name = "categories";
-        await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
-          arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
-          value: false,
-          id: this.link.id,
-        });
-        query = await this.$store.dispatch(
-          "Catalog/All/_AllChexboxId",
-          this.$store.getters["Categories/CategoriesAll/GetCategories"]
-        );
+        query = await this.DeleteCategories();
       }
       this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
       this.$router.push({
@@ -49,10 +39,63 @@ export default {
         name: "search",
         query: {
           ...this.$route.query,
-          [name]: query.join(),
+          [name]: query,
         },
       });
     },
+    /**
+     *  @function DeleteBrand - Удаляет Бренд с Vuex и подготавливает новый query
+     * @returns query - возвращает новый query
+     */
+    DeleteBrand() {
+      let query = this.$route.query.brand.split(",");
+      for (const key in query) {
+        // ПРогоняем Query Brand
+        if (query[key] == this.link.id) {
+          query.splice(key, 1);
+          break;
+        }
+      }
+      this.$store.commit("formSearch/RemoreBrandsChecked", {
+        // Удаляет выбранный бренд в VUEX
+        id: this.link.id,
+      });
+      query = this.CheckLengthQuery(query);
+      return query;
+    },
+    /**
+     * @async
+     * @function DeleteCategories - Удаляет категорию с VUEX и подготавливает новый query 
+     * @returns query - возвращает новый query
+     */
+    async DeleteCategories(){
+      await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
+        // Найди chexbox и убрать его с фильтров
+        arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
+        value: false,
+        id: this.link.id,
+      });
+      let query = await this.$store.dispatch(
+        // получить новые id выбранных фильтров
+        "Catalog/All/_AllChexboxId",
+        this.$store.getters["Categories/CategoriesAll/GetCategories"]
+      );
+      query = this.CheckLengthQuery(query);
+      return query;
+    },
+    /**
+     * @param {Array} query - Массив id
+     * @function CheckLengthQuery - Проверяет если ли в массиве элементы
+     * @returns Возвращает undefined - массив пустой
+     * @returns Возвращает query - в массиве есть элементы
+     */
+    CheckLengthQuery(query){
+      if(query.length ==0){
+        return undefined;
+      }else{
+        return query.join() ;
+      }
+    }
   },
 };
 </script>

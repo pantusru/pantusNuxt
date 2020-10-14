@@ -11,15 +11,12 @@
 
 <script>
 import VueBlogNews from "./blog"
+urimport PageMixins from "@/mixins/Page/index"
 export default {
+    mixins:[PageMixins],
     props:{
         dataset:{},
         Kovlo:{},
-    },
-    methods: {
-        linkGen(pageNum) { // генерация ссылок Page
-            return pageNum === 1 ? '?' : `?page=${pageNum}`
-        },
     },
     components:{
         VueBlogNews,

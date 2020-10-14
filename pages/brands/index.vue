@@ -18,7 +18,7 @@
                 v-if="CountPages != 1"
                 use-router 
                 :number-of-pages="CountPages" 
-                base-url="?pages=" 
+                :link-gen="linkGen" 
                 align="center"
             > 
             </b-pagination-nav>
@@ -28,7 +28,9 @@
 <script>
 import Vinput from "@/components/Search/PanelBrand/input/index"
 import Brand from "@/components/Catalog/Brand/full"
+import PageMixins from "@/mixins/Page/index"
 export default {
+    mixins:[PageMixins],
     async fetch({store, getters, commit , query}){
         await store.dispatch("Brand/BrandAll/_Brands");
     },
@@ -70,7 +72,7 @@ export default {
                 this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](this.$route.query.pages);
                 this.CountPages = this.BrandLength;
             }
-        }
+        },    
     },
 }
 </script>

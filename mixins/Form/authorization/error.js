@@ -1,13 +1,13 @@
 
 
 
-var password = [
+let password = [
     {
         ifv: "required",
         text:"Укажите ваш пароль",
     }
 ]
-var email = [
+let email = [
     {
         ifv: "required",
         text:"Укажите ваш email",

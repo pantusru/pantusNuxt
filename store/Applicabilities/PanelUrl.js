@@ -113,8 +113,8 @@ export const actions = {
      */
     GenerationsSet({ rootState, dispatch, commit }, data) {
         let Panel = rootState.Applicabilities.Panel.Panel;
-        var checkMark = false;
-        var checkModel = false;
+        let checkMark = false;
+        let checkModel = false;
         for (const keyPanel in Panel) { // Прогоняем Panel
             if (Panel[keyPanel].SelectedMarka == data.MarkId) { // Ищем совпадения с MarkId
                 checkMark = true;

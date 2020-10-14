@@ -1,16 +1,16 @@
-var surname = [
+let surname = [
     {
         ifv: "required",
         text:"Укажите вашу фамилию",
     },
 ]
-var name = [
+let name = [
     {
         ifv: "required",
         text:"Укажите ваше Имя",
     },
 ]
-var password = [
+let password = [
     {
         ifv: "required",
         text:"Укажите ваш пароль",
@@ -28,7 +28,7 @@ var password = [
         text:"Пароль должен состоять не более 25 символов ",
     },
 ]
-var password2 = [
+let password2 = [
     {
         ifv: "required",
         text:"Укажите пароль еще раз",
@@ -38,7 +38,7 @@ var password2 = [
         text:"Пароли не совпадают",
     }, 
 ]
-var email = [
+let email = [
     {
         ifv: "required",
         text:"Укажите ваш email",
@@ -48,7 +48,7 @@ var email = [
         text:"Укажите корректный email",
     },
 ]
-var inn = [
+let inn = [
     {
         ifv: "required",
         text:"Укажите ваш ИНН",
@@ -58,19 +58,19 @@ var inn = [
         text:"Укажите корректный ИНН",
     },
 ]
-var organization = [
+let organization = [
     {
         ifv: "required",
         text:"Укажите название вашей организации",
     },
 ]
-var country = [
+let country = [
     {
         ifv: "required",
         text:"Укажите название вашей страны",
     },
 ]
-var telephone = [
+let telephone = [
     {
         ifv: "required",
         text:"Укажите ваш номер телефона",
@@ -80,13 +80,13 @@ var telephone = [
         text:"Укажите корректный номер телефона",
     },
 ]
-var address = [
+let address = [
     {
         ifv: "required",
         text:"Укажите ваш адрес",
     },
 ]
-var  checbox = [
+let  checbox = [
     {
         ifv: "required",
         text:"Подтвердите ваше согласие на обработку персональных данных",  

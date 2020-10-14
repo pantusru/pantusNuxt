@@ -1,4 +1,4 @@
-var email = [
+let email = [
     {
         ifv: "required",
         text:"Укажите ваш email",

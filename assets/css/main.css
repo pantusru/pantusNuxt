@@ -9,8 +9,6 @@ a.link-d56971:hover, button.link-d56971:hover , .link-d56971:hover{
 .link-ec0e1d:hover{
     color: #ec0e1d!important;
 }
-
-
 a.link-decoration-none:hover{
     text-decoration: none;
 }
@@ -40,7 +38,7 @@ button.bg-link-danger:hover{
 .border-e1{
     border: 1px solid #e1e1e1;
 }
-/*  font-size */
+/* font-size */
 .fz-1{
     font-size: 2rem;
 }

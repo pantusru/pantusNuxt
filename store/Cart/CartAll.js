@@ -79,7 +79,7 @@ export const getters = {
      * @returns {Number} сумму товаров с корзины
      */
     GetSymmaAll:s=> {
-        var data = 0;
+        let data = 0;
         for (const key in s.CartProduct) {
            data += s.CartProduct[key].kolvo * s.CartProduct[key].ProductOffer.prices;
         }

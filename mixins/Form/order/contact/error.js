@@ -1,16 +1,16 @@
-var Surname = [
+let Surname = [
     {
         ifv: "required",
         text:"Укажите вашу фамилию",
     },
 ]
-var Name = [
+let Name = [
     {
         ifv: "required",
         text:"Укажите ваше Имя",
     },
 ]
-var Telephone = [
+let Telephone = [
     {
         ifv: "required",
         text:"Укажите ваш номер телефона",
@@ -20,7 +20,7 @@ var Telephone = [
         text:"Укажите корректный номер телефона",
     },
 ]
-var Town = [
+let Town = [
     {
         ifv: "required",
         text:"Укажите  город доставки",

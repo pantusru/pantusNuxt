@@ -3,26 +3,13 @@
 </template>
 
 <script>
+import Reset from "@/mixins/ResetFilter/index"
 export default {
+  mixins:[Reset],
   methods: {
     //  Обнулить форму!
     Reset(event) {
-      // CHECKED ХРАНИТСЯ в VUEX с ДАННЫМИ
-      this.$store.dispatch(
-        "Catalog/All/_AllChexbox",
-        this.$store.getters["Categories/CategoriesAll/GetCategories"]
-      );
-      this.$store.dispatch(
-        "Catalog/All/_AllChexbox",
-        this.$store.getters[
-          "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-        ]
-      );
-      // ОТДЕЛЬНЫЙ ФАЙЛ VUEX С CHECKED
-      this.$store.commit("formSearch/SetMaxValue", 60000);
-      this.$store.commit("formSearch/SetMinValue", 0);
-      this.$store.commit("formSearch/SetAllBrandsChecked", []);
-      this.$store.commit("formSearch/SetSort", { SortType: "", SortName: "" });
+      this.ResetNoApplicabilitiess();
       if (event != undefined) {
         // Проверка что это уход с страницы а не кнопка reset
         this.$router.push({
@@ -38,8 +25,6 @@ export default {
           },
         });
       }
-      this.$store.commit("Catalog/Metks/ResetMetks");
-      //
     },
   },
   destroyed() {

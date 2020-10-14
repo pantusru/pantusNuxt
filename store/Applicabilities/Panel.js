@@ -34,6 +34,13 @@ export const mutations = {
         store.Panel.splice(data, 1);
     },
     /**
+     *  
+     * @function  DeleteAllPanel - Удаляет все объекты в Panel
+     */
+    DeleteAllPanel(store, data) {
+        store.Panel = [];
+    },
+    /**
      * @function SetPanel - Добавляет Selected или Data в выбранном по id в Panel
      * @param {Number} data.id - id Panel с которым работать  
      * @param {String} data.name - Названия ключа который нужно изменить в Panel
@@ -82,7 +89,7 @@ export const mutations = {
     },
     /**
      * 
-     * @function ResetAll - Очищает все Panels
+     * @function ResetAll - Очищает все Panels 
      */
     ResetAll(store) {
         store.Panel = [

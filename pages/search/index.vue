@@ -29,7 +29,10 @@ import TableProduct from "@/components/Table/product";
 import productBlog from "@/components/Func/productBlog";
 import productRow from "@/components/Func/productRow";
 import MetkaFilter from "@/components/Metka/Filter/Blog";
+import ResetFilter from "@/mixins/ResetFilter/index";
+import CheckQueryFilter from "@/mixins/CheckQueryFilter/index";
 export default {
+  mixins: [ResetFilter,CheckQueryFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Товары
@@ -66,8 +69,10 @@ export default {
           ids: ids,
         });
 
-        await store.dispatch("Catalog/Metks/SetMetksCategories", 
-        store.getters["Categories/CategoriesAll/GetCategories"]);
+        await store.dispatch(
+          "Catalog/Metks/SetMetksCategories",
+          store.getters["Categories/CategoriesAll/GetCategories"]
+        );
       }
       if (query.applicabilities != undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
@@ -117,6 +122,15 @@ export default {
       this.$store.getters["Categories/CategoriesAll/GetCategories"]
     );
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
+  },
+  // Г РЕШЕНИЕ ДОХУЯ СЛОЖНОГО КОНТЕНТА
+  mounted() {
+    window.addEventListener("popstate", () => {
+      this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
+      this.ResetNoApplicabilitiess();
+      // this.$store.commit("Applicabilities/Panel/ResetAll");
+      this.CheckQueryFilter();
+    });
   },
 };
 </script>

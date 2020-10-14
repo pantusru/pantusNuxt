@@ -8,10 +8,20 @@
         </b-col>
         <b-col lg="9">
           <MetkaFilter />
-          <b-table-simple class="text-center fz-5_5"  v-if="componentsName != 'TableProduct'">
+          <b-table-simple
+            class="text-center fz-5_5"
+            v-if="componentsName != 'TableProduct'"
+          >
             <PanelVid class="panelProductFilter mb-0" />
           </b-table-simple>
-          <components v-bind:is="componentsName" :array="Products" />
+          <!-- Для ПК ВЕРСИИ -->
+          <div class="d-none d-lg-block">
+            <components v-bind:is="componentsName" :array="Products" />
+          </div>
+          <!-- Для Мобильных -->
+          <div class="d-block d-lg-none">
+            <components v-bind:is="'productBlog'" :array="Products" />
+          </div>
         </b-col>
       </b-row>
     </div>
@@ -29,7 +39,7 @@ import MetkaFilter from "@/components/Metka/Filter/Blog";
 import ResetFilter from "@/mixins/ResetFilter/index";
 import CheckQueryFilter from "@/mixins/CheckQueryFilter/index";
 export default {
-  mixins: [ResetFilter,CheckQueryFilter],
+  mixins: [ResetFilter, CheckQueryFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Товары
@@ -120,12 +130,10 @@ export default {
     );
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
-  // Г РЕШЕНИЕ ДОХУЯ СЛОЖНОГО КОНТЕНТА
   mounted() {
     window.addEventListener("popstate", () => {
       this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
       this.ResetNoApplicabilitiess();
-      // this.$store.commit("Applicabilities/Panel/ResetAll");
       this.CheckQueryFilter();
     });
   },

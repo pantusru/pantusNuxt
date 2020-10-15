@@ -34,11 +34,13 @@
             name="password"
             :items="'Пароль:'"
             :error="error.password"
+            :type="'password'"
           />
           <ElementForm
             name="password2"
             :items="'Повтори пароль:'"
             :error="error.password2"
+            :type="'password'"
           />
           <Submit></Submit>
         </b-form>

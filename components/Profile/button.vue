@@ -32,14 +32,15 @@ export default {
           name: "patronymic",
           value: this.$v.Form.$model.patronymic,
         });
+         // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
+        
+        
         if (false) {
             this.$v.Form["password"].$model = "";
             this.$v.Form["password2"].$model = "";
           // Пароли с БД совпали с введеным паролем
           this.$v.Form.$reset();
         } else { // Введен не правильный пароль
-            this.$v.Form.password.$params.CheckPassword = {date:31};
-            console.log(this.$v.Form.password.$params.CheckPassword);
         }
       }
     },

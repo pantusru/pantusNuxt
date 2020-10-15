@@ -14,12 +14,12 @@ export const state = () => ({
      * 
      */
     FormData:{
-        id: '',
-        login: "",
-        name: "",
-        surname: "",
-        patronymic: "",
-        tlf:"",
+        id: undefined,
+        login: undefined,
+        name: undefined,
+        surname: undefined,
+        patronymic: undefined,
+        telephone:undefined,
     }
 })
 export const mutations  =  {

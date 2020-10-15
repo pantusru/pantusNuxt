@@ -2,7 +2,7 @@
     <b-form class="pt-3">
         <vInput items="Фамилия" name="surname" :error="error['surname']" />
         <vInput items="Имя"  name="name" :error="error['name']" />
-        <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="tlf" :error="error['tlf']"/>
+        <vInput Vmask="+7(###) ###-##-##" items="Телефон" name="telephone" :error="error['telephone']"/>
         <Town items="Город"  name="Town" :error="error['Town']"/>
     </b-form>
 </template>

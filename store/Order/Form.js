@@ -3,7 +3,7 @@ export const state = () => ({
         Contact:{
             surname: "",
             name: "",
-            tlf: "",
+            telephone: "",
             Town: "",
             TownId: "",
         },

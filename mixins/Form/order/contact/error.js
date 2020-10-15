@@ -32,7 +32,7 @@ export default {
             error:{
                 surname: Surname,
                 name: Name,
-                tlf:Telephone,
+                telephone:Telephone,
                 Town:Town,
             }
          }

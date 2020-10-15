@@ -27,7 +27,7 @@ export default {
           value: this.$v.Form.$model.surname,
         });
         this.$store.commit("User/SetFull", {
-          name: "tlf",
+          name: "telephone",
           value: this.$v.Form.$model.telephone,
         });
         this.$store.commit("User/SetFull", {
@@ -35,7 +35,9 @@ export default {
           value: 1,
         });
 
-        this.$cookies.set("Authorization", this.$v.Form.$model.email);
+          this.$cookies.set("Authorization", this.$v.Form.$model.email , {
+            maxAge: 60*60*24*7*365,
+          });
         this.$store.commit("User/AuthorizationTrue");
         this.$router.push({name:"index"});
       }

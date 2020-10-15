@@ -6,7 +6,7 @@
             </div>
             <b-col>
                 <div>
-                    <h2 class="mb-4"> Избранный товар </h2>
+                    <h1 class="mb-4"> Избранный товар </h1>
                     <FuncComponents :array="Products" :Selected="true" />
                 </div>
             </b-col>

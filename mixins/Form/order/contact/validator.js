@@ -16,7 +16,7 @@ let Town = {
 let all  = {
     name:Name,
     surname:Surname,
-    tlf:Telephone,
+    telephone:Telephone,
     Town:Town,
 }
 

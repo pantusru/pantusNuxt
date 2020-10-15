@@ -28,10 +28,6 @@ let password = [
         ifv: "maxLength",
         text:"Пароль должен состоять не более 25 символов ",
     },
-    {
-        ifv: "SameBd",
-        text: "Вы указали не верный пароль!"
-    }
 ]
 let password2 = [
     {

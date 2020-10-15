@@ -11,6 +11,7 @@ export default {
       this.$v.$touch();
       console.log(this.$v.Form.password);
       if (this.$v.Form.$error == false) { // Нет ошибок первой валидации
+        // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
         this.$store.commit("User/SetFull", {
           name: "login",
           value: this.$v.Form.$model.login,
@@ -37,7 +38,8 @@ export default {
           // Пароли с БД совпали с введеным паролем
           this.$v.Form.$reset();
         } else { // Введен не правильный пароль
-            this.$v.Form["password"].SameBd =  true;
+            this.$v.Form.password.$params.CheckPassword = {date:31};
+            console.log(this.$v.Form.password.$params.CheckPassword);
         }
       }
     },

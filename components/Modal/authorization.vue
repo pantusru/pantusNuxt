@@ -54,8 +54,9 @@ export default {
             this.$v.Form.$touch();
             if(this.$v.Form.$error === true){
                 return
-            }else{
+            }else{ // ПРоверка совпадения данных
                 this.hidden();
+                console.log("ВЫ авторизованы");
             }
         }
     }

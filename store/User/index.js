@@ -38,11 +38,30 @@ export const mutations  =  {
     SetAll(store, data){
         store.FormData = data;
     },
+     /**
+     * @function ResetForm - Удаляет все данные о пользователе
+     */
+    ResetForm(store, data){
+        store.FormData = {};
+    },
+
     /**
      * @function LoaderTrue - Сохраняем флаг что данные о пользователи были получены с сервера
      */
     LoaderTrue(store){
         store.Loader = true;
+    },
+    /**
+     * @function AuthorizationTrue - Сохраняем флаг что данные о пользователь авторизовался
+     */
+    AuthorizationTrue(store){
+        store.CheckUser = true;
+    },
+    /**
+     * @function AuthorizationFalse - Сохраняем флаг что данные о пользователь вышел из акк
+     */
+    AuthorizationFalse(store){
+        store.CheckUser = false;
     },
 }
 export const actions = { 
@@ -51,9 +70,17 @@ export const actions = {
      * @function  _User проверка на наличие, запрос, сохранения в vuex
      */ 
     async _User({store,dispatch, commit, getters}){ // СПОРНОЕ РЕШЕНИЕ
-        if(getters.Loader === false){ // IF пользователь не загружен и есть токен Авторизации  (???)
-            let  data = await dispatch("User/axios/_User", {} , { root: true });
-            commit("SetAll", data);
+        if(getters.Loader === false){ // пользователь не загружен
+            if(this.$cookies.get("Authorization") != undefined ){ // У пользователя есть токен
+                let  data = await dispatch("User/axios/_User", {} , { root: true });
+                if(data != undefined){
+                    commit("SetAll", data);
+                    // Спорная вещь------
+                    commit("AuthorizationTrue");
+                }
+            }else{ // Другой запрос который выдает пользователю Токен
+
+            }
             commit("LoaderTrue");
         }  
     }

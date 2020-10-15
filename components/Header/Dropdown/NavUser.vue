@@ -7,6 +7,7 @@
         center
     >
         <b-dropdown-item class="fz-6" :to="data.to" v-for="data in links" :key="data.id">{{ data.text }}</b-dropdown-item>
+         <b-dropdown-item class="fz-6" @click="exitUser">Выход</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 
@@ -23,8 +24,16 @@ export default {
                 {to:"/profile", text:"Личный кабинет"},
                 {to:"/profile", text:"История заказов"},
                 {to:"/selected", text:"Избранные товары"},
-                {to:"/profile", text:"Выход"},
             ]
+        }
+    },
+    methods:{
+        exitUser(){
+            this.$store.commit("User/ResetForm");
+            this.$store.commit("User/AuthorizationFalse");
+            this.$cookies.remove("Authorization");
+            this.$router.push({name:"index"});
+
         }
     }
 }

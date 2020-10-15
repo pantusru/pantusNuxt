@@ -1,7 +1,8 @@
 
 export default function ({ $axios, redirect ,app, request}) {  
   $axios.onRequest(config => {// ПЕРЕХВАТЧИК ЗАПРОСА
-    if (app.$cookies.get("IdUser")  !== undefined) {
+    if (app.$cookies.get("Authorization")  !== undefined) {
+      // console.log(app.$cookies.get("Authorization"));
       $axios.defaults.headers.common['Authorization'] = app.$cookies.get("IdUser"); // Передача токена в каждом запросе
     }
     console.log('Making request to ' + config.url)

@@ -21,11 +21,11 @@
       <b-navbar-nav class="ml-0 ml-lg-auto flex-row fz-6">
         <div class="d-flex mr-lg-2 mr-4 align-items-center">
             <div class="icons-nav-w20"><img src="~/assets/img/icons/icon-avatar.png" alt="Иконка пользователя"/></div>
-            <div class="d-flex flex-column" v-if="User.id == ''">
+            <div class="d-flex flex-column" v-if="CheckUser == false">
                 <nuxt-link to="" v-b-modal.authorization class="text-secondary link-danger">Вход</nuxt-link>
                 <nuxt-link to="/register" class="text-secondary link-danger">Регистрация</nuxt-link>
             </div>
-            <div class="" v-if="User.id != ''">
+            <div class="" v-if="CheckUser == true">
                <NavUser :userName="User.surname +' '+ User.name"/>
             </div>
         </div>
@@ -61,6 +61,9 @@ export default {
     computed:{
         User(){
             return this.$store.getters["User/FormData"];
+        },
+        CheckUser(){
+            return this.$store.getters["User/CheckUser"];
         },
         stoimost(){
             return this.$store.getters["Cart/CartAll/GetSymmaAll"]

@@ -1,5 +1,5 @@
 export const actions = { 
-    async _User(){
+    async _User({}){
         let User = {
             id: 23145,
             login: "email.ru",

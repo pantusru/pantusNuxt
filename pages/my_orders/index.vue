@@ -16,6 +16,9 @@
 import MyOrder from "@/components/Order/MyOrder/index"
 import NavProfile from "@/components/Nav/Profile/index"
 export default {
+  async fetch({store, dispatch}){
+    await store.dispatch("MyOrder/_MyOrderAll");
+  },
     components:{
         NavProfile,
         MyOrder

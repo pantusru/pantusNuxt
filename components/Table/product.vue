@@ -36,8 +36,6 @@
                 </b-tr>
             </template>
         </b-tbody>
-        <ImgModal v-if="CheckAnalogs == false"/>
-        <BuyModal v-if="CheckAnalogs == false"/>
     </b-table-simple>
 </template>
 
@@ -46,12 +44,8 @@ import ImgGetModal from "@/components/Products/Product/Element/img"
 import PanelVid from "@/components/Search/ProductPanel/table" // Панель
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
-import ImgModal from "@/components/Modal/ProductImg" // Компонент модалка изображения
-import BuyModal from "@/components/Modal/buyProduct"// Компонент модалка купить
 export default {
     components:{
-        ImgModal,
-        BuyModal,
         BuyButton,
         Chosen,
         PanelVid,

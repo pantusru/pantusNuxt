@@ -1,5 +1,7 @@
 <template>
   <section class="mt-5">
+    <ModalImg />
+    <ModalBuy />
     <div class="container">
       <FilterApplicabilities />
       <b-row>
@@ -29,6 +31,8 @@
 </template>
 
 <script>
+import ModalImg from "@/components/Modal/ProductImg";
+import ModalBuy from "@/components/Modal/buyProduct";
 import FilterApplicabilities from "@/components/Forms/FilterApplicabilities";
 import PanelVid from "@/components/Search/ProductPanel/table";
 import FilterForm from "@/components/Forms/FulterProducts";
@@ -114,6 +118,8 @@ export default {
     PanelVid,
     FilterApplicabilities,
     MetkaFilter,
+    ModalImg,
+    ModalBuy,
   },
   computed: {
     Products() {
@@ -131,6 +137,7 @@ export default {
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
   mounted() {
+    // Изменение истории и изменения состоянии VUEX
     window.addEventListener("popstate", () => {
       this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
       this.ResetNoApplicabilitiess();

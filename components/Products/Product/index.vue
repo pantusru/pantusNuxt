@@ -34,7 +34,7 @@
                         <Share/>
                     </b-col>
                 </b-row>
-                <TableOffer :Linkoffset="dataset.productOffer" :ProductId="dataset.ProductCard.id"/>
+                <TableOffer :Linkoffset="dataset.productOffer" :LinkProduct="dataset.ProductCard"/>
                 <ModalBuy/>
             </b-col>
         </b-row>

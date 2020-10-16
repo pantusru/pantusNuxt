@@ -7,16 +7,10 @@
             :Selected="Selected"
         >
         </BlogRow>
-        <ModalImg/>
-        <ModalBuy 
-    />
     </div>
 </template>
-
 <script>
 import BlogRow from "@/components/Products/Product/blog-row"
-import ModalImg from  "@/components/Modal/ProductImg"
-import ModalBuy from  "@/components/Modal/buyProduct"
 export default {
     props:{
         array:{},
@@ -25,8 +19,6 @@ export default {
         }
     },
     components: {
-        ModalImg,
-        ModalBuy,
         BlogRow
     },
 }

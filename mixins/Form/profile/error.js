@@ -28,10 +28,10 @@ let password = [
         ifv: "maxLength",
         text:"Пароль должен состоять не более 25 символов ",
     },
-    {
-        ifv: "CheckPassword",
-        text:"Пароль указан не верно!",
-    },
+    // {
+    //     ifv: "CheckPassword",
+    //     text:"Пароль указан не верно!",
+    // },
 ]
 let password2 = [
     {

@@ -1,6 +1,6 @@
 <template>
   <b-col cols="3">
-    <div class="mr-3 form-control h-100 p-2">
+    <div class="mr-3 form-control">
       <div v-if="PanelData.length != 0">
         <span v-for="id in Panel" :key="id">
           <template

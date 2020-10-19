@@ -1,21 +1,21 @@
 <template>
   <b-col cols="3">
-    <div class="mr-3 form-control h-100 p-2">
+    <div class="mr-3 form-control h-45px">
       <span v-if="PanelData.length != 0">
         {{ Applicabilities.filter((data) => data.id == PanelData)[0].name }}
       </span>
     </div>
-    <b-form-select v-model="PanelData" :select-size="4">
-      <template v-slot:first>
-        <b-form-select-option
-          @click="SetVuex(index)"
-          v-for="(data, index) in Applicabilities"
-          :key="data.id"
-          :value="data.id"
-          >{{ data.name }}</b-form-select-option
-        >
-      </template>
-    </b-form-select>
+      <b-form-select v-model="PanelData" :select-size="4">
+        <template v-slot:first>
+          <b-form-select-option
+            @click="SetVuex(index)"
+            v-for="(data, index) in Applicabilities"
+            :key="data.id"
+            :value="data.id"
+            >{{ data.name }}</b-form-select-option
+          >
+        </template>
+      </b-form-select>
   </b-col>
 </template>
 
@@ -46,7 +46,8 @@ export default {
         )["SelectedMarka"];
       },
       set(value) {
-        this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохраняет во VUEX  SelectedMarka
+        this.$store.commit("Applicabilities/Panel/SetPanel", {
+          // Сохраняет во VUEX  SelectedMarka
           id: this.PanelId,
           value: value,
           name: "SelectedMarka",

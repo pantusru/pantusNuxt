@@ -146,6 +146,10 @@ button.bg-link-danger:hover{
 .pl-10px{
     padding-left: 10px!important;
 }
+.py-10px{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 /*  ВЫСОТА */
 .h-100vh{
@@ -153,6 +157,9 @@ button.bg-link-danger:hover{
 }
 .h-25vh{
     height: 25vh;
+}
+.h-45px{
+    height: 45px;
 }
 
 

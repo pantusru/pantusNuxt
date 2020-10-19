@@ -32,8 +32,8 @@
         <nuxt-link to="/cart" class="d-flex align-items-center link-decoration-none" >
             <div class="icons-nav-w20"><img src="~/assets/img/icons/icon-shopping-cart.png" alt=""/></div>
             <div class="d-flex flex-column text-secondary pl-10px">
-                <div><span>Корзина</span><b>: {{GetLength}}</b></div>
-                <strong>{{stoimost  }} р</strong>
+                <div><span>Корзина</span><b v-if="GetLength">: {{GetLength}}</b></div>
+                <strong v-if="stoimost != 0">{{stoimost  }} р</strong>
             </div>
         </nuxt-link>
       </b-navbar-nav>

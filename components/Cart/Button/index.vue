@@ -1,13 +1,15 @@
 <template>
   <div>
-    <b-button v-if="!CheckUser" :class="AddClass" v-b-modal="'authorization'"
-      >Оформить заказ</b-button
-    >
-    <b-button v-if="CheckUser" :class="AddClass">
-      <nuxt-link to="/order" class="text-white link-decoration-none"
-        >Оформить заказ</nuxt-link
+    <template v-if="CartProduct.length > 0">
+      <b-button v-if="!CheckUser" :class="AddClass" v-b-modal="'authorization'"
+        >Оформить заказ</b-button
       >
-    </b-button>
+      <b-button v-if="CheckUser" :class="AddClass">
+        <nuxt-link to="/order" class="text-white link-decoration-none"
+          >Оформить заказ</nuxt-link
+        >
+      </b-button>
+    </template>
   </div>
 </template>
 
@@ -22,6 +24,9 @@ export default {
   computed: {
     CheckUser() {
       return this.$store.getters["User/CheckUser"];
+    },
+    CartProduct() {
+      return this.$store.getters["Cart/CartAll/GetCartProduct"];
     },
   },
 };

@@ -34,9 +34,14 @@ export default {
   },
   data() {
     return {
-      kolvo: this.kolvoProps,
       error: false,
+      kolvo: this.kolvoProps,
     };
+  },
+  watch:{
+    kolvoProps(){
+      this.kolvo = this.kolvoProps;
+    }
   },
   methods: {
     //  Передача Emit

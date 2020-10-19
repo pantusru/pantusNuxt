@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ImgModal :dataset="DataImg" />
+    <ImgModal/>
     <b-table
       class="mt-4 text-center"
       :fields="fields"
@@ -21,8 +21,8 @@
       <template v-slot:cell(img)="data">
         <div v-if="data.item.ProductCard.ProductCardImage.url">
           <b-icon-camera-fill
-            @click="ModalImg(data.item)"
             class="cursor-pointer"
+            @click="ModalImg(data.item)"
           ></b-icon-camera-fill>
         </div>
       </template>
@@ -46,23 +46,22 @@
         {{ Number(data.item.kolvo) * data.item.ProductOffer.prices }} Р
       </template>
       <template v-slot:cell(Delete)="data">
-        <b-button
-          @click="deleteProduct(data.index)"
-          class="bg-danger border-0 py-1"
-          >X</b-button
-        >
+        <DeleteCart :index="data.index" />
       </template>
     </b-table>
   </div>
 </template>
 
 <script>
+import DeleteCart from "@/components/Cart/Button/DeleteCart";
 import ImgModal from "@/components/Modal/ProductImg";
 import vInput from "@/components/Products/Input/kolvo";
+import mixinsEmit from "@/mixins/Input/CountProduct/emit"
+import mixinsImg from "@/mixins/Modal/ProductImg"
 export default {
+  mixins:[mixinsEmit,mixinsImg],
   data() {
     return {
-      DataImg: undefined,
       fields: [
         { key: "brand", label: "Брэнд" },
         { key: "sku", label: "Артикул" },
@@ -82,24 +81,11 @@ export default {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
     },
   },
-  methods: {
-    Setkolvo(data) {
-      this.$store.commit("Cart/CartAll/SetKolvoProductArr", {
-        data: data.array,
-        value: data.kolvo,
-      });
-    },
-    deleteProduct(data) {
-      this.$store.commit("Cart/CartAll/DeleteCartProduct", data);
-    },
-    ModalImg(data) {
-      this.DataImg = data;
-      this.$bvModal.show("img");
-    },
-  },
   components: {
     vInput,
     ImgModal,
+    DeleteCart,
+
   },
 };
 </script>

@@ -8,10 +8,9 @@ export const mutations  =  {
 }
 export const actions = { 
     async _MyOrderAll({store,dispatch, commit, getters}){
-        if(getters.GetMyOrder.length === 0){
-            let  data = await dispatch("MyOrder/axios/_MyOrder", {} , { root: true });
-            commit("SetMyOrder", data);
-        }  
+        // Добавить data page, и передавать в API ЗАпрос
+        let  data = await dispatch("MyOrder/axios/_MyOrder", {} , { root: true });
+        commit("SetMyOrder", data);
     },
 }
 export const getters = {

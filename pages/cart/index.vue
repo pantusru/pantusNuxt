@@ -9,26 +9,10 @@
 </template>
 
 <script>
-import vButton from "@/components/Card/Button/index"
+import vButton from "@/components/Cart/Button/index"
 import Modal from "@/components/Modal/authorization"
 import vTable  from "@/components/Table/cart"
 export default {
-    data() {
-        return {
-            checkGetModal: null,
-        }
-    },
-    methods:{
-        ModalGet(){
-            if(this.$route.query.reg != undefined){
-                this.$bvModal.show("authorization");	
-            }
-        }
-    },
-
-    created(){
-        this.ModalGet();
-    },
     components:{
         vTable,
         Modal,

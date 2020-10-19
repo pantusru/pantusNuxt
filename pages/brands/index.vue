@@ -1,15 +1,14 @@
 <template>
     <b-container>
         <Vinput 
-            class="w-25 mx-auto" 
+            class="col-12 col-lg-3 mx-auto" 
             v-on:Vsearch="ValueSet" 
             :GetName="'Brand/BrandAll/GetBrand'" 
             :placeholders="'Поиск по брендам'"
         />
         <h1>Бренды</h1>
-                <b-row class="mt-5">
-                    <Brand 
-                        class="col-3 mb-4" 
+                <b-row class="mt-3 mt-lg-5">
+                    <Brand  
                         v-for="source in SearchElem" 
                         :key="source.id"
                         :source="source" />

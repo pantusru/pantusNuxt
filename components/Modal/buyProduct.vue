@@ -25,7 +25,7 @@
             </div>
             <div class="mb-2">
                 <div class="mb-2"><b> Кол-во, шт:</b></div>
-                <VInput @kolvo="SetCount" :kolvoProps="count" :multiplicity="LinkOffer.multiplicity" />
+                <VInput @kolvo="SetCount" :AddClassForm="'col-6 col-md-4'" :kolvoProps="count" :multiplicity="LinkOffer.multiplicity" />
             </div>
             <div class="mb-2">
                 <div><b> Стоимость:</b></div>

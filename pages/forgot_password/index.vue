@@ -16,6 +16,7 @@ import MixinsValidations from "@/mixins/Form/forgotPassword/validator"
 import VInput from "@/components/register/index"
 export default {
     mixins:[MixinsError,MixinsValidations],
+    middleware:'CheckGuest',
     components:{
         VInput,
     },

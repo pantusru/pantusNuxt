@@ -1,9 +1,7 @@
 <template>
   <b-container>
     <b-row>
-      <b-col cols="3">
         <NavProfile />
-      </b-col>
       <b-col>
         <b-form>
           <h5 class="mb-4">Личные данные</h5>
@@ -56,6 +54,7 @@ import ElementForm from "@/components/Profile/input";
 import NavProfile from "@/components/Nav/Profile/index";
 import Submit from "@/components/Profile/button";
 export default {
+  middleware:'CheckGuest',
   provide() {
     return {
       $v: this.$v,

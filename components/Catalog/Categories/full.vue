@@ -2,7 +2,7 @@
     <b-card-body class="p-0 break-avoid">
         <div class="shadow py-3 px-3" v-if="dataset.visible">
             <div class="d-flex justify-content-between">
-                <nuxt-link class="_text-danger link-danger text-decoration d-block mb-2" :to="'/search?categories=' + dataset.id">{{ dataset.name }} </nuxt-link>
+                <nuxt-link class="text-e1002b link-danger text-decoration d-block mb-2" :to="'/search?categories=' + dataset.id">{{ dataset.name }} </nuxt-link>
                 <span
                     class="bg-transparent text-danger border-0 when-open">
                         <b-icon-arrow-down></b-icon-arrow-down> 

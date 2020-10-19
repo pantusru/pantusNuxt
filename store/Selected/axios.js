@@ -25,7 +25,23 @@ export const actions = {
                     brand:{
                         id: 5,
                         name: "A-Sport"
-                    }
+                    },
+                    categories:[
+                        {
+                            name: "Прокладка",
+                        },
+                        {
+                            name: "Двигатель",
+                        }
+                    ],
+                    applicabilities:[
+                        {
+                            name: "Газ",
+                        },
+                        {
+                            name: "Ваз",
+                        }
+                    ]
                 },
                 productOffer:[
                     {

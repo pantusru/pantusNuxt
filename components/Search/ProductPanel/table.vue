@@ -9,7 +9,7 @@
                 label="Артикул" 
                 SortName="sku" 
             />
-            <b-th v-if="CheckAnalogs == false" class="d-none d-md-table-cell"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
+            <b-th v-if="CheckAnalogs == false"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
             <tdSort 
                 label="Наименование" 
                 SortName="name" 
@@ -23,7 +23,6 @@
                 SortName="quantity" 
             />
             <tdSort 
-                class="d-none d-md-table-cell"
                 label="Срок" 
                 SortName="deliverydelay" 
             />

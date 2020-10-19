@@ -44,6 +44,7 @@ import radioForm from "@/components/register/radioForm"
 import Buttons from "@/components/register/button"
 import MSelect from "@/components/register/select"
 export default {
+    middleware:'CheckUser',
     mixins:[MixinsError, MixinsValidations],
     watch:{  
         $v(){ // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(

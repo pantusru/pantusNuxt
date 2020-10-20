@@ -16,7 +16,6 @@
       <template v-slot:first>
         <b-form-select-option
           class="option-my"
-          @mousedown="SetVuex()"
           v-for="(element) in PanelData"
           :key="element.id"
           :value="element.id"
@@ -70,7 +69,6 @@ export default {
         )[this.NameSelected];
       },
       set(value) {
-        console.log(value);
         // Пустой родитель очищаем потомков и потомки есть
         if (value.length == 0 && this.NameSelectedClildren != undefined) {
           this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка
@@ -84,24 +82,7 @@ export default {
           value: value,
           name: this.NameSelected,
         });
-      },
-    },
-    /**
-     * @property Отображаемые Checbox в текущем select
-     */
-    PanelData() {
-      return this.$store.getters["Applicabilities/Panel/PanelId"](
-        this.PanelId
-      )[this.Data];
-    },
-  },
-
-  methods: {
-    /**
-     * @function SetVuex - Сохраняет потомков при их наличие в Data
-     */
-    SetVuex() {
-      if (this.NameData != undefined) {
+        if (this.NameData != undefined) {
         let dataset = [];
         this.Panel.forEach((id) => {
           let elements = this.PanelData.filter((data) => data.id == id);
@@ -115,7 +96,19 @@ export default {
           name: this.NameData,
         });
       }
+      },
     },
+    /**
+     * @property Отображаемые Checbox в текущем select
+     */
+    PanelData() {
+      return this.$store.getters["Applicabilities/Panel/PanelId"](
+        this.PanelId
+      )[this.Data];
+    },
+  },
+
+  methods: {
     hiddenForm(event){
       if(event.target.className != "option-my"){
         this.show = false;

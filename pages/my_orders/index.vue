@@ -21,7 +21,7 @@ export default {
     NavProfile,
     MyOrder,
   },
-  middleware:'CheckUser'
+  middleware:'CheckGuest',
 };
 </script>
 

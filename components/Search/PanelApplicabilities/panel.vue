@@ -1,8 +1,8 @@
 <template>
   <b-row class="align-items-center mb-3">
-    <Parent :PanelId="PanelId" class="col-12 col-md-4 mb-3"/>
+    <Parent :PanelId="PanelId" class="col-12 col-md-3"/>
     <Children
-    class="col-12 col-md-4 mb-3" 
+    class="col-12 col-md-4" 
       :PanelId="PanelId"
       Data="DataModel"
       NameData="DataGenerations"
@@ -10,7 +10,7 @@
       NameSelectedClildren="SelectedGenerations"
     />
     <Children
-    class="col-12 col-md-4 mb-3" 
+    class="col-12 col-md-3" 
       :PanelId="PanelId"
       Data="DataGenerations"
       NameSelected="SelectedGenerations"

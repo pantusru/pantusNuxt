@@ -159,7 +159,8 @@ button.bg-link-danger:hover{
     height: 25vh;
 }
 .h-45px{
-    height: 45px;
+    min-height: 45px;
+    height: 100%;
 }
 
 

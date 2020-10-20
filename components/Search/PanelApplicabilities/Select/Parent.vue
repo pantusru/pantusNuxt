@@ -1,26 +1,36 @@
 <template>
-  <b-col cols="3">
-    <div class="mr-3 form-control h-45px">
+  <b-col cols="3" class="mb-3 mb-md-0">
+    <div class="mr-3 form-control h-45px" v-on-clickaway="hiddenForm" @click="show=true">
       <span v-if="PanelData.length != 0">
         {{ Applicabilities.filter((data) => data.id == PanelData)[0].name }}
       </span>
     </div>
-      <b-form-select v-model="PanelData" :select-size="4">
-        <template v-slot:first>
-          <b-form-select-option
-            @click="SetVuex(index)"
-            v-for="(data, index) in Applicabilities"
-            :key="data.id"
-            :value="data.id"
-            >{{ data.name }}</b-form-select-option
-          >
-        </template>
-      </b-form-select>
+    <b-form-select v-model="PanelData" :select-size="4" v-if="show === true">
+      <template v-slot:first>
+        <b-form-select-option
+        class="option-my"
+          @click="SetVuex(index)"
+          v-for="(data, index) in Applicabilities"
+          :key="data.id"
+          :value="data.id"
+          >{{ data.name }}</b-form-select-option
+        >
+      </template>
+    </b-form-select>
   </b-col>
 </template>
 
 <script>
+import { directive as onClickaway } from "vue-clickaway";
 export default {
+  directives: {
+    onClickaway: onClickaway,
+  },
+  data(){
+    return{
+      show: false,
+    }
+  },
   props: {
     /**
      * @property id текущей Panel в которой находится select
@@ -37,7 +47,7 @@ export default {
       ];
     },
     /**
-     * @property Отображаемые Checbox в текущем select
+     * @property Отображаемые Checbox в текущем select и сохраняет изменения во VUEX
      */
     PanelData: {
       get() {
@@ -61,12 +71,21 @@ export default {
      * @function SetVuex - Сохраняет потомков при их наличие в Data
      */
     SetVuex(index) {
-      this.$store.commit("Applicabilities/Panel/SetPanel", {
+      this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
         id: this.PanelId,
         value: this.Applicabilities[index].children,
         name: "DataModel",
       });
+      this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка selected
+            id: this.PanelId,
+            NameSelected: "SelectedModel",
+          })
     },
+    hiddenForm(event){
+      if(event.target.className != "option-my"){
+        this.show = false;
+      }
+    }
   },
 };
 </script>

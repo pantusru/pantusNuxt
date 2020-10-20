@@ -16,6 +16,7 @@
     "nuxt": "^2.14.0",
     "v-clipboard": "^2.2.3",
     "v-mask": "^2.2.3",
+    "vue-clickaway": "^2.2.2",
     "vue-slick-carousel": "^1.0.6",
     "vue-virtual-scroll-list": "^2.3.1",
     "vuelidate": "^0.7.5"

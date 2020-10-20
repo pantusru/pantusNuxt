@@ -76,10 +76,19 @@ export default {
         value: this.Applicabilities[index].children,
         name: "DataModel",
       });
-      this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка selected
-            id: this.PanelId,
-            NameSelected: "SelectedModel",
-          })
+      this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET  selected model
+        id: this.PanelId,
+        NameSelected: "SelectedModel",
+      })
+      this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка selected  generations
+        id: this.PanelId,
+        NameSelected: "SelectedGenerations",
+      })
+      this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка data  generations
+        id: this.PanelId,
+        NameSelected: "DataGenerations",
+      })
+      
     },
     hiddenForm(event){
       if(event.target.className != "option-my"){

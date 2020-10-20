@@ -125,18 +125,35 @@ export const actions = {
             // ДОбавить SelectedGenerations
             if (element.SelectedGenerations.length != 0) {
                 ids.push(element.SelectedGenerations);
-                for (const keyModel in element.SelectedModel) { // Прогоняем выбранные моделни
-                    let check = false;
-                    for (const keyGenerations in element.SelectedGenerations) { // Прогоняем Поколения
-                        if (element.SelectedModel[keyModel] == element.SelectedGenerations[keyGenerations]) { // Проверяем выбранные 
-                            check = true;
+                let DataModelSelected = [];
+                for (const keyModel in element.SelectedModel) { // Прогоняем выбранные модели
+                    for(const keyModelData in element.DataModel ){ // Прогоняем Data всех моделей
+                        if(element.SelectedModel[keyModel] == element.DataModel[keyModelData].id){ // ищем данные о выбранных моделей
+                            DataModelSelected.push(element.DataModel[keyModelData]);
                             break;
                         }
                     }
-                    if(check === false){
+                }
+                for(const keyModel in DataModelSelected){// Прогоняем данные о выбранных моделей
+                    let check = false;
+                    for(const keyChildren in DataModelSelected[keyModel].children){ // Прогоняем children выбранных Моделей
+                        let checkChildren = false;
+                        for(const keyGenerations  in element.SelectedGenerations){ // Прогоняет Id выбранных поколении
+                            if(DataModelSelected[keyModel].children[keyChildren].id == element.SelectedGenerations[keyGenerations]){ // Проверяет есть ли совпадения
+                                checkChildren = true;
+                                check = true;
+                                break;
+                            }
+                        }
+                        if(checkChildren == true){ // Совпадение найдено!
+                            break;
+                        }
+                    }
+                    if(check === false){ // У модели нету выбранных поколении
                         ids.push(element.SelectedModel[keyModel]);
                     }
-                }
+                    
+                }     
                 // ДОбавить SelectedModel
             } else if (element.SelectedModel.length != 0) {
                 ids.push(element.SelectedModel);

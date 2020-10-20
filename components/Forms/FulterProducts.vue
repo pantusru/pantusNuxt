@@ -10,8 +10,7 @@
       <b-button
         class="d-block d-lg-none text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer mb-2"
         @click="show = false"
-        >X</b-button
-      >
+        >X</b-button>
       <!-- <Submit /> -->
       <VueRange />
       <!-- ЦЕНА-->
@@ -57,7 +56,7 @@ import Submit from "../Search/buttons/buttonSubmit";
 export default {
   data() {
     return {
-      show: false,
+      show: true,
     };
   },
   components: {

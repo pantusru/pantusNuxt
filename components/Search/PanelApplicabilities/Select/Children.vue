@@ -53,10 +53,6 @@ export default {
      * @property названия подкатегории потомка select Data
      */
     NameData: {},
-    /**
-     * @property названия подкатегории потомка select выбранные
-     */
-    NameSelectedClildren: {},
   },
   computed: {
       /**
@@ -68,15 +64,7 @@ export default {
           this.PanelId
         )[this.NameSelected];
       },
-      set(value) {
-        // Пустой родитель очищаем потомков и потомки есть
-        if (value.length == 0 && this.NameSelectedClildren != undefined) {
-          this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET потомка
-            id: this.PanelId,
-            NameSelected: this.NameSelectedClildren,
-            NameData: this.NameData,
-          })
-        }
+      set(value, strValue) {
         this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить текущее изменения во VUEX
           id: this.PanelId,
           value: value,

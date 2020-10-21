@@ -13,7 +13,7 @@ export const mutations  =  {
 export const actions = { 
     async _ProductAll({store,dispatch, commit, getters} , data){
         // if(getters.GetProducts.length === 0){
-            let dataset = await dispatch("Products/axios/_ProductFilter", {data} , { root: true }); 
+            let dataset = await dispatch("Products/axios/_ProductFilter", {data:data, limit:50} , { root: true }); 
             commit("SetProducts", dataset);
         // }  
     },

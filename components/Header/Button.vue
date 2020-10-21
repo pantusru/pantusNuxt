@@ -9,19 +9,10 @@
     />
     <button
       @click="SetSearch"
-      v-if="$route.name == 'search'"
       class="bg-danger px-2 py-2 border-danger rounded-right text-light"
     >
       Найти
     </button>
-    <nuxt-link
-      @click="SetSearch"
-      v-if="$route.name != 'search'"
-      :to="'/search?name=' + search"
-      class="bg-danger px-2 py-2 border-danger rounded-right text-light"
-    >
-      Найти
-    </nuxt-link>
   </b-navbar-nav>
 </template>
 

@@ -17,7 +17,7 @@ export default {
       if (this.$route.query.applicabilities != undefined) {
         this.$router.push({
           path: this.$route.path,
-          query: { ...this.$route.query, applicabilities: undefined },
+          query: { ...this.$route.query, applicabilities: undefined, page: undefined },
         });
       }
     },

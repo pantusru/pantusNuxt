@@ -24,6 +24,12 @@
           <div class="d-block d-lg-none">
             <components v-bind:is="'productBlog'" :array="Products" />
           </div>
+          <b-pagination-nav
+            :link-gen="linkGen"
+            :number-of-pages="10"
+            use-router
+            align="center"
+          />
         </b-col>
       </b-row>
     </div>
@@ -31,6 +37,7 @@
 </template>
 
 <script>
+import PageFilter from "@/mixins/Page/filter"
 import ModalImg from "@/components/Modal/ProductImg";
 import ModalBuy from "@/components/Modal/buyProduct";
 import FilterApplicabilities from "@/components/Forms/FilterApplicabilities";
@@ -43,7 +50,7 @@ import MetkaFilter from "@/components/Metka/Filter/Blog";
 import ResetFilter from "@/mixins/ResetFilter/index";
 import CheckQueryFilter from "@/mixins/CheckQueryFilter/index";
 export default {
-  mixins: [ResetFilter, CheckQueryFilter],
+  mixins: [ResetFilter, CheckQueryFilter,PageFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
       store.dispatch("Products/_ProductAll", query), // Товары
@@ -73,7 +80,7 @@ export default {
         });
       }
       // ПРОВЕРКА name SKU
-      if(query.name !=undefined){
+      if (query.name != undefined) {
         store.commit("formSearch/SetSearch", query.name);
       }
       if (query.categories != undefined) {
@@ -148,11 +155,11 @@ export default {
       this.CheckQueryFilter();
     });
   },
-  watch:{
-    $route(){
+  watch: {
+    $route() {
       console.log("Новый запрос");
       this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
-    }
-  }
+    },
+  },
 };
 </script>

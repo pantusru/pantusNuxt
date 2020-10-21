@@ -23,6 +23,7 @@ export default {
             minvalue: undefined,
             maxvalue: undefined,
             name: undefined,
+            page: undefined,
           },
         });
       }

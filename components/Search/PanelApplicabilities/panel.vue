@@ -10,12 +10,12 @@
       NameSelectedClildren="SelectedGenerations"
     />
     <Children
-    class="col-12 col-md-3" 
+    class="col-12 col-md-4" 
       :PanelId="PanelId"
       Data="DataGenerations"
       NameSelected="SelectedGenerations"
     />
-    <b-col cols="2">
+    <b-col cols="1">
       <b-button
         v-if="PanelLength != 1"
         class="bg-danger border-0"

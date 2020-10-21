@@ -1,5 +1,6 @@
 export const actions = { 
-    async _Product(){
+    // Удалить когда появится API ПРОДУКТ
+    async _ProductFilter(){
         let  product = [
             {
                 ProductCard:{
@@ -326,5 +327,14 @@ export const actions = {
             },
         ];
     return product;
-    }   
+    },
+    // Перемеовать в _ProductFilter когда появится API ПРОДУКТ
+    async _ProductFilter1({}, data){
+        let dataset = data.data; 
+        await this.$axios.$get("http://194.67.113.201:8080/products/", {
+            params :{
+                ... dataset
+            }
+        });
+    }
 }

@@ -102,6 +102,7 @@ export const mutations = {
      * @function ResetAll - Очищает все Panels 
      */
     ResetAll(store) {
+        store.Ids = 1;
         store.Panel = [
             {
                 id: 1,
@@ -114,10 +115,16 @@ export const mutations = {
         ]
     },
 }
-
 export const actions = {
     /**
-     *  
+     */
+    SetPanelNew({ state, commit, getters ,rootGetters }){
+        if(rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"].length > state.Ids){
+            commit("SetPanelNew");
+        }
+         
+    },
+    /** 
      * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
      */
     DeletePanel({ store, commit, getters }, id) {

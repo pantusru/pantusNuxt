@@ -18,7 +18,11 @@ export const state = () => ({
     /**
      * @property Названия поля которое сортируем 
      */
-    SortName: ""
+    SortName: "",
+     /**
+     * @property Поле поиска
+     */
+    Search: ""
 })
 export const mutations  =  {
     /**
@@ -41,6 +45,13 @@ export const mutations  =  {
      */
     SetBrandsChecked(store, data){
         store.BrandsChecked.push(data);
+    },
+    /**
+     * @function SetSearch -  Сохраняет текст ввода поиска
+     * @param {Number} data - текст ввода поиска
+     */
+    SetSearch(store, data){
+        store.Search = data;
     },
     /**
      * @function SetBrandsChecked - Сохраняет бренды в выбранные
@@ -95,4 +106,8 @@ export const getters = {
      * @function GetMinValue - название тип сортировки
      */
     GetSortType: s => s.SortType,
+    /**
+     * @function GetSearch - Возвращает введеный текст поиска
+     */
+    GetSearch: s => s.Search,
 }

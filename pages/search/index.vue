@@ -46,7 +46,7 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
-      store.dispatch("Products/_ProductAll"), // Товары
+      store.dispatch("Products/_ProductAll", query), // Товары
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
@@ -71,6 +71,10 @@ export default {
         store.dispatch("Catalog/Metks/SetMetksBrand", {
           ids: brand,
         });
+      }
+      // ПРОВЕРКА name SKU
+      if(query.name !=undefined){
+        store.commit("formSearch/SetSearch", query.name);
       }
       if (query.categories != undefined) {
         // ПРОВЕРКА КАТЕГОРИИ
@@ -144,5 +148,11 @@ export default {
       this.CheckQueryFilter();
     });
   },
+  watch:{
+    $route(){
+      console.log("Новый запрос");
+      this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
+    }
+  }
 };
 </script>

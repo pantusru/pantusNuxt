@@ -22,6 +22,7 @@ export default {
             categories: undefined,
             minvalue: undefined,
             maxvalue: undefined,
+            name: undefined,
           },
         });
       }

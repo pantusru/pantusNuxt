@@ -11,11 +11,11 @@ export const mutations  =  {
     },
 }
 export const actions = { 
-    async _ProductAll({store,dispatch, commit, getters}){
-        if(getters.GetProducts.length === 0){
-            let  data = await dispatch("Products/axios/_Product", {} , { root: true });
-            commit("SetProducts", data);
-        }  
+    async _ProductAll({store,dispatch, commit, getters} , data){
+        // if(getters.GetProducts.length === 0){
+            let dataset = await dispatch("Products/axios/_ProductFilter", {data} , { root: true }); 
+            commit("SetProducts", dataset);
+        // }  
     },
     async _ProductId({store,dispatch, commit, getters}){
         let  data = await dispatch("Products/axios/_ProductId", {} , { root: true });

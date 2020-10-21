@@ -1,6 +1,6 @@
 export default {
     methods: {
-       async CheckQueryFilter() {
+       async CheckQueryFilter() { 
             if (this.$route.query != undefined) {
                 if (this.$route.query.minvalue != undefined) {
                     // ПРОВЕРКА МИНИМУМА
@@ -59,6 +59,9 @@ export default {
                         SortType: this.$route.query.sort_type,
                         SortName: this.$route.query.sort_name,
                     });
+                }
+                if(this.$route.query.name !=undefined){
+                    this.$store.commit("formSearch/SetSearch", this.$route.query.name);
                 }
             }
         }

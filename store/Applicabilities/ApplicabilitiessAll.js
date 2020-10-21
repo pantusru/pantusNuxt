@@ -1,6 +1,6 @@
 export const state = () => ({
     /**
-     * @property Vuex массив всех приминимостей
+     * @property Vuex массив всех  применяемость
      */
     Applicabilities: [],
 })
@@ -15,7 +15,7 @@ export const mutations  =  {
 }
 export const actions = { 
     /**
-     * #Запрос на получения приминимостей
+     * #Запрос на получения  применяемость
      * @function  _Applicabilitiess проверка на наличие, запрос, сохранения в vuex
      */
     async _Applicabilitiess({store,dispatch, commit, getters}){
@@ -29,8 +29,8 @@ export const actions = {
 }
 export const getters = {
     /**
-     * #Вывод всех приминимостей
-     * @returns {Array}  Массив всех приминимостей
+     * #Вывод всех  применяемость
+     * @returns {Array}  Массив всех  применяемость
      */
     GetApplicabilities: s => s.Applicabilities,
 }

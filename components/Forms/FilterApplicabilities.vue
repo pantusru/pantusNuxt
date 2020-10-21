@@ -5,7 +5,7 @@
       v-show="showAll === false"
       :class="BntClass"
     >
-      Указать применяемость
+      Указать применяемости
     </button>
     <b-card
       v-show="showAll == true"
@@ -14,7 +14,7 @@
     >
       <b-card-body class="px-3 py-2">
         <span @click="showAll = false" class="cursor-pointer link-danger">
-          Указать применяемость
+          Указать применяемости
           <b-icon-arrow-up></b-icon-arrow-up>
         </span>
         <div class="mt-3 mb-2">

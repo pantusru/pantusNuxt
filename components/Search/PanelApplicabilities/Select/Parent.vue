@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     /**
-     * @param index - индекс приминимостей
+     * @param index - индекс  применяемость
      * @function SetVuex - Сохраняет потомков при их наличие в Data
      */
     SetVuex(index) {

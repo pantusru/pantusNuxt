@@ -34,6 +34,16 @@ export const mutations = {
         store.Panel.splice(data, 1);
     },
     /**
+     * @param {Number} data.IdPanel - id Panel с которым работать  
+     * @param {Number} data.indexElement - id Element Panel с которым работать
+     * @param {String} data.NameElement - id название Element Panel с которым работать
+     * @function  DeletePanel - Удаляет Element по index в Panel
+     */
+    DeleteElementPanel(store, data) {
+        let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
+        store.Panel[index][data.NameElement].splice(data.indexElement , 1);
+    },
+    /**
      *  
      * @function  DeleteAllPanel - Удаляет все объекты в Panel
      */

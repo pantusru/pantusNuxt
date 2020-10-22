@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
       <b-navbar-brand to="/"
-        ><img src="~assets/img/logo.png" alt="Логотип сайта"
+        ><img src="@img/logo.png" alt="Логотип сайта"
       /></b-navbar-brand>
       <!-- center -->
       <VButtonSearch/>
@@ -12,7 +12,7 @@
         <div class="d-flex mr-lg-2 mr-4 align-items-center">
           <div class="icons-nav-w20">
             <img
-              src="~/assets/img/icons/icon-avatar.png"
+              src="@img/icons/icon-avatar.png"
               alt="Иконка пользователя"
             />
           </div>
@@ -36,7 +36,7 @@
           class="d-flex align-items-center link-decoration-none"
         >
           <div class="icons-nav-w20">
-            <img src="~/assets/img/icons/icon-shopping-cart.png" alt="" />
+            <img src="@img/icons/icon-shopping-cart.png" alt="" />
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div>

@@ -92,7 +92,10 @@ button.bg-link-danger:hover{
     color: #515151;
 }
 .text-666{
-    color: #666;
+    color: #666!important;
+}
+.text-2d414e{
+    color: #2d414e !important;
 }
 /* ПРОЧЕЕ*/
 

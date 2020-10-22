@@ -1,6 +1,7 @@
 <template>
   <main>
     <!-- <VueNewsIndex/> Популярные новости -->
+    <!-- <Abvantage/> -->
     <VueProductsIndex />
     <!-- Популярные Товары -->
     <ModalImg />
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import Abvantage from "@/components/Home/Advantage"
 import ModalImg from "@/components/Modal/ProductImg";
 import ModalBuy from "@/components/Modal/buyProduct";
 import VueNewsIndex from "@/components/News/index";
@@ -18,7 +20,8 @@ export default {
     VueNewsIndex,
     VueProductsIndex,
     ModalImg,
-    ModalBuy
+    ModalBuy,
+    Abvantage
   },
   async fetch({ store }) {
     await Promise.all([

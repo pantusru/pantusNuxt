@@ -2,16 +2,18 @@
   <div class="home">
     <b-overlay :show="show" rounded="sm"> <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5"/> <!-- Шапка сайта -->
-      <!-- <Nuxt v-if="loaderUser"/> -->
       <Nuxt/>
+      <VueFooter/>
     </b-overlay>
   </div>
 </template>
 <script>
-import VueHeader from "../components/Header/Index"
+import VueHeader from "@/components/Header/Index"
+import VueFooter from "@/components/Footer/index"
   export default {
     components:{
       VueHeader,
+      VueFooter
     },
     computed:{
       show(){

@@ -1,5 +1,6 @@
-
+const path = require('path');
 export default {
+
   router: {
     prefetchLinks: false,
     middleware: 'user'
@@ -82,6 +83,9 @@ export default {
   },
 
   build: {
+    extend(config){
+      config.resolve.alias['@img']= path.resolve(__dirname, "assets/img");
+    },
     extractCSS: true,
   },
   env: {

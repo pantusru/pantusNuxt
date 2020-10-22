@@ -4,6 +4,7 @@
   >
     <input
       v-model="search"
+      v-on:keyup.enter="SetSearch"
       class="border-danger border-right-0 w-100 p-2 rounded-left bl-0"
       placeholder="Введите номер или название детали"
     />

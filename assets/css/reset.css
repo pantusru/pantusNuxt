@@ -46,15 +46,16 @@ input[type=number] {
     width: 20px;
 }
 .bnt-delete-selected{
-    top:25px;
+    top:25px;   
     right: 30px;
 }
 .h-150{
     height: 150px;
 }
 .overflow{
-    overflow:auto;
+    overflow-y:auto;
     max-height: 200px;
+    overflow-x: hidden;
 }
 .min-h-auto{
     min-height: auto;

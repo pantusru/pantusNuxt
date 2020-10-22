@@ -5,6 +5,7 @@
         <VueDropdown/>
         <!-- Выплывающий список все запчасти -->
         <b-nav-item 
+        :to="data.to"
         link-classes="text-555 link-ec0e1d font-weight-bold fz-5" 
         v-for="data in links" :key="data.id">
             {{ data.text }}
@@ -21,11 +22,10 @@ export default {
         return{
             links:[
                 {to:"", text:"Оригинальные каталоги"},
-                {to:"", text:"Иномарки"},
-                {to:"", text:"Ваз"},
-                {to:"", text:"Камаз"},
-                {to:"", text:"Газ"},
-                {to:"", text:"Рти"},
+                {to:"search?applicabilities=3138", text:"Ваз"},
+                {to:"search?applicabilities=4921", text:"Камаз"},
+                {to:"search?applicabilities=3140", text:"Газ"},
+                {to:"search?categorie=264", text:"Рти"},
                 {to:"", text:"Популярные"},
                 {to:"", text:"Новинки"},
             ]
@@ -33,6 +33,6 @@ export default {
     },
     components:{
         VueDropdown  
-    }
+    },
 }
 </script>

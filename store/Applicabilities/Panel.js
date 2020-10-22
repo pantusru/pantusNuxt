@@ -136,9 +136,13 @@ export const actions = {
      * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
      * @returns {String}  Строку массива всех выбранных id с Panel
      */
-    SetAllIdUrl({ state }) {
+    SetAllIdUrl({ state ,commit }) {
         let ids = [];
-        state.Panel.forEach(element => {
+        state.Panel.forEach((element, index) => {
+            if(element.SelectedMarka  == 0){
+                commit("DeletePanel", index);
+                return;
+            }
             // ДОбавить SelectedGenerations
             if (element.SelectedGenerations.length != 0) {
                 ids.push(element.SelectedGenerations);

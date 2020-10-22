@@ -2,8 +2,9 @@
     <b-container>
         <h3>Корзина</h3>
         <b> Доступные способы доставки и оплаты вы сможете выбрать при оформлении заказа </b>
-        <vTable class="d-none d-lg-block"/>
-        <VBlogCart class="d-flex d-lg-none"/>
+        <vTable class="d-none d-lg-block" v-if="CartLength !=0" />
+        <VBlogCart class="d-flex d-lg-none" v-if="CartLength !=0"/>
+        <div class="mt-3" :if="CartLength ==0"> <h3><b>Корзина пустая</b></h3></div>
         <vButton class="mt-3"/>
 
     </b-container>
@@ -21,6 +22,11 @@ export default {
         vButton,
         VBlogCart
     },
+    computed:{
+        CartLength(){
+            return this.$store.getters["Cart/CartAll/GetLength"]
+        }
+    }
 }
 </script>
 

@@ -161,12 +161,12 @@ button.bg-link-danger:hover{
 .h-25vh{
     height: 25vh;
 }
-.h-45px{
-    min-height: 45px;
+.h-30px{
+    min-height: 30px;
     height: 100%;
 }
 .overflow-100px{
-    overflow:auto;
+    overflow-y:auto;
     max-height: 100px;
 }
 

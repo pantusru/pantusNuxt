@@ -31,13 +31,13 @@
       >
       </Panel>
       <!-- ПРиминимости -->
-      <!-- <Panel 
+      <Panel 
             items="Применимость"
             ArrayData="Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             name="applicabilities"
             SetValue="Applicabilities/ApplicabilitiessAll/SetApplicabilities"
             >
-        </Panel> -->
+        </Panel>
 
       <b-button-group>
         <Submit />

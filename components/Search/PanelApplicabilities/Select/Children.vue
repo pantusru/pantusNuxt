@@ -1,7 +1,7 @@
 <template>
   <b-col cols="3" class="mb-3 mb-md-0">
     <div
-      class="mr-3 form-control h-45px"
+      class="mr-3 form-control h-30px"
       v-on-clickaway="hiddenForm"
       @click="show = true"
     >

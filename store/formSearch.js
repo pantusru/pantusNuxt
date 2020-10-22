@@ -30,14 +30,22 @@ export const mutations  =  {
      * @param {Number} data 
      */
     SetMinValue(store, data){
-        store.MinValue = data;
+        if(data > 0){
+            store.MinValue = data;
+        }else{
+            store.MinValue = 0;
+        }
     },
     /**
      * @function SetMaxValue - Сохраняет максимальную стоимость
      * @param {Number} data 
      */
     SetMaxValue(store, data){
-        store.MaxValue = data;
+        if(data < 60000 && data > 0){ // Число максимальной стоимости
+            store.MaxValue = data;
+        }else{
+            store.MaxValue = 60000;
+        }
     },
     /**
      * @function SetBrandsChecked - Добавляет указанный бренд в выбранные

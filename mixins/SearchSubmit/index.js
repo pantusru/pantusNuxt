@@ -26,7 +26,7 @@ export default {
             if (event != undefined) { // Проверка что это не уход с страницы
                 event.preventDefault();
             }
-            this.$store.commit("Catalog/Metks/ResetMetks");
+            this.$store.commit("Catalog/Metks/ResetMetks"); // RESET Metks
             if (this.$store.getters["formSearch/GetMinValue"] != 0) { // ЦЕНА МИНИМУМ
                 this.form.minvalue = this.$store.getters["formSearch/GetMinValue"];
             }
@@ -43,7 +43,7 @@ export default {
             }
             // КАТЕГОРИИ
             this.form.categories = await this.$store.dispatch("Catalog/All/_AllChexboxId", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
-            this.$store.dispatch("Catalog/Metks/SetMetksCategories", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
+            await this.$store.dispatch("Catalog/Metks/SetMetksCategories", this.$store.getters["Categories/CategoriesAll/GetCategories"]);
             this.check("categories");
             // ПРИМИНИМОСТИ
             this.form.applicabilities = await this.$store.dispatch("Applicabilities/Panel/SetAllIdUrl");

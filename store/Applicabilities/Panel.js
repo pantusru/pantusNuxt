@@ -19,7 +19,7 @@ export const mutations = {
         store.Ids++;
         store.Panel.push({
             id: store.Ids,
-            SelectedMarka: [],
+            SelectedMarka: "",
             SelectedModel: [],
             SelectedGenerations: [],
             DataModel: [],
@@ -106,7 +106,7 @@ export const mutations = {
         store.Panel = [
             {
                 id: 1,
-                SelectedMarka: [],
+                SelectedMarka: "",
                 SelectedModel: [],
                 SelectedGenerations: [],
                 DataModel: [],
@@ -136,12 +136,12 @@ export const actions = {
      * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
      * @returns {String}  Строку массива всех выбранных id с Panel
      */
-    SetAllIdUrl({ state ,commit }) {
+    SetAllIdUrl({ state ,commit, dispatch, getters }) {
         let ids = [];
+        let deleteArr = [];
         state.Panel.forEach((element, index) => {
-            if(element.SelectedMarka  == 0){
-                commit("DeletePanel", index);
-                return;
+            if(element.SelectedMarka.length == 0){
+                deleteArr.push(element.id);
             }
             // ДОбавить SelectedGenerations
             if (element.SelectedGenerations.length != 0) {
@@ -181,6 +181,11 @@ export const actions = {
                 // ДОбавить SelectedMarka
             } else if (element.SelectedMarka.length != 0) {
                 ids.push(element.SelectedMarka);
+            }
+        });
+        deleteArr.forEach(elem => {
+            if(getters.PanelLength > 1){
+                dispatch("Applicabilities/Panel/DeletePanel", elem ,{root: true});
             }
         });
         if (ids.length != 0) {

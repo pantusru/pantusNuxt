@@ -53,6 +53,7 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
+      store.dispatch("Products/_ProductAll"),
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
@@ -64,7 +65,7 @@ export default {
         // ПРОВЕРКА МИНИМУМА
         store.commit("formSearch/SetMinValue", query.minvalue);
       }
-      if (query.maxvalue != undefined) {
+      if (query.maxvalue != undefined) { 
         // ПРОВЕРКА МАКСИМУМА
         store.commit("formSearch/SetMaxValue", query.maxvalue);
       }

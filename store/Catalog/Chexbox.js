@@ -26,11 +26,12 @@ export const actions = {
     async ChexboxCheckAll({ store, commit, dispatch, getters }, data) {
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
         let ParentID = false;
-        let valueState = [];
+        let valueState = {CheckedType: [],Indeterminate:[]};
         let arr = data.arr;
         for (const key in arr) {
             if (arr[key].parentId != null) { // Есть ли родитель у выбранного потомка
-                valueState.push(arr[key].CheckedType);
+                valueState.CheckedType.push(arr[key].CheckedType);
+                valueState.Indeterminate.push(arr[key].Indeterminate);
                 ParentID = true;
             }
             if (arr[key].id == data.id) {// Найден выбранный CHEXBOX
@@ -39,39 +40,57 @@ export const actions = {
                     dispatch("ChexboxChildren", { data: arr[key].children, value: data.value });
                 }
                 if (ParentID === true) { // Сохраняем значение потомков если есть родитель
-                    valueState.pop();
-                    valueState.push(data.value);
+                    valueState.Indeterminate.pop();
+                    valueState.CheckedType.pop();
+                    valueState.Indeterminate.push(arr[key].Indeterminate);
+                    valueState.CheckedType.push(data.value);
                 }
             }
             else if (arr[key].children.lenght != 0) { // НЕ найден ищем в потомках
                 await dispatch("ChexboxCheckAll", { arr: arr[key].children, value: data.value, id: data.id })
                 .then(res => {
                     if (res != undefined) {
-                        commit("SetChecboxIndeterminate", { data: arr[key], value: res.indeterminate });
-                        commit("SetChecboxCheckedType", { data: arr[key], value: res.checked });
-                        valueState.pop();
-                        valueState.push(res.checked);
+                        commit("SetChecboxIndeterminate", { data: arr[key], value: res.Indeterminate });
+                        commit("SetChecboxCheckedType", { data: arr[key], value: res.CheckedType });
+                        valueState.Indeterminate.pop();
+                        valueState.CheckedType.pop();
+                        valueState.CheckedType.push(res.CheckedType);
+                        valueState.Indeterminate.push(res.Indeterminate);
                     }
                 });
             }
         }
 
         if (ParentID === true) { // ЕСТЬ РОДИТЕЛЬ!
-            let ChexboxTrue = valueState.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
-                return elem === true
-            });
-            let indeterminate = valueState.some(element => {
-                return element === true
-            });
+            let Indeterminate;
+            let ChexboxTrue; 
+            if(valueState.CheckedType.length == 1){// Если 1 checkbox  
+                ChexboxTrue = !valueState.Indeterminate[0] && valueState.CheckedType[0];  // нету 3 состояния но выбран этот элемент
+                Indeterminate = valueState.Indeterminate[0];
+            }else{
+                Indeterminate = valueState.CheckedType.some(element => {
+                    return element === true
+                });
+                ChexboxTrue = valueState.CheckedType.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
+                    return elem === true
+                });
+            }
+           
             if (ChexboxTrue) { // ВСЕ CHEXBOX ВЫБРАНЫ
-                return { checked: true, indeterminate: false };
-            } else if (indeterminate === true) { // ВЫБРАН ХОТЯ Б 1 CHEXBOX
-                return { checked: true, indeterminate: true };
+                return { CheckedType: true, Indeterminate: false };
+            } else if (Indeterminate === true) { // ВЫБРАН ХОТЯ Б 1 CHEXBOX
+                return { CheckedType: true, Indeterminate: true };
             } else { // НЕ ВЫБРАНО НЕЧЕГО!
-                return { checked: false, indeterminate: false };
+                return { CheckedType: false, Indeterminate: false };
             }
         }
     },
+
+
+
+
+
+
     /**
      * @function  ChexboxChildren - Меняет всем элементам значения на указанное
      * @param {Array} dataset.data - Массив элементов который нужно поменять

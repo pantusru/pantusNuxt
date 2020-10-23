@@ -9,7 +9,6 @@ export default {
     SetDataUser() {
       // Временное решение
       this.$v.$touch();
-      console.log(this.$v.Form.password);
       if (this.$v.Form.$error == false) { // Нет ошибок первой валидации
         // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
         this.$store.commit("User/SetFull", {

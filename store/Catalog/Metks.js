@@ -47,7 +47,6 @@ export const actions = {
     SetMetksCategories({commit, dispatch} , data){
         for (const key in data) {
             if(data[key].CheckedType == true && data[key].Indeterminate == false){
-                console.log("ФЛЕКСА ТОЧКА НЕТ");
                 commit("PushMetks" , data[key]);
                 continue;
             }

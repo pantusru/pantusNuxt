@@ -73,7 +73,8 @@ export const actions = {
                 });
                 ChexboxTrue = valueState.CheckedType.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
                     return elem === true   
-                });
+                }); 
+                ////////// test56456456
             }
            
             if (ChexboxTrue) { // ВСЕ CHEXBOX ВЫБРАНЫ

@@ -53,7 +53,6 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
-      store.dispatch("Products/_ProductAll", query), // Товары
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
@@ -155,11 +154,14 @@ export default {
       this.CheckQueryFilter();
     });
   },
-  watch: {
-    $route() {
-      console.log("Новый запрос");
-      this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
-    },
-  },
+  // watch: {
+    // async $route() {
+      // console.log("Новый запрос");
+      // await this.pushParamsFilter();
+      // await this.pushParamsSort();
+      // await this.PushUrl();
+      // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
+    // },
+  // },
 };
 </script>

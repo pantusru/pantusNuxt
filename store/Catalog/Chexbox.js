@@ -21,17 +21,15 @@ export const actions = {
      * @param {Array} data.arr - Массив в котором ищем Id
      * @param  {Number} data.id - Id Который нужно найди в массиве
      * @param {Boolean} data.value - Значение на которое нужно поменять найденный элемент массива
-     * @function  ChexboxCheckAll - ищет в указаном массиве элемент.id == id
+     * @function ChexboxCheckAll - ищет в указаном массиве элемент.id == id
      */
     async ChexboxCheckAll({ store, commit, dispatch, getters }, data) {
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
         let ParentID = false;
-        let valueState = {CheckedType: [],Indeterminate:[]};
+        let valueState = {CheckedType: [], Indeterminate:[]};
         let arr = data.arr;
         for (const key in arr) {
             if (arr[key].parentId != null) { // Есть ли родитель у выбранного потомка
-                valueState.CheckedType.push(arr[key].CheckedType);
-                valueState.Indeterminate.push(arr[key].Indeterminate);
                 ParentID = true;
             }
             if (arr[key].id == data.id) {// Найден выбранный CHEXBOX
@@ -40,13 +38,13 @@ export const actions = {
                     dispatch("ChexboxChildren", { data: arr[key].children, value: data.value });
                 }
                 if (ParentID === true) { // Сохраняем значение потомков если есть родитель
-                    valueState.Indeterminate.pop();
-                    valueState.CheckedType.pop();
                     valueState.Indeterminate.push(arr[key].Indeterminate);
                     valueState.CheckedType.push(data.value);
                 }
             }
             else if (arr[key].children.lenght != 0) { // НЕ найден ищем в потомках
+                valueState.CheckedType.push(arr[key].CheckedType);
+                valueState.Indeterminate.push(arr[key].Indeterminate);
                 await dispatch("ChexboxCheckAll", { arr: arr[key].children, value: data.value, id: data.id })
                 .then(res => {
                     if (res != undefined) {
@@ -75,7 +73,6 @@ export const actions = {
                     return elem === true   
                 }); 
             }
-           
             if (ChexboxTrue) { // ВСЕ CHEXBOX ВЫБРАНЫ
                 return { CheckedType: true, Indeterminate: false };
             } else if (Indeterminate === true) { // ВЫБРАН ХОТЯ Б 1 CHEXBOX
@@ -85,12 +82,6 @@ export const actions = {
             }
         }
     },
-
-
-
-
-
-
     /**
      * @function  ChexboxChildren - Меняет всем элементам значения на указанное
      * @param {Array} dataset.data - Массив элементов который нужно поменять

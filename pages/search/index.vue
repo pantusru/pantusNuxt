@@ -72,6 +72,9 @@ export default {
       if (query.brand != undefined) {
         // ПРОВЕРКА БРЕНДА
         let brand = query.brand.split(",");
+        brand = Array.from(
+          new Set(brand)
+        );
         brand.forEach((element) => {
           store.commit("formSearch/SetBrandsChecked", Number(element));
         });

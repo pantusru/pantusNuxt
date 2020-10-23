@@ -72,7 +72,7 @@ export const actions = {
                     return element === true
                 });
                 ChexboxTrue = valueState.CheckedType.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
-                    return elem === true
+                    return elem === true   
                 });
             }
            

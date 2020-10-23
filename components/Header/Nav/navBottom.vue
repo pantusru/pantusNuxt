@@ -4,6 +4,11 @@
       <!-- Выплывающий список все запчасти -->
         <VueDropdown/>
         <!-- Выплывающий список все запчасти -->
+        <!-- <b-button-group>
+            <b-button class="bg-transparent border-0 text-555 link-ec0e1d font-weight-bold fz-5" @click="Push(data.query , data.to)"  v-for="data in links" :key="data.id">
+                {{data.text }}
+            </b-button>
+        </b-button-group> -->
         <b-nav-item 
         :to="data.to"
         link-classes="text-555 link-ec0e1d font-weight-bold fz-5" 
@@ -15,17 +20,17 @@
 </template>
 
 <script>
-import VueDropdown from "../Dropdown/Navbottom"
+import VueDropdown from "@/components/Header/Dropdown/Navbottom"; 
 export default {
     name: "NavBottom", 
     data(){
         return{
             links:[
                 {to:"", text:"Оригинальные каталоги"},
-                {to:"search?applicabilities=3138", text:"Ваз"},
-                {to:"search?applicabilities=4921", text:"Камаз"},
-                {to:"search?applicabilities=3140", text:"Газ"},
-                {to:"search?categorie=264", text:"Рти"},
+                {to:"search?applicabilities=3138", text:"Ваз",   },
+                {to:"search?applicabilities=4921", text:"Камаз",   },
+                {to:"search?applicabilities=3140", text:"Газ", },
+                {to:"search?categories=264", text:"Рти", },
                 {to:"", text:"Популярные"},
                 {to:"", text:"Новинки"},
             ]

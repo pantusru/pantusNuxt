@@ -49,6 +49,7 @@ import productRow from "@/components/Func/productRow";
 import MetkaFilter from "@/components/Metka/Filter/Blog";
 import ResetFilter from "@/mixins/ResetFilter/index";
 import CheckQueryFilter from "@/mixins/CheckQueryFilter/index";
+import { target } from 'vuelidate/lib/params';
 export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
@@ -150,22 +151,14 @@ export default {
     );
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
-  mounted() {
-    // Изменение истории и изменения состоянии VUEX
-    window.addEventListener("popstate", () => {
-      this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
+  watch: {
+    async $route() {
+      console.log("Новый запрос");
       this.ResetNoApplicabilitiess();
+      this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
       this.CheckQueryFilter();
-    });
-  },
-  // watch: {
-    // async $route() {
-      // console.log("Новый запрос");
-      // await this.pushParamsFilter();
-      // await this.pushParamsSort();
-      // await this.PushUrl();
       // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
-    // },
-  // },
+    },
+  },
 };
 </script>

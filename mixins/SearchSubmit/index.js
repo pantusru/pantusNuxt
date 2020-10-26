@@ -47,27 +47,31 @@ export default {
             this.check("categories");
             // ПРИМИНИМОСТИ
             this.form.applicabilities = await this.$store.dispatch("Applicabilities/Panel/SetAllIdUrl");
+            //PAGE
+            if(this.$route.query.page != undefined && Number(this.$route.query.page) != NaN){
+                this.form.page = this.$route.query.page;
+            }
         },
         /**
          * @function pushParamsSort - Проверяет как сортировка товара выбрана
          */
         pushParamsSort() {
-            if (this.$store.getters["formSearch/GetSortName"] != "") {
+            if (this.$store.getters["formSearch/GetSortName"] != "" &&  this.$store.getters["formSearch/GetSortType"] != "") {
                 this.form.sort_name = this.$store.getters["formSearch/GetSortName"];
-                this.form.sort_name = this.form.sort_name;
-            }
-            if (this.$store.getters["formSearch/GetSortType"] != "") {
                 this.form.sort_type = this.$store.getters["formSearch/GetSortType"];
-                this.form.sort_type = this.form.sort_type;
             }
         },
         /**
          * @function PushUrl - Переходит на новый запрос
          */
-        PushUrl() {
+        PushUrl(checkProduct) {
             // НОВЫЙ URL
             window.scrollTo(0, 0);
-            this.$router.push({ name: "search", query: { ... this.form } });
+            if(checkProduct){
+                console.log(this.form);
+            }else{
+                this.$router.push({ name: "search", query: { ... this.form } });
+            }
             this.form = {};
         }
     },

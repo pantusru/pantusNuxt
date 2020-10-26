@@ -2,12 +2,12 @@
   <b-th class="border-top-0">
     <span class="cursor-pointer" @click="SortSet"> {{ label }} </span>
     <b-icon-arrow-down
-      v-if="SortType == 'ask' && SortName == GetSortName"
+      v-if="(GetSortType == 'ask' || GetSortType == '') && SortName == GetSortName"
       class="pt-1"
     >
     </b-icon-arrow-down>
     <b-icon-arrow-down
-      v-if="SortType == 'desk' && SortName == GetSortName"
+      v-if="GetSortType == 'desk' && SortName == GetSortName"
       class="pt-1"
       rotate="180"
     >
@@ -17,16 +17,6 @@
 
 <script>
 export default {
-  created() {
-    if (this.GetSortType != undefined) {
-      this.SortType = this.GetSortType;
-    }
-  },
-  data() {
-    return {
-      SortType: "",
-    };
-  },
   props: {
     label: {
       type: String,

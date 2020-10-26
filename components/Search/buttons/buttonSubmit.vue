@@ -8,6 +8,7 @@ export default {
     mixins:[SearchSubmit],
     methods:{
         async All(event){
+            this.$store.commit("SetcheckFilterClick", undefined);
             await this.pushParamsFilter(event);
             this.pushParamsSort();
             this.PushUrl();

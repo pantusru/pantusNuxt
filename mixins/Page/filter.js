@@ -9,7 +9,6 @@ export default {
 
                 }
             }
-            // return pageNum === 1 ? '?' : `?page=${pageNum}`
         },
     }
 }

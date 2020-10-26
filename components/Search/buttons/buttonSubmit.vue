@@ -9,7 +9,6 @@ export default {
     methods:{
         async All(event){
             await this.pushParamsFilter(event);
-            // this.
             this.pushParamsSort();
             this.PushUrl();
         }

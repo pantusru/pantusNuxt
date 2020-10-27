@@ -88,10 +88,9 @@ export const actions = {
     * @param {Array} data.ids - Массив ID у который стоит chexbox
     */
     async _AllChexboxTrue({store, commit, dispatch, getters}, data){ // Найди ID с url и сделать ему checked = true
+        // Педелелать в другую функцию
         let dataset = data.data;
         let ids = data.ids;
-        for (const keyid in ids) {
-            await dispatch("Catalog/Chexbox/ChexboxCheckAll", {arr: dataset, id: ids[keyid], value: true, checkArrayId:true}, {root:true});
-        }
+        await dispatch("Catalog/Chexbox/ChexboxCheckAll", {arr: dataset, id: ids, value: true}, {root:true});
     }
 }

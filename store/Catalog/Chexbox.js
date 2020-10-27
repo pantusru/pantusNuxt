@@ -27,40 +27,43 @@ export const mutations = {
 export const actions = {
     /**
      * @param {Array} data.arr - Массив в котором ищем Id
-     * @param  {Number} data.id - Id Который нужно найди в массиве
+     * @param  {Number, Array} data.id - Id Который нужно найди в массиве
      * @param {Boolean} data.value - Значение на которое нужно поменять найденный элемент массива
-     * @param {Boolean} data.checkArrayId - Проверяет будет 1 id проверяется или множества
+     * @param {Boolean} data.check - Нужно ли захлопывать фукнцию
      * @function ChexboxCheckAll - ищет в указаном массиве элемент.id == id
      */
     async ChexboxCheckAll({ store, commit, dispatch }, data) {
+        // if(data.check == true){// Элемент найден выход с рекурсии;
+        //     return;
+        // }
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
         let ParentID = false;
         let valueState = {CheckedType: [], Indeterminate:[]};
         let arr = data.arr;
-        for (const key in arr) {
-            if(data.checkArrayId === true){// Проверка массива id 
-                let returns = await dispatch("CheckChecxboxArrayId", {arr:data.arr});
-                if(returns){
-                    return;
-                }
-            }
+        for (const key in arr) { // Прогоняем массив с вложенностью
             if (arr[key].parentId != null) { // Есть ли родитель у выбранного потомка
                 ParentID = true;
             }
-            if (arr[key].id == data.id) {// Найден выбранный CHEXBOX
-                commit("SetChecboxCheckedType", { data: arr[key], value: data.value });
-                if (arr[key].children.lenght != 0) {
-                    dispatch("ChexboxChildren", { data: arr[key].children, value: data.value });
-                }
-                if (ParentID === true) { // Сохраняем значение потомков если есть родитель
-                    valueState.Indeterminate.push(arr[key].Indeterminate);
-                    valueState.CheckedType.push(data.value);
+            if( typeof data.id == "number"){ // Проверяем что это число
+                data.id = [data.id];
+            }
+            for (const keyId in data.id) { // Прогоняем массив Id которых нужно найди
+                if(arr[key].id == data.id[keyId]){ // Найден ID 
+                    data.check = true;
+                    commit("SetChecboxCheckedType", { data: arr[key], value: data.value });
+                    if (arr[key].children.lenght != 0) {
+                        dispatch("ChexboxChildren", { data: arr[key].children, value: data.value });
+                    }
+                    if (ParentID === true) { // Сохраняем значение потомков если есть родитель
+                        valueState.Indeterminate.push(arr[key].Indeterminate);
+                        valueState.CheckedType.push(data.value);
+                    }
                 }
             }
-            else if (arr[key].children.lenght != 0) { // НЕ найден ищем в потомках
+            if (arr[key].children.lenght != 0) { // НЕ найден ищем в потомках
                 valueState.CheckedType.push(arr[key].CheckedType);
                 valueState.Indeterminate.push(arr[key].Indeterminate);
-                await dispatch("ChexboxCheckAll", { arr: arr[key].children, value: data.value, id: data.id ,checkArrayId:data.checkArrayId})
+                await dispatch("ChexboxCheckAll", { arr: arr[key].children, value: data.value, id: data.id, check:data.check})
                 .then(res => {
                     if (res != undefined) {
                         commit("SetChecboxIndeterminate", { data: arr[key], value: res.Indeterminate });
@@ -73,7 +76,6 @@ export const actions = {
                 });
             }
         }
-
         if (ParentID === true) { // ЕСТЬ РОДИТЕЛЬ!
             let Indeterminate;
             let ChexboxTrue; 
@@ -96,17 +98,6 @@ export const actions = {
                 return { CheckedType: false, Indeterminate: false };
             }
         }
-    },
-    /**
-     * @param {Array} data.arr - Массив в котором ищем Id
-     */
-    CheckChecxboxArrayId({rootGetters}, data){
-        // ДОДЕЛАТЬ!!!!!! 
-            let TopParent = rootGetters["Categories/CategoriesAll/GetCategoriesId"](data.arr.TopParent);
-            if(TopParent?.CheckedType === true && TopParent?.Indeterminate === false){
-                console.log("Смерть");
-                return true;
-            }
     },
     /**
      * @function  ChexboxChildren - Меняет всем элементам значения на указанное

@@ -176,9 +176,9 @@ export default {
           await this.ResetNoApplicabilitiess();
           await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
           await this.CheckQueryFilter();
-           await this.pushParamsFilter();
+          await this.pushParamsFilter();
           await this.pushParamsSort();
-          this.PushUrl(true);
+          this.PushUrl();
         // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары 
         }else{
           this.$store.commit('SetcheckFilterClick', true)

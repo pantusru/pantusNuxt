@@ -67,11 +67,8 @@ export default {
         PushUrl(checkProduct) {
             // НОВЫЙ URL
             window.scrollTo(0, 0);
-            if(checkProduct){
-                console.log(this.form);
-            }else{
-                this.$router.push({ name: "search", query: { ... this.form } });
-            }
+            this.$router.push({ name: "search", query: { ... this.form } });
+            console.log(this.form);
             this.form = {};
         }
     },

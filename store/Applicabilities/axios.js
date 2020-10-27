@@ -6,7 +6,7 @@ export const actions = {
      *  
      */
     async _Applicabilities() {
-        return await this.$axios.$get(`${process.env.api}/applicabilities?view=tree `).then(res=>{
+        return await this.$axios.$get(`${process.env.api}/applicabilities?view=tree`).then(res=>{
             return res;
         });
     },

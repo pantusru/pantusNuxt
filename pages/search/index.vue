@@ -162,11 +162,13 @@ export default {
       return this.$store.getters["GetcheckFilterClick"];
     }
   },
-  created() {
-    this.$store.dispatch(
-      "Catalog/All/_AllVisible",
-      this.$store.getters["Categories/CategoriesAll/GetCategories"]
-    );
+  created() { // КОстыль
+    let categories  = this.$store.getters["Categories/CategoriesAll/GetCategories"];
+      console.log("reset");
+      this.$store.dispatch(
+        "Catalog/All/_AllVisible",
+        this.$store.getters["Categories/CategoriesAll/GetCategories"]
+      );
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
     watch: {

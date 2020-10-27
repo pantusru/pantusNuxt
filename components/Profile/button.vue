@@ -40,8 +40,13 @@ export default {
       this.$v.$touch();
       // this.$v.Form.password.apiCheck = await this.ResApi()
       console.log( this.$v.Form.password);
-      if (this.$v.Form.$error == false) {
-        // Нет ошибок первой валидации
+
+      if (this.$v.Form.$error == false) {// Нету ошибок
+        await this.$axios.$get("http://localhost:3000/").then((res, req) =>{
+          this.$store.commit("SetFormPassword", res);
+        });
+        if(this.passwordCheck == false){ // нету ошибок от API
+                 // Нет ошибок первой валидации
           // Проверка данных с API
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
           this.$store.commit("User/SetFull", {
@@ -68,10 +73,16 @@ export default {
           this.$v.Form["password"].$model = "";
           this.$v.Form["password2"].$model = "";
           this.$v.Form.$reset();
-          this.dismissCountDown = this.dismissSecs
+          this.dismissCountDown = this.dismissSecs 
+        }
       }
     },
   },
+  computed:{
+    passwordCheck(){
+      return this.$store.getters["GetFormPassword"];
+    }
+  }
 };
 </script>   
 

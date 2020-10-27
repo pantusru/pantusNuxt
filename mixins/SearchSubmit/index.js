@@ -51,6 +51,9 @@ export default {
             if(this.$route.query.page != undefined && Number(this.$route.query.page) != NaN){
                 this.form.page = this.$route.query.page;
             }
+            if(this.$route.query.name != undefined){
+                this.form.name = this.$route.query.name;
+            }
         },
         /**
          * @function pushParamsSort - Проверяет как сортировка товара выбрана

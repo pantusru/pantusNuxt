@@ -18,7 +18,9 @@
 </template>
 
 <script>
+import ResetFilter from "@/mixins/ResetFilter/index";
 export default {
+  mixins:[ResetFilter],
   computed: {
     search: {
       get() {
@@ -30,16 +32,19 @@ export default {
     },
   },
   methods: {
-    SetSearch() {
+    async SetSearch() {
       if (this.search.length != 0) {
+        await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
+        await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
+        this.$store.commit("SetcheckFilterClick", undefined);
         this.$router.push({
           name: "search",
           query: {
-            ...this.$route.query,
             name: this.search,
           },
         });
       }
+      console.log({name: this.search});
     },
   },
 };

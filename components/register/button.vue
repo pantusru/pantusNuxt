@@ -34,6 +34,7 @@ export default {
           name: "id",
           value: 1,
         });
+        // Временное решение
 
           this.$cookies.set("Authorization", this.$v.Form.$model.email , {
             maxAge: 60*60*24*7*365,

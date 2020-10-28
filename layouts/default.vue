@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import VueHeader from "@/components/Header/Index"
+import VueHeader from "@/components/Header/index"
 import VueFooter from "@/components/Footer/index"
   export default {
     components:{

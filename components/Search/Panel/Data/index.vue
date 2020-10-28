@@ -16,8 +16,8 @@
 </template>
 
 <script>
-// import Collapse from "@/components/Search/"
-import Collapse from "../Chexbox/Collapse"
+import Collapse from "@/components/Search/Panel/Chexbox/Collapse"
+// import Collapse from "../Chexbox/Collapse"
 export default {
   props:["name", "data"],
   components: {

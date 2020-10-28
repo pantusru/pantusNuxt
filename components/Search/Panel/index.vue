@@ -9,8 +9,8 @@
 
 <script>
 import VInputV from "@/components/Search/Panel/Input/index"
-import Data from "./Data/index"
-import ButtonFull from "./button/getfull"
+import Data from "@/components/Search/Panel/Data/index"
+// import ButtonFull from "./button/getfull"
 export default {
     props:["items", "ArrayData", "name" , "SetValue"],
     provide(){
@@ -20,7 +20,7 @@ export default {
         }
     },
     components: {
-            ButtonFull,
+            // ButtonFull,
             Data,
             VInputV
     },

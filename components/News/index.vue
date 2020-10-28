@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import VueBlogNews from "./blog"
+import VueBlogNews from "@/components/News/blog"
 export default {
     components:{
         VueBlogNews,

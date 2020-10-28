@@ -26,8 +26,8 @@
     </div>  
 </template>
 
-<script>
-import Vchexbox from "./chexbox"
+<script> 
+import Vchexbox from "@/components/Search/Panel/Chexbox/chexbox"
   export default {
     methods:{
       showGo(event) {

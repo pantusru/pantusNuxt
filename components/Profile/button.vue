@@ -82,6 +82,9 @@ export default {
     passwordCheck(){
       return this.$store.getters["GetFormPassword"];
     }
+  },
+  destroyed(){
+    this.$store.commit("SetFormPassword", false);
   }
 };
 </script>   

@@ -48,11 +48,11 @@
 </template> 
 
 <script>
-import VueRange from "../Search/range";
-import Panel from "../Search/Panel/index";
-import PanelBrand from "../Search/PanelBrand/index";
-import Reset from "../Search/buttons/buttonsReset";
-import Submit from "../Search/buttons/buttonSubmit";
+import VueRange from "@/components/Search/range";
+import Panel from "@/components/Search/Panel/index";
+import PanelBrand from "@/components//Search/PanelBrand/index";
+import Reset from "@/components/Search/buttons/buttonsReset";
+import Submit from "@/components/Search/buttons/buttonSubmit";
 export default {
   data() {
     return {

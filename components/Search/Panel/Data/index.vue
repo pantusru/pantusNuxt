@@ -16,6 +16,7 @@
 </template>
 
 <script>
+// import Collapse from "@/components/Search/"
 import Collapse from "../Chexbox/Collapse"
 export default {
   props:["name", "data"],

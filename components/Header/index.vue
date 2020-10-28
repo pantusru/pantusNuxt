@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import VueNavTop from "../Header/Nav/Navtop"
-import VueNavBottom from "../Header/Nav/NavBottom"
-import VueNav from "../Header/Nav/Index"
+import VueNavTop from "@/components/Header/Nav/Navtop"
+import VueNavBottom from "@/components/Header/Nav/NavBottom"
+import VueNav from "@/components/Header/Nav/Index"
 export default {
     name: "Header",
     components:{

@@ -1,5 +1,3 @@
-import { getters } from "../formSearch";
-
 export const actions = { 
         /**
         * #Иницилизациия данных

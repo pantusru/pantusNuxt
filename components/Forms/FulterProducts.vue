@@ -50,7 +50,7 @@
 <script>
 import VueRange from "@/components/Search/range";
 import Panel from "@/components/Search/Panel/index";
-import PanelBrand from "@/components//Search/PanelBrand/index";
+import PanelBrand from "@/components/Search/PanelBrand/index";
 import Reset from "@/components/Search/buttons/buttonsReset";
 import Submit from "@/components/Search/buttons/buttonSubmit";
 export default {

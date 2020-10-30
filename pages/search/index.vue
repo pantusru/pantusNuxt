@@ -49,7 +49,7 @@ import productBlog from "@/components/Func/productBlog";
 import productRow from "@/components/Func/productRow";
 import MetkaFilter from "@/components/Metka/Filter/Blog";
 import ResetFilter from "@/mixins/ResetFilter/index";
-import CheckQueryFilter from "@/mixins/CheckQueryFilter/index";
+import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/SearchSubmit/index"
 export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter, SubmitFilter],
@@ -67,12 +67,12 @@ export default {
       if (query.minvalue != undefined) {
         // ПРОВЕРКА МИНИМУМА
         store.commit("formSearch/SetMinValue", query.minvalue);
-       this.form.minvalue = getters["formSearch/GetMinValue"];
+       this.form.minvalue = store.getters["formSearch/GetMinValue"];
       }
       if (query.maxvalue != undefined) { 
         // ПРОВЕРКА МАКСИМУМА
         store.commit("formSearch/SetMaxValue", query.maxvalue);
-        this.form.maxvalue = getters["formSearch/GetMaxValue"];
+        this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
       }
       if (query.brand != undefined) {
         // ПРОВЕРКА БРЕНДА

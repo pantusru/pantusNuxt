@@ -24,14 +24,7 @@ export default {
     SortName: {
       type: String,
     },
-  },
-  watch: {
-    GetSortName() {
-      if (this.GetSortName != this.SortName) {
-        this.SortType = "";
-      }
-    },
-  },
+  },  
   computed: {
     GetSortName() {
       return this.$store.getters["formSearch/GetSortName"];
@@ -54,7 +47,7 @@ export default {
     },
     SortSet() {
       switch (this.SortType) {
-        case "":
+        case undefined:
           this.SortType = "ask";
           break;
         case "ask":

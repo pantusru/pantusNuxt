@@ -131,7 +131,7 @@ export default {
       } else {
         store.commit("Applicabilities/Panel/SetPanelNew");
       }
-      if (query.sort_name != undefined && query.sort_type != undefined) {
+      if (query.sort_name !== undefined && query.sort_type !== undefined) {
         // ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", {
           SortType: query.sort_type,

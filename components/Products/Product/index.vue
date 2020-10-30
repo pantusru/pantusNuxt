@@ -5,11 +5,11 @@
                 <!-- БЛОК с альбомом -->
                 <b-col cols="4">
                     <b-img class="h-25 mb-3"  :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue"></b-img>
-                    <b-img   
-                        :key="data.id" 
-                        v-for="(data,index) in dataset.ProductCard.album" 
-                        class="h-25 mb-3" 
-                        :src="data.url" 
+                    <b-img
+                        :key="data.id"
+                        v-for="(data,index) in dataset.ProductCard.album"
+                        class="h-25 mb-3"
+                        :src="data.url"
                         @click="MainUrl(index)"
                     />
                 </b-col>
@@ -24,10 +24,10 @@
                 <h2>{{ dataset.ProductCard.name }}</h2>
                 <b-row class="mb-3">
                     <b-col cols="4">
-                        Производитель: <span> {{ dataset.ProductCard.brand.name }}</span>  
+                        Производитель: <span> {{ dataset.ProductCard.brand.name }}</span>
                     </b-col>
                     <b-col cols="4">
-                        Артикул: <span>{{ dataset.ProductCard.sku.original }}</span> 
+                        Артикул: <span>{{ dataset.ProductCard.sku.original }}</span>
                     </b-col>
                     <b-col cols="4">
                         <b-icon-reply v-b-modal="'share'" class="h3 cursor-pointer link-danger"></b-icon-reply>
@@ -43,9 +43,9 @@
         <h5 class="mb-3 text-515151">Кроссы по ОЕМ-номерам и аналогам</h5>
         <b-row class="justify-content-between col-8">
             <b-col cols="4 mb-1"
-                v-for="oem in dataset.ProductCard.ProductCardOem" 
+                v-for="oem in dataset.ProductCard.ProductCardOem"
                 :key="oem">
-                <nuxt-link  to="" class="pr-3">
+                <nuxt-link  :to="'/search?name=' + oem" class="pr-3">
                         {{ oem }}
                 </nuxt-link>
             </b-col>
@@ -81,4 +81,3 @@ export default {
 }
 </script>
 
- 

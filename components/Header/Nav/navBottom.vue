@@ -45,7 +45,7 @@ export default {
         { to: "search?applicabilities=4921", text: "Камаз" },
         { to: "search?applicabilities=3140", text: "Газ" },
         { to: "search?categories=264", text: "Рти" },
-        { to: "", text: "Популярные" },
+        { to: "/popular", text: "Популярные" },
         { to: "", text: "Новинки" },
       ],
     };

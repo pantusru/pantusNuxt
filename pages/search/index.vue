@@ -55,26 +55,34 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter, SubmitFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
-      store.dispatch("Products/_ProductAll"),
-      store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
-      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
-      store.dispatch("Brand/BrandAll/_Brands"), // бренды
+      store.dispatch("Products/_ProductAll"), // Временная хуйта!
+      // store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
+      // store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
+      // store.dispatch("Brand/BrandAll/_Brands"), // бренды
       store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ]);
     //   ПРОВЕРКА QUERY
-    if (query != undefined) {
+    if (query !== undefined) {
       this.form = {};
-      if (query.minvalue != undefined) {
-        // ПРОВЕРКА МИНИМУМА
-        store.commit("formSearch/SetMinValue", query.minvalue);
-       this.form.minvalue = store.getters["formSearch/GetMinValue"];
+      if(query.maxvalue !== undefined && query.minvalue !== undefined){      // ПРоверка МАКСИМУМА  + МИНИМУМА
+        if(query.maxvalue < query.minvalue){ // Минимальное больше максимального
+          store.commit("formSearch/SetMaxValue", query.minvalue);
+          store.commit("formSearch/SetMinValue", query.maxvalue);
+          this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
+          this.form.minvalue = store.getters["formSearch/GetMinValue"];
+        }
       }
-      if (query.maxvalue != undefined) { 
-        // ПРОВЕРКА МАКСИМУМА
-        store.commit("formSearch/SetMaxValue", query.maxvalue);
-        this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
+      else{ // Если одного нету
+        if (query.minvalue !== undefined) {// ПРОВЕРКА МИНИМУМА
+          store.commit("formSearch/SetMinValue", query.minvalue);
+          this.form.minvalue = store.getters["formSearch/GetMinValue"];
+        }
+        if (query.maxvalue !== undefined) {// ПРОВЕРКА МАКСИМУМА
+          store.commit("formSearch/SetMaxValue", query.maxvalue);
+          this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
+        }
       }
-      if (query.brand != undefined) {
+      if (query.brand !== undefined) {
         // ПРОВЕРКА БРЕНДА
         let brand = query.brand.split(",");
         brand = Array.from(
@@ -90,10 +98,10 @@ export default {
         this.form.brand = this.form.brand.join();
       }
       // ПРОВЕРКА name SKU
-      if (query.name != undefined) {
+      if (query.name !== undefined) {
         store.commit("formSearch/SetSearch", query.name);
       }
-      if (query.categories != undefined) {
+      if (query.categories !== undefined) {
         // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
@@ -107,7 +115,7 @@ export default {
         );
         this.form.categories = await store.dispatch("Catalog/All/_AllChexboxId", store.getters["Categories/CategoriesAll/GetCategories"]);
       }
-      if (query.applicabilities != undefined) {
+      if (query.applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
         let ids = query.applicabilities.split(",");
         store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
@@ -135,7 +143,7 @@ export default {
       if(query.page != undefined){
           this.form.page = query.page;
       }
-      // Запрос для получение товара 
+      // Запрос для получение товара
       console.log(this.form);
     }
     //   ПРОВЕРКА QUERY
@@ -181,7 +189,7 @@ export default {
           await this.pushParamsFilter();
           await this.pushParamsSort();
           this.PushUrl();
-        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары 
+        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
         }else{
           this.$store.commit('SetcheckFilterClick', true)
         }

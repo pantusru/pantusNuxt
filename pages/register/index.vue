@@ -2,12 +2,12 @@
   <b-form class="mb-3">
       <b-container>
           <h3 class="mb-3">Зарегистрироваться как:</h3>
-            <radioForm  v-bind:buyer.sync="buyer" />  
+            <radioForm  v-bind:buyer.sync="buyer" />
             <b-form-group>
                 <VInput items="Фамилия:" name="surname" :error="error.surname"></VInput>
                 <VInput items="Имя:" name="name" :error="error.name"/>
                 <VInput items="Email:" name="email" :error="error.email"/>
-                <VInput type="password" items="Пароль:" name="password" :error="error.password"/>    
+                <VInput type="password" items="Пароль:" name="password" :error="error.password"/>
                 <VInput type="password" items=" Повторите Пароль:" name="password2" :error="error.password2"/>
                 <VInput  Vmask="+7(###) ###-##-##" items="Мобильный телефон" name="telephone" :error="error.telephone">
 
@@ -20,7 +20,7 @@
                 <VInput :slots="true" items="Физический адрес" name="address" :error="error.address">
                     <b-form-textarea   v-model="$v.Form.address.$model" no-resize type="text" id="address" size="lg"></b-form-textarea>
                 </VInput>
-                <VInput items="Название организаци" name="organization" :error="error.organization"/>  
+                <VInput items="Название организаци" name="organization" :error="error.organization"/>
                 <VInput Vmask="############"  items="Инн" name="inn" :error="error.inn">
                 </VInput>
             </b-form-group>
@@ -28,9 +28,10 @@
                 <b-form-checkbox v-model="$v.Form.checbox.$model">
                     <p>Я принимаю условия <nuxt-link to="">Соглашения сторон</nuxt-link> и соглашаюсь
                         на обработку персональных данных, размещаемых на <nuxt-link to="">pantus.ru</nuxt-link>
-                    </p>        
+                    </p>
                 </b-form-checkbox>
-            </VInput>  
+            </VInput>
+            <vueRecaptcha class="mb-3 mt-3"/>
             <Buttons/>
       </b-container>
   </b-form>
@@ -43,16 +44,18 @@ import VInput from "@/components/register/index"
 import radioForm from "@/components/register/radioForm"
 import Buttons from "@/components/register/button"
 import MSelect from "@/components/register/select"
+import  vueRecaptcha from "@/components/Recaptcha/index"
 export default {
     middleware:'CheckUser',
     mixins:[MixinsError, MixinsValidations],
-    watch:{  
+    watch:{
         $v(){ // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
-            
+
         }
     },
     components:{
         VInput,
+        vueRecaptcha,
         radioForm,
         Buttons,
         MSelect

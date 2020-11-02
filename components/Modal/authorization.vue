@@ -13,8 +13,9 @@
           <VInput addClass="mb-2 col-7" type="password" items="Пароль:" name="password" :error="error.password"/>
       </b-form>
        <template v-slot:modal-footer>
-           <b-button class="bg-danger border-0" @click="check">Войти </b-button>
-           <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль </b-button>
+         <b-button class="bg-danger border-0" @click="check">Войти </b-button>
+         <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль </b-button>
+         <vueRecaptcha/>
        </template>
   </b-modal>
 </template>
@@ -24,6 +25,7 @@ import { required} from 'vuelidate/lib/validators'
 import MixinsError from "@/mixins/Form/authorization/error"
 import MixinsValidations from "@/mixins/Form/authorization/validator"
 import VInput from "@/components/register/index"
+import  vueRecaptcha from "@/components/Recaptcha/index"
 export default {
     mixins:[MixinsError, MixinsValidations],
     provide(){
@@ -33,6 +35,7 @@ export default {
     },
     components: {
         VInput,
+        vueRecaptcha,
     },
     methods:{
         password(){ // переход на страницу забыли пароль

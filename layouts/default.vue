@@ -21,9 +21,9 @@ import VueFooter from "@/components/Footer/index"
       },
     },
     mounted(){ // при прогрузке странице
-      this.$store.commit("SetShow", false);  
+      this.$store.commit("SetShow", false);
     },
-    watch:{ // при изменения url 
+    watch:{ // при изменения url
       $route() {
         this.$store.commit("SetShow", true);
       }

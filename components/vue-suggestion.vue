@@ -2,7 +2,7 @@
   <div :class="addClass" class="autocomplete">
     <b-input
         autocomplete="off"
-        type="text" 
+        type="text"
         @input="onChange"
         v-model="search"
         @keydown.down="onArrowDown"
@@ -59,10 +59,15 @@ export default {
       items: [], // Массив результата города
       timerId: null, // ID таймер для stop запросов
       isOpen: false, // состояние открыто ли меню
-      search: '', // что ввел пользователь поиска
+      //search: '', // что ввел пользователь поиска
       arrowCounter: 0, // Index выделяющегося элемента списка
       id: 0, // ID выбранного поиска
     };
+  },
+  computed:{
+    search(){
+      return this.$store.getters["Order/Form/GetContact"]["Town"]
+    }
   },
   methods: {
     async GetData(){ // Запрос загрузки данных
@@ -76,8 +81,8 @@ export default {
               id: result[index].id,
               typeShort: result[index].typeShort,
               name: result[index].name,
-              parents: result[index].parents,  
-          }); 
+              parents: result[index].parents,
+          });
         }
       }
 
@@ -111,12 +116,12 @@ export default {
         this.arrowCounter = this.arrowCounter + 1;
       }
     },
-    onArrowUp() { // Нажата кнопка вверх 
+    onArrowUp() { // Нажата кнопка вверх
       if (this.arrowCounter > 0) {
         this.arrowCounter = this.arrowCounter -1;
       }
     },
-    onEnter() { // нажата кнопка enter 
+    onEnter() { // нажата кнопка enter
       this.search = this.items[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;

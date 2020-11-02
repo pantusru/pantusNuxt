@@ -86,7 +86,7 @@ export default {
   build: {
     extend(config){
       config.resolve.alias['@img']= path.resolve(__dirname, "assets/img");
-      config.resolve.alias['@components_Cart_Blog_blog']= path.resolve(__dirname, "components/Cart/Blog/blog");
+      // config.resolve.alias['@components_Cart_Blog_blog']= path.resolve(__dirname, "components/Cart/Blog/blog");
     },
     extractCSS: true,
   },

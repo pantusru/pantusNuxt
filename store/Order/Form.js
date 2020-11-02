@@ -9,8 +9,10 @@ export const state = () => ({
         },
         Checxbox:{
             Payment: "35",
+            Dostavka: "",
+        },
+      costDostavka: 0,
 
-        }
     }
 })
 export const mutations  =  {
@@ -19,10 +21,18 @@ export const mutations  =  {
     },
     SetPayment(store, data){
         store.Form.Checxbox.Payment = data;
-    }
+    },
+  SetDostavka(store, data){
+    store.Form.Checxbox.Dostavka = data;
+  },
+  SetCostDostavka(store, data){
+    store.Form.costDostavka = data;
+  },
 }
- 
+
 export const getters = {
     GetContact: s => s.Form.Contact,
     GetPayment: s => s.Form.Checxbox.Payment,
+    GetDostavka: s => s.Form.Checxbox.Dostavka,
+    GetCostDostavka: s => s.Form.costDostavka,
 }

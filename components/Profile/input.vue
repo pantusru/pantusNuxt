@@ -18,10 +18,10 @@
           class="error"
           v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
         >
-          {{ data.text }}
+          {{data.text}}
         </div>
       </div>
-      <div class="error" v-if="name == 'password' && passwordCheck">Пароль не совпадает с БД</div>
+      <div class="error" v-if="name === 'password' && passwordCheck">Пароль не совпадает с БД</div>
     </b-col>
   </b-row>
 </template>
@@ -30,7 +30,7 @@ import mixitProps from "@/mixins/Input/Props/index";
 export default {
   inject: ["$v"],
   created() {
-    if (this.dataset != undefined) {
+    if (this.dataset !== undefined) {
       this.$v.Form[this.name].$model = this.dataset;
     }
   },

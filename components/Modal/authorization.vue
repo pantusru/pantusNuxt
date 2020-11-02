@@ -55,8 +55,13 @@ export default {
             if(this.$v.Form.$error === true){
                 return
             }else{ // ПРоверка совпадения данных
-                this.hidden();
-                console.log("ВЫ авторизованы");
+              this.hidden();
+              console.log("ВЫ авторизованы");
+              this.$cookies.set("Authorization", this.$v.Form.$model.email , {
+                maxAge: 60*60*24*7*365,
+              });
+              this.$store.commit("User/AuthorizationTrue");
+              // this.$router.push({name:"index"});
             }
         }
     }

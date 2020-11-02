@@ -13,13 +13,13 @@
         </b-row>
         <b-row>
             <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
-                <h3 class="mb-2">Споособ доставки</h3>
-                <Payment></Payment>
+                <h3 class="mb-3">Споособ доставки</h3>
+                <Dostavka></Dostavka>
             </b-col>
             <b-col cols="6" class="mt-lg-5 mt-3">
                 <Product></Product>
             </b-col>
-        </b-row>     
+        </b-row>
     </b-container>
 </template>
 
@@ -27,17 +27,23 @@
 import mixitValid from "@/mixins/Form/order/contact/validator"
 import Contact from "@/components/Order/Form/contact"
 import Payment from "@/components/Order/Form/payment"
+import Dostavka from "@/components/Order/Form/dostavka"
 import Product from "@/components/Order/Form/product"
 export default {
     middleware:'CheckGuest',
     mixins:[mixitValid],
     async fetch({store}){
-        store.dispatch("Order/Payment/Index/_Payment");        
+      await Promise.all([
+        store.dispatch("Order/Payment/Index/_Payment"),
+        store.dispatch("Order/Payment/Index/_Dostavka"),
+      ])
+
     },
     components:{
         Contact,
         Payment,
-        Product
+        Dostavka,
+        Product,
     },
     computed:{
         Form(){

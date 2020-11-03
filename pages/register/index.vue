@@ -31,7 +31,6 @@
                     </p>
                 </b-form-checkbox>
             </VInput>
-            <vueRecaptcha class="mb-3 mt-3"/>
             <Buttons/>
       </b-container>
   </b-form>
@@ -44,7 +43,6 @@ import VInput from "@/components/register/index"
 import radioForm from "@/components/register/radioForm"
 import Buttons from "@/components/register/button"
 import MSelect from "@/components/register/select"
-import  vueRecaptcha from "@/components/Recaptcha/index"
 export default {
     middleware:'CheckUser',
     mixins:[MixinsError, MixinsValidations],
@@ -55,7 +53,6 @@ export default {
     },
     components:{
         VInput,
-        vueRecaptcha,
         radioForm,
         Buttons,
         MSelect

@@ -1,17 +1,29 @@
 <template>
-  <vueRecaptcha
-    sitekey="6LdMI94ZAAAAADQt2xBdUxgnhr0QpnezUwkcqiHV"
-    :loadRecaptchaScript="true"
-    @verify="registerTrue"
-  >
-  </vueRecaptcha>
+  <div>
+    <vueRecaptcha
+      sitekey="6LdMI94ZAAAAADQt2xBdUxgnhr0QpnezUwkcqiHV"
+      :loadRecaptchaScript="true"
+      @verify="registerTrue"
+    >
+    </vueRecaptcha>
+    <p class="error mt-2 mb-0" v-if="getError === true">{{ textError }}  </p>
+  </div>
 </template>
 <script>
 import vueRecaptcha from 'vue-recaptcha';
 export default {
-  data() {
-    return {
-      check: false,
+  props:{
+    getError: {
+      type: Boolean,
+      required: true,
+    },
+    checkRecaptcha:{
+      type: Boolean,
+      required: true,
+    },
+    textError:{
+      type: String,
+      default: "Пройдите капчу"
     }
   },
   components:{
@@ -19,10 +31,9 @@ export default {
   },
   methods:{
     registerTrue(){
-      console.log("Успех");
-     this.check = true;
+     this.$emit("update:checkRecaptcha", true);
+     this.$emit("update:getError", false);
     }
-
   }
 }
 </script>

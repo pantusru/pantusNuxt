@@ -65,8 +65,13 @@ export default {
     };
   },
   computed:{
-    search(){
-      return this.$store.getters["Order/Form/GetContact"]["Town"]
+    search:{
+      get(){
+        return this.$store.getters["Order/Form/GetContact"]["Town"];
+      },
+      set(value){
+        this.$store.commit("Order/Form/SetFull", {name: "Town",  value: value})
+      }
     }
   },
   methods: {

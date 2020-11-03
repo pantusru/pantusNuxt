@@ -1,44 +1,31 @@
 <template>
   <div class="col-4 text-center">
-    <b-button @click="go" size="md" class="bg-danger border-danger"
-      >Зарегистрироваться</b-button
-    >
+    <b-button @click="go" size="md" class="bg-danger border-danger">
+      Зарегистрироваться
+    </b-button>
+    <vueRecaptcha class="mb-3 mt-3" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
   </div>
 </template>
 
 <script>
+import  check_recaptcha from  "@/mixins/Form/check-recaptcha/index"
+import  vueRecaptcha from "@/components/Recaptcha/index"
 export default {
+  mixins:[check_recaptcha],
+  components:{
+    vueRecaptcha
+  },
   inject: ["$v"],
   methods: {
     go() {
-      this.$v.Form.$touch();
-      if (this.$v.Form.$error === false) {
-        // Временное решение
-        this.$store.commit("User/SetFull", {
-          name: "login",
-          value: this.$v.Form.$model.email,
+      this.$v.Form.$touch()
+      this.checkValidateRecaptcha();
+      if (this.$v.Form.$error === true ||  this.checkRecaptcha === false) {
+        return;
+      }else {
+        this.$cookies.set("Authorization", this.$v.Form.$model.email , {
+          maxAge: 60*60*24*7*365,
         });
-        this.$store.commit("User/SetFull", {
-          name: "name",
-          value: this.$v.Form.$model.name,
-        });
-        this.$store.commit("User/SetFull", {
-          name: "surname",
-          value: this.$v.Form.$model.surname,
-        });
-        this.$store.commit("User/SetFull", {
-          name: "telephone",
-          value: this.$v.Form.$model.telephone,
-        });
-        this.$store.commit("User/SetFull", {
-          name: "id",
-          value: 1,
-        });
-        // Временное решение
-
-          this.$cookies.set("Authorization", this.$v.Form.$model.email , {
-            maxAge: 60*60*24*7*365,
-          });
         this.$store.commit("User/AuthorizationTrue");
         this.$router.push({name:"index"});
       }

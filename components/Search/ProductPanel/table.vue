@@ -1,34 +1,34 @@
 <template>
-    <b-thead class="border d-lg-table-header-group d-none">
+    <b-thead class="border d-lg-table-header-group" :class="{'d-none': !CheckAnalogs}">
         <b-tr class="bg-fafafa text-555">
-            <tdSort 
-                label="Бренд" 
-                SortName="brand" 
+            <tdSort :class="{'d-none d-sm-table-cell': CheckAnalogs}"
+                label="Бренд"
+                SortName="brand"
             />
-            <tdSort 
-                label="Артикул" 
-                SortName="sku" 
+            <tdSort
+                label="Артикул"
+                SortName="sku"
             />
             <b-th v-if="CheckAnalogs == false"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
-            <tdSort 
-                label="Наименование" 
-                SortName="name" 
+            <tdSort  :class="{'d-none d-sm-table-cell': CheckAnalogs}"
+                label="Наименование"
+                SortName="name"
             />
-            <tdSort 
-                label="Поставщик" 
-                SortName="supplier" 
+            <tdSort
+                label="Поставщик"
+                SortName="supplier"
             />
-            <tdSort 
-                label="Наличие" 
-                SortName="quantity" 
+            <tdSort :class="{'d-none d-md-table-cell': CheckAnalogs}"
+                label="Наличие"
+                SortName="quantity"
             />
-            <tdSort 
-                label="Срок" 
-                SortName="deliverydelay" 
+            <tdSort  :class="{'d-none d-sm-table-cell': CheckAnalogs}"
+                label="Срок"
+                SortName="deliverydelay"
             />
-            <tdSort 
-                label="Цена" 
-                SortName="prices" 
+            <tdSort
+                label="Цена"
+                SortName="prices"
             />
             <b-th v-if="CheckAnalogs == false"><PanelVid/></b-th>
             <b-th v-if="CheckAnalogs == true"></b-th>

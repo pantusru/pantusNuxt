@@ -4,7 +4,7 @@
            <b-tr>
                 <b-th>Поставщик</b-th>
                 <b-th class="d-none d-lg-table-cell">Наличие</b-th>
-                <b-th class="d-none d-lg-table-cell">Срок</b-th>
+                <b-th class="d-none d-sm-table-cell">Срок</b-th>
                 <b-th>Цена</b-th>
                 <b-th></b-th>
            </b-tr>
@@ -14,10 +14,10 @@
                 <tr :key="data.id">
                     <td> {{ data.supplier.name }} </td>
                     <td class="d-none d-lg-table-cell"> {{ data.quantity }} </td>
-                    <td class="d-none d-lg-table-cell"> {{ data.supplier.deliveryDelay }} </td>
+                    <td class="d-none d-sm-table-cell"> {{ data.supplier.deliveryDelay }} </td>
                     <td> {{ data.prices }}Р </td>
-                    <td> 
-                        <BuyButton  
+                    <td>
+                        <BuyButton
                             :LinkProduct ="LinkProduct"
                             :LinkOffer="data"
                         />

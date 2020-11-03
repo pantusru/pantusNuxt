@@ -3,6 +3,7 @@ export const state = () => ({
      * @property массив всех товаров в корзине
      */
     CartProduct: [],
+    CartActual: true,
     // CheckCartCount: null,
 })
 export const mutations  =  {
@@ -12,6 +13,9 @@ export const mutations  =  {
      */
     SetCartProduct(store, data){
         store.CartProduct = data;
+    },
+    SetCartActual(store){
+      store.CartActual = true;
     },
     /**
      * #Сохраняет в Vuex новое кол-во товара в корзине
@@ -28,6 +32,7 @@ export const mutations  =  {
      */
     SetKolvoProductArr(store, data){
         data.data.kolvo = data.value;
+        store.CartActual = false;
     },
     /**
      * #Сохраняет в Vuex новый товар в корзину
@@ -41,10 +46,11 @@ export const mutations  =  {
      * @param {Array} data - index удаляемого товара
      */
     DeleteCartProduct(store, data){
-        store.CartProduct.splice(data, 1);             
+        store.CartProduct.splice(data, 1);
+        store.CartActual = false;
     }
 }
-export const actions = { 
+export const actions = {
     /**
      * #Запрос на получения товаров с корзины пользователя
      * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex
@@ -53,7 +59,7 @@ export const actions = {
         if(getters.GetCartProduct.length === 0){
             let  data = await dispatch("Cart/axios/_CartProduct", {} , { root: true });
             commit("SetCartProduct", data);
-        }  
+        }
     }
 }
 export const getters = {
@@ -75,7 +81,7 @@ export const getters = {
         return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
     },
     /**
-     * ### Вывод сумму всех товаров с корзины 
+     * ### Вывод сумму всех товаров с корзины
      * @returns {Number} сумму товаров с корзины
      */
     GetSymmaAll:s=> {
@@ -89,5 +95,7 @@ export const getters = {
     * ### Вывод количество товара в корзине
     * @returns {Number} количество товара в корзине
      */
-    GetLength: s=> s.CartProduct.length
+    GetLength: s=> s.CartProduct.length,
+
+    GetCartActual: s => s.CartActual,
 }

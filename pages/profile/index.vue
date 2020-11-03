@@ -40,7 +40,6 @@
             :error="error.password2"
             :type="'password'"
           />
-          <vueRecaptcha class="mb-3"/>
           <Submit></Submit>
         </b-form>
       </b-col>
@@ -54,7 +53,6 @@ import mixinError from "@/mixins/Form/profile/error";
 import ElementForm from "@/components/Profile/input";
 import NavProfile from "@/components/Nav/Profile/index";
 import Submit from "@/components/Profile/button";
-import  vueRecaptcha from  "@/components/Recaptcha/index"
 export default {
   middleware:'CheckGuest',
   provide() {
@@ -67,7 +65,6 @@ export default {
     ElementForm,
     NavProfile,
     Submit,
-    vueRecaptcha,
   },
 };
 </script>

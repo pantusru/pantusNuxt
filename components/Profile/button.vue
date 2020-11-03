@@ -1,19 +1,26 @@
 <template>
   <div>
+    <vueRecaptcha class="mb-3" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
     <b-button @click="SetDataUser">Изменить</b-button>
     <b-alert
       dismissible
       class="w-25 mt-3"
       @dismiss-count-down="countDownChanged"
       :show="dismissCountDown"
-      
+
       >Изменение прошли успешно</b-alert
     >
   </div>
 </template>
 
 <script>
+import  check_recaptcha from "@/mixins/Form/check-recaptcha/index"
+import  vueRecaptcha from  "@/components/Recaptcha/index"
 export default {
+  mixins:[check_recaptcha],
+  components:{
+    vueRecaptcha,
+  },
   data() {
     return {
       /**
@@ -38,14 +45,12 @@ export default {
     async SetDataUser() {
       // Временное решение
       this.$v.$touch();
-      // this.$v.Form.password.apiCheck = await this.ResApi()
-      console.log( this.$v.Form.password);
-
-      if (this.$v.Form.$error == false) {// Нету ошибок
-        await this.$axios.$get("http://localhost:3000/").then((res, req) =>{
+      this.checkValidateRecaptcha();
+      if (this.$v.Form.$error === false &&  this.checkRecaptcha === true) {// Нету ошибок
+          await this.$axios.$get("http://localhost:3000/").then((res, req) =>{
           this.$store.commit("SetFormPassword", res);
         });
-        if(this.passwordCheck == false){ // нету ошибок от API
+         if(this.passwordCheck === false){ // нету ошибок от API
                  // Нет ошибок первой валидации
           // Проверка данных с API
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
@@ -70,12 +75,13 @@ export default {
             value: this.$v.Form.$model.patronymic,
           });
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
-          this.$v.Form["password"].$model = "";
-          this.$v.Form["password2"].$model = "";
-          this.$v.Form.$reset();
-          this.dismissCountDown = this.dismissSecs 
+          this.dismissCountDown = this.dismissSecs;
         }
+        this.$v.Form["password"].$model = "";
+        this.$v.Form["password2"].$model = "";
+        this.$v.Form.$reset();
       }
+      window.grecaptcha.reset();
     },
   },
   computed:{
@@ -87,7 +93,7 @@ export default {
     this.$store.commit("SetFormPassword", false);
   }
 };
-</script>   
+</script>
 
 <style>
 </style>

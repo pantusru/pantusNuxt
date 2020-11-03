@@ -1,4 +1,4 @@
-export const actions = { 
+export const actions = {
     async _User({}){
         let User = {
             id: 23145,
@@ -9,5 +9,5 @@ export const actions = {
             patronymic: 'Александрович',
         }
         return User;
-    }  
+    }
 }

@@ -5,7 +5,7 @@
       :loadRecaptchaScript="true"
       @verify="registerTrue"
     >
-    </vueRecaptcha>
+    </vueRecaptcha >
     <p class="error mt-2 mb-0" v-if="getError === true">{{ textError }}  </p>
   </div>
 </template>

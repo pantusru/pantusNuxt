@@ -1,13 +1,15 @@
 <template>
     <div>
-        <b-button 
-            @click="ModalProduct()" 
-            v-if="!userBasket" 
-            class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
-        <div 
-            class="d-flex justify-content-end align-items-center" 
+      <div class="d-flex justify-content-center">
+        <b-button
+          @click="ModalProduct()"
+          v-if="!userBasket"
+          class="py-1 px-2 bg-danger border-0 fz-5_5">Купить</b-button>
+      </div>
+        <div
+            class="d-flex justify-content-center"
             v-if="userBasket" >
-                <b-button 
+                <b-button
                     @click="ModalProduct()"
                     @mouseover="text = 'Добавить'"
                     @mouseout="text = 'В корзине'"
@@ -42,13 +44,13 @@ export default {
          * @param {Object} LinkOffer - ссылка на предложения продукта
          */
         LinkOffer:{
-            
+
         },
         /**
          * @param {Number} LinkProduct - ссылка на продукт
          */
         LinkProduct:{
-           
+
         },
         /**
          * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
@@ -64,12 +66,12 @@ export default {
         /**
          * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно
          */
-        ModalProduct(){ 
+        ModalProduct(){
             this.$store.commit("Modal/SetModaBuy",{
                 LinkProduct: this.LinkProduct,
                 LinkOffer: this.LinkOffer,
                 CheckCart: this.userBasket,
-            });	
+            });
             this.$bvModal.show('buy');
         },
     },

@@ -9,9 +9,9 @@ export const state = () => ({
     CheckUser: false,
     /**
      * ### Используется в форме Личные данные
-     *  
+     *
      * @property  Массив данных user
-     * 
+     *
      */
     FormData:{
         id: undefined,
@@ -25,7 +25,7 @@ export const state = () => ({
 export const mutations  =  {
     /**
      * @function SetAll - Меняет 1поле данных о user
-     * @param {String} data.name  - Название данных user 
+     * @param {String} data.name  - Название данных user
      * @param {*} data.value  - Новое значения данных user
      */
     SetFull(store, data){
@@ -64,16 +64,16 @@ export const mutations  =  {
         store.CheckUser = false;
     },
 }
-export const actions = { 
+export const actions = {
       /**
      * #Запрос на получения данных о user
      * @function  _User проверка на наличие, запрос, сохранения в vuex
-     */ 
+     */
     async _User({store,dispatch, commit, getters}){ // СПОРНОЕ РЕШЕНИЕ
         if(getters.Loader === false){ // пользователь не загружен
-            if(this.$cookies.get("Authorization") != undefined ){ // У пользователя есть токен
+            if(this.$cookies.get("Authorization") !== undefined ){ // У пользователя есть токен
                 let  data = await dispatch("User/axios/_User", {} , { root: true });
-                if(data != undefined){
+                if(data !== undefined){
                     commit("SetAll", data);
                     // Спорная вещь------
                     commit("AuthorizationTrue");
@@ -82,7 +82,7 @@ export const actions = {
 
             }
             commit("LoaderTrue");
-        }  
+        }
     }
 }
 export const getters = {

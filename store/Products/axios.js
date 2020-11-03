@@ -1,4 +1,4 @@
-export const actions = { 
+export const actions = {
     // Удалить когда появится API ПРОДУКТ
     async _ProductFilter(){
         let  product = [
@@ -11,7 +11,7 @@ export const actions = {
                         normalized: "6534-ru"
                     },
                     ProductCardImage:{
-                        url: "https://www.pantus.ru/upload/iblock/081/10034697ASP%20-%20%D0%9F%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BD%D0%B7%D0%BE%D0%BD%D0%B0%D1%81%D0%BE%D1%81%D0%B0%20%D0%92%D0%90%D0%97%2021082%20%D1%81%D0%B8%D0%BB%D0%B8%D0%BA%D0%BE%D0%BD%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9%20-%20A-Sport.jpg"
+                        url: "https://www.pantus.ru//bitrix/templates/main/img/home/home-car-1.png"
                     },
                     album:[
                         {url:"https://www.pantus.ru/upload/iblock/081/10034697ASP%20-%20%D0%9F%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BD%D0%B7%D0%BE%D0%BD%D0%B0%D1%81%D0%BE%D1%81%D0%B0%20%D0%92%D0%90%D0%97%2021082%20%D1%81%D0%B8%D0%BB%D0%B8%D0%BA%D0%BE%D0%BD%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9%20-%20A-Sport.jpg"},
@@ -65,7 +65,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 6,
-                    }, 
+                    },
                     {
                         id:23,
                         prices: 1566,
@@ -75,7 +75,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 1,
-                    },         
+                    },
                 ]
             },
             {
@@ -87,7 +87,7 @@ export const actions = {
                         normalized: "6534-ru"
                     },
                     ProductCardImage:{
-                        url: "https://www.pantus.ru/upload/iblock/38c/10034697ASP%20-%20%D0%9F%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BD%D0%B7%D0%BE%D0%BD%D0%B0%D1%81%D0%BE%D1%81%D0%B0%20%D0%92%D0%90%D0%97%2021082%20%D1%81%D0%B8%D0%BB%D0%B8%D0%BA%D0%BE%D0%BD%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9%20-%20A-Sport.jpg"
+                        url: "https://www.pantus.ru//bitrix/templates/main/img/home/home-car-1.png"
                     },
                     album:[
                         {url:"http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"},
@@ -123,7 +123,7 @@ export const actions = {
                             name: "Пумма",
                             deliveryDelay: "Завтра"
                         }
-                    }, 
+                    },
                     {
                         id:543,
                         prices: 1566,
@@ -133,7 +133,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 10,
-                    },         
+                    },
                 ]
             },
         ];
@@ -150,11 +150,11 @@ export const actions = {
                         normalized: "6534-ru"
                     },
                     ProductCardImage:{
-                        url: "https://www.pantus.ru/upload/iblock/38c/10034697ASP%20-%20%D0%9F%D1%80%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BD%D0%B7%D0%BE%D0%BD%D0%B0%D1%81%D0%BE%D1%81%D0%B0%20%D0%92%D0%90%D0%97%2021082%20%D1%81%D0%B8%D0%BB%D0%B8%D0%BA%D0%BE%D0%BD%20%D1%81%D0%B8%D0%BD%D0%B8%D0%B9%20-%20A-Sport.jpg"
+                        url: "https://www.pantus.ru//bitrix/templates/main/img/home/home-car-1.png"
                     },
                     album:[
-                        {url:"https://www.pantus.ru/upload/iblock/def/00034867ALT%20-%20%D0%9F%D0%B0%D1%82%D1%80%D1%83%D0%B1%D0%BA%D0%B8%20%D0%BF%D0%B5%D1%87%D0%BA%D0%B8%20%D0%92%D0%90%D0%97%201118%20-%20%D0%90%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%86%D0%B8%D1%8F%20%D0%91%D0%B0%D0%BB%D0%B0%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D1%85%20%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D0%90%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B5%D0%B9.jpg"},
-                        {url:"http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"},
+                        {url:"https://www.pantus.ru//bitrix/templates/main/img/home/home-car-1.png"},
+                        {url:"https://www.pantus.ru/bitrix/templates/main/img/home-car-3.png"},
                     ],
                     ProductCardOem:[
                         "21082-1101138",
@@ -188,7 +188,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 2,
-                    }, 
+                    },
                     {
                         id:23,
                         prices: 1566,
@@ -198,7 +198,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 1,
-                    },         
+                    },
                 ]
             },
         ];
@@ -208,6 +208,14 @@ export const actions = {
         let  product = [
             {
                 ProductCard:{
+                  categories:[
+                    {
+                      name: "Прокладка",
+                    },
+                    {
+                      name: "Двигатель",
+                    }
+                  ],
                     id: 30,
                     name: "Товар1",
                     sku:{
@@ -253,7 +261,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 1,
-                    }, 
+                    },
                     {
                         id:23,
                         prices: 1566,
@@ -263,7 +271,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 1,
-                    },         
+                    },
                 ]
             },
             {
@@ -312,7 +320,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 3,
-                    }, 
+                    },
                     {
                         id:543,
                         prices: 1566,
@@ -322,7 +330,7 @@ export const actions = {
                             deliveryDelay: "Завтра"
                         },
                         multiplicity: 10,
-                    },         
+                    },
                 ]
             },
         ];
@@ -330,13 +338,13 @@ export const actions = {
     },
     // Перемеовать в _ProductFilter когда появится API ПРОДУКТ
     /**
-     * 
-     * @param {Array} data.data  - Массив всех видимых query 
-     * @param {Number} data.limit -  
+     *
+     * @param {Array} data.data  - Массив всех видимых query
+     * @param {Number} data.limit -
      */
     async _ProductFilter1({}, data){
         // console.log(data);
-        let dataset = data.data; 
+        let dataset = data.data;
         await this.$axios.$get("http://194.67.113.201:8080/products/", {
             params :{
                 ... dataset,

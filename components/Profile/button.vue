@@ -80,8 +80,10 @@ export default {
         this.$v.Form["password"].$model = "";
         this.$v.Form["password2"].$model = "";
         this.$v.Form.$reset();
+        window.grecaptcha.reset();
+        this.checkRecaptcha = false;
+        this.getError = false;
       }
-      window.grecaptcha.reset();
     },
   },
   computed:{

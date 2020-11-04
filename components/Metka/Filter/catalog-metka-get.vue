@@ -11,13 +11,14 @@
 
 <script>
 import Metka from "@/components/Metka/Filter/index";
+
 export default {
   computed: {
     Metks() {
       return this.$store.getters["Catalog/Metks/GetMetks"];
     },
   },
-  components:{
+  components: {
     Metka,
   }
 };

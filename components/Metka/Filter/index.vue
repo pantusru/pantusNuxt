@@ -6,7 +6,8 @@
       variant="light"
       pill
       class="mr-1 cursor-pointer"
-      >X</b-badge
+    >X
+    </b-badge
     >
   </div>
 </template>
@@ -33,7 +34,7 @@ export default {
         name = "categories";
         query = await this.DeleteCategories();
       }
-      this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
+      this.$store.commit("Catalog/Metks/DeleteMetks", {index: this.index});
       this.$router.push({
         // Изменение url
         name: "search",
@@ -65,10 +66,10 @@ export default {
     },
     /**
      * @async
-     * @function DeleteCategories - Удаляет категорию с VUEX и подготавливает новый query 
+     * @function DeleteCategories - Удаляет категорию с VUEX и подготавливает новый query
      * @returns query - возвращает новый query
      */
-    async DeleteCategories(){
+    async DeleteCategories() {
       await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
         // Найди chexbox и убрать его с фильтров
         arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
@@ -89,11 +90,11 @@ export default {
      * @returns Возвращает undefined - массив пустой
      * @returns Возвращает query - в массиве есть элементы
      */
-    CheckLengthQuery(query){
-      if(query.length ==0){
+    CheckLengthQuery(query) {
+      if (query.length == 0) {
         return undefined;
-      }else{
-        return query.join() ;
+      } else {
+        return query.join();
       }
     }
   },

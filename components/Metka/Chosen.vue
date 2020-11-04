@@ -9,11 +9,12 @@
 
 <script>
 export default {
+  name: "filter-metka",
   data() {
     return {
-        /**
-         * @property Флаг выбран ли товар в израбранных
-         */
+      /**
+       * @property Флаг выбран ли товар в израбранных
+       */
       selected: false,
     };
   },
@@ -24,15 +25,15 @@ export default {
     id: {
       type: Number,
     },
-      /**
+    /**
      * @property Ссылка на Товар
      */
     link: {},
   },
   methods: {
-      /**
-       * @function SetChosen - Меняет состояние selected на противоположное 
-       */
+    /**
+     * @function SetChosen - Меняет состояние selected на противоположное
+     */
     SetChosen() {
       if (this.selected) { // Убрать товар с selected
         this.selected = false;
@@ -68,11 +69,13 @@ export default {
 
 <style>
 svg.d-none-chosen {
-  display: none !important ;
+  display: none !important;
 }
+
 svg.d-none-chosen.activ {
   display: block !important;
 }
+
 .d-none-chosen:hover,
 .activ {
   color: red !important;

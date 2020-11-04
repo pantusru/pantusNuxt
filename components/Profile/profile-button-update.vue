@@ -2,46 +2,27 @@
   <div>
     <vueRecaptcha class="mb-3" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
     <b-button @click="SetDataUser">Изменить</b-button>
-    <b-alert
-      dismissible
-      class="w-25 mt-3"
-      @dismiss-count-down="countDownChanged"
-      :show="dismissCountDown"
-
-      >Изменение прошли успешно</b-alert
-    >
+    <base-alert v-if="getAlert"></base-alert>
   </div>
 </template>
 
 <script>
 import  check_recaptcha from "@/mixins/Form/check-recaptcha/index"
 import  vueRecaptcha from  "@/components/Recaptcha/index"
+import BaseAlert from "@/components/alert/base-alert";
 export default {
-  mixins:[check_recaptcha],
-  components:{
-    vueRecaptcha,
-  },
   data() {
     return {
-      /**
-       * @private Время жизни alert
-       */
-      dismissSecs: 5,
-      /**
-       * @private Переменная которая отсчитывает время когда alert изображается
-       */
-      dismissCountDown: 0,
+      getAlert: false,
     }
   },
+  mixins:[check_recaptcha],
+  components:{
+    BaseAlert,
+    vueRecaptcha,
+  },
   inject: ["$v"],
-  methods: {
-    /**
-     * @param dismissCountDown - Время которой alert осталось жить
-     * @function countDownChanged - Функция которая  вычитает время жизни alert
-     */
-     countDownChanged(dismissCountDown) {
-        this.dismissCountDown = dismissCountDown
-      },
+  methods:{
     async SetDataUser() {
       // Временное решение
       this.$v.$touch();
@@ -75,7 +56,7 @@ export default {
             value: this.$v.Form.$model.patronymic,
           });
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
-          this.dismissCountDown = this.dismissSecs;
+           this.getAlert = true;
         }
         this.$v.Form["password"].$model = "";
         this.$v.Form["password2"].$model = "";

@@ -6,7 +6,7 @@
         </b-form-radio-group>
         <div class="mb-3">
                 <h3 v-if="buyer === 'Retail'">Заполните данные о себе:</h3>
-                <h3 v-if="buyer === 'Wholesale'">Заполните данные о себе и организаци:</h3>
+                <h3 v-if="buyer === 'Wholesale'">Заполните данные о себе и организации:</h3>
         </div>
   </b-form-group>
 </template>

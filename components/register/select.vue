@@ -21,7 +21,7 @@ export default {
     },
     methods:{
         eventCheck(){
-            if( event.target.className != "form-control form-control-sm check-event"){
+            if( event.target.className !== "form-control form-control-sm check-event"){
                   this.size = 1;
             }else{
                 this.size = 8;

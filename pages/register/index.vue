@@ -20,7 +20,7 @@
                 <VInput :slots="true" items="Физический адрес" name="address" :error="error.address">
                     <b-form-textarea   v-model="$v.Form.address.$model" no-resize type="text" id="address" size="lg"></b-form-textarea>
                 </VInput>
-                <VInput items="Название организаци" name="organization" :error="error.organization"/>
+                <VInput items="Название организации" name="organization" :error="error.organization"/>
                 <VInput Vmask="############"  items="Инн" name="inn" :error="error.inn">
                 </VInput>
             </b-form-group>

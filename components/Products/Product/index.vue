@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-row class="mt-5 mb-3" v-if="dataset != undefined">
+        <b-row class="mt-5 mb-3" v-if="dataset !== undefined">
             <b-col cols="12" sm="8" lg="5" class="d-flex flex-wrap">
                 <!-- БЛОК с альбомом -->
                 <b-col cols="3" lg="6" class="">

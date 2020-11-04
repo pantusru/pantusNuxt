@@ -4,7 +4,7 @@
         >
             <PanelVid :CheckAnalogs="CheckAnalogs"/>
         <b-tbody>
-            <template v-for="product in array">
+            <template v-for="table in array">
                 <b-tr :key="table.ProductCard.id" class="hover-true">
                     <b-td :rowspan="table.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
                         <nuxt-link  class="text-576b77 link-danger font-weight-bold" :to="table.ProductCard.brand.id.toString()">{{

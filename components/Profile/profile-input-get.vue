@@ -21,7 +21,7 @@
           {{data.text}}
         </div>
       </div>
-      <div class="error" v-if="name === 'password' && passwordCheck">Пароль не совпадает с БД</div>
+      <div class="error" v-if="name === 'password' && passwordCheck" >Пароль не совпадает с БД</div>
     </b-col>
   </b-row>
 </template>

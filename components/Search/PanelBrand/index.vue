@@ -1,13 +1,13 @@
 <template>
     <b-form-group class="border  px-3 py-2 border-light">
-        <h4 class="mb-3 fz-5  font-weight-bold">{{items}}</h4> 
+        <h4 class="mb-3 fz-5  font-weight-bold">{{items}}</h4>
         <Vinput v-on:Vsearch="ValueSet"  :GetName="GetName" />
         <Data :SearchElem="SearchElem" :GetChecbox="GetChecbox" :SetChecbox="SetChecbox" />
     </b-form-group>
 </template>
 
 <script>
-import Data from "@/components/Search/PanelBrand/Data/index";
+import Data from "@/components/Search/PanelBrand/brands-data/index";
 import Vinput from "@/components/Search/PanelBrand/input/index";
 export default {
     props:["name", "SetChecbox", "GetName", "items", "GetChecbox"],

@@ -1,6 +1,6 @@
 <template>
   <b-form-group class="border  px-3 py-2 border-light">
-        <h4 class="mb-3 fz-5 font-weight-bold">{{items}}</h4> 
+        <h4 class="mb-3 fz-5 font-weight-bold">{{items}}</h4>
         <VInputV :data="data"> </VInputV>
         <Data :name="name" :data="data" />
 
@@ -9,7 +9,7 @@
 
 <script>
 import VInputV from "@/components/Search/Panel/Input/index"
-import Data from "@/components/Search/Panel/Data/index"
+import Data from "@/components/Search/Panel/panel-data/index"
 // import ButtonFull from "./button/getfull"
 export default {
     props:["items", "ArrayData", "name" , "SetValue"],
@@ -31,4 +31,3 @@ export default {
     }
 }
 </script>
- 

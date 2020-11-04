@@ -11,6 +11,7 @@
           <nuxt-link to="/profile">Личный кабинет</nuxt-link>
           <nuxt-link to="/my_orders">История заказов</nuxt-link>
           <nuxt-link to="/selected">Избранные товары</nuxt-link>
+          <nuxt-link to="/new_password"> Изменить пароль</nuxt-link>
         </div>
       </b-collapse>
     </b-navbar>

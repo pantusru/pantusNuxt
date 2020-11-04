@@ -36,7 +36,7 @@
           />
           <ElementForm
             name="password2"
-            :items="'Повтори пароль:'"
+            :items="'Повторите пароль:'"
             :error="error.password2"
             :type="'password'"
           />

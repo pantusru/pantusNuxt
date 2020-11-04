@@ -12,7 +12,7 @@ export const state = () => ({
 })
 export const mutations = {
     /**
-     *  
+     *
      * @function  SetPanelNew - Добавляет новый  пустой массив в Panel
      */
     SetPanelNew(store) {
@@ -27,14 +27,14 @@ export const mutations = {
         });
     },
     /**
-     *  
+     *
      * @function  SetPanelNew - Удаляет массив по index в Panel
      */
     DeletePanel(store, data) {
         store.Panel.splice(data, 1);
     },
     /**
-     * @param {Number} data.IdPanel - id Panel с которым работать  
+     * @param {Number} data.IdPanel - id Panel с которым работать
      * @param {Number} data.indexElement - id Element Panel с которым работать
      * @param {String} data.NameElement - id название Element Panel с которым работать
      * @function  DeletePanel - Удаляет Element по index в Panel
@@ -44,7 +44,7 @@ export const mutations = {
         store.Panel[index][data.NameElement].splice(data.indexElement , 1);
     },
     /**
-     *  
+     *
      * @function  DeleteAllPanel - Удаляет все объекты в Panel
      */
     DeleteAllPanel(store, data) {
@@ -52,7 +52,7 @@ export const mutations = {
     },
     /**
      * @function SetPanel - Добавляет Selected или Data в выбранном по id в Panel
-     * @param {Number} data.id - id Panel с которым работать  
+     * @param {Number} data.id - id Panel с которым работать
      * @param {String} data.name - Названия ключа который нужно изменить в Panel
      * @param {Array} data.value -  Значение на которое нужно поменять состояния Panel
      */
@@ -62,8 +62,8 @@ export const mutations = {
     },
 
     /**
-     * @param {*} data.id - id на Panel 
-     * @param {*} data.value - Массив значений  который сохранятся  в Panel 
+     * @param {*} data.id - id на Panel
+     * @param {*} data.value - Массив значений  который сохранятся  в Panel
      * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
      */
     SetPanelObject(store, data) {
@@ -74,8 +74,8 @@ export const mutations = {
     },
 
     /**
-     * @param {*} data.id - id на Panel 
-     * @param {*} data.value - Массив значений  который сохранятся  в Panel 
+     * @param {*} data.id - id на Panel
+     * @param {*} data.value - Массив значений  который сохранятся  в Panel
      * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
      */
     PushPanelObject(store, data) {
@@ -87,8 +87,8 @@ export const mutations = {
 
 
     /**
-     * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel 
-     * @param {Number} data.id - id Panel с которым работать 
+     * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel
+     * @param {Number} data.id - id Panel с которым работать
      * @param {String} data.NameSelected - Названия ключа Selected который нужно сбросить в Panel
      * @param {String} data.NameData - Названия ключа Data который нужно сбросить в Panel
      */
@@ -98,8 +98,8 @@ export const mutations = {
         store.Panel[index][data.NameData] = [];
     },
     /**
-     * 
-     * @function ResetAll - Очищает все Panels 
+     *
+     * @function ResetAll - Очищает все Panels
      */
     ResetAll(store) {
         store.Ids = 1;
@@ -122,9 +122,9 @@ export const actions = {
         if(rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"].length > state.Ids){
             commit("SetPanelNew");
         }
-         
+
     },
-    /** 
+    /**
      * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
      */
     DeletePanel({ store, commit, getters }, id) {
@@ -132,7 +132,7 @@ export const actions = {
         commit("DeletePanel", index);
     },
     /**
-     * 
+     *
      * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
      * @returns {String}  Строку массива всех выбранных id с Panel
      */
@@ -173,8 +173,8 @@ export const actions = {
                     if(check === false){ // У модели нету выбранных поколении
                         ids.push(element.SelectedModel[keyModel]);
                     }
-                    
-                }     
+
+                }
                 // ДОбавить SelectedModel
             } else if (element.SelectedModel.length != 0) {
                 ids.push(element.SelectedModel);
@@ -219,4 +219,4 @@ export const getters = {
      * @returns {Object}  index Panel
      */
     PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id)
-}   
+}

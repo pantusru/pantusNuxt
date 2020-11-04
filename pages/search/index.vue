@@ -42,12 +42,12 @@ import PageFilter from "@/mixins/Page/filter"
 import ModalImg from "@/components/Modal/ProductImg";
 import ModalBuy from "@/components/Modal/buyProduct";
 import FilterApplicabilities from "@/components/Forms/FilterApplicabilities";
-import PanelVid from "@/components/Search/ProductPanel/table";
+import PanelVid from "@/components/Search/ProductPanel/product-thead-get";
 import FilterForm from "@/components/Forms/FulterProducts";
-import TableProduct from "@/components/Table/product";
+import TableProduct from "@/components/table/table-product-get";
 import productBlog from "@/components/Func/productBlog";
 import productRow from "@/components/Func/productRow";
-import MetkaFilter from "@/components/Metka/Filter/Blog";
+import MetkaFilter from "@/components/Metka/Filter/catalog-metka-get";
 import ResetFilter from "@/mixins/ResetFilter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/SearchSubmit/index"

@@ -1,32 +1,32 @@
 <template>
     <b-container>
-        <Vinput 
-            class="col-12 col-lg-3 mx-auto" 
-            v-on:Vsearch="ValueSet" 
-            :GetName="'Brand/BrandAll/GetBrand'" 
+        <Vinput
+            class="col-12 col-lg-3 mx-auto"
+            v-on:Vsearch="ValueSet"
+            :GetName="'Brand/BrandAll/GetBrand'"
             :placeholders="'Поиск по брендам'"
         />
         <h1>Бренды</h1>
                 <b-row class="mt-3 mt-lg-5">
-                    <Brand  
-                        v-for="source in SearchElem" 
+                    <Brand
+                        v-for="source in SearchElem"
                         :key="source.id"
                         :source="source" />
                 </b-row>
             <b-pagination-nav
                 v-if="CountPages != 1"
-                use-router 
-                :number-of-pages="CountPages" 
-                :link-gen="linkGen" 
+                use-router
+                :number-of-pages="CountPages"
+                :link-gen="linkGen"
                 align="center"
-            > 
+            >
             </b-pagination-nav>
     </b-container>
 </template>
 
 <script>
 import Vinput from "@/components/Search/PanelBrand/input/index"
-import Brand from "@/components/Catalog/Brand/full"
+import Brand from "@/components/Catalog/Brand/brand-blog-get"
 import PageMixins from "@/mixins/Page/index"
 export default {
     mixins:[PageMixins],
@@ -71,7 +71,7 @@ export default {
                 this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](this.$route.query.pages);
                 this.CountPages = this.BrandLength;
             }
-        },    
+        },
     },
 }
 </script>

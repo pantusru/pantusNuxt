@@ -17,7 +17,7 @@
                     <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original" />
                     <RowAtr slots=true v-if="Product.ProductCard.applicabilities != undefined">
                         <template v-slot:header>
-                            <div class="mr-1">Применяемость</div> 
+                            <div class="mr-1">Применяемость</div>
                             <nuxt-link :to="'applicabilities/' + Product.ProductCard.applicabilities[0].id" class="text-right">{{ Product.ProductCard.applicabilities[0].name }}</nuxt-link>
                         </template>
                         <template v-slot:body>
@@ -28,7 +28,7 @@
                     </RowAtr>
                     <RowAtr  slots=true v-if="Product.ProductCard.ProductCardOem != undefined">
                         <template v-slot:header>
-                            <div class="mr-1">ОЕМ</div> 
+                            <div class="mr-1">ОЕМ</div>
                             <div class="text-right">{{ Product.ProductCard.ProductCardOem[0] }}</div>
                         </template>
                         <template v-slot:body>
@@ -50,15 +50,15 @@
                     </RowAtr>
                 </b-row>
                 <b-row no-gutters class="justify-content-between flex-column col-12 col-lg-8">
-                    <TableOffset 
-                        :Linkoffset="Product.productOffer" 
-                        :LinkProduct="Product.ProductCard" 
+                    <TableOffset
+                        :Linkoffset="Product.productOffer"
+                        :LinkProduct="Product.ProductCard"
                     />
                 </b-row>
-                <b-button 
-                    @click="DeleteSelected" 
-                    v-if="Selected" 
-                    class="position-absolute bnt-delete-selected bg-danger border-0"  
+                <b-button
+                    @click="DeleteSelected"
+                    v-if="Selected"
+                    class="position-absolute bnt-delete-selected bg-danger border-0"
                 >
                     X
                 </b-button>
@@ -71,7 +71,7 @@
 import ImgGetModal from "@/components/Products/Product/Element/img"
 import BuyButton from "@/components/Products/Button/buyIndex"
 import RowAtr from "@/components/Products/Product/Element/row"
-import TableOffset from "@/components/Table/offset"
+import TableOffset from "@/components/table/table-offset-get"
 export default {
     methods:{
         DeleteSelected(){

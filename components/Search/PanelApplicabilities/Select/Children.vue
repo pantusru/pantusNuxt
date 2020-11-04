@@ -78,7 +78,7 @@ export default {
         )[this.NameSelected];
       },
       set(value) {
-        let length = this.Panel.length; 
+        let length = this.Panel.length;
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           // Сохранить текущее изменения во VUEX
           id: this.PanelId,

@@ -50,9 +50,9 @@
 // УКАЗАТЬ mixit
 import mixinvalidator from "@/mixins/Form/profile/validator";
 import mixinError from "@/mixins/Form/profile/error";
-import ElementForm from "@/components/Profile/input";
+import ElementForm from "@/components/Profile/profile-input-get";
 import NavProfile from "@/components/Nav/Profile/index";
-import Submit from "@/components/Profile/button";
+import Submit from "@/components/Profile/profile-button-update";
 export default {
   middleware:'CheckGuest',
   provide() {

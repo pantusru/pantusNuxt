@@ -16,7 +16,7 @@
               alt="Иконка пользователя"
             />
           </div>
-          <div class="d-flex flex-column ml-1" v-if="CheckUser == false">
+          <div class="d-flex flex-column ml-1" v-if="CheckUser === false">
             <nuxt-link
               to=""
               v-b-modal.authorization
@@ -27,7 +27,7 @@
               >Регистрация</nuxt-link
             >
           </div>
-          <div class="" v-if="CheckUser == true">
+          <div class="" v-if="CheckUser === true">
             <NavUser :userName="User.surname + ' ' + User.name" />
           </div>
         </div>
@@ -42,7 +42,7 @@
             <div>
               <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
             </div>
-            <strong v-if="stoimost != 0">{{ stoimost }} р</strong>
+            <strong v-if="stoimost !== 0">{{ stoimost }} р</strong>
           </div>
         </nuxt-link>
       </b-navbar-nav>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import VButtonSearch from "@/components/Header/Button"
+import VButtonSearch from "@/components/Header/header-button-search"
 import VueDropdown from "@/components/Header/Dropdown/Navbottom";
 import NavUser from "@/components/Header/Dropdown/NavUser";
 import ModalAuthorization from "@/components/Modal/authorization";

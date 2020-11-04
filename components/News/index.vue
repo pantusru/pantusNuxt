@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import VueBlogNews from "@/components/News/blog"
+import VueBlogNews from "@/components/News/news-blog-get"
 export default {
     components:{
         VueBlogNews,
     },
     computed:{
-        NewsIndex(){ 
+        NewsIndex(){
             return this.$store.getters['News/NewsIndex/GetNewsIndex']
         }
     }

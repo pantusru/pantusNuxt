@@ -88,7 +88,7 @@ export default {
         id: this.PanelId,
         NameSelected: "DataGenerations",
       })
-      
+
     },
     hiddenForm(event){
       if(event.target.className != "option-my"){

@@ -12,7 +12,7 @@
 
 <script>
 import PageMixins from "@/mixins/Page/index";
-import MyOrderBLog from "@/components/Order/MyOrder/blog";
+import MyOrderBLog from "@/components/Order/MyOrder/order-blog-get";
 export default {
   mixins: [PageMixins],
   computed: {

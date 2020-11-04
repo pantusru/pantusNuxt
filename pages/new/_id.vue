@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import VueBlogNews from "@/components/News/blog"
+import VueBlogNews from "@/components/News/news-blog-get"
 export default {
     async fetch({query, store, getters,params}){
         await store.dispatch("News/NewsId/_NewsId", params.id);
     },
     computed:{
-        NewsId(){ 
+        NewsId(){
             return this.$store.getters['News/NewsId/GetNewsId']
         },
     },
@@ -26,6 +26,6 @@ export default {
            element.setAttribute("src" , process.env.apiMedia + element.getAttribute("src"));
        });
     }
-    
+
 }
 </script>

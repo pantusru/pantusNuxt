@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import Table from "@/components/Table/product"
+import Table from "@/components/table/table-product-get"
 import ModalBuy from "@/components/Modal/buyProduct"
-import TableOffer from "@/components/Table/offset"
+import TableOffer from "@/components/table/table-offset-get"
 import Share from "@/components/Modal/share"
 import mixins from "@/mixins/Product/album"
 export default {

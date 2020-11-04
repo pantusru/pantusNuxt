@@ -1,10 +1,10 @@
 <template>
     <b-container>
         <Vinput
-            class="col-12 col-lg-3 mx-auto" 
+            class="col-12 col-lg-3 mx-auto"
             :data="dataset"
             :placeholders="'Поиск по применимостям'"
-        /> 
+        />
         <h1 class="mb-5">Применимости</h1>
         <b-row>
             <Applicabilities :dataset="data" v-for="data in dataset" :key="data.id" />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Applicabilities from "@/components/Catalog/Applicabilities/full"
+import Applicabilities from "@/components/Catalog/Applicabilities/applicabilities-blog-get"
 import Vinput from "@/components/Search/Panel/Input/index"
 export default {
     async fetch({query, store, getters, commit}){
@@ -21,7 +21,7 @@ export default {
     },
     provide(){
         return{
-            SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities"        
+            SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities"
         }
     },
     components:{
@@ -31,7 +31,7 @@ export default {
     computed:{
         dataset(){
             return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
-        }, 
+        },
     },
     created(){
         this.$store.dispatch("Catalog/All/_AllVisible" , this.dataset);

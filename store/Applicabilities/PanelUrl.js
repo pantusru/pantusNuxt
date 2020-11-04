@@ -1,8 +1,8 @@
 export const actions = {
     /**
-     * 
+     *
      * @param {Array} data.data - Массив где осуществляется поиск id
-     * @param {Array} data.id  - Массив где находятся id с url 
+     * @param {Array} data.id  - Массив где находятся id с url
      * @param {Number} data.MarkId  - id марки у  текущей приминимости
      * @param {Array} data.DataModel  - Массив потомков модели одной марки
      * @param {Array} data.DataGenerations  - Массив потомков модели одной М
@@ -51,8 +51,8 @@ export const actions = {
             }
         }
     },
-    /** 
-     * @param {Object} data.link - сслыка на приминимость 
+    /**
+     * @param {Object} data.link - сслыка на приминимость
      */
     MarkaSet({ rootState, commit }, data) {
         commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
@@ -68,7 +68,7 @@ export const actions = {
         }, { root: true });
     },
     /**
-     * @param {Object} data.link - сслыка на приминимость 
+     * @param {Object} data.link - сслыка на приминимость
      * @param {Array} data.DataModel - Массив всех потомков 1 марки
      */
     ModelSet({ rootState, commit, dispatch }, data) {
@@ -88,7 +88,7 @@ export const actions = {
             commit("Applicabilities/Panel/SetPanelNew", {}, { root: true });
             let Ids = rootState.Applicabilities.Panel.Ids;
             commit("Applicabilities/Panel/SetPanelObject", { // Сохраняет  SelectedMarka SelectedModel DataGenerations DataModel
-                id: Ids, 
+                id: Ids,
                 name: [
                     "SelectedMarka",
                     "SelectedModel",
@@ -105,7 +105,7 @@ export const actions = {
         }
     },
     /**
-     * 
+     *
      * @param {Array} data.DataModel - Потомки у Mark
      * @param {Array} data.DataGenerations - Потомки у Model
      * @param {Number} data.MarkId - Id у Mark
@@ -164,7 +164,7 @@ export const actions = {
             });
         }
     },
-    /** 
+    /**
      * @param {Object} data.linkPanel -  Ссылка на Panel
      * @param {Object} data.linkApplicabilities -  Ссылка на Applicabilities
      */

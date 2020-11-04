@@ -5,24 +5,29 @@
             <PanelVid :CheckAnalogs="CheckAnalogs"/>
         <b-tbody>
             <template v-for="product in array">
-                <b-tr :key="product.ProductCard.id" class="hover-true">
-                    <b-td :rowspan="product.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
-                        <nuxt-link  class="text-576b77 link-danger font-weight-bold" :to="product.ProductCard.brand.id.toString()">{{ product.ProductCard.brand.name }} </nuxt-link>
+                <b-tr :key="table.ProductCard.id" class="hover-true">
+                    <b-td :rowspan="table.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
+                        <nuxt-link  class="text-576b77 link-danger font-weight-bold" :to="table.ProductCard.brand.id.toString()">{{
+                            table.ProductCard.brand.name
+                          }}
+                        </nuxt-link>
                     </b-td>
-                    <b-td :rowspan="product.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">{{product.ProductCard.sku.original}}</nuxt-link> </b-td>
-                    <b-td :rowspan="product.productOffer.length+1" v-if="CheckAnalogs== false" class="d-none d-md-table-cell">
+                    <b-td :rowspan="table.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">{{ table.ProductCard.sku.original }}</nuxt-link> </b-td>
+                    <b-td :rowspan="table.productOffer.length+1" v-if="CheckAnalogs== false" class="d-none d-md-table-cell">
                         <div class="w-50px">
-                            <ImgGetModal :product="product" />
+                            <ImgGetModal :product="table" />
                         </div>
                     </b-td>
-                    <b-td :rowspan="product.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
-                        <nuxt-link class="text-576b77 link-danger" :to="product.ProductCard.id.toString()">  {{ product.ProductCard.name }} </nuxt-link>
+                    <b-td :rowspan="table.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
+                        <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">
+                          {{ table.ProductCard.name }}
+                        </nuxt-link>
                     </b-td>
                     <b-td class="position-absolute border-0 left-42">
-                        <Chosen v-if="CheckAnalogs == false && CheckUser == true" :link="product" :id="product.ProductCard.id"/>
+                        <Chosen v-if="CheckAnalogs == false && CheckUser == true" :link="table" :id="table.ProductCard.id"/>
                     </b-td>
                 </b-tr>
-                <b-tr class="hover-true border-bottom" v-for="offer in product.productOffer" :key="offer.id">
+                <b-tr class="hover-true border-bottom" v-for="offer in table.productOffer" :key="offer.id">
                     <b-td class="border-top-0 text-555" >{{ offer.supplier.name }}</b-td>
                     <b-td  class="border-top-0 text-00b91e" :class="{'d-none d-md-table-cell': CheckAnalogs}">{{ offer.quantity }}</b-td>
                     <b-td  class="border-top-0 text-555 d-none d-md-table-cell">{{ offer.supplier.deliveryDelay }}</b-td>
@@ -30,7 +35,7 @@
                     <b-td  class="border-top-0">
                         <BuyButton
                             :LinkOffer="offer"
-                            :LinkProduct="product.ProductCard"
+                            :LinkProduct="table.ProductCard"
                         />
                     </b-td>
                 </b-tr>
@@ -41,7 +46,7 @@
 
 <script>
 import ImgGetModal from "@/components/Products/Product/Element/img"
-import PanelVid from "@/components/Search/ProductPanel/table" // Панель
+import PanelVid from "@/components/Search/ProductPanel/product-thead-get" // Панель
 import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
 import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
 export default {

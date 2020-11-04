@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import tdSort from "@/components/Search/ProductPanel/tdSort"
+import tdSort from "@/components/Search/ProductPanel/th-sort-get"
 import PanelVid from "@/components/Search/ProductPanel/index" // Панель
 export default {
     props:{

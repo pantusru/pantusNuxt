@@ -40,8 +40,8 @@
 import MixinsError from "@/mixins/Form/register/error"
 import MixinsValidations from "@/mixins/Form/register/validator"
 import VInput from "@/components/register/index"
-import radioForm from "@/components/register/radioForm"
-import Buttons from "@/components/register/button"
+import radioForm from "@/components/register/register-radio-get"
+import Buttons from "@/components/register/register-button-set"
 import MSelect from "@/components/register/select"
 export default {
     middleware:'CheckUser',

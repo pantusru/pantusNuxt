@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vueRecaptcha class="mb-3" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
+    <vueRecaptcha class="mb-4 mt-4" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
     <b-button class="border bg-danger" @click="SetDataUser">Изменить</b-button>
-    <base-alert v-if="getAlert"></base-alert>
+    <base-alert class="w-25" :get-alert.sync="getAlert"></base-alert>
   </div>
 </template>
 
@@ -14,6 +14,8 @@ export default {
   data() {
     return {
       getAlert: false,
+      variant: undefined,
+      text: undefined,
     }
   },
   mixins:[check_recaptcha],
@@ -32,8 +34,6 @@ export default {
           this.$store.commit("SetFormPassword", res);
         });
          if(this.passwordCheck === false){ // нету ошибок от API
-                 // Нет ошибок первой валидации
-          // Проверка данных с API
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
           this.$store.commit("User/SetFull", {
             name: "login",
@@ -63,7 +63,6 @@ export default {
         this.$v.Form.$reset();
         window.grecaptcha.reset();
         this.checkRecaptcha = false;
-        this.getError = false;
       }
     },
   },

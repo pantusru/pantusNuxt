@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-button class="border-0 bg-danger" @click="SetPassword">Подвердить</b-button>
-    <base-alert v-if="getAlert" :text="text"> </base-alert>
+    <base-alert :variant="variant" class="w-25" :getAlert.sync="getAlert" :text="text"> </base-alert>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   inject: ["$v"],
   data() {
     return {
+      variant: undefined,
       text: "Пароль успешно изменен!",
       getAlert: false,
     }
@@ -27,11 +28,13 @@ export default {
         console.log("Запрос на изменение");
         // Вывести алерт
         if (false){ // Все гуд
+          this.variant = undefined;
           this.getAlert = true;
+          this.text = undefined;
         }else { // error
+          this.variant = "danger";
           this.text = "Ошибка"
           this.getAlert = true;
-
         }
       }
     },

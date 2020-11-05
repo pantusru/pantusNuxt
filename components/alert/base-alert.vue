@@ -1,7 +1,9 @@
 <template>
   <b-alert
+    :variant="variant"
+    v-if="getAlert === true"
     dismissible
-    class="w-25 mt-3"
+    class="mt-3"
     @dismiss-count-down="countDownChanged"
     :show="dismissCountDown"
   >{{ text}}</b-alert
@@ -20,6 +22,16 @@ name: "base-alert",
     }
   },
   props: {
+    variant:{
+      default:"success",
+    },
+  routerHome:{
+    default: true,
+    type: Boolean,
+  },
+    getAlert: {
+      default: false,
+    },
     /**
      * @protected Время жизни alert
      */
@@ -43,7 +55,13 @@ name: "base-alert",
       countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown;
         if(this.dismissCountDown  === 0){
-          this.$router.push("/");
+          console.log(this.routerHome);
+          if(this.routerHome === true){
+            this.$router.push("/");
+          }else {
+            this.$emit("update:getAlert", false);
+            this.dismissCountDown = this.dismissSecs;
+          }
         }
       },
     }

@@ -1,4 +1,4 @@
-export const actions = { 
+export const actions = {
     async _MyOrder(){
         let  order = [
             {
@@ -149,8 +149,15 @@ export const actions = {
                     },
                 ]
             },
-             
+
         ]
         return order;
+    },
+    async _CancelMyOrder(){
+      if(true){// УДачно
+
+      }else{ // Не удачно
+
+      }
     }
 }

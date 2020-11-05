@@ -33,13 +33,14 @@
             </div>
         </div>
         <template v-slot:modal-footer= "">
-            <b-button class="py-1 px-2 bg-danger border-0" @click="buy">Купить</b-button>
+          <base-button class="py-1 px-2" @click="buy" text="Купить"></base-button>
         </template>
     </b-modal>
 </template>
 
 <script>
 import VInput from  "@/components/Products/Input/kolvo"
+import BaseButton from "@/components/Base/base-button";
 export default {
     data() {
         return {
@@ -52,7 +53,7 @@ export default {
             if(this.CheckCart === true){// Есть в корзине
                 this.count = this.$store.getters
                     ["Cart/CartAll/GetCartProductId"]
-                    (this.LinkOffer.id)[0].kolvo 
+                    (this.LinkOffer.id)[0].kolvo
 
             }else{// Нет в корзине
                 this.count = this.LinkOffer.multiplicity;
@@ -66,7 +67,7 @@ export default {
             let Index  = this.$store.getters
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
                 (this.LinkOffer.id);
-                if(this.CheckCart == false){ //Добавить товар в корзину   
+                if(this.CheckCart == false){ //Добавить товар в корзину
                     // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     let data = {};
                     data.kolvo = this.count;
@@ -84,6 +85,7 @@ export default {
         },
     },
     components:{
+      BaseButton,
         VInput,
     },
     computed:{

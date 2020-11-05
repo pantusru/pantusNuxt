@@ -1,10 +1,12 @@
 <template>
-  <b-button class="bg-danger border-0" @click="updateCart">Обновить корзину</b-button>
+  <base-button @click="updateCart" text="Обновить корзину"></base-button>
 </template>
 
 <script>
+import BaseButton from "@/components/Base/base-button";
 export default {
   name: "cart-button-update",
+  components: {BaseButton},
   methods:{
     updateCart(){
       console.log(this.CartProduct);

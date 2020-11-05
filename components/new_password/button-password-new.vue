@@ -1,10 +1,12 @@
 <template>
-  <b-button class="border-0 bg-danger" @click="NewsPassword">Изменить пароль</b-button>
+  <base-button @click="NewsPassword" text="Изменить пароль"> </base-button>
 </template>
 
 <script>
+import BaseButton from "@/components/Base/base-button";
 export default {
   name: "button-password-new",
+  components: {BaseButton},
   inject: ["$v"],
   methods:{
     async NewsPassword(){

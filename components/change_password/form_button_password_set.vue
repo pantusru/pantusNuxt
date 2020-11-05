@@ -1,16 +1,17 @@
 <template>
   <div>
-    <b-button class="border-0 bg-danger" @click="SetPassword">Подвердить</b-button>
+    <base-button text="Подвердить" @click="SetPassword"></base-button>
     <base-alert :variant="variant" class="w-25" :getAlert.sync="getAlert" :text="text"> </base-alert>
   </div>
 </template>
 
 <script>
 import BaseAlert from "@/components/alert/base-alert";
+import BaseButton from "@/components/Base/base-button";
 
 export default {
   name: "form_button_password_set",
-  components: {BaseAlert},
+  components: {BaseButton, BaseAlert},
   inject: ["$v"],
   data() {
     return {

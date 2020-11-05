@@ -1,11 +1,13 @@
 <template>
-  <b-button @click="deleteProduct()" class="bg-danger border-0 py-1">X</b-button>
+  <base-button class="py-1" @click="deleteProduct()" text="X"></base-button>
 </template>
 
 <script>
+import BaseButton from "@/components/Base/base-button";
 export default {
   name: "cart-button-delete",
-    props:{
+  components: {BaseButton},
+  props:{
         index:{},
     },
     methods:{

@@ -1,5 +1,7 @@
 <template>
-  <b-img class="cursor-pointer" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+  <div class="text-center">
+    <b-img class="cursor-pointer w-75" @click="ModalImg(product)" fluid :src="product.ProductCard.ProductCardImage.url"/>
+  </div>
 </template>
 
 <script>
@@ -11,7 +13,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

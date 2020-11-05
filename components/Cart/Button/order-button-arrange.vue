@@ -1,20 +1,20 @@
 <template>
   <div>
     <template v-if="CartProduct.length > 0">
-      <b-button v-if="!CheckUser" :class="AddClass" v-b-modal="'authorization'"
-        >Оформить заказ</b-button
-      >
-      <b-button v-if="CheckUser" :class="AddClass">
-        <nuxt-link to="/order" class="text-white link-decoration-none"
-          >Оформить заказ</nuxt-link
-        >
-      </b-button>
+      <base-button text="Оформить заказ" v-if="!CheckUser" v-b-modal="'authorization'"></base-button>
+      <base-button v-if="CheckUser">
+        <nuxt-link to="/order" class="text-white link-decoration-none">
+          Оформить заказ
+        </nuxt-link>
+      </base-button>
     </template>
   </div>
 </template>
 <script>
+import BaseButton from "@/components/Base/base-button";
 export default {
   name: "order-button-arrange",
+  components: {BaseButton},
   data() {
     return {
       check: null,

@@ -10,6 +10,7 @@
       <form_input_password_change :error="error.password2"
                                   :type="'password'" :name="'password2'"
                                   :items="'Введите новый пароль еще раз'"/>
+      <button-password-new/>
     </b-form>
   </b-container>
 </template>
@@ -18,6 +19,7 @@
 import mixinError from "@/mixins/Form/new_password/error"
 import mixinValidator from "@/mixins/Form/new_password/validator"
 import form_input_password_change from "@/components/change_password/form_input_password_change";
+import ButtonPasswordNew from "@/components/new_password/button-password-new";
 
 export default {
   data() {
@@ -34,6 +36,7 @@ export default {
     }
   },
   components: {
+    ButtonPasswordNew,
     form_input_password_change,
   },
 }

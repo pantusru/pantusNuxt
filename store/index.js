@@ -5,6 +5,7 @@ export const state = () => ({
     checkFilterClick: true,
     Form:{
         password: false,
+        new_password: false,
     }
 })
 export const mutations  =  {
@@ -24,11 +25,15 @@ export const mutations  =  {
     SetFormPassword(store, data){
         store.Form.password = data;
     },
+    SetFormNewsPassword(store, data){
+      store.Form.new_password = data;
+    }
 }
 export const getters = {
     GetshowLoader: s => s.showLoader,
     getProductType: s => s.ProductType,
-    GetshowButtonFilter: s=> s.showButtonFilter,
-    GetcheckFilterClick: s=>s.checkFilterClick,
-    GetFormPassword: s=>s.Form.password,
+    GetshowButtonFilter: s => s.showButtonFilter,
+    GetcheckFilterClick: s => s.checkFilterClick,
+    GetFormPassword: s => s.Form.password,
+    GetFormNewPassword: s => s.Form.new_password
 }

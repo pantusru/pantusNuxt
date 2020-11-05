@@ -21,6 +21,7 @@
           {{data.text}}
         </div>
       </div>
+      <div class="error" v-if="name === 'str_password' && CheckFormNewPassword">Старый пароль введен не верно</div>
     </b-col>
   </b-row>
 </template>
@@ -29,6 +30,11 @@ import mixitProps from "@/mixins/Input/Props/index";
 export default {
   inject: ["$v"],
   mixins: [mixitProps],
+  computed:{
+    CheckFormNewPassword(){
+        return this.$store.getters["GetFormNewPassword"]
+    }
+  }
 };
 </script>
 

@@ -1,6 +1,8 @@
 <template>
   <b-container>
-    <b-form>
+    <b-row>
+      <NavProfile />
+      <b-form class="w-75">
       <form_input_password_change :error="error.str_password"
                                   :type="'password'" :name="'str_password'"
                                   :items="'Введите старый пароль пароль'"/>
@@ -12,6 +14,7 @@
                                   :items="'Введите новый пароль еще раз'"/>
       <button-password-new/>
     </b-form>
+    </b-row>
   </b-container>
 </template>
 
@@ -20,7 +23,7 @@ import mixinError from "@/mixins/Form/new_password/error"
 import mixinValidator from "@/mixins/Form/new_password/validator"
 import form_input_password_change from "@/components/change_password/form_input_password_change";
 import ButtonPasswordNew from "@/components/new_password/button-password-new";
-
+import  NavProfile from  "@/components/Nav/Profile/index"
 export default {
   data() {
     return {
@@ -38,6 +41,7 @@ export default {
   components: {
     ButtonPasswordNew,
     form_input_password_change,
+    NavProfile,
   },
 }
 </script>

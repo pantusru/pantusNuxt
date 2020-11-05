@@ -1,7 +1,7 @@
 <template>
   <div>
     <vueRecaptcha class="mb-3" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
-    <b-button @click="SetDataUser">Изменить</b-button>
+    <b-button class="border bg-danger" @click="SetDataUser">Изменить</b-button>
     <base-alert v-if="getAlert"></base-alert>
   </div>
 </template>

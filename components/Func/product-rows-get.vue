@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BlogRow 
+        <BlogRow
             v-for="data in array"
             :key="data.id"
             :Product="data"
@@ -12,6 +12,7 @@
 <script>
 import BlogRow from "@/components/Products/Product/blog-row"
 export default {
+    name: "product-rows-get",
     props:{
         array:{},
         Selected: {

@@ -1,7 +1,7 @@
 <template>
   <b-row class="mt-3">
       <b-col cols="11" sm="6" lg="4" v-for="(data, index) in Cart" :key="data.id">
-      <BlogCart :datasetProduct="data" :index="index" />
+      <BlogCart :datasetProduct="data" :index="cart" />
       </b-col>
   </b-row>
 </template>
@@ -9,6 +9,7 @@
 <script>
 import BlogCart from "@/components/Cart/Blog/cart-blog-get"
 export default {
+  name:"cart-row-get",
     components:{
         BlogCart,
     },

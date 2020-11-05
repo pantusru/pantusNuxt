@@ -17,7 +17,7 @@
 import ModalImg from "@/components/Modal/ProductImg";
 import ModalBuy from "@/components/Modal/buyProduct";
 import NavProfile from "@/components/Nav/Profile/index";
-import FuncComponents from "@/components/Func/productRow";
+import FuncComponents from "@/components/Func/product-rows-get";
 export default {
   middleware:'CheckGuest',
   async fetch({ store }) {

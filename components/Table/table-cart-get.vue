@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import DeleteCart from "@/components/Cart/Button/DeleteCart";
+import DeleteCart from "@/components/Cart/Button/cart-button-delete";
 import ImgModal from "@/components/Modal/ProductImg";
 import vInput from "@/components/Products/Input/kolvo";
 import mixinsEmit from "@/mixins/Input/CountProduct/emit"

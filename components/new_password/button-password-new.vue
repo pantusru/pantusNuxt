@@ -1,5 +1,5 @@
 <template>
-  <b-button @click="NewsPassword">Изменить пароль</b-button>
+  <b-button class="border-0 bg-danger" @click="NewsPassword">Изменить пароль</b-button>
 </template>
 
 <script>

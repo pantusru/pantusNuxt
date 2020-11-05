@@ -4,14 +4,16 @@
       <b-navbar-toggle target="nav-user" class="mb-3"></b-navbar-toggle>
       <b-collapse id="nav-user" is-nav>
         <div class="d-flex flex-column">
-          <div class="mb-4">
-            <div class="mb-2">{{ User.surname }} {{ User.name }}</div>
+          <div class="mb-5">
+            <b class="mb-3 d-block">{{ User.surname }} {{ User.name }}</b>
             <div>{{ User.login }}</div>
           </div>
-          <nuxt-link to="/profile">Личный кабинет</nuxt-link>
-          <nuxt-link to="/my_orders">История заказов</nuxt-link>
-          <nuxt-link to="/selected">Избранные товары</nuxt-link>
-          <nuxt-link to="/new_password"> Изменить пароль</nuxt-link>
+          <nav>
+            <nuxt-link :active-class="ActiveClass" :class="classMain" to="/profile">Личный кабинет</nuxt-link>
+            <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/my_orders">История заказов</nuxt-link>
+            <nuxt-link :active-class="ActiveClass" :class="classMain" to="/selected">Избранные товары</nuxt-link>
+            <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/new_password"> Изменить пароль</nuxt-link>
+          </nav>
         </div>
       </b-collapse>
     </b-navbar>
@@ -20,6 +22,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      ActiveClass: "font-weight-bold text-decoration",
+      classMain: "text-body mb-2 d-block",
+    }
+  },
   name: "NavProfile",
   computed: {
     User() {

@@ -10,11 +10,12 @@
 </template>
 
 <script>
-import footerPantusVue from "@/components/Footer/Pantus";
-import footerPaymentVue from "@/components/Footer/Payment";
-import footerDeliveryVue from "@/components/Footer/Delivery";
-import footerSocialVue from "@/components/Footer/Social";
+import footerPantusVue from "@/components/Footer/footer-pantus";
+import footerPaymentVue from "@/components/Footer/footer-payment";
+import footerDeliveryVue from "@/components/Footer/footer-delivery-get";
+import footerSocialVue from "@/components/Footer/footer-social";
 export default {
+  name: "footer-main",
   components: {
     footerPantusVue,
     footerPaymentVue,
@@ -23,4 +24,4 @@ export default {
   }
 };
 </script>
- 
+

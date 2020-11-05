@@ -34,6 +34,7 @@ import ButtonAdd from "@/components/Search/PanelApplicabilities/Button/ButtonAdd
 import ButtonReset from "@/components/Search/PanelApplicabilities/Button/Reset";
 import ButtonSubmit from "@/components/Search/buttons/buttonSubmit";
 export default {
+  name: "filter-applicabilities",
   data() {
     return {
       BntClass:

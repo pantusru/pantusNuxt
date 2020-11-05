@@ -10,8 +10,9 @@
 
 <script>
 export default {
+  name:"brand-blog-get",
     props: {
-        source: { 
+        source: {
             type: Object,
         }
     }

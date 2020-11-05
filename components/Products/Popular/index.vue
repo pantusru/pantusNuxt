@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import FuncComponents from "@/components/Func/productBlog"
+import FuncComponents from "@/components/Func/product-blogs-get"
 export default {
     computed: {
         popular() {

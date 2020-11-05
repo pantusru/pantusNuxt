@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  name: "footer-payment",
   data() {
     return {
       linksImg: [
@@ -48,4 +49,4 @@ export default {
   }
 };
 </script>
- 
+

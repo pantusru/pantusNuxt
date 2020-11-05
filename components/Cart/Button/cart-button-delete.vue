@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: "cart-button-delete",
     props:{
         index:{},
     },
@@ -14,6 +15,3 @@ export default {
     }
 };
 </script>
-
-<style>
-</style>

@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import VueNavTop from "@/components/Header/Nav/Navtop"
-import VueNavBottom from "@/components/Header/Nav/NavBottom"
-import VueNav from "@/components/Header/Nav/Index"
+import VueNavTop from "@/components/Header/header-nav/Navtop"
+import VueNavBottom from "@/components/Header/header-nav/NavBottom"
+import VueNav from "@/components/Header/header-nav/Index"
 export default {
     name: "Header",
     components:{
         VueNavTop,
         VueNav,
         VueNavBottom
-    } 
+    }
 }
 </script>

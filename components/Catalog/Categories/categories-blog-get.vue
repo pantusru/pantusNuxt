@@ -5,7 +5,7 @@
                 <nuxt-link class="text-e1002b link-danger text-decoration d-block mb-2" :to="'/search?categories=' + dataset.id">{{ dataset.name }} </nuxt-link>
                 <span
                     class="bg-transparent text-danger border-0 when-open">
-                        <b-icon-arrow-down></b-icon-arrow-down> 
+                        <b-icon-arrow-down></b-icon-arrow-down>
                         {{ dataset.children.length }}
                 </span>
             </div>
@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: "categories-blog-get",
     props:["dataset"],
 }
 </script>

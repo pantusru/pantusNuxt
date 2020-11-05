@@ -60,12 +60,12 @@
 <script>
 import mixit from "@/mixins/Input/CountProduct/emit"
 import vInput from "@/components/Products/Input/kolvo";
-import DeleteCart from "@/components/Cart/Button/DeleteCart";
+import DeleteCart from "@/components/Cart/Button/cart-button-delete";
 import ImgGetModal from "@/components/Products/Product/Element/img";
 import BuyButton from "@/components/Products/Button/buyIndex";
 export default {
   mixins:[mixit],
-  name: "BlogProduct",
+  name: "cart-blog-get",
   props: {
     datasetProduct: {},
     index: {},

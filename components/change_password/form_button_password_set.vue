@@ -9,15 +9,15 @@
 import BaseAlert from "@/components/alert/base-alert";
 
 export default {
+  name: "form_button_password_set",
+  components: {BaseAlert},
+  inject: ["$v"],
   data() {
     return {
       text: "Пароль успешно изменен!",
       getAlert: false,
     }
   },
-  name: "form_button_password_set",
-  components: {BaseAlert},
-  inject: ["$v"],
   methods: {
     SetPassword() {
       this.$v.Form.$touch();

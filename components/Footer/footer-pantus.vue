@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name:"footer-pantus",
   data() {
     return {
       links: [
@@ -35,4 +36,4 @@ export default {
   },
 };
 </script>
- 
+

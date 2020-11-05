@@ -4,8 +4,8 @@
             class="mb-3"
             v-for="data in array"
             :key="data.id">
-                <BlogProduct 
-                    :datasetProduct="data"                
+                <BlogProduct
+                    :datasetProduct="data"
                 >
                 </BlogProduct>
         </b-col>
@@ -15,6 +15,7 @@
 <script>
 import BlogProduct from "@/components/Products/Popular/blog"
 export default {
+  name: "product-blogs-get",
     props:{
         array:{},
     },

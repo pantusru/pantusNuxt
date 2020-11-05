@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import vButton from "@/components/Cart/Button/index"
+import vButton from "@/components/Cart/Button/order-button-arrange"
 import CartButtonUpdate from "@/components/Cart/Button/cart-button-update"
 import Modal from "@/components/Modal/authorization"
 import vTable  from "@/components/table/table-cart-get"
-import VBlogCart from "@/components/Cart/Blog/index"
+import VBlogCart from "@/components/Cart/Blog/cart-row-get"
 export default {
     components:{
         vTable,

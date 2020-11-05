@@ -31,7 +31,7 @@
       >
       </Panel>
       <!-- ПРиминимости -->
-      <!-- <Panel 
+      <!-- <Panel
             items="Применимость"
             ArrayData="Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             name="applicabilities"
@@ -45,7 +45,7 @@
       </b-button-group>
     </b-form>
   </div>
-</template> 
+</template>
 
 <script>
 import VueRange from "@/components/Search/range";
@@ -54,6 +54,7 @@ import PanelBrand from "@/components/Search/PanelBrand/index";
 import Reset from "@/components/Search/buttons/buttonsReset";
 import Submit from "@/components/Search/buttons/buttonSubmit";
 export default {
+  name: "fulter-products",
   data() {
     return {
       show: true,

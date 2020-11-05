@@ -30,6 +30,7 @@
 
 <script>
 export default {
+  name: "footer-social",
   data() {
     return {
       linksImg: [
@@ -43,4 +44,4 @@ export default {
 };
 </script>
 
- 
+

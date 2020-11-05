@@ -28,6 +28,7 @@
 <script>
 import mixitProps from "@/mixins/Input/Props/index";
 export default {
+  name: "form_input_password_change",
   inject: ["$v"],
   mixins: [mixitProps],
   computed:{

@@ -12,9 +12,9 @@
     </template>
   </div>
 </template>
-
 <script>
 export default {
+  name: "order-button-arrange",
   data() {
     return {
       check: null,

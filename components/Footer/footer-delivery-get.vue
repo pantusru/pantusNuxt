@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name:"footer-delivery-get",
   data() {
     return {
       text:
@@ -24,4 +25,4 @@ export default {
 };
 </script>
 
- 
+

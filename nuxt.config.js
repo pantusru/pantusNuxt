@@ -90,6 +90,6 @@ export default {
     extractCSS: true,
   },
   env: {
-    api: "http://194.67.113.201:8080",
+    api: "http://api.pantus.ru",
   }
 }

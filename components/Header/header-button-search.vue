@@ -44,7 +44,6 @@ export default {
           },
         });
       }
-      console.log({name: this.search});
     },
   },
 };

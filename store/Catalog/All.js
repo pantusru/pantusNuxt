@@ -1,4 +1,4 @@
-export const actions = { 
+export const actions = {
         /**
         * #Иницилизациия данных
         * @function _ChexboxAll - Добавляет элементу массива свойства CheckedType, Indeterminate, visible
@@ -29,26 +29,26 @@ export const actions = {
     /**
     * #прогоняет массив добавляя элементам доб свойства
     * @function _All -  доб свойства: CheckedType, Indeterminate, visible
-    * @param {Array} data - массив фильтров с вложенностью 
-    */  
+    * @param {Array} data - массив фильтров с вложенностью
+    */
     _All({commit, dispatch}, data){// первая иницилизация данных!
         data.forEach(element => {
             dispatch("_ChexboxAll", element);
-            if(element.children.length != 0){
-                dispatch("_All", element.children);
+            if(element.childs.length != 0){
+                dispatch("_All", element.childs);
             }
         });
     },
     /**
     * #прогоняет массив сбрасывая свойства элементам
     * @function _AllChexbox -  свойствам: CheckedType, Indeterminate  задает значения false
-    * @param {Array} data - массив фильтров с вложенностью 
-    */  
+    * @param {Array} data - массив фильтров с вложенностью
+    */
     _AllChexbox({commit, dispatch, getters}, data){ // Reset and уход с страницы фильты
         data.forEach(element => {
             dispatch("_ChexboxPush", element);
-            if(element.children.length != 0){
-                dispatch("_AllChexbox", element.children);
+            if(element.childs.length != 0){
+                dispatch("_AllChexbox", element.childs);
             }
         });
     },
@@ -56,12 +56,12 @@ export const actions = {
     * #прогоняет массив сбрасывая свойства элементам
     * @function _AllVisible -  свойствам: visible  задает значения true
     * @param {Array} data - массив фильтров
-    */ 
+    */
     _AllVisible({commit, dispatch}, data){ // Reset visible
         data.forEach(element => {
             commit("Catalog/Visible/SetAllVisible", {data:element, value: true}, { root: true });
-            if(element.children.length != 0){
-                dispatch("_AllVisible", element.children);
+            if(element.childs.length != 0){
+                dispatch("_AllVisible", element.childs);
             }
         });
     },
@@ -73,8 +73,8 @@ export const actions = {
     async _AllChexboxId({commit, dispatch}, data){ // Найди ID chexbox у которых checked === true
         let IdChexbox = [];
         for (const key in data) {
-            if(data[key].children.length != 0){
-                IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
+            if(data[key].childs.length != 0){
+                IdChexbox.push(await dispatch("_AllChexboxId", data[key].childs));
             }
             else if(data[key].CheckedType === true){
                 IdChexbox.push(data[key].id);
@@ -84,7 +84,7 @@ export const actions = {
     },
     /**
     * #прогоняет массив и ищет свойство id == data.ids
-    * @function _AllChexboxTrue - Выставляет всё фильтры по url адресу 
+    * @function _AllChexboxTrue - Выставляет всё фильтры по url адресу
     * @param {Array} data.data - массив фильтров c вложенностью
     * @param {Array} data.ids - Массив ID у который стоит chexbox
     */

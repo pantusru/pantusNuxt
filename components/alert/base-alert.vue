@@ -55,7 +55,6 @@ name: "base-alert",
       countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown;
         if(this.dismissCountDown  === 0){
-          console.log(this.routerHome);
           if(this.routerHome === true){
             this.$router.push("/");
           }else {

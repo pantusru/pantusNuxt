@@ -55,10 +55,10 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter,PageFilter, SubmitFilter],
   async fetch({ query, store, getters, commit, rootGetters }) {
     await Promise.all([
-      store.dispatch("Products/_ProductAll"), // Временная хуйта!
-      // store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
-      // store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
-      // store.dispatch("Brand/BrandAll/_Brands"), // бренды
+      // store.dispatch("Products/_ProductAll"), // Временная хуйта!
+      store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
+      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
+      store.dispatch("Brand/BrandAll/_Brands"), // бренды
       store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ]);
     //   ПРОВЕРКА QUERY
@@ -145,6 +145,7 @@ export default {
       }
       // Запрос для получение товара
       console.log(this.form);
+      store.dispatch("Products/_ProductAll") // Временная хуйта!
     }
     //   ПРОВЕРКА QUERY
   },

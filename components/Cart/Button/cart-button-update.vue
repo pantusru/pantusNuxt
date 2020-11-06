@@ -9,7 +9,6 @@ export default {
   components: {BaseButton},
   methods:{
     updateCart(){
-      console.log(this.CartProduct);
       this.$store.commit("Cart/CartAll/SetCartActual");
     }
   },

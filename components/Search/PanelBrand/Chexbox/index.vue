@@ -1,6 +1,6 @@
 <template>
-      <b-form-checkbox 
-        :value="source.id" class="mb-2 fz-6">
+      <b-form-checkbox
+        :value="source.id" class="mb-2 fz-5_5">
         {{source.name}}
     </b-form-checkbox>
 </template>
@@ -12,7 +12,7 @@
       index: { // index of current item
         type: Number
       },
-      source: { 
+      source: {
         type: Object,
       }
     }

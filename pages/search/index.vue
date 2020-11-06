@@ -25,6 +25,12 @@
             <components v-bind:is="'productBlog'" :array="Products"/>
           </div>
           <b-pagination-nav
+            hide-ellipsis
+            first-number
+            last-number
+            limit="3"
+            hide-goto-end-buttons
+            size="sm"
             :value="$route.query.page || 1"
             :link-gen="linkGen"
             :number-of-pages="10"

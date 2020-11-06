@@ -46,7 +46,7 @@ input[type=number] {
     width: 20px;
 }
 .bnt-delete-selected{
-    top:25px;   
+    top:25px;
     right: 30px;
 }
 .h-150{
@@ -63,8 +63,11 @@ input[type=number] {
 .w-50px{
     width: 50px;
 }
-.left-42{
-    left: 42%;
+.w-100px{
+  width: 100px;
+}
+.left-30{
+    left: 30%;
 }
 .panelProductFilter{
     background: #fafafa;

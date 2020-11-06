@@ -15,15 +15,15 @@ export const mutations  =  {
 }
 export const actions = {
     /**
-     * #Запрос на получения всех категории 
+     * #Запрос на получения всех категории
      * @function  _Categories проверка на наличие, запрос, сохранения в vuex
-     */ 
+     */
     async _Categories({store,dispatch, commit, getters}){
         if(getters.GetCategories.length === 0){
             let  data = await dispatch("Categories/axios/_CategoriesStrAll", {} , { root: true });
-            dispatch("Catalog/All/_All" , data,{ root: true });
+            // dispatch("Catalog/All/_All" , data,{ root: true });
             commit("SetCategories", data);
-        }  
+        }
     }
 }
 export const getters = {

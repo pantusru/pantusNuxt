@@ -189,7 +189,7 @@ export default {
         await this.pushParamsFilter();
         await this.pushParamsSort();
         this.PushUrl();
-        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
+        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
       } else {
         this.$store.commit('SetcheckFilterClick', true)
       }

@@ -31,14 +31,14 @@ export const actions = {
     * @function _All -  доб свойства: CheckedType, Indeterminate, visible
     * @param {Array} data - массив фильтров с вложенностью
     */
-    // _All({commit, dispatch}, data){// первая иницилизация данных!
-    //     data.forEach(element => {
-    //         dispatch("_ChexboxAll", element);
-    //         if(element.children.length != 0){
-    //             dispatch("_All", element.children);
-    //         }
-    //     });
-    // },
+    _All({commit, dispatch}, data){// первая иницилизация данных!
+        data.forEach(element => {
+            dispatch("_ChexboxAll", element);
+            if(element.children.length != 0){
+                dispatch("_All", element.children);
+            }
+        });
+    },
     /**
     * #прогоняет массив сбрасывая свойства элементам
     * @function _AllChexbox -  свойствам: CheckedType, Indeterminate  задает значения false

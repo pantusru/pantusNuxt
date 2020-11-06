@@ -10,26 +10,28 @@ export const actions = {
     SetId_Url({ dispatch }, data) {
         // ПРОГОНЯЕМ ПРИМИНИМОСТИ
         for (let keyData in data.data) {
-            if (data.data[keyData].level === 0) {
+            if (data.data[keyData].level === 1) {
                 data.DataModel = data.data[keyData].children
-            } else if (data.data[keyData].level === 1) {
+            } else if (data.data[keyData].level === 2) {
                 data.MarkId = data.data[keyData].parentId;
                 data.DataGenerations = data.data[keyData].children;
             }
             // ПРогоняем ID с URL
             for (let keyId in data.id) {
                 if (data.data[keyData].id == data.id[keyId]) {// СОвпадение найдено
-                    if (data.data[keyData].level == 0) {// Приминимость 0 уровня
+                    if (data.data[keyData].level == 1) {// Приминимость 0 уровня
+                  console.log(data.data[keyData]);
                         dispatch("MarkaSet", {
                             link: data.data[keyData],
                         })
                     }
-                    else if (data.data[keyData].level == 1) {// Приминимость 1 уровня
+                    else if (data.data[keyData].level == 2) {// Приминимость 1 уровня
                         dispatch("ModelSet", {
                             link: data.data[keyData],
                             DataModel: data.DataModel,
                         })
-                    } else if (data.data[keyData].level == 2) {// Приминимость 2 уровня
+                    }
+                    else if (data.data[keyData].level == 3) {// Приминимость 2 уровня
                         dispatch("GenerationsSet", {
                             DataModel: data.DataModel,
                             MarkId: data.MarkId,

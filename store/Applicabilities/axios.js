@@ -11,7 +11,7 @@ export const actions = {
           await dispatch("_init_Applicabilities", {
             res: res,
             dataset: dataset,
-            TopParent: null,
+            TopParent: undefined,
           })
           return dataset;
         });
@@ -24,7 +24,7 @@ export const actions = {
    */
   _init_Applicabilities({dispatch} , data){
     data.res.forEach(async (array, index) =>{
-      if(array.parentId !== null && data.TopParent === null){
+      if(array.parentId !== null && data.TopParent === undefined){
         data.TopParent = array.parentId;
       }
       data.dataset.push({

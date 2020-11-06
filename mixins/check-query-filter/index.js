@@ -1,6 +1,6 @@
 export default {
     methods: {
-       async CheckQueryFilter() { 
+       async CheckQueryFilter() {
             if (this.$route.query != undefined) {
                 if (this.$route.query.minvalue != undefined) {
                     // ПРОВЕРКА МИНИМУМА

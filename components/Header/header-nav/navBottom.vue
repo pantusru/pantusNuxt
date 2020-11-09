@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <VueDropdown  class="d-flex d-lg-none"/>
     <b-nav class="d-none d-lg-flex align-items-center">
       <!-- Выплывающий список все запчасти -->
       <VueDropdown />

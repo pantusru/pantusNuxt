@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--  Кнопка купить если товара нету в корзине   -->
     <div class="d-lg-flex d-none justify-content-end">
       <base-button
         text="Купить"
@@ -7,6 +8,7 @@
         v-if="!userBasket"
         class="py-1 px-2">
         </base-button>
+      <!--  Кнопка купить если товар в корзине   -->
         <base-button
           v-else-if="userBasket"
           :text="text"
@@ -18,6 +20,7 @@
       <b-button v-if="userBasket"  @click="deleteCartProduct" class="border-0 text-danger ml-1 py-0  px-1 bg-transparent">X
       </b-button>
     </div>
+    <!--  Кнопка купить если товара нету в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">
       <base-button
         @click="ModalProduct()"
@@ -25,6 +28,7 @@
         class="py-1 px-2">
         <b-icon-cart-4></b-icon-cart-4>
       </base-button>
+      <!--  Кнопка купить если товар в корзине мобильная версия   -->
       <base-button
         v-else-if="userBasket"
         @click="ModalProduct()"
@@ -39,12 +43,10 @@
 </template>
 
 <script>
-// import mixitBuy from "@/mixins/Modal/buyProduct"
 import BaseButton from "@/components/base/base-button";
 
 export default {
   components: {BaseButton},
-  // mixins:[mixitBuy],
   data() {
     return {
       /**
@@ -75,7 +77,7 @@ export default {
   methods: {
     // Удалить товар с корзины
     deleteCartProduct() {
-      let index = this.CartProduct.findIndex(s => s.ProductOffer.id == this.LinkOffer.id);
+      let index = this.CartProduct.findIndex(s => s.ProductOffer.id === this.LinkOffer.id);
       this.userBasket = false;
       this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
     },

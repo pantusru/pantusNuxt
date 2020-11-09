@@ -1,19 +1,18 @@
 <template>
-    <b-col  cols="12" lg="2" sm="6" md="4" v-if="dataset.visible">
-        <b-alert :show="true"  variant="secondary"   >
-            <nuxt-link
-                :to="'/search?applicabilities=' + dataset.id" class="text-danger"
-            >
-                {{ dataset.name }}
-            </nuxt-link>
-        </b-alert>
-    </b-col>
+  <b-col cols="12" lg="2" sm="6" md="4" v-if="dataset.visible">
+    <nuxt-link
+      :to="'/search?applicabilities=' + dataset.id"
+      class="catalog-blog-link mb-2 d-block text-decoration fz-3"
+    >
+      {{ dataset.name }}
+    </nuxt-link>
+  </b-col>
 </template>
 
 <script>
 export default {
-    name: "applicabilities-blog-get",
-    props:["dataset"],
+  name: "applicabilities-blog-get",
+  props: ["dataset"],
 }
 </script>
 

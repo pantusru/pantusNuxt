@@ -30,17 +30,21 @@ export const actions = {
                     },
                     categories:[
                         {
+                          id:3,
                             name: "Прокладка",
                         },
                         {
+                            id:12,
                             name: "Двигатель",
                         }
                     ],
                     applicabilities:[
                         {
+                            id:3,
                             name: "Газ",
                         },
                         {
+                            id:5,
                             name: "Ваз",
                         }
                     ]

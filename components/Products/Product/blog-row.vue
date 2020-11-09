@@ -13,10 +13,13 @@
     <b-card-body class="py-0 ">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
-          <RowAtr name="Бренд" :link="'brand/' + Product.ProductCard.brand.id"
-                  :dataset="Product.ProductCard.brand.name"/>
+          <RowAtr
+            name="Бренд"
+            :link="'brand/' + Product.ProductCard.brand.id"
+            :dataset="Product.ProductCard.brand.name"
+          />
           <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original"/>
-          <RowAtr slots=true v-if="Product.ProductCard.applicabilities != undefined">
+          <RowAtr slots=true v-if="Product.ProductCard.applicabilities !== undefined">
             <template v-slot:header>
               <div class="mr-1 fz-6"><b>Применяемость</b></div>
               <nuxt-link :to="'applicabilities/' + Product.ProductCard.applicabilities[0].id"
@@ -37,13 +40,21 @@
           <RowAtr slots=true v-if="Product.ProductCard.ProductCardOem != undefined">
             <template v-slot:header>
               <div class="mr-1 fz-6"><b>ОЕМ</b></div>
-              <div class="text-right">{{ Product.ProductCard.ProductCardOem[0] }}</div>
+              <nuxt-link
+                :to="'search?name=' + Product.ProductCard.ProductCardOem[0]"
+                class="text-right text-576b77 text-decoration-none">
+                {{ Product.ProductCard.ProductCardOem[0] }}
+              </nuxt-link>
             </template>
             <template v-slot:body>
               <div
-                v-for="data in Product.ProductCard.ProductCardOem.slice(1,Product.ProductCard.ProductCardOem.length )"
+                v-for="data in Product.ProductCard.ProductCardOem.slice(1,Product.ProductCard.ProductCardOem.length)"
                 :key="data.id">
-                <div class="text-right text-576b77 ">{{ data }}</div>
+                <nuxt-link
+                  :to="'search?name=' + data"
+                  class="text-right text-576b77 text-decoration-none ">
+                  {{ data }}
+                </nuxt-link>
               </div>
             </template>
           </RowAtr>

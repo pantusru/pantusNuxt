@@ -1,15 +1,15 @@
 <template>
     <div :class="addClass">
         <label :for="name">{{ items }}</label>
-        <b-form-input v-if="slots== false"
+        <b-form-input v-if="slots === false"
             v-mask="Vmask"
-            :type="type" 
-            v-model.trim="$v.Form[name].$model" 
-            :id="name" 
+            :type="type"
+            v-model.trim="$v.Form[name].$model"
+            :id="name"
             size="sm">
         </b-form-input>
-        <slot v-if="slots == true">
-            
+        <slot v-if="slots === true">
+
         </slot>
         <div class="error-full" v-for="data in error" :key="data.id">
             <div class="error" v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"> {{data.text}} </div>

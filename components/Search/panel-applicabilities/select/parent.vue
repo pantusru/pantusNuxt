@@ -5,6 +5,19 @@
         {{ Applicabilities.filter((data) => data.id == PanelData)[0].name }}
       </span>
     </div>
+<!--    <ul class="overflow-100px">-->
+<!--      <panel-applicabilities-li-->
+<!--        v-show="show === true"-->
+<!--        @click="SetVuex(index,data.id)"-->
+<!--        v-for="(data, index) in Applicabilities"-->
+<!--        :key="data.id"-->
+<!--        :text="data.name"-->
+<!--        :dataset="PanelData"-->
+<!--        :id="data.id"-->
+<!--      >-->
+
+<!--      </panel-applicabilities-li>-->
+<!--    </ul>-->
     <b-form-select v-model="PanelData" :select-size="4" v-if="show === true">
       <template v-slot:first>
         <b-form-select-option
@@ -22,7 +35,9 @@
 
 <script>
 import { directive as onClickaway } from "vue-clickaway";
+// import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/option/panel-applicabilities-li";
 export default {
+  // components: {PanelApplicabilitiesLi},
   directives: {
     onClickaway: onClickaway,
   },
@@ -70,7 +85,13 @@ export default {
      * @param index - индекс  применяемость
      * @function SetVuex - Сохраняет потомков при их наличие в Data
      */
-    SetVuex(index) {
+    SetVuex(index, value) {
+        // this.$store.commit("Applicabilities/Panel/SetPanel", {
+        //   // Сохраняет во VUEX  SelectedMarka
+        //   id: this.PanelId,
+        //   value: value,
+        //   name: "SelectedMarka",
+        // });
       this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
         id: this.PanelId,
         value: this.Applicabilities[index].children,
@@ -91,7 +112,8 @@ export default {
 
     },
     hiddenForm(event){
-      if(event.target.className != "option-my"){
+      console.log(event.target.className)
+      if(event.target.className !== "option-my" || event.target.className !== "option-my activ-li"){
         this.show = false;
       }
     }

@@ -22,11 +22,11 @@
 <script>
 import mixitProps from "@/mixins/input/props/index"
 export default {
-    // created(){
-    //   if(this.User !== undefined && this.User.length !== 0 ){
-    //     // this.$v.Form[this.name].$model = this.User;
-    //   }
-    // },
+    created(){
+      if(this.User !== undefined && this.User.length !== 0 ){
+        this.$v.Form[this.name].$model = this.User;
+      }
+    },
     // watch:{
     //     value(){
     //         this.$v.Form[this.name].$touch();

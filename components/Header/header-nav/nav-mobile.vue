@@ -9,12 +9,10 @@
         <b-nav-item class="nav-item-mobile">Помощь</b-nav-item>
         <b-nav-item class="nav-item-mobile">Контакты</b-nav-item>
         <b-nav-item class="nav-item-mobile">Новинки</b-nav-item>
-        <b-nav-item>
-          <div class="nav-mobile-blog-tlf">
-            <b class="nav-mobile-link-tfl d-block"><a href="tel:88005558721" class="text-515151">8 (800) 555-87-21</a></b>
-            <span class="nav-mobile-text-tfl">Звонок по РФ -  бесплатный</span>
-          </div>
-        </b-nav-item>
+        <div class="nav-mobile-blog-tlf nav-item-mobile">
+          <b class="nav-mobile-link-tfl d-block"><a href="tel:88005558721" class="text-515151">8 (800) 555-87-21</a></b>
+          <span class="nav-mobile-text-tfl">Звонок по РФ -  бесплатный</span>
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -22,12 +20,12 @@
 
 <script>
 export default {
-name: "nav-mobile"
+  name: "nav-mobile"
 }
 </script>
 
 <style>
-#nav-collapse-mobile{
+#nav-collapse-mobile {
   padding-left: 15px;
   padding-top: 10px;
   position: absolute;
@@ -37,16 +35,20 @@ name: "nav-mobile"
   width: 80vw;
   left: 0;
 }
-.nav-mobile-link-tfl{
+
+.nav-mobile-link-tfl {
   font-size: 22px;
 }
-.nav-mobile-blog-tlf{
+
+.nav-mobile-blog-tlf {
   /*background: #eee;*/
 }
-.nav-mobile-text-tfl{
+
+.nav-mobile-text-tfl {
 
 }
-.nav-item-mobile{
+
+.nav-item-mobile {
 
 }
 </style>

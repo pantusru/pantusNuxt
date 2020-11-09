@@ -3,11 +3,11 @@
         no-caret
         id="my-nav-user"
         :text="userName"
-        toggle-class="nav-link-custom text-body"
+        toggle-class="nav-link-custom fz-5"
         center
     >
-        <b-dropdown-item class="fz-6" :to="data.to" v-for="data in links" :key="data.id">{{ data.text }}</b-dropdown-item>
-         <b-dropdown-item class="fz-6" @click="exitUser">Выход</b-dropdown-item>
+        <b-dropdown-item class="fz-5" :to="data.to" v-for="data in links" :key="data.id">{{ data.text }}</b-dropdown-item>
+         <b-dropdown-item class="fz-5" @click="exitUser">Выход</b-dropdown-item>
     </b-nav-item-dropdown>
 </template>
 

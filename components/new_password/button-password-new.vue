@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BaseButton from "@/components/Base/base-button";
+import BaseButton from "@/components/base/base-button";
 export default {
   name: "button-password-new",
   components: {BaseButton},

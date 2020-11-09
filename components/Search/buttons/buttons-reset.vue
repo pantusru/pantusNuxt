@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Reset from "@/mixins/ResetFilter/index"
+import Reset from "@/mixins/reset-filter/index"
 export default {
   mixins:[Reset],
   methods: {

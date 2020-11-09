@@ -29,10 +29,10 @@
 </template>
 
 <script>
-import Vpanel from "@/components/Search/PanelApplicabilities/Panel";
-import ButtonAdd from "@/components/Search/PanelApplicabilities/Button/ButtonAdd";
-import ButtonReset from "@/components/Search/PanelApplicabilities/Button/Reset";
-import ButtonSubmit from "@/components/Search/buttons/buttonSubmit";
+import Vpanel from "@/components/search/panel-applicabilities/panel";
+import ButtonAdd from "@/components/search/panel-applicabilities/button/button-add";
+import ButtonReset from "@/components/search/panel-applicabilities/button/reset";
+import ButtonSubmit from "@/components/search/buttons/button-submit";
 export default {
   name: "filter-applicabilities",
   data() {

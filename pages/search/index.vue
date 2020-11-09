@@ -1,30 +1,36 @@
 <template>
   <section class="mt-5">
-    <ModalImg />
-    <ModalBuy />
+    <ModalImg/>
+    <ModalBuy/>
     <div class="container">
-      <FilterApplicabilities />
+      <FilterApplicabilities/>
       <b-row>
         <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
-          <FilterForm />
+          <FilterForm/>
         </b-col>
         <b-col lg="9">
-          <MetkaFilter />
+          <MetkaFilter/>
           <b-table-simple
             class="text-center fz-5_5"
             v-if="componentsName != 'TableProduct'"
           >
-            <PanelVid class="panelProductFilter mb-0" />
+            <PanelVid class="panelProductFilter mb-0"/>
           </b-table-simple>
           <!-- Для ПК ВЕРСИИ -->
           <div class="d-none d-lg-block">
-            <components v-bind:is="componentsName" :array="Products" />
+            <components v-bind:is="componentsName" :array="Products"/>
           </div>
           <!-- Для Мобильных -->
           <div class="d-block d-lg-none">
-            <components v-bind:is="'productBlog'" :array="Products" />
+            <components v-bind:is="'productBlog'" :array="Products"/>
           </div>
           <b-pagination-nav
+            hide-ellipsis
+            first-number
+            last-number
+            limit="3"
+            hide-goto-end-buttons
+            size="sm"
             :value="$route.query.page || 1"
             :link-gen="linkGen"
             :number-of-pages="10"
@@ -38,24 +44,25 @@
 </template>
 
 <script>
-import PageFilter from "@/mixins/Page/filter"
-import ModalImg from "@/components/Modal/ProductImg";
-import ModalBuy from "@/components/Modal/buyProduct";
-import FilterApplicabilities from "@/components/Forms/filter-applicabilities";
-import PanelVid from "@/components/Search/ProductPanel/product-thead-get";
-import FilterForm from "@/components/Forms/fulter-products";
+import PageFilter from "@/mixins/page/filter"
+import ModalImg from "@/components/modal/product-img";
+import ModalBuy from "@/components/modal/buy-product";
+import FilterApplicabilities from "@/components/forms/filter-applicabilities";
+import PanelVid from "@/components/search/product-panel/product-thead-get";
+import FilterForm from "@/components/forms/fulter-products";
 import TableProduct from "@/components/table/table-product-get";
-import productBlog from "@/components/Func/product-blogs-get";
-import productRow from "@/components/Func/product-rows-get";
-import MetkaFilter from "@/components/Metka/Filter/catalog-metka-get";
-import ResetFilter from "@/mixins/ResetFilter/index";
+import productBlog from "@/components/func/product-blogs-get";
+import productRow from "@/components/func/product-rows-get";
+import MetkaFilter from "@/components/metka/filter/catalog-metka-get";
+import ResetFilter from "@/mixins/reset-filter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
-import SubmitFilter from "@/mixins/SearchSubmit/index"
+import SubmitFilter from "@/mixins/search-submit/index"
+
 export default {
-  mixins: [ResetFilter, CheckQueryFilter,PageFilter, SubmitFilter],
-  async fetch({ query, store, getters, commit, rootGetters }) {
+  mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
+  async fetch({query, store, getters, commit, rootGetters}) {
     await Promise.all([
-      // store.dispatch("Products/_ProductAll"), // Временная хуйта!
+      store.dispatch("Products/_ProductAll"), // Временная хуйта!
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
@@ -64,15 +71,14 @@ export default {
     //   ПРОВЕРКА QUERY
     if (query !== undefined) {
       this.form = {};
-      if(query.maxvalue !== undefined && query.minvalue !== undefined){      // ПРоверка МАКСИМУМА  + МИНИМУМА
-        if(query.maxvalue < query.minvalue){ // Минимальное больше максимального
+      if (query.maxvalue !== undefined && query.minvalue !== undefined) {      // ПРоверка МАКСИМУМА  + МИНИМУМА
+        if (query.maxvalue < query.minvalue) { // Минимальное больше максимального
           store.commit("formSearch/SetMaxValue", query.minvalue);
           store.commit("formSearch/SetMinValue", query.maxvalue);
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
           this.form.minvalue = store.getters["formSearch/GetMinValue"];
         }
-      }
-      else{ // Если одного нету
+      } else { // Если одного нету
         if (query.minvalue !== undefined) {// ПРОВЕРКА МИНИМУМА
           store.commit("formSearch/SetMinValue", query.minvalue);
           this.form.minvalue = store.getters["formSearch/GetMinValue"];
@@ -122,7 +128,7 @@ export default {
           data:
             store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-            ],
+              ],
           id: ids,
         });
 
@@ -140,12 +146,11 @@ export default {
         this.form.sort_name = store.getters["formSearch/GetSortName"];
         this.form.sort_type = store.getters["formSearch/GetSortType"];
       }
-      if(query.page != undefined){
-          this.form.page = query.page;
+      if (query.page != undefined) {
+        this.form.page = query.page;
       }
       // Запрос для получение товара
       console.log(this.form);
-      store.dispatch("Products/_ProductAll") // Временная хуйта!
     }
     //   ПРОВЕРКА QUERY
   },
@@ -167,34 +172,34 @@ export default {
     componentsName() {
       return this.$store.getters["getProductType"];
     },
-    checkFilterClick(){
+    checkFilterClick() {
       return this.$store.getters["GetcheckFilterClick"];
     }
   },
   created() { // КОстыль
-    let categories  = this.$store.getters["Categories/CategoriesAll/GetCategories"];
-      console.log("reset");
-      this.$store.dispatch(
-        "Catalog/All/_AllVisible",
-        this.$store.getters["Categories/CategoriesAll/GetCategories"]
-      );
+    let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
+    console.log("reset");
+    this.$store.dispatch(
+      "Catalog/All/_AllVisible",
+      this.$store.getters["Categories/CategoriesAll/GetCategories"]
+    );
     // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
-    watch: {
-      async $route() {
-        if(this.checkFilterClick === true){
-          console.log("Новый запрос");
-          await this.ResetNoApplicabilitiess();
-          await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
-          await this.CheckQueryFilter();
-          await this.pushParamsFilter();
-          await this.pushParamsSort();
-          this.PushUrl();
-        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары
-        }else{
-          this.$store.commit('SetcheckFilterClick', true)
-        }
-      },
+  watch: {
+    async $route() {
+      if (this.checkFilterClick === true) {
+        console.log("Новый запрос");
+        await this.ResetNoApplicabilitiess();
+        await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
+        await this.CheckQueryFilter();
+        await this.pushParamsFilter();
+        await this.pushParamsSort();
+        this.PushUrl();
+        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
+      } else {
+        this.$store.commit('SetcheckFilterClick', true)
+      }
+    },
   },
 };
 </script>

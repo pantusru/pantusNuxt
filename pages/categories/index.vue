@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import Categories from "@/components/Catalog/Categories/categories-blog-get"
-import Vinput from "@/components/Search/Panel/Input/index"
+import Categories from "@/components/catalog/categories/categories-blog-get"
+import Vinput from "@/components/search/panel/input/index"
 export default {
     provide(){
         return{

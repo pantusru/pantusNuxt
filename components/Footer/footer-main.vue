@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import footerPantusVue from "@/components/Footer/footer-pantus";
-import footerPaymentVue from "@/components/Footer/footer-payment";
-import footerDeliveryVue from "@/components/Footer/footer-delivery-get";
-import footerSocialVue from "@/components/Footer/footer-social";
+import footerPantusVue from "@/components/footer/footer-pantus";
+import footerPaymentVue from "@/components/footer/footer-payment";
+import footerDeliveryVue from "@/components/footer/footer-delivery-get";
+import footerSocialVue from "@/components/footer/footer-social";
 export default {
   name: "footer-main",
   components: {

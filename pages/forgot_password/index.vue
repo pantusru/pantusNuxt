@@ -11,8 +11,8 @@
 
 <script>
 import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validators'
-import MixinsError from "@/mixins/Form/forgotPassword/error"
-import MixinsValidations from "@/mixins/Form/forgotPassword/validator"
+import MixinsError from "@/mixins/form/forgot-password/error"
+import MixinsValidations from "@/mixins/form/forgot-password/validator"
 import VInput from "@/components/register/index"
 export default {
     mixins:[MixinsError,MixinsValidations],

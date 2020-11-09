@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import BaseButton from "@/components/Base/base-button";
+import BaseButton from "@/components/base/base-button";
 export default {
   name: "order-button-arrange",
   components: {BaseButton},

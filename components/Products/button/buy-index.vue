@@ -40,7 +40,7 @@
 
 <script>
 // import mixitBuy from "@/mixins/Modal/buyProduct"
-import BaseButton from "@/components/Base/base-button";
+import BaseButton from "@/components/base/base-button";
 
 export default {
   components: {BaseButton},

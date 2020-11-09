@@ -14,7 +14,7 @@
                     </b-td>
                     <b-td :rowspan="table.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">{{ table.ProductCard.sku.original }}</nuxt-link> </b-td>
                     <b-td :rowspan="table.productOffer.length+1" v-if="CheckAnalogs== false" class="d-none d-md-table-cell">
-                        <div class="w-50px">
+                        <div class="w-100px">
                             <ImgGetModal :product="table" />
                         </div>
                     </b-td>
@@ -23,7 +23,7 @@
                           {{ table.ProductCard.name }}
                         </nuxt-link>
                     </b-td>
-                    <b-td class="position-absolute border-0 left-42">
+                    <b-td class="position-absolute border-0 left-30">
                         <Chosen v-if="CheckAnalogs == false && CheckUser == true" :link="table" :id="table.ProductCard.id"/>
                     </b-td>
                 </b-tr>
@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import ImgGetModal from "@/components/Products/Product/Element/img"
-import PanelVid from "@/components/Search/ProductPanel/product-thead-get" // Панель
-import Chosen from "@/components/Metka/Chosen" // Метка избранный товар
-import BuyButton from "@/components/Products/Button/buyIndex" // Кнопка открыть модалку купить товар
+import ImgGetModal from "@/components/products/product/element/img"
+import PanelVid from "@/components/search/product-panel/product-thead-get" // Панель
+import Chosen from "@/components/metka/chosen" // Метка избранный товар
+import BuyButton from "@/components/products/button/buy-index" // Кнопка открыть модалку купить товар
 export default {
     components:{
         BuyButton,

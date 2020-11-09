@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import BuyButton from "@/components/Products/Button/buyIndex"
+import BuyButton from "@/components/products/button/buy-index"
 export default {
     props:{
         Linkoffset:{},

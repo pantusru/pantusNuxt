@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import mixitValid from "@/mixins/Form/order/contact/validator"
-import Contact from "@/components/Order/Form/contact"
-import Payment from "@/components/Order/Form/payment"
-import Dostavka from "@/components/Order/Form/dostavka"
-import Product from "@/components/Order/Form/product"
+import mixitValid from "@/mixins/form/order/contact/validator"
+import Contact from "@/components/order/form/contact"
+import Payment from "@/components/order/form/payment"
+import Dostavka from "@/components/order/form/dostavka"
+import Product from "@/components/order/form/product"
 export default {
     middleware:'CheckGuest',
     mixins:[mixitValid],

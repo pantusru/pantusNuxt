@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Mixin from "@/mixins/Modal/ProductImg"
+import Mixin from "@/mixins/modal/product-img"
 export default {
      mixins:[Mixin],
     props:{

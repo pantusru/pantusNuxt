@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import VInputV from "@/components/Search/Panel/Input/index"
-import Data from "@/components/Search/Panel/panel-data/index"
-import BaseTitleFilter from "@/components/Base/base-title-filter";
+import VInputV from "@/components/search/panel/input/index"
+import Data from "@/components/search/panel/panel-data/index"
+import BaseTitleFilter from "@/components/base/base-title-filter";
 // import ButtonFull from "./button/getfull"
 export default {
     props:["items", "ArrayData", "name" , "SetValue"],

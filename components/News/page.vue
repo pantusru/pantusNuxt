@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import VueBlogNews from "@/components/News/news-blog-get";
-import PageMixins from "@/mixins/Page/index";
+import VueBlogNews from "@/components/news/news-blog-get";
+import PageMixins from "@/mixins/page/index";
 export default {
   mixins: [PageMixins],
   props: {

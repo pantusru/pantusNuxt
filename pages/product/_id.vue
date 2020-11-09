@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Product from "@/components/Products/Product/index"
+import Product from "@/components/products/product/index"
 export default {
     async fetch({store}){
         await Promise.all([

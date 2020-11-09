@@ -4,18 +4,18 @@ export const actions = {
         * @function _ChexboxAll - Добавляет элементу массива свойства CheckedType, Indeterminate, visible
         * @param {Array} data. - ссылка на элемент
         */
-    _ChexboxAll({commit, dispatch} , data){ // все конфинги в false + visible в true + поиск высшего родителя
-        if(data.TopParent == undefined && data.parentId != undefined){
-            commit("Catalog/Chexbox/SetChecboxTopParent", {data:data, value: data.parentId}, { root: true });
-        }else{
-            commit("Catalog/Chexbox/SetChecboxTopParent", {data:data, value: data.TopParent}, { root: true });
-        }
+    _ChexboxAll({commit, dispatch} , data){ // all config в default
+        // if(data.TopParent == undefined && data.parentId != undefined){
+        //     commit("Catalog/Chexbox/SetChecboxTopParent", {data:data, value: data.parentId}, { root: true });
+        // }else{
+        //     commit("Catalog/Chexbox/SetChecboxTopParent", {data:data, value: data.TopParent}, { root: true });
+        // }
         commit("Catalog/Chexbox/SetChecboxCheckedType", {data:data, value: false}, { root: true });
         commit("Catalog/Chexbox/SetChecboxIndeterminate", {data:data, value: false}, { root: true });
         commit("Catalog/Visible/SetAllVisible", {data:data, value: true}, { root: true});
     },
     /**
-    * #Сброс данных chexbox
+    * #Сброс data chexbox
     * @function _ChexboxPush - свойствам CheckedType, Indeterminate, задает значения false
     * @param {Array} data - ссылка на элемент
     */
@@ -34,8 +34,8 @@ export const actions = {
     _All({commit, dispatch}, data){// первая иницилизация данных!
         data.forEach(element => {
             dispatch("_ChexboxAll", element);
-            if(element.childs.length != 0){
-                dispatch("_All", element.childs);
+            if(element.children.length != 0){
+                dispatch("_All", element.children);
             }
         });
     },
@@ -47,8 +47,8 @@ export const actions = {
     _AllChexbox({commit, dispatch, getters}, data){ // Reset and уход с страницы фильты
         data.forEach(element => {
             dispatch("_ChexboxPush", element);
-            if(element.childs.length != 0){
-                dispatch("_AllChexbox", element.childs);
+            if(element.children.length != 0){
+                dispatch("_AllChexbox", element.children);
             }
         });
     },
@@ -60,8 +60,8 @@ export const actions = {
     _AllVisible({commit, dispatch}, data){ // Reset visible
         data.forEach(element => {
             commit("Catalog/Visible/SetAllVisible", {data:element, value: true}, { root: true });
-            if(element.childs.length != 0){
-                dispatch("_AllVisible", element.childs);
+            if(element.children.length != 0){
+                dispatch("_AllVisible", element.children);
             }
         });
     },
@@ -73,8 +73,8 @@ export const actions = {
     async _AllChexboxId({commit, dispatch}, data){ // Найди ID chexbox у которых checked === true
         let IdChexbox = [];
         for (const key in data) {
-            if(data[key].childs.length != 0){
-                IdChexbox.push(await dispatch("_AllChexboxId", data[key].childs));
+            if(data[key].children.length != 0){
+                IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
             }
             else if(data[key].CheckedType === true){
                 IdChexbox.push(data[key].id);

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SearchSubmit from "@/mixins/SearchSubmit/index"
+import SearchSubmit from "@/mixins/search-submit/index"
 export default {
     mixins:[SearchSubmit],
     methods:{

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" variant="light">
+  <b-navbar variant="light" class="d-none d-lg-flex">
         <div class="container">
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import VueDropdown from "@/components/Header/Dropdown/Navtop"
+import VueDropdown from "@/components/header/dropdown/navtop"
 export default {
     name: "NavTop", 
     data(){

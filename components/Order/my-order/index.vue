@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import PageMixins from "@/mixins/Page/index";
-import MyOrderBLog from "@/components/Order/MyOrder/order-blog-get";
+import PageMixins from "@/mixins/page/index";
+import MyOrderBLog from "@/components/order/my-order/order-blog-get";
 export default {
   mixins: [PageMixins],
   computed: {

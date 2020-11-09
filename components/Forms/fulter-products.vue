@@ -48,11 +48,11 @@
 </template>
 
 <script>
-import VueRange from "@/components/Search/range";
-import Panel from "@/components/Search/Panel/index";
-import PanelBrand from "@/components/Search/PanelBrand/index";
-import Reset from "@/components/Search/buttons/buttonsReset";
-import Submit from "@/components/Search/buttons/buttonSubmit";
+import VueRange from "@/components/search/range";
+import Panel from "@/components/search/panel/index";
+import PanelBrand from "@/components/search/panel-brand/index";
+import Reset from "@/components/search/buttons/buttons-reset";
+import Submit from "@/components/search/buttons/button-submit";
 export default {
   name: "fulter-products",
   data() {

@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import shiptor from "@/components/Order/widget/shiptor";
-import cdek from "@/components/Order/widget/cdek";
+import shiptor from "@/components/order/widget/shiptor";
+import cdek from "@/components/order/widget/cdek";
 export default {
   name: "dostavka",
   components: {

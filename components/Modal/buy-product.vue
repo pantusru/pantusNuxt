@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import VInput from  "@/components/Products/Input/kolvo"
-import BaseButton from "@/components/Base/base-button";
+import VInput from  "@/components/products/input/kolvo"
+import BaseButton from "@/components/base/base-button";
 export default {
     data() {
         return {

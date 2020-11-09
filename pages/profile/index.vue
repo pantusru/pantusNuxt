@@ -48,11 +48,11 @@
 </template>
 <script>
 // УКАЗАТЬ mixit
-import mixinvalidator from "@/mixins/Form/profile/validator";
-import mixinError from "@/mixins/Form/profile/error";
-import ElementForm from "@/components/Profile/profile-input-get";
-import NavProfile from "@/components/Nav/Profile/index";
-import Submit from "@/components/Profile/profile-button-update";
+import mixinvalidator from "@/mixins/form/profile/validator";
+import mixinError from "@/mixins/form/profile/error";
+import ElementForm from "@/components/profile/profile-input-get";
+import NavProfile from "@/components/nav/profile/index";
+import Submit from "@/components/profile/profile-button-update";
 export default {
   middleware:'CheckGuest',
   provide() {

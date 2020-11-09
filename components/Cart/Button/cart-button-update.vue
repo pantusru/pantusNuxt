@@ -3,12 +3,13 @@
 </template>
 
 <script>
-import BaseButton from "@/components/Base/base-button";
+import BaseButton from "@/components/base/base-button";
 export default {
   name: "cart-button-update",
   components: {BaseButton},
   methods:{
     updateCart(){
+      console.log(this.CartProduct);
       this.$store.commit("Cart/CartAll/SetCartActual");
     }
   },

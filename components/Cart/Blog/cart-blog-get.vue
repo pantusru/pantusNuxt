@@ -58,11 +58,11 @@
 </template>
 
 <script>
-import mixit from "@/mixins/Input/CountProduct/emit"
-import vInput from "@/components/Products/Input/kolvo";
-import DeleteCart from "@/components/Cart/Button/cart-button-delete";
-import ImgGetModal from "@/components/Products/Product/Element/img";
-import BuyButton from "@/components/Products/Button/buyIndex";
+import mixit from "@/mixins/input/count-product/emit"
+import vInput from "@/components/products/input/kolvo";
+import DeleteCart from "@/components/cart/button/cart-button-delete";
+import ImgGetModal from "@/components/products/product/element/img";
+import BuyButton from "@/components/products/button/buy-index";
 export default {
   mixins:[mixit],
   name: "cart-blog-get",

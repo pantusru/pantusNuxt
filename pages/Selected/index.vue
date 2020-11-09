@@ -14,10 +14,10 @@
   </b-container>
 </template>
 <script>
-import ModalImg from "@/components/Modal/ProductImg";
-import ModalBuy from "@/components/Modal/buyProduct";
-import NavProfile from "@/components/Nav/Profile/index";
-import FuncComponents from "@/components/Func/product-rows-get";
+import ModalImg from "@/components/modal/product-img";
+import ModalBuy from "@/components/modal/buy-product";
+import NavProfile from "@/components/nav/profile/index";
+import FuncComponents from "@/components/func/product-rows-get";
 export default {
   middleware:'CheckGuest',
   async fetch({ store }) {

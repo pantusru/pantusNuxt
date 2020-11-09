@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import MyOrder from "@/components/Order/MyOrder/index";
-import NavProfile from "@/components/Nav/Profile/index";
+import MyOrder from "@/components/order/my-order/index";
+import NavProfile from "@/components/nav/profile/index";
 export default {
   async fetch({ store, dispatch }) {
     await store.dispatch("MyOrder/_MyOrderAll");

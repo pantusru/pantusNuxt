@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import OrderTableGet from "@/components/Order/MyOrder/order-table-get";
-import OrderButtonCancel from "@/components/Order/MyOrder/order-button-cancel";
+import OrderTableGet from "@/components/order/my-order/order-table-get";
+import OrderButtonCancel from "@/components/order/my-order/order-button-cancel";
 
 export default {
   components: {OrderButtonCancel, OrderTableGet},

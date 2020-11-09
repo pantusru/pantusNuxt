@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import mixinError from "@/mixins/Form/new_password/error"
-import mixinValidator from "@/mixins/Form/new_password/validator"
+import mixinError from "@/mixins/form/new_password/error"
+import mixinValidator from "@/mixins/form/new_password/validator"
 import form_input_password_change from "@/components/change_password/form_input_password_change";
 import ButtonPasswordNew from "@/components/new_password/button-password-new";
-import  NavProfile from  "@/components/Nav/Profile/index"
+import  NavProfile from  "@/components/nav/profile/index"
 export default {
   data() {
     return {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ProductRow from "@/components/Func/product-blogs-get"
+import ProductRow from "@/components/func/product-blogs-get"
     export default {
       components:{
         ProductRow,

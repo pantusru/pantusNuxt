@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import tdSort from "@/components/Search/ProductPanel/th-sort-get"
-import PanelVid from "@/components/Search/ProductPanel/index" // Панель
+import tdSort from "@/components/search/product-panel/th-sort-get"
+import PanelVid from "@/components/search/product-panel/index" // Панель
 export default {
     props:{
         CheckAnalogs:{

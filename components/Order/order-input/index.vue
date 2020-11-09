@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import mixitProps from "@/mixins/Input/Props/index"
+import mixitProps from "@/mixins/input/props/index"
 export default {
     // created(){
     //   if(this.User !== undefined && this.User.length !== 0 ){

@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Parent from "@/components/Search/PanelApplicabilities/Select/Parent";
-import Children from "@/components/Search/PanelApplicabilities/Select/Children";
+import Parent from "@/components/search/panel-applicabilities/select/parent";
+import Children from "@/components/search/panel-applicabilities/select/children";
 export default {
   methods: {
     DeletePanel() {

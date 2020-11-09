@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BlogCart from "@/components/Cart/Blog/cart-blog-get"
+import BlogCart from "@/components/cart/blog/cart-blog-get"
 export default {
   name:"cart-row-get",
     components:{

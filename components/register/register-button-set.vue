@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import  check_recaptcha from  "@/mixins/Form/check-recaptcha/index"
-import  vueRecaptcha from "@/components/Recaptcha/index"
+import  check_recaptcha from  "@/mixins/form/check-recaptcha/index"
+import  vueRecaptcha from "@/components/recaptcha/index"
 export default {
   mixins:[check_recaptcha],
   components:{

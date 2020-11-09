@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-import BlogRow from "@/components/Products/Product/blog-row"
+import BlogRow from "@/components/products/product/blog-row"
 export default {
     name: "product-rows-get",
     props:{

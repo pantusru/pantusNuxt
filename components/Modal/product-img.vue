@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import mixins from "@/mixins/Product/album"
+import mixins from "@/mixins/product/album"
 export default {
     mixins:[mixins],
     computed:{

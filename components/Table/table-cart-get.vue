@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import DeleteCart from "@/components/Cart/Button/cart-button-delete";
-import ImgModal from "@/components/Modal/ProductImg";
-import vInput from "@/components/Products/Input/kolvo";
-import mixinsEmit from "@/mixins/Input/CountProduct/emit"
-import mixinsImg from "@/mixins/Modal/ProductImg"
+import DeleteCart from "@/components/cart/button/cart-button-delete";
+import ImgModal from "@/components/modal/product-img";
+import vInput from "@/components/products/input/kolvo";
+import mixinsEmit from "@/mixins/input/count-product/emit"
+import mixinsImg from "@/mixins/modal/product-img"
 export default {
   mixins:[mixinsEmit,mixinsImg],
   data() {

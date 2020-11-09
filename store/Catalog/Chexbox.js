@@ -12,17 +12,17 @@ export const mutations = {
      * @param {Boolean} data.value - Значение на которое нужно поменять
      * @function SetChecboxCheckedType - Сохраняет третье состояние у checxbox
      */
-    SetChecboxIndeterminate(state, data) { // Сохраняет  состояние не определености checkbox true/false 
+    SetChecboxIndeterminate(state, data) { // Сохраняет  состояние не определености checkbox true/false
         data.data.Indeterminate = data.value;
     },
-    /**
-     * @param {Object} data.data -Ссылка на элемент cataloga который имеет вложеннность
-     * @param {Boolean} data.value - Значение на которое нужно поменять
-     * @function SetChecboxTopParent - Сохраняет высшего родителя у потомка
-     */
-    SetChecboxTopParent(state, data) { // Сохраняет  состояние не определености checkbox true/false 
-        data.data.TopParent = data.value;
-    },
+    // /**
+    //  * @param {Object} data.data -Ссылка на элемент cataloga который имеет вложеннность
+    //  * @param {Boolean} data.value - Значение на которое нужно поменять
+    //  * @function SetChecboxTopParent - Сохраняет высшего родителя у потомка
+    //  */
+    // SetChecboxTopParent(state, data) { // Сохраняет  состояние не определености checkbox true/false
+    //     data.data.TopParent = data.value;
+    // },
 }
 export const actions = {
     /**
@@ -48,7 +48,7 @@ export const actions = {
                 data.id = [data.id];
             }
             for (const keyId in data.id) { // Прогоняем массив Id которых нужно найди
-                if(arr[key].id == data.id[keyId]){ // Найден ID 
+                if(arr[key].id == data.id[keyId]){ // Найден ID
                     data.check = true;
                     commit("SetChecboxCheckedType", { data: arr[key], value: data.value });
                     if (arr[key].children.lenght != 0) {
@@ -78,8 +78,8 @@ export const actions = {
         }
         if (ParentID === true) { // ЕСТЬ РОДИТЕЛЬ!
             let Indeterminate;
-            let ChexboxTrue; 
-            if(valueState.CheckedType.length == 1){// Если 1 checkbox  
+            let ChexboxTrue;
+            if(valueState.CheckedType.length == 1){// Если 1 checkbox
                 ChexboxTrue = !valueState.Indeterminate[0] && valueState.CheckedType[0];  // нету 3 состояния но выбран этот элемент
                 Indeterminate = valueState.Indeterminate[0];
             }else{
@@ -87,8 +87,8 @@ export const actions = {
                     return element === true
                 });
                 ChexboxTrue = valueState.CheckedType.every(elem => { // ПРОВЕРКА ЧТО ВСЕ ПОТОМКИ TRUE
-                    return elem === true   
-                }); 
+                    return elem === true
+                });
             }
             if (ChexboxTrue) { // ВСЕ CHEXBOX ВЫБРАНЫ
                 return { CheckedType: true, Indeterminate: false };
@@ -104,7 +104,7 @@ export const actions = {
      * @param {Array} dataset.data - Массив элементов который нужно поменять
      * @param  {Boolean} dataset.value -  Значение на которое нужно поменять
      */
-    ChexboxChildren({ commit, dispatch }, dataset) { // ВСЕХ ПОТОМКАМ ВЫБРАННОГО ID СТАВИМ его значение 
+    ChexboxChildren({ commit, dispatch }, dataset) { // ВСЕХ ПОТОМКАМ ВЫБРАННОГО ID СТАВИМ его значение
         // ПРИНИМАЕТ DATA массив потомков и VALUE значения этим потомкам
         let data = dataset.data;
         data.forEach(element => {

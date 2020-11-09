@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BlogProduct from "@/components/Products/Popular/blog"
+import BlogProduct from "@/components/products/popular/blog"
 export default {
   name: "product-blogs-get",
     props:{

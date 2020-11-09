@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ChecboxBrand from '@/components/Search/PanelBrand/Chexbox/index'
+import ChecboxBrand from '@/components/search/panel-brand/chexbox/index'
 import VirtualList from 'vue-virtual-scroll-list'
 export default {
     watch:{

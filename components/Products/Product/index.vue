@@ -57,10 +57,10 @@
 
 <script>
 import Table from "@/components/table/table-product-get"
-import ModalBuy from "@/components/Modal/buyProduct"
+import ModalBuy from "@/components/modal/buy-product"
 import TableOffer from "@/components/table/table-offset-get"
-import Share from "@/components/Modal/share"
-import mixins from "@/mixins/Product/album"
+import Share from "@/components/modal/share"
+import mixins from "@/mixins/product/album"
 export default {
     mixins:[mixins],
     props:{

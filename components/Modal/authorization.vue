@@ -24,11 +24,11 @@
 
 <script>
 import {required} from 'vuelidate/lib/validators'
-import MixinsError from "@/mixins/Form/authorization/error"
-import check_recaptcha from "@/mixins/Form/check-recaptcha/index"
-import MixinsValidations from "@/mixins/Form/authorization/validator"
+import MixinsError from "@/mixins/form/authorization/error"
+import check_recaptcha from "@/mixins/form/check-recaptcha/index"
+import MixinsValidations from "@/mixins/form/authorization/validator"
 import VInput from "@/components/register/index"
-import vueRecaptcha from "@/components/Recaptcha/index"
+import vueRecaptcha from "@/components/recaptcha/index"
 
 export default {
   mixins: [MixinsError, MixinsValidations, check_recaptcha],

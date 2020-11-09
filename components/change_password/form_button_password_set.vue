@@ -7,7 +7,7 @@
 
 <script>
 import BaseAlert from "@/components/alert/base-alert";
-import BaseButton from "@/components/Base/base-button";
+import BaseButton from "@/components/base/base-button";
 
 export default {
   name: "form_button_password_set",

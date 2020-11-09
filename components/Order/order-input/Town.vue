@@ -15,7 +15,7 @@
 
 <script>
 import autocomplete from "@/components/vue-suggestion"
-import mixitProps from "@/mixins/Input/Props/index"
+import mixitProps from "@/mixins/input/props/index"
 export default {
     inject:["$v"],
     mixins:[mixitProps],

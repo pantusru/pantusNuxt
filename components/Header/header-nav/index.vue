@@ -8,7 +8,7 @@
       <!-- center -->
       <VButtonSearch/>
       <!-- right -->
-      <b-navbar-nav class="ml-0 ml-lg-auto flex-row fz-6">
+      <b-navbar-nav class="ml-0 ml-lg-auto flex-row">
         <div class="d-flex mr-lg-2 mr-4 align-items-center">
           <div class="icons-nav-w20">
             <img
@@ -16,14 +16,14 @@
               alt="Иконка пользователя"
             />
           </div>
-          <div class="d-flex flex-column ml-1" v-if="CheckUser === false">
+          <div class="d-flex flex-column ml-1 fz-5" v-if="CheckUser === false">
             <nuxt-link
               to=""
               v-b-modal.authorization
               class="text-secondary link-danger"
               >Вход</nuxt-link
             >
-            <nuxt-link to="/register" class="text-secondary link-danger"
+            <nuxt-link to="/register" class="text-secondary link-danger fz-5"
               >Регистрация</nuxt-link
             >
           </div>
@@ -40,9 +40,9 @@
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div>
-              <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
+              <span class="fz-5">Корзина</span><b class="fz-5" v-if="GetLength">: {{ GetLength }}</b>
             </div>
-            <strong v-if="stoimost !== 0">{{ stoimost }} р</strong>
+            <strong class="fz-5" v-if="stoimost !== 0">{{ stoimost }} р</strong>
           </div>
         </nuxt-link>
       </b-navbar-nav>
@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import VButtonSearch from "@/components/Header/header-button-search"
-import VueDropdown from "@/components/Header/Dropdown/Navbottom";
-import NavUser from "@/components/Header/Dropdown/NavUser";
-import ModalAuthorization from "@/components/Modal/authorization";
+import VButtonSearch from "@/components/header/header-button-search"
+import VueDropdown from "@/components/header/dropdown/navbottom";
+import NavUser from "@/components/header/dropdown/nav-user";
+import ModalAuthorization from "@/components/modal/authorization";
 export default {
   name: "NavIndex",
   components: {

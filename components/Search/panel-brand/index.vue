@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Data from "@/components/Search/PanelBrand/brands-data/index";
-import Vinput from "@/components/Search/PanelBrand/input/index";
-import BaseTitleFilter from "@/components/Base/base-title-filter";
+import Data from "@/components/search/panel-brand/brands-data/index";
+import Vinput from "@/components/search/panel-brand/input/index";
+import BaseTitleFilter from "@/components/base/base-title-filter";
 export default {
     props:["name", "SetChecbox", "GetName", "items", "GetChecbox"],
     data(){

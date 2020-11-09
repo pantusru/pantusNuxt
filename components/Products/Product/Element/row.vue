@@ -1,11 +1,11 @@
 <template>
 <b-col class="mb-2">
-        <div class="d-flex justify-content-between border-bottom" v-if="slots == false"> 
-                <div class="mr-1"> {{name}}</div> 
+        <div class="d-flex justify-content-between border-bottom" v-if="slots == false">
+                <div class="mr-1 "><b class="fz-6">{{name}}</b></div>
                 <!-- ЕСЛИ НЕ МОЖЕТ БЫТЬ МАССИВ -->
                 <div>
                     <div v-if="types == 'text'"> {{ dataset}} </div>
-                    <nuxt-link :to="link" v-if="types == 'link'"> {{ dataset}} </nuxt-link>
+                    <nuxt-link class="text-decoration-none text-576b77 fz-6" :to="link" v-if="types == 'link'"> {{ dataset}} </nuxt-link>
                 </div>
         </div>
         <div class=" d-flex justify-content-between border-bottom"  v-if="slots">

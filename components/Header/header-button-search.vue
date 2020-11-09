@@ -2,6 +2,7 @@
   <b-navbar-nav
     class="flex-row col-12 col-lg-7 order-4 order-lg-0 mt-2 mt-lg-0 align-items-center"
   >
+    <nav-mobile></nav-mobile>
     <input
       v-model="search"
       v-on:keyup.enter="SetSearch"
@@ -18,7 +19,7 @@
 </template>
 
 <script>
-import ResetFilter from "@/mixins/ResetFilter/index";
+import ResetFilter from "@/mixins/reset-filter/index";
 export default {
   mixins:[ResetFilter],
   computed: {
@@ -44,6 +45,7 @@ export default {
           },
         });
       }
+      console.log({name: this.search});
     },
   },
 };

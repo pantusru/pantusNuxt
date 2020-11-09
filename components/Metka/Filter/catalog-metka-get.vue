@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Metka from "@/components/Metka/Filter/index";
+import Metka from "@/components/metka/filter/index";
 
 export default {
   computed: {

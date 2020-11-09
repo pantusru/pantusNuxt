@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import mixitError from "@/mixins/Form/order/contact/error"
-import vInput from "@/components/Order/order-input/index"
-import Town from "@/components/Order/order-input/Town"
+import mixitError from "@/mixins/form/order/contact/error"
+import vInput from "@/components/order/order-input/index"
+import Town from "@/components/order/order-input/town"
 export default {
     mixins:[mixitError],
     components:{

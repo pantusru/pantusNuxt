@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import NewsPageIndex from "~/components/News/page"
+import NewsPageIndex from "~/components/news/page"
 export default {
     async fetch({query, store, getters,params}){
         await store.dispatch("News/NewsCategoriesPage/_NewsCategoriesPage", {page:query.page, id:params.id});

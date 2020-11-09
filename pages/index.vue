@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import Abvantage from "@/components/Home/Advantage"
-import ModalImg from "@/components/Modal/ProductImg";
-import ModalBuy from "@/components/Modal/buyProduct";
-import VueNewsIndex from "@/components/News/index";
-import VueProductsIndex from "@/components/Products/Popular/index";
+import Abvantage from "@/components/home/advantage"
+import ModalImg from "@/components/modal/product-img";
+import ModalBuy from "@/components/modal/buy-product";
+import VueNewsIndex from "@/components/news/index";
+import VueProductsIndex from "@/components/products/popular/index";
 export default {
   components: {
     VueNewsIndex,

@@ -67,7 +67,7 @@ export default {
             let Index  = this.$store.getters
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
                 (this.LinkOffer.id);
-                if(this.CheckCart == false){ //Добавить товар в корзину
+                if(this.CheckCart === false){ //Добавить товар в корзину
                     // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     let data = {};
                     data.kolvo = this.count;

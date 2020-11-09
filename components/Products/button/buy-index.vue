@@ -112,6 +112,7 @@ export default {
     for (const key in this.CartProduct) {
       if (this.CartProduct[key].ProductOffer.id === this.LinkOffer.id) {
         this.userBasket = true;
+        // Добавить Id товара-в-корзине и передавать его в модалку
         break;
       }
     }

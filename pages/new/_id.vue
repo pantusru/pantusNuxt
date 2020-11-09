@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import VueBlogNews from "@/components/News/news-blog-get"
+import VueBlogNews from "@/components/news/news-blog-get"
 export default {
     async fetch({query, store, getters,params}){
         await store.dispatch("News/NewsId/_NewsId", params.id);

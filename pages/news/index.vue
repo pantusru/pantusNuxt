@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import NewsCategoriesAll from "~/components/News/Categories/index"
-import NewsPageIndex from "~/components/News/page"
+import NewsCategoriesAll from "~/components/news/categories/index"
+import NewsPageIndex from "~/components/news/page"
 export default {
     async fetch({query, store, getters}){
         await Promise.all([

@@ -44,19 +44,19 @@
 </template>
 
 <script>
-import PageFilter from "@/mixins/Page/filter"
-import ModalImg from "@/components/Modal/ProductImg";
-import ModalBuy from "@/components/Modal/buyProduct";
-import FilterApplicabilities from "@/components/Forms/filter-applicabilities";
-import PanelVid from "@/components/Search/ProductPanel/product-thead-get";
-import FilterForm from "@/components/Forms/fulter-products";
+import PageFilter from "@/mixins/page/filter"
+import ModalImg from "@/components/modal/product-img";
+import ModalBuy from "@/components/modal/buy-product";
+import FilterApplicabilities from "@/components/forms/filter-applicabilities";
+import PanelVid from "@/components/search/product-panel/product-thead-get";
+import FilterForm from "@/components/forms/fulter-products";
 import TableProduct from "@/components/table/table-product-get";
-import productBlog from "@/components/Func/product-blogs-get";
-import productRow from "@/components/Func/product-rows-get";
-import MetkaFilter from "@/components/Metka/Filter/catalog-metka-get";
-import ResetFilter from "@/mixins/ResetFilter/index";
+import productBlog from "@/components/func/product-blogs-get";
+import productRow from "@/components/func/product-rows-get";
+import MetkaFilter from "@/components/metka/filter/catalog-metka-get";
+import ResetFilter from "@/mixins/reset-filter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
-import SubmitFilter from "@/mixins/SearchSubmit/index"
+import SubmitFilter from "@/mixins/search-submit/index"
 
 export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],

@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import Vinput from "@/components/Search/PanelBrand/input/index"
-import Brand from "@/components/Catalog/Brand/brand-blog-get"
-import PageMixins from "@/mixins/Page/index"
+import Vinput from "@/components/search/panel-brand/input/index"
+import Brand from "@/components/catalog/brand/brand-blog-get"
+import PageMixins from "@/mixins/page/index"
 export default {
     mixins:[PageMixins],
     async fetch({store, getters, commit , query}){

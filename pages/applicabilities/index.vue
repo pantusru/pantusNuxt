@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Applicabilities from "@/components/Catalog/Applicabilities/applicabilities-blog-get"
-import Vinput from "@/components/Search/Panel/Input/index"
+import Applicabilities from "@/components/catalog/applicabilities/applicabilities-blog-get"
+import Vinput from "@/components/search/panel/input/index"
 export default {
     async fetch({query, store, getters, commit}){
         await store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess");

@@ -26,7 +26,7 @@
   </b-row>
 </template>
 <script>
-import mixitProps from "@/mixins/Input/Props/index";
+import mixitProps from "@/mixins/input/props/index";
 export default {
   name: "form_input_password_change",
   inject: ["$v"],

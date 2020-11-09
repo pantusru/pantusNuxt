@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import mixitProps from "@/mixins/Input/Props/index"
+import mixitProps from "@/mixins/input/props/index"
 export default {
     mixins:[mixitProps],
     props:{

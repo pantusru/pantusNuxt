@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import MixinsError from "@/mixins/Form/register/error"
-import MixinsValidations from "@/mixins/Form/register/validator"
+import MixinsError from "@/mixins/form/register/error"
+import MixinsValidations from "@/mixins/form/register/validator"
 import VInput from "@/components/register/index"
 import radioForm from "@/components/register/register-radio-get"
 import Buttons from "@/components/register/register-button-set"

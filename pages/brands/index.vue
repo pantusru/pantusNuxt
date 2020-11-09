@@ -6,7 +6,7 @@
             :GetName="'Brand/BrandAll/GetBrand'"
             :placeholders="'Поиск по брендам'"
         />
-        <h1>Бренды</h1>
+      <base-title-catalog text="Бренды"></base-title-catalog>
                 <b-row class="mt-3 mt-lg-5">
                     <Brand
                         v-for="source in SearchElem"
@@ -14,7 +14,7 @@
                         :source="source" />
                 </b-row>
             <b-pagination-nav
-                v-if="CountPages != 1"
+                v-if="CountPages !== 1"
                 use-router
                 :number-of-pages="CountPages"
                 :link-gen="linkGen"
@@ -28,6 +28,7 @@
 import Vinput from "@/components/search/panel-brand/input/index"
 import Brand from "@/components/catalog/brand/brand-blog-get"
 import PageMixins from "@/mixins/page/index"
+import BaseTitleCatalog from "@/components/base/base-title-catalog";
 export default {
     mixins:[PageMixins],
     async fetch({store, getters, commit , query}){
@@ -59,6 +60,7 @@ export default {
         }
     },
     components:{
+      BaseTitleCatalog,
         Vinput,
         Brand,
     },

@@ -20,14 +20,4 @@ export default {
 </script>
 <style>
 
-.catalog-blog-name{
-  font-weight: 600;
-  font-size: 18px;
-}
-.catalog-blog-link{
-  color: #436174 !important;
-}
-.catalog-blog-link:hover{
-  text-decoration: none;
-}
 </style>

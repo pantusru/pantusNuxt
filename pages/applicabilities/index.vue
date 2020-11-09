@@ -5,7 +5,7 @@
             :data="dataset"
             :placeholders="'Поиск по применимостям'"
         />
-        <h1 class="mb-5">Применимости</h1>
+        <base-title-catalog text="Применимости"></base-title-catalog>
         <b-row>
             <Applicabilities :dataset="data" v-for="data in dataset" :key="data.id" />
         </b-row>
@@ -15,6 +15,7 @@
 <script>
 import Applicabilities from "@/components/catalog/applicabilities/applicabilities-blog-get"
 import Vinput from "@/components/search/panel/input/index"
+import BaseTitleCatalog from "@/components/base/base-title-catalog";
 export default {
     async fetch({query, store, getters, commit}){
         await store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess");
@@ -25,6 +26,7 @@ export default {
         }
     },
     components:{
+        BaseTitleCatalog,
         Vinput,
         Applicabilities
     },

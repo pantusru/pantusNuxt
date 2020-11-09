@@ -85,9 +85,9 @@ export default {
           value: value,
           name: this.NameSelected,
         });
-        if (this.NameData != undefined) { // Если ли потомки у панели
+        if (this.NameData !== undefined) { // Если ли потомки у панели
           this.checkChildrenData();
-          if (value.length == 1 && length == 1) { // Проверяка что нужно удалить все выбранные потомки
+          if (value.length === 1 && length === 1) { // Проверяка что нужно удалить все выбранные потомки
             this.$store.commit("Applicabilities/Panel/SetPanel", {// Сохраняет во VUEX Data потомка
               id: this.PanelId,
               value: [],
@@ -97,12 +97,12 @@ export default {
             this.PanelSelectedChildren.forEach((SelectedChildren, index) => {
               let check = false;
               for (const dataChildren in this.PanelDataChildren) {// Прогоняем отображаемые потомки
-                if (SelectedChildren == this.PanelDataChildren[dataChildren].id) { // Выбранный потомок
+                if (SelectedChildren === this.PanelDataChildren[dataChildren].id) { // Выбранный потомок
                   check = true;
                   break;
                 }
               }
-              if (check == false || this.PanelDataChildren.length == 0) {// ПРогоняем выбранные потомки
+              if (check === false || this.PanelDataChildren.length === 0) {// ПРогоняем выбранные потомки
                 this.$store.commit("Applicabilities/Panel/DeleteElementPanel", {// Удаляем PanelSelectedChildren через index
                   IdPanel: this.PanelId,
                   indexElement: index,
@@ -142,7 +142,7 @@ export default {
 
   methods: {
     hiddenForm(event) {
-      if (event.target.className != "option-my") {
+      if (event.target.className !== "option-my") {
         this.show = false;
       }
     },
@@ -151,7 +151,7 @@ export default {
       let dataset = [];
       this.Panel.forEach((id) => {
         // Прогоняем selected текущей панели
-        let elements = this.PanelData.filter((data) => data.id == id); // Находим в Data текущего selected где true
+        let elements = this.PanelData.filter((data) => data.id === id); // Находим в Data текущего selected где true
         elements[0].children.forEach((element) => {
           // Прогоняем всех потомков
           dataset.push(element);

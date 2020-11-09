@@ -5,7 +5,7 @@
             :data="dataset"
             :placeholders=" 'Поиск по категориям' "
         />
-         <h1 class="mb-5">Категории</h1>
+        <base-title-catalog text="Категории"></base-title-catalog>
          <b-card-group columns  class="column-count-1 column-count-sm-2 column-count-lg-4">
             <Categories  class="mb-3"
                 v-for="data in dataset"
@@ -19,6 +19,7 @@
 <script>
 import Categories from "@/components/catalog/categories/categories-blog-get"
 import Vinput from "@/components/search/panel/input/index"
+import BaseTitleCatalog from "@/components/base/base-title-catalog";
 export default {
     provide(){
         return{
@@ -29,6 +30,7 @@ export default {
         await store.dispatch("Categories/CategoriesAll/_Categories");
     },
     components:{
+      BaseTitleCatalog,
         Vinput,
         Categories
     },

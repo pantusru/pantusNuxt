@@ -9,23 +9,32 @@
             name="login"
             :items="'Логин (e-mail):'"
             :error="error.login"
+            :$v="$v"
           />
-          <ElementForm name="name" :items="'Имя:'" :error="error.name" />
+          <ElementForm
+            name="name"
+            :items="'Имя:'"
+            :error="error.name"
+            :$v="$v"
+          />
           <ElementForm
             name="surname"
             :items="'Фамилия:'"
             :error="error.surname"
+            :$v="$v"
           />
           <ElementForm
             name="patronymic"
             :items="'Отчество:'"
             :error="error.patronymic"
+            :$v="$v"
           />
           <ElementForm
             name="telephone"
             Vmask="+7(###) ###-##-##"
             :items="'Телефон:'"
             :error="error.telephone"
+            :$v="$v"
           />
           <h5>Пароли</h5>
           <ElementForm
@@ -33,14 +42,16 @@
             :items="'Пароль:'"
             :error="error.password"
             :type="'password'"
+            :$v="$v"
           />
           <ElementForm
             name="password2"
             :items="'Повторите пароль:'"
             :error="error.password2"
             :type="'password'"
+            :$v="$v"
           />
-          <Submit></Submit>
+          <Submit :$v="$v"></Submit>
         </b-form>
       </b-col>
     </b-row>
@@ -55,11 +66,11 @@ import NavProfile from "@/components/nav/profile/index";
 import Submit from "@/components/profile/profile-button-update";
 export default {
   middleware:'CheckGuest',
-  provide() {
-    return {
-      $v: this.$v,
-    };
-  },
+  // provide() {
+  //   return {
+  //     $v: this.$v,
+  //   };
+  // },
   mixins: [mixinvalidator, mixinError],
   components: {
     ElementForm,

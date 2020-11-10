@@ -1,38 +1,108 @@
 <template>
   <b-form class="mb-3">
-      <b-container>
-          <h3 class="mb-3">Зарегистрироваться как:</h3>
-            <radioForm  v-bind:buyer.sync="buyer" />
-            <b-form-group>
-                <VInput items="Фамилия:" name="surname" :error="error.surname"></VInput>
-                <VInput items="Имя:" name="name" :error="error.name"/>
-                <VInput items="Email:" name="email" :error="error.email"/>
-                <VInput type="password" items="Пароль:" name="password" :error="error.password"/>
-                <VInput type="password" items=" Повторите Пароль:" name="password2" :error="error.password2"/>
-                <VInput  Vmask="+7(###) ###-##-##" items="Мобильный телефон" name="telephone" :error="error.telephone">
+    <b-container>
+      <h3 class="mb-3">Зарегистрироваться как:</h3>
+      <radioForm v-bind:buyer.sync="buyer"/>
+      <b-form-group>
+        <VInput
+          items="Фамилия:"
+          name="surname"
+          :error="error.surname"
+          :$v="$v"
+        />
+        <VInput
+          items="Имя:"
+          name="name"
+          :error="error.name"
+          :$v="$v"
+        />
+        <VInput
+          items="Email:"
+          name="email"
+          :error="error.email"
+          :$v="$v"
+        />
+        <VInput
+          type="password"
+          items="Пароль:"
+          name="password"
+          :error="error.password"
+          :$v="$v"
+        />
+        <VInput
+          type="password"
+          items=" Повторите Пароль:"
+          name="password2"
+          :error="error.password2"
+          :$v="$v"
+        />
+        <VInput
+          Vmask="+7(###) ###-##-##"
+          items="Мобильный телефон"
+          name="telephone"
+          :error="error.telephone"
+          :$v="$v"
+        />
+      </b-form-group>
+      <b-form-group v-if="buyer === 'Wholesale'">
+        <VInput
+          :slots="true"
+          items="Страна:"
+          name="country" :error="error.country"
+          :$v="$v"
+        >
+          <MSelect :$v="$v" name="country"/>
+        </VInput>
+        <VInput
+          :slots="true"
+          items="Физический адрес"
+          name="address"
+          :error="error.address"
+          :$v="$v"
+        >
+          <b-form-textarea
+            v-model="$v.Form.address.$model"
+            no-resize
+            type="text"
+            id="address"
+            size="lg"
+          >
 
-                </VInput>
-            </b-form-group>
-            <b-form-group v-if="buyer === 'Wholesale'">
-                <VInput :slots="true" items="Страна:" name="country" :error="error.country">
-                    <MSelect name="country" />
-                </VInput>
-                <VInput :slots="true" items="Физический адрес" name="address" :error="error.address">
-                    <b-form-textarea   v-model="$v.Form.address.$model" no-resize type="text" id="address" size="lg"></b-form-textarea>
-                </VInput>
-                <VInput items="Название организации" name="organization" :error="error.organization"/>
-                <VInput Vmask="############"  items="Инн" name="inn" :error="error.inn">
-                </VInput>
-            </b-form-group>
-            <VInput :slots="true" name="checbox" :error="error.checbox">
-                <b-form-checkbox v-model="$v.Form.checbox.$model">
-                    <p>Я принимаю условия <nuxt-link to="">Соглашения сторон</nuxt-link> и соглашаюсь
-                        на обработку персональных данных, размещаемых на <nuxt-link to="">pantus.ru</nuxt-link>
-                    </p>
-                </b-form-checkbox>
-            </VInput>
-            <Buttons/>
-      </b-container>
+          </b-form-textarea>
+        </VInput>
+        <VInput
+          items="Название организации"
+          name="organization"
+          :error="error.organization"
+          :$v="$v"
+        />
+        <VInput
+          Vmask="############"
+          items="Инн" name="inn"
+          :error="error.inn"
+          :$v="$v"
+        />
+
+      </b-form-group>
+      <VInput
+        :$v="$v"
+        :slots="true"
+        name="checbox"
+        :error="error.checbox"
+      >
+        <b-form-checkbox
+          v-model="$v.Form.checbox.$model"
+        >
+          <p>Я принимаю условия
+            <nuxt-link to="">Соглашения сторон</nuxt-link>
+            и соглашаюсь
+            на обработку персональных данных, размещаемых на
+            <nuxt-link to="">pantus.ru</nuxt-link>
+          </p>
+        </b-form-checkbox>
+      </VInput>
+      <Buttons :$v="$v"/>
+    </b-container>
   </b-form>
 </template>
 
@@ -43,29 +113,30 @@ import VInput from "@/components/register/index"
 import radioForm from "@/components/register/register-radio-get"
 import Buttons from "@/components/register/register-button-set"
 import MSelect from "@/components/register/select"
-export default {
-    middleware:'CheckUser',
-    mixins:[MixinsError, MixinsValidations],
-    watch:{
-        $v(){ // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
 
-        }
-    },
-    components:{
-        VInput,
-        radioForm,
-        Buttons,
-        MSelect
-    },
-    provide(){
-        return{
-            $v: this.$v,
-        }
-    },
-    data() {
-        return {
-            buyer: "Retail",
-        }
+export default {
+  middleware: 'CheckUser',
+  mixins: [MixinsError, MixinsValidations],
+  watch: {
+    $v() { // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
+
     }
+  },
+  components: {
+    VInput,
+    radioForm,
+    Buttons,
+    MSelect
+  },
+  provide() {
+    return {
+      $v: this.$v,
+    }
+  },
+  data() {
+    return {
+      buyer: "Retail",
+    }
+  }
 }
 </script>

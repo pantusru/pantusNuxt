@@ -9,8 +9,20 @@
       </div>
     </template>
     <b-form>
-      <VInput addClass="mb-2 col-7" name="email" items="Логин" :error="error.email"/>
-      <VInput addClass="mb-2 col-7" type="password" items="Пароль:" name="password" :error="error.password"/>
+      <VInput
+        addClass="mb-2 col-7"
+        name="email" items="Логин"
+        :error="error.email"
+        :$v="$v"
+      />
+      <VInput
+        addClass="mb-2 col-7"
+        type="password"
+        items="Пароль:"
+        name="password"
+        :error="error.password"
+        :$v="$v"
+      />
     </b-form>
     <template v-slot:modal-footer>
       <b-button class="bg-danger border-0" @click="check">Войти</b-button>
@@ -32,11 +44,6 @@ import vueRecaptcha from "@/components/recaptcha/index"
 
 export default {
   mixins: [MixinsError, MixinsValidations, check_recaptcha],
-  provide() {
-    return {
-      $v: this.$v,
-    }
-  },
   components: {
     VInput,
     vueRecaptcha,
@@ -51,7 +58,7 @@ export default {
         this.$bvModal.hide('authorization');
       })
     },
-    reset() { // При закрытие комального окна удалить все данные
+    reset() { // При закрытие модального окна удалить все данные
       this.$v.Form.email.$model = "";
       this.$v.Form.password.$model = "";
       this.$v.$reset();

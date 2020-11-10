@@ -9,5 +9,6 @@ export default {
         Vmask: {
             default: null,
         },
-    } 
+      $v:{}
+    }
 }

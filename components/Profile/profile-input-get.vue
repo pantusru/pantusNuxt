@@ -1,35 +1,27 @@
 <template>
-  <b-row class="align-items-lg-center mb-2 flex-column flex-lg-row">
-    <b-col cols="8" lg=2 class="mr-4"
-      ><label :for="name"> {{ items }}</label></b-col
-    >
-    <b-col cols="12" lg="5">
-      <b-form-input
-        v-mask="Vmask"
-        :type="type"
-        v-model.trim="$v.Form[name].$model"
-        :id="name"
-        class="w-75"
-        size="sm"
-      >
-      </b-form-input>
-      <base-errors-valid :name="name" :error="error" :$v="$v"/>
-      <div class="error" v-if="name === 'password' && passwordCheck" >Пароль не совпадает с БД</div>
-    </b-col>
-  </b-row>
+  <base-input-valid
+    :name="name"
+    :items="items"
+    :error="error"
+    :type="type"
+    :Vmask="Vmask"
+    :$v="$v"
+  >
+    <div class="error" v-if="name === 'password' && passwordCheck" >Пароль не совпадает с БД</div>
+  </base-input-valid>
 </template>
 <script>
-import mixitProps from "@/mixins/input/props/index";
-import BaseErrorsValid from "@/components/base/base-errors-valid";
+import mixinsProps from "@/mixins/input/props/index";
+import BaseInputValid from "@/components/base/base-input-valid";
 export default {
-  components: {BaseErrorsValid},
-  inject: ["$v"],
+  components: {BaseInputValid},
+  // inject: ["$v"],
   created() {
     if (this.dataset !== undefined) {
       this.$v.Form[this.name].$model = this.dataset;
     }
   },
-  mixins: [mixitProps],
+  mixins: [mixinsProps],
   data() {
     return {
       nameSet: "User/SetFull",

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-button @click="NewsPassword" text="Изменить пароль"> </base-button>
+    <base-button @click="NewsPassword" text="Изменить пароль"></base-button>
     <base-alert text="Пароль изменен успешно" class="w-25" :get-alert="getAlert"></base-alert>
   </div>
 </template>
@@ -8,35 +8,38 @@
 <script>
 import BaseButton from "@/components/base/base-button";
 import BaseAlert from "@/components/alert/base-alert";
+
 export default {
   name: "button-password-new",
   components: {BaseAlert, BaseButton},
-  inject: ["$v"],
+  props: {
+    $v: {}
+  },
   data() {
     return {
       getAlert: false,
     }
   },
-  methods:{
-    ResetForm(){
-      this.$store.commit("SetFormNewsPassword" , false);
+  methods: {
+    ResetForm() {
+      this.$store.commit("SetFormNewsPassword", false);
       this.$v.Form.$model.password2 = "";
       this.$v.Form.$model.password = "";
       this.$v.Form.$model.str_password = "";
       this.$v.Form.$reset();
     },
-    async NewsPassword(){
+    async NewsPassword() {
       console.log(this.$v.Form);
       this.$v.Form.$touch();
-      if(!this.$v.Form.$error){ // Нету ошибок от валидации
-        let check_password =  await this.$store.dispatch("news-password/axios/_Check_Password_User",
-        this.$v.Form.$model.str_password);
-        if(check_password === true){// пароль совпадает
+      if (!this.$v.Form.$error) { // Нету ошибок от валидации
+        let check_password = await this.$store.dispatch("news-password/axios/_Check_Password_User",
+          this.$v.Form.$model.str_password);
+        if (check_password === true) {// пароль совпадает
           this.ResetForm();
           this.getAlert = true;
 
-        }else { // Пароль не совпадает
-          this.$store.commit("SetFormNewsPassword" , true);
+        } else { // Пароль не совпадает
+          this.$store.commit("SetFormNewsPassword", true);
         }
       }
     }

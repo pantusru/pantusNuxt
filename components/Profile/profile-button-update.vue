@@ -23,7 +23,9 @@ export default {
     BaseAlert,
     vueRecaptcha,
   },
-  inject: ["$v"],
+  props:{
+    $v:{}
+  },
   methods:{
     async SetDataUser() {
       // Временное решение

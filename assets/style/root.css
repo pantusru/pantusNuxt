@@ -1,3 +1,15 @@
 :root{
-
+  --top-nav-bg: #F7F7F7;
+  --top-nav-color: #4A4A4A;
+  --color-body: #555;
+  --bnt-search: #A0252C;
+  --nav-user-color: #777777;
+  --nav-user-color-hover: #CB444E;
+  --nav-main-color-hover: #EC0E1D;
+  --home-blog-title-color: #2E414D;
+  --home-blog-link-color: #6B6B6B;
+  --color-red: #9A001D;
+  --catalog-filter-brand-name-color:#576b77;
+  --catalog-filter-color-hover:#98001F;
+  --footer-color: #666;
 }

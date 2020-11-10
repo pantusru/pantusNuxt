@@ -29,7 +29,7 @@ export default {
             default: false,
         }
     },
-    inject:["$v"],
+    // inject:["$v"],
 }
 </script>
 

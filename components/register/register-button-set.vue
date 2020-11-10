@@ -11,11 +11,13 @@
 import  check_recaptcha from  "@/mixins/form/check-recaptcha/index"
 import  vueRecaptcha from "@/components/recaptcha/index"
 export default {
+  props:{
+    $v:{},
+  },
   mixins:[check_recaptcha],
   components:{
     vueRecaptcha
   },
-  inject: ["$v"],
   methods: {
     go() {
       this.$v.Form.$touch()

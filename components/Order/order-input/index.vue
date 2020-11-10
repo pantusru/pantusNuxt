@@ -5,7 +5,7 @@
             <b-form-input
                 v-mask="Vmask"
                 :type="type"
-                v-model.trim="this.$v.Form[this.name].$model"
+                v-model.trim="$v.Form[name].$model"
                 :id="name"
                 class="w-75"
                 size="sm">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import mixitProps from "@/mixins/input/props/index"
+import mixinsProps from "@/mixins/input/props/index"
 export default {
     // created(){
     //   console.log(this);
@@ -28,7 +28,7 @@ export default {
     //     // this.value= this.User;
     //   }
     // },
-    mixins:[mixitProps],
+    mixins:[mixinsProps],
     props:{
         addClass:{
             default: "mb-2"

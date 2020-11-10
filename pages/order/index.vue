@@ -14,7 +14,7 @@
         <b-row>
             <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
                 <h3 class="mb-3">Способ доставки</h3>
-                <Dostavka></Dostavka>
+                <Dostavka :$v="$v"></Dostavka>
             </b-col>
             <b-col cols="6" class="mt-lg-5 mt-3">
                 <Product :$v="$v"></Product>

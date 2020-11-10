@@ -14,7 +14,7 @@ export default {
     },
     methods:{
         formGo(){ // Отправить заказ
-            this.$v.Form.$touch();
+          this.$v.Form.$touch()
         }
     },
     computed:{
@@ -23,7 +23,10 @@ export default {
         },
         GetCostDostavka(){
           return this.$store.getters["Order/Form/GetCostDostavka"]
-        }
+        },
+      GetContact(){
+        return  this.$store.getters["Order/Form/GetContact"]
+      }
     }
 }
 </script>

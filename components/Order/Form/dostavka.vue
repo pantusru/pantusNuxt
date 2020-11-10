@@ -45,15 +45,13 @@ export default {
     shiptor,
     cdek,
   },
+  props:{
+    $v:{}
+  },
   data() {
     return {
       show_cdek: true,
       value: "",
-    }
-  },
-  watch:{
-    async value(value){
-      await this.$store.commit("Order/Form/SetDostavka", value);
     }
   },
   computed:{
@@ -68,6 +66,8 @@ export default {
       if(data.TownId !== undefined){
         this.$store.commit("Order/Form/SetFull", {name: "Town", value: data.Town});
         this.$store.commit("Order/Form/SetFull", {name: "TownId", value: data.TownId});
+        this.$store.commit("Order/Form/SetDostavka", this.value);
+        this.$v.Form.$model.Town = data.Town;
       }
     },
     WidgetShow(data){

@@ -21,7 +21,7 @@
         <!--   shiptor  -->
         <template v-if="data.nameWidget === 'shiptor_widget_show'">
           <b-col cols="3" class="cursor-pointer" :data-role="data.nameWidget">{{data.description}}</b-col>
-          <shiptor :text="data"/>
+<!--          <shiptor :text="data"/>-->
         </template>
 <!--        <template v-else-if="data.nameWidget = '' ">-->
 
@@ -32,25 +32,25 @@
         </template>
       </b-row>
     </b-form>
-    <cdek v-if="show_cdek"/>
+<!--    <cdek v-if="show_cdek"/>-->
   </div>
 </template>
 
 <script>
-import shiptor from "@/components/order/widget/shiptor";
-import cdek from "@/components/order/widget/cdek";
+// import shiptor from "@/components/order/widget/shiptor";
+// import cdek from "@/components/order/widget/cdek";
 export default {
   name: "dostavka",
   components: {
-    shiptor,
-    cdek,
+    // shiptor,
+    // cdek,
   },
   props:{
     $v:{}
   },
   data() {
     return {
-      show_cdek: true,
+      // show_cdek: true,
       value: "",
     }
   },

@@ -3,11 +3,15 @@
     <b-form>
       <form_input_password_change :error="error.password"
                                   :type="'password'" :name="'password'"
-                                  :items="'Введите пароль'"/>
+                                    :items="'Введите пароль'"
+                                  :$v="$v"
+      />
       <form_input_password_change :error="error.password2"
                                   :type="'password'" :name="'password2'"
-                                  :items="'Введите пароль еще раз'"/>
-      <form_button_password_set/>
+                                  :items="'Введите пароль еще раз'"
+                                  :$v="$v"
+      />
+      <form_button_password_set :$v="$v"/>
 
     </b-form>
   </b-container>
@@ -23,11 +27,6 @@ export default {
   name: "change_password",
   middleware: "change_password",
   mixins: [mixinValidator, mixinError],
-  provide() {
-    return {
-      $v: this.$v,
-    }
-  },
   components: {
     form_input_password_change,
     form_button_password_set

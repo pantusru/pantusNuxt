@@ -21,11 +21,24 @@ let all  = {
 }
 
 export default {
-    validations(){
+  mounted() {
+    console.log(this.$store.getters["User/FormData"]["name"]);
+  },
+  validations(){
         return{
             Form:{
                 ... all
             }
         }
+    },
+    data(){
+      return {
+        Form: {
+          name:  this.$store.getters["User/FormData"]["name"],
+          surname: this.$store.getters["User/FormData"]["surname"],
+          telephone: this.$store.getters["User/FormData"]["telephone"],
+          Town: this.$store.getters["User/FormData"]["Town"],
+        }
+      }
     }
 }

@@ -4,20 +4,20 @@
         <b-row>
             <b-col cols="12" lg="6" class="mb-3 mb-lg-0">
                 <h5 class="mb-2">Контактное лицо</h5>
-                <Contact class="pr-5"></Contact>
+                <Contact :$v="$v" class="pr-5"></Contact>
             </b-col>
             <b-col cols="12" lg="6">
-                <h3 class="mb-2">Споособ оплаты</h3>
+                <h3 class="mb-2">Способ оплаты</h3>
                 <Payment></Payment>
             </b-col>
         </b-row>
         <b-row>
             <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
-                <h3 class="mb-3">Споособ доставки</h3>
+                <h3 class="mb-3">Способ доставки</h3>
                 <Dostavka></Dostavka>
             </b-col>
             <b-col cols="6" class="mt-lg-5 mt-3">
-                <Product></Product>
+                <Product :$v="$v"></Product>
             </b-col>
         </b-row>
     </b-container>
@@ -44,11 +44,6 @@ export default {
         Payment,
         Dostavka,
         Product,
-    },
-    computed:{
-        Form(){
-            return this.$store.getters["Order/Form/GetContact"];
-        },
     },
     provide(){
         return{

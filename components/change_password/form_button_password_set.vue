@@ -10,9 +10,11 @@ import BaseAlert from "@/components/alert/base-alert";
 import BaseButton from "@/components/base/base-button";
 
 export default {
+  props:{
+    $v:{},
+  },
   name: "form_button_password_set",
   components: {BaseButton, BaseAlert},
-  inject: ["$v"],
   data() {
     return {
       variant: undefined,

@@ -9,9 +9,11 @@
 
 <script>
 export default {
-    inject:["$v"],
+    props:{
+      $v:{}
+    },
     methods:{
-        formGo(){
+        formGo(){ // Отправить заказ
             this.$v.Form.$touch();
         }
     },
@@ -19,9 +21,9 @@ export default {
         stoimost(){
             return this.$store.getters["Cart/CartAll/GetSymmaAll"]
         },
-      GetCostDostavka(){
+        GetCostDostavka(){
           return this.$store.getters["Order/Form/GetCostDostavka"]
-      }
+        }
     }
 }
 </script>

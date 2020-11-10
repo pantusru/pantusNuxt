@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
       <b-navbar-brand to="/"
-        ><img src="@img/logo.png" alt="Логотип сайта"
+      ><img src="@img/logo.png" alt="Логотип сайта"
       /></b-navbar-brand>
       <!-- center -->
       <VButtonSearch/>
@@ -21,33 +21,47 @@
               to=""
               v-b-modal.authorization
               class="text-secondary link-danger"
-              >Вход</nuxt-link
+            >Вход
+            </nuxt-link
             >
             <nuxt-link to="/register" class="text-secondary link-danger fz-5"
-              >Регистрация</nuxt-link
+            >Регистрация
+            </nuxt-link
             >
           </div>
           <div class="" v-if="CheckUser === true">
-            <NavUser :userName="User.surname + ' ' + User.name" />
+            <NavUser :userName="User.surname + ' ' + User.name"/>
           </div>
         </div>
-        <nuxt-link
-          to="/cart"
-          class="d-flex align-items-center link-decoration-none"
+        <!-- Корзина-->
+        <div
+          class="bg-danger position-relative"
+          @mouseenter="getDropCart = true"
+          @mouseleave="getDropCart =false"
         >
-          <div class="icons-nav-w20">
-            <img src="@img/icons/icon-shopping-cart.png" alt="" />
-          </div>
-          <div class="d-flex flex-column text-secondary pl-10px">
-            <div>
-              <span class="fz-5">Корзина</span><b class="fz-5" v-if="GetLength">: {{ GetLength }}</b>
+          <nuxt-link
+            to="/cart"
+            class="d-flex align-items-center link-decoration-none"
+          >
+            {{ getDropCart }}
+            <div
+              class="icons-nav-w20"
+            >
+              <img src="@img/icons/icon-shopping-cart.png" alt=""/>
             </div>
-            <strong class="fz-5" v-if="stoimost !== 0">{{ stoimost }} р</strong>
-          </div>
-        </nuxt-link>
+            <div class="d-flex flex-column text-secondary pl-10px">
+              <div>
+                <span class="fz-5">Корзина</span><b class="fz-5" v-if="GetLength">: {{ GetLength }}</b>
+              </div>
+              <strong class="fz-5" v-if="stoimost !== 0">{{ stoimost }} р</strong>
+            </div>
+            <dropdown-cart v-if="getDropCart"></dropdown-cart>
+          </nuxt-link>
+        </div>
+        <!-- Корзина-->
       </b-navbar-nav>
     </b-navbar>
-    <ModalAuthorization />
+    <ModalAuthorization/>
   </div>
 </template>
 
@@ -56,9 +70,17 @@ import VButtonSearch from "@/components/header/header-button-search"
 import VueDropdown from "@/components/header/dropdown/navbottom";
 import NavUser from "@/components/header/dropdown/nav-user";
 import ModalAuthorization from "@/components/modal/authorization";
+import DropdownCart from "@/components/header/dropdown/dropdown-cart";
+
 export default {
   name: "NavIndex",
+  data() {
+    return {
+      getDropCart: false,
+    }
+  },
   components: {
+    DropdownCart,
     ModalAuthorization,
     NavUser,
     VueDropdown,

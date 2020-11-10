@@ -1,21 +1,22 @@
 <template>
     <div>
+      <h2 class="d-lg-none">{{ dataset.ProductCard.name }}</h2>
         <b-row class="mt-5 mb-3" v-if="dataset !== undefined">
-            <b-col cols="12" sm="8" lg="5" class="d-flex flex-wrap">
+            <b-col cols="12" sm="8" lg="4" class="d-flex flex-wrap">
                 <!-- БЛОК с альбомом -->
-                <b-col cols="3" lg="6" class="">
-                    <b-img class="h-25 mb-3"  :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue"></b-img>
+                <b-col cols="3" class="">
+                    <b-img class="mb-3"  :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue"></b-img>
                     <b-img
                         :key="data.id"
                         v-for="(data,index) in dataset.ProductCard.album"
-                        class="h-25 mb-3"
+                        class="mb-3"
                         :src="data.url"
                         @click="MainUrl(index)"
                     />
                 </b-col>
                 <!-- БЛОК с альбомом -->
-                <b-col lg="6" cols="8">
-                    <div class="h-150">
+                <b-col cols="8">
+                    <div>
                         <b-img class="img-100 hover-img" :src="UrlMain"></b-img>
 <!--                        <ProductZoomer :base-images="UrlMain"/>-->
 
@@ -23,7 +24,7 @@
                 </b-col>
             </b-col>
             <b-col lg="7" cols="12">
-                <h2>{{ dataset.ProductCard.name }}</h2>
+                <h2 class="d-none d-lg-block">{{ dataset.ProductCard.name }}</h2>
                 <b-row class="mb-3">
                     <b-col cols="12" lg="4" class="mb-lg-0 mb-2">
                         Производитель: <span> {{ dataset.ProductCard.brand.name }}</span>

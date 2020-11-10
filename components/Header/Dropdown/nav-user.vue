@@ -24,6 +24,7 @@ export default {
                 {to:"/profile", text:"Личный кабинет"},
                 {to:"/my_orders", text:"История заказов"},
                 {to:"/selected", text:"Избранные товары"},
+                {to:"/new_password", text:"Изменить пароль"},
             ]
         }
     },

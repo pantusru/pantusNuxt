@@ -13,21 +13,16 @@
         size="sm"
       >
       </b-form-input>
-      <div class="error-full" v-for="data in error" :key="data.id">
-        <div
-          class="error"
-          v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
-        >
-          {{data.text}}
-        </div>
-      </div>
+      <base-errors-valid :name="name" :error="error" :$v="$v"/>
       <div class="error" v-if="name === 'password' && passwordCheck" >Пароль не совпадает с БД</div>
     </b-col>
   </b-row>
 </template>
 <script>
 import mixitProps from "@/mixins/input/props/index";
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 export default {
+  components: {BaseErrorsValid},
   inject: ["$v"],
   created() {
     if (this.dataset !== undefined) {

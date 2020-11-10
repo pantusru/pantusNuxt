@@ -11,18 +11,16 @@
                 size="sm">
             </b-form-input>
         </div>
-        <div class="error-full text-center">
-            <div class="error" v-for="data in error" :key="data.id">
-                <span v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty">{{data.text}} </span>
-            </div>
-        </div>
+        <base-errors-valid :name="name" :error="error" :$v="$v" />
     </div>
 </template>
 
 <script>
 import mixitProps from "@/mixins/input/props/index"
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 export default {
-    created(){
+  components: {BaseErrorsValid},
+  created(){
       if(this.User !== undefined && this.User.length !== 0 ){
         this.$v.Form[this.name].$model = this.User;
       }

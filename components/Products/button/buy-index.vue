@@ -55,6 +55,10 @@ export default {
        */
       userBasket: false,
       /**
+      * @property id корзины
+      **/
+      idCart:undefined,
+      /**
        * @type {String}
        * @property Есть ли товар в корзине
        */
@@ -113,6 +117,7 @@ export default {
       if (this.CartProduct[key].ProductOffer.id === this.LinkOffer.id) {
         this.userBasket = true;
         // Добавить Id товара-в-корзине и передавать его в модалку
+        // this.idCart = this.CartProduct.id
         break;
       }
     }

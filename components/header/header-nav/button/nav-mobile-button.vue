@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <b-navbar-toggle class="mr-3" target="nav-collapse-mobile"></b-navbar-toggle>
   </div>
 

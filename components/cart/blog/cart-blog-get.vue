@@ -49,9 +49,11 @@
                @kolvo="Setkolvo"
             />
           </div>
-          <div class="mt-3">Стоимость: <b>{{datasetProduct.ProductOffer.prices * datasetProduct.kolvo}} р</b></div>
+          <div class="mt-3">Стоимость:<b>{{datasetProduct.ProductOffer.prices * datasetProduct.kolvo}}р</b></div>
         </b-col>
-        <b-col class="text-right"><DeleteCart :index="index" /></b-col>
+        <b-col class="text-right">
+          <DeleteCart :index="index" />
+        </b-col>
       </b-row>
     </template>
   </b-card>

@@ -35,7 +35,7 @@
         </div>
         <!-- Корзина-->
         <div
-          class="bg-danger position-relative"
+          class="position-relative"
           @mouseenter="getDropCart = true"
           @mouseleave="getDropCart =false"
         >
@@ -43,7 +43,6 @@
             to="/cart"
             class="d-flex align-items-center link-decoration-none"
           >
-            {{ getDropCart }}
             <div
               class="icons-nav-w20"
             >

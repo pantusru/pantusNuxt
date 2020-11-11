@@ -3,6 +3,9 @@ export const state = () => ({
      * @property массив всех товаров в корзине
      */
     CartProduct: [],
+    /**
+     * @property проверка требуется ли отправить запрос на сервер об обновление корзины
+     */
     CartActual: true,
     // CheckCartCount: null,
 })
@@ -14,6 +17,9 @@ export const mutations  =  {
     SetCartProduct(store, data){
         store.CartProduct = data;
     },
+  /**
+   * #Изменить флаг корзина обновлена
+   */
     SetCartActual(store){
       store.CartActual = true;
     },

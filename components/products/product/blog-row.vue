@@ -2,7 +2,7 @@
   <b-card class="mb-4">
     <b-card-header header-class="border-0 bg-white p-0">
       <b-row class="align-items-center mb-3 justify-content-between">
-        <b-row class="col-5 align-items-center">
+        <b-row no-gutters class="col-5 align-items-center">
           <b-col cols="4">
             <ImgGetModal :product="Product"/>
           </b-col>
@@ -13,68 +13,63 @@
     <b-card-body class="py-0 ">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
+          <!--  Бренд  -->
           <RowAtr
             name="Бренд"
             :link="'brand/' + Product.ProductCard.brand.id"
             :dataset="Product.ProductCard.brand.name"
           />
-          <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original"/>
-          <RowAtr slots=true v-if="Product.ProductCard.applicabilities !== undefined">
-            <template v-slot:header>
-              <div class="mr-1 fz-6"><b>Применяемость</b></div>
-              <nuxt-link :to="'applicabilities/' + Product.ProductCard.applicabilities[0].id"
-                         class="text-right text-576b77 text-decoration-none">
-                {{ Product.ProductCard.applicabilities[0].name }}
-              </nuxt-link>
-            </template>
-            <template v-slot:body>
-              <div
-                v-for="data in Product.ProductCard.applicabilities.slice(1, Product.ProductCard.applicabilities.length)"
-                :key="data.id">
-                <nuxt-link class="text-right text-decoration-none text-576b77" :to="'applicabilities/' + data.id">
-                  {{ data.name }}
-                </nuxt-link>
-              </div>
-            </template>
-          </RowAtr>
-          <RowAtr slots=true v-if="Product.ProductCard.ProductCardOem != undefined">
-            <template v-slot:header>
-              <div class="mr-1 fz-6"><b>ОЕМ</b></div>
-              <nuxt-link
-                :to="'search?name=' + Product.ProductCard.ProductCardOem[0]"
-                class="text-right text-576b77 text-decoration-none">
-                {{ Product.ProductCard.ProductCardOem[0] }}
-              </nuxt-link>
-            </template>
-            <template v-slot:body>
-              <div
-                v-for="data in Product.ProductCard.ProductCardOem.slice(1,Product.ProductCard.ProductCardOem.length)"
-                :key="data.id">
-                <nuxt-link
-                  :to="'search?name=' + data"
-                  class="text-right text-576b77 text-decoration-none ">
-                  {{ data }}
-                </nuxt-link>
-              </div>
-            </template>
-          </RowAtr>
-          <RowAtr slots=true v-if="Product.ProductCard.categories != undefined">
-            <template v-slot:header>
-              <div class="mr-1 fz-6"><b>Категории</b></div>
-              <nuxt-link :to="'categories/' + Product.ProductCard.categories[0].id"
-                         class="text-right fz-5_5 text-decoration-none text-576b77">
-                {{ Product.ProductCard.categories[0].name }}
-              </nuxt-link>
-            </template>
-            <template v-slot:body>
-              <div v-for="data in Product.ProductCard.categories.slice(1, Product.ProductCard.categories.length)"
-                   :key="data.id">
-                <nuxt-link class="text-right text-decoration-none text-576b77" :to="'categories/' + data.id">
-                  {{ data.name }}
-                </nuxt-link>
-              </div>
-            </template>
-          </RowAtr>
+          <!--  Артикул  -->
+          <RowAtr
+            name="Артикул"
+            :dataset="Product.ProductCard.sku.original"
+          />
+          <!--  Применяемость  -->
+          <RowAtr v-if="Product.ProductCard.applicabilities !== undefined"
+                  name="Применяемость"
+                  :dataset="Product.ProductCard.applicabilities[0].name"
+                  :link="'search?applicabilities=' + Product.ProductCard.applicabilities[0].id"
+          />
+
+          <template v-if="Product.ProductCard.applicabilities !== undefined && Product.ProductCard.applicabilities.length > 1">
+            <RowAtr
+              v-for="data in Product.ProductCard.applicabilities.slice(1, Product.ProductCard.applicabilities.length)"
+              :key="data.id"
+              :dataset="data.name"
+              :link="'search?applicabilities=' + data.id"
+            />
+          </template>
+          <!--  ОЕМ  -->
+          <RowAtr
+            v-if="Product.ProductCard.ProductCardOem !== undefined"
+            name="ОЕМ"
+            :link="'search?name=' + Product.ProductCard.ProductCardOem[0]"
+            :dataset="Product.ProductCard.ProductCardOem[0]"
+          />
+          <template v-if="Product.ProductCard.ProductCardOem !== undefined && Product.ProductCard.ProductCardOem.length > 1">
+            <RowAtr
+              v-for="data in Product.ProductCard.ProductCardOem.slice(1, Product.ProductCard.ProductCardOem.length)"
+              :key="data"
+              :dataset="data"
+              :link="'search?name=' + data"
+            />
+          </template>
+          <!--  Категории  -->
+          <RowAtr
+            v-if="Product.ProductCard.categories !== undefined"
+            name="Категории"
+            :link="'search?categories=' + Product.ProductCard.categories[0].id"
+            :dataset="Product.ProductCard.categories[0].name"
+          />
+          <template v-if="Product.ProductCard.categories !== undefined && Product.ProductCard.categories.length > 1">
+            <RowAtr
+              v-for="data in Product.ProductCard.categories.slice(1, Product.ProductCard.categories.length)"
+              :key="data.id"
+              :dataset="data.name"
+              :link="'search?categories=' + data.id"
+            />
+          </template>
+
         </b-row>
         <b-row no-gutters class="justify-content-between flex-column col-12 col-lg-8">
           <TableOffset

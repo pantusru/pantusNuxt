@@ -34,13 +34,13 @@ export const actions = {
                             name: "Прокладка",
                         },
                         {
-                            id:12,
+                            id:282,
                             name: "Двигатель",
                         }
                     ],
                     applicabilities:[
                         {
-                            id:3,
+                            id:3140,
                             name: "Газ",
                         },
                         {

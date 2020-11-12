@@ -67,7 +67,6 @@ export const actions = {
      * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex
      */
     async _CartProduct({store,dispatch, commit, getters}){
-      console.log(getters.GetCartActual === false);
       console.log("11");
         if(getters.GetCartProduct.length === 0 || getters.GetCartActual === false ){
             let  data = await dispatch("Cart/axios/_CartProduct", {} , { root: true });

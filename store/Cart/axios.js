@@ -1,8 +1,9 @@
-export const actions = { 
+export const actions = {
     async _CartProduct(){
         let  product = [
             {
                 kolvo:4,
+                checkCount: false,
                 ProductCard:{
                     id: 30,
                     name: "Товар1",
@@ -34,6 +35,7 @@ export const actions = {
             },
             {
                 kolvo:7,
+                checkCount: false,
                 ProductCard:{
                     id: 30,
                     name: "Товар1",
@@ -63,9 +65,9 @@ export const actions = {
                     multiplicity: 1,
                 }
             },
-            
-            
+
+
         ];
     return product;
-    }  
+    }
 }

@@ -46,14 +46,16 @@ export default {
         return {
             close: false,
             count: "",
+            CartProduct: undefined,
         }
     },
     methods:{
         ShowModal(){
+          this.CartProduct = this.$store.getters
+            ["Cart/CartAll/GetCartProductId"]
+          (this.LinkOffer.id)[0];
             if(this.CheckCart === true){// Есть в корзине
-                this.count = this.$store.getters
-                    ["Cart/CartAll/GetCartProductId"]
-                    (this.LinkOffer.id)[0].kolvo
+                this.count = this.CartProduct.kolvo
 
             }else{// Нет в корзине
                 this.count = this.LinkOffer.multiplicity;
@@ -97,6 +99,9 @@ export default {
         CheckCart(){
             return this.$store.getters["Modal/GetCheckCart"]
         },
+      CartProduct(){
+          return this.$store.getters["Cart/CartAll/GetCartProduct_offersIndex"](this.LinkOffer.id)
+      }
     },
 }
 </script>

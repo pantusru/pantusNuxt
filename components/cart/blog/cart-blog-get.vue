@@ -46,7 +46,7 @@
               :multiplicity="datasetProduct.ProductOffer.multiplicity"
               :kolvoProps="datasetProduct.kolvo"
               :array="datasetProduct"
-               @kolvo="Setkolvo"
+               @kolvo="Setkolvo($event, index)"
             />
           </div>
           <div class="mt-3">Стоимость:<b>{{datasetProduct.ProductOffer.prices * datasetProduct.kolvo}}р</b></div>

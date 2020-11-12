@@ -40,13 +40,15 @@
         :AddClassInput="'p-0 col-12 col-lg-4'"
         :AddClassForm="'justify-content-center'" :kolvoProps="data.item.kolvo"
         :showIcon="true"
-        :array="data.item" @kolvo="Setkolvo" />
+        :array="data.item"
+        @kolvo="Setkolvo($event, data.index)" />
       </template>
       <template v-slot:cell(symma)="data">
         {{ Number(data.item.kolvo) * data.item.ProductOffer.prices }} Р
       </template>
       <template v-slot:cell(Delete)="data">
         <DeleteCart :index="data.index" />
+        {{data.item.checkCount}}
       </template>
     </b-table>
   </div>

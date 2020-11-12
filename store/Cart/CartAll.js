@@ -49,11 +49,16 @@ export const mutations  =  {
     },
     /**
      * #Удаляет с Vuex товар из корзину
-     * @param {Array} data - index удаляемого товара
+     * @param {Array} data.index - index удаляемого товара
+     * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
      */
     DeleteCartProduct(store, data){
         store.CartProduct.splice(data, 1);
-        store.CartActual = false;
+        if(data.flag === true){// Сделать запрос
+        console.log("Запрос на обновление корзины");
+        }else {// Требовать обновить корзину
+          store.CartActual = false;
+        }
     }
 }
 export const actions = {
@@ -62,9 +67,12 @@ export const actions = {
      * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex
      */
     async _CartProduct({store,dispatch, commit, getters}){
-        if(getters.GetCartProduct.length === 0){
+      console.log(getters.GetCartActual === false);
+      console.log("11");
+        if(getters.GetCartProduct.length === 0 || getters.GetCartActual === false ){
             let  data = await dispatch("Cart/axios/_CartProduct", {} , { root: true });
             commit("SetCartProduct", data);
+            commit("SetCartActual");
         }
     }
 }

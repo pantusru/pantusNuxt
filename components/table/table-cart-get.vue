@@ -10,10 +10,10 @@
       thead-class="bg-light"
     >
       <template v-slot:cell(brand)="data">
-        {{ data.item.ProductCard.brand.name }}
+        <template v-if="data.item !== undefined">{{ data.item.ProductCard.brand.name }}</template>
       </template>
       <template v-slot:cell(sku)="data">
-        {{ data.item.ProductCard.sku.original }}
+        <template v-if="data.item !== undefined">{{ data.item.ProductCard.sku.original }}</template>
       </template>
       <template v-slot:cell(name)="data">
         {{ data.item.ProductCard.name }}

@@ -8,7 +8,7 @@
       <!-- center -->
       <VButtonSearch/>
       <!-- right -->
-      <b-navbar-nav class="ml-0 ml-lg-auto flex-row">
+      <b-navbar-nav class="ml-0 ml-lg-auto flex-row align-items-center">
         <div class="d-flex mr-lg-2 mr-4 align-items-center">
           <div class="icons-nav-w20">
             <img
@@ -54,8 +54,8 @@
               </div>
               <strong class="fz-5" v-if="stoimost !== 0">{{ stoimost }} р</strong>
             </div>
-            <dropdown-cart v-if="getDropCart"></dropdown-cart>
           </nuxt-link>
+          <dropdown-cart v-if="getDropCart"></dropdown-cart>
         </div>
         <!-- Корзина-->
       </b-navbar-nav>

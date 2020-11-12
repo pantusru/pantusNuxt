@@ -12,7 +12,7 @@ export default {
     },
     methods:{
         deleteProduct() {
-            this.$store.commit("Cart/CartAll/DeleteCartProduct", this.index);
+            this.$store.commit("Cart/CartAll/DeleteCartProduct", {index:this.index, flag:true});
         },
     }
 };

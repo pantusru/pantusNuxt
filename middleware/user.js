@@ -5,4 +5,7 @@ export default  async({route, store, getters , dispatch}) => {
             store.dispatch("Cart/CartAll/_CartProduct", {}, {root:true})
         ])
     }
+    else if(store.getters["Cart/CartAll/GetCartActual"] === false){
+      await  store.dispatch("Cart/CartAll/_CartProduct", {}, {root:true});
+    }
 }

@@ -68,20 +68,16 @@ export default {
                 ["Cart/CartAll/GetCartProduct_offersIndex"]
                 (this.LinkOffer.id);
                 if(this.CheckCart === false){ //Добавить товар в корзину
-                    // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
                     let data = {};
                     data.kolvo = this.count;
-                    data.ProductOffer = {};
-                    data.ProductOffer.id = this.LinkOffer.id;
-                    data.ProductOffer.prices = this.LinkOffer.prices;
-                    // УДАЛЯЕТСЯ ПОТОМ СЕЙЧАС ДЛЯ ТЕСТОВ
+                    data.ProductOffer = this.LinkOffer;
+                    data.ProductCard = this.LinkProducts;
                     this.$store.commit("Cart/CartAll/PushCartProduct" , data);
-                    this.$bvModal.hide('buy');
+                    // this.$bvModal.hide('buy');
                 }else{ // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
                     this.$store.commit("Cart/CartAll/SetKolvoProduct" , {index:Index ,value: this.count});
-                    // this.$store.commit("Cart/CartAll/SetCheckCartCount" ,Index);
-                    this.$bvModal.hide('buy');
                 }
+          this.$bvModal.hide('buy');
         },
     },
     components:{

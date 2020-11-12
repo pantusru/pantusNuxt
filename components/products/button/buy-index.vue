@@ -83,7 +83,7 @@ export default {
     deleteCartProduct() {
       let index = this.CartProduct.findIndex(s => s.ProductOffer.id === this.LinkOffer.id);
       this.userBasket = false;
-      this.$store.commit("Cart/CartAll/DeleteCartProduct", index);
+      this.$store.commit("Cart/CartAll/DeleteCartProduct", {index:index, flag:true});
     },
     /**
      * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно

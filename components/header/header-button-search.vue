@@ -20,7 +20,7 @@
 
 <script>
 import ResetFilter from "@/mixins/reset-filter/index";
-import BaseButton from "@/components/base/base-button";
+import BaseButton from "@/components/base/button/base-button";
 import NavMobileButton from "@/components/header/header-nav/button/nav-mobile-button";
 export default {
   components: {NavMobileButton, BaseButton},

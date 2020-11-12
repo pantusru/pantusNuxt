@@ -6,7 +6,7 @@
       {{ nav.text }}
     </span>
     <span class="w-100 text-right" v-if="value !== false">
-      <b-icon-arrow-right></b-icon-arrow-right>
+      <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>
     </span>
   </component>
 </template>

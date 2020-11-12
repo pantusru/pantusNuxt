@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import BaseButton from "@/components/base/base-button";
+import BaseButton from "@/components/base/button/base-button";
 import BaseAlert from "@/components/alert/base-alert";
 
 export default {

@@ -19,7 +19,7 @@
 <script>
 import Categories from "@/components/catalog/categories/categories-blog-get"
 import Vinput from "@/components/search/panel/input/index"
-import BaseTitleCatalog from "@/components/base/base-title-catalog";
+import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
     provide(){
         return{

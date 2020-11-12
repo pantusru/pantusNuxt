@@ -28,7 +28,7 @@
 import Vinput from "@/components/search/panel-brand/input/index"
 import Brand from "@/components/catalog/brand/brand-blog-get"
 import PageMixins from "@/mixins/page/index"
-import BaseTitleCatalog from "@/components/base/base-title-catalog";
+import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
     mixins:[PageMixins],
     async fetch({store, getters, commit , query}){

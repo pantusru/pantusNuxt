@@ -7,7 +7,7 @@
 
 <script>
 import BaseAlert from "@/components/alert/base-alert";
-import BaseButton from "@/components/base/base-button";
+import BaseButton from "@/components/base/button/base-button";
 
 export default {
   props:{

@@ -13,6 +13,11 @@
             <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/my_orders">История заказов</nuxt-link>
             <nuxt-link :active-class="ActiveClass" :class="classMain" to="/selected">Избранные товары</nuxt-link>
             <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/new_password"> Изменить пароль</nuxt-link>
+            <base-exit-user
+              components="div"
+              class="cursor-pointer"
+              :class="classMain"
+            />
           </nav>
         </div>
       </b-collapse>
@@ -21,7 +26,9 @@
 </template>
 
 <script>
+import BaseExitUser from "@/components/base/button/base-exit-user";
 export default {
+  components: {BaseExitUser},
   data() {
     return {
       ActiveClass: "font-weight-bold text-decoration",

@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import BaseButton from "@/components/base/base-button";
+import BaseButton from "@/components/base/button/base-button";
 
 export default {
   components: {BaseButton},

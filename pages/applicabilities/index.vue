@@ -15,7 +15,7 @@
 <script>
 import Applicabilities from "@/components/catalog/applicabilities/applicabilities-blog-get"
 import Vinput from "@/components/search/panel/input/index"
-import BaseTitleCatalog from "@/components/base/base-title-catalog";
+import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
     async fetch({query, store, getters, commit}){
         await store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess");

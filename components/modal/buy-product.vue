@@ -40,7 +40,7 @@
 
 <script>
 import VInput from  "@/components/products/input/kolvo"
-import BaseButton from "@/components/base/base-button";
+import BaseButton from "@/components/base/button/base-button";
 export default {
     data() {
         return {

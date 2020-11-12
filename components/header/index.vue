@@ -1,5 +1,5 @@
 <template>
-<header class="position-relative">
+<header>
     <VueNavTop/>
     <VueNav/>
     <VueNavBottom/>

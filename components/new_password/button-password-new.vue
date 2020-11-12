@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     ResetForm() {
-      this.$store.commit("SetFormNewsPassword", false);
+      this.$store.commit("SetFormApi", {data: "new_password",value:false});
       this.$v.Form.$model.password2 = "";
       this.$v.Form.$model.password = "";
       this.$v.Form.$model.str_password = "";
@@ -39,7 +39,7 @@ export default {
           this.getAlert = true;
 
         } else { // Пароль не совпадает
-          this.$store.commit("SetFormNewsPassword", true);
+          this.$store.commit("SetFormApi", {data: "new_password",value:true});
         }
       }
     }

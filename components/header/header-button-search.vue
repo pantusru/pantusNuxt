@@ -1,8 +1,8 @@
 <template>
   <b-navbar-nav
-    class="flex-row col-12 col-lg-7 order-4 order-lg-0 mt-2 mt-lg-0 align-items-center"
+    class="flex-row col-12 col-lg-7 order-4 order-lg-0 pr-0 mt-2 mt-lg-0 align-items-center"
   >
-  <nav-mobile-button></nav-mobile-button>
+  <nav-mobile-button class="mr-3 d-block d-lg-none"></nav-mobile-button>
     <input
       v-model="search"
       v-on:keyup.enter="SetSearch"
@@ -11,7 +11,7 @@
     />
     <button
       @click="SetSearch"
-      class="bg-danger px-2 py-2 border-danger rounded-right text-light"
+      class="bg-danger px-2 py-2 border-danger rounded-right text-light mr-lg-2 mr-0"
     >
       Найти
     </button>

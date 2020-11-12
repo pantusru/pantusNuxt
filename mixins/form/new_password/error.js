@@ -33,6 +33,10 @@ let password = [
     ifv: "maxLength",
     text: "Пароль должен состоять не более 25 символов ",
   },
+  {
+    ifv: "sameAsPassword",
+    text: "Старый и новый пароль не должны совпадать",
+  },
 ]
 let password2 = [
   {

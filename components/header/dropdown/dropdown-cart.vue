@@ -36,7 +36,7 @@
       data() {
         return {
           fields: [
-            { key: "sku", label: 'Артикуль'+'\r\n'+'Наименование'},
+            { key: "sku", label: 'Артикуль' + '\r\n' + 'Наименование'},
             { key: "price", label: "Цена" },
             { key: "count", label: "Кол-во, шт" },
             { key: "Delete", label: "" },

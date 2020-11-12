@@ -1,42 +1,45 @@
 <template>
   <component :is="component"
-    :to="nav.to"
-    class="nav-item-mobile">
-    <span @click="GetMainNav(value)">
-      {{ nav.text }}
-    </span>
-    <span class="w-100 text-right" v-if="value !== false">
-      <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>
-    </span>
+             :to="nav.to"
+             class="nav-item-mobile">
+    <div  @click="GetMainNav(value)" class="w-100 d-flex justify-content-between align-items-center cursor-pointer">
+      <span>
+        {{ nav.text }}
+      </span>
+      <span class="text-right" v-if="value !== false">
+        <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>
+      </span>
+    </div>
   </component>
 </template>
 
 <script>
 import mixinsNav from "@/mixins/nav-mobule/index";
+
 export default {
   name: "base-nav-mobule-link",
   mixins: [mixinsNav],
-  props:{
-    nav:{
-      request:true,
-      type:Object,
+  props: {
+    nav: {
+      request: true,
+      type: Object,
     },
-    value:{
+    value: {
       default: false,
-      type: String|Boolean,
+      type: String | Boolean,
     },
-    component:{
+    component: {
       default: "nuxt-link"
     }
-  }
+  },
 }
 </script>
 
 <style>
 
 .nav-item-mobile {
-  align-items: center;
-  display: flex;
+  /*align-items: center;*/
+  display: block;
   text-decoration: none !important;
   color: #000;
   padding: 15px 0;

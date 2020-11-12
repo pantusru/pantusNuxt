@@ -39,7 +39,6 @@ export default {
       this.$store.commit("User/AuthorizationFalse");
       this.$cookies.remove("Authorization");
       this.$router.push({name: "index"});
-
     }
   }
 }

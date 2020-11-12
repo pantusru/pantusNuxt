@@ -85,3 +85,7 @@ input[type=number] {
 .catalog-blog-link:hover{
   text-decoration: none;
 }
+a:hover{
+  color: initial;
+  text-decoration: none;
+}

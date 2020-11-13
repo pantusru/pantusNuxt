@@ -26,10 +26,9 @@
             <nuxt-link
               to=""
               v-b-modal.authorization
-              class="text-secondary link-danger"
-            >Вход
-            </nuxt-link
-            >
+              class="text-secondary link-danger">
+                Вход
+            </nuxt-link>
             <nuxt-link to="/register" class="text-secondary link-danger fz-5"
             >Регистрация
             </nuxt-link

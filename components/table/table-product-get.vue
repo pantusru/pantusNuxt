@@ -14,7 +14,7 @@
                     </b-td>
                     <b-td :rowspan="table.productOffer.length+1"> <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">{{ table.ProductCard.sku.original }}</nuxt-link> </b-td>
                     <b-td :rowspan="table.productOffer.length+1" v-if="CheckAnalogs== false" class="d-none d-md-table-cell">
-                        <div class="w-100px">
+                        <div class="w-50px">
                             <ImgGetModal :product="table" />
                         </div>
                     </b-td>
@@ -22,7 +22,7 @@
                         <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">
                           {{ table.ProductCard.name }}
                         </nuxt-link>
-                    </b-td>
+                    </b-td>/
                     <b-td class="position-absolute border-0 left-30">
                         <Chosen v-if="CheckAnalogs == false && CheckUser == true" :link="table" :id="table.ProductCard.id"/>
                     </b-td>

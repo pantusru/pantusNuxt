@@ -92,7 +92,7 @@
 <script>
 import ImgGetModal from "@/components/products/product/element/img"
 import BuyButton from "@/components/products/button/buy-index"
-import RowAtr from "@/components/products/product/element/row"
+import RowAtr from "@/components/products/product/element/product-element-row-get"
 import TableOffset from "@/components/table/table-offset-get"
 
 export default {

@@ -7,9 +7,25 @@ export const state = () => ({
      * @property проверка требуется ли отправить запрос на сервер об обновление корзины
      */
     CartActual: true,
+    CartUpdateCount: 0,
     // CheckCartCount: null,
 })
 export const mutations  =  {
+  /**
+   * #Сохраняет в Vuex количество измененных товаров
+   * @param {Array} data - количество измененных товаров
+   */
+  SetCartUpdateCount(store, data){
+    store.CartUpdateCount = data;
+  },
+  /**
+   * #Сохраняет в Vuex  flag измененного количество товара в корзине
+   * @param {Array} data.index - index товаров  в корзине
+   * @param {Array} data.value - значение flag
+   */
+    SetCartCheckCount(store, data){
+      store.CartProduct[data.index].checkCount = data.value;
+    },
     /**
      * #Сохраняет в Vuex товары в корзине
      * @param {Array} data - Массив товаров
@@ -53,13 +69,20 @@ export const mutations  =  {
      * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
      */
     DeleteCartProduct(store, data){
-        store.CartProduct.splice(data, 1);
+      if(store.CartProduct[data.index].checkCount === true){ // Проверка является ли удаленный товар с корзине измененным
+        store.CartUpdateCount = store.CartUpdateCount -1;
+      }
+      if( store.CartUpdateCount === 0){ // проверка если ли еще измененные товары
+          store.CartActual = true;
+      }
+        store.CartProduct.splice(data.index, 1);
         if(data.flag === true){// Сделать запрос
         console.log("Запрос на обновление корзины");
         }else {// Требовать обновить корзину
           store.CartActual = false;
         }
-    }
+    },
+
 }
 export const actions = {
     /**
@@ -67,7 +90,6 @@ export const actions = {
      * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex
      */
     async _CartProduct({store,dispatch, commit, getters}){
-      console.log("11");
         if(getters.GetCartProduct.length === 0 || getters.GetCartActual === false ){
             let  data = await dispatch("Cart/axios/_CartProduct", {} , { root: true });
             commit("SetCartProduct", data);
@@ -109,6 +131,10 @@ export const getters = {
     * @returns {Number} количество товара в корзине
      */
     GetLength: s=> s.CartProduct.length,
-
+  /**
+   * ### Вывод флаг требуется ли обновлять корзину
+   * @returns {Boolean} флаг обновления корзину
+   */
     GetCartActual: s => s.CartActual,
+    GetCartUpdateCount: s=> s.CartUpdateCount
 }

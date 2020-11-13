@@ -10,39 +10,27 @@
         </template>
             <ImgGetModal :product="datasetProduct" />
         <div class="mt-3">
-            <div class="d-flex justify-content-between mb-1 border-bottom">
-                <div><b class="fz-6">Бренд</b></div>
-                <nuxt-link class="text-576b77 text-decoration-none fz-5_5"
-                    :to="'/search?brand=' + datasetProduct.ProductCard.brand.id ">
-                    {{ datasetProduct.ProductCard.brand.name }}
-                </nuxt-link>
-            </div>
-            <div class="d-flex justify-content-between mb-1 border-bottom">
-                <div> <b class="fz-6">Артикуль</b> </div>
-                <nuxt-link
-                  :to="'/search?name=' + datasetProduct.ProductCard.sku.original"
-                  class="text-576b77 text-decoration-none fz-5_5"
-                >
-                  {{ datasetProduct.ProductCard.sku.original }}
-                </nuxt-link>
-            </div>
-            <div class="border-bottom d-flex justify-content-between">
-                <div><b class="fz-6">OEM</b></div>
-                <nuxt-link
-                  class="text-576b77 text-decoration-none fz-5_5"
-                  :to="'/search?name=' + datasetProduct.ProductCard.ProductCardOem[0]"
-                >
-                  {{datasetProduct.ProductCard.ProductCardOem[0] }}
-                </nuxt-link>
-            </div>
-            <div class="text-right">
-                <nuxt-link class="d-block text-576b77 text-decoration-none fz-5_5" :to="'/search?name=' + data"
-                    v-for="data in datasetProduct.ProductCard.ProductCardOem.slice(1,4)"
-                    :key="data.id"
-                >
-                    {{ data }}
-                </nuxt-link>
-            </div>
+          <product-element-row-get
+            name="Бренд"
+            :dataset="datasetProduct.ProductCard.brand.name"
+            :link="'/search?brand=' + datasetProduct.ProductCard.brand.id"
+          />
+          <product-element-row-get
+            name="Артикуль"
+            :dataset="datasetProduct.ProductCard.sku.original"
+            :link="'/search?name=' + datasetProduct.ProductCard.sku.original"
+          />
+          <product-element-row-get
+            name="OEM"
+            :link="'/search?name=' + datasetProduct.ProductCard.ProductCardOem[0]"
+            :dataset="datasetProduct.ProductCard.ProductCardOem[0]"
+          />
+          <product-element-row-get
+            v-for="data in datasetProduct.ProductCard.ProductCardOem.slice(1,4)"
+            :key="data.id"
+            :link="'/search?name=' + data"
+            :dataset="data"
+          />
         </div>
          <template v-slot:footer>
             <b-row align-h="between" class="mt-1">
@@ -65,12 +53,14 @@
 <script>
 import ImgGetModal from "@/components/products/product/element/img"
 import BuyButton from "@/components/products/button/buy-index"
+import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
 export default {
     name:"BlogProduct",
     props:{
         datasetProduct:{},
     },
     components:{
+      ProductElementRowGet,
         BuyButton,
         ImgGetModal
     },

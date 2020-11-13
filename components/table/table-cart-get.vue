@@ -48,7 +48,9 @@
       </template>
       <template v-slot:cell(Delete)="data">
         <DeleteCart :index="data.index" />
-        {{data.item.checkCount}}
+      </template>
+      <template v-slot:cell(Update)="data">
+        <cart-button-update-product :index="data.index" v-if="data.item.checkCount"></cart-button-update-product>
       </template>
     </b-table>
   </div>
@@ -60,6 +62,7 @@ import ImgModal from "@/components/modal/product-img";
 import vInput from "@/components/products/input/kolvo";
 import mixinsEmit from "@/mixins/input/count-product/emit"
 import mixinsImg from "@/mixins/modal/product-img"
+import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 export default {
   mixins:[mixinsEmit,mixinsImg],
   data() {
@@ -75,6 +78,7 @@ export default {
         { key: "count", label: "Кол-во, шт" },
         { key: "symma", label: "Сумма" },
         { key: "Delete", label: "" },
+        { key: "Update", label: "" },
       ],
     };
   },
@@ -84,6 +88,7 @@ export default {
     },
   },
   components: {
+    CartButtonUpdateProduct,
     vInput,
     ImgModal,
     DeleteCart,

@@ -4,17 +4,26 @@
 
 <script>
 import BaseButton from "@/components/base/button/base-button";
+
 export default {
   name: "cart-button-update",
   components: {BaseButton},
-  methods:{
-    updateCart(){
-      console.log(this.CartProduct);
+  methods: {
+    updateCart() {
+      // flag обновлена ли корзина
       this.$store.commit("Cart/CartAll/SetCartActual");
+      // Количество не обновленных товаров
+      this.$store.commit("Cart/CartAll/SetCartUpdateCount", 0);
+      for (const index in this.CartProduct) { // Убрать все flag не обновленных товаров
+        this.$store.commit("Cart/CartAll/SetCartCheckCount", {
+          index: index,
+          value: false,
+        });
+      }
     }
   },
-  computed:{
-    CartProduct(){
+  computed: {
+    CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"]
     },
   }

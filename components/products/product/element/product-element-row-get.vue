@@ -12,11 +12,11 @@
 export default {
   props: {
     name:{
-      type: String,
+      type: String| Number,
       default: undefined,
     },
     dataset: {
-      type: String,
+      type: String |Number,
       request:true,
     },
     link: {

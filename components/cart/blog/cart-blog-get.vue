@@ -1,5 +1,5 @@
 <template>
-  <b-card class="mb-3">
+  <b-card class="h-100 justify-content-between" header-class="d-flex">
     <template v-slot:header>
       <h6 class="mb-0">
         <nuxt-link
@@ -9,29 +9,30 @@
           {{ datasetProduct.ProductCard.name }}
         </nuxt-link>
       </h6>
+      <b-col class="text-right">
+        <DeleteCart :index="index"/>
+      </b-col>
     </template>
     <div>
-      <ImgGetModal :product="datasetProduct" />
+      <ImgGetModal :product="datasetProduct"/>
     </div>
     <div class="mt-3">
-      <div class="d-flex justify-content-between mb-1 border-bottom">
-        <div>Бренд</div>
-        <nuxt-link :to="'/search?brand=' + datasetProduct.ProductCard.brand.id">
-          {{ datasetProduct.ProductCard.brand.name }}
-        </nuxt-link>
-      </div>
-      <div class="d-flex justify-content-between mb-1 border-bottom">
-        <div>Артикуль</div>
-        <div>{{ datasetProduct.ProductCard.sku.original }}</div>
-      </div>
-       <div class="d-flex justify-content-between mb-1 border-bottom">
-        <div>В наличии:</div>
-        <div> {{ datasetProduct.ProductOffer.quantity }}</div>
-      </div>
-       <div class="d-flex justify-content-between mb-1 border-bottom">
-        <div>В Поставщик:</div>
-        <div> {{ datasetProduct.ProductOffer.supplier.name }}</div>
-      </div>
+      <product-element-row-get
+        name="Бренд:"
+        :dataset="datasetProduct.ProductCard.brand.name"
+      />
+      <product-element-row-get
+        name="Артикуль:"
+        :dataset="datasetProduct.ProductCard.sku.original"
+      />
+      <product-element-row-get
+        name="В наличии:"
+        :dataset="datasetProduct.ProductOffer.quantity"
+      />
+      <product-element-row-get
+        name="Поставщик:"
+        :dataset="datasetProduct.ProductOffer.supplier.name "
+      />
     </div>
     <template v-slot:footer>
       <b-row align-h="between" class="mt-1">
@@ -40,19 +41,19 @@
             <span class="mb-3">Цена:</span>
             <b>{{ datasetProduct.ProductOffer.prices }} Р</b>
           </div>
-          <div>
+          <div class="d-flex">
             <vInput
-              :AddClassInput="'col-6 col-sm-9'"
+              :AddClassInput="'col-7'"
               :multiplicity="datasetProduct.ProductOffer.multiplicity"
               :kolvoProps="datasetProduct.kolvo"
               :array="datasetProduct"
-               @kolvo="Setkolvo($event, index)"
+              @kolvo="Setkolvo($event, index)"
             />
+            <cart-button-update-product
+              v-if="datasetProduct.checkCount"
+              :index="index"/>
           </div>
-          <div class="mt-3">Стоимость:<b>{{datasetProduct.ProductOffer.prices * datasetProduct.kolvo}}р</b></div>
-        </b-col>
-        <b-col class="text-right">
-          <DeleteCart :index="index" />
+          <div class="mt-3">Стоимость:<b>{{ datasetProduct.ProductOffer.prices * datasetProduct.kolvo }}р</b></div>
         </b-col>
       </b-row>
     </template>
@@ -65,18 +66,23 @@ import vInput from "@/components/products/input/kolvo";
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
+import ProductElementRowGet from "@/components/products/product/element/product-element-row-get"
+import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
+
 export default {
-  mixins:[mixit],
+  mixins: [mixit],
   name: "cart-blog-get",
   props: {
     datasetProduct: {},
     index: {},
   },
   components: {
+    CartButtonUpdateProduct,
     BuyButton,
     ImgGetModal,
     DeleteCart,
     vInput,
+    ProductElementRowGet,
   },
 };
 </script>

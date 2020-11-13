@@ -1,0 +1,37 @@
+<template>
+  <base-button @click="UpdateProduct">Обновить</base-button>
+</template>
+
+<script>
+import BaseButton from "@/components/base/button/base-button";
+
+export default {
+  name: "cart-button-update-product",
+  components: {BaseButton},
+  props: {
+    index: {}
+  },
+  methods: {
+    UpdateProduct() {
+      this.$store.commit("Cart/CartAll/SetCartCheckCount", {
+        index: this.index,
+        value: false,
+      });
+      let count = this.GetCartUpdateCount - 1;
+      this.$store.commit("Cart/CartAll/SetCartUpdateCount", count);
+      if(this.GetCartUpdateCount === 0){
+        this.$store.commit("Cart/CartAll/SetCartActual");
+      }
+    },
+  },
+  computed:{
+    GetCartUpdateCount(){
+      return this.$store.getters["Cart/CartAll/GetCartUpdateCount"]
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>

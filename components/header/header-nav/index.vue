@@ -11,10 +11,16 @@
       <b-navbar-nav class="ml-0 ml-lg-auto flex-row align-items-center">
         <div class="d-flex mr-lg-2 mr-4 align-items-center">
           <div class="icons-nav-w20">
-            <img
+            <img class="d-none d-lg-block"
               src="@img/icons/icon-avatar.png"
               alt="Иконка пользователя"
             />
+            <nuxt-link to="profile">
+              <img class="d-block d-lg-none"
+                   src="@img/icons/icon-avatar.png"
+                   alt="Иконка пользователя"
+              />
+            </nuxt-link>
           </div>
           <div class="d-flex flex-column ml-1 fz-5" v-if="CheckUser === false">
             <nuxt-link
@@ -29,7 +35,7 @@
             </nuxt-link
             >
           </div>
-          <div class="" v-if="CheckUser === true">
+          <div class="d-lg-block  d-none" v-if="CheckUser === true">
             <NavUser :userName="User.surname + ' ' + User.name"/>
           </div>
         </div>
@@ -49,10 +55,10 @@
               <img src="@img/icons/icon-shopping-cart.png" alt=""/>
             </div>
             <div class="d-flex flex-column text-secondary pl-10px">
-              <div>
-                <span class="fz-5">Корзина</span><b class="fz-5" v-if="GetLength">: {{ GetLength }}</b>
+              <div class="d-lg-block  d-none fz-5 ">
+                <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
               </div>
-              <strong class="fz-5" v-if="stoimost !== 0">{{ stoimost }} р</strong>
+              <strong class="fz-5 d-lg-block  d-none" v-if="stoimost !== 0">{{ stoimost }} р</strong>
             </div>
           </nuxt-link>
           <dropdown-cart v-if="getDropCart"></dropdown-cart>

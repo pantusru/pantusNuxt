@@ -24,15 +24,19 @@ export default {
     }
   },
   methods: {
-    CancelOrder(data) {
+    async CancelOrder(data) {
       this.GetAlert = true;
-      if(false){ // Заказ отменен
+      let  checkApiOrder = await this.$store.dispatch("MyOrder/axios/_CancelMyOrder", data);
+      if(checkApiOrder){ // Заказ отменен
         this.variant = undefined;
         this.$store.commit("MyOrder/SetDataMyOrder", data);
       }else { // ошибка
         this.variant = "danger";
         this.text = "Невозможно отменить заказ"
       }
+      setTimeout(()=>{
+        this.GetAlert = false;
+      }, 5000)
     }
   }
 }

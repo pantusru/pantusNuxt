@@ -22,7 +22,7 @@
                         <nuxt-link class="text-576b77 link-danger" :to="table.ProductCard.id.toString()">
                           {{ table.ProductCard.name }}
                         </nuxt-link>
-                    </b-td>/
+                    </b-td>
                     <b-td class="position-absolute border-0 left-30">
                         <Chosen v-if="CheckAnalogs == false && CheckUser == true" :link="table" :id="table.ProductCard.id"/>
                     </b-td>

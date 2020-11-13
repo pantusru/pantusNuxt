@@ -14,7 +14,7 @@ export default {
     props:["dataset"],
     inject: ['ArrayData'],
     methods: {
-        checxboxGo(event){
+        checxboxGo(){
             this.$store.commit("Catalog/Chexbox/SetChecboxCheckedType", { data: this.dataset, value: !this.dataset.CheckedType });
             this.$store.commit("Catalog/Chexbox/SetChecboxIndeterminate", { data: this.dataset, value: false});
             this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll" ,
@@ -26,3 +26,6 @@ export default {
     },
 }
 </script>
+<style>
+
+</style>

@@ -12,21 +12,21 @@
                   class="ml-4 mb-0"
                   v-for="data in dataset.children"
                   :key="data.id">
-                  <Vchexbox  
-                    :dataset="data" 
+                  <Vchexbox
+                    :dataset="data"
                     v-if="data.children.length === 0"/>
                   <VueChexbox
                     :dataset="data"
-                    v-if="data.children.length != 0"
+                    v-if="data.children.length !== 0"
                   />
               </b-form-group>
           </b-collapse>
       </b-form-group>
       <Vchexbox :dataset="dataset" v-if="dataset.children.length === 0" />
-    </div>  
+    </div>
 </template>
 
-<script> 
+<script>
 import Vchexbox from "@/components/search/panel/chexbox/chexbox"
   export default {
     methods:{

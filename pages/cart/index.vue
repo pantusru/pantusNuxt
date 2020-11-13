@@ -4,7 +4,9 @@
         <b> Доступные способы доставки и оплаты вы сможете выбрать при оформлении заказа </b>
         <vTable class="d-none d-lg-block" v-if="CartLength !==0" />
         <VBlogCart class="d-flex d-lg-none" v-if="CartLength !==0"/>
-        <div class="mt-3" v-if="CartLength === 0"> <h3><b>Корзина пустая</b></h3></div>
+        <div class="mt-3" v-if="CartLength === 0">
+          <base-title-info text="Корзина пустая"></base-title-info>
+        </div>
         <vButton class="mt-3" v-if="CartActual === true"/>
         <CartButtonUpdate v-if="CartActual === false"/>
     </b-container>
@@ -16,8 +18,10 @@ import CartButtonUpdate from "@/components/cart/button/cart-button-update"
 import Modal from "@/components/modal/authorization"
 import vTable  from "@/components/table/table-cart-get"
 import VBlogCart from "@/components/cart/blog/cart-row-get"
+import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
     components:{
+      BaseTitleInfo,
         vTable,
         Modal,
         vButton,

@@ -13,7 +13,6 @@ export const mutations  =  {
    * @param {String} data.name - ссылка
    */
   SetDataMyOrder(store, data){
-    console.log(data);
     data.code = "ОТ"; // Отмена
     data.name = "Отменен"; // Отмена
   }

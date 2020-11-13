@@ -2,7 +2,7 @@
 a.link-danger:hover , button.link-danger:hover, .link-danger:hover {
     text-decoration: none;
     color: #e1002b!important;
-} 
+}
 a.link-d56971:hover, button.link-d56971:hover , .link-d56971:hover{
     color: #d56971!important;
 }
@@ -16,7 +16,7 @@ a.link-decoration-none:hover{
     text-decoration: underline;
 }
 button.link-light:hover{
-    color: var(--light)!important; 
+    color: var(--light)!important;
 }
 /* link bg */
 button.bg-link-danger:hover{
@@ -24,7 +24,7 @@ button.bg-link-danger:hover{
 }
 /* link border */
 .border-link-danger:hover{
-    border: 1px solid #e1002b; 
+    border: 1px solid #e1002b;
 }
 
 
@@ -52,13 +52,13 @@ button.bg-link-danger:hover{
     font-size: 1rem;
 }
 .fz-5{/* 14 в PC версии */
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
 }
 .fz-5_5{/* 12px в PC версии */
-    font-size: 0.7rem; 
+    font-size: 0.7rem;
 }
 .fz-6{/* 11px в PC версии */
-    font-size: 0.6875rem; 
+    font-size: 0.6875rem;
 }
 
 /* width */
@@ -72,7 +72,7 @@ button.bg-link-danger:hover{
 }
 .text-4a4a4a{
     color:#4a4a4a!important;
-} 
+}
 .text-555{
     color: #555!important;
 }
@@ -115,7 +115,7 @@ button.bg-link-danger:hover{
 }
 @media (min-width: 576px) {
     .column-count-sm-2{
-        column-count: 2;  
+        column-count: 2;
     }
   }
 @media (min-width: 992px) {
@@ -174,8 +174,9 @@ button.bg-link-danger:hover{
 .bottom-pos-0{
     bottom: 0;
 }
+*/
 .z-index-top{
     z-index: 9999;
-} */
+}
 
 /*DISPLAY*/

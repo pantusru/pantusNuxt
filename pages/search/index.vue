@@ -2,6 +2,7 @@
   <section class="mt-5">
     <ModalImg/>
     <ModalBuy/>
+    <share></share>
     <div class="container">
       <FilterApplicabilities/>
       <b-row>
@@ -12,17 +13,20 @@
           <MetkaFilter/>
           <b-table-simple
             class="text-center fz-5_5"
-            v-if="componentsName != 'TableProduct'"
+            v-if="componentsName !== 'TableProduct'"
           >
             <PanelVid class="panelProductFilter mb-0"/>
           </b-table-simple>
           <!-- Для ПК ВЕРСИИ -->
+          <div class="text-right">
+            <button-reply-show />
+          </div>
           <div class="d-none d-lg-block">
-            <components v-bind:is="componentsName" :array="Products"/>
+            <components :is="componentsName" :array="Products"/>
           </div>
           <!-- Для Мобильных -->
           <div class="d-block d-lg-none">
-            <components v-bind:is="'productBlog'" :array="Products"/>
+            <components :is="'productBlog'" :array="Products"/>
           </div>
           <b-pagination-nav
             hide-ellipsis
@@ -49,7 +53,7 @@ import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import FilterApplicabilities from "@/components/forms/filter-applicabilities";
 import PanelVid from "@/components/search/product-panel/product-thead-get";
-import FilterForm from "@/components/forms/fulter-products";
+import FilterForm from "@/components/forms/filter-products";
 import TableProduct from "@/components/table/table-product-get";
 import productBlog from "@/components/func/product-blogs-get";
 import productRow from "@/components/func/product-rows-get";
@@ -57,6 +61,8 @@ import MetkaFilter from "@/components/metka/filter/catalog-metka-get";
 import ResetFilter from "@/mixins/reset-filter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/search-submit/index"
+import Share from "@/components/modal/share";
+import ButtonReplyShow from "@/components/button-reply-show";
 
 export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
@@ -155,6 +161,8 @@ export default {
     //   ПРОВЕРКА QUERY
   },
   components: {
+    ButtonReplyShow,
+    Share,
     FilterForm,
     TableProduct,
     productBlog,

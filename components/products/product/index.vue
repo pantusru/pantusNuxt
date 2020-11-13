@@ -36,7 +36,7 @@
           </b-col>
         </b-row>
         <b-col cols="12" class="text-right p-0">
-          <b-icon-reply v-b-modal="'share'" class="h3 cursor-pointer link-danger"></b-icon-reply>
+          <button-reply-show/>
           <Share/>
         </b-col>
         <b-row no-gutters class="justify-content-between align-items-center mb-2">
@@ -68,6 +68,7 @@ import ModalBuy from "@/components/modal/buy-product"
 import TableOffer from "@/components/table/table-offset-get"
 import Share from "@/components/modal/share"
 import mixins from "@/mixins/product/album"
+import ButtonReplyShow from "@/components/button-reply-show";
 
 export default {
   mixins: [mixins],
@@ -83,6 +84,7 @@ export default {
     },
   },
   components: {
+    ButtonReplyShow,
     Share,
     TableOffer,
     ModalBuy,

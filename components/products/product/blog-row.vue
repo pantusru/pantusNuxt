@@ -6,7 +6,7 @@
           <b-col cols="4">
             <ImgGetModal :product="Product"/>
           </b-col>
-          <h2> {{ Product.ProductCard.name }}</h2>
+          <h2> <nuxt-link class="text-555" :to="'product/'+Product.ProductCard.id"> {{ Product.ProductCard.name }}</nuxt-link></h2>
         </b-row>
       </b-row>
     </b-card-header>

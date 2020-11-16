@@ -1,5 +1,5 @@
 <template>
-  <b-row no-gutters class="mb-3">
+  <b-row no-gutters class="mb-3" v-if="Metks.length !== 0">
     <Metka
       v-for="(data, index) in Metks"
       :key="data.id"

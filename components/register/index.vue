@@ -23,7 +23,7 @@ export default {
     mixins:[mixitProps],
     props:{
         addClass:{
-            default: "col-4 mb-2"
+            default: "col-lg-4 mb-2"
         },
         slots: {
             default: false,

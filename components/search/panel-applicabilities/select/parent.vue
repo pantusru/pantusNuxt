@@ -77,9 +77,7 @@ export default {
       },
       set(value) {
         console.log(value);
-        let  index  = 1;
-        let index2 = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value);
-        console.log(index2);
+        let index = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value);
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           // Сохраняет во VUEX  SelectedMarka
           id: this.PanelId,

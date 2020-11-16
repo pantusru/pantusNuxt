@@ -57,11 +57,16 @@
 
 <style>
 .dropdown-cart{
-  top: 41px;
+  padding: 20px;
+  top: 43px;
   width: 400px;
   position: absolute;
   right: -69%;
   z-index: 10;
   background-color: #fff;
+}
+.dropdown-cart th{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 </style>

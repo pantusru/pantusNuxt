@@ -4,6 +4,7 @@
       :value="value"
       :nav="nav"
       component="div"
+      flag="left"
     />
   </div>
 </template>

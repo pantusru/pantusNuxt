@@ -3,14 +3,14 @@
              :to="nav.to"
              class="nav-item-mobile">
     <div
-      @click="GetMainNav(value)" c
-      lass="w-100 d-flex justify-content-between align-items-center cursor-pointer">
+      @click="GetMainNav(value)" class="w-100 d-flex justify-content-between align-items-center cursor-pointer">
       <span>
         {{ nav.text }}
       </span>
-<!--      <span class="text-right" v-if="value !== false">-->
-<!--        <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>-->
-<!--      </span>-->
+      <span v-if="value !== false">
+        <b-icon-caret-right-fill v-if="flag === 'right'"  class="fz-5"></b-icon-caret-right-fill>
+        <b-icon-caret-left-fill  v-if="flag === 'left'" class="fz-5"></b-icon-caret-left-fill>
+      </span>
     </div>
   </component>
 </template>
@@ -22,6 +22,9 @@ export default {
   name: "base-nav-mobule-link",
   mixins: [mixinsNav],
   props: {
+    flag:{
+      default: 'right'
+    },
     nav: {
       request: true,
       type: Object,

@@ -1,5 +1,5 @@
 <template>
-  <b-card class="h-100 justify-content-between" header-class="d-flex">
+  <b-card class="h-100 justify-content-between" header-class="d-flex justify-content-between">
     <template v-slot:header>
       <h6 class="mb-0">
         <nuxt-link
@@ -9,9 +9,9 @@
           {{ datasetProduct.ProductCard.name }}
         </nuxt-link>
       </h6>
-      <b-col class="text-right">
+      <div class="text-right">
         <DeleteCart :index="index"/>
-      </b-col>
+      </div>
     </template>
     <div>
       <ImgGetModal :product="datasetProduct"/>
@@ -41,9 +41,9 @@
             <span class="mb-3">Цена:</span>
             <b>{{ datasetProduct.ProductOffer.prices }} Р</b>
           </div>
-          <div class="d-flex">
+          <div class="d-flex align-items-start justify-content-between">
             <vInput
-              :AddClassInput="'col-7'"
+              :AddClassInput="'col-5 col-sm-6 col-md-4'"
               :multiplicity="datasetProduct.ProductOffer.multiplicity"
               :kolvoProps="datasetProduct.kolvo"
               :array="datasetProduct"

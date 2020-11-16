@@ -1,5 +1,7 @@
 <template>
-  <base-button @click="UpdateProduct">Обновить</base-button>
+  <div>
+    <base-button @click="UpdateProduct"><b-icon-arrow-repeat/></base-button>
+  </div>
 </template>
 
 <script>
@@ -13,6 +15,7 @@ export default {
   },
   methods: {
     async UpdateProduct() {
+      console.log(this.$store.getters["Cart/CartAll/GetCartProduct"][this.index]);
       // await Запрос на изменение товара
       this.$store.commit("Cart/CartAll/SetCartCheckCount", {
         index: this.index,

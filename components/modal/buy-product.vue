@@ -44,6 +44,7 @@ import VInput from "@/components/products/input/kolvo"
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
+  name: "modal-buy-product",
   data() {
     return {
       close: false,

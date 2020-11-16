@@ -1,5 +1,5 @@
 <template>
-  <base-button class="py-1" @click="deleteProduct()" text="X"></base-button>
+  <base-button @click="deleteProduct()"><b-icon-x></b-icon-x></base-button>
 </template>
 
 <script>

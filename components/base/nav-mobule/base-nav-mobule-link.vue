@@ -2,13 +2,15 @@
   <component :is="component"
              :to="nav.to"
              class="nav-item-mobile">
-    <div  @click="GetMainNav(value)" class="w-100 d-flex justify-content-between align-items-center cursor-pointer">
+    <div
+      @click="GetMainNav(value)" c
+      lass="w-100 d-flex justify-content-between align-items-center cursor-pointer">
       <span>
         {{ nav.text }}
       </span>
-      <span class="text-right" v-if="value !== false">
-        <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>
-      </span>
+<!--      <span class="text-right" v-if="value !== false">-->
+<!--        <b-icon-caret-right-fill class="fz-5"></b-icon-caret-right-fill>-->
+<!--      </span>-->
     </div>
   </component>
 </template>
@@ -42,6 +44,6 @@ export default {
   display: block;
   text-decoration: none !important;
   color: #000;
-  padding: 15px 0;
+  padding: 10px 15px;
 }
 </style>

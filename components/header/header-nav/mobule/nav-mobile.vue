@@ -1,7 +1,5 @@
 <template>
   <base-nav-mobule v-if="NavMobile === 'main'">
-    <div
-      class="">
       <base-nav-mobule-link
         :value="dataset.value"
         :component="dataset.components"
@@ -9,6 +7,7 @@
         v-for="dataset in nav"
         :key="dataset.id"
       />
+    <div class="px-15px">
       <b
         class="nav-mobile-link-tfl d-block">
         <a href="tel:88005558721" class="text-515151">

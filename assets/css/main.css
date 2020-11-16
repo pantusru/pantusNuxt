@@ -65,7 +65,9 @@ button.bg-link-danger:hover{
 .w-1rem{
     width: 1rem;
 }
-
+w-100vw{
+  width: 100vw !important;
+}
 /* COLORS */
 .text-e1002b{
     color: #e1002b!important;

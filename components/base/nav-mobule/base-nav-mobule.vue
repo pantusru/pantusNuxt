@@ -22,8 +22,8 @@ export default {
 
 <style>
 .nav-mobile {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;*/
+  /*padding-right: 15px;*/
   position: absolute;
   background-color: #fff;
   width: 100%;

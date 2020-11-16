@@ -13,7 +13,7 @@ export const mutations  =  {
         store.Applicabilities = data;
     },
 }
-export const actions = { 
+export const actions = {
     /**
      * #Запрос на получения  применяемость
      * @function  _Applicabilitiess проверка на наличие, запрос, сохранения в vuex
@@ -23,8 +23,8 @@ export const actions = {
             let  data = await dispatch("Applicabilities/axios/_Applicabilities", {} , { root: true }); // ПОлучить данные
             // dispatch("Catalog/All/_All" , data,{ root: true }); //  Обработка данных в нужную структуру
             commit("SetApplicabilities", data);
-            
-        }  
+
+        }
     }
 }
 export const getters = {
@@ -33,6 +33,6 @@ export const getters = {
      * @returns {Array}  Массив всех  применяемость
      */
     GetApplicabilities: s => s.Applicabilities,
+    GetApplicabilitiesParentId: s => id => s.Applicabilities.findIndex(data => data.id === id),
 }
 
- 

@@ -16,9 +16,10 @@
       </div>
       <div v-else>Нету применяемости</div>
     </div>
+<!--          :select-size="4" -->
     <b-form-select
       multiple
-      :select-size="4"
+
       v-model="Panel"
       v-if="show && PanelData.length > 0"
     >

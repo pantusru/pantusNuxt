@@ -1,10 +1,10 @@
 export const state = () => ({
     /**
-     * @property Минимальная стоимость 
+     * @property Минимальная стоимость
      */
     MinValue: 0,
     /**
-     * @property Максимальная стоимость 
+     * @property Максимальная стоимость
      */
     MaxValue: 60000,
     /**
@@ -16,7 +16,7 @@ export const state = () => ({
      */
     SortType: "",
     /**
-     * @property Названия поля которое сортируем 
+     * @property Названия поля которое сортируем
      */
     SortName: "",
      /**
@@ -27,7 +27,7 @@ export const state = () => ({
 export const mutations  =  {
     /**
      * @function SetMinValue - Сохраняет минимальную стоимость
-     * @param {Number} data 
+     * @param {Number} data
      */
     SetMinValue(store, data){
         if(data > 0){
@@ -38,7 +38,7 @@ export const mutations  =  {
     },
     /**
      * @function SetMaxValue - Сохраняет максимальную стоимость
-     * @param {Number} data 
+     * @param {Number} data
      */
     SetMaxValue(store, data){
         if(data < 60000 && data > 0){ // Число максимальной стоимости
@@ -49,7 +49,7 @@ export const mutations  =  {
     },
     /**
      * @function SetBrandsChecked - Добавляет указанный бренд в выбранные
-     * @param {Number} data 
+     * @param {Number} data
      */
     SetBrandsChecked(store, data){
         store.BrandsChecked.push(data);
@@ -63,7 +63,7 @@ export const mutations  =  {
     },
     /**
      * @function SetBrandsChecked - Сохраняет бренды в выбранные
-     * @param {Number} data 
+     * @param {Number} data
      */
     SetAllBrandsChecked(store, data){
         store.BrandsChecked = data;
@@ -86,7 +86,7 @@ export const mutations  =  {
     },
     /**
      * @function RemoreBrandsChecked - Удаляет выбранный бренд по index
-     * @param {Number} data.id - Id Удаляемого Checked у Бренда 
+     * @param {Number} data.id - Id Удаляемого Checked у Бренда
      */
     RemoreBrandsChecked(store, data){
         let index = store.BrandsChecked.indexOf(data.id);

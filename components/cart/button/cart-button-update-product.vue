@@ -12,7 +12,8 @@ export default {
     index: {}
   },
   methods: {
-    UpdateProduct() {
+    async UpdateProduct() {
+      // await Запрос на изменение товара
       this.$store.commit("Cart/CartAll/SetCartCheckCount", {
         index: this.index,
         value: false,

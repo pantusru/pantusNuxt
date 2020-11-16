@@ -75,12 +75,12 @@ export const mutations  =  {
       if( store.CartUpdateCount === 0){ // проверка если ли еще измененные товары
           store.CartActual = true;
       }
-        store.CartProduct.splice(data.index, 1);
         if(data.flag === true){// Сделать запрос
         console.log("Запрос на обновление корзины");
         }else {// Требовать обновить корзину
           store.CartActual = false;
         }
+      store.CartProduct.splice(data.index, 1); // Удаление с корзины
     },
 
 }

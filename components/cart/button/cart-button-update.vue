@@ -9,7 +9,8 @@ export default {
   name: "cart-button-update",
   components: {BaseButton},
   methods: {
-    updateCart() {
+     async updateCart() {
+      // await Запрос на изменение full cart
       // flag обновлена ли корзина
       this.$store.commit("Cart/CartAll/SetCartActual");
       // Количество не обновленных товаров

@@ -6,34 +6,34 @@ export default {
     },
     methods: {
         /**
-         * 
+         *
          * @param {String} data - Название элемента
          * @function check - Проверяет массив на наличие элементов и перевод в строку
          */
         check(data) {
-            if (this.form[data].length != 0) {
+            if (this.form[data].length !== 0) {
                 this.form[data] = this.form[data].join();
             } else {
                 delete this.form[data];
             }
         },
         /**
-         * 
+         *
          * @async
          * @function pushParamsFilter - Проверяет query запросы и при необходимсти сохраняет во VUEX
          */
         async pushParamsFilter(event) {
-            if (event != undefined) { // Проверка что это не уход с страницы
+            if (event !== undefined) { // Проверка что это не уход с страницы
                 event.preventDefault();
             }
             this.$store.commit("Catalog/Metks/ResetMetks"); // RESET Metks
-            if (this.$store.getters["formSearch/GetMinValue"] != 0) { // ЦЕНА МИНИМУМ
+            if (this.$store.getters["formSearch/GetMinValue"] !== 0) { // ЦЕНА МИНИМУМ
                 this.form.minvalue = this.$store.getters["formSearch/GetMinValue"];
             }
-            if (this.$store.getters["formSearch/GetMaxValue"] != 60000) {// ЦЕНА МАКСИМУМ
+            if (this.$store.getters["formSearch/GetMaxValue"] !== 60000) {// ЦЕНА МАКСИМУМ
                 this.form.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
             }
-            if (this.$store.getters["formSearch/GetBrandsChecked"].length != 0) { // БРЭНД
+            if (this.$store.getters["formSearch/GetBrandsChecked"].length !== 0) { // БРЭНД
                 this.form.brand = this.$store.getters["formSearch/GetBrandsChecked"];
                 // ДОбавление меток для Brand
                 this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
@@ -48,10 +48,10 @@ export default {
             // ПРИМИНИМОСТИ
             this.form.applicabilities = await this.$store.dispatch("Applicabilities/Panel/SetAllIdUrl");
             //PAGE
-            if(this.$route.query.page != undefined && Number(this.$route.query.page) != NaN){
+            if(this.$route.query.page !== undefined && Number(this.$route.query.page) !== NaN){
                 this.form.page = this.$route.query.page;
             }
-            if(this.$route.query.name != undefined){
+            if(this.$route.query.name !== undefined){
                 this.form.name = this.$route.query.name;
             }
         },
@@ -59,7 +59,7 @@ export default {
          * @function pushParamsSort - Проверяет как сортировка товара выбрана
          */
         pushParamsSort() {
-            if (this.$store.getters["formSearch/GetSortName"] != "" &&  this.$store.getters["formSearch/GetSortType"] != "") {
+            if (this.$store.getters["formSearch/GetSortName"] !== "" &&  this.$store.getters["formSearch/GetSortType"] !== "") {
                 this.form.sort_name = this.$store.getters["formSearch/GetSortName"];
                 this.form.sort_type = this.$store.getters["formSearch/GetSortType"];
             }

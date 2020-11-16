@@ -1,13 +1,13 @@
 <template>
-  <b-th class="border-top-0">
+  <b-th class="border-top-0 product-th-sort">
     <span class="cursor-pointer" @click="SortSet"> {{ label }} </span>
     <b-icon-arrow-down
-      v-if="(GetSortType == 'ask' || GetSortType == '') && SortName == GetSortName"
+      v-if="(GetSortType === 'ask' || GetSortType === '') && SortName === GetSortName"
       class="pt-1"
     >
     </b-icon-arrow-down>
     <b-icon-arrow-down
-      v-if="GetSortType == 'desk' && SortName == GetSortName"
+      v-if="GetSortType === 'desk' && SortName === GetSortName"
       class="pt-1"
       rotate="180"
     >
@@ -24,7 +24,7 @@ export default {
     SortName: {
       type: String,
     },
-  },  
+  },
   computed: {
     GetSortName() {
       return this.$store.getters["formSearch/GetSortName"];
@@ -62,4 +62,9 @@ export default {
   },
 };
 </script>
+<style>
+.product-th-sort{
+  padding: 0.75rem 0.55rem !important;
+}
+</style>
 

@@ -11,7 +11,8 @@ export default {
         index:{},
     },
     methods:{
-        deleteProduct() {
+        async deleteProduct() {
+            //await Запрос на удаление товара с корзины
             this.$store.commit("Cart/CartAll/DeleteCartProduct", {index:this.index, flag:true});
         },
     }

@@ -1,30 +1,36 @@
 <template>
   <section class="mt-5">
+    <!-- Модалки -->
     <ModalImg/>
     <ModalBuy/>
     <share></share>
+    <!-- Модалки -->
     <div class="container">
+      <!-- Фильтры применяемости -->
       <FilterApplicabilities/>
       <b-row>
         <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
+          <!-- Общие Фильтры -->
           <FilterForm/>
         </b-col>
         <b-col lg="9">
+          <!-- Метки какие бренды и категории выбраны  -->
           <MetkaFilter/>
+          <div class="text-right">
+            <button-reply-show />
+          </div>
+          <!-- Выбран вид не таблица () => показываем table-head -->
           <b-table-simple
             class="text-center fz-5_5"
             v-if="componentsName !== 'TableProduct'"
           >
             <PanelVid class="panelProductFilter mb-0"/>
           </b-table-simple>
-          <!-- Для ПК ВЕРСИИ -->
-          <div class="text-right">
-            <button-reply-show />
-          </div>
+          <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
           <div class="d-none d-lg-block">
             <components :is="componentsName" :array="Products"/>
           </div>
-          <!-- Для Мобильных -->
+          <!-- Для Мобильных ()=>  вид товара блочный -->
           <div class="d-block d-lg-none">
             <components :is="'productBlog'" :array="Products"/>
           </div>
@@ -70,14 +76,14 @@ export default {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Временная хуйта!
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
-      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // ПРиминимости
+      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
       store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ]);
     //   ПРОВЕРКА QUERY
     if (query !== undefined) {
       this.form = {};
-      if (query.maxvalue !== undefined && query.minvalue !== undefined) {      // ПРоверка МАКСИМУМА  + МИНИМУМА
+      if (query.maxvalue !== undefined && query.minvalue !== undefined) {      // Проверка МАКСИМУМА  + МИНИМУМА
         if (query.maxvalue < query.minvalue) { // Минимальное больше максимального
           store.commit("formSearch/SetMaxValue", query.minvalue);
           store.commit("formSearch/SetMinValue", query.maxvalue);
@@ -94,8 +100,7 @@ export default {
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
         }
       }
-      if (query.brand !== undefined) {
-        // ПРОВЕРКА БРЕНДА
+      if (query.brand !== undefined) {// ПРОВЕРКА БРЕНДА
         let brand = query.brand.split(",");
         brand = Array.from(
           new Set(brand)
@@ -109,12 +114,10 @@ export default {
         this.form.brand = store.getters["formSearch/GetBrandsChecked"];
         this.form.brand = this.form.brand.join();
       }
-      // ПРОВЕРКА name SKU
-      if (query.name !== undefined) {
+      if (query.name !== undefined) { // ПРОВЕРКА name SKU
         store.commit("formSearch/SetSearch", query.name);
       }
-      if (query.categories !== undefined) {
-        // ПРОВЕРКА КАТЕГОРИИ
+      if (query.categories !== undefined) {// ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
@@ -130,16 +133,16 @@ export default {
       if (query.applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
         let ids = query.applicabilities.split(",");
-        store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
+        await store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
           data:
             store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
               ],
           id: ids,
         });
-
-        //   let ids = query.applicabilities.split(",");
-        //   store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
+        if(store.getters['Applicabilities/Panel/PanelLength'] === 0){ // Указанные применяемости не найдены
+          store.commit("Applicabilities/Panel/SetPanelNew");
+        }
       } else {
         store.commit("Applicabilities/Panel/SetPanelNew");
       }
@@ -152,7 +155,7 @@ export default {
         this.form.sort_name = store.getters["formSearch/GetSortName"];
         this.form.sort_type = store.getters["formSearch/GetSortType"];
       }
-      if (query.page != undefined) {
+      if (query.page !== undefined) {
         this.form.page = query.page;
       }
       // Запрос для получение товара
@@ -174,12 +177,24 @@ export default {
     ModalBuy,
   },
   computed: {
+    /***
+     *
+     * @returns {Object} - Список продуктов
+     */
     Products() {
       return this.$store.getters["Products/GetProducts"];
     },
+    /***
+     *
+     * @returns {String} - Название  в каком виде отображаются товары
+     */
     componentsName() {
       return this.$store.getters["getProductType"];
     },
+    /***
+     *
+     * @returns {Boolean} - Требуется ли обновлять все фильтры для нового запроса
+     */
     checkFilterClick() {
       return this.$store.getters["GetcheckFilterClick"];
     }
@@ -191,10 +206,9 @@ export default {
       "Catalog/All/_AllVisible",
       this.$store.getters["Categories/CategoriesAll/GetCategories"]
     );
-    // this.$store.dispatch("Catalog/All/_AllVisible" , this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]);
   },
   watch: {
-    async $route() {
+    async $route() { // Изменение route
       if (this.checkFilterClick === true) {
         console.log("Новый запрос");
         await this.ResetNoApplicabilitiess();

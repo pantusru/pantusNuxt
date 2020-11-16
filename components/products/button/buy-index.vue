@@ -17,7 +17,7 @@
           @click="ModalProduct()"
           class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
         ></base-button>
-      <b-button v-if="userBasket"  @click="deleteCartProduct" class="border-0 text-danger ml-1 py-0  px-1 bg-transparent">X
+      <b-button v-if="userBasket"  @click="deleteCartProduct" class="border-0 text-danger ml-1 py-0  px-0 bg-transparent">X
       </b-button>
     </div>
     <!--  Кнопка купить если товара нету в корзине мобильная версия  -->

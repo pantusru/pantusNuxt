@@ -20,7 +20,7 @@ img{
 }
 *:focus{
     box-shadow: 0 0 0 0 transparent !important;
-    outline: 0 transparent;
+    outline: 0 transparent !important;
 }
 .custom-control-label::before{
     top: 0;

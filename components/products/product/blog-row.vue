@@ -1,6 +1,6 @@
 <template>
-  <b-card class="mb-4">
-    <b-card-header header-class="border-0 bg-white p-0">
+  <b-card class="mb-4" no-body>
+    <b-card-header header-class="border-0 bg-white p-0 py-3">
       <b-row class="align-items-center mb-3 justify-content-between">
         <b-row no-gutters class="col-5 align-items-center">
           <b-col cols="4">
@@ -10,7 +10,7 @@
         </b-row>
       </b-row>
     </b-card-header>
-    <b-card-body class="py-0 ">
+    <b-card-body class="py-2 px-15px">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
           <!--  Бренд  -->

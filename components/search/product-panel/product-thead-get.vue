@@ -11,7 +11,7 @@
             />
             <b-th v-if="CheckAnalogs == false"> <b-icon-camera-fill></b-icon-camera-fill></b-th>
             <tdSort  :class="{'d-none d-sm-table-cell': CheckAnalogs}"
-                label="Наименование"
+                label="Название"
                 SortName="name"
             />
             <tdSort
@@ -30,8 +30,8 @@
                 label="Цена"
                 SortName="prices"
             />
-            <b-th v-if="CheckAnalogs == false"><PanelVid/></b-th>
-            <b-th v-if="CheckAnalogs == true"></b-th>
+            <b-th v-if="CheckAnalogs === false"><PanelVid/></b-th>
+            <b-th v-if="CheckAnalogs === true"></b-th>
         </b-tr>
     </b-thead>
 </template>

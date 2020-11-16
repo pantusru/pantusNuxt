@@ -1,5 +1,5 @@
 <template>
-    <b-form-checkbox-group v-model="chexbox" class="mb-3">    
+    <b-form-checkbox-group v-model="chexbox" class="mb-3">
         <div class="d-flex flex-column">
             <VirtualList
                 ref="scroll"
@@ -8,7 +8,7 @@
                 :data-key="'id'"
                 :data-sources="SearchElem"
                 :data-component="itemComponent">
-                
+
             </VirtualList>
         </div>
     </b-form-checkbox-group>
@@ -28,11 +28,21 @@ export default {
             itemComponent: ChecboxBrand,
         }
     },
-    props:["SearchElem", "GetChecbox", "SetChecbox"],
+    props:{
+      SearchElem:{
+
+      },
+      GetChecbox:{
+
+      },
+      SetChecbox:{
+
+      }
+    },
     computed: {
         chexbox:{
             get() {
-                return this.$store.getters[this.GetChecbox]; 
+                return this.$store.getters[this.GetChecbox];
             },
             set(value){
                 this.$store.commit(this.SetChecbox, value);

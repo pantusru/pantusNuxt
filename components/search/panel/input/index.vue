@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-input
+      @input="InputSearch"
       v-model.trim="search"
       class="mb-3 fz-6"
       :placeholder="placeholders"
@@ -44,15 +45,15 @@ export default {
       // tree
         if(this.searchSubstr(data.name)){
             data.visible = true;
-        }else  if (data.children.length != 0) { // Есть потокки
+        }else  if (data.children.length !== 0) { // Есть потокки
             data.children.forEach((element) => {
             element = this.setCheck(element);
-            if (element.visible == true) {
+            if (element.visible === true) {
             has_visible_childs = true;
             }
         });
         // check visible childs
-        if (has_visible_childs == true) {
+        if (has_visible_childs === true) {
           data.visible = true;
         } else {
           data.visible = this.searchSubstr(data.name);
@@ -62,24 +63,22 @@ export default {
 
       return data;
     },
-  },
-  watch: {
-    search() {
-      let reg = new RegExp("^[0-9A-Za-zА-Яа-яЁёs]+$");
-      let check = reg.test(this.search);
-      if (check || this.search.length == 0) {
-        this.error = false;
-        let dataset_local = {
-          children: [],
-        };
-        dataset_local.children = JSON.parse(JSON.stringify(this.data));
-        // КОСТЫЛИ НАШЕ ВСЁ!!
-        let dataset = this.setCheck(dataset_local);
-        this.$store.commit(this.SetValue, dataset.children);
-        // КОСТЫЛИ НАШЕ ВСЁ!!
-      } else {
-        this.error = true;
-      }
+    InputSearch(){
+        let reg = /^[0-9A-Za-zА-Яа-яЁ\s]+$/gui;
+        let check = reg.test(this.search);
+        if (check || this.search.length === 0) {
+          this.error = false;
+          let dataset_local = {
+            children: [],
+          };
+          dataset_local.children = JSON.parse(JSON.stringify(this.data));
+          // КОСТЫЛИ НАШЕ ВСЁ!!
+          let dataset = this.setCheck(dataset_local);
+          this.$store.commit(this.SetValue, dataset.children);
+          // КОСТЫЛИ НАШЕ ВСЁ!!
+        } else {
+          this.error = true;
+        }
     },
   },
 };

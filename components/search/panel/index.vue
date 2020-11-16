@@ -11,7 +11,6 @@
 import VInputV from "@/components/search/panel/input/index"
 import Data from "@/components/search/panel/panel-data/index"
 import BaseTitleFilter from "@/components/base/title/base-title-filter";
-// import ButtonFull from "./button/getfull"
 export default {
     props:["items", "ArrayData", "name" , "SetValue"],
     provide(){

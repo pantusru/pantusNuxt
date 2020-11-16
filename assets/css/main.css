@@ -143,6 +143,10 @@ button.bg-link-danger:hover{
     padding-left: 10px!important;
     padding-right: 10px!important;
 }
+.px-15px{
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+}
 .pr-10px{
     padding-right: 10px!important;
 }

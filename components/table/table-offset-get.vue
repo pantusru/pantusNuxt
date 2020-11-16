@@ -1,5 +1,5 @@
 <template>
-   <b-table-simple bordered class="text-center">
+   <b-table-simple bordered class="text-center table-offset-get">
        <b-thead>
            <b-tr>
                 <b-th>Поставщик</b-th>
@@ -40,4 +40,9 @@ export default {
     }
 }
 </script>
+<style>
+.table-offset-get td{
+  padding: 0.75rem 0.55rem;
+}
+</style>
 

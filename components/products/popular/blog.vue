@@ -1,7 +1,7 @@
 <template>
     <b-card
       header-class="bg-transparent border-0"
-      footer-class="bg-transparent"
+      footer-class="bg-transparent p-0 py-2 px-2"
     >
         <template #header>
             <h6 class="mb-0">
@@ -33,7 +33,7 @@
           />
         </div>
          <template v-slot:footer>
-            <b-row align-h="between" class="mt-1">
+            <b-row no-gutters align-h="between" class="mt-1">
                 <b-col>
                     <div class="mb-3"> <b class="fz-5">Цена</b> </div>
                     <div><b class="fz-4">{{ datasetProduct.productOffer[0].prices }} Р</b></div>

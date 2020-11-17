@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async SetSearch() {
-      if (this.search.length != 0) {
+      if (this.search.length !== 0) {
         await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
         await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
         this.$store.commit("SetcheckFilterClick", undefined);

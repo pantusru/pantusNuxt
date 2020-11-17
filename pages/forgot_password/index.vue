@@ -2,10 +2,10 @@
    <b-container>
        <p>Если вы забыли пароль, введите E-Mail.</p>
        <p>Контрольная строка для смены пароля, а также ваши регистрационные данные, будут высланы вам по E-Mail.</p>
-        <b-row>
-            <VInput items="Email:" name="Email" :error="error.Email"></VInput>
+        <b-row class="mb-2">
+            <VInput items="Email:" name="Email" :error="error.Email" :$v="$v"></VInput>
         </b-row>
-        <b-button @click="ClickBnt" class="bg-danger border-0">Отправить</b-button>
+        <base-button @click="ClickBnt">Отправить</base-button>
    </b-container>
 </template>
 
@@ -14,16 +14,13 @@ import { required, minLength, between,  alphaNum } from 'vuelidate/lib/validator
 import MixinsError from "@/mixins/form/forgot-password/error"
 import MixinsValidations from "@/mixins/form/forgot-password/validator"
 import VInput from "@/components/register/index"
+import BaseButton from "@/components/base/button/base-button";
 export default {
     mixins:[MixinsError,MixinsValidations],
     middleware:'CheckUser',
     components:{
+      BaseButton,
         VInput,
-    },
-    provide(){
-        return{
-            $v: this.$v,
-        }
     },
     methods:{
         ClickBnt(){

@@ -2,27 +2,36 @@
   <div class="container">
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
-      <b-navbar-brand to="/"
+      <b-navbar-brand to="/" class="logo"
       ><img src="@img/logo.png" alt="Логотип сайта"
       /></b-navbar-brand>
       <!-- center -->
       <VButtonSearch/>
-      <!-- right -->
-      <b-navbar-nav class="ml-0 ml-lg-auto flex-row align-items-center">
-        <div class="d-flex mr-lg-2 mr-4 align-items-center">
+      <!-- right   -->
+      <!-- user  -->
+      <b-navbar-nav class="d-flex ml-0 ml-lg-auto flex-row align-items-center">
+        <div class="d-flex mr-2 align-items-center wm-60">
+          <!-- icons -->
           <div class="icons-nav-w20">
             <img class="d-none d-lg-block"
               src="@img/icons/icon-avatar.png"
               alt="Иконка пользователя"
             />
-            <nuxt-link to="profile">
+            <nuxt-link to="profile" v-if="CheckUser === true">
+              <img class="d-block d-lg-none"
+                   src="@img/icons/icon-avatar.png"
+                   alt="Иконка пользователя"
+              />
+            </nuxt-link>
+            <nuxt-link to="" v-b-modal.authorization v-if="CheckUser === false">
               <img class="d-block d-lg-none"
                    src="@img/icons/icon-avatar.png"
                    alt="Иконка пользователя"
               />
             </nuxt-link>
           </div>
-          <div class="d-flex flex-column ml-1 fz-5" v-if="CheckUser === false">
+          <!--data user -->
+          <div class="d-none d-sm-flex flex-column ml-1 fz-5" v-if="CheckUser === false">
             <nuxt-link
               to=""
               v-b-modal.authorization
@@ -38,6 +47,7 @@
             <NavUser :userName="User.surname + ' ' + User.name"/>
           </div>
         </div>
+        <!-- user -->
         <!-- Корзина-->
         <div
           class="position-relative"
@@ -106,3 +116,8 @@ export default {
   },
 };
 </script>
+<style>
+.logo{
+  min-width: 120px;
+}
+</style>

@@ -171,6 +171,9 @@ w-100vw{
     min-height: 30px;
     height: 100%;
 }
+.wm-60{
+  max-width: 60%;
+}
 .overflow-100px{
     overflow-y:auto;
     max-height: 100px;

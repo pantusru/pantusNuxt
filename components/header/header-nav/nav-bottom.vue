@@ -7,7 +7,7 @@
       <b-button-group>
         <b-button
           :href="data.to"
-          class="bg-transparent border-0 text-555 link-ec0e1d font-weight-bold fz-5"
+          class="bg-transparent border-0 text-555 link-ec0e1d font-weight-bold fz-5 px-3"
           @click.prevent="pushSearch(data.to)"
           v-for="data in links"
           :key="data.id"

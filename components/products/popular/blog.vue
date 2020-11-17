@@ -1,5 +1,6 @@
 <template>
     <b-card
+      class="h-100"
       header-class="bg-transparent border-0"
       footer-class="bg-transparent p-0 py-2 px-2"
     >

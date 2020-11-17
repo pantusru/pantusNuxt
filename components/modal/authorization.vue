@@ -25,8 +25,13 @@
       />
     </b-form>
     <template v-slot:modal-footer>
-      <b-button class="bg-danger border-0" @click="check">Войти</b-button>
-      <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль</b-button>
+      <div>
+        <base-button class="mr-3" @click="check" text="Воити"></base-button>
+        <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль</b-button>
+      </div>
+      <div class="w100">
+        <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="registration">Регистрация</b-button>
+      </div>
       <b-row no-gutters class="flex-column">
         <vueRecaptcha :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
       </b-row>
@@ -41,14 +46,20 @@ import check_recaptcha from "@/mixins/form/check-recaptcha/index"
 import MixinsValidations from "@/mixins/form/authorization/validator"
 import VInput from "@/components/register/index"
 import vueRecaptcha from "@/components/recaptcha/index"
+import BaseButton from "@/components/base/button/base-button";
 
 export default {
   mixins: [MixinsError, MixinsValidations, check_recaptcha],
   components: {
+    BaseButton,
     VInput,
     vueRecaptcha,
   },
   methods: {
+    registration(){
+      this.hidden();
+      this.$router.push("/register");
+    },
     password() { // переход на страницу забыли пароль
       this.hidden();
       this.$router.push("/forgot_password");
@@ -79,6 +90,7 @@ export default {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
           this.$store.commit("User/AuthorizationTrue");
+          this.push("/");
         }
       }
     }

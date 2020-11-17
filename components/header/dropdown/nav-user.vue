@@ -3,7 +3,7 @@
     no-caret
     id="my-nav-user"
     :text="userName"
-    toggle-class="nav-link-custom fz-5"
+    toggle-class="nav-link-custom fz-5 my-nav-user"
     center
   >
     <b-dropdown-item class="fz-5" :to="data.to" v-for="data in links" :key="data.id">{{ data.text }}</b-dropdown-item>
@@ -43,3 +43,8 @@ export default {
   }
 }
 </script>
+<style>
+.my-nav-user{
+  white-space:normal;
+}
+</style>

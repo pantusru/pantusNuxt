@@ -35,7 +35,6 @@ export const actions = {
             for(const keyBrand in brandsAll){
                 if(data.ids[keyBrandID] == brandsAll[keyBrand].id){
                   let dataset = await dispatch("_init_Metka",{data:brandsAll[keyBrand], type:'brand'});
-                  console.log(dataset);
                   commit("PushMetks", dataset);
                     break;
                 }
@@ -50,7 +49,6 @@ export const actions = {
         for (const key in data) {
             if(data[key].CheckedType === true && data[key].Indeterminate === false){
               let dataset = await dispatch("_init_Metka",{data:data[key], type:'categories'});
-              console.log(dataset);
                 commit("PushMetks" , dataset);
                 continue;
             }

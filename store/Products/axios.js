@@ -1,6 +1,6 @@
 export const actions = {
     // Удалить когда появится API ПРОДУКТ
-    async _ProductFilter(){
+    async _ProductFilter({dispatch}){
         let  product = [
             {
                 ProductCard:{
@@ -141,7 +141,9 @@ export const actions = {
                 ]
             },
         ];
-    return product;
+        let data = await dispatch("_init_Product", product)
+
+      return data;
     },
     async _ProductId(){
         let  product = [
@@ -344,10 +346,9 @@ export const actions = {
     /**
      *
      * @param {Array} data.data  - Массив всех видимых query
-     * @param {Number} data.limit -
+     * @param {Number} data.limit - количество отображаемого товара
      */
     async _ProductFilter1({}, data){
-        // console.log(data);
         let dataset = data.data;
         await this.$axios.$get("http://194.67.113.201:8080/products/", {
             params :{
@@ -355,5 +356,70 @@ export const actions = {
                 pageSize: data.limit,
             }
         });
+    },
+  /***
+   *
+   * @param {Array} data - Массив товара
+   */
+    _init_Product({store, state}, data){
+      let dataset = [];
+      data.forEach((elem) =>{
+        dataset.push({
+          ProductCard:{ // Карточка Товара
+            id: elem.ProductCard.id,
+            name: elem.ProductCard.name,
+            sku: {
+              original: elem.ProductCard.sku.original,
+              normalized: elem.ProductCard.sku.normalized
+            },
+            ProductCardImage:{
+              url: elem.ProductCard.ProductCardImage.url
+            },
+            album:[],
+            ProductCardOem: elem.ProductCard.ProductCardOem,
+            brand:{
+              id: elem.ProductCard.brand.id,
+              name: elem.ProductCard.brand.name,
+            },
+            categories:[],
+            applicabilities:[],
+          },
+          productOffer:[],
+        });
+        if(elem.ProductCard.categories !== undefined){
+          elem.ProductCard.categories.forEach(data=>{ // Категории
+            dataset[dataset.length-1].ProductCard.categories.push({
+              id: data.id,
+              name: data.name,
+            });
+          });
+        }
+        if(elem.ProductCard.applicabilities !== undefined){
+          elem.ProductCard.applicabilities.forEach(data=>{ // Применяемости
+            dataset[dataset.length-1].ProductCard.applicabilities.push({
+              id: data.id,
+              name: data.name,
+            });
+          });
+        }
+        if(elem.ProductCard.album !=undefined){
+          elem.ProductCard.album.forEach(data =>{ // Альбом товара
+            dataset[dataset.length-1].ProductCard.album.push({url:data.url});
+          });
+        }
+        elem.productOffer.forEach(data=>{ // Предложение Товара
+          dataset[dataset.length-1].productOffer.push({
+            id: data.id,
+            prices: data.prices,
+            quantity: data.quantity,
+            supplier:{
+              name: data.supplier.name,
+              deliveryDelay: data.supplier.deliveryDelay,
+            },
+            multiplicity: data.multiplicity
+          })
+        })
+      })
+       return dataset;
     }
 }

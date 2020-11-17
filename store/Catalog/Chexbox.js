@@ -51,7 +51,7 @@ export const actions = {
                 if(arr[key].id == data.id[keyId]){ // Найден ID
                     data.check = true;
                     commit("SetChecboxCheckedType", { data: arr[key], value: data.value });
-                    if (arr[key].children.lenght != 0) {
+                    if (arr[key].children.lenght !== 0) {
                         dispatch("ChexboxChildren", { data: arr[key].children, value: data.value });
                     }
                     if (ParentID === true) { // Сохраняем значение потомков если есть родитель
@@ -60,12 +60,12 @@ export const actions = {
                     }
                 }
             }
-            if (arr[key].children.lenght != 0) { // НЕ найден ищем в потомках
+            if (arr[key].children.lenght !== 0) { // НЕ найден ищем в потомках
                 valueState.CheckedType.push(arr[key].CheckedType);
                 valueState.Indeterminate.push(arr[key].Indeterminate);
                 await dispatch("ChexboxCheckAll", { arr: arr[key].children, value: data.value, id: data.id, check:data.check})
                 .then(res => {
-                    if (res != undefined) {
+                    if (res !== undefined) {
                         commit("SetChecboxIndeterminate", { data: arr[key], value: res.Indeterminate });
                         commit("SetChecboxCheckedType", { data: arr[key], value: res.CheckedType });
                         valueState.Indeterminate.pop();
@@ -79,7 +79,7 @@ export const actions = {
         if (ParentID === true) { // ЕСТЬ РОДИТЕЛЬ!
             let Indeterminate;
             let ChexboxTrue;
-            if(valueState.CheckedType.length == 1){// Если 1 checkbox
+            if(valueState.CheckedType.length === 1){// Если 1 checkbox
                 ChexboxTrue = !valueState.Indeterminate[0] && valueState.CheckedType[0];  // нету 3 состояния но выбран этот элемент
                 Indeterminate = valueState.Indeterminate[0];
             }else{
@@ -109,7 +109,7 @@ export const actions = {
         let data = dataset.data;
         data.forEach(element => {
             commit("SetChecboxCheckedType", { data: element, value: dataset.value });
-            if (element.children.lenght != 0) {
+            if (element.children.lenght !== 0) {
                 dispatch("ChexboxChildren", { data: element.children, value: dataset.value });
             }
         });

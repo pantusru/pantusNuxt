@@ -1,7 +1,7 @@
 export const state = () => ({
     NewsPage: [],
     NewsVisible:[],
-    KovloNews: 0,
+    CountNews: 0,
     limit:12,
 })
 export const mutations  =  {
@@ -11,11 +11,11 @@ export const mutations  =  {
     SetNewsVisible(store, data){
         store.NewsVisible = data;
     },
-    SetKovloNewws(store, data){
-        store.KovloNews = data;
+    SetCountNews(store, data){
+        store.CountNews = data;
     },
 }
-export const actions = { 
+export const actions = {
     async _NewsPage({store,dispatch, commit, getters}, page){
         if(page === undefined){ // проверка что пришло!
             page = 1;
@@ -23,30 +23,30 @@ export const actions = {
         if(getters.GetNewsPage[page] === undefined){// данные не загруженны!
             let offets = (page - 1) * getters.GetLimit;
             let  data =  await dispatch("News/axios/_NewsAll", {offets:offets, limit: getters.GetLimit}, { root: true });
-            if(getters.GetKovloNews === 0){
-                commit("SetKovloNewws", data.count);
+            if(getters.GetCountNews === 0){
+                commit("SetCountNews", data.count);
             }
-            let dataset = data.results; 
+            let dataset = data.results;
             commit("SetNewsPage", {dataset: dataset, page: page });
             commit("SetNewsVisible", dataset);
-        }else{ // данные загруженны!
+        }else{ // данные загружены!
             commit("SetNewsVisible", getters.GetNewsPage[page]);
         }
- 
+
     }
 }
 export const getters = {
-    GetNewsPage: s => s.NewsPage, 
+    GetNewsPage: s => s.NewsPage,
     GetNewsVisible: s => s.NewsVisible,
-    GetKovloNews: s => s.KovloNews,
+    GetCountNews: s => s.CountNews,
     GetLimit: s => s.limit,
     GetPage: s => {
-        if(s.KovloNews % s.limit != 0){
-            return Number(s.KovloNews / s.limit) + 1        
+        if(s.CountNews % s.limit != 0){
+            return Number(s.CountNews / s.limit) + 1
         }else{
-            return Number(s.KovloNews / s.limit)
+            return Number(s.CountNews / s.limit)
         }
-    }  
+    }
 }
 
 //  отображает новости на главной странице

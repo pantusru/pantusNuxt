@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:cell(count)="data">
-        <div>{{ data.item.kolvo }}</div>
+        <div>{{ data.item.Count }}</div>
       </template>
       <template v-slot:cell(Delete)="data">
         <DeleteCart :index="data.index" />

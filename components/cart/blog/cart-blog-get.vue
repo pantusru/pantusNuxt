@@ -45,15 +45,15 @@
             <vInput
               :AddClassInput="'col-5 col-sm-6 col-md-4'"
               :multiplicity="datasetProduct.ProductOffer.multiplicity"
-              :kolvoProps="datasetProduct.kolvo"
+              :CountProps="datasetProduct.Count"
               :array="datasetProduct"
-              @kolvo="Setkolvo($event, index)"
+              @Count="SetCount($event, index)"
             />
             <cart-button-update-product
               v-if="datasetProduct.checkCount"
               :index="index"/>
           </div>
-          <div class="mt-3">Стоимость:<b>{{ datasetProduct.ProductOffer.prices * datasetProduct.kolvo }}р</b></div>
+          <div class="mt-3">Стоимость:<b>{{ datasetProduct.ProductOffer.prices * datasetProduct.Count }}р</b></div>
         </b-col>
       </b-row>
     </template>
@@ -62,7 +62,7 @@
 
 <script>
 import mixit from "@/mixins/input/count-product/emit"
-import vInput from "@/components/products/input/kolvo";
+import vInput from "@/components/products/input/product-input-count";
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";

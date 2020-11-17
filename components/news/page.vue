@@ -6,7 +6,7 @@
     <div class="overflow-auto">
       <b-pagination-nav
         :link-gen="linkGen"
-        :number-of-pages="Kovlo"
+        :number-of-pages="Count"
         use-router
         align="center"
       />
@@ -21,7 +21,7 @@ export default {
   mixins: [PageMixins],
   props: {
     dataset: {},
-    Kovlo: {},
+    Count: {},
   },
   components: {
     VueBlogNews,

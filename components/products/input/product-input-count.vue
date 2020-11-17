@@ -8,7 +8,7 @@
         @blur="CheckInput"
         :class="AddClassInput"
         class="ml-2 mr-2 text-center"
-        v-model="kolvo"
+        v-model="Count"
       ></b-input>
       <b-icon-plus class="cursor-pointer" :class="{'d-none d-lg-block':showIcon}" @click="plus"></b-icon-plus>
     </b-form>
@@ -17,16 +17,17 @@
     </div>
   </div>
 </template>
-    
+
 <script>
 export default {
+  name:"product-input-count",
   props: {
     showIcon: {
       default: false,
     },
     AddClassInput: {},
     AddClassForm: {},
-    kolvoProps: {},
+    CountProps: {},
     multiplicity: {
       default: 1,
     },
@@ -35,32 +36,32 @@ export default {
   data() {
     return {
       error: false,
-      kolvo: this.kolvoProps,
+      Count: this.CountProps,
     };
   },
   watch:{
-    kolvoProps(){
-      this.kolvo = this.kolvoProps;
+    CountProps(){
+      this.Count = this.CountProps;
     }
   },
   methods: {
     //  Передача Emit
     emitGo() {
-      this.$emit("kolvo", {
-        kolvo: this.kolvo,
+      this.$emit("Count", {
+        Count: this.Count,
         array: this.array,
       });
     },
     //  Уменьшать кол-во товар
     dash() {
-      if (this.kolvo > this.multiplicity) {
-        this.kolvo = this.kolvo - this.multiplicity;
+      if (this.Count > this.multiplicity) {
+        this.Count = this.Count - this.multiplicity;
         this.emitGo();
       }
     },
     //  Увеличить кол-во товар
     plus() {
-      this.kolvo = Number(this.kolvo) + Number(this.multiplicity);
+      this.Count = Number(this.Count) + Number(this.multiplicity);
       this.emitGo();
     },
     // Проверка количество товара
@@ -69,20 +70,20 @@ export default {
         this.error = false;
       }
       if (
-        this.kolvo < this.multiplicity ||
-        this.kolvo == "" ||
-        this.kolvo % this.multiplicity > 0
+        this.Count < this.multiplicity ||
+        this.Count == "" ||
+        this.Count % this.multiplicity > 0
       ) {
         this.error = true;
       }
     },
     // ОТРАВКА при потери фокуса
     CheckInput() {
-      if (this.kolvo < this.multiplicity || this.kolvo == "") {
-        this.kolvo = this.multiplicity;
+      if (this.Count < this.multiplicity || this.Count == "") {
+        this.Count = this.multiplicity;
       }
-      if (this.kolvo % this.multiplicity > 0) {
-        this.kolvo = this.kolvo - (this.kolvo % this.multiplicity);
+      if (this.Count % this.multiplicity > 0) {
+        this.Count = this.Count - (this.Count % this.multiplicity);
       }
       this.error = false;
       this.emitGo();

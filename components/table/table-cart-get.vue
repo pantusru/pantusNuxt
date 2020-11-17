@@ -38,13 +38,13 @@
       <template v-slot:cell(count)="data">
         <vInput :multiplicity="data.item.ProductOffer.multiplicity"
         :AddClassInput="'p-0 col-12 col-lg-4'"
-        :AddClassForm="'justify-content-center'" :kolvoProps="data.item.kolvo"
+        :AddClassForm="'justify-content-center'" :CountProps="data.item.Count"
         :showIcon="true"
         :array="data.item"
-        @kolvo="Setkolvo($event, data.index)" />
+        @Count="SetCount($event, data.index)" />
       </template>
       <template v-slot:cell(symma)="data">
-        {{ Number(data.item.kolvo) * data.item.ProductOffer.prices }} Р
+        {{ Number(data.item.Count) * data.item.ProductOffer.prices }} Р
       </template>
       <template v-slot:cell(Delete)="data">
         <DeleteCart :index="data.index" />
@@ -59,7 +59,7 @@
 <script>
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgModal from "@/components/modal/product-img";
-import vInput from "@/components/products/input/kolvo";
+import vInput from "@/components/products/input/product-input-count";
 import mixinsEmit from "@/mixins/input/count-product/emit"
 import mixinsImg from "@/mixins/modal/product-img"
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";

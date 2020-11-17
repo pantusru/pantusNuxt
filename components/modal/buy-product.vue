@@ -25,7 +25,7 @@
       </div>
       <div class="mb-2">
         <div class="mb-2"><b> Кол-во, шт:</b></div>
-        <VInput @kolvo="SetCount" :AddClassForm="'col-6 col-md-4'" :kolvoProps="count"
+        <VInput @Count="SetCount" :AddClassForm="'col-6 col-md-4'" :CountProps="count"
                 :multiplicity="LinkOffer.multiplicity"/>
       </div>
       <div class="mb-2">
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import VInput from "@/components/products/input/kolvo"
+import VInput from "@/components/products/input/product-input-count"
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
@@ -58,14 +58,14 @@ export default {
         ["Cart/CartAll/GetCartProductId"]
       (this.LinkOffer.id)[0];
       if (this.CheckCart === true) {// Есть в корзине
-        this.count = this.CartProduct.kolvo
+        this.count = this.CartProduct.Count
 
       } else {// Нет в корзине
         this.count = this.LinkOffer.multiplicity;
       }
     },
-    SetCount(kolvo) { // Emit
-      this.count = kolvo.kolvo;
+    SetCount(Count) { // Emit
+      this.count = Count.Count;
     },
     // Кнопка купить
     buy() {
@@ -74,14 +74,14 @@ export default {
       (this.LinkOffer.id);
       if (this.CheckCart === false) { //Добавить товар в корзину
         let data = {};
-        data.kolvo = this.count;
+        data.Count = this.count;
         data.ProductOffer = this.LinkOffer;
         data.ProductCard = this.LinkProducts;
         data.checkCount = false;
         this.$store.commit("Cart/CartAll/PushCartProduct", data);
         // this.$bvModal.hide('buy');
       } else { // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
-        this.$store.commit("Cart/CartAll/SetKolvoProduct", {index: Index, value: this.count});
+        this.$store.commit("Cart/CartAll/SetCountProduct", {index: Index, value: this.count});
       }
       this.$bvModal.hide('buy');
     },

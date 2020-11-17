@@ -44,16 +44,16 @@ export const mutations  =  {
      * @param {Array} data.index - index массива CartProduct
      * @param {Array} data.value - кол-во товара
      */
-    SetKolvoProduct(store, data){
-        store.CartProduct[data.index].kolvo = data.value;
+    SetCountProduct(store, data){
+        store.CartProduct[data.index].Count = data.value;
     },
     /**
      * #Сохраняет в Vuex новое кол-во товара в корзине
      * @param {Array} data.data - ссылка на элемент массива CartProduct
      * @param {Array} data.value - кол-во товара
      */
-    SetKolvoProductArr(store, data){
-        data.data.kolvo = data.value;
+    SetCountProductArr(store, data){
+        data.data.Count = data.value;
         store.CartActual = false;
     },
     /**
@@ -122,7 +122,7 @@ export const getters = {
     GetSymmaAll:s=> {
         let data = 0;
         for (const key in s.CartProduct) {
-           data += s.CartProduct[key].kolvo * s.CartProduct[key].ProductOffer.prices;
+           data += s.CartProduct[key].Count * s.CartProduct[key].ProductOffer.prices;
         }
         return data;
     },

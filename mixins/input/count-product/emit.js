@@ -1,13 +1,13 @@
 export default {
   methods: {
-    Setkolvo(data, index) {
+    SetCount(data, index) {
       if (data.array.checkCount === false) {
         let count = this.GetCartUpdateCount + 1;
         this.$store.commit("Cart/CartAll/SetCartUpdateCount", count);
       }
-      this.$store.commit("Cart/CartAll/SetKolvoProductArr", {
+      this.$store.commit("Cart/CartAll/SetCountProductArr", {
         data: data.array,
-        value: data.kolvo,
+        value: data.Count,
       });
       this.$store.commit("Cart/CartAll/SetCartCheckCount", {
         index: index,

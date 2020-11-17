@@ -16,7 +16,7 @@
           <!--  Бренд  -->
           <RowAtr
             name="Бренд"
-            :link="'brand/' + Product.ProductCard.brand.id"
+            :link="'search?brand=' + Product.ProductCard.brand.id"
             :dataset="Product.ProductCard.brand.name"
           />
           <!--  Артикул  -->

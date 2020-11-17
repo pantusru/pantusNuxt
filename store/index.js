@@ -3,8 +3,6 @@ export const state = () => ({
     showLoader: true,
   // Вид товара в фильтрах
     ProductType : 'TableProduct',
-  //
-  //   showButtonFilter: true,
   // Требуется ли прогонять всё фильтры при изменения route
     checkFilterClick: true,
     Form:{
@@ -32,17 +30,11 @@ export const mutations  =  {
     SetcheckFilterClick(store, data){
         store.checkFilterClick = data;
     },
-    // SetFormPassword(store, data){
-    //     store.Form.password = data;
-    // },
-    // SetFormNewsPassword(store, data){
-    //   store.Form.new_password = data;
-    // }
 }
+
 export const getters = {
     GetshowLoader: s => s.showLoader,
     getProductType: s => s.ProductType,
-    // GetshowButtonFilter: s => s.showButtonFilter,
     GetcheckFilterClick: s => s.checkFilterClick,
     GetFormPassword: s => s.Form.password,
     GetFormNewPassword: s => s.Form.new_password,

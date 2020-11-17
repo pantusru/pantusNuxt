@@ -8,7 +8,7 @@
         <b-tr :key="table.ProductCard.id" class="hover-true">
           <b-td :rowspan="table.productOffer.length+1" :class="{'d-none d-sm-table-cell': CheckAnalogs}">
             <nuxt-link class="text-576b77 link-danger font-weight-bold"
-                       :to="'brand/' + table.ProductCard.brand.id.toString()">{{
+                       :to="'search?brand=' + table.ProductCard.brand.id.toString()">{{
                 table.ProductCard.brand.name
               }}
             </nuxt-link>

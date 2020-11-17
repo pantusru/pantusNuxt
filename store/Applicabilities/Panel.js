@@ -140,16 +140,16 @@ export const actions = {
         let ids = [];
         let deleteArr = [];
         state.Panel.forEach((element, index) => {
-            if(element.SelectedMarka.length == 0){
+            if(element.SelectedMarka.length === 0){
                 deleteArr.push(element.id);
             }
             // ДОбавить SelectedGenerations
-            if (element.SelectedGenerations.length != 0) {
+            if (element.SelectedGenerations.length !== 0) {
                 ids.push(element.SelectedGenerations);
                 let DataModelSelected = [];
                 for (const keyModel in element.SelectedModel) { // Прогоняем выбранные модели
                     for(const keyModelData in element.DataModel ){ // Прогоняем Data всех моделей
-                        if(element.SelectedModel[keyModel] == element.DataModel[keyModelData].id){ // ищем данные о выбранных моделей
+                        if(element.SelectedModel[keyModel] === element.DataModel[keyModelData].id){ // ищем данные о выбранных моделей
                             DataModelSelected.push(element.DataModel[keyModelData]);
                             break;
                         }

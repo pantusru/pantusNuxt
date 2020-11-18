@@ -9,16 +9,16 @@
       hover
       thead-class="bg-light"
     >
-      <template v-slot:cell(brand)="data">
+      <template #cell(brand)="data">
         <template v-if="data.item !== undefined">{{ data.item.ProductCard.brand.name }}</template>
       </template>
-      <template v-slot:cell(sku)="data">
+      <template #cell(sku)="data">
         <template v-if="data.item !== undefined">{{ data.item.ProductCard.sku.original }}</template>
       </template>
-      <template v-slot:cell(name)="data">
+      <template #cell(name)="data">
         {{ data.item.ProductCard.name }}
       </template>
-      <template v-slot:cell(img)="data">
+      <template #cell(img)="data">
         <div v-if="data.item.ProductCard.ProductCardImage.url">
           <b-icon-camera-fill
             class="cursor-pointer"
@@ -26,16 +26,16 @@
           ></b-icon-camera-fill>
         </div>
       </template>
-      <template v-slot:cell(price)="data">
+      <template #cell(price)="data">
         {{ data.item.ProductOffer.prices }} Р
       </template>
-      <template v-slot:cell(supplier)="data">
+      <template #cell(supplier)="data">
         {{ data.item.ProductOffer.supplier.name }}
       </template>
-      <template v-slot:cell(quantity)="data">
+      <template #cell(quantity)="data">
         {{ data.item.ProductOffer.quantity }}
       </template>
-      <template v-slot:cell(count)="data">
+      <template #cell(count)="data">
         <vInput :multiplicity="data.item.ProductOffer.multiplicity"
         :AddClassInput="'p-0 col-12 col-lg-4'"
         :AddClassForm="'justify-content-center'" :CountProps="data.item.Count"
@@ -43,13 +43,13 @@
         :array="data.item"
         @Count="SetCount($event, data.index)" />
       </template>
-      <template v-slot:cell(symma)="data">
+      <template #cell(symma)="data">
         {{ Number(data.item.Count) * data.item.ProductOffer.prices }} Р
       </template>
-      <template v-slot:cell(Delete)="data">
+      <template #cell(Delete)="data">
         <DeleteCart :index="data.index" />
       </template>
-      <template v-slot:cell(Update)="data">
+      <template #cell(Update)="data">
         <cart-button-update-product :index="data.index" v-if="data.item.checkCount"></cart-button-update-product>
       </template>
     </b-table>

@@ -1,6 +1,6 @@
 <template>
   <b-card class="h-100 justify-content-between" header-class="d-flex justify-content-between">
-    <template v-slot:header>
+    <template #header>
       <h6 class="mb-0">
         <nuxt-link
           class="text-dark"
@@ -34,7 +34,7 @@
         :dataset="datasetProduct.ProductOffer.supplier.name "
       />
     </div>
-    <template v-slot:footer>
+    <template #footer>
       <b-row align-h="between" class="mt-1">
         <b-col>
           <div class="mb-2">

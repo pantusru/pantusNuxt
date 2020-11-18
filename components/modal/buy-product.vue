@@ -1,6 +1,6 @@
 <template>
   <b-modal :id="'buy'" @show="ShowModal">
-    <template v-slot:modal-header="{close}">
+    <template #modal-header="{close}">
       <h5>Товар будет добавлен в корзину</h5>
       <b-button class="font-weight-bolder" variant="outline-danger" @click="close()">
         X
@@ -33,7 +33,7 @@
         <div>{{ stoimost }} Р</div>
       </div>
     </div>
-    <template v-slot:modal-footer="">
+    <template #modal-footer="">
       <base-button class="py-1 px-2" @click="buy" text="Купить"></base-button>
     </template>
   </b-modal>

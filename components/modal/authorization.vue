@@ -1,6 +1,6 @@
 <template>
   <b-modal @hidden="reset" id="authorization" centered>
-    <template v-slot:modal-header>
+    <template #modal-header>
       <div class="d-flex aling-items-center justify-content-between w-100">
         <h3>Вход</h3>
         <b-button class="font-weight-bolder" variant="outline-danger" @click="hidden">
@@ -24,7 +24,7 @@
         :$v="$v"
       />
     </b-form>
-    <template v-slot:modal-footer>
+    <template #modal-footer>
       <div>
         <base-button class="mr-3" @click="check" text="Воити"></base-button>
         <b-button class="border-0 p-0 bg-white text-dark link-danger" @click="password">Забыли пароль</b-button>

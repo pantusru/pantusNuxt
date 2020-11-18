@@ -19,19 +19,18 @@ export const actions = {
             // ПРогоняем ID с URL
             for (let keyId in data.id) {
                 if (data.data[keyData].id == data.id[keyId]) {// СОвпадение найдено
-                    if (data.data[keyData].level == 1) {// Приминимость 0 уровня
-                  console.log(data.data[keyData]);
+                    if (data.data[keyData].level === 1) {// Приминимость 0 уровня
                         dispatch("MarkaSet", {
                             link: data.data[keyData],
                         })
                     }
-                    else if (data.data[keyData].level == 2) {// Приминимость 1 уровня
+                    else if (data.data[keyData].level === 2) {// Приминимость 1 уровня
                         dispatch("ModelSet", {
                             link: data.data[keyData],
                             DataModel: data.DataModel,
                         })
                     }
-                    else if (data.data[keyData].level == 3) {// Приминимость 2 уровня
+                    else if (data.data[keyData].level === 3) {// Приминимость 2 уровня
                         dispatch("GenerationsSet", {
                             DataModel: data.DataModel,
                             MarkId: data.MarkId,

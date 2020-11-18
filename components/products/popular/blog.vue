@@ -33,7 +33,7 @@
             :dataset="data"
           />
         </div>
-         <template v-slot:footer>
+         <template #footer>
             <b-row no-gutters align-h="between" class="mt-1">
                 <b-col>
                     <div class="mb-3"> <b class="fz-5">Цена</b> </div>

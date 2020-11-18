@@ -7,7 +7,7 @@
       hover
       thead-class=""
     >
-      <template v-slot:cell(sku)="data">
+      <template #cell(sku)="data">
         <div>
           {{ data.item.ProductCard.sku.original }}
         </div>
@@ -16,14 +16,14 @@
         </div>
       </template>
 
-      <template v-slot:cell(price)="data">
+      <template #cell(price)="data">
         {{ data.item.ProductOffer.prices }} Р
       </template>
 
-      <template v-slot:cell(count)="data">
+      <template #cell(count)="data">
         <div>{{ data.item.Count }}</div>
       </template>
-      <template v-slot:cell(Delete)="data">
+      <template #cell(Delete)="data">
         <DeleteCart :index="data.index" />
       </template>
     </b-table>

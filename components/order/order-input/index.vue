@@ -23,7 +23,6 @@
 import mixinsProps from "@/mixins/input/props/index"
 export default {
     // created(){
-    //   console.log(this);
     //   if(this.User !== undefined && this.User.length !== 0 ){
     //     // this.value= this.User;
     //   }

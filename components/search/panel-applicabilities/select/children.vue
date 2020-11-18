@@ -1,43 +1,49 @@
 <template>
-  <b-col cols="3" class="mb-3 mb-md-0">
-    <div
-      class="mr-3 form-control h-30px"
-      v-on-clickaway="hiddenForm"
-      @click="show = true"
-    >
-      <div v-if="PanelData.length != 0">
-        <span v-for="id in Panel" :key="id">
-          <template
-            v-if="PanelData.filter((data) => data.id == id)[0] != undefined"
-          >
-            {{ PanelData.filter((data) => data.id == id)[0].name + ", " }}
-          </template>
-        </span>
-      </div>
-      <div v-else>Нету применяемости</div>
-    </div>
-<!--          :select-size="4" -->
-    <b-form-select
-      multiple
+<!--  <b-col cols="3" class="mb-3 mb-md-0">-->
+<!--    <div-->
+<!--      class="mr-3 form-control h-30px"-->
+<!--      v-on-clickaway="hiddenForm"-->
+<!--      @click="show = true"-->
+<!--    >-->
+<!--      <div v-if="PanelData.length != 0">-->
+<!--        <span v-for="id in Panel" :key="id">-->
+<!--          <template-->
+<!--            v-if="PanelData.filter((data) => data.id == id)[0] != undefined"-->
+<!--          >-->
+<!--            {{ PanelData.filter((data) => data.id == id)[0].name + ", " }}-->
+<!--          </template>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--      <div v-else>Нету применяемости</div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;          :select-size="4" &ndash;&gt;-->
+<!--    <b-form-select-->
+<!--      multiple-->
 
-      v-model="Panel"
-      v-if="show && PanelData.length > 0"
-    >
-      <template v-slot:first>
-        <b-form-select-option
-          class="option-my"
-          v-for="element in PanelData"
-          :key="element.id"
-          :value="element.id"
-          >{{ element.name }}</b-form-select-option
-        >
-      </template>
-    </b-form-select>
-  </b-col>
+<!--      v-model="Panel"-->
+<!--      v-if="show && PanelData.length > 0"-->
+<!--    >-->
+<!--      <template #first>-->
+<!--        <b-form-select-option-->
+<!--          class="option-my"-->
+<!--          v-for="element in PanelData"-->
+<!--          :key="element.id"-->
+<!--          :value="element.id"-->
+<!--          >{{ element.name }}</b-form-select-option-->
+<!--        >-->
+<!--      </template>-->
+<!--    </b-form-select>-->
+<!--  </b-col>-->
+  <applicabilities-select-all
+    :PanelData="PanelData"
+    :Panel.sync="Panel"
+  />
 </template>
 <script>
 import { directive as onClickaway } from "vue-clickaway";
+import ApplicabilitiesSelectAll from "@/components/search/panel-applicabilities/select/applicabilities-select-all";
 export default {
+  components: {ApplicabilitiesSelectAll},
   directives: {
     onClickaway: onClickaway,
   },

@@ -1,11 +1,11 @@
 <template>
   <b-modal id="share" footer-class="justify-content-start">
-    <template v-slot:modal-title>
+    <template #modal-title>
       <h2>Поделиться</h2>
     </template>
     <h4>Ссылка на товар</h4>
     <b-input :value="value" ref="input"></b-input>
-    <template v-slot:modal-footer>
+    <template #modal-footer>
       <b-button
         @click="shareLink"
         class="bg-danger border-0 px-5"

@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="3" class="mb-3 mb-md-0">
+<!--  <b-col cols="3" class="mb-3 mb-md-0">-->
 <!--    <div-->
 <!--      class="mr-3 form-control h-30px"-->
 <!--      v-on-clickaway="hiddenForm"-->
@@ -9,39 +9,49 @@
 <!--        {{ Applicabilities.filter((data) => data.id == PanelData)[0].name }}-->
 <!--      </span>-->
 <!--    </div>-->
-    <!--    <ul class="overflow-100px">-->
-    <!--      <panel-applicabilities-li-->
-    <!--        v-show="show === true"-->
-    <!--        @click="SetVuex(index,data.id)"-->
-    <!--        v-for="(data, index) in Applicabilities"-->
-    <!--        :key="data.id"-->
-    <!--        :text="data.name"-->
-    <!--        :dataset="PanelData"-->
-    <!--        :id="data.id"-->
-    <!--      >-->
+              <!--    <ul class="overflow-100px">-->
+              <!--      <panel-applicabilities-li-->
+              <!--        v-show="show === true"-->
+              <!--        @click="SetVuex(index,data.id)"-->
+              <!--        v-for="(data, index) in Applicabilities"-->
+              <!--        :key="data.id"-->
+              <!--        :text="data.name"-->
+              <!--        :dataset="PanelData"-->
+              <!--        :id="data.id"-->
+              <!--      >-->
 
-    <!--      </panel-applicabilities-li>-->
-    <!--    </ul>-->
-    <!--    :select-size="4" v-if="show === true" -->
-    <b-form-select v-model="PanelData">
-      <template v-slot:first>
-        <b-form-select-option
-          class="option-my"
-          v-for="(data, index) in Applicabilities"
-          :key="data.id"
-          :value="data.id"
-        >{{ data.name }}
-        </b-form-select-option
-        >
-      </template>
-    </b-form-select>
-  </b-col>
+              <!--      </panel-applicabilities-li>-->
+              <!--    </ul>-->
+              <!--    :select-size="4" v-if="show === true" -->
+<!--    <b-form-select :select-size="4" v-if="show === true" v-model="PanelData">-->
+<!--      <template #first>-->
+<!--        <b-form-select-option-->
+<!--          class="option-my"-->
+<!--          v-for="(data, index) in Applicabilities"-->
+<!--          :key="data.id"-->
+<!--          :value="data.id"-->
+<!--        >{{ data.name }}-->
+<!--        </b-form-select-option-->
+<!--        >-->
+<!--      </template>-->
+<!--    </b-form-select>-->
+<!--  </b-col>-->
+  <applicabilities-select-all
+    :panel-data="Applicabilities"
+    :panel.sync="PanelData"
+    :multiple="false"
+    :type="'parent'"
+  />
+
+
 </template>
 
 <script>
 import {directive as onClickaway} from "vue-clickaway";
+import ApplicabilitiesSelectAll from "@/components/search/panel-applicabilities/select/applicabilities-select-all";
 // import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/option/panel-applicabilities-li";
 export default {
+  components: {ApplicabilitiesSelectAll},
   // components: {PanelApplicabilitiesLi},
   directives: {
     onClickaway: onClickaway,
@@ -110,7 +120,6 @@ export default {
      * @function SetVuex - Сохраняет потомков при их наличие в Data
      */
     // SetVuex(index, value) {
-    //   console.log("11");
     //   // this.$store.commit("Applicabilities/Panel/SetPanel", {
     //   //   // Сохраняет во VUEX  SelectedMarka
     //   //   id: this.PanelId,

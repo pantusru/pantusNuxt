@@ -1,6 +1,5 @@
 export const state = () => ({
-    Metks: [
-    ],
+    Metks: [],
 })
 export const mutations  =  {
     /**

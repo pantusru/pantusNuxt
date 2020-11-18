@@ -86,7 +86,6 @@ export default {
         )["SelectedMarka"];
       },
       set(value) {
-        console.log(value);
         let index = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value);
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           // Сохраняет во VUEX  SelectedMarka

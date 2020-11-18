@@ -33,8 +33,9 @@ export const actions = {
         for (const key in arr) { // Прогоняем массив с вложенностью
             if (arr[key].parentId != null) { // Есть ли родитель у выбранного потомка
                 ParentID = true;
-            }else if(data.check === true){// Выход из рекурсии
-              return ;
+            }
+            else if(data.check === true){// Выход из рекурсии
+              return;
             }
             if( typeof data.id == "number"){ // Проверяем что это число
                 data.id = [data.id];

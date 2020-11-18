@@ -8,7 +8,7 @@
     <!-- children -->
       <div v-if="type === 'children'">
         <div v-if="PanelData.length !== 0">
-        <span v-for="id in Panel" :key="id">
+        <span v-for="id in panel" :key="id">
           <template
             v-if="PanelData.filter
               ((data) => data.id == id)[0] !== undefined">
@@ -21,8 +21,8 @@
       <!-- parent -->
       <div v-else-if="type === 'parent'">
         <div v-if="PanelData.length !== 0">
-          <template  v-if="Panel.length !== 0">
-            {{PanelData.filter(data => data.id === Panel)[0].name}}
+          <template  v-if="panel.length !== 0">
+            {{PanelData.filter(data => data.id === panel)[0].name}}
           </template>
         </div>
         <div v-else>Нету применяемости</div>
@@ -33,9 +33,9 @@
 
 
     <b-form-select
-      :select-size="4"  
+      :select-size="4"
       :multiple="multiple"
-      :value="Panel"
+      :value="panel"
       @input="$emit('update:panel', $event)"
       v-if="show && PanelData.length > 0"
     >
@@ -67,7 +67,7 @@ export default {
     PanelData:{
       default: [],
     },
-    Panel:{
+    panel:{
 
     },
     multiple:{

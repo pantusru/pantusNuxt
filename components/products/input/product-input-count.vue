@@ -12,7 +12,7 @@
       ></b-input>
       <b-icon-plus class="cursor-pointer" :class="{'d-none d-lg-block':showIcon}" @click="plus"></b-icon-plus>
     </b-form>
-    <div class="error mt-2" v-if="error == true">
+    <div class="error mt-2" v-if="error === true">
       Не коррентное количество товара
     </div>
   </div>

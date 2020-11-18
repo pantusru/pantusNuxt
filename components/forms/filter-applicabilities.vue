@@ -8,7 +8,7 @@
       Указать применяемости
     </button>
     <b-card
-      v-show="showAll == true"
+      v-show="showAll === true"
       class="text-666 border-e1 bg-transparen"
       no-body
     >

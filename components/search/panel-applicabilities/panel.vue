@@ -35,6 +35,10 @@ export default {
       this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.PanelId);
     },
   },
+  components:{
+    Parent,
+    Children,
+  },
   props: {
     PanelId: {},
   },

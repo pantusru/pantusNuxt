@@ -90,7 +90,7 @@ export default {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
           this.$store.commit("User/AuthorizationTrue");
-          this.push("/");
+          this.$router.push("/");
         }
       }
     }

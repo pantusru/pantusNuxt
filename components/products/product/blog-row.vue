@@ -9,11 +9,12 @@
           <h2> <nuxt-link class="text-555" :to="'product/'+Product.ProductCard.id"> {{ Product.ProductCard.name }}</nuxt-link></h2>
         </b-row>
       </b-row>
+<!--      <div>{{Product}}</div>-->
     </b-card-header>
     <b-card-body class="py-2 px-15px">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
-          <!--  Бренд  -->
+<!--            Бренд  -->
           <RowAtr
             name="Бренд"
             :link="'search?brand=' + Product.ProductCard.brand.id"
@@ -25,7 +26,7 @@
             :dataset="Product.ProductCard.sku.original"
           />
           <!--  Применяемость  -->
-          <RowAtr v-if="Product.ProductCard.applicabilities !== undefined"
+          <RowAtr v-if="Product.ProductCard.applicabilities !== undefined && Product.ProductCard.applicabilities.length !== 0"
                   name="Применяемость"
                   :dataset="Product.ProductCard.applicabilities[0].name"
                   :link="'search?applicabilities=' + Product.ProductCard.applicabilities[0].id"
@@ -41,7 +42,7 @@
           </template>
           <!--  ОЕМ  -->
           <RowAtr
-            v-if="Product.ProductCard.ProductCardOem !== undefined"
+            v-if="Product.ProductCard.ProductCardOem !== undefined && Product.ProductCard.ProductCardOem.length !== 0"
             name="ОЕМ"
             :link="'search?name=' + Product.ProductCard.ProductCardOem[0]"
             :dataset="Product.ProductCard.ProductCardOem[0]"
@@ -56,7 +57,7 @@
           </template>
           <!--  Категории  -->
           <RowAtr
-            v-if="Product.ProductCard.categories !== undefined"
+            v-if="Product.ProductCard.categories !== undefined && Product.ProductCard.categories.length !== 0"
             name="Категории"
             :link="'search?categories=' + Product.ProductCard.categories[0].id"
             :dataset="Product.ProductCard.categories[0].name"

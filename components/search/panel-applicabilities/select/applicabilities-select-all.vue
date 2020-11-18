@@ -29,8 +29,11 @@
       </div>
     </div>
     <!--          :select-size="4" -->
+
+
+
     <b-form-select
-      :select-size="4"
+      :select-size="4"  
       :multiple="multiple"
       :value="Panel"
       @input="$emit('update:panel', $event)"

@@ -3,7 +3,7 @@
              :to="nav.to"
              class="nav-item-mobile d-flex justify-content-between"
   >
-    <span @click.prevent="GetMainNav(value, nav.to)">{{ nav.text }}</span>
+    <span @click="GetMainNav(value)">{{ nav.text }}</span>
     <template v-if="value !== false">
       <b-icon-caret-right-fill v-if="flag === 'right'"  class="fz-5 d-block"></b-icon-caret-right-fill>
       <b-icon-caret-left-fill  v-if="flag === 'left'" class="fz-5"></b-icon-caret-left-fill>

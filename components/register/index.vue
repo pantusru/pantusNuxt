@@ -14,6 +14,9 @@
         <div class="error-full" v-for="data in error" :key="data.id">
             <div class="error" v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"> {{data.text}} </div>
         </div>
+        <div class="error" v-if="GetcheckAuthorization">
+          Введены не верно логин или пароль
+        </div>
     </div>
 </template>
 
@@ -29,6 +32,11 @@ export default {
             default: false,
         }
     },
+  computed:{
+    GetcheckAuthorization(){
+      return this.$store.getters["GetcheckAuthorization"]
+    }
+  }
 }
 </script>
 

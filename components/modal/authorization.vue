@@ -56,7 +56,7 @@ export default {
     vueRecaptcha,
   },
   methods: {
-    registration(){
+    registration() {
       this.hidden();
       this.$router.push("/register");
     },
@@ -83,14 +83,17 @@ export default {
       if (this.$v.Form.$error === true || this.checkRecaptcha === false) { // Проверка что данные не валидны
         return;
       } else {
-        if (true) { // Проверка валидности данных с сервера
+        if (false) { // Проверка валидности данных с сервера
           this.hidden();
           console.log("ВЫ авторизованы");
           this.$cookies.set("Authorization", this.$v.Form.$model.email, {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
+          this.$store.commit("SetFormApi", {data: 'checkAuthorization', value: false});
           this.$store.commit("User/AuthorizationTrue");
           this.$router.push("/");
+        } else {
+          this.$store.commit("SetFormApi", {data: 'checkAuthorization', value: true});
         }
       }
     }

@@ -8,6 +8,7 @@ export const state = () => ({
     Form:{
         password: false, // Проверка пароля с формы
         new_password: false, // Проверка пароля при отправки запроса на новый пароль
+        checkAuthorization: false, // Проверка авторизации от сервера
     },
   NavMobile: false,
 })
@@ -21,9 +22,6 @@ export const mutations  =  {
   SetNavMobile(store, data){
     store.NavMobile = data;
   },
-    // SetshowButtonFilter(store, data){
-    //     store.showButtonFilter = data;
-    // },
   SetFormApi(store, data){
     store.Form[data.data] = data.value;
   },
@@ -38,5 +36,6 @@ export const getters = {
     GetcheckFilterClick: s => s.checkFilterClick,
     GetFormPassword: s => s.Form.password,
     GetFormNewPassword: s => s.Form.new_password,
+    GetcheckAuthorization: s => s.Form.checkAuthorization,
     GetNavMobile: s=> s.NavMobile,
 }

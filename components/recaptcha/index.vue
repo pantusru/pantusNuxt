@@ -34,6 +34,6 @@ export default {
      this.$emit("update:checkRecaptcha", true);
      this.$emit("update:getError", false);
     }
-  }
+  },
 }
 </script>

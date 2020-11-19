@@ -1,6 +1,6 @@
 <template>
-  <div class="border-bottom w-100vw">
-   <base-nav-mobule-link
+  <div class="border-bottom">
+   <base-nav-mobule-link class="container"
       :value="value"
       :nav="nav"
       component="div"

@@ -1,10 +1,10 @@
 <template>
   <li
     :class="{'activ-li': selected}"
-    @click="selected = !selected"
+    @click="clickLi"
     v-on="$listeners"
     class="option-my">
-      {{ text }}
+      {{ dataset.name }}
   </li>
 </template>
 
@@ -12,15 +12,16 @@
 export default {
   name: "panel-applicabilities-li",
   created() {
-    if(this.dataset.length > 0){
-      if(this.dataset.filter( (data) => data.id === this.id )){
-          this.selected = true;
+    if(this.panel.length !==0){
+      if(typeof this.panel === 'object'){
+        this.panel.forEach(data =>{
+          if(data === this.dataset.id){
+            this.selected = true;
+          }
+        })
+      }else if( typeof this.panel === 'number'){
+        this.selected = this.panel === this.dataset.id;
       }
-    }
-  },
-  watch:{
-    async dataset(){
-       this.selected = await false;
     }
   },
   data() {
@@ -28,17 +29,27 @@ export default {
       selected: false,
     }
   },
+  methods:{
+    clickLi(){
+      this.selected = !this.selected;
+      this.$emit('panel', {id:this.dataset.id, value: this.selected})
+    }
+  },
   props: {
-    text: {},
+    arr: {},
     dataset: {},
-    id: {},
+    panel:{},
   }
 }
 </script>
 
 <style>
 .activ-li{
-  background-color: #436174;
+  background-color: #cccccc;
 }
-
+.option-my{
+  cursor: pointer;
+  list-style: none;
+  padding: 5px;
+}
 </style>

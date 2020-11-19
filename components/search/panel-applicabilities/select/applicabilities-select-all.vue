@@ -5,7 +5,7 @@
       v-on-clickaway="hiddenForm"
       @click="show = true"
     >
-    <!-- children -->
+      <!-- children -->
       <div v-if="type === 'children'">
         <div v-if="PanelData.length !== 0">
         <span v-for="id in panel" :key="id">
@@ -21,40 +21,33 @@
       <!-- parent -->
       <div v-else-if="type === 'parent'">
         <div v-if="PanelData.length !== 0">
-          <template  v-if="panel.length !== 0">
-            {{PanelData.filter(data => data.id === panel)[0].name}}
+          <template v-if="panel.length !== 0">
+            {{ PanelData.filter(data => data.id === panel)[0].name }}
           </template>
         </div>
         <div v-else>Нету применяемости</div>
       </div>
     </div>
     <!--          :select-size="4" -->
-
-
-
-    <b-form-select
-      :select-size="4"
-      :multiple="multiple"
-      :value="panel"
-      @input="$emit('update:panel', $event)"
-      v-if="show && PanelData.length > 0"
-    >
-      <template #first>
-        <b-form-select-option
-          class="option-my"
-          v-for="element in PanelData"
-          :key="element.id"
-          :value="element.id"
-        >
-          {{ element.name }}
-        </b-form-select-option>
-      </template>
-    </b-form-select>
+    <ul class="overflow px-0 position-absolute app-select" v-if="show && PanelData.length > 0">
+      <panel-applicabilities-li
+        v-for="dataset in PanelData"
+        :key="dataset.id"
+        :dataset="dataset"
+        :arr="PanelData"
+        :panel="panel"
+        @click="showHidden"
+        v-on:panel="getEvent"
+      />
+    </ul>
   </b-col>
 </template>
 <script>
-import { directive as onClickaway } from "vue-clickaway";
+import {directive as onClickaway} from "vue-clickaway";
+import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/option/panel-applicabilities-li";
+
 export default {
+  components: {PanelApplicabilitiesLi},
   directives: {
     onClickaway: onClickaway,
   },
@@ -64,29 +57,41 @@ export default {
     };
   },
   props: {
-    PanelData:{
+    PanelData: {
       default: [],
     },
-    panel:{
-
-    },
-    multiple:{
+    panel: {},
+    multiple: {
       type: Boolean,
       default: true,
     },
-    type:{
+    type: {
       default: "children"
     }
   },
   methods: {
+    getEvent(event) {
+        this.$emit("update:panel", {id:event.id, value: event.value})
+    },
     hiddenForm(event) {
-      if (event.target.className !== "option-my") {
+      if (event.target.className !== "option-my" && event.target.className !== "option-my activ-li") {
         this.show = false;
       }
     },
+    showHidden() { // Скрыть окно если можно выбрать 1 элемент
+      if (this.type === "parent") {// Пропсом это флаг это родитель или потомок
+        this.show = false;
+      }
+    }
   },
 };
 </script>
 
 <style>
+.app-select{
+  border: 1px solid #666666;
+  width: 93%;
+  z-index: 2;
+  background-color: #fff;
+}
 </style>

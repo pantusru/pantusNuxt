@@ -68,7 +68,7 @@ import ResetFilter from "@/mixins/reset-filter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/search-submit/index"
 import Share from "@/components/modal/share";
-import ButtonReplyShow from "@/components/button-reply-show";
+import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],

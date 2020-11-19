@@ -39,6 +39,7 @@ export const mutations = {
    */
   DeleteElementPanel(store, data) {
     let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
+    console.log(store.Panel[index][data.NameElement])
     store.Panel[index][data.NameElement].splice(data.indexElement, 1);
   },
   /**
@@ -58,7 +59,10 @@ export const mutations = {
     let index = store.Panel.findIndex(panel => panel.id == data.id);
     store.Panel[index][data.name] = data.value;
   },
-
+  PushPanel(store, data) {
+    let index = store.Panel.findIndex(panel => panel.id == data.id);
+    store.Panel[index][data.name].push(data.value);
+  },
   /**
    * @param {*} data.id - id на Panel
    * @param {*} data.value - Массив значений  который сохранятся  в Panel

@@ -68,7 +68,7 @@ import ModalBuy from "@/components/modal/buy-product"
 import TableOffer from "@/components/table/table-offset-get"
 import Share from "@/components/modal/share"
 import mixins from "@/mixins/product/album"
-import ButtonReplyShow from "@/components/button-reply-show";
+import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
   mixins: [mixins],

@@ -42,21 +42,33 @@ export default {
       },
       set(value) {
         let length = this.Panel.length;
-        this.$store.commit("Applicabilities/Panel/SetPanel", {
-          // Сохранить текущее изменения во VUEX
-          id: this.PanelId,
-          value: value,
-          name: this.NameSelected,
-        });
+        if(value.value){
+          this.$store.commit("Applicabilities/Panel/PushPanel", {
+            // Сохранить новое значение во VUEX
+            id: this.PanelId,
+            value: value.id,
+            name: this.NameSelected,
+          });
+        }else {
+          let index = this.Panel.findIndex(data => data == value.id);
+          if(index !== -1){
+            this.$store.commit("Applicabilities/Panel/DeleteElementPanel",{
+              IdPanel: this.PanelId,
+              indexElement: index, // Родить индекс
+              NameElement: this.NameSelected,
+            });
+          }
+        }
         if (this.NameData !== undefined) { // Если ли потомки у панели
           this.checkChildrenData();
-          if (value.length === 1 && length === 1) { // Проверяка что нужно удалить все выбранные потомки
+          if (length === 0) { // Проверяка что нужно удалить все выбранные потомки
             this.$store.commit("Applicabilities/Panel/SetPanel", {// Сохраняет во VUEX Data потомка
               id: this.PanelId,
               value: [],
               name: this.NameSelectedClildren,
             });
-          } else if(value.length < length && this.PanelSelectedChildren.length > 0){ // Проверка что нужно перебрать выбранные потомки
+          }
+          else if(this.PanelSelectedChildren.length > 0){ // Проверка что нужно перебрать выбранные потомки
             this.PanelSelectedChildren.forEach((SelectedChildren, index) => {
               let check = false;
               for (const dataChildren in this.PanelDataChildren) {// Прогоняем отображаемые потомки

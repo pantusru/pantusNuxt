@@ -44,13 +44,21 @@ export default {
         )["SelectedMarka"];
       },
       set(value) {
-        let index = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value);
-        this.$store.commit("Applicabilities/Panel/SetPanel", {
-          // Сохраняет во VUEX  SelectedMarka
-          id: this.PanelId,
-          value: value,
-          name: "SelectedMarka",
-        });
+        let index = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value.id);
+        if(value.value === true){// Выбран не выбранный checked
+          this.$store.commit("Applicabilities/Panel/SetPanel", {
+            // Сохраняет во VUEX  SelectedMarka
+            id: this.PanelId,
+            value: value.id,
+            name: "SelectedMarka",
+          });
+        }else { // Выбран выбранный checked
+          this.$store.commit("Applicabilities/Panel/SetPanel", { // reset marka
+            id: this.PanelId,
+            value: "",
+            name: "SelectedMarka",
+          });
+        }
         this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
           id: this.PanelId,
           value: this.Applicabilities[index].children,

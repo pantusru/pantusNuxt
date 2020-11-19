@@ -52,18 +52,23 @@ export default {
             value: value.id,
             name: "SelectedMarka",
           });
+          this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
+            id: this.PanelId,
+            value: this.Applicabilities[index].children,
+            name: "DataModel",
+          });
         }else { // Выбран выбранный checked
           this.$store.commit("Applicabilities/Panel/SetPanel", { // reset marka
             id: this.PanelId,
             value: "",
             name: "SelectedMarka",
           });
+          this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
+            id: this.PanelId,
+            value: [],
+            name: "DataModel",
+          });
         }
-        this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
-          id: this.PanelId,
-          value: this.Applicabilities[index].children,
-          name: "DataModel",
-        });
         this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET  selected model
           id: this.PanelId,
           NameSelected: "SelectedModel",

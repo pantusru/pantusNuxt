@@ -89,3 +89,6 @@ a:hover{
   color: initial;
   text-decoration: none;
 }
+li{
+  list-style: none;
+}

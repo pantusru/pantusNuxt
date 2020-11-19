@@ -49,7 +49,6 @@ export default {
 }
 .option-my{
   cursor: pointer;
-  list-style: none;
   padding: 5px;
 }
 </style>

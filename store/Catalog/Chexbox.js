@@ -25,7 +25,6 @@ export const actions = {
      * @function ChexboxCheckAll - ищет в указаном массиве элемент.id == id
      */
     async ChexboxCheckAll({ store, commit, dispatch }, data) {
-      console.log(data.arr);
         // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
         let ParentID = false;
         let valueState = {CheckedType: [], Indeterminate:[]};

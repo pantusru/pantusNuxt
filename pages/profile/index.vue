@@ -3,7 +3,7 @@
     <b-row>
         <NavProfile />
       <b-col>
-        <b-form>
+        <b-form autocomplete="off">
           <h5 class="mb-4">Личные данные</h5>
           <ElementForm
             name="login"

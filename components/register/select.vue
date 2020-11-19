@@ -1,34 +1,38 @@
 <template>
-  <b-form-group>
-    <span @click="eventCheck" class="form-control form-control-sm check-event"> {{ $v.Form[name].$model }}</span>
-    <b-select @input="size=1" :select-size="size" v-model="$v.Form[name].$model" v-if="size !== 1">
-      <b-form-select-option class="py-2 pl-1 link-danger cursor-pointer" :value="i" v-for="i in 1000" :key="i">{{
-          i
-        }}
-      </b-form-select-option>
-    </b-select>
-  </b-form-group>
+  <div>
+    <span class="custom-select">{{$v.Form[name].$model}}</span>
+    <ul class="overflow p-0 border" v-if="get">
+      <li
+        :class="{'active-li': $v.Form[name].$model == i}"
+        @click="$v.Form[name].$model = i"
+        :value="i" v-for="i in 1000" :key="i"
+        class="py-2 pl-1 link-danger cursor-pointer">
+        {{i}}
+      </li>
+    </ul>
+  </div>
+
 </template>
 
 <script>
 export default {
-  // inject: ["$v"],
   props: {
     name: {},
     $v: {},
   },
   data() {
     return {
-      size: 1,
+      get: false,
       value: '',
     }
   },
   methods: {
-    eventCheck() {
-      if (event.target.className !== "form-control form-control-sm check-event") {
-        this.size = 1;
+    eventCheck(event) {
+      console.log(event.target.className);
+      if (event.target.className !== "custom-select") {
+        this.get = false;
       } else {
-        this.size = 8;
+        this.get = true;
       }
     }
   },
@@ -41,3 +45,8 @@ export default {
 }
 </script>
 
+<style>
+.active-li{
+  background-color: #cccccc;
+}
+</style>

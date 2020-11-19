@@ -39,7 +39,6 @@ export const mutations = {
    */
   DeleteElementPanel(store, data) {
     let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
-    console.log(store.Panel[index][data.NameElement])
     store.Panel[index][data.NameElement].splice(data.indexElement, 1);
   },
   /**

@@ -164,7 +164,6 @@ export default {
 }
 
 .autocomplete-result {
-  list-style: none;
   text-align: left;
   padding: 4px 2px;
   cursor: pointer;

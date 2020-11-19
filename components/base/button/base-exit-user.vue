@@ -8,6 +8,9 @@
 export default {
 name: "base-exit-user",
   methods:{
+    /**
+     * @function  exitUser - Выход user из аккаунта
+     */
     exitUser(){
       this.$store.commit("User/ResetForm");
       this.$store.commit("User/AuthorizationFalse");
@@ -17,6 +20,9 @@ name: "base-exit-user",
     },
   },
   props:{
+    /***
+     * Компонент в котором обвернется функция выход из аккаунта
+     */
     components:{
       request:true,
     }

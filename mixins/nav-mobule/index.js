@@ -5,7 +5,8 @@ export default {
     },
   },
   methods:{
-    GetMainNav(name, url){
+    GetMainNav(name){
+      console.log("name");
       this.$store.commit("SetNavMobile", name);
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{'activ-li': selected}"
+    :class="{'active-li': selected}"
     @click="clickLi"
     v-on="$listeners"
     class="option-my">
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style>
-.activ-li{
+.active-li{
   background-color: #cccccc;
 }
 .option-my{

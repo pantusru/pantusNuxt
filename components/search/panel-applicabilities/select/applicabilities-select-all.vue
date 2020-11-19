@@ -37,7 +37,7 @@
         :arr="PanelData"
         :panel="panel"
         @click="showHidden"
-        v-on:panel="getEvent"
+        v-on:panel="$emit('update:panel', {id:$event.id, value: $event.value})"
       />
     </ul>
   </b-col>
@@ -70,9 +70,6 @@ export default {
     }
   },
   methods: {
-    getEvent(event) {
-        this.$emit("update:panel", {id:event.id, value: event.value})
-    },
     hiddenForm(event) {
       if (event.target.className !== "option-my" && event.target.className !== "option-my activ-li") {
         this.show = false;

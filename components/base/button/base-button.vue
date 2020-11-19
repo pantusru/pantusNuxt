@@ -9,6 +9,9 @@
 export default {
   name: "base-button",
   props:{
+    /***
+     * Текст кнопки
+     */
     text:{
       type: String,
     }

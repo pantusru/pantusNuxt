@@ -6,13 +6,14 @@
     class="mt-3"
     @dismiss-count-down="countDownChanged"
     :show="dismissCountDown"
-  >{{ text}}</b-alert
+  >{{ text }}
+  </b-alert
   >
 </template>
 
 <script>
 export default {
-name: "base-alert",
+  name: "base-alert",
   data() {
     return {
       /**
@@ -22,49 +23,58 @@ name: "base-alert",
     }
   },
   props: {
-    variant:{
-      default:"success",
+    /**
+     * Внешний вид alert
+     */
+    variant: {
+      default: "success",
     },
-  routerHome:{
-    default: true,
-    type: Boolean,
-  },
+    /**
+     * Флаг требуется ли делать router на главную
+     */
+    routerHome: {
+      default: true,
+      type: Boolean,
+    },
+    /**
+     * Флаг когда показывать alert
+     */
     getAlert: {
       default: false,
     },
     /**
-     * @protected Время жизни alert
+     * Текст который вставлен в alert
      */
     text: {
       type: String,
       default: "Изменение прошли успешно"
     },
-      /**
-       * @protected Время жизни alert
-       */
-      dismissSecs:{
-        default:3,
-        type: Number,
-      },
+    /**
+     *  Время жизни alert
+     */
+    dismissSecs: {
+      default: 3,
+      type: Number,
     },
-    methods: {
-      /**
-       * @param dismissCountDown - Время которой alert осталось жить
-       * @function countDownChanged - Функция которая  вычитает время жизни alert
-       */
-      countDownChanged(dismissCountDown) {
-        this.dismissCountDown = dismissCountDown;
-        if(this.dismissCountDown  === 0){
-          if(this.routerHome === true){
-            this.$router.push("/");
-          }else {
-            this.$emit("update:getAlert", false);
-            this.dismissCountDown = this.dismissSecs;
-          }
+  },
+  methods: {
+    /**
+     * @param dismissCountDown - Время которой alert осталось жить
+     * @function countDownChanged - Функция которая  вычитает время жизни alert
+     */
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+      if (this.dismissCountDown === 0) { // Если время жизни закончилось
+        if (this.routerHome === true) {// если нужно рендерить на главную
+          this.$router.push("/");
+        } else { // Если не надо рендерить на главную
+          this.$emit("update:getAlert", false);
+          this.dismissCountDown = this.dismissSecs;
         }
-      },
-    }
+      }
+    },
   }
+}
 </script>
 
 <style>

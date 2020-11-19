@@ -34,7 +34,7 @@ export default {
     },
   },
   methods: {
-    SetName(SortType, SortName) {
+    SetName() {
       this.$store.commit("formSearch/SetSort", {
         SortType: this.SortType,
         SortName: this.SortName,

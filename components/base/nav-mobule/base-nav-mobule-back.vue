@@ -15,7 +15,13 @@ export default {
 name: "base-nav-mobule-back",
   components: {BaseNavMobuleLink},
   props:{
+    /**
+     * value - пропс передающий потомку
+     */
     value:{},
+    /**
+     * nav - пропс передающий потомку
+     */
     nav:{},
   }
 }

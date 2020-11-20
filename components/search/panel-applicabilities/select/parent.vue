@@ -1,6 +1,6 @@
 <template>
   <applicabilities-select-all
-    :panel-data="Applicabilities"
+    :panel-data="ApplicabilitiesFilter"
     :panel.sync="PanelData"
     :multiple="false"
     :type="'parent'"
@@ -27,12 +27,18 @@ export default {
   },
   computed: {
     /**
-     * @property Всё приминимости
+     * @property Всё приминимости который отображаются в select
      */
-    Applicabilities() {
+    ApplicabilitiesFilter() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
         ].filter(data => data.selectChecked ===  false);
+    },
+    /**
+     * @property Всё приминимости
+     */
+    Applicabilities(){
+      return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
     },
     /**
      * @property Отображаемые Checbox в текущем select и сохраняет изменения во VUEX

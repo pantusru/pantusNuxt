@@ -32,6 +32,7 @@ export default {
   methods:{
     clickLi(){
       this.selected = !this.selected;
+      console.log("kek" + this.dataset.id);
       this.$emit('panel', {id:this.dataset.id, value: this.selected})
     }
   },

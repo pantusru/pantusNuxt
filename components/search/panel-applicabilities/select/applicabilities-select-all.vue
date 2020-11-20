@@ -71,7 +71,6 @@ export default {
   },
   methods: {
     hiddenForm(event) {
-      console.log(event.target.className)
       if (event.target.className !== "option-my" && event.target.className !== "option-my active-li") {
         this.show = false;
       }

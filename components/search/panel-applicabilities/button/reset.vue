@@ -25,7 +25,7 @@ export default {
     },
   },
   destroyed(){
-    this.$store.dispatch("Applicabilities/Panel/ResetAll");
+    this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
   }
 };
 </script>

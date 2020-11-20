@@ -138,9 +138,9 @@ export const actions = {
                     }
                 }
             }
-            if (checkMark == true && checkModel == true) { // Проверяем были ли совпадения в checkMark
+            if (checkMark === true && checkModel === true) { // Проверяем были ли совпадения в checkMark
                 break;
-            }else if(checkModel === false && checkMark == true){
+            }else if(checkModel === false && checkMark === true){
                 commit("Applicabilities/Panel/PushPanelObject", { // Сохраняет SelectedGenerations
                     id: Panel[keyPanel].id,
                     name: ["SelectedGenerations",   ],
@@ -174,7 +174,7 @@ export const actions = {
      */
     PushPanelDataGenerations({ commit }, data) {
         let arr;
-        if (data.linkPanel.DataGenerations.length == 0) { // У Панели уже есть Data
+        if (data.linkPanel.DataGenerations.length === 0) { // У Панели уже есть Data
             arr = data.linkApplicabilities.children;
         } else {// У Панели нету Data
             arr = [...data.linkPanel.DataGenerations, ...data.linkApplicabilities.children];
@@ -190,5 +190,4 @@ export const actions = {
             value: arr,
         }, { root: true });
     }
-
 }

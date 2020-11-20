@@ -72,7 +72,7 @@ import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
-  async fetch({query, store, getters, commit, rootGetters}) {
+  async fetch({query, store}) {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Временная хуйта!
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
@@ -100,7 +100,7 @@ export default {
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
         }
       }
-      if (query.brand !== undefined) {// ПРОВЕРКА БРЕНДА
+      if (query.brand !== undefined){     // ПРОВЕРКА БРЕНДА
         let brand = query.brand.split(",");
         brand = Array.from(
           new Set(brand)
@@ -140,10 +140,11 @@ export default {
               ],
           id: ids,
         });
+        this.form.applicabilities = await store.dispatch("Applicabilities/Panel/SetAllIdUrl");
         if(store.getters['Applicabilities/Panel/PanelLength'] === 0){ // Указанные применяемости не найдены
           store.commit("Applicabilities/Panel/SetPanelNew");
         }
-      } else {
+      }else {
         store.commit("Applicabilities/Panel/SetPanelNew");
       }
       if (query.sort_name !== undefined && query.sort_type !== undefined) {
@@ -219,6 +220,7 @@ export default {
         await this.PushUrl(false);
         // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
       } else {
+        console.log("Новый запрос");
         this.$store.commit('SetcheckFilterClick', true)
       }
     },

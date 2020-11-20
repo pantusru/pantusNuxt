@@ -3,16 +3,11 @@ export const state = () => ({
    * @property Vuex массив для фильтров select состоящий из массивов
    */
   Panel: [],
-  /**
-   * @property Последний Id массива в Panel
-   */
+  /** @property Последний Id массива в Panel*/
   Ids: 0,
 })
 export const mutations = {
-  /**
-   *
-   * @function  SetPanelNew - Добавляет новый  пустой массив в Panel
-   */
+  /*** @function  SetPanelNew - Добавляет новый  пустой массив в Panel*/
   SetPanelNew(store) {
     store.Ids++;
     store.Panel.push({
@@ -41,13 +36,13 @@ export const mutations = {
     let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
     store.Panel[index][data.NameElement].splice(data.indexElement, 1);
   },
-  // /**
-  //  *
-  //  * @function  DeleteAllPanel - Удаляет все объекты в Panel
-  //  */
-  // DeleteAllPanel(store, data) {
-  //   store.Panel = [];
-  // },
+  /**
+   *
+   * @function  DeleteAllPanel - Удаляет все объекты в Panel
+   */
+  DeleteAllPanel(store, data) {
+    store.Panel = [];
+  },
   /**
    * @function SetPanel - Добавляет Selected или Data в выбранном по id в Panel
    * @param {Number} data.id - id Panel с которым работать
@@ -85,8 +80,6 @@ export const mutations = {
       store.Panel[indexPanel][element].push(data.value[indexData]);
     });
   },
-
-
   /**
    * @function SetPanel - Очищает Selected и Data в выбранном по id в Panel
    * @param {Number} data.id - id Panel с которым работать
@@ -220,7 +213,6 @@ export const actions = {
       }
     });
     if (ids.length !== 0) {
-      window.scrollTo(0, 0);
       ids = ids.flat(Infinity);
       ids = Array.from(
         new Set(ids)

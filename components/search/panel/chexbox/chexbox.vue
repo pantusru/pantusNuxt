@@ -27,5 +27,9 @@ export default {
 }
 </script>
 <style>
-
+.min-h-auto.mb-2.fz-5_5 label.custom-control-label{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 15px;
+}
 </style>

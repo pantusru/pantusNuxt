@@ -54,7 +54,7 @@ export default {
           if(index !== -1){
             this.$store.commit("Applicabilities/Panel/DeleteElementPanel",{
               IdPanel: this.PanelId,
-              indexElement: index, // Родить индекс
+              indexElement: index,
               NameElement: this.NameSelected,
             });
           }

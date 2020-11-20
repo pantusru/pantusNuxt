@@ -7,7 +7,7 @@ export const actions = {
      * @param {Array} data.DataModel  - Массив потомков модели одной марки
      * @param {Array} data.DataGenerations  - Массив потомков модели одной М
      */
-    SetId_Url({ dispatch }, data) {
+    SetId_Url({ dispatch, commit }, data) {
         // ПРОГОНЯЕМ ПРИМИНИМОСТИ
         for (let keyData in data.data) {
             if (data.data[keyData].level === 1) {
@@ -23,6 +23,9 @@ export const actions = {
                         dispatch("MarkaSet", {
                             link: data.data[keyData],
                         })
+                      commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", { // Отобразить его
+                        index: keyData, value: true,
+                      }, {root: true})
                     }
                     else if (data.data[keyData].level === 2) {// Приминимость 1 уровня
                         dispatch("ModelSet", {

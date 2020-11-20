@@ -29,17 +29,16 @@ export const actions = {
      * @param {Array} data.ids -  Массив Id Выбранных Брендов
      */
     async SetMetksBrand({state,commit, rootGetters,dispatch} , data){
-      console.trace("Вызов");
         let brandsAll = rootGetters["Brand/BrandAll/GetBrand"];
-        // for (const keyBrandID in data.ids) {
-        //     for(const keyBrand in brandsAll){
-        //         if(data.ids[keyBrandID] == brandsAll[keyBrand].id){
-        //           let dataset = await dispatch("_init_Metka",{data:brandsAll[keyBrand], type:'brand'});
-        //           commit("PushMetks", dataset);
-        //             break;
-        //         }
-        //     }
-        // }
+        for (const keyBrandID in data.ids) {
+            for(const keyBrand in brandsAll){
+                if(data.ids[keyBrandID] == brandsAll[keyBrand].id){
+                  let dataset = await dispatch("_init_Metka",{data:brandsAll[keyBrand], type:'brand'});
+                  commit("PushMetks", dataset);
+                    break;
+                }
+            }
+        }
     },
     /**
      * @function SetMetksCategories - Сохраняет все метки Категории

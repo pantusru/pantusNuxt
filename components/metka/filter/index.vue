@@ -45,7 +45,8 @@ export default {
         query = await this.DeleteCategories();
       }
       this.$store.commit("Catalog/Metks/DeleteMetks", {index: this.index});
-      this.$router.push({ // Изменение url
+      console.log(name + "-"+query);
+      await this.$router.push({ // Изменение url
         name: "search",
         query: {
           ...this.$route.query,
@@ -59,10 +60,11 @@ export default {
      */
     DeleteBrand() {
       let query = this.$route.query.brand.split(",");
-      for (const key in query) { // ПРогоняем Query Brand
-        if (query[key] === this.link.id) {
+      for (const key in query) { // Прогоняем Query Brand
+        if (query[key] == this.link.id) {
           query.splice(key, 1);
-          break;
+          console.log("das");
+          return query;
         }
       }
       this.$store.commit("formSearch/RemoreBrandsChecked", {// Удаляет выбранный бренд в VUEX

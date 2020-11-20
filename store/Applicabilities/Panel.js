@@ -126,26 +126,42 @@ export const actions = {
   },
   /***
    *
+   * @param data.check - требуется ли делать reset selectChecked у применяемостей
    * @function удаляет все панели и reset у применяемостей selectChecked в false
    */
-  ResetAll({commit, store,state, rootGetters}){
+  ResetAll({commit, state, rootGetters}, data){
+    if(state.Panel.length !== 0){
+      for(const key in state.Panel){
+        let index = rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"]
+        (state.Panel[key].SelectedMarka);
+        if(index !== -1){
+          commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",{
+            index: index, value: false,
+          }, {root:true})
+        }
+      }
+    }
     commit("ResetAll");
-    console.log(state.Panel)
-    // if(store.Panel.length !== 0){
-    //   for(const key in state.Panel){
-    //     let Applicabilities = rootGetters.rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
-    //       .filter(data => data.id === store.Panel[key].SelectedMarka);
-    //     console.log(Applicabilities);
-    //   }
-    // }
   },
   /**
    * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
    */
-  DeletePanel({store, commit, getters}, id) {
+  DeletePanel({store, commit, getters,state, rootGetters}, id) {
     let index = getters.PanelfindIndex(id);
+    if(state.Panel[index].SelectedMarka !== ""){
+      console.log(state.Panel[index].SelectedMarka)
+      let indexReset = rootGetters
+        ['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId']
+      (state.Panel[index].SelectedMarka); // Найди index применяемости
+      if(indexReset !== -1){
+        commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", { // Отобразить его
+          index: indexReset, value: false,
+        }, {root: true})
+      }
+    }
     commit("DeletePanel", index);
   },
+
   /**
    *
    * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности

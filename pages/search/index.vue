@@ -208,15 +208,15 @@ export default {
     );
   },
   watch: {
-     $route() { // Изменение route
+     async $route() { // Изменение route
       if (this.checkFilterClick === true) {
         console.log("Новый запрос reset all");
-        this.ResetNoApplicabilitiess();
-        this.$store.dispatch("Applicabilities/Panel/ResetAll");
-        this.CheckQueryFilter();
-        this.pushParamsFilter();
-        this.pushParamsSort();
-        this.PushUrl(false);
+        await this.ResetNoApplicabilitiess();
+        await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        await this.CheckQueryFilter();
+        await this.pushParamsFilter();
+        await this.pushParamsSort();
+        await this.PushUrl(false);
         // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
       } else {
         this.$store.commit('SetcheckFilterClick', true)

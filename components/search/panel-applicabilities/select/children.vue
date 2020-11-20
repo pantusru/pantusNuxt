@@ -77,7 +77,7 @@ export default {
                   break;
                 }
               }
-              if (check === false || this.PanelDataChildren.length === 0) {// ПРогоняем выбранные потомки
+              if (check === false || this.PanelDataChildren.length === 0) {// Прогоняем выбранные потомки
                 this.$store.commit("Applicabilities/Panel/DeleteElementPanel", {// Удаляем PanelSelectedChildren через index
                   IdPanel: this.PanelId,
                   indexElement: index,

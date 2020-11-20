@@ -15,12 +15,21 @@
 export default {
 name: "base-errors-valid",
   props:{
+    /***
+     * Состояния валидация для условия отображения ошибок
+     */
     $v:{
       request: true,
     },
+    /**
+     * Массив с выводом ошибок
+     */
     error:{
       request: true,
     },
+    /***
+     * Название элемента который будет проверятся в $v
+     */
     name:{
       request: true,
       type:String,

@@ -1,3 +1,4 @@
+<!-- Верхняя часть Выпадающего меню из header для мобильных устройств   -->
 <template>
   <div class="border-bottom">
    <base-nav-mobule-link class="container"

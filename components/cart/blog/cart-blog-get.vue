@@ -73,7 +73,13 @@ export default {
   mixins: [mixit],
   name: "cart-blog-get",
   props: {
+    /***
+     * data корзины 1 товара
+     */
     datasetProduct: {},
+    /***
+     * index корзины 1 товара
+     */
     index: {},
   },
   components: {

@@ -1,9 +1,8 @@
 export default {
   methods: {
     SetCount(data, index) {
-      if (data.array.checkCount === false) {
-        let count = this.GetCartUpdateCount + 1;
-        this.$store.commit("Cart/CartAll/SetCartUpdateCount", count);
+      if (data.array.checkCount === false) { // Данный товар не является обновленным
+        this.$store.commit("Cart/CartAll/SetCartUpdateCount", this.GetCartUpdateCount + 1);
       }
       this.$store.commit("Cart/CartAll/SetCountProductArr", {
         data: data.array,

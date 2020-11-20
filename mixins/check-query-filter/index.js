@@ -22,9 +22,6 @@ export default {
                     brand.forEach((element) => {
                         this.$store.commit("formSearch/SetBrandsChecked", Number(element));
                     });
-                    this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
-                        ids: brand,
-                    });
                 }
                 if (this.$route.query.categories !== undefined) {
                     // ПРОВЕРКА КАТЕГОРИИ
@@ -33,11 +30,6 @@ export default {
                         data: this.$store.getters["Categories/CategoriesAll/GetCategories"],
                         ids: ids,
                     });
-
-                    await this.$store.dispatch(
-                        "Catalog/Metks/SetMetksCategories",
-                        this.$store.getters["Categories/CategoriesAll/GetCategories"]
-                    );
                 }
                 if (this.$route.query.applicabilities !== undefined) {
                     // ПРОВЕРКА ПРИМИНИМОСТИ

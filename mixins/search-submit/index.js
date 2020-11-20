@@ -67,10 +67,12 @@ export default {
         /**
          * @function PushUrl - Переходит на новый запрос
          */
-        PushUrl(checkProduct) {
+        PushUrl(checkPush=true) {
             // НОВЫЙ URL
             window.scrollTo(0, 0);
-            this.$router.push({ name: "search", query: { ... this.form } });
+            if(checkPush){
+              this.$router.push({ name: "search", query: { ... this.form } });
+            }
             console.log(this.form);
             this.form = {};
         }

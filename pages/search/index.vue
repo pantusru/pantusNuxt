@@ -200,7 +200,7 @@ export default {
     }
   },
   created() { // КОстыль
-    let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
+    // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
     console.log("reset");
     this.$store.dispatch(
       "Catalog/All/_AllVisible",
@@ -208,15 +208,15 @@ export default {
     );
   },
   watch: {
-    async $route() { // Изменение route
+     $route() { // Изменение route
       if (this.checkFilterClick === true) {
-        console.log("Новый запрос");
-        await this.ResetNoApplicabilitiess();
-        await this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
-        await this.CheckQueryFilter();
-        await this.pushParamsFilter();
-        await this.pushParamsSort();
-        this.PushUrl();
+        console.log("Новый запрос reset all");
+        this.ResetNoApplicabilitiess();
+        this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        this.CheckQueryFilter();
+        this.pushParamsFilter();
+        this.pushParamsSort();
+        this.PushUrl(false);
         // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
       } else {
         this.$store.commit('SetcheckFilterClick', true)

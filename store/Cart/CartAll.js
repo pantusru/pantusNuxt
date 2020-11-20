@@ -7,6 +7,9 @@ export const state = () => ({
      * @property проверка требуется ли отправить запрос на сервер об обновление корзины
      */
     CartActual: true,
+  /**
+   * @property Количество товаров требующих обновление в корзине
+   */
     CartUpdateCount: 0,
     // CheckCartCount: null,
 })

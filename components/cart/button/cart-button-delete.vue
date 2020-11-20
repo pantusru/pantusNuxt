@@ -8,6 +8,9 @@ export default {
   name: "cart-button-delete",
   components: {BaseButton},
   props:{
+    /***
+     * index массива элемента корзины 1 товара
+     */
         index:{},
     },
     methods:{

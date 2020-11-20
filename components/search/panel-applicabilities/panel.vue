@@ -17,7 +17,7 @@
     />
     <b-col cols="1">
       <b-button
-        v-if="PanelLength != 1"
+        v-if="PanelLength !== 1"
         class="bg-danger border-0"
         @click="DeletePanel"
         >X</b-button
@@ -32,6 +32,15 @@ import Children from "@/components/search/panel-applicabilities/select/children"
 export default {
   methods: {
     DeletePanel() {
+      let PanelData = this.$store.getters["Applicabilities/Panel/PanelId"](
+        this.PanelId
+      )["SelectedMarka"]; // Найди id SelectedMarka
+      let indexReset = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](PanelData); // Найди index применяемости
+      if(indexReset !== -1){
+        this.$store.commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", { // Отобразить его
+          index: indexReset, value: false,
+        })
+      }
       this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.PanelId);
     },
   },

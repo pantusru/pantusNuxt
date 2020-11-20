@@ -32,7 +32,7 @@ export default {
     Applicabilities() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-        ];
+        ].filter(data => data.selectChecked ===  false);
     },
     /**
      * @property Отображаемые Checbox в текущем select и сохраняет изменения во VUEX
@@ -45,7 +45,8 @@ export default {
       },
       set(value) {
         let index = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](value.id);
-        if(value.value === true){// Выбран не выбранный checked
+        let indexReset = this.$store.getters['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId'](this.PanelData);
+        // if(value.value === true){// Выбран не выбранный checked
           this.$store.commit("Applicabilities/Panel/SetPanel", {
             // Сохраняет во VUEX  SelectedMarka
             id: this.PanelId,
@@ -57,18 +58,27 @@ export default {
             value: this.Applicabilities[index].children,
             name: "DataModel",
           });
-        }else { // Выбран выбранный checked
-          this.$store.commit("Applicabilities/Panel/SetPanel", { // reset marka
-            id: this.PanelId,
-            value: "",
-            name: "SelectedMarka",
-          });
-          this.$store.commit("Applicabilities/Panel/SetPanel", { // Сохранить дата модель
-            id: this.PanelId,
-            value: [],
-            name: "DataModel",
-          });
-        }
+          this.$store.commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", {
+            index: index, value: true,
+          })
+          if(indexReset !== -1){
+            this.$store.commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", {
+              index: indexReset, value: false,
+            })
+          }
+        // }
+        // else { // Выбран выбранный checked
+        //   this.$store.commit("Applicabilities/Panel/SetPanel", { // reset MarkaSelected
+        //     id: this.PanelId,
+        //     value: "",
+        //     name: "SelectedMarka",
+        //   });
+        //   this.$store.commit("Applicabilities/Panel/SetPanel", { // Reset дата модель
+        //     id: this.PanelId,
+        //     value: [],
+        //     name: "DataModel",
+        //   });
+        // } // Код не имеет смысла с скрытием
         this.$store.commit("Applicabilities/Panel/ResetClildren", { // RESET  selected model
           id: this.PanelId,
           NameSelected: "SelectedModel",

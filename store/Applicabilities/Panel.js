@@ -41,13 +41,13 @@ export const mutations = {
     let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
     store.Panel[index][data.NameElement].splice(data.indexElement, 1);
   },
-  /**
-   *
-   * @function  DeleteAllPanel - Удаляет все объекты в Panel
-   */
-  DeleteAllPanel(store, data) {
-    store.Panel = [];
-  },
+  // /**
+  //  *
+  //  * @function  DeleteAllPanel - Удаляет все объекты в Panel
+  //  */
+  // DeleteAllPanel(store, data) {
+  //   store.Panel = [];
+  // },
   /**
    * @function SetPanel - Добавляет Selected или Data в выбранном по id в Panel
    * @param {Number} data.id - id Panel с которым работать
@@ -100,7 +100,7 @@ export const mutations = {
   },
   /**
    *
-   * @function ResetAll - Очищает все Panels
+   * @function panel - Очищает все Panels
    */
   ResetAll(store) {
     store.Ids = 1;
@@ -123,7 +123,21 @@ export const actions = {
     if (rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"].length > state.Ids) {
       commit("SetPanelNew");
     }
-
+  },
+  /***
+   *
+   * @function удаляет все панели и reset у применяемостей selectChecked в false
+   */
+  ResetAll({commit, store,state, rootGetters}){
+    commit("ResetAll");
+    console.log(state.Panel)
+    // if(store.Panel.length !== 0){
+    //   for(const key in state.Panel){
+    //     let Applicabilities = rootGetters.rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
+    //       .filter(data => data.id === store.Panel[key].SelectedMarka);
+    //     console.log(Applicabilities);
+    //   }
+    // }
   },
   /**
    * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel

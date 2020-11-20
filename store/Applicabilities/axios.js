@@ -35,6 +35,7 @@ export const actions = {
         children: [],
         visible: true,
         TopParent: data.TopParent,
+        selectChecked: false,
       });
       if(array.childs.length > 0){
         await dispatch("_init_Applicabilities", {

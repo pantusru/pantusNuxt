@@ -22,7 +22,7 @@
       <div v-else-if="type === 'parent'">
         <div v-if="PanelData.length !== 0">
           <template v-if="panel.length !== 0">
-            {{ PanelData.filter(data => data.id === panel)[0].name }}
+            {{ Applicabilities.filter(data => data.id === panel)[0].name }}
           </template>
         </div>
         <div v-else>Нету применяемости</div>
@@ -81,6 +81,13 @@ export default {
       }
     }
   },
+  computed:{
+    Applicabilities() {
+      return this.$store.getters[
+        "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
+        ];
+    },
+  }
 };
 </script>
 

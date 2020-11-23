@@ -39,14 +39,13 @@ export default {
       if (this.link.type === "brand") {
         // Это бренд
         name = "filter_brands";
-        query = this.DeleteBrand();
+        query = await this.DeleteBrand();
       } else if (this.link.type === "categories") {
         // Это категория
         name = "filter_categories";
         query = await this.DeleteCategories();
       }
       this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
-      console.log(name + "-" + query);
       await this.$router.push({
         // Изменение url
         name: "search",
@@ -66,8 +65,6 @@ export default {
         // Прогоняем Query Brand
         if (query[key] == this.link.id) {
           query.splice(key, 1);
-          console.log("das");
-          return query;
         }
       }
       this.$store.commit("formSearch/RemoreBrandsChecked", {
@@ -104,6 +101,7 @@ export default {
      * @returns Возвращает query - в массиве есть элементы
      */
     CheckLengthQuery(query) {
+      console.log("query Check" + query);
       if (query.length === 0) {
         return undefined;
       } else {

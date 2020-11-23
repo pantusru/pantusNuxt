@@ -41,14 +41,16 @@ export default {
         await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
         this.$store.commit("SetcheckFilterClick", undefined);
-        this.$router.push({
+        await this.$router.push({
           name: "search",
           query: {
             filter_substr: this.search
           }
         });
       }
-      console.log({ name: this.search });
+      await this.$store.dispatch("Products/_ProductAll", {
+        filter_substr: this.search
+      });
     }
   }
 };

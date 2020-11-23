@@ -36,7 +36,8 @@
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
           >
             <nuxt-link
-              class="text-576b77 link-danger"
+              :title="table.ProductCard.name"
+              class="text-576b77 link-danger reset-title"
               :to="'product/' + table.ProductCard.id.toString()"
             >
               {{ table.ProductCard.name }}

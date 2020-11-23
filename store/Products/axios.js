@@ -256,14 +256,14 @@ export const actions = {
             url: elem.images.main // Изображение
           },
           album: [],
-          ProductCardOem: [], // OEM
+          ProductCardOem: elem.oems, // OEM
           brand: {
             // brand
             id: elem.brand.id,
             name: elem.brand.name
           },
           categories: [],
-          applicabilities: elem.oems
+          applicabilities: []
         },
         productOffer: []
       });

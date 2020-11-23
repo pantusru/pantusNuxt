@@ -119,7 +119,7 @@ export default {
       }
       if (query.filter_substr !== undefined) {
         // ПРОВЕРКА name SKU
-        store.commit("formSearch/SetSearch", query.name);
+        store.commit("formSearch/SetSearch", query.filter_substr);
         this.form.filter_substr = store.getters["formSearch/GetSearch"];
       }
       if (query.filter_categories !== undefined) {

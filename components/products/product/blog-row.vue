@@ -8,7 +8,8 @@
           </b-col>
           <h2>
             <nuxt-link
-              class="text-555"
+              :title="Product.ProductCard.name"
+              class="text-555 reset-title"
               :to="'product/' + Product.ProductCard.id"
             >
               {{ Product.ProductCard.name }}</nuxt-link

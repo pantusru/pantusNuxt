@@ -7,7 +7,8 @@
     <template #header>
       <h6 class="mb-0">
         <nuxt-link
-          class="text-436174 text-decoration-none"
+          :title="datasetProduct.ProductCard.name"
+          class="text-436174 text-decoration-none reset-title"
           :to="'/product/' + datasetProduct.ProductCard.id"
         >
           {{ datasetProduct.ProductCard.name }}

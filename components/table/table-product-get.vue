@@ -14,7 +14,7 @@
               >{{ table.ProductCard.brand.name }}
             </nuxt-link>
           </b-td>
-          <b-td :rowspan="table.productOffer.length + 1">
+          <b-td :rowspan="table.productOffer.length + 1" class="w-15">
             <nuxt-link
               class="text-576b77 link-danger reset-title"
               :to="'product/' + table.ProductCard.id.toString()"
@@ -32,6 +32,7 @@
             </div>
           </b-td>
           <b-td
+            class="w-15"
             :rowspan="table.productOffer.length + 1"
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
           >

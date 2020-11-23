@@ -72,6 +72,9 @@ button.bg-link-danger:hover {
 .w-1rem {
   width: 1rem;
 }
+.w-15{
+  width: 15% !important;
+}
 w-100vw {
   width: 100vw !important;
 }

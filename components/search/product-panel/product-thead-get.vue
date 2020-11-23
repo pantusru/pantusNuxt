@@ -9,11 +9,12 @@
         label="Бренд"
         SortName="brand"
       />
-      <tdSort label="Артикул" SortName="sku" />
+      <tdSort class="w-15" label="Артикул" SortName="sku" />
       <b-th v-if="CheckAnalogs == false">
-        <b-icon-camera-fill></b-icon-camera-fill
-      ></b-th>
+        <b-icon-camera-fill></b-icon-camera-fill>
+      </b-th>
       <tdSort
+        class="w-15"
         :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
         label="Название"
         SortName="name"

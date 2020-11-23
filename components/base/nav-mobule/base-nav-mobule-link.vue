@@ -4,7 +4,9 @@
     :to="nav.to"
     class="nav-item-mobile d-flex justify-content-between"
   >
-    <span @click="GetMainNav(value)">{{ nav.text }}</span>
+    <span class="cursor-pointer" @click="GetMainNav(value)">{{
+      nav.text
+    }}</span>
     <template v-if="value !== false">
       <b-icon-caret-right-fill
         v-if="flag === 'right'"
@@ -29,7 +31,11 @@ export default {
      * сторона стрелки в ссылках которые открывают другое окно right|left
      */
     flag: {
-      default: "right"
+      default: "right",
+      validator: value => {
+        return ["right", "left"].includes(value) !== false;
+      },
+      type: String
     },
     /**
      * Информация для ссылки [to,text]
@@ -49,7 +55,8 @@ export default {
      * component -  чем является элемент ссылка или другое
      */
     component: {
-      default: "nuxt-link"
+      default: "nuxt-link",
+      type: String
     }
   }
 };

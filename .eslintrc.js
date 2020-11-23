@@ -17,6 +17,8 @@ module.exports = {
   plugins: ["prettier"],
   // add your custom rules here
   rules: {
-    "no-console": "warn" // Без консоли
+    "guard-for-in": 0, // check  в for hasOwnProperty -  не нужно
+    "no-console": "warn", // Без консоли
+    "vue/require-default-prop": 0 // require props default
   }
 };

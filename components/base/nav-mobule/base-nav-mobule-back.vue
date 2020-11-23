@@ -20,11 +20,17 @@ export default {
     /**
      * value - пропс передающий потомку
      */
-    value: {},
+    value: {
+      default: false,
+      type: String | Boolean
+    },
     /**
      * nav - пропс передающий потомку
      */
-    nav: {}
+    nav: {
+      request: true,
+      type: Object
+    }
   }
 };
 </script>

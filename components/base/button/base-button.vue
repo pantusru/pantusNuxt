@@ -13,7 +13,8 @@ export default {
      * Текст кнопки
      */
     text: {
-      type: String
+      type: String,
+      request: true
     }
   }
 };

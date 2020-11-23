@@ -27,7 +27,8 @@ export default {
      * Внешний вид alert
      */
     variant: {
-      default: "success"
+      default: "success",
+      type: String
     },
     /**
      * Флаг требуется ли делать router на главную
@@ -40,7 +41,8 @@ export default {
      * Флаг когда показывать alert
      */
     getAlert: {
-      default: false
+      default: false,
+      type: Boolean
     },
     /**
      * Текст который вставлен в alert

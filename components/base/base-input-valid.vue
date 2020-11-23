@@ -5,11 +5,11 @@
     >
     <b-col cols="12" lg="7">
       <b-form-input
-        :autocomplete="'off'"
-        v-mask="Vmask"
-        :type="type"
-        v-model.trim="$v.Form[name].$model"
         :id="name"
+        v-model.trim="$v.Form[name].$model"
+        v-mask="Vmask"
+        :autocomplete="'off'"
+        :type="type"
         class="w-75"
         size="sm"
       >
@@ -24,9 +24,9 @@ import BaseErrorsValid from "@/components/base/base-errors-valid";
 import mixinsProps from "@/mixins/input/props/index";
 
 export default {
-  mixins: [mixinsProps],
   name: "base-input-valid",
-  components: { BaseErrorsValid }
+  components: { BaseErrorsValid },
+  mixins: [mixinsProps]
 };
 </script>
 

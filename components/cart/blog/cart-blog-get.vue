@@ -75,30 +75,32 @@ import mixit from "@/mixins/input/count-product/emit";
 import vInput from "@/components/products/input/product-input-count";
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgGetModal from "@/components/products/product/element/img";
-import BuyButton from "@/components/products/button/buy-index";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 
 export default {
-  mixins: [mixit],
   name: "cart-blog-get",
-  props: {
-    /***
-     * data корзины 1 товара
-     */
-    datasetProduct: {},
-    /***
-     * index корзины 1 товара
-     */
-    index: {}
-  },
   components: {
     CartButtonUpdateProduct,
-    BuyButton,
     ImgGetModal,
     DeleteCart,
     vInput,
     ProductElementRowGet
+  },
+  mixins: [mixit],
+  props: {
+    /***
+     * data корзины 1 товара
+     */
+    datasetProduct: {
+      type: Object
+    },
+    /***
+     * index корзины 1 товара
+     */
+    index: {
+      type: String | Number
+    }
   }
 };
 </script>

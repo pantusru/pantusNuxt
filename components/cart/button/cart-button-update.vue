@@ -8,8 +8,13 @@ import BaseButton from "@/components/base/button/base-button";
 export default {
   name: "cart-button-update",
   components: { BaseButton },
+  computed: {
+    CartProduct() {
+      return this.$store.getters["Cart/CartAll/GetCartProduct"];
+    }
+  },
   methods: {
-    async updateCart() {
+    updateCart() {
       // await Запрос на изменение full cart
       // flag обновлена ли корзина
       this.$store.commit("Cart/CartAll/SetCartActual");
@@ -18,15 +23,10 @@ export default {
       for (const index in this.CartProduct) {
         // Убрать все flag не обновленных товаров
         this.$store.commit("Cart/CartAll/SetCartCheckCount", {
-          index: index,
-          value: false
+          value: false,
+          index
         });
       }
-    }
-  },
-  computed: {
-    CartProduct() {
-      return this.$store.getters["Cart/CartAll/GetCartProduct"];
     }
   }
 };

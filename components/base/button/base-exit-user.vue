@@ -21,7 +21,8 @@ export default {
      * Компонент в котором обвернется функция выход из аккаунта
      */
     components: {
-      request: true
+      request: true,
+      type: String
     }
   }
 };

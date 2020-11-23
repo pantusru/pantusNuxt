@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="error-full" v-for="data in error" :key="data.id">
+    <div v-for="data in error" :key="data.id" class="error-full">
       <div
-        class="error"
         v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
+        class="error"
       >
         {{ data.text }}
       </div>
@@ -25,7 +25,8 @@ export default {
      * Массив с выводом ошибок
      */
     error: {
-      request: true
+      request: true,
+      type: Array
     },
     /***
      * Название элемента который будет проверятся в $v

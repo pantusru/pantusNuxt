@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import BaseNavMobuleLink from "@/components/base/nav-mobule/base-nav-mobule-link";
+// import BaseNavMobuleLink from "@/components/base/nav-mobule/base-nav-mobule-link";
 export default {
-  name: "base-nav-mobule",
-  components: { BaseNavMobuleLink }
+  name: "base-nav-mobule"
+  // components: { BaseNavMobuleLink }
 };
 </script>
 

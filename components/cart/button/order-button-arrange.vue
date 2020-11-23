@@ -2,10 +2,10 @@
   <div>
     <template v-if="CartProduct.length > 0">
       <base-button
-        text="Оформить заказ"
         v-if="!CheckUser"
         v-b-modal="'authorization'"
-      ></base-button>
+        text="Оформить заказ"
+      />
       <base-button v-if="CheckUser">
         <nuxt-link to="/order" class="text-white link-decoration-none">
           Оформить заказ

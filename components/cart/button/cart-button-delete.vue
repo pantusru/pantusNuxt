@@ -11,7 +11,9 @@ export default {
     /***
      * index массива элемента корзины 1 товара
      */
-    index: {}
+    index: {
+      type: Number
+    }
   },
   methods: {
     deleteProduct() {

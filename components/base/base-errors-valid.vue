@@ -5,7 +5,7 @@
         class="error"
         v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
       >
-        {{data.text}}
+        {{ data.text }}
       </div>
     </div>
   </div>
@@ -13,31 +13,29 @@
 
 <script>
 export default {
-name: "base-errors-valid",
-  props:{
+  name: "base-errors-valid",
+  props: {
     /***
      * Состояния валидация для условия отображения ошибок
      */
-    $v:{
-      request: true,
+    $v: {
+      request: true
     },
     /**
      * Массив с выводом ошибок
      */
-    error:{
-      request: true,
+    error: {
+      request: true
     },
     /***
      * Название элемента который будет проверятся в $v
      */
-    name:{
+    name: {
       request: true,
-      type:String,
+      type: String
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

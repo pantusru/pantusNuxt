@@ -6,9 +6,9 @@
     class="mt-3"
     @dismiss-count-down="countDownChanged"
     :show="dismissCountDown"
-  >{{ text }}
-  </b-alert
   >
+    {{ text }}
+  </b-alert>
 </template>
 
 <script>
@@ -20,27 +20,27 @@ export default {
        * @protected Переменная которая отсчитывает время когда alert изображается
        */
       dismissCountDown: this.dismissSecs
-    }
+    };
   },
   props: {
     /**
      * Внешний вид alert
      */
     variant: {
-      default: "success",
+      default: "success"
     },
     /**
      * Флаг требуется ли делать router на главную
      */
     routerHome: {
       default: true,
-      type: Boolean,
+      type: Boolean
     },
     /**
      * Флаг когда показывать alert
      */
     getAlert: {
-      default: false,
+      default: false
     },
     /**
      * Текст который вставлен в alert
@@ -54,8 +54,8 @@ export default {
      */
     dismissSecs: {
       default: 3,
-      type: Number,
-    },
+      type: Number
+    }
   },
   methods: {
     /**
@@ -64,19 +64,20 @@ export default {
      */
     countDownChanged(dismissCountDown) {
       this.dismissCountDown = dismissCountDown;
-      if (this.dismissCountDown === 0) { // Если время жизни закончилось
-        if (this.routerHome === true) {// если нужно рендерить на главную
+      if (this.dismissCountDown === 0) {
+        // Если время жизни закончилось
+        if (this.routerHome === true) {
+          // если нужно рендерить на главную
           this.$router.push("/");
-        } else { // Если не надо рендерить на главную
+        } else {
+          // Если не надо рендерить на главную
           this.$emit("update:getAlert", false);
           this.dismissCountDown = this.dismissSecs;
         }
       }
-    },
+    }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

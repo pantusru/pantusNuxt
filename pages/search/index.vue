@@ -41,7 +41,7 @@
             limit="3"
             hide-goto-end-buttons
             size="sm"
-            :value="$route.query.page || 1"
+            :value="$route.query.page_number || 1"
             :link-gen="linkGen"
             :number-of-pages="10"
             use-router
@@ -74,7 +74,6 @@ export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
   async fetch({ query, store }) {
     await Promise.all([
-      store.dispatch("Products/_ProductAll"), // Временная хуйта!
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
@@ -105,43 +104,45 @@ export default {
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
         }
       }
-      if (query.brand !== undefined) {
+      if (query.filter_brands !== undefined) {
         // ПРОВЕРКА БРЕНДА
-        let brand = query.brand.split(",");
+        let brand = query.filter_brands.split(",");
         brand = Array.from(new Set(brand));
         brand.forEach(element => {
           store.commit("formSearch/SetBrandsChecked", Number(element));
         });
-        store.dispatch("Catalog/Metks/SetMetksBrand", {
+        await store.dispatch("Catalog/Metks/SetMetksBrand", {
           ids: brand
         });
-        this.form.brand = store.getters["formSearch/GetBrandsChecked"];
-        this.form.brand = this.form.brand.join();
+        this.form.filter_brands = store.getters["formSearch/GetBrandsChecked"];
+        this.form.filter_brands = this.form.filter_brands.join();
       }
-      if (query.name !== undefined) {
+      if (query.filter_substr !== undefined) {
         // ПРОВЕРКА name SKU
         store.commit("formSearch/SetSearch", query.name);
+        this.form.filter_substr = store.getters["formSearch/GetSearch"];
       }
-      if (query.categories !== undefined) {
+      if (query.filter_categories !== undefined) {
         // ПРОВЕРКА КАТЕГОРИИ
-        let ids = query.categories.split(",");
+        const ids = query.filter_categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
-          ids: ids
+          ids
         });
 
         await store.dispatch(
           "Catalog/Metks/SetMetksCategories",
           store.getters["Categories/CategoriesAll/GetCategories"]
         );
-        this.form.categories = await store.dispatch(
+        this.form.filter_categories = await store.dispatch(
           "Catalog/All/_AllChexboxId",
           store.getters["Categories/CategoriesAll/GetCategories"]
         );
+        this.form.filter_categories = this.form.filter_categories.join();
       }
-      if (query.applicabilities !== undefined) {
+      if (query.filter_applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
-        let ids = query.applicabilities.split(",");
+        let ids = query.filter_applicabilities.split(",");
         await store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
           data:
             store.getters[
@@ -149,7 +150,7 @@ export default {
             ],
           id: ids
         });
-        this.form.applicabilities = await store.dispatch(
+        this.form.filter_applicabilities = await store.dispatch(
           "Applicabilities/Panel/SetAllIdUrl"
         );
         if (store.getters["Applicabilities/Panel/PanelLength"] === 0) {
@@ -168,11 +169,13 @@ export default {
         this.form.sort_name = store.getters["formSearch/GetSortName"];
         this.form.sort_type = store.getters["formSearch/GetSortType"];
       }
-      if (query.page !== undefined) {
-        this.form.page = query.page;
+      // Пагинация
+      if (query.page_number !== undefined) {
+        this.form.page_number = query.page_number;
       }
       // Запрос для получение товара
-      console.log(this.form);
+      await store.dispatch("Products/_ProductAll", this.form);
+      this.form = {};
     }
     //   ПРОВЕРКА QUERY
   },
@@ -232,10 +235,13 @@ export default {
         await this.pushParamsFilter();
         await this.pushParamsSort();
         await this.PushUrl(false);
-        // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+        this.form = {};
       } else {
         console.log("Новый запрос");
+        // await this.$store.dispatch("Products/_ProductAll", this.form);
         this.$store.commit("SetcheckFilterClick", true);
+        // this.form = [];
       }
     }
   }

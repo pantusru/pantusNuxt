@@ -4,7 +4,7 @@
     <div class="d-flex flex-column">
       <nuxt-link
         class="catalog-blog-link text-decoration"
-        :to="'/search?brand=' + source.id"
+        :to="'/search?filter_brands=' + source.id"
         >Перейти к товарам
       </nuxt-link>
       <nuxt-link to="" class="catalog-blog-link text-decoration"

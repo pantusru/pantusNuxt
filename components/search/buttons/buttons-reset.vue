@@ -10,7 +10,7 @@ export default {
     //  Обнулить форму!
     Reset(event) {
       this.ResetNoApplicabilitiess();
-      if (event != undefined) {
+      if (event !== undefined) {
         // Проверка что это уход с страницы а не кнопка reset
         this.$router.push({
           name: "search",
@@ -18,12 +18,12 @@ export default {
             ...this.$route.query,
             sort_type: undefined,
             sort_name: undefined,
-            brand: undefined,
-            categories: undefined,
+            filter_brands: undefined,
+            filter_categories: undefined,
             minvalue: undefined,
             maxvalue: undefined,
-            name: undefined,
-            page: undefined
+            filter_substr: undefined,
+            page_number: undefined
           }
         });
       }

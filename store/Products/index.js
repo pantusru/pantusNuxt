@@ -13,16 +13,20 @@ export const mutations = {
 export const actions = {
   async _ProductAll({ store, dispatch, commit, getters }, data) {
     // if(getters.GetProducts.length === 0){
-    let dataset = await dispatch(
+    const dataset = await dispatch(
       "Products/axios/_ProductFilter",
-      { data: data, limit: 50 },
+      { data, limit: 10 },
       { root: true }
     );
     commit("SetProducts", dataset);
     // }
   },
   async _ProductId({ store, dispatch, commit, getters }) {
-    let data = await dispatch("Products/axios/_ProductId", {}, { root: true });
+    const data = await dispatch(
+      "Products/axios/_ProductId",
+      {},
+      { root: true }
+    );
     commit("SetProduct", data);
   }
 };

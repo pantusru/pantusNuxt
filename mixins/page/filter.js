@@ -13,7 +13,7 @@ export default {
         name: "search",
         query: {
           ...this.$route.query,
-          page: page
+          page_number: page
         }
       };
     }

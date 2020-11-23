@@ -16,19 +16,20 @@ export default {
             this.$route.query.maxvalue
           );
         }
-        if (this.$route.query.brand !== undefined) {
+        if (this.$route.query.filter_brands !== undefined) {
           // ПРОВЕРКА БРЕНДА
-          let brand = this.$route.query.brand.split(",");
-          brand.forEach(element => {
+          console.log(this.$route.query.filter_brands);
+          const filter_brands = this.$route.query.filter_brands.split(",");
+          filter_brands.forEach(element => {
             this.$store.commit("formSearch/SetBrandsChecked", Number(element));
           });
           // this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
           //     ids: brand,
           // });
         }
-        if (this.$route.query.categories !== undefined) {
+        if (this.$route.query.filter_categories !== undefined) {
           // ПРОВЕРКА КАТЕГОРИИ
-          let ids = this.$route.query.categories.split(",");
+          let ids = this.$route.query.filter_categories.split(",");
           await this.$store.dispatch("Catalog/All/_AllChexboxTrue", {
             data: this.$store.getters["Categories/CategoriesAll/GetCategories"],
             ids: ids
@@ -38,10 +39,10 @@ export default {
           //     this.$store.getters["Categories/CategoriesAll/GetCategories"]
           // );
         }
-        if (this.$route.query.applicabilities !== undefined) {
+        if (this.$route.query.filter_applicabilities !== undefined) {
           // ПРОВЕРКА ПРИМИНИМОСТИ
-          let ids = this.$route.query.applicabilities.split(",");
-          this.$store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
+          let ids = this.$route.query.filter_applicabilities.split(",");
+          await this.$store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
             data: this.$store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             ],
@@ -59,8 +60,11 @@ export default {
             SortName: this.$route.query.sort_name
           });
         }
-        if (this.$route.query.name !== undefined) {
-          this.$store.commit("formSearch/SetSearch", this.$route.query.name);
+        if (this.$route.query.filter_substr !== undefined) {
+          this.$store.commit(
+            "formSearch/SetSearch",
+            this.$route.query.filter_substr
+          );
         }
       }
     }

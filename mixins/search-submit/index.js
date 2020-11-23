@@ -38,15 +38,17 @@ export default {
       }
       if (this.$store.getters["formSearch/GetBrandsChecked"].length !== 0) {
         // БРЭНД
-        this.form.brand = this.$store.getters["formSearch/GetBrandsChecked"];
+        this.form.filter_brands = this.$store.getters[
+          "formSearch/GetBrandsChecked"
+        ];
         // ДОбавление меток для Brand
-        this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
-          ids: this.form.brand
+        await this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
+          ids: this.form.filter_brands
         });
-        this.form.brand = this.form.brand.join();
+        this.form.filter_brands = this.form.filter_brands.join();
       }
       // КАТЕГОРИИ
-      this.form.categories = await this.$store.dispatch(
+      this.form.filter_categories = await this.$store.dispatch(
         "Catalog/All/_AllChexboxId",
         this.$store.getters["Categories/CategoriesAll/GetCategories"]
       );
@@ -54,20 +56,20 @@ export default {
         "Catalog/Metks/SetMetksCategories",
         this.$store.getters["Categories/CategoriesAll/GetCategories"]
       );
-      this.check("categories");
+      this.check("filter_categories");
       // ПРИМИНИМОСТИ
-      this.form.applicabilities = await this.$store.dispatch(
+      this.form.filter_applicabilities = await this.$store.dispatch(
         "Applicabilities/Panel/SetAllIdUrl"
       );
-      //PAGE
+      // PAGE
       if (
-        this.$route.query.page !== undefined &&
+        this.$route.query.page_number !== undefined &&
         Number(this.$route.query.page) !== NaN
       ) {
-        this.form.page = this.$route.query.page;
+        this.form.page_number = this.$route.query.page_number;
       }
-      if (this.$route.query.name !== undefined) {
-        this.form.name = this.$route.query.name;
+      if (this.$route.query.filter_substr !== undefined) {
+        this.form.filter_substr = this.$route.query.filter_substr;
       }
     },
     /**
@@ -85,14 +87,14 @@ export default {
     /**
      * @function PushUrl - Переходит на новый запрос
      */
-    PushUrl(checkPush = true) {
+    async PushUrl(checkPush = true) {
       // НОВЫЙ URL
       window.scrollTo(0, 0);
       if (checkPush) {
-        this.$router.push({ name: "search", query: { ...this.form } });
+        await this.$router.push({ name: "search", query: { ...this.form } });
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+        this.form = [];
       }
-      console.log(this.form);
-      this.form = {};
     }
   }
 };

@@ -14,13 +14,13 @@ export default {
   methods: {
     ResetApplicabilities() {
       // this.$store.dispatch("Applicabilities/Panel/ResetAll");
-      if (this.$route.query.applicabilities !== undefined) {
+      if (this.$route.query.filter_applicabilities !== undefined) {
         this.$router.push({
           path: this.$route.path,
           query: {
             ...this.$route.query,
-            applicabilities: undefined,
-            page: undefined
+            filter_applicabilities: undefined,
+            page_number: undefined
           }
         });
       } else {

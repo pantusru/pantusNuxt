@@ -44,7 +44,7 @@ export default {
         this.$router.push({
           name: "search",
           query: {
-            name: this.search
+            filter_substr: this.search
           }
         });
       }

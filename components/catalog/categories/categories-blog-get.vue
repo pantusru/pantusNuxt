@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between">
         <nuxt-link
           class="text-e1002b link-danger text-decoration d-block mb-2 fz-4"
-          :to="'/search?categories=' + dataset.id"
+          :to="'/search?filter_categories=' + dataset.id"
           >{{ dataset.name }}
         </nuxt-link>
         <!--                <span-->

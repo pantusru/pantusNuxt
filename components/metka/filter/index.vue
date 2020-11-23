@@ -38,11 +38,11 @@ export default {
       let name;
       if (this.link.type === "brand") {
         // Это бренд
-        name = "brand";
+        name = "filter_brands";
         query = this.DeleteBrand();
       } else if (this.link.type === "categories") {
         // Это категория
-        name = "categories";
+        name = "filter_categories";
         query = await this.DeleteCategories();
       }
       this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
@@ -61,7 +61,7 @@ export default {
      * @returns query - возвращает новый query
      */
     DeleteBrand() {
-      let query = this.$route.query.brand.split(",");
+      let query = this.$route.query.filter_brands.split(",");
       for (const key in query) {
         // Прогоняем Query Brand
         if (query[key] == this.link.id) {

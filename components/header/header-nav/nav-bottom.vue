@@ -41,10 +41,10 @@ export default {
     return {
       links: [
         { to: "", text: "Оригинальные каталоги" },
-        { to: "search?applicabilities=3138", text: "Ваз" },
-        { to: "search?applicabilities=4921", text: "Камаз" },
-        { to: "search?applicabilities=3140", text: "Газ" },
-        { to: "search?categories=264", text: "Рти" },
+        { to: "search?filter_applicabilities=3138", text: "Ваз" },
+        { to: "search?filter_applicabilities=4921", text: "Камаз" },
+        { to: "search?filter_applicabilities=3140", text: "Газ" },
+        { to: "search?filter_categories=264", text: "Рти" },
         { to: "/popular", text: "Популярные" },
         { to: "", text: "Новинки" }
       ]

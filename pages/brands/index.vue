@@ -35,14 +35,14 @@ export default {
     $route() {
       window.scrollTo(0, 0);
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.pages
+        this.$route.query.page_number
       );
     }
   },
   created() {
-    if (this.$route.query.pages != undefined) {
+    if (this.$route.query.page_number !== undefined) {
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.pages
+        this.$route.query.page_number
       );
     } else {
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);

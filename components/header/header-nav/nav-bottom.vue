@@ -33,9 +33,9 @@ export default {
   name: "NavBottom",
   methods: {
     pushSearch(to) {
-        // this.$store.commit('SetcheckFilterClick', true)
-        this.$router.push(to);
-    },
+      // this.$store.commit('SetcheckFilterClick', true)
+      this.$router.push(to);
+    }
   },
   data() {
     return {
@@ -46,12 +46,12 @@ export default {
         { to: "search?applicabilities=3140", text: "Газ" },
         { to: "search?categories=264", text: "Рти" },
         { to: "/popular", text: "Популярные" },
-        { to: "", text: "Новинки" },
-      ],
+        { to: "", text: "Новинки" }
+      ]
     };
   },
   components: {
-    VueDropdown,
-  },
+    VueDropdown
+  }
 };
 </script>

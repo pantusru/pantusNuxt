@@ -1,55 +1,53 @@
 <template>
-    <b-container>
-        <h3 class="mb-4 mb-lg-5">Мой заказ</h3>
-        <b-row>
-            <b-col cols="12" lg="6" class="mb-3 mb-lg-0">
-                <h5 class="mb-2">Контактное лицо</h5>
-                <Contact :$v="$v" class="pr-5"></Contact>
-            </b-col>
-            <b-col cols="12" lg="6">
-                <h3 class="mb-2">Способ оплаты</h3>
-                <Payment></Payment>
-            </b-col>
-        </b-row>
-        <b-row>
-            <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
-                <h3 class="mb-3">Способ доставки</h3>
-                <Dostavka :$v="$v"></Dostavka>
-            </b-col>
-            <b-col cols="6" class="mt-lg-5 mt-3">
-                <Product :$v="$v"></Product>
-            </b-col>
-        </b-row>
-    </b-container>
+  <b-container>
+    <h3 class="mb-4 mb-lg-5">Мой заказ</h3>
+    <b-row>
+      <b-col cols="12" lg="6" class="mb-3 mb-lg-0">
+        <h5 class="mb-2">Контактное лицо</h5>
+        <Contact :$v="$v" class="pr-5"></Contact>
+      </b-col>
+      <b-col cols="12" lg="6">
+        <h3 class="mb-2">Способ оплаты</h3>
+        <Payment></Payment>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
+        <h3 class="mb-3">Способ доставки</h3>
+        <Dostavka :$v="$v"></Dostavka>
+      </b-col>
+      <b-col cols="6" class="mt-lg-5 mt-3">
+        <Product :$v="$v"></Product>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
-import mixitValid from "@/mixins/form/order/contact/validator"
-import Contact from "@/components/order/form/contact"
-import Payment from "@/components/order/form/payment"
-import Dostavka from "@/components/order/form/dostavka"
-import Product from "@/components/order/form/product"
+import mixitValid from "@/mixins/form/order/contact/validator";
+import Contact from "@/components/order/form/contact";
+import Payment from "@/components/order/form/payment";
+import Dostavka from "@/components/order/form/dostavka";
+import Product from "@/components/order/form/product";
 export default {
-    middleware:'CheckGuest',
-    mixins:[mixitValid],
-    async fetch({store}){
-      await Promise.all([
-        store.dispatch("Order/Payment/Index/_Payment"),
-        store.dispatch("Order/Payment/Index/_Dostavka"),
-      ])
-
-    },
-    components:{
-        Contact,
-        Payment,
-        Dostavka,
-        Product,
-    },
-    provide(){
-        return{
-            $v: this.$v,
-        }
-    }
-}
+  middleware: "CheckGuest",
+  mixins: [mixitValid],
+  async fetch({ store }) {
+    await Promise.all([
+      store.dispatch("Order/Payment/Index/_Payment"),
+      store.dispatch("Order/Payment/Index/_Dostavka")
+    ]);
+  },
+  components: {
+    Contact,
+    Payment,
+    Dostavka,
+    Product
+  },
+  provide() {
+    return {
+      $v: this.$v
+    };
+  }
+};
 </script>
-

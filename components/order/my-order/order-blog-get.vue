@@ -10,9 +10,8 @@
           Дата: {{ data.dates.created }}
         </time>
         <nuxt-link class="text-my-body text-decoration-none" to=""
-        >Скопировать заказ в корзину
-        </nuxt-link
-        >
+          >Скопировать заказ в корзину
+        </nuxt-link>
       </b-col>
       <b-col>
         <div class="mb-2">
@@ -21,7 +20,10 @@
         <order-button-cancel :data="data"></order-button-cancel>
       </b-col>
     </b-row>
-    <b-button class="bg-transparent text-e1002b border-0 mt-2 pl-0" v-b-toggle="'myOrder' + data.id">Подробнее
+    <b-button
+      class="bg-transparent text-e1002b border-0 mt-2 pl-0"
+      v-b-toggle="'myOrder' + data.id"
+      >Подробнее
     </b-button>
     <b-collapse :id="'myOrder' + data.id">
       <order-table-get :data="data"></order-table-get>
@@ -35,10 +37,10 @@ import OrderTableGet from "@/components/order/my-order/order-table-get";
 import OrderButtonCancel from "@/components/order/my-order/order-button-cancel";
 
 export default {
-  components: {OrderButtonCancel, OrderTableGet},
+  components: { OrderButtonCancel, OrderTableGet },
   props: {
-    data: {},
-  },
+    data: {}
+  }
 };
 </script>
 

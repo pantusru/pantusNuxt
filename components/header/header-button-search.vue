@@ -2,7 +2,7 @@
   <b-navbar-nav
     class="flex-row col-12 col-lg-7 order-4 order-lg-0 pr-0 mt-2 mt-lg-0 align-items-center"
   >
-  <nav-mobile-button class="mr-3 d-block d-lg-none"></nav-mobile-button>
+    <nav-mobile-button class="mr-3 d-block d-lg-none"></nav-mobile-button>
     <input
       v-model="search"
       v-on:keyup.enter="SetSearch"
@@ -23,8 +23,8 @@ import ResetFilter from "@/mixins/reset-filter/index";
 import BaseButton from "@/components/base/button/base-button";
 import NavMobileButton from "@/components/header/header-nav/button/nav-mobile-button";
 export default {
-  components: {NavMobileButton, BaseButton},
-  mixins:[ResetFilter],
+  components: { NavMobileButton, BaseButton },
+  mixins: [ResetFilter],
   computed: {
     search: {
       get() {
@@ -32,8 +32,8 @@ export default {
       },
       set(value) {
         this.$store.commit("formSearch/SetSearch", value);
-      },
-    },
+      }
+    }
   },
   methods: {
     async SetSearch() {
@@ -44,15 +44,14 @@ export default {
         this.$router.push({
           name: "search",
           query: {
-            name: this.search,
-          },
+            name: this.search
+          }
         });
       }
-      console.log({name: this.search});
-    },
-  },
+      console.log({ name: this.search });
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

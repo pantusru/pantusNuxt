@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row>
-        <NavProfile />
+      <NavProfile />
       <b-col>
         <b-form autocomplete="off">
           <h5 class="mb-4">Личные данные</h5>
@@ -65,7 +65,7 @@ import ElementForm from "@/components/profile/profile-input-get";
 import NavProfile from "@/components/nav/profile/index";
 import Submit from "@/components/profile/profile-button-update";
 export default {
-  middleware:'CheckGuest',
+  middleware: "CheckGuest",
   // provide() {
   //   return {
   //     $v: this.$v,
@@ -75,8 +75,7 @@ export default {
   components: {
     ElementForm,
     NavProfile,
-    Submit,
-  },
+    Submit
+  }
 };
 </script>
-

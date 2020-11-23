@@ -7,14 +7,16 @@
     :Vmask="Vmask"
     :$v="$v"
   >
-    <div class="error" v-if="name === 'password' && passwordCheck" >Пароль не совпадает с БД</div>
+    <div class="error" v-if="name === 'password' && passwordCheck">
+      Пароль не совпадает с БД
+    </div>
   </base-input-valid>
 </template>
 <script>
 import mixinsProps from "@/mixins/input/props/index";
 import BaseInputValid from "@/components/base/base-input-valid";
 export default {
-  components: {BaseInputValid},
+  components: { BaseInputValid },
   // inject: ["$v"],
   created() {
     if (this.dataset !== undefined) {
@@ -25,17 +27,16 @@ export default {
   data() {
     return {
       nameSet: "User/SetFull",
-      value: "",
+      value: ""
     };
   },
   computed: {
     dataset() {
       return this.$store.getters["User/FormData"][this.name];
     },
-    passwordCheck(){
+    passwordCheck() {
       return this.$store.getters["GetFormPassword"];
     }
-  },
+  }
 };
 </script>
-

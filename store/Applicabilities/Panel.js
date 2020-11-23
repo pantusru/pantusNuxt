@@ -4,8 +4,8 @@ export const state = () => ({
    */
   Panel: [],
   /** @property Последний Id массива в Panel*/
-  Ids: 0,
-})
+  Ids: 0
+});
 export const mutations = {
   /*** @function  SetPanelNew - Добавляет новый  пустой массив в Panel*/
   SetPanelNew(store) {
@@ -16,7 +16,7 @@ export const mutations = {
       SelectedModel: [],
       SelectedGenerations: [],
       DataModel: [],
-      DataGenerations: [],
+      DataGenerations: []
     });
   },
   /**
@@ -104,16 +104,19 @@ export const mutations = {
         SelectedModel: [],
         SelectedGenerations: [],
         DataModel: [],
-        DataGenerations: [],
+        DataGenerations: []
       }
-    ]
-  },
-}
+    ];
+  }
+};
 export const actions = {
   /**
    */
-  SetPanelNew({state, commit, getters, rootGetters}) {
-    if (rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"].length > state.Ids) {
+  SetPanelNew({ state, commit, getters, rootGetters }) {
+    if (
+      rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"]
+        .length > state.Ids
+    ) {
       commit("SetPanelNew");
     }
   },
@@ -122,15 +125,21 @@ export const actions = {
    * @param data.check - требуется ли делать reset selectChecked у применяемостей
    * @function удаляет все панели и reset у применяемостей selectChecked в false
    */
-  ResetAll({commit, state, rootGetters}, data){
-    if(state.Panel.length !== 0){
-      for(const key in state.Panel){
-        let index = rootGetters["Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"]
-        (state.Panel[key].SelectedMarka);
-        if(index !== -1){
-          commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",{
-            index: index, value: false,
-          }, {root:true})
+  ResetAll({ commit, state, rootGetters }, data) {
+    if (state.Panel.length !== 0) {
+      for (const key in state.Panel) {
+        let index = rootGetters[
+          "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"
+        ](state.Panel[key].SelectedMarka);
+        if (index !== -1) {
+          commit(
+            "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
+            {
+              index: index,
+              value: false
+            },
+            { root: true }
+          );
         }
       }
     }
@@ -139,17 +148,23 @@ export const actions = {
   /**
    * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
    */
-  DeletePanel({store, commit, getters,state, rootGetters}, id) {
+  DeletePanel({ store, commit, getters, state, rootGetters }, id) {
     let index = getters.PanelfindIndex(id);
-    if(state.Panel[index].SelectedMarka !== ""){
-      console.log(state.Panel[index].SelectedMarka)
-      let indexReset = rootGetters
-        ['Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId']
-      (state.Panel[index].SelectedMarka); // Найди index применяемости
-      if(indexReset !== -1){
-        commit("Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked", { // Отобразить его
-          index: indexReset, value: false,
-        }, {root: true})
+    if (state.Panel[index].SelectedMarka !== "") {
+      console.log(state.Panel[index].SelectedMarka);
+      let indexReset = rootGetters[
+        "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"
+      ](state.Panel[index].SelectedMarka); // Найди index применяемости
+      if (indexReset !== -1) {
+        commit(
+          "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
+          {
+            // Отобразить его
+            index: indexReset,
+            value: false
+          },
+          { root: true }
+        );
       }
     }
     commit("DeletePanel", index);
@@ -160,7 +175,7 @@ export const actions = {
    * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
    * @returns {String}  Строку массива всех выбранных id с Panel
    */
-  SetAllIdUrl({state, commit, dispatch, getters}) {
+  SetAllIdUrl({ state, commit, dispatch, getters }) {
     let ids = [];
     let deleteArr = [];
     state.Panel.forEach((element, index) => {
@@ -171,33 +186,47 @@ export const actions = {
       if (element.SelectedGenerations.length !== 0) {
         ids.push(element.SelectedGenerations);
         let DataModelSelected = [];
-        for (const keyModel in element.SelectedModel) { // Прогоняем выбранные модели
-          for (const keyModelData in element.DataModel) { // Прогоняем Data всех моделей
-            if (element.SelectedModel[keyModel] === element.DataModel[keyModelData].id) { // ищем данные о выбранных моделей
+        for (const keyModel in element.SelectedModel) {
+          // Прогоняем выбранные модели
+          for (const keyModelData in element.DataModel) {
+            // Прогоняем Data всех моделей
+            if (
+              element.SelectedModel[keyModel] ===
+              element.DataModel[keyModelData].id
+            ) {
+              // ищем данные о выбранных моделей
               DataModelSelected.push(element.DataModel[keyModelData]);
               break;
             }
           }
         }
-        for (const keyModel in DataModelSelected) {// Прогоняем данные о выбранных моделей
+        for (const keyModel in DataModelSelected) {
+          // Прогоняем данные о выбранных моделей
           let check = false;
-          for (const keyChildren in DataModelSelected[keyModel].children) { // Прогоняем children выбранных Моделей
+          for (const keyChildren in DataModelSelected[keyModel].children) {
+            // Прогоняем children выбранных Моделей
             let checkChildren = false;
-            for (const keyGenerations in element.SelectedGenerations) { // Прогоняет Id выбранных поколении
-              if (DataModelSelected[keyModel].children[keyChildren].id == element.SelectedGenerations[keyGenerations]) { // Проверяет есть ли совпадения
+            for (const keyGenerations in element.SelectedGenerations) {
+              // Прогоняет Id выбранных поколении
+              if (
+                DataModelSelected[keyModel].children[keyChildren].id ==
+                element.SelectedGenerations[keyGenerations]
+              ) {
+                // Проверяет есть ли совпадения
                 checkChildren = true;
                 check = true;
                 break;
               }
             }
-            if (checkChildren === true) { // Совпадение найдено!
+            if (checkChildren === true) {
+              // Совпадение найдено!
               break;
             }
           }
-          if (check === false) { // У модели нету выбранных поколении
+          if (check === false) {
+            // У модели нету выбранных поколении
             ids.push(element.SelectedModel[keyModel]);
           }
-
         }
         // ДОбавить SelectedModel
       } else if (element.SelectedModel.length !== 0) {
@@ -209,18 +238,16 @@ export const actions = {
     });
     deleteArr.forEach(elem => {
       if (getters.PanelLength > 1) {
-        dispatch("Applicabilities/Panel/DeletePanel", elem, {root: true});
+        dispatch("Applicabilities/Panel/DeletePanel", elem, { root: true });
       }
     });
     if (ids.length !== 0) {
       ids = ids.flat(Infinity);
-      ids = Array.from(
-        new Set(ids)
-      ).join();
+      ids = Array.from(new Set(ids)).join();
       return ids;
     }
-  },
-}
+  }
+};
 export const getters = {
   /**
    * #Вывод всех Panel
@@ -242,4 +269,4 @@ export const getters = {
    * @returns {Object}  index Panel
    */
   PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id)
-}
+};

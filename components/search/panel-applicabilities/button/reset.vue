@@ -17,16 +17,19 @@ export default {
       if (this.$route.query.applicabilities !== undefined) {
         this.$router.push({
           path: this.$route.path,
-          query: { ...this.$route.query, applicabilities: undefined, page: undefined },
+          query: {
+            ...this.$route.query,
+            applicabilities: undefined,
+            page: undefined
+          }
         });
-      }else {
+      } else {
         this.$store.dispatch("Applicabilities/Panel/ResetAll");
       }
-    },
+    }
   },
-  destroyed(){
+  destroyed() {
     this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
   }
 };
 </script>
-

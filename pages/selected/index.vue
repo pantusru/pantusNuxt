@@ -1,12 +1,19 @@
 <template>
   <b-container>
     <b-row>
-        <NavProfile />
+      <NavProfile />
       <b-col>
         <div>
           <h1 class="mb-4">Избранный товар</h1>
-          <FuncComponents v-if="Products.length > 0" :array="Products" :Selected="true" />
-          <base-title-info v-else text="Нету избранных товаров"></base-title-info>
+          <FuncComponents
+            v-if="Products.length > 0"
+            :array="Products"
+            :Selected="true"
+          />
+          <base-title-info
+            v-else
+            text="Нету избранных товаров"
+          ></base-title-info>
         </div>
       </b-col>
     </b-row>
@@ -21,7 +28,7 @@ import NavProfile from "@/components/nav/profile/index";
 import FuncComponents from "@/components/func/product-rows-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
-  middleware:'CheckGuest',
+  middleware: "CheckGuest",
   async fetch({ store }) {
     store.dispatch("Selected/selected/_Selected");
   },
@@ -30,12 +37,12 @@ export default {
     NavProfile,
     FuncComponents,
     ModalImg,
-    ModalBuy,
+    ModalBuy
   },
   computed: {
     Products() {
       return this.$store.getters["Selected/selected/GetSelected"];
-    },
-  },
+    }
+  }
 };
 </script>

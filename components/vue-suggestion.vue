@@ -1,56 +1,52 @@
 <template>
   <div :class="addClass" class="autocomplete">
     <b-input
-        autocomplete="off"
-        type="text"
-        @input="onChange"
-        v-model="search"
-        @keydown.down="onArrowDown"
-        @keydown.up="onArrowUp"
-        @keydown.enter="onEnter"
-        @focus="getItems"
+      autocomplete="off"
+      type="text"
+      @input="onChange"
+      v-model="search"
+      @keydown.down="onArrowDown"
+      @keydown.up="onArrowUp"
+      @keydown.enter="onEnter"
+      @focus="getItems"
     />
-    <ul
-        id="autocomplete-results"
-        v-show="isOpen"
-        class="autocomplete-results"
-    >
+    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
       <li
-          v-for="(item, i) in items"
-          :key="i"
-          @click="setResult(item.name, item.id)"
-          class="autocomplete-result"
-          :class="{ 'is-active': i === arrowCounter }"
+        v-for="(item, i) in items"
+        :key="i"
+        @click="setResult(item.name, item.id)"
+        class="autocomplete-result"
+        :class="{ 'is-active': i === arrowCounter }"
       >
         {{ item.typeShort }}
-        {{ item.name}}
-        <span class="text-muted"  v-for="parent in item.parents" :key="parent.id">
-            <template v-if="parent.typeShort == 'Респ'">
-              {{ parent.typeShort}} {{parent.name }}
-            </template>
-            <template v-else>
-              {{ parent.name}} {{parent.typeShort }}
-            </template>
+        {{ item.name }}
+        <span
+          class="text-muted"
+          v-for="parent in item.parents"
+          :key="parent.id"
+        >
+          <template v-if="parent.typeShort == 'Респ'">
+            {{ parent.typeShort }} {{ parent.name }}
+          </template>
+          <template v-else> {{ parent.name }} {{ parent.typeShort }} </template>
         </span>
       </li>
     </ul>
   </div>
 </template>
 
-
-
 <script>
 export default {
-  name: 'autocomplete',
+  name: "autocomplete",
 
   props: {
-    addClass:{
+    addClass: {
       type: String,
-      required: false,
+      required: false
     }
   },
-  watch:{
-    items(){
+  watch: {
+    items() {
       this.getItems();
     }
   },
@@ -59,79 +55,92 @@ export default {
       items: [], // Массив результата города
       timerId: null, // ID таймер для stop запросов
       isOpen: false, // состояние открыто ли меню
-      //search: '', // что ввел пользователь поиска
+      // search: '', // что ввел пользователь поиска
       arrowCounter: 0, // Index выделяющегося элемента списка
-      id: 0, // ID выбранного поиска
+      id: 0 // ID выбранного поиска
     };
   },
-  computed:{
-    search:{
-      get(){
-        return this.$store.getters["Order/Form/GetContact"]["Town"];
+  computed: {
+    search: {
+      get() {
+        return this.$store.getters["Order/Form/GetContact"].Town;
       },
-      set(value){
-        this.$store.commit("Order/Form/SetFull", {name: "Town",  value: value})
+      set(value) {
+        this.$store.commit("Order/Form/SetFull", {
+          name: "Town",
+          value: value
+        });
       }
     }
   },
   methods: {
-    async GetData(){ // Запрос загрузки данных
+    async GetData() {
+      // Запрос загрузки данных
       this.items = [];
-      let dataset = await this.$store.dispatch("API/axios/_API_Town", this.search);
-      if(dataset.result.length > 1){
+      const dataset = await this.$store.dispatch(
+        "API/axios/_API_Town",
+        this.search
+      );
+      if (dataset.result.length > 1) {
         let result = dataset.result;
         result = result.slice(1, result.length);
-        for(let index in result){
+        for (const index in result) {
           this.items.push({
-              id: result[index].id,
-              typeShort: result[index].typeShort,
-              name: result[index].name,
-              parents: result[index].parents,
+            id: result[index].id,
+            typeShort: result[index].typeShort,
+            name: result[index].name,
+            parents: result[index].parents
           });
         }
       }
-
     },
-    getItems(){ //  если items пустой то не отображаем ul
-      if(this.items.length > 0){
-         this.isOpen = true;
-      }else{
+    getItems() {
+      //  если items пустой то не отображаем ul
+      if (this.items.length > 0) {
+        this.isOpen = true;
+      } else {
         this.isOpen = false;
       }
     },
-    SetValue(){ // Избавление от лишних запросов
-       if(this.timerId !=null){
-          clearTimeout(this.timerId);
-       }
+    SetValue() {
+      // Избавление от лишних запросов
+      if (this.timerId != null) {
+        clearTimeout(this.timerId);
+      }
       this.timerId = setTimeout(this.GetData, 1000);
     },
-    onChange() { // Пока отправлять запрос и измененеие vuex
-      this.$emit('input', {data: this.search , id: this.id});
+    onChange() {
+      // Пока отправлять запрос и изменение vuex
+      this.$emit("input", { data: this.search, id: this.id });
       this.SetValue();
-
     },
-    setResult(result ,id) { // Была выбрана li
+    setResult(result, id) {
+      // Была выбрана li
       this.id = id;
       this.search = result;
       this.isOpen = false;
-      this.$emit('input', {data: this.search , id: this.id});
+      this.$emit("input", { data: this.search, id: this.id });
     },
-    onArrowDown() { // Нажата кнопка вниз изменение
+    onArrowDown() {
+      // Нажата кнопка вниз изменение
       if (this.arrowCounter < this.items.length) {
         this.arrowCounter = this.arrowCounter + 1;
       }
     },
-    onArrowUp() { // Нажата кнопка вверх
+    onArrowUp() {
+      // Нажата кнопка вверх
       if (this.arrowCounter > 0) {
-        this.arrowCounter = this.arrowCounter -1;
+        this.arrowCounter = this.arrowCounter - 1;
       }
     },
-    onEnter() { // нажата кнопка enter
+    onEnter() {
+      // нажата кнопка enter
       this.search = this.items[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },
-    handleClickOutside(evt) { // Клик на body и скрытие ul
+    handleClickOutside(evt) {
+      // Клик на body и скрытие ul
       if (!this.$el.contains(evt.target)) {
         this.isOpen = false;
         this.arrowCounter = -1;
@@ -139,15 +148,13 @@ export default {
     }
   },
   mounted() {
-    document.addEventListener('click', this.handleClickOutside)
+    document.addEventListener("click", this.handleClickOutside);
   },
   destroyed() {
-    document.removeEventListener('click', this.handleClickOutside)
+    document.removeEventListener("click", this.handleClickOutside);
   }
 };
 </script>
-
-
 
 <style>
 .autocomplete {
@@ -171,7 +178,7 @@ export default {
 
 .autocomplete-result.is-active,
 .autocomplete-result:hover {
-  background-color: #4AAE9B;
+  background-color: #4aae9b;
   color: white;
 }
 </style>

@@ -1,7 +1,8 @@
 <!-- Верхняя часть Выпадающего меню из header для мобильных устройств   -->
 <template>
   <div class="border-bottom">
-   <base-nav-mobule-link class="container"
+    <base-nav-mobule-link
+      class="container"
       :value="value"
       :nav="nav"
       component="div"
@@ -13,21 +14,19 @@
 <script>
 import BaseNavMobuleLink from "@/components/base/nav-mobule/base-nav-mobule-link";
 export default {
-name: "base-nav-mobule-back",
-  components: {BaseNavMobuleLink},
-  props:{
+  name: "base-nav-mobule-back",
+  components: { BaseNavMobuleLink },
+  props: {
     /**
      * value - пропс передающий потомку
      */
-    value:{},
+    value: {},
     /**
      * nav - пропс передающий потомку
      */
-    nav:{},
+    nav: {}
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

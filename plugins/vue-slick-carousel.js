@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import VueSlickCarousel from 'vue-slick-carousel'
+import Vue from "vue";
+import VueSlickCarousel from "vue-slick-carousel";
 
-Vue.component('VueSlickCarousel', VueSlickCarousel)
+Vue.component("VueSlickCarousel", VueSlickCarousel);

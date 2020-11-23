@@ -1,11 +1,11 @@
 <template>
   <b-alert
-    :variant="variant"
     v-if="getAlert === true"
+    :variant="variant"
     dismissible
     class="mt-3"
-    @dismiss-count-down="countDownChanged"
     :show="dismissCountDown"
+    @dismiss-count-down="countDownChanged"
   >
     {{ text }}
   </b-alert>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ImgModal/>
+    <ImgModal />
     <b-table
       class="mt-4 text-center"
       :fields="fields"
@@ -10,10 +10,14 @@
       thead-class="bg-light"
     >
       <template #cell(brand)="data">
-        <template v-if="data.item !== undefined">{{ data.item.ProductCard.brand.name }}</template>
+        <template v-if="data.item !== undefined">{{
+          data.item.ProductCard.brand.name
+        }}</template>
       </template>
       <template #cell(sku)="data">
-        <template v-if="data.item !== undefined">{{ data.item.ProductCard.sku.original }}</template>
+        <template v-if="data.item !== undefined">{{
+          data.item.ProductCard.sku.original
+        }}</template>
       </template>
       <template #cell(name)="data">
         {{ data.item.ProductCard.name }}
@@ -36,12 +40,15 @@
         {{ data.item.ProductOffer.quantity }}
       </template>
       <template #cell(count)="data">
-        <vInput :multiplicity="data.item.ProductOffer.multiplicity"
-        :AddClassInput="'p-0 col-12 col-lg-4'"
-        :AddClassForm="'justify-content-center'" :CountProps="data.item.Count"
-        :showIcon="true"
-        :array="data.item"
-        @Count="SetCount($event, data.index)" />
+        <vInput
+          :multiplicity="data.item.ProductOffer.multiplicity"
+          :AddClassInput="'p-0 col-12 col-lg-4'"
+          :AddClassForm="'justify-content-center'"
+          :CountProps="data.item.Count"
+          :showIcon="true"
+          :array="data.item"
+          @Count="SetCount($event, data.index)"
+        />
       </template>
       <template #cell(symma)="data">
         {{ Number(data.item.Count) * data.item.ProductOffer.prices }} Р
@@ -50,7 +57,10 @@
         <DeleteCart :index="data.index" />
       </template>
       <template #cell(Update)="data">
-        <cart-button-update-product :index="data.index" v-if="data.item.checkCount"></cart-button-update-product>
+        <cart-button-update-product
+          :index="data.index"
+          v-if="data.item.checkCount"
+        ></cart-button-update-product>
       </template>
     </b-table>
   </div>
@@ -60,11 +70,11 @@
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgModal from "@/components/modal/product-img";
 import vInput from "@/components/products/input/product-input-count";
-import mixinsEmit from "@/mixins/input/count-product/emit"
-import mixinsImg from "@/mixins/modal/product-img"
+import mixinsEmit from "@/mixins/input/count-product/emit";
+import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 export default {
-  mixins:[mixinsEmit,mixinsImg],
+  mixins: [mixinsEmit, mixinsImg],
   data() {
     return {
       fields: [
@@ -78,21 +88,20 @@ export default {
         { key: "count", label: "Кол-во, шт" },
         { key: "symma", label: "Сумма" },
         { key: "Delete", label: "" },
-        { key: "Update", label: "" },
-      ],
+        { key: "Update", label: "" }
+      ]
     };
   },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    },
+    }
   },
   components: {
     CartButtonUpdateProduct,
     vInput,
     ImgModal,
-    DeleteCart,
-
-  },
+    DeleteCart
+  }
 };
 </script>

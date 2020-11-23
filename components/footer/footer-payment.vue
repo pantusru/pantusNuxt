@@ -1,13 +1,8 @@
 <template>
   <b-col cols="12" lg="4" md="6">
-    <h6 class="mb-3"> <b>Оплата</b>  </h6>
+    <h6 class="mb-3"><b>Оплата</b></h6>
     <b-row no-gutters class="mb-4 flex-nowrap">
-      <a
-        class="mr-4"
-        v-for="data in linksImg"
-        :key="data.id"
-        :href="data.href"
-      >
+      <a class="mr-4" v-for="data in linksImg" :key="data.id" :href="data.href">
         <img :src="data.src" :alt="data.alt" />
       </a>
     </b-row>
@@ -20,8 +15,9 @@
         class="mr-4"
         v-for="data in linksImgManu"
         :key="data.id"
-        :href="data.href">
-          <img :src="data.src" :alt="data.alt" />
+        :href="data.href"
+      >
+        <img :src="data.src" :alt="data.alt" />
       </a>
     </b-row>
   </b-col>
@@ -49,4 +45,3 @@ export default {
   }
 };
 </script>
-

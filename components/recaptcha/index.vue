@@ -5,35 +5,35 @@
       :loadRecaptchaScript="true"
       @verify="registerTrue"
     >
-    </vueRecaptcha >
-    <p class="error mt-2 mb-0" v-if="getError === true">{{ textError }}  </p>
+    </vueRecaptcha>
+    <p class="error mt-2 mb-0" v-if="getError === true">{{ textError }}</p>
   </div>
 </template>
 <script>
-import vueRecaptcha from 'vue-recaptcha';
+import vueRecaptcha from "vue-recaptcha";
 export default {
-  props:{
+  props: {
     getError: {
       type: Boolean,
-      required: true,
+      required: true
     },
-    checkRecaptcha:{
+    checkRecaptcha: {
       type: Boolean,
-      required: true,
+      required: true
     },
-    textError:{
+    textError: {
       type: String,
       default: "Пройдите капчу"
     }
   },
-  components:{
-    vueRecaptcha,
+  components: {
+    vueRecaptcha
   },
-  methods:{
-    registerTrue(){
-     this.$emit("update:checkRecaptcha", true);
-     this.$emit("update:getError", false);
+  methods: {
+    registerTrue() {
+      this.$emit("update:checkRecaptcha", true);
+      this.$emit("update:getError", false);
     }
-  },
-}
+  }
+};
 </script>

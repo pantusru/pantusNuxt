@@ -15,7 +15,7 @@ export default {
       /**
        * @property Флаг выбран ли товар в израбранных
        */
-      selected: false,
+      selected: false
     };
   },
   props: {
@@ -23,29 +23,31 @@ export default {
      * @property Id Товара
      */
     id: {
-      type: Number,
+      type: Number
     },
     /**
      * @property Ссылка на Товар
      */
-    link: {},
+    link: {}
   },
   methods: {
     /**
      * @function SetChosen - Меняет состояние selected на противоположное
      */
     SetChosen() {
-      if (this.selected) { // Убрать товар с selected
+      if (this.selected) {
+        // Убрать товар с selected
         this.selected = false;
         let index = this.SelectedProducts.findIndex(
-          (s) => s.ProductCard.id == this.id
+          s => s.ProductCard.id == this.id
         );
         this.$store.commit("Selected/selected/DeleteSelected", index);
-      } else {// Добавить товар  в selected
+      } else {
+        // Добавить товар  в selected
         this.selected = true;
         this.$store.commit("Selected/selected/PushSelected", this.link);
       }
-    },
+    }
   },
   computed: {
     /**
@@ -53,17 +55,18 @@ export default {
      */
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
-    },
+    }
   },
   created() {
     let data = this.SelectedProducts;
-    for (const key in data) { // Проверяем есть ли этот товар в избранных
+    for (const key in data) {
+      // Проверяем есть ли этот товар в избранных
       if (data[key].ProductCard.id == this.id) {
         this.selected = true;
         break;
       }
     }
-  },
+  }
 };
 </script>
 

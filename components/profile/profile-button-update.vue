@@ -1,64 +1,70 @@
 <template>
   <div>
-    <vueRecaptcha class="mb-4 mt-4" :getError.sync="getError" :checkRecaptcha.sync="checkRecaptcha"/>
+    <vueRecaptcha
+      class="mb-4 mt-4"
+      :getError.sync="getError"
+      :checkRecaptcha.sync="checkRecaptcha"
+    />
     <b-button class="border bg-danger" @click="SetDataUser">Изменить</b-button>
     <base-alert class="w-25" :get-alert.sync="getAlert"></base-alert>
   </div>
 </template>
 
 <script>
-import  check_recaptcha from "@/mixins/form/check-recaptcha/index"
-import  vueRecaptcha from  "@/components/recaptcha/index"
+import check_recaptcha from "@/mixins/form/check-recaptcha/index";
+import vueRecaptcha from "@/components/recaptcha/index";
 import BaseAlert from "@/components/alert/base-alert";
 export default {
   data() {
     return {
       getAlert: false,
       variant: undefined,
-      text: undefined,
-    }
+      text: undefined
+    };
   },
-  mixins:[check_recaptcha],
-  components:{
+  mixins: [check_recaptcha],
+  components: {
     BaseAlert,
-    vueRecaptcha,
+    vueRecaptcha
   },
-  props:{
-    $v:{}
+  props: {
+    $v: {}
   },
-  methods:{
+  methods: {
     async SetDataUser() {
       // Временное решение
       this.$v.$touch();
       this.checkValidateRecaptcha();
-      if (this.$v.Form.$error === false &&  this.checkRecaptcha === true) {// Нету ошибок
-          await this.$axios.$get("http://localhost:3000/").then((res, req) =>{
-          this.$store.commit("SetFormApi", {data:"password",value:res});
+      if (this.$v.Form.$error === false && this.checkRecaptcha === true) {
+        // Нету ошибок
+        await this.$axios.$get("http://localhost:3000/").then((res, req) => {
+          this.$store.commit("SetFormApi", { data: "password", value: res });
         });
-         if(this.passwordCheck === false){ // нету ошибок от API
+        if (this.passwordCheck === false) {
+          // нету ошибок от API
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
           this.$store.commit("User/SetFull", {
             name: "login",
-            value: this.$v.Form.$model.login,
+            value: this.$v.Form.$model.login
           });
           this.$store.commit("User/SetFull", {
             name: "name",
-            value: this.$v.Form.$model.name,
+            value: this.$v.Form.$model.name
           });
           this.$store.commit("User/SetFull", {
             name: "surname",
-            value: this.$v.Form.$model.surname,
+            value: this.$v.Form.$model.surname
           });
           this.$store.commit("User/SetFull", {
             name: "telephone",
-            value: this.$v.Form.$model.telephone,
+            value: this.$v.Form.$model.telephone
           });
           this.$store.commit("User/SetFull", {
             name: "patronymic",
-            value: this.$v.Form.$model.patronymic,
+            value: this.$v.Form.$model.patronymic
           });
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
-           this.getAlert = true;
+          this.getAlert = true;
         }
         this.$v.Form["password"].$model = "";
         this.$v.Form["password2"].$model = "";
@@ -66,18 +72,17 @@ export default {
         window.grecaptcha.reset();
         this.checkRecaptcha = false;
       }
-    },
+    }
   },
-  computed:{
-    passwordCheck(){
+  computed: {
+    passwordCheck() {
       return this.$store.getters["GetFormPassword"];
     }
   },
-  destroyed(){
-    this.$store.commit("SetFormApi", {data:"password", value: false});
+  destroyed() {
+    this.$store.commit("SetFormApi", { data: "password", value: false });
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

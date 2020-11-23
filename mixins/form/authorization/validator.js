@@ -1,27 +1,35 @@
-import { required, minLength, between, maxLength , alphaNum ,email, sameAs} from 'vuelidate/lib/validators'
+import {
+  required,
+  minLength,
+  between,
+  maxLength,
+  alphaNum,
+  email,
+  sameAs
+} from "vuelidate/lib/validators";
 
 let Myemail = {
-    required,
-}
+  required
+};
 let password = {
-    required,
-}
+  required
+};
 
 export default {
-    data() {
-        return {
-            Form: {
-                email: '',
-                password: '',  
-            }
-        }
-    },
-    validations(){
-        return {
-            Form:{
-                email:Myemail,
-                password:password
-            }
-        }
-    }
-}
+  data() {
+    return {
+      Form: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+  validations() {
+    return {
+      Form: {
+        email: Myemail,
+        password: password
+      }
+    };
+  }
+};

@@ -1,5 +1,8 @@
 <template>
-  <b-card class="h-100 justify-content-between" header-class="d-flex justify-content-between">
+  <b-card
+    class="h-100 justify-content-between"
+    header-class="d-flex justify-content-between"
+  >
     <template #header>
       <h6 class="mb-0">
         <nuxt-link
@@ -10,11 +13,11 @@
         </nuxt-link>
       </h6>
       <div class="text-right">
-        <DeleteCart :index="index"/>
+        <DeleteCart :index="index" />
       </div>
     </template>
     <div>
-      <ImgGetModal :product="datasetProduct"/>
+      <ImgGetModal :product="datasetProduct" />
     </div>
     <div class="mt-3">
       <product-element-row-get
@@ -31,7 +34,7 @@
       />
       <product-element-row-get
         name="Поставщик:"
-        :dataset="datasetProduct.ProductOffer.supplier.name "
+        :dataset="datasetProduct.ProductOffer.supplier.name"
       />
     </div>
     <template #footer>
@@ -51,9 +54,16 @@
             />
             <cart-button-update-product
               v-if="datasetProduct.checkCount"
-              :index="index"/>
+              :index="index"
+            />
           </div>
-          <div class="mt-3">Стоимость:<b>{{ datasetProduct.ProductOffer.prices * datasetProduct.Count }}р</b></div>
+          <div class="mt-3">
+            Стоимость:<b
+              >{{
+                datasetProduct.ProductOffer.prices * datasetProduct.Count
+              }}р</b
+            >
+          </div>
         </b-col>
       </b-row>
     </template>
@@ -61,12 +71,12 @@
 </template>
 
 <script>
-import mixit from "@/mixins/input/count-product/emit"
+import mixit from "@/mixins/input/count-product/emit";
 import vInput from "@/components/products/input/product-input-count";
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
-import ProductElementRowGet from "@/components/products/product/element/product-element-row-get"
+import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 
 export default {
@@ -80,7 +90,7 @@ export default {
     /***
      * index корзины 1 товара
      */
-    index: {},
+    index: {}
   },
   components: {
     CartButtonUpdateProduct,
@@ -88,8 +98,7 @@ export default {
     ImgGetModal,
     DeleteCart,
     vInput,
-    ProductElementRowGet,
-  },
+    ProductElementRowGet
+  }
 };
 </script>
-

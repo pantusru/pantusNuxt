@@ -1,15 +1,15 @@
-:root{
-  --top-nav-bg: #F7F7F7;
-  --top-nav-color: #4A4A4A;
+:root {
+  --top-nav-bg: #f7f7f7;
+  --top-nav-color: #4a4a4a;
   --color-body: #555;
-  --bnt-search: #A0252C;
+  --bnt-search: #a0252c;
   --nav-user-color: #777777;
-  --nav-user-color-hover: #CB444E;
-  --nav-main-color-hover: #EC0E1D;
-  --home-blog-title-color: #2E414D;
-  --home-blog-link-color: #6B6B6B;
-  --color-red: #9A001D;
-  --catalog-filter-brand-name-color:#576b77;
-  --catalog-filter-color-hover:#98001F;
+  --nav-user-color-hover: #cb444e;
+  --nav-main-color-hover: #ec0e1d;
+  --home-blog-title-color: #2e414d;
+  --home-blog-link-color: #6b6b6b;
+  --color-red: #9a001d;
+  --catalog-filter-brand-name-color: #576b77;
+  --catalog-filter-color-hover: #98001f;
   --footer-color: #666;
 }

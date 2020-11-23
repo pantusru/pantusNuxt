@@ -1,8 +1,12 @@
 <template>
   <b-modal :id="'buy'" @show="ShowModal">
-    <template #modal-header="{close}">
+    <template #modal-header="{ close }">
       <h5>Товар будет добавлен в корзину</h5>
-      <b-button class="font-weight-bolder" variant="outline-danger" @click="close()">
+      <b-button
+        class="font-weight-bolder"
+        variant="outline-danger"
+        @click="close()"
+      >
         X
       </b-button>
     </template>
@@ -25,8 +29,12 @@
       </div>
       <div class="mb-2">
         <div class="mb-2"><b> Кол-во, шт:</b></div>
-        <VInput @Count="SetCount" :AddClassForm="'col-6 col-md-4'" :CountProps="count"
-                :multiplicity="LinkOffer.multiplicity"/>
+        <VInput
+          @Count="SetCount"
+          :AddClassForm="'col-6 col-md-4'"
+          :CountProps="count"
+          :multiplicity="LinkOffer.multiplicity"
+        />
       </div>
       <div class="mb-2">
         <div><b> Стоимость:</b></div>
@@ -40,7 +48,7 @@
 </template>
 
 <script>
-import VInput from "@/components/products/input/product-input-count"
+import VInput from "@/components/products/input/product-input-count";
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
@@ -49,30 +57,33 @@ export default {
     return {
       close: false,
       count: "",
-      CartProduct: undefined,
-    }
+      CartProduct: undefined
+    };
   },
   methods: {
     ShowModal() {
-      this.CartProduct = this.$store.getters
-        ["Cart/CartAll/GetCartProductId"]
-      (this.LinkOffer.id)[0];
-      if (this.CheckCart === true) {// Есть в корзине
-        this.count = this.CartProduct.Count
-
-      } else {// Нет в корзине
+      this.CartProduct = this.$store.getters["Cart/CartAll/GetCartProductId"](
+        this.LinkOffer.id
+      )[0];
+      if (this.CheckCart === true) {
+        // Есть в корзине
+        this.count = this.CartProduct.Count;
+      } else {
+        // Нет в корзине
         this.count = this.LinkOffer.multiplicity;
       }
     },
-    SetCount(Count) { // Emit
+    SetCount(Count) {
+      // Emit
       this.count = Count.Count;
     },
     // Кнопка купить
     buy() {
-      let Index = this.$store.getters
-        ["Cart/CartAll/GetCartProduct_offersIndex"]
-      (this.LinkOffer.id);
-      if (this.CheckCart === false) { //Добавить товар в корзину
+      let Index = this.$store.getters[
+        "Cart/CartAll/GetCartProduct_offersIndex"
+      ](this.LinkOffer.id);
+      if (this.CheckCart === false) {
+        //Добавить товар в корзину
         let data = {};
         data.Count = this.count;
         data.ProductOffer = this.LinkOffer;
@@ -80,30 +91,33 @@ export default {
         data.checkCount = false;
         this.$store.commit("Cart/CartAll/PushCartProduct", data);
         // this.$bvModal.hide('buy');
-      } else { // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
-        this.$store.commit("Cart/CartAll/SetCountProduct", {index: Index, value: this.count});
+      } else {
+        // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
+        this.$store.commit("Cart/CartAll/SetCountProduct", {
+          index: Index,
+          value: this.count
+        });
       }
-      this.$bvModal.hide('buy');
-    },
+      this.$bvModal.hide("buy");
+    }
   },
   components: {
     BaseButton,
-    VInput,
+    VInput
   },
   computed: {
     stoimost() {
-      return this.count * this.LinkOffer.prices
+      return this.count * this.LinkOffer.prices;
     },
     LinkProducts() {
-      return this.$store.getters["Modal/GetModaBuyLinkProduct"]
+      return this.$store.getters["Modal/GetModaBuyLinkProduct"];
     },
     LinkOffer() {
-      return this.$store.getters["Modal/GetModaBuyLinkOffer"]
+      return this.$store.getters["Modal/GetModaBuyLinkOffer"];
     },
     CheckCart() {
-      return this.$store.getters["Modal/GetCheckCart"]
-    },
-  },
-}
+      return this.$store.getters["Modal/GetCheckCart"];
+    }
+  }
+};
 </script>
-

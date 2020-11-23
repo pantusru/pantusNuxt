@@ -1,21 +1,21 @@
 <template>
   <section class="mt-5">
     <!-- Модалки -->
-    <ModalImg/>
-    <ModalBuy/>
+    <ModalImg />
+    <ModalBuy />
     <share></share>
     <!-- Модалки -->
     <div class="container">
       <!-- Фильтры применяемости -->
-      <FilterApplicabilities/>
+      <FilterApplicabilities />
       <b-row>
         <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
           <!-- Общие Фильтры -->
-          <FilterForm/>
+          <FilterForm />
         </b-col>
         <b-col lg="9">
           <!-- Метки какие бренды и категории выбраны  -->
-          <MetkaFilter/>
+          <MetkaFilter />
           <div class="text-right">
             <button-reply-show />
           </div>
@@ -24,15 +24,15 @@
             class="text-center fz-5_5"
             v-if="componentsName !== 'TableProduct'"
           >
-            <PanelVid class="panelProductFilter mb-0"/>
+            <PanelVid class="panelProductFilter mb-0" />
           </b-table-simple>
           <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
           <div class="d-none d-lg-block">
-            <components :is="componentsName" :array="Products"/>
+            <components :is="componentsName" :array="Products" />
           </div>
           <!-- Для Мобильных ()=>  вид товара блочный -->
           <div class="d-block d-lg-none">
-            <components :is="'productBlog'" :array="Products"/>
+            <components :is="'productBlog'" :array="Products" />
           </div>
           <b-pagination-nav
             hide-ellipsis
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import PageFilter from "@/mixins/page/filter"
+import PageFilter from "@/mixins/page/filter";
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import FilterApplicabilities from "@/components/forms/filter-applicabilities";
@@ -66,69 +66,78 @@ import productRow from "@/components/func/product-rows-get";
 import MetkaFilter from "@/components/metka/filter/catalog-metka-get";
 import ResetFilter from "@/mixins/reset-filter/index";
 import CheckQueryFilter from "@/mixins/check-query-filter/index";
-import SubmitFilter from "@/mixins/search-submit/index"
+import SubmitFilter from "@/mixins/search-submit/index";
 import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
   mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
-  async fetch({query, store}) {
+  async fetch({ query, store }) {
     await Promise.all([
       store.dispatch("Products/_ProductAll"), // Временная хуйта!
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
-      store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
+      store.dispatch("Selected/selected/_Selected") // запрос избранные товары user
     ]);
     //   ПРОВЕРКА QUERY
     if (query !== undefined) {
       this.form = {};
-      if (query.maxvalue !== undefined && query.minvalue !== undefined) {      // Проверка МАКСИМУМА  + МИНИМУМА
-        if (query.maxvalue < query.minvalue) { // Минимальное больше максимального
+      if (query.maxvalue !== undefined && query.minvalue !== undefined) {
+        // Проверка МАКСИМУМА  + МИНИМУМА
+        if (query.maxvalue < query.minvalue) {
+          // Минимальное больше максимального
           store.commit("formSearch/SetMaxValue", query.minvalue);
           store.commit("formSearch/SetMinValue", query.maxvalue);
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
           this.form.minvalue = store.getters["formSearch/GetMinValue"];
         }
-      } else { // Если одного нету
-        if (query.minvalue !== undefined) {// ПРОВЕРКА МИНИМУМА
+      } else {
+        // Если одного нету
+        if (query.minvalue !== undefined) {
+          // ПРОВЕРКА МИНИМУМА
           store.commit("formSearch/SetMinValue", query.minvalue);
           this.form.minvalue = store.getters["formSearch/GetMinValue"];
         }
-        if (query.maxvalue !== undefined) {// ПРОВЕРКА МАКСИМУМА
+        if (query.maxvalue !== undefined) {
+          // ПРОВЕРКА МАКСИМУМА
           store.commit("formSearch/SetMaxValue", query.maxvalue);
           this.form.maxvalue = store.getters["formSearch/GetMaxValue"];
         }
       }
-      if (query.brand !== undefined){     // ПРОВЕРКА БРЕНДА
+      if (query.brand !== undefined) {
+        // ПРОВЕРКА БРЕНДА
         let brand = query.brand.split(",");
-        brand = Array.from(
-          new Set(brand)
-        );
-        brand.forEach((element) => {
+        brand = Array.from(new Set(brand));
+        brand.forEach(element => {
           store.commit("formSearch/SetBrandsChecked", Number(element));
         });
         store.dispatch("Catalog/Metks/SetMetksBrand", {
-          ids: brand,
+          ids: brand
         });
         this.form.brand = store.getters["formSearch/GetBrandsChecked"];
         this.form.brand = this.form.brand.join();
       }
-      if (query.name !== undefined) { // ПРОВЕРКА name SKU
+      if (query.name !== undefined) {
+        // ПРОВЕРКА name SKU
         store.commit("formSearch/SetSearch", query.name);
       }
-      if (query.categories !== undefined) {// ПРОВЕРКА КАТЕГОРИИ
+      if (query.categories !== undefined) {
+        // ПРОВЕРКА КАТЕГОРИИ
         let ids = query.categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
-          ids: ids,
+          ids: ids
         });
 
         await store.dispatch(
           "Catalog/Metks/SetMetksCategories",
           store.getters["Categories/CategoriesAll/GetCategories"]
         );
-        this.form.categories = await store.dispatch("Catalog/All/_AllChexboxId", store.getters["Categories/CategoriesAll/GetCategories"]);
+        this.form.categories = await store.dispatch(
+          "Catalog/All/_AllChexboxId",
+          store.getters["Categories/CategoriesAll/GetCategories"]
+        );
       }
       if (query.applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
@@ -137,21 +146,24 @@ export default {
           data:
             store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-              ],
-          id: ids,
+            ],
+          id: ids
         });
-        this.form.applicabilities = await store.dispatch("Applicabilities/Panel/SetAllIdUrl");
-        if(store.getters['Applicabilities/Panel/PanelLength'] === 0){ // Указанные применяемости не найдены
+        this.form.applicabilities = await store.dispatch(
+          "Applicabilities/Panel/SetAllIdUrl"
+        );
+        if (store.getters["Applicabilities/Panel/PanelLength"] === 0) {
+          // Указанные применяемости не найдены
           store.commit("Applicabilities/Panel/SetPanelNew");
         }
-      }else {
+      } else {
         store.commit("Applicabilities/Panel/SetPanelNew");
       }
       if (query.sort_name !== undefined && query.sort_type !== undefined) {
         // ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", {
           SortType: query.sort_type,
-          SortName: query.sort_name,
+          SortName: query.sort_name
         });
         this.form.sort_name = store.getters["formSearch/GetSortName"];
         this.form.sort_type = store.getters["formSearch/GetSortType"];
@@ -175,7 +187,7 @@ export default {
     FilterApplicabilities,
     MetkaFilter,
     ModalImg,
-    ModalBuy,
+    ModalBuy
   },
   computed: {
     /***
@@ -200,7 +212,8 @@ export default {
       return this.$store.getters["GetcheckFilterClick"];
     }
   },
-  created() { // КОстыль
+  created() {
+    // КОстыль
     // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
     console.log("reset");
     this.$store.dispatch(
@@ -209,7 +222,8 @@ export default {
     );
   },
   watch: {
-     async $route() { // Изменение route
+    async $route() {
+      // Изменение route
       if (this.checkFilterClick === true) {
         console.log("Новый запрос reset all");
         await this.ResetNoApplicabilitiess();
@@ -221,9 +235,9 @@ export default {
         // this.$store.dispatch("Products/_ProductAll", this.$route.query); // Товары запросы
       } else {
         console.log("Новый запрос");
-        this.$store.commit('SetcheckFilterClick', true)
+        this.$store.commit("SetcheckFilterClick", true);
       }
-    },
-  },
+    }
+  }
 };
 </script>

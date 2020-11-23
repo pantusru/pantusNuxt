@@ -6,18 +6,21 @@
 import BaseButton from "@/components/base/button/base-button";
 export default {
   name: "cart-button-delete",
-  components: {BaseButton},
-  props:{
+  components: { BaseButton },
+  props: {
     /***
      * index массива элемента корзины 1 товара
      */
-        index:{},
-    },
-    methods:{
-        async deleteProduct() {
-            //await Запрос на удаление товара с корзины
-            this.$store.commit("Cart/CartAll/DeleteCartProduct", {index:this.index, flag:true});
-        },
+    index: {}
+  },
+  methods: {
+    deleteProduct() {
+      // await Запрос на удаление товара с корзины
+      this.$store.commit("Cart/CartAll/DeleteCartProduct", {
+        index: this.index,
+        flag: true
+      });
     }
+  }
 };
 </script>

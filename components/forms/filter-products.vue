@@ -10,7 +10,8 @@
       <b-button
         class="d-block d-lg-none text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer mb-2"
         @click="show = false"
-        >X</b-button>
+        >X</b-button
+      >
       <!-- <Submit /> -->
       <VueRange />
       <!-- ЦЕНА-->
@@ -57,7 +58,7 @@ export default {
   name: "fulter-products",
   data() {
     return {
-      show: true,
+      show: true
     };
   },
   components: {
@@ -65,7 +66,7 @@ export default {
     Panel,
     Reset,
     Submit,
-    PanelBrand,
-  },
+    PanelBrand
+  }
 };
 </script>

@@ -6,9 +6,8 @@
       variant="light"
       pill
       class="mr-1 cursor-pointer mb-3 close-mark"
-    ><b-icon-x></b-icon-x>
-    </b-badge
-    >
+      ><b-icon-x></b-icon-x>
+    </b-badge>
   </div>
 </template>
 
@@ -19,15 +18,15 @@ export default {
      *index метки в массиве
      */
     index: {
-      request: true,
+      request: true
     },
     /**
      *  data метки
      */
     link: {
       request: true,
-      type: Object,
-    },
+      type: Object
+    }
   },
   methods: {
     /**
@@ -37,21 +36,24 @@ export default {
     async DeleteCheck() {
       let query;
       let name;
-      if (this.link.type === "brand") {// Это бренд
+      if (this.link.type === "brand") {
+        // Это бренд
         name = "brand";
         query = this.DeleteBrand();
-      } else if(this.link.type === "categories") {// Это категория
+      } else if (this.link.type === "categories") {
+        // Это категория
         name = "categories";
         query = await this.DeleteCategories();
       }
-      this.$store.commit("Catalog/Metks/DeleteMetks", {index: this.index});
-      console.log(name + "-"+query);
-      await this.$router.push({ // Изменение url
+      this.$store.commit("Catalog/Metks/DeleteMetks", { index: this.index });
+      console.log(name + "-" + query);
+      await this.$router.push({
+        // Изменение url
         name: "search",
         query: {
           ...this.$route.query,
-          [name]: query,
-        },
+          [name]: query
+        }
       });
     },
     /**
@@ -60,15 +62,17 @@ export default {
      */
     DeleteBrand() {
       let query = this.$route.query.brand.split(",");
-      for (const key in query) { // Прогоняем Query Brand
+      for (const key in query) {
+        // Прогоняем Query Brand
         if (query[key] == this.link.id) {
           query.splice(key, 1);
           console.log("das");
           return query;
         }
       }
-      this.$store.commit("formSearch/RemoreBrandsChecked", {// Удаляет выбранный бренд в VUEX
-        id: this.link.id,
+      this.$store.commit("formSearch/RemoreBrandsChecked", {
+        // Удаляет выбранный бренд в VUEX
+        id: this.link.id
       });
       query = this.CheckLengthQuery(query);
       return query;
@@ -79,12 +83,14 @@ export default {
      * @returns query - возвращает новый query
      */
     async DeleteCategories() {
-      await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {// Найди chexbox и убрать его с фильтров
+      await this.$store.dispatch("Catalog/Chexbox/ChexboxCheckAll", {
+        // Найди chexbox и убрать его с фильтров
         arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
         value: false,
-        id: this.link.id,
+        id: this.link.id
       });
-      let query = await this.$store.dispatch(// получить новые id выбранных фильтров
+      let query = await this.$store.dispatch(
+        // получить новые id выбранных фильтров
         "Catalog/All/_AllChexboxId",
         this.$store.getters["Categories/CategoriesAll/GetCategories"]
       );
@@ -104,17 +110,16 @@ export default {
         return query.join();
       }
     }
-  },
+  }
 };
 </script>
 
 <style>
-.metka-filter-product-block{
+.metka-filter-product-block {
   transition: all 1s;
   cursor: pointer;
 }
-.metka-filter-product-block:hover{
-  color: #98001F;
+.metka-filter-product-block:hover {
+  color: #98001f;
 }
-
 </style>

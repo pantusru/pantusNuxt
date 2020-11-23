@@ -7,21 +7,22 @@ export default {
   methods: {
     AddPanel() {
       this.$store.dispatch("Applicabilities/Panel/SetPanelNew");
-    },
+    }
   },
-  computed:{
-    lengthApplicabilitiess(){
-      return this.$store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"].length
+  computed: {
+    lengthApplicabilitiess() {
+      return this.$store.getters[
+        "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
+      ].length;
     },
-    lengthPanel(){
-      return this.$store.getters["Applicabilities/Panel/PanelLength"]
+    lengthPanel() {
+      return this.$store.getters["Applicabilities/Panel/PanelLength"];
     },
-    show(){
-      return this.lengthApplicabilitiess > this.lengthPanel
+    show() {
+      return this.lengthApplicabilitiess > this.lengthPanel;
     }
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

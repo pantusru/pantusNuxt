@@ -1,7 +1,11 @@
 <template>
   <div>
     <b-form class="d-flex p-0 align-items-center" :class="AddClassForm">
-      <b-icon-dash class="cursor-pointer" :class="{'d-none d-lg-block':showIcon}" @click="dash"></b-icon-dash>
+      <b-icon-dash
+        class="cursor-pointer"
+        :class="{ 'd-none d-lg-block': showIcon }"
+        @click="dash"
+      ></b-icon-dash>
       <b-input
         type="number"
         @input="GetError"
@@ -10,7 +14,11 @@
         class="ml-2 mr-2 text-center"
         v-model="Count"
       ></b-input>
-      <b-icon-plus class="cursor-pointer" :class="{'d-none d-lg-block':showIcon}" @click="plus"></b-icon-plus>
+      <b-icon-plus
+        class="cursor-pointer"
+        :class="{ 'd-none d-lg-block': showIcon }"
+        @click="plus"
+      ></b-icon-plus>
     </b-form>
     <div class="error mt-2" v-if="error === true">
       Не коррентное количество товара
@@ -20,27 +28,27 @@
 
 <script>
 export default {
-  name:"product-input-count",
+  name: "product-input-count",
   props: {
     showIcon: {
-      default: false,
+      default: false
     },
     AddClassInput: {},
     AddClassForm: {},
     CountProps: {},
     multiplicity: {
-      default: 1,
+      default: 1
     },
-    array: null,
+    array: null
   },
   data() {
     return {
       error: false,
-      Count: this.CountProps,
+      Count: this.CountProps
     };
   },
-  watch:{
-    CountProps(){
+  watch: {
+    CountProps() {
       this.Count = this.CountProps;
     }
   },
@@ -49,7 +57,7 @@ export default {
     emitGo() {
       this.$emit("Count", {
         Count: this.Count,
-        array: this.array,
+        array: this.array
       });
     },
     //  Уменьшать кол-во товар
@@ -87,7 +95,7 @@ export default {
       }
       this.error = false;
       this.emitGo();
-    },
-  },
+    }
+  }
 };
 </script>

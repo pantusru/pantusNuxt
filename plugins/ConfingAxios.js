@@ -1,22 +1,25 @@
-
-export default function ({ $axios, redirect ,app, request}) {  
-  $axios.onRequest(config => {// ПЕРЕХВАТЧИК ЗАПРОСА
-    if (app.$cookies.get("Authorization")  !== undefined) {
+export default function ({ $axios, redirect, app, request }) {
+  $axios.onRequest(config => {
+    // ПЕРЕХВАТЧИК ЗАПРОСА
+    if (app.$cookies.get("Authorization") !== undefined) {
       // console.log(app.$cookies.get("Authorization"));
-      $axios.defaults.headers.common['Authorization'] = app.$cookies.get("IdUser"); // Передача токена в каждом запросе
+      $axios.defaults.headers.common["Authorization"] = app.$cookies.get(
+        "IdUser"
+      ); // Передача токена в каждом запросе
     }
-    console.log('Making request to ' + config.url)
-  })
-  $axios.onResponse(res  => { // ПЕРЕХВАТЧИК ОТВЕТА
-    if(res.data != undefined){
-      return  res 
+    console.log("Making request to " + config.url);
+  });
+  $axios.onResponse(res => {
+    // ПЕРЕХВАТЧИК ОТВЕТА
+    if (res.data != undefined) {
+      return res;
+    } else {
+      return false;
     }
-    else{
-      return false
-    }
-  })
+  });
 
-  $axios.onError(error => { // ПЕРЕХВАТЧИК ОШИБКИ
+  $axios.onError(error => {
+    // ПЕРЕХВАТЧИК ОШИБКИ
     redirect("/505");
-  }) 
-} 
+  });
+}

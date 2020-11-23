@@ -1,29 +1,29 @@
 export const state = () => ({
-    MyOrder: [],
-})
-export const mutations  =  {
+  MyOrder: []
+});
+export const mutations = {
   /***
    * ###Сохранить order с api
    */
-    SetMyOrder(store, data){
-        store.MyOrder = data;
-    },
+  SetMyOrder(store, data) {
+    store.MyOrder = data;
+  },
   /**
    * ###Изменить order действия клиента
    * @param {String} data.name - ссылка
    */
-  SetDataMyOrder(store, data){
+  SetDataMyOrder(store, data) {
     data.code = "ОТ"; // Отмена
     data.name = "Отменен"; // Отмена
   }
-}
+};
 export const actions = {
-    async _MyOrderAll({store,dispatch, commit, getters}){
-        // Добавить data page, и передавать в API ЗАпрос
-        let  data = await dispatch("MyOrder/axios/_MyOrder", {} , { root: true });
-        commit("SetMyOrder", data);
-    },
-}
+  async _MyOrderAll({ store, dispatch, commit, getters }) {
+    // Добавить data page, и передавать в API ЗАпрос
+    let data = await dispatch("MyOrder/axios/_MyOrder", {}, { root: true });
+    commit("SetMyOrder", data);
+  }
+};
 export const getters = {
-    GetMyOrder: s => s.MyOrder,
-}
+  GetMyOrder: s => s.MyOrder
+};

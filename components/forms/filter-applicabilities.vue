@@ -19,9 +19,9 @@
         </span>
         <div class="mt-3 mb-2">
           <Vpanel v-for="data in Panels" :key="data.id" :PanelId="data.id" />
-          <ButtonAdd/>
-          <ButtonReset/>
-          <ButtonSubmit/>
+          <ButtonAdd />
+          <ButtonReset />
+          <ButtonSubmit />
         </div>
       </b-card-body>
     </b-card>
@@ -39,7 +39,7 @@ export default {
     return {
       BntClass:
         "text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer",
-      showAll: false,
+      showAll: false
     };
   },
   components: {
@@ -51,7 +51,7 @@ export default {
   computed: {
     Panels() {
       return this.$store.getters["Applicabilities/Panel/GetPanel"];
-    },
-  },
+    }
+  }
 };
 </script>

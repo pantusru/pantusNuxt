@@ -7,7 +7,7 @@
         :link="data"
         :index="index"
       />
-<!--      <transition v-if="getAllMetka" class="transition">-->
+      <!--      <transition v-if="getAllMetka" class="transition">-->
       <template v-if="getAllMetka">
         <Metka
           v-for="(data, index) in Metks.slice(countMetk, Metks.length)"
@@ -17,9 +17,13 @@
         />
       </template>
 
-<!--      </transition>-->
+      <!--      </transition>-->
     </b-row>
-    <base-button v-if="Metks.length  > countMetk" @click="getAllMetka = !getAllMetka">Все метки</base-button>
+    <base-button
+      v-if="Metks.length > countMetk"
+      @click="getAllMetka = !getAllMetka"
+      >Все метки</base-button
+    >
   </div>
 </template>
 
@@ -31,20 +35,19 @@ export default {
   data() {
     return {
       getAllMetka: false,
-      countMetk: 10,
-    }
+      countMetk: 10
+    };
   },
   computed: {
     Metks() {
       return this.$store.getters["Catalog/Metks/GetMetks"];
-    },
+    }
   },
   components: {
     BaseButton,
-    Metka,
+    Metka
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

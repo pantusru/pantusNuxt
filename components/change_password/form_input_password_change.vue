@@ -7,7 +7,9 @@
     :Vmask="Vmask"
     :$v="$v"
   >
-    <div class="error" v-if="name === 'str_password' && CheckFormNewPassword" >Пароль не совпадает с БД</div>
+    <div class="error" v-if="name === 'str_password' && CheckFormNewPassword">
+      Пароль не совпадает с БД
+    </div>
   </base-input-valid>
 </template>
 <script>
@@ -16,13 +18,12 @@ import BaseErrorsValid from "@/components/base/base-errors-valid";
 import BaseInputValid from "@/components/base/base-input-valid";
 export default {
   name: "form_input_password_change",
-  components: {BaseInputValid, BaseErrorsValid},
+  components: { BaseInputValid, BaseErrorsValid },
   mixins: [mixitProps],
-  computed:{
-    CheckFormNewPassword(){
-        return this.$store.getters["GetFormNewPassword"]
+  computed: {
+    CheckFormNewPassword() {
+      return this.$store.getters["GetFormNewPassword"];
     }
   }
 };
 </script>
-

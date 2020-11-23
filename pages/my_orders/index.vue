@@ -19,11 +19,10 @@ export default {
   },
   components: {
     NavProfile,
-    MyOrder,
+    MyOrder
   },
-  middleware:'CheckGuest',
+  middleware: "CheckGuest"
 };
 </script>
 
-<style>
-</style>
+<style></style>

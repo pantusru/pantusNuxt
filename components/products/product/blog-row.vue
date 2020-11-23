@@ -4,37 +4,56 @@
       <b-row class="align-items-center mb-3 justify-content-between">
         <b-row no-gutters class="col-5 align-items-center">
           <b-col cols="4">
-            <ImgGetModal :product="Product"/>
+            <ImgGetModal :product="Product" />
           </b-col>
-          <h2> <nuxt-link class="text-555" :to="'product/'+Product.ProductCard.id"> {{ Product.ProductCard.name }}</nuxt-link></h2>
+          <h2>
+            <nuxt-link
+              class="text-555"
+              :to="'product/' + Product.ProductCard.id"
+            >
+              {{ Product.ProductCard.name }}</nuxt-link
+            >
+          </h2>
         </b-row>
       </b-row>
-<!--      <div>{{Product}}</div>-->
+      <!--      <div>{{Product}}</div>-->
     </b-card-header>
     <b-card-body class="py-2 px-15px">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
-<!--            Бренд  -->
+          <!--            Бренд  -->
           <RowAtr
             name="Бренд"
             :link="'search?brand=' + Product.ProductCard.brand.id"
             :dataset="Product.ProductCard.brand.name"
           />
           <!--  Артикул  -->
-          <RowAtr
-            name="Артикул"
-            :dataset="Product.ProductCard.sku.original"
-          />
+          <RowAtr name="Артикул" :dataset="Product.ProductCard.sku.original" />
           <!--  Применяемость  -->
-          <RowAtr v-if="Product.ProductCard.applicabilities !== undefined && Product.ProductCard.applicabilities.length !== 0"
-                  name="Применяемость"
-                  :dataset="Product.ProductCard.applicabilities[0].name"
-                  :link="'search?applicabilities=' + Product.ProductCard.applicabilities[0].id"
+          <RowAtr
+            v-if="
+              Product.ProductCard.applicabilities !== undefined &&
+              Product.ProductCard.applicabilities.length !== 0
+            "
+            name="Применяемость"
+            :dataset="Product.ProductCard.applicabilities[0].name"
+            :link="
+              'search?applicabilities=' +
+              Product.ProductCard.applicabilities[0].id
+            "
           />
 
-          <template v-if="Product.ProductCard.applicabilities !== undefined && Product.ProductCard.applicabilities.length > 1">
+          <template
+            v-if="
+              Product.ProductCard.applicabilities !== undefined &&
+              Product.ProductCard.applicabilities.length > 1
+            "
+          >
             <RowAtr
-              v-for="data in Product.ProductCard.applicabilities.slice(1, Product.ProductCard.applicabilities.length)"
+              v-for="data in Product.ProductCard.applicabilities.slice(
+                1,
+                Product.ProductCard.applicabilities.length
+              )"
               :key="data.id"
               :dataset="data.name"
               :link="'search?applicabilities=' + data.id"
@@ -42,14 +61,25 @@
           </template>
           <!--  ОЕМ  -->
           <RowAtr
-            v-if="Product.ProductCard.ProductCardOem !== undefined && Product.ProductCard.ProductCardOem.length !== 0"
+            v-if="
+              Product.ProductCard.ProductCardOem !== undefined &&
+              Product.ProductCard.ProductCardOem.length !== 0
+            "
             name="ОЕМ"
             :link="'search?name=' + Product.ProductCard.ProductCardOem[0]"
             :dataset="Product.ProductCard.ProductCardOem[0]"
           />
-          <template v-if="Product.ProductCard.ProductCardOem !== undefined && Product.ProductCard.ProductCardOem.length > 1">
+          <template
+            v-if="
+              Product.ProductCard.ProductCardOem !== undefined &&
+              Product.ProductCard.ProductCardOem.length > 1
+            "
+          >
             <RowAtr
-              v-for="data in Product.ProductCard.ProductCardOem.slice(1, Product.ProductCard.ProductCardOem.length)"
+              v-for="data in Product.ProductCard.ProductCardOem.slice(
+                1,
+                Product.ProductCard.ProductCardOem.length
+              )"
               :key="data"
               :dataset="data"
               :link="'search?name=' + data"
@@ -57,22 +87,35 @@
           </template>
           <!--  Категории  -->
           <RowAtr
-            v-if="Product.ProductCard.categories !== undefined && Product.ProductCard.categories.length !== 0"
+            v-if="
+              Product.ProductCard.categories !== undefined &&
+              Product.ProductCard.categories.length !== 0
+            "
             name="Категории"
             :link="'search?categories=' + Product.ProductCard.categories[0].id"
             :dataset="Product.ProductCard.categories[0].name"
           />
-          <template v-if="Product.ProductCard.categories !== undefined && Product.ProductCard.categories.length > 1">
+          <template
+            v-if="
+              Product.ProductCard.categories !== undefined &&
+              Product.ProductCard.categories.length > 1
+            "
+          >
             <RowAtr
-              v-for="data in Product.ProductCard.categories.slice(1, Product.ProductCard.categories.length)"
+              v-for="data in Product.ProductCard.categories.slice(
+                1,
+                Product.ProductCard.categories.length
+              )"
               :key="data.id"
               :dataset="data.name"
               :link="'search?categories=' + data.id"
             />
           </template>
-
         </b-row>
-        <b-row no-gutters class="justify-content-between flex-column col-12 col-lg-8">
+        <b-row
+          no-gutters
+          class="justify-content-between flex-column col-12 col-lg-8"
+        >
           <TableOffset
             :Linkoffset="Product.productOffer"
             :LinkProduct="Product.ProductCard"
@@ -91,15 +134,17 @@
 </template>
 
 <script>
-import ImgGetModal from "@/components/products/product/element/img"
-import BuyButton from "@/components/products/button/buy-index"
-import RowAtr from "@/components/products/product/element/product-element-row-get"
-import TableOffset from "@/components/table/table-offset-get"
+import ImgGetModal from "@/components/products/product/element/img";
+import BuyButton from "@/components/products/button/buy-index";
+import RowAtr from "@/components/products/product/element/product-element-row-get";
+import TableOffset from "@/components/table/table-offset-get";
 
 export default {
   methods: {
     DeleteSelected() {
-      let index = this.SelectedProducts.findIndex(s => s.ProductCard.id == this.Product.ProductCard.id);
+      let index = this.SelectedProducts.findIndex(
+        s => s.ProductCard.id == this.Product.ProductCard.id
+      );
       this.$store.commit("Selected/selected/DeleteSelected", index);
     }
   },
@@ -107,7 +152,7 @@ export default {
   props: {
     Product: {},
     Selected: {
-      default: false,
+      default: false
     }
   },
   components: {
@@ -121,5 +166,5 @@ export default {
       return this.$store.getters["Selected/selected/GetSelected"];
     }
   }
-}
+};
 </script>

@@ -24,9 +24,7 @@
 
       <b-row>
         <b-col>
-          <nuxt-link to="">
-
-          </nuxt-link>
+          <nuxt-link to=""> </nuxt-link>
         </b-col>
       </b-row>
     </section>
@@ -45,7 +43,7 @@ export default {
           text: "автозапчастей в каталогах",
           src: require("@img/advantage/feature-new-01.png"),
           alt: "1",
-          href: "",
+          href: ""
         },
         {
           CheckLink: false,
@@ -54,7 +52,7 @@ export default {
           text: "  От 0 руб. по России",
           src: require("@img/advantage/feature-new-02.png"),
           alt: "2",
-          href: "",
+          href: ""
         },
         {
           CheckLink: false,
@@ -63,7 +61,7 @@ export default {
           text: "производство деталей",
           src: require("@img/advantage/feature-new-03.png"),
           alt: "3",
-          href: "",
+          href: ""
         },
         {
           CheckLink: false,
@@ -72,10 +70,10 @@ export default {
           text: "с возможностью отсрочки и оплаты при получении",
           src: require("@img/advantage/feature-new-04.png"),
           alt: "4",
-          href: "",
-        },
-      ],
+          href: ""
+        }
+      ]
     };
-  },
+  }
 };
 </script>

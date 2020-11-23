@@ -1,24 +1,30 @@
-import { required, minLength, between, maxLength , alphaNum ,email, sameAs} from 'vuelidate/lib/validators'
+import {
+  required,
+  minLength,
+  between,
+  maxLength,
+  alphaNum,
+  email,
+  sameAs
+} from "vuelidate/lib/validators";
 let Myemail = {
-    required,
-    email
-}
-
-
+  required,
+  email
+};
 
 export default {
-    data() {
-        return {
-            Form: {
-                Email: '',
-            }
-        }
-    },
-    validations(){
-            return{
-                Form:{
-                    Email: Myemail
-            }
-        }
-    }
-}
+  data() {
+    return {
+      Form: {
+        Email: ""
+      }
+    };
+  },
+  validations() {
+    return {
+      Form: {
+        Email: Myemail
+      }
+    };
+  }
+};

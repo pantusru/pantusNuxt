@@ -9,10 +9,31 @@
             <div>{{ User.login }}</div>
           </div>
           <nav>
-            <nuxt-link :active-class="ActiveClass" :class="classMain" to="/profile">Личный кабинет</nuxt-link>
-            <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/my_orders">История заказов</nuxt-link>
-            <nuxt-link :active-class="ActiveClass" :class="classMain" to="/selected">Избранные товары</nuxt-link>
-            <nuxt-link :active-class="ActiveClass"  :class="classMain" to="/new_password"> Изменить пароль</nuxt-link>
+            <nuxt-link
+              :active-class="ActiveClass"
+              :class="classMain"
+              to="/profile"
+              >Личный кабинет</nuxt-link
+            >
+            <nuxt-link
+              :active-class="ActiveClass"
+              :class="classMain"
+              to="/my_orders"
+              >История заказов</nuxt-link
+            >
+            <nuxt-link
+              :active-class="ActiveClass"
+              :class="classMain"
+              to="/selected"
+              >Избранные товары</nuxt-link
+            >
+            <nuxt-link
+              :active-class="ActiveClass"
+              :class="classMain"
+              to="/new_password"
+            >
+              Изменить пароль</nuxt-link
+            >
             <base-exit-user
               components="div"
               class="cursor-pointer"
@@ -28,19 +49,18 @@
 <script>
 import BaseExitUser from "@/components/base/button/base-exit-user";
 export default {
-  components: {BaseExitUser},
+  components: { BaseExitUser },
   data() {
     return {
       ActiveClass: "font-weight-bold text-decoration",
-      classMain: "text-body mb-2 d-block",
-    }
+      classMain: "text-body mb-2 d-block"
+    };
   },
   name: "NavProfile",
   computed: {
     User() {
       return this.$store.getters["User/FormData"];
-    },
-  },
+    }
+  }
 };
 </script>
-

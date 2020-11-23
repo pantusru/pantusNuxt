@@ -6,26 +6,28 @@
         text="Купить"
         @click="ModalProduct()"
         v-if="!userBasket"
-        class="py-1 px-2">
-        </base-button>
+        class="py-1 px-2"
+      >
+      </base-button>
       <!--  Кнопка купить если товар в корзине   -->
-        <base-button
-          v-else-if="userBasket"
-          :text="text"
-          @mouseout="text = 'В корзине'"
-          @mouseover="text = 'Добавить'"
-          @click="ModalProduct()"
-          class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
-        ></base-button>
-      <b-button v-if="userBasket"  @click="deleteCartProduct" class="border-0 text-danger ml-1 py-0  px-0 bg-transparent">X
+      <base-button
+        v-else-if="userBasket"
+        :text="text"
+        @mouseout="text = 'В корзине'"
+        @mouseover="text = 'Добавить'"
+        @click="ModalProduct()"
+        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
+      ></base-button>
+      <b-button
+        v-if="userBasket"
+        @click="deleteCartProduct"
+        class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"
+        >X
       </b-button>
     </div>
     <!--  Кнопка купить если товара нету в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">
-      <base-button
-        @click="ModalProduct()"
-        v-if="!userBasket"
-        class="py-1 px-2">
+      <base-button @click="ModalProduct()" v-if="!userBasket" class="py-1 px-2">
         <b-icon-cart-4></b-icon-cart-4>
       </base-button>
       <!--  Кнопка купить если товар в корзине мобильная версия   -->
@@ -36,7 +38,11 @@
       >
         <b-icon-cart-4></b-icon-cart-4>
       </base-button>
-      <b-button v-if="userBasket"  @click="deleteCartProduct" class="border-0 text-danger ml-1 py-0  px-1 bg-transparent">X
+      <b-button
+        v-if="userBasket"
+        @click="deleteCartProduct"
+        class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"
+        >X
       </b-button>
     </div>
   </div>
@@ -46,7 +52,7 @@
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  components: {BaseButton},
+  components: { BaseButton },
   data() {
     return {
       /**
@@ -55,15 +61,15 @@ export default {
        */
       userBasket: false,
       /**
-      * @property id корзины
-      **/
-      idCart:undefined,
+       * @property id корзины
+       **/
+      idCart: undefined,
       /**
        * @type {String}
        * @property Есть ли товар в корзине
        */
-      text: "В корзине",
-    }
+      text: "В корзине"
+    };
   },
   props: {
     /**
@@ -73,7 +79,7 @@ export default {
     /**
      * @param {Number} LinkProduct - ссылка на продукт
      */
-    LinkProduct: {},
+    LinkProduct: {}
     /**
      * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
      */
@@ -81,9 +87,14 @@ export default {
   methods: {
     // Удалить товар с корзины
     deleteCartProduct() {
-      let index = this.CartProduct.findIndex(s => s.ProductOffer.id === this.LinkOffer.id);
+      let index = this.CartProduct.findIndex(
+        s => s.ProductOffer.id === this.LinkOffer.id
+      );
       this.userBasket = false;
-      this.$store.commit("Cart/CartAll/DeleteCartProduct", {index:index, flag:true});
+      this.$store.commit("Cart/CartAll/DeleteCartProduct", {
+        index: index,
+        flag: true
+      });
     },
     /**
      * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно
@@ -92,10 +103,10 @@ export default {
       this.$store.commit("Modal/SetModaBuy", {
         LinkProduct: this.LinkProduct,
         LinkOffer: this.LinkOffer,
-        CheckCart: this.userBasket,
+        CheckCart: this.userBasket
       });
-      this.$bvModal.show('buy');
-    },
+      this.$bvModal.show("buy");
+    }
   },
   watch: {
     // Следим за  добавление товара в корзину
@@ -105,14 +116,15 @@ export default {
           this.userBasket = true;
         }
       }
-    },
+    }
   },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    },
+    }
   },
-  created() { // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
+  created() {
+    // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
     for (const key in this.CartProduct) {
       if (this.CartProduct[key].ProductOffer.id === this.LinkOffer.id) {
         this.userBasket = true;
@@ -122,6 +134,5 @@ export default {
       }
     }
   }
-}
+};
 </script>
-

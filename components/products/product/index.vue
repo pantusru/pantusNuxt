@@ -5,10 +5,14 @@
       <b-col cols="12" sm="8" lg="4" class="d-flex flex-wrap">
         <!-- БЛОК с альбомом -->
         <b-col cols="3" class="">
-          <b-img class="mb-3" :src="dataset.ProductCard.ProductCardImage.url" @click="MainTrue"></b-img>
+          <b-img
+            class="mb-3"
+            :src="dataset.ProductCard.ProductCardImage.url"
+            @click="MainTrue"
+          ></b-img>
           <b-img
             :key="data.id"
-            v-for="(data,index) in dataset.ProductCard.album"
+            v-for="(data, index) in dataset.ProductCard.album"
             class="mb-3"
             :src="data.url"
             @click="MainUrl(index)"
@@ -27,7 +31,10 @@
         <b-row class="mb-3 align-items-center">
           <b-col cols="12" lg="4" class="mb-lg-0 mb-2">
             <b>Производитель</b> :
-            <nuxt-link class="text-decoration-none text-436174" :to="'/search?brand=' + dataset.ProductCard.brand.id">
+            <nuxt-link
+              class="text-decoration-none text-436174"
+              :to="'/search?brand=' + dataset.ProductCard.brand.id"
+            >
               {{ dataset.ProductCard.brand.name }}
             </nuxt-link>
           </b-col>
@@ -36,24 +43,35 @@
           </b-col>
         </b-row>
         <b-col cols="12" class="text-right p-0">
-          <button-reply-show/>
-          <Share/>
+          <button-reply-show />
+          <Share />
         </b-col>
-        <b-row no-gutters class="justify-content-between align-items-center mb-2">
+        <b-row
+          no-gutters
+          class="justify-content-between align-items-center mb-2"
+        >
           <h4><b>Предложение</b></h4>
           <div>Уровень цен: Розничный</div>
         </b-row>
-        <TableOffer :Linkoffset="dataset.productOffer" :LinkProduct="dataset.ProductCard"/>
-        <ModalBuy/>
+        <TableOffer
+          :Linkoffset="dataset.productOffer"
+          :LinkProduct="dataset.ProductCard"
+        />
+        <ModalBuy />
       </b-col>
     </b-row>
     <h4 class="mb-4">Аналоги и заменители</h4>
     <Table class="mb-4" :array="analogs" :CheckAnalogs="true"></Table>
     <h5 class="mb-3 text-515151">Кроссы по ОЕМ-номерам и аналогам</h5>
     <b-row class="justify-content-between col-12" lg="8">
-      <b-col cols="12" sm="6" lg="4" class="mb-1"
-             v-for="oem in dataset.ProductCard.ProductCardOem"
-             :key="oem">
+      <b-col
+        cols="12"
+        sm="6"
+        lg="4"
+        class="mb-1"
+        v-for="oem in dataset.ProductCard.ProductCardOem"
+        :key="oem"
+      >
         <nuxt-link :to="'/search?name=' + oem" class="pr-3">
           {{ oem }}
         </nuxt-link>
@@ -63,33 +81,32 @@
 </template>
 
 <script>
-import Table from "@/components/table/table-product-get"
-import ModalBuy from "@/components/modal/buy-product"
-import TableOffer from "@/components/table/table-offset-get"
-import Share from "@/components/modal/share"
-import mixins from "@/mixins/product/album"
+import Table from "@/components/table/table-product-get";
+import ModalBuy from "@/components/modal/buy-product";
+import TableOffer from "@/components/table/table-offset-get";
+import Share from "@/components/modal/share";
+import mixins from "@/mixins/product/album";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
   mixins: [mixins],
   props: {
-    dataset: {},
+    dataset: {}
   },
   created() {
     this.MainTrue();
   },
   computed: {
     analogs() {
-      return this.$store.getters["Products/analogs/GetProducts"]
-    },
+      return this.$store.getters["Products/analogs/GetProducts"];
+    }
   },
   components: {
     ButtonReplyShow,
     Share,
     TableOffer,
     ModalBuy,
-    Table,
+    Table
   }
-}
+};
 </script>
-

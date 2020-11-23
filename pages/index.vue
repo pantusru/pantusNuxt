@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Abvantage from "@/components/home/advantage"
+import Abvantage from "@/components/home/advantage";
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
@@ -26,9 +26,8 @@ export default {
   async fetch({ store }) {
     await Promise.all([
       // store.dispatch("News/NewsIndex/_NewsIndex"),
-      store.dispatch("Products/_ProductAll"),
+      store.dispatch("Products/_ProductAll")
     ]);
-  },
+  }
 };
 </script>
-

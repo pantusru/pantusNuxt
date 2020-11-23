@@ -8,13 +8,13 @@
       <!-- children -->
       <div v-if="type === 'children'">
         <div v-if="PanelData.length !== 0">
-        <span v-for="id in panel" :key="id">
-          <template
-            v-if="PanelData.filter
-              ((data) => data.id == id)[0] !== undefined">
-            {{ PanelData.filter((data) => data.id == id)[0].name }}
-          </template>
-        </span>
+          <span v-for="id in panel" :key="id">
+            <template
+              v-if="PanelData.filter(data => data.id == id)[0] !== undefined"
+            >
+              {{ PanelData.filter(data => data.id == id)[0].name }}
+            </template>
+          </span>
         </div>
         <div v-else>Нету применяемости</div>
       </div>
@@ -29,7 +29,10 @@
       </div>
     </div>
     <!--          :select-size="4" -->
-    <ul class="overflow px-0 position-absolute app-select" v-if="show && PanelData.length > 0">
+    <ul
+      class="overflow px-0 position-absolute app-select"
+      v-if="show && PanelData.length > 0"
+    >
       <panel-applicabilities-li
         v-for="dataset in PanelData"
         :key="dataset.id"
@@ -37,33 +40,35 @@
         :arr="PanelData"
         :panel="panel"
         @click="showHidden"
-        v-on:panel="$emit('update:panel', {id:$event.id, value: $event.value})"
+        v-on:panel="
+          $emit('update:panel', { id: $event.id, value: $event.value })
+        "
       />
     </ul>
   </b-col>
 </template>
 <script>
-import {directive as onClickaway} from "vue-clickaway";
+import { directive as onClickaway } from "vue-clickaway";
 import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/option/panel-applicabilities-li";
 
 export default {
-  components: {PanelApplicabilitiesLi},
+  components: { PanelApplicabilitiesLi },
   directives: {
-    onClickaway: onClickaway,
+    onClickaway: onClickaway
   },
   data() {
     return {
-      show: false,
+      show: false
     };
   },
   props: {
     PanelData: {
-      default: [],
+      default: []
     },
     panel: {},
     multiple: {
       type: Boolean,
-      default: true,
+      default: true
     },
     type: {
       default: "children"
@@ -71,28 +76,33 @@ export default {
   },
   methods: {
     hiddenForm(event) {
-      if (event.target.className !== "option-my" && event.target.className !== "option-my active-li") {
+      if (
+        event.target.className !== "option-my" &&
+        event.target.className !== "option-my active-li"
+      ) {
         this.show = false;
       }
     },
-    showHidden() { // Скрыть окно если можно выбрать 1 элемент
-      if (this.type === "parent") {// Пропсом это флаг это родитель или потомок
+    showHidden() {
+      // Скрыть окно если можно выбрать 1 элемент
+      if (this.type === "parent") {
+        // Пропсом это флаг это родитель или потомок
         this.show = false;
       }
     }
   },
-  computed:{
+  computed: {
     Applicabilities() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-        ];
-    },
+      ];
+    }
   }
 };
 </script>
 
 <style>
-.app-select{
+.app-select {
   border: 1px solid #666666;
   width: 93%;
   z-index: 2;

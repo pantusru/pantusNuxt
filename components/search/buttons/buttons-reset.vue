@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import Reset from "@/mixins/reset-filter/index"
+import Reset from "@/mixins/reset-filter/index";
 export default {
-  mixins:[Reset],
+  mixins: [Reset],
   methods: {
     //  Обнулить форму!
     Reset(event) {
@@ -23,18 +23,15 @@ export default {
             minvalue: undefined,
             maxvalue: undefined,
             name: undefined,
-            page: undefined,
-          },
+            page: undefined
+          }
         });
       }
-    },
+    }
   },
   destroyed() {
     // Сбрасываем все конфинги при уходе из страницы
     this.Reset();
-  },
+  }
 };
 </script>
-
-
-

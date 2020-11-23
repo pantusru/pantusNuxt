@@ -134,7 +134,7 @@ export const getters = {
     for (const key in s.CartProduct) {
       data += s.CartProduct[key].Count * s.CartProduct[key].ProductOffer.prices;
     }
-    return data;
+    return data.toFixed(3);
   },
   /**
    * ### Вывод количество товара в корзине

@@ -16,7 +16,7 @@
           </b-td>
           <b-td :rowspan="table.productOffer.length + 1">
             <nuxt-link
-              class="text-576b77 link-danger"
+              class="text-576b77 link-danger reset-title"
               :to="'product/' + table.ProductCard.id.toString()"
             >
               {{ table.ProductCard.sku.original }}

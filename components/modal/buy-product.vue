@@ -107,7 +107,7 @@ export default {
   },
   computed: {
     stoimost() {
-      return this.count * this.LinkOffer.prices;
+      return (this.count * this.LinkOffer.prices).toFixed(3);
     },
     LinkProducts() {
       return this.$store.getters["Modal/GetModaBuyLinkProduct"];

@@ -104,7 +104,7 @@ export default {
         // Проверка что данные не валидны
         return;
       } else {
-        if (false) {
+        if (true) {
           // Проверка валидности данных с сервера
           this.hidden();
           console.log("ВЫ авторизованы");

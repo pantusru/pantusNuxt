@@ -9,10 +9,10 @@ export default {
   methods: {
     //  Обнулить форму!
     async Reset(event) {
-      this.ResetNoApplicabilitiess();
+      // this.ResetNoApplicabilitiess();
       console.log(event);
       if (event !== undefined) {
-        console.log("Уход с страницы");
+        console.log("Кнопка reset");
         // Проверка что это уход с страницы а не кнопка reset
         await this.$router.push({
           name: "search",
@@ -28,17 +28,13 @@ export default {
             page_number: undefined
           }
         });
-        await this.$store.dispatch(
-          "Products/axios/_ProductFilterCount",
-          this.$route.query
-        );
       }
     }
   },
   async destroyed() {
     // Сбрасываем все конфинги при уходе из страницы
     console.log("Уход с страницы");
-    await this.Reset();
+    await this.ResetNoApplicabilitiess();
     this.$store.commit("Products/SetCountPage", 0);
   }
 };

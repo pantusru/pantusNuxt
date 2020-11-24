@@ -49,6 +49,8 @@ export const actions = {
     return dataProduct;
   },
   async _ProductFilterCount({ dispatch, commit, store }, data) {
+    console.log("Новое количество Товара");
+    console.log(data);
     const dataset = await dispatch("_init_MapFilter", data);
     const count = await this.$axios.$get(
       "http://api.pantus.ru/products_filter",

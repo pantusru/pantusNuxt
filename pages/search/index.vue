@@ -235,15 +235,16 @@ export default {
         await this.pushParamsSort();
         await this.PushUrl(false);
         await this.$store.dispatch("Products/_ProductAll", this.form);
-        if (num.query.page_number === str.query.page_number) {
-          console.log("Новый запрос на колво");
+        if (
+          num.query.page_number !== str.query.page_number ||
+          num.query.page_number == 0
+        ) {
+          console.log("Новый запрос на колво не требуется");
         }
         this.form = {};
       } else {
-        console.log("Новый запрос + count не нужен");
-        // await this.$store.dispatch("Products/_ProductAll", this.form);
+        console.log("Клик submit");
         this.$store.commit("SetcheckFilterClick", true);
-        // this.form = [];
       }
     }
   }

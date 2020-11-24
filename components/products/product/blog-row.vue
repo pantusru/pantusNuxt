@@ -1,12 +1,12 @@
 <template>
   <b-card class="mb-4" no-body>
-    <b-card-header header-class="border-0 bg-white p-0 py-3">
+    <b-card-header header-class="border-0 bg-white">
       <b-row class="align-items-center mb-3 justify-content-between">
-        <b-row no-gutters class="col-5 align-items-center">
+        <b-row no-gutters class="col-12 align-items-center">
           <b-col cols="4">
             <ImgGetModal :product="Product" />
           </b-col>
-          <h2>
+          <h2 class="col-8">
             <nuxt-link
               :title="Product.ProductCard.name"
               class="text-555 reset-title"
@@ -19,13 +19,13 @@
       </b-row>
       <!--      <div>{{Product}}</div>-->
     </b-card-header>
-    <b-card-body class="py-2 px-15px">
+    <b-card-body class="py-2">
       <b-row class="justify-content-between">
         <b-row no-gutters class="flex-column col-12 col-lg-4 mb-2 mb-lg-0">
           <!--            Бренд  -->
           <RowAtr
             name="Бренд"
-            :link="'search?brand=' + Product.ProductCard.brand.id"
+            :link="'search?filter_brands=' + Product.ProductCard.brand.id"
             :dataset="Product.ProductCard.brand.name"
           />
           <!--  Артикул  -->
@@ -39,7 +39,7 @@
             name="Применяемость"
             :dataset="Product.ProductCard.applicabilities[0].name"
             :link="
-              'search?applicabilities=' +
+              'search?filter_applicabilitiespplicabilities=' +
               Product.ProductCard.applicabilities[0].id
             "
           />
@@ -57,7 +57,7 @@
               )"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?applicabilities=' + data.id"
+              :link="'search?filter_applicabilitiespplicabilities=' + data.id"
             />
           </template>
           <!--  ОЕМ  -->
@@ -67,7 +67,9 @@
               Product.ProductCard.ProductCardOem.length !== 0
             "
             name="ОЕМ"
-            :link="'search?name=' + Product.ProductCard.ProductCardOem[0]"
+            :link="
+              'search?filter_substr=' + Product.ProductCard.ProductCardOem[0]
+            "
             :dataset="Product.ProductCard.ProductCardOem[0]"
           />
           <template
@@ -83,7 +85,7 @@
               )"
               :key="data"
               :dataset="data"
-              :link="'search?name=' + data"
+              :link="'search?filter_substr=' + data"
             />
           </template>
           <!--  Категории  -->
@@ -93,7 +95,10 @@
               Product.ProductCard.categories.length !== 0
             "
             name="Категории"
-            :link="'search?categories=' + Product.ProductCard.categories[0].id"
+            :link="
+              'search?filter_categoriesegories=' +
+              Product.ProductCard.categories[0].id
+            "
             :dataset="Product.ProductCard.categories[0].name"
           />
           <template
@@ -109,7 +114,7 @@
               )"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?categories=' + data.id"
+              :link="'search?filter_categoriesegories=' + data.id"
             />
           </template>
         </b-row>

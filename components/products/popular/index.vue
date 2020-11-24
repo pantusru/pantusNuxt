@@ -10,7 +10,7 @@ import FuncComponents from "@/components/func/product-blogs-get";
 export default {
   computed: {
     popular() {
-      return this.$store.getters["Products/GetProducts"];
+      return this.$store.getters["Products/popular/GetProductsPopular"];
     }
   },
   components: {

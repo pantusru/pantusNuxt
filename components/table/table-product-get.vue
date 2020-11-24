@@ -10,7 +10,9 @@
           >
             <nuxt-link
               class="text-576b77 link-danger font-weight-bold"
-              :to="'search?brand=' + table.ProductCard.brand.id.toString()"
+              :to="
+                'search?filter_brands=' + table.ProductCard.brand.id.toString()
+              "
               >{{ table.ProductCard.brand.name }}
             </nuxt-link>
           </b-td>

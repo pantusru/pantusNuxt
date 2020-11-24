@@ -21,22 +21,27 @@
       <product-element-row-get
         name="Бренд"
         :dataset="datasetProduct.ProductCard.brand.name"
-        :link="'/search?brand=' + datasetProduct.ProductCard.brand.id"
+        :link="'/search?filter_brands=' + datasetProduct.ProductCard.brand.id"
       />
       <product-element-row-get
         name="Артикуль"
         :dataset="datasetProduct.ProductCard.sku.original"
-        :link="'/search?name=' + datasetProduct.ProductCard.sku.original"
+        :link="
+          '/search?filter_substr=' + datasetProduct.ProductCard.sku.original
+        "
       />
       <product-element-row-get
         name="OEM"
-        :link="'/search?name=' + datasetProduct.ProductCard.ProductCardOem[0]"
+        :link="
+          '/search?filter_substr=' +
+          datasetProduct.ProductCard.ProductCardOem[0]
+        "
         :dataset="datasetProduct.ProductCard.ProductCardOem[0]"
       />
       <product-element-row-get
         v-for="data in datasetProduct.ProductCard.ProductCardOem.slice(1, 4)"
         :key="data.id"
-        :link="'/search?name=' + data"
+        :link="'/search?filter_substr=' + data"
         :dataset="data"
       />
     </div>

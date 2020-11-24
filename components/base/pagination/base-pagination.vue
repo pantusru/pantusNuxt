@@ -23,7 +23,7 @@ export default {
       type: Number
     },
     limit: {
-      default: 50,
+      default: 10,
       type: Number
     }
   },

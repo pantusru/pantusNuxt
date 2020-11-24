@@ -19,19 +19,17 @@ export const actions = {
     // if(getters.GetProducts.length === 0){
     const dataset = await dispatch(
       "Products/axios/_ProductFilter",
-      { data, limit: 50 },
+      { data, limit: 10 },
       { root: true }
     );
     commit("SetProducts", dataset);
     // }
   },
-  async _ProductId({ store, dispatch, commit, getters }) {
-    const data = await dispatch(
-      "Products/axios/_ProductId",
-      {},
-      { root: true }
-    );
-    commit("SetProduct", data);
+  async _ProductId({ store, dispatch, commit }, id) {
+    const dataset = await dispatch("Products/axios/_ProductId", id, {
+      root: true
+    });
+    commit("SetProduct", dataset);
   }
 };
 export const getters = {

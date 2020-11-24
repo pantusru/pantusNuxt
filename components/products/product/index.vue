@@ -28,18 +28,40 @@
       </b-col>
       <b-col class="mt-lg-0 mt-2" lg="7" cols="12">
         <h2 class="d-none d-lg-block">{{ dataset.ProductCard.name }}</h2>
-        <b-row class="mb-3 align-items-center">
-          <b-col cols="12" lg="4" class="mb-lg-0 mb-2">
+        <b-row class="mb-3 align-items-center mt-3">
+          <b-col class="mb-2" cols="12">
             <b>Производитель</b> :
             <nuxt-link
               class="text-decoration-none text-436174"
-              :to="'/search?brand=' + dataset.ProductCard.brand.id"
+              :to="'/search?filter_brand=' + dataset.ProductCard.brand.id"
             >
               {{ dataset.ProductCard.brand.name }}
             </nuxt-link>
           </b-col>
-          <b-col cols="12" lg="4">
+          <b-col class="mb-2" cols="12">
             <b>Артикул</b>: <span>{{ dataset.ProductCard.sku.original }}</span>
+          </b-col>
+          <b-col class="mb-2" cols="12">
+            <b>Категория</b> :
+            <nuxt-link
+              v-for="dataCategories in dataset.ProductCard.categories"
+              :key="dataCategories.id"
+              class="text-decoration-none text-436174 pr-1"
+              :to="'/search?filter_categories=' + dataCategories.id"
+            >
+              {{ dataCategories.name }}
+            </nuxt-link>
+          </b-col>
+          <b-col class="mb-2" cols="12">
+            <b>Применяемость</b> :
+            <nuxt-link
+              v-for="dataApplicabilities in dataset.ProductCard.applicabilities"
+              :key="dataApplicabilities.id"
+              class="text-decoration-none text-436174 pr-1"
+              :to="'/search?filter_applicabilities=' + dataApplicabilities.id"
+            >
+              {{ dataApplicabilities.name }}
+            </nuxt-link>
           </b-col>
         </b-row>
         <b-col cols="12" class="text-right p-0">
@@ -60,8 +82,13 @@
         <ModalBuy />
       </b-col>
     </b-row>
-    <h4 class="mb-4">Аналоги и заменители</h4>
-    <Table class="mb-4" :array="analogs" :CheckAnalogs="true"></Table>
+    <h4 class="mb-4" v-if="analogs.length !== 0">Аналоги и заменители</h4>
+    <Table
+      v-if="analogs.length !== 0"
+      class="mb-4"
+      :array="analogs"
+      :CheckAnalogs="true"
+    />
     <h5 class="mb-3 text-515151">Кроссы по ОЕМ-номерам и аналогам</h5>
     <b-row class="justify-content-between col-12" lg="8">
       <b-col
@@ -72,7 +99,7 @@
         v-for="oem in dataset.ProductCard.ProductCardOem"
         :key="oem"
       >
-        <nuxt-link :to="'/search?name=' + oem" class="pr-3">
+        <nuxt-link :to="'/search?filter_substr=' + oem" class="pr-3">
           {{ oem }}
         </nuxt-link>
       </b-col>

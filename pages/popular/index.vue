@@ -14,11 +14,11 @@ export default {
     ProductRow
   },
   async fetch({ store }) {
-    await store.dispatch("Products/_ProductAll");
+    await store.dispatch("Products/popular/_ProductPopularAll");
   },
   computed: {
     Products() {
-      return this.$store.getters["Products/GetProducts"];
+      return this.$store.getters["Products/popular/GetProductsPopular"];
     }
   }
 };

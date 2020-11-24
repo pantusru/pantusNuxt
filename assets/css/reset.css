@@ -98,3 +98,8 @@ li {
   -webkit-line-clamp: 3; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+.text-nowrap-custom{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

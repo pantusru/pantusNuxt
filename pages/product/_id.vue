@@ -1,21 +1,30 @@
 <template>
   <b-container>
-    <Product :dataset="Product" />
+    <Product :dataset="ProductData[0]" v-if="ProductData.length !== 0" />
   </b-container>
 </template>
 
 <script>
 import Product from "@/components/products/product/index";
 export default {
-  async fetch({ store }) {
-    await Promise.all([
-      store.dispatch("Products/_ProductId"),
-      store.dispatch("Products/analogs/_ProductAll")
-    ]);
+  async fetch({ store, params, getters }) {
+    const ProductAll = store.getters["Products/GetProducts"]; // Все подгруженные товары
+    if (ProductAll.length !== 0) {
+      console.log(params.id);
+      const datasetCheck = ProductAll.filter(
+        data => data.ProductCard.id == params.id
+      );
+      if (datasetCheck !== undefined) {
+        store.commit("Products/SetProduct", datasetCheck);
+        return;
+      }
+    }
+    console.log("Товара нету");
+    await store.dispatch("Products/_ProductId", params.id);
   },
   computed: {
-    Product() {
-      return this.$store.getters["Products/GetProduct"][0];
+    ProductData() {
+      return this.$store.getters["Products/GetProduct"];
     }
   },
   components: {

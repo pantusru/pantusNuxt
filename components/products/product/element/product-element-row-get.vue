@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2">
+  <div class="mb-2 w-100">
     <div
       class="d-flex justify-content-between"
       :class="{ 'border-bottom': name !== undefined }"
@@ -9,8 +9,9 @@
       </div>
       <nuxt-link
         v-if="link !== undefined"
+        :title="dataset"
         :to="link"
-        class="text-decoration-none text-576b77 fz-6"
+        class="text-decoration-none text-576b77 fz-6 text-nowrap-custom pl-2"
         >{{ dataset }}</nuxt-link
       >
       <component v-else :is="component">{{ dataset }}</component>

@@ -71,7 +71,7 @@
               <div class="d-lg-block d-none fz-5">
                 <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
               </div>
-              <strong class="fz-5 d-lg-block d-none" v-if="stoimost !== 0"
+              <strong class="fz-5 d-lg-block d-none" v-if="stoimost != 0.0"
                 >{{ stoimost }} р</strong
               >
             </div>
@@ -87,7 +87,6 @@
 
 <script>
 import VButtonSearch from "@/components/header/header-button-search";
-import VueDropdown from "@/components/header/dropdown/navbottom";
 import NavUser from "@/components/header/dropdown/nav-user";
 import ModalAuthorization from "@/components/modal/authorization";
 import DropdownCart from "@/components/header/dropdown/dropdown-cart";
@@ -103,7 +102,6 @@ export default {
     DropdownCart,
     ModalAuthorization,
     NavUser,
-    VueDropdown,
     VButtonSearch
   },
   computed: {

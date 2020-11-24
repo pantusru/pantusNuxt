@@ -35,14 +35,14 @@ export default {
     $route() {
       window.scrollTo(0, 0);
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.page_number
+        this.$route.query.page
       );
     }
   },
   created() {
-    if (this.$route.query.page_number !== undefined) {
+    if (this.$route.query.page !== undefined) {
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.page_number
+        this.$route.query.page
       );
     } else {
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
@@ -73,7 +73,7 @@ export default {
         this.CountPages = 1;
       } else {
         this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-          this.$route.query.pages
+          this.$route.query.page
         );
         this.CountPages = this.BrandLength;
       }

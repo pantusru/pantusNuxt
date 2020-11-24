@@ -40,9 +40,7 @@ export const getters = {
    * @param {Number} id - номер пагинации страниц
    * @return {Array} массив брендов
    */
-  GetBrandPage: s => (id = 1) => {
-    return s.Brand.slice((id - 1) * s.limit, id * s.limit);
-  },
+  GetBrandPage: s => id => s.Brand.slice((id - 1) * s.limit, s.limit * id),
   /**
    * #Запрос на получения брендов
    * @return {Number} количество пагинации на странице бренды

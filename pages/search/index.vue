@@ -162,8 +162,10 @@ export default {
         this.form.page_number = query.page_number;
       }
       // Запрос для получение товара
-      await store.dispatch("Products/_ProductAll", this.form);
-      await store.dispatch("Products/axios/_ProductFilterCount", this.form);
+      await Promise.all([
+        store.dispatch("Products/_ProductAll", this.form),
+        store.dispatch("Products/axios/_ProductFilterCount", this.form)
+      ]);
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
@@ -223,7 +225,6 @@ export default {
   },
   watch: {
     async $route(num, str) {
-      console.log(num, str);
       // Изменение route
       if (this.checkFilterClick === true) {
         console.log("Новый запрос reset all + count нужен");

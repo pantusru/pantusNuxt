@@ -39,7 +39,6 @@ export default {
     // Сбрасываем все конфинги при уходе из страницы
     console.log("Уход с страницы");
     await this.Reset();
-    await this.$store.dispatch("Applicabilities/Panel/ResetAll");
     this.$store.commit("Products/SetCountPage", 0);
   }
 };

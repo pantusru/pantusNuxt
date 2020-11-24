@@ -21,8 +21,8 @@
           </div>
           <!-- Выбран вид не таблица () => показываем table-head -->
           <b-table-simple
-            class="text-center fz-5_5"
             v-if="componentsName !== 'TableProduct'"
+            class="text-center fz-5_5"
           >
             <PanelVid class="panelProductFilter mb-0" />
           </b-table-simple>
@@ -34,19 +34,7 @@
           <div class="d-block d-lg-none">
             <components :is="'productBlog'" :array="Products" />
           </div>
-          <b-pagination-nav
-            hide-ellipsis
-            first-number
-            last-number
-            limit="3"
-            hide-goto-end-buttons
-            size="sm"
-            :value="$route.query.page_number || 1"
-            :link-gen="linkGen"
-            :number-of-pages="10"
-            use-router
-            align="center"
-          />
+          <base-pagination :length="CountProducts" />
         </b-col>
       </b-row>
     </div>
@@ -54,7 +42,6 @@
 </template>
 
 <script>
-import PageFilter from "@/mixins/page/filter";
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import FilterApplicabilities from "@/components/forms/filter-applicabilities";
@@ -69,9 +56,10 @@ import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/search-submit/index";
 import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
+import BasePagination from "@/components/base/pagination/base-pagination";
 
 export default {
-  mixins: [ResetFilter, CheckQueryFilter, PageFilter, SubmitFilter],
+  mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
   async fetch({ query, store }) {
     await Promise.all([
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
@@ -142,7 +130,7 @@ export default {
       }
       if (query.filter_applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
-        let ids = query.filter_applicabilities.split(",");
+        const ids = query.filter_applicabilities.split(",");
         await store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
           data:
             store.getters[
@@ -175,11 +163,13 @@ export default {
       }
       // Запрос для получение товара
       await store.dispatch("Products/_ProductAll", this.form);
+      await store.dispatch("Products/axios/_ProductFilterCount", this.form);
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
   },
   components: {
+    BasePagination,
     ButtonReplyShow,
     Share,
     FilterForm,
@@ -199,6 +189,13 @@ export default {
      */
     Products() {
       return this.$store.getters["Products/GetProducts"];
+    },
+    /***
+     *
+     * @returns {Object} - количество продуктов с указанными фильтрами
+     */
+    CountProducts() {
+      return this.$store.getters["Products/GetCountProducts"];
     },
     /***
      *
@@ -225,10 +222,11 @@ export default {
     );
   },
   watch: {
-    async $route() {
+    async $route(num, str) {
+      console.log(num, str);
       // Изменение route
       if (this.checkFilterClick === true) {
-        console.log("Новый запрос reset all");
+        console.log("Новый запрос reset all + count нужен");
         await this.ResetNoApplicabilitiess();
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
         await this.CheckQueryFilter();
@@ -236,9 +234,12 @@ export default {
         await this.pushParamsSort();
         await this.PushUrl(false);
         await this.$store.dispatch("Products/_ProductAll", this.form);
+        if (num.query.page_number === str.query.page_number) {
+          console.log("Новый запрос на колво");
+        }
         this.form = {};
       } else {
-        console.log("Новый запрос");
+        console.log("Новый запрос + count не нужен");
         // await this.$store.dispatch("Products/_ProductAll", this.form);
         this.$store.commit("SetcheckFilterClick", true);
         // this.form = [];

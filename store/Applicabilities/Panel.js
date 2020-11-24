@@ -135,7 +135,7 @@ export const actions = {
           commit(
             "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
             {
-              index: index,
+              index,
               value: false
             },
             { root: true }

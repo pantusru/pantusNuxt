@@ -7,7 +7,7 @@ export const actions = {
    *
    */
   async _API_Town({}, data) {
-    let a = `https://cors-anywhere.herokuapp.com/https://kladr-api.ru/api.php?query=${data}&contentType=city&withParent=1&token=ADy8fErZKZsbezdF37QbihtZSbiaabza&limit=10`;
+    const a = `https://cors-anywhere.herokuapp.com/https://kladr-api.ru/api.php?query=${data}&contentType=city&withParent=1&token=ADy8fErZKZsbezdF37QbihtZSbiaabza&limit=10`;
     return await this.$axios.$get(a).then(res => {
       return res;
     });

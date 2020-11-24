@@ -93,6 +93,10 @@ export default {
       if (checkPush) {
         await this.$router.push({ name: "search", query: { ...this.form } });
         await this.$store.dispatch("Products/_ProductAll", this.form);
+        await this.$store.dispatch(
+          "Products/axios/_ProductFilterCount",
+          this.form
+        );
         this.form = [];
       }
     }

@@ -1,5 +1,6 @@
 export const state = () => ({
   products: [],
+  countProducts: 0,
   product: []
 });
 export const mutations = {
@@ -8,6 +9,9 @@ export const mutations = {
   },
   SetProduct(store, data) {
     store.product = data;
+  },
+  SetCountPage(store, data) {
+    store.countProducts = data;
   }
 };
 export const actions = {
@@ -15,7 +19,7 @@ export const actions = {
     // if(getters.GetProducts.length === 0){
     const dataset = await dispatch(
       "Products/axios/_ProductFilter",
-      { data, limit: 10 },
+      { data, limit: 50 },
       { root: true }
     );
     commit("SetProducts", dataset);
@@ -32,5 +36,6 @@ export const actions = {
 };
 export const getters = {
   GetProducts: s => s.products,
-  GetProduct: s => s.product
+  GetProduct: s => s.product,
+  GetCountProducts: s => s.countProducts
 };

@@ -2,7 +2,6 @@ export default {
   methods: {
     linkGen(pageNum) {
       // генерация ссылок Page
-      // this.$store.commit("SetcheckFilterClick", false);
       let page;
       if (pageNum === 1) {
         page = undefined;

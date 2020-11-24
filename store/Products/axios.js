@@ -214,15 +214,14 @@ export const actions = {
   //   ];
   //   return product;
   // },
-  // Перемеовать в _ProductFilter когда появится API ПРОДУКТ
+
   /**
    *
    * @param {Array} data.data  - Массив всех видимых query
    * @param {Number} data.limit - количество отображаемого товара
    */
   async _ProductFilter({ dispatch }, data) {
-    const dataset = data.data;
-    console.log(dataset);
+    const dataset = await dispatch("_init_MapFilter", data.data);
     const product = await this.$axios.$get(
       "http://api.pantus.ru/products_filter",
       {
@@ -235,8 +234,22 @@ export const actions = {
     const dataProduct = await dispatch("_init_Product", product);
     return dataProduct;
   },
+
+  async _ProductFilterCount({ dispatch, commit, store }, data) {
+    const dataset = await dispatch("_init_MapFilter", data);
+    const count = await this.$axios.$get(
+      "http://api.pantus.ru/products_filter",
+      {
+        params: {
+          ...dataset,
+          view: "count"
+        }
+      }
+    );
+    commit("Products/SetCountPage", count, { root: true });
+  },
   /***
-   *
+   * ### map Продуктов
    * @param {Array} data - Массив товара
    */
   _init_Product({ store, state }, data) {
@@ -306,5 +319,30 @@ export const actions = {
       });
     });
     return dataset;
+  },
+  /***
+   * ### map Продуктов
+   * @param {Array} data - Массив товара
+   */
+  _init_MapFilter({ store }, data) {
+    const filter = {};
+    if (data !== undefined) {
+      if (data.filter_categories !== undefined) {
+        filter.filter_categories = data.filter_categories;
+      }
+      if (data.filter_brands !== undefined) {
+        filter.filter_brands = data.filter_brands;
+      }
+      if (data.filter_applicabilities !== undefined) {
+        filter.filter_applicabilities = data.filter_applicabilities;
+      }
+      if (data.page_number !== undefined) {
+        filter.page_number = data.page_number;
+      }
+      if (data.filter_substr !== undefined) {
+        filter.filter_substr = data.filter_substr;
+      }
+    }
+    return filter;
   }
 };

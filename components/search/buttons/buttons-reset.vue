@@ -8,11 +8,13 @@ export default {
   mixins: [Reset],
   methods: {
     //  Обнулить форму!
-    Reset(event) {
+    async Reset(event) {
       this.ResetNoApplicabilitiess();
+      console.log(event);
       if (event !== undefined) {
+        console.log("Уход с страницы");
         // Проверка что это уход с страницы а не кнопка reset
-        this.$router.push({
+        await this.$router.push({
           name: "search",
           query: {
             ...this.$route.query,
@@ -26,12 +28,19 @@ export default {
             page_number: undefined
           }
         });
+        await this.$store.dispatch(
+          "Products/axios/_ProductFilterCount",
+          this.$route.query
+        );
       }
     }
   },
-  destroyed() {
+  async destroyed() {
     // Сбрасываем все конфинги при уходе из страницы
-    this.Reset();
+    console.log("Уход с страницы");
+    await this.Reset();
+    await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+    this.$store.commit("Products/SetCountPage", 0);
   }
 };
 </script>

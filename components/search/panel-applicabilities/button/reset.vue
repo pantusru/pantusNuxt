@@ -12,10 +12,10 @@
 <script>
 export default {
   methods: {
-    ResetApplicabilities() {
+    async ResetApplicabilities() {
       // this.$store.dispatch("Applicabilities/Panel/ResetAll");
       if (this.$route.query.filter_applicabilities !== undefined) {
-        this.$router.push({
+        await this.$router.push({
           path: this.$route.path,
           query: {
             ...this.$route.query,
@@ -23,8 +23,12 @@ export default {
             page_number: undefined
           }
         });
+        await this.$store.dispatch(
+          "Products/axios/_ProductFilterCount",
+          this.$route.query
+        );
       } else {
-        this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       }
     }
   },

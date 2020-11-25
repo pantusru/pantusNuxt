@@ -29,8 +29,10 @@ export const actions = {
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
-    console.log(product.meta.count);
-    commit("Products/SetCountPage", product.meta.count, { root: true });
+    if (product.meta?.count) {
+      console.log(product.meta.count);
+      commit("Products/SetCountPage", product.meta.count, { root: true });
+    }
     return dataProduct;
   },
   /**
@@ -56,6 +58,9 @@ export const actions = {
    */
   _init_Product({ store, state }, data) {
     const dataset = [];
+    if (data === undefined || data.length === 0) {
+      return;
+    }
     data.forEach(elem => {
       dataset.push({
         ProductCard: {

@@ -91,7 +91,10 @@ export default {
       // НОВЫЙ URL
       window.scrollTo(0, 0);
       if (checkPush) {
-        await this.$router.push({ name: "search", query: { ...this.form } });
+        await this.$router.push({
+          name: "search",
+          query: { ...this.form, page_number: undefined }
+        });
       }
     }
   }

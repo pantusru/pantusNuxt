@@ -11,8 +11,8 @@ export default {
       this.$store.commit("SetcheckFilterClick", undefined);
       await this.pushParamsFilter(event);
       this.pushParamsSort();
-      console.log(this.$route.fullPath);
       await this.PushUrl();
+      this.$store.commit("SetcheckFilterClick", true);
     }
   }
 };

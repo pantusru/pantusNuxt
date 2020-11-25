@@ -92,10 +92,7 @@ export default {
       window.scrollTo(0, 0);
       if (checkPush) {
         await this.$router.push({ name: "search", query: { ...this.form } });
-        await Promise.all([
-          this.$store.dispatch("Products/_ProductAll", this.form),
-          this.$store.dispatch("Products/axios/_ProductFilterCount", this.form)
-        ]);
+        await this.$store.dispatch("Products/_ProductAll", this.form);
         this.form = [];
       }
     }

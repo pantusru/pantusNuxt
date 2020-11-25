@@ -162,10 +162,7 @@ export default {
         this.form.page_number = query.page_number;
       }
       // Запрос для получение товара
-      await Promise.all([
-        store.dispatch("Products/_ProductAll", this.form),
-        store.dispatch("Products/axios/_ProductFilterCount", this.form)
-      ]);
+      await store.dispatch("Products/_ProductAll", this.form);
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
@@ -235,12 +232,6 @@ export default {
         await this.pushParamsSort();
         await this.PushUrl(false);
         await this.$store.dispatch("Products/_ProductAll", this.form);
-        if (
-          num.query.page_number !== str.query.page_number ||
-          num.query.page_number == 0
-        ) {
-          console.log("Новый запрос на колво не требуется");
-        }
         this.form = {};
       } else {
         console.log("Клик submit");

@@ -13,7 +13,7 @@
 export default {
   methods: {
     async ResetApplicabilities() {
-      // this.$store.dispatch("Applicabilities/Panel/ResetAll");
+      await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       if (this.$route.query.filter_applicabilities !== undefined) {
         await this.$router.push({
           path: this.$route.path,
@@ -23,10 +23,6 @@ export default {
             page_number: undefined
           }
         });
-        await this.$store.dispatch(
-          "Products/axios/_ProductFilterCount",
-          this.$route.query
-        );
       } else {
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       }

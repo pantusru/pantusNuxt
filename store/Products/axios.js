@@ -8,7 +8,7 @@ export const actions = {
         }
       }
     );
-    const dataProduct = await dispatch("_init_Product", product);
+    const dataProduct = await dispatch("_init_Product", product.data);
     return dataProduct;
   },
 
@@ -17,7 +17,7 @@ export const actions = {
    * @param {Array} data.data  - Массив всех видимых query
    * @param {Number} data.limit - количество отображаемого товара
    */
-  async _ProductFilter({ dispatch }, data) {
+  async _ProductFilter({ dispatch, commit }, data) {
     const dataset = await dispatch("_init_MapFilter", data.data);
     const product = await this.$axios.$get(
       "http://api.pantus.ru/products_filter",
@@ -28,7 +28,9 @@ export const actions = {
         }
       }
     );
-    const dataProduct = await dispatch("_init_Product", product);
+    const dataProduct = await dispatch("_init_Product", product.data);
+    console.log(product.meta.count);
+    commit("Products/SetCountPage", product.meta.count, { root: true });
     return dataProduct;
   },
   /**
@@ -45,23 +47,8 @@ export const actions = {
         }
       }
     );
-    const dataProduct = await dispatch("_init_Product", product);
+    const dataProduct = await dispatch("_init_Product", product.data);
     return dataProduct;
-  },
-  async _ProductFilterCount({ dispatch, commit, store }, data) {
-    console.log("Новое количество Товара");
-    console.log(data);
-    const dataset = await dispatch("_init_MapFilter", data);
-    const count = await this.$axios.$get(
-      "http://api.pantus.ru/products_filter",
-      {
-        params: {
-          ...dataset,
-          view: "count"
-        }
-      }
-    );
-    commit("Products/SetCountPage", count, { root: true });
   },
   /***
    * ### map Продуктов

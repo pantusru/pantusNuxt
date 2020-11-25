@@ -9,26 +9,21 @@ export default {
   methods: {
     //  Обнулить форму!
     async Reset(event) {
-      // this.ResetNoApplicabilitiess();
-      console.log(event);
-      if (event !== undefined) {
-        console.log("Кнопка reset");
-        // Проверка что это уход с страницы а не кнопка reset
-        await this.$router.push({
-          name: "search",
-          query: {
-            ...this.$route.query,
-            sort_type: undefined,
-            sort_name: undefined,
-            filter_brands: undefined,
-            filter_categories: undefined,
-            minvalue: undefined,
-            maxvalue: undefined,
-            filter_substr: undefined,
-            page_number: undefined
-          }
-        });
-      }
+      await this.ResetNoApplicabilitiess();
+      await this.$router.push({
+        name: "search",
+        query: {
+          ...this.$route.query,
+          sort_type: undefined,
+          sort_name: undefined,
+          filter_brands: undefined,
+          filter_categories: undefined,
+          minvalue: undefined,
+          maxvalue: undefined,
+          filter_substr: undefined,
+          page_number: undefined
+        }
+      });
     }
   },
   async destroyed() {

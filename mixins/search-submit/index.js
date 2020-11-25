@@ -92,8 +92,6 @@ export default {
       window.scrollTo(0, 0);
       if (checkPush) {
         await this.$router.push({ name: "search", query: { ...this.form } });
-        await this.$store.dispatch("Products/_ProductAll", this.form);
-        this.form = [];
       }
     }
   }

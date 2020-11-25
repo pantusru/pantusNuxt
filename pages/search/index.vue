@@ -234,7 +234,9 @@ export default {
         await this.$store.dispatch("Products/_ProductAll", this.form);
         this.form = {};
       } else {
-        console.log("Клик submit");
+        // Клик на кнопку submit
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+        this.form = {};
         this.$store.commit("SetcheckFilterClick", true);
       }
     }

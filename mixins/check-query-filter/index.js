@@ -18,7 +18,6 @@ export default {
         }
         if (this.$route.query.filter_brands !== undefined) {
           // ПРОВЕРКА БРЕНДА
-          console.log(this.$route.query.filter_brands);
           const filter_brands = this.$route.query.filter_brands.split(",");
           filter_brands.forEach(element => {
             this.$store.commit("formSearch/SetBrandsChecked", Number(element));

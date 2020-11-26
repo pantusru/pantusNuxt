@@ -45,7 +45,7 @@
         :dataset="data"
       />
     </div>
-    <template #footer>
+    <template #footer v-if="datasetProduct.productOffer.length !== 0">
       <b-row no-gutters align-h="between" class="mt-1">
         <b-col>
           <div class="mb-3"><b class="fz-5">Цена</b></div>

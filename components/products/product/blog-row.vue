@@ -123,6 +123,7 @@
           class="justify-content-between flex-column col-12 col-lg-8"
         >
           <TableOffset
+            v-if="Product.productOffer.length !== 0"
             :Linkoffset="Product.productOffer"
             :LinkProduct="Product.ProductCard"
           />

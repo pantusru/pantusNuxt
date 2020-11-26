@@ -54,27 +54,29 @@
             />
           </b-td>
         </b-tr>
-        <b-tr
-          class="hover-true border-bottom"
-          v-for="offer in table.productOffer"
-          :key="offer.id"
-        >
-          <b-td class="border-top-0 text-555">{{ offer.supplier.name }}</b-td>
-          <b-td
-            class="border-top-0 text-00b91e"
-            :class="{ 'd-none d-md-table-cell': CheckAnalogs }"
-            >{{ offer.quantity }}
-          </b-td>
-          <b-td class="border-top-0 text-555 d-none d-md-table-cell">{{
-            offer.supplier.deliveryDelay
-          }}</b-td>
-          <b-td class="border-top-0 text-555 fz-5 font-weight-bold"
-            >{{ offer.prices }} Р</b-td
+        <template v-if="table.productOffer.length !== 0">
+          <b-tr
+            class="hover-true border-bottom"
+            v-for="offer in table.productOffer"
+            :key="offer.id"
           >
-          <b-td class="border-top-0">
-            <BuyButton :LinkOffer="offer" :LinkProduct="table.ProductCard" />
-          </b-td>
-        </b-tr>
+            <b-td class="border-top-0 text-555">{{ offer.supplier.name }}</b-td>
+            <b-td
+              class="border-top-0 text-00b91e"
+              :class="{ 'd-none d-md-table-cell': CheckAnalogs }"
+              >{{ offer.quantity }}
+            </b-td>
+            <b-td class="border-top-0 text-555 d-none d-md-table-cell">{{
+              offer.supplier.deliveryDelay
+            }}</b-td>
+            <b-td class="border-top-0 text-555 fz-5 font-weight-bold"
+              >{{ offer.prices }} Р</b-td
+            >
+            <b-td class="border-top-0">
+              <BuyButton :LinkOffer="offer" :LinkProduct="table.ProductCard" />
+            </b-td>
+          </b-tr>
+        </template>
       </template>
     </b-tbody>
   </b-table-simple>

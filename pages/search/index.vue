@@ -2,7 +2,7 @@
   <section class="mt-5">
     <!-- Модалки -->
     <ModalImg />
-    <ModalBuy />
+    <!--    <ModalBuy />-->
     <share></share>
     <!-- Модалки -->
     <div class="container">
@@ -214,7 +214,7 @@ export default {
   created() {
     // КОстыль
     // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
-    console.log("reset");
+    console.log("reset visible");
     this.$store.dispatch(
       "Catalog/All/_AllVisible",
       this.$store.getters["Categories/CategoriesAll/GetCategories"]

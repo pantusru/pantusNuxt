@@ -41,7 +41,11 @@
           <b-col class="mb-2" cols="12">
             <b>Артикул</b>: <span>{{ dataset.ProductCard.sku.original }}</span>
           </b-col>
-          <b-col class="mb-2" cols="12">
+          <b-col
+            class="mb-2"
+            cols="12"
+            v-if="dataset.ProductCard.categories.length !== 0"
+          >
             <b>Категория</b> :
             <nuxt-link
               v-for="dataCategories in dataset.ProductCard.categories"
@@ -52,7 +56,11 @@
               {{ dataCategories.name }}
             </nuxt-link>
           </b-col>
-          <b-col class="mb-2" cols="12">
+          <b-col
+            class="mb-2"
+            cols="12"
+            v-if="dataset.ProductCard.applicabilities.length !== 0"
+          >
             <b>Применяемость</b> :
             <nuxt-link
               v-for="dataApplicabilities in dataset.ProductCard.applicabilities"
@@ -69,6 +77,7 @@
           <Share />
         </b-col>
         <b-row
+          v-if="dataset.productOffer.length !== 0"
           no-gutters
           class="justify-content-between align-items-center mb-2"
         >
@@ -89,7 +98,12 @@
       :array="analogs"
       :CheckAnalogs="true"
     />
-    <h5 class="mb-3 text-515151">Кроссы по ОЕМ-номерам и аналогам</h5>
+    <h5
+      v-if="dataset.ProductCard.ProductCardOem.length !== 0"
+      class="mb-3 text-515151"
+    >
+      Кроссы по ОЕМ-номерам и аналогам
+    </h5>
     <b-row class="justify-content-between col-12" lg="8">
       <b-col
         cols="12"

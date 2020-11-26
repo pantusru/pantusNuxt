@@ -1,5 +1,9 @@
 <template>
-  <b-table-simple bordered class="text-center table-offset-get">
+  <b-table-simple
+    bordered
+    class="text-center table-offset-get"
+    v-if="Linkoffset.length !== 0"
+  >
     <b-thead>
       <b-tr>
         <b-th>Поставщик</b-th>

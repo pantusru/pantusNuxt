@@ -1,5 +1,23 @@
 const path = require("path");
 export default {
+  pwa: {
+    manifest: {
+      name: "Pantus интернет магазин",
+      short_name: "Pantus",
+      lang: "ru",
+      useWebmanifestExtension: false,
+      background_color: "#000",
+      theme_color: "#000",
+      start_url: "http://test2.pantus.ru:8083/",
+      icons: [
+        {
+          src: "/icon.png",
+          type: "image/png",
+          sizes: "192x192"
+        }
+      ]
+    }
+  },
   router: {
     prefetchLinks: false,
     middleware: "user"
@@ -36,7 +54,10 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/icon.png" }
+    ]
   },
   /*
    ** Global CSS

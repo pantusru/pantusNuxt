@@ -2,7 +2,7 @@
   <section class="mt-5">
     <!-- Модалки -->
     <ModalImg />
-    <!--    <ModalBuy />-->
+    <ModalBuy />
     <share></share>
     <!-- Модалки -->
     <div class="container">

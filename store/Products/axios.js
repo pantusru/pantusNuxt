@@ -29,10 +29,7 @@ export const actions = {
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
-    if (product.meta?.count) {
-      console.log(product.meta.count);
-      commit("Products/SetCountPage", product.meta.count, { root: true });
-    }
+    commit("Products/SetCountPage", product.meta.count, { root: true });
     return dataProduct;
   },
   /**
@@ -67,6 +64,10 @@ export const actions = {
           // Карточка Товара
           id: elem.id, // id Товара
           name: elem.name, // Название товара
+          params: {
+            // Параметры товара
+            measure: elem.params.measure
+          },
           sku: {
             // Артикуль товара
             original: elem.sku.origin, // Оригинал
@@ -80,7 +81,8 @@ export const actions = {
           brand: {
             // brand
             id: elem.brand.id,
-            name: elem.brand.name
+            name: elem.brand.name,
+            deliveryDelay: elem.brand.deliveryDelay
           },
           categories: [],
           applicabilities: []
@@ -119,7 +121,8 @@ export const actions = {
           quantity: data.quantity,
           supplier: {
             name: data.supplier.name,
-            deliveryDelay: data.supplier.deliveryDelay
+            deliveryDelay: data.supplier.deliveryDelay,
+            deliveryDelayView: data.supplier.deliveryDelayView
           },
           multiplicity: data.supplier.orderMultiplicity
         });

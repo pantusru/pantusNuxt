@@ -1,22 +1,16 @@
 <template>
-  <div>
-    <b-pagination-nav
-      limit="3"
-      hide-goto-end-buttons
-      size="sm"
-      :value="$route.query.page_number || 1"
-      :link-gen="linkGen"
-      :number-of-pages="countPage"
-      use-router
-      first-number
-      last-number
-      align="center"
-    />
-    {{ length }}
-    {{ limit }}
-    {{ length / limit }}
-    {{ Math.ceil(this.length / this.limit) }}
-  </div>
+  <b-pagination-nav
+    limit="3"
+    hide-goto-end-buttons
+    size="sm"
+    :value="$route.query.page_number || 1"
+    :link-gen="linkGen"
+    :number-of-pages="countPage"
+    use-router
+    first-number
+    last-number
+    align="center"
+  />
 </template>
 
 <script>

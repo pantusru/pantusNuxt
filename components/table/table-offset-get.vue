@@ -17,9 +17,21 @@
       <template v-for="data in Linkoffset">
         <tr :key="data.id">
           <td>{{ data.supplier.name }}</td>
-          <td class="d-none d-lg-table-cell">{{ data.quantity }}</td>
+          <td class="d-none d-lg-table-cell">
+            <span v-if="data.quantity !== 0" class="text-00b91e">
+              {{ data.quantity }} {{ LinkProduct.params.measure }}
+            </span>
+            <span
+              class="text-d2b77e"
+              v-else-if="LinkProduct.brand.deliveryDelay !== null"
+            >
+              Под заказ:
+              {{ LinkProduct.brand.deliveryDelay }} дней
+            </span>
+            <span v-else class="text-d2b77e">За запросу</span>
+          </td>
           <td class="d-none d-sm-table-cell">
-            {{ data.supplier.deliveryDelay }}
+            {{ data.supplier.deliveryDelayView }}
           </td>
           <td>{{ data.prices }}Р</td>
           <td>

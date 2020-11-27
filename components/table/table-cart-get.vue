@@ -37,7 +37,18 @@
         {{ data.item.ProductOffer.supplier.name }}
       </template>
       <template #cell(quantity)="data">
-        {{ data.item.ProductOffer.quantity }}
+        <span class="text-00b91e" v-if="data.item.ProductOffer.quantity !== 0">
+          {{ data.item.ProductOffer.quantity }}
+          {{ data.item.ProductCard.params.measure }}
+        </span>
+        <span
+          class="text-d2b77e"
+          v-else-if="data.item.ProductCard.brand.deliveryDelay !== null"
+        >
+          Под заказ:
+          {{ data.item.ProductCard.brand.deliveryDelay }} дней
+        </span>
+        <span v-else class="text-d2b77e">По запросу</span>
       </template>
       <template #cell(count)="data">
         <vInput

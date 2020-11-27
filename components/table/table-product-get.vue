@@ -62,12 +62,24 @@
           >
             <b-td class="border-top-0 text-555">{{ offer.supplier.name }}</b-td>
             <b-td
-              class="border-top-0 text-00b91e"
+              class="border-top-0"
               :class="{ 'd-none d-md-table-cell': CheckAnalogs }"
-              >{{ offer.quantity }}
+            >
+              <span class="text-00b91e" v-if="offer.quantity !== 0">
+                {{ offer.quantity }}
+                {{ table.ProductCard.params.measure }}
+              </span>
+              <span
+                class="text-d2b77e"
+                v-else-if="table.ProductCard.brand.deliveryDelay !== null"
+              >
+                Под заказ:
+                {{ table.ProductCard.brand.deliveryDelay }} дней
+              </span>
+              <span v-else class="text-d2b77e">По запросу</span>
             </b-td>
             <b-td class="border-top-0 text-555 d-none d-md-table-cell">{{
-              offer.supplier.deliveryDelay
+              offer.supplier.deliveryDelayView
             }}</b-td>
             <b-td class="border-top-0 text-555 fz-5 font-weight-bold"
               >{{ offer.prices }} Р</b-td

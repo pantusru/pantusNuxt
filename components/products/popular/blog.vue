@@ -54,8 +54,25 @@
           </div>
         </b-col>
         <b-col class="text-right">
-          <div class="text-00b91e mb-2 fz-5_5">
-            {{ datasetProduct.productOffer[0].quantity }}
+          <div class="mb-2 fz-5_5">
+            <!-- Количество товара -->
+            <span
+              v-if="datasetProduct.productOffer[0].quantity > 0"
+              class="text-00b91e"
+            >
+              {{ datasetProduct.productOffer[0].quantity }}
+              {{ datasetProduct.ProductCard.params.measure }}
+            </span>
+            <!-- под заказ сколько дней -->
+            <span
+              v-else-if="datasetProduct.ProductCard.brand.deliveryDelay != null"
+              class="text-d2b77e"
+            >
+              Под заказ:
+              {{ datasetProduct.ProductCard.brand.deliveryDelay }} дней
+            </span>
+            <!-- под запросу  -->
+            <span v-else class="text-d2b77e">По запросу</span>
           </div>
           <BuyButton
             :LinkOffer="datasetProduct.productOffer[0]"

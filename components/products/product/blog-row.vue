@@ -6,7 +6,7 @@
           <b-col cols="4">
             <ImgGetModal :product="Product" />
           </b-col>
-          <h2 class="col-8">
+          <h2 class="col-8 fz-3">
             <nuxt-link
               :title="Product.ProductCard.name"
               class="text-555 reset-title"
@@ -123,14 +123,14 @@
           class="justify-content-between flex-column col-12 col-lg-8"
         >
           <TableOffset
-            :Linkoffset="Product.productOffer"
             :LinkProduct="Product.ProductCard"
+            :Linkoffset="Product.productOffer"
           />
         </b-row>
         <b-button
-          @click="DeleteSelected"
           v-if="Selected"
           class="position-absolute bnt-delete-selected bg-danger border-0"
+          @click="DeleteSelected"
         >
           X
         </b-button>
@@ -141,14 +141,13 @@
 
 <script>
 import ImgGetModal from "@/components/products/product/element/img";
-import BuyButton from "@/components/products/button/buy-index";
 import RowAtr from "@/components/products/product/element/product-element-row-get";
 import TableOffset from "@/components/table/table-offset-get";
 
 export default {
   methods: {
     DeleteSelected() {
-      let index = this.SelectedProducts.findIndex(
+      const index = this.SelectedProducts.findIndex(
         s => s.ProductCard.id == this.Product.ProductCard.id
       );
       this.$store.commit("Selected/selected/DeleteSelected", index);
@@ -163,7 +162,6 @@ export default {
   },
   components: {
     RowAtr,
-    BuyButton,
     TableOffset,
     ImgGetModal
   },

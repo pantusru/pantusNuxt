@@ -54,26 +54,12 @@
           </div>
         </b-col>
         <b-col class="text-right">
-          <div class="mb-2 fz-5_5">
-            <!-- Количество товара -->
-            <span
-              v-if="datasetProduct.productOffer[0].quantity > 0"
-              class="text-00b91e"
-            >
-              {{ datasetProduct.productOffer[0].quantity }}
-              {{ datasetProduct.ProductCard.params.measure }}
-            </span>
-            <!-- под заказ сколько дней -->
-            <span
-              v-else-if="datasetProduct.ProductCard.brand.deliveryDelay != null"
-              class="text-d2b77e"
-            >
-              Под заказ:
-              {{ datasetProduct.ProductCard.brand.deliveryDelay }} дней
-            </span>
-            <!-- под запросу  -->
-            <span v-else class="text-d2b77e">По запросу</span>
-          </div>
+          <availability-offers
+            class="mb-2 fz-5_5"
+            component="div"
+            :link-offers="datasetProduct.productOffer[0]"
+            :link-product="datasetProduct.ProductCard"
+          />
           <BuyButton
             :LinkOffer="datasetProduct.productOffer[0]"
             :LinkProduct="datasetProduct.ProductCard"
@@ -88,12 +74,14 @@
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
+import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 export default {
   name: "BlogProduct",
   props: {
     datasetProduct: {}
   },
   components: {
+    AvailabilityOffers,
     ProductElementRowGet,
     BuyButton,
     ImgGetModal

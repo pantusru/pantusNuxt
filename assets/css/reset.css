@@ -98,6 +98,9 @@ li {
   -webkit-line-clamp: 3; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+.reset-title-line-2{
+  -webkit-line-clamp: 2!important;
+}
 .text-nowrap-custom{
   white-space: nowrap;
   overflow: hidden;

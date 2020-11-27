@@ -61,23 +61,13 @@
             :key="offer.id"
           >
             <b-td class="border-top-0 text-555">{{ offer.supplier.name }}</b-td>
-            <b-td
+            <availability-offers
               class="border-top-0"
               :class="{ 'd-none d-md-table-cell': CheckAnalogs }"
-            >
-              <span class="text-00b91e" v-if="offer.quantity !== 0">
-                {{ offer.quantity }}
-                {{ table.ProductCard.params.measure }}
-              </span>
-              <span
-                class="text-d2b77e"
-                v-else-if="table.ProductCard.brand.deliveryDelay !== null"
-              >
-                Под заказ:
-                {{ table.ProductCard.brand.deliveryDelay }} дней
-              </span>
-              <span v-else class="text-d2b77e">По запросу</span>
-            </b-td>
+              component="b-td"
+              :link-offers="offer"
+              :link-product="table.ProductCard"
+            />
             <b-td class="border-top-0 text-555 d-none d-md-table-cell">{{
               offer.supplier.deliveryDelayView
             }}</b-td>
@@ -98,9 +88,11 @@
 import ImgGetModal from "@/components/products/product/element/img";
 import PanelVid from "@/components/search/product-panel/product-thead-get"; // Панель
 import Chosen from "@/components/metka/chosen"; // Метка избранный товар
-import BuyButton from "@/components/products/button/buy-index"; // Кнопка открыть модалку купить товар
+import BuyButton from "@/components/products/button/buy-index";
+import AvailabilityOffers from "@/components/products/product/element/availability-offers"; // Кнопка открыть модалку купить товар
 export default {
   components: {
+    AvailabilityOffers,
     BuyButton,
     Chosen,
     PanelVid,

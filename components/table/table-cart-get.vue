@@ -10,14 +10,18 @@
       thead-class="bg-light"
     >
       <template #cell(brand)="data">
-        <template v-if="data.item !== undefined">{{
-          data.item.ProductCard.brand.name
-        }}</template>
+        <template v-if="data.item !== undefined">
+          <div>
+            {{ data.item.ProductCard.brand.name }}
+          </div>
+        </template>
       </template>
       <template #cell(sku)="data">
-        <template v-if="data.item !== undefined">{{
-          data.item.ProductCard.sku.original
-        }}</template>
+        <template v-if="data.item !== undefined">
+          <div class="reset-title">
+            {{ data.item.ProductCard.sku.original }}
+          </div>
+        </template>
       </template>
       <template #cell(name)="data">
         {{ data.item.ProductCard.name }}
@@ -37,18 +41,11 @@
         {{ data.item.ProductOffer.supplier.name }}
       </template>
       <template #cell(quantity)="data">
-        <span class="text-00b91e" v-if="data.item.ProductOffer.quantity !== 0">
-          {{ data.item.ProductOffer.quantity }}
-          {{ data.item.ProductCard.params.measure }}
-        </span>
-        <span
-          class="text-d2b77e"
-          v-else-if="data.item.ProductCard.brand.deliveryDelay !== null"
-        >
-          Под заказ:
-          {{ data.item.ProductCard.brand.deliveryDelay }} дней
-        </span>
-        <span v-else class="text-d2b77e">По запросу</span>
+        <availability-offers
+          component="div"
+          :link-product="data.item.ProductCard"
+          :link-offers="data.item.ProductOffer"
+        />
       </template>
       <template #cell(count)="data">
         <vInput
@@ -62,7 +59,10 @@
         />
       </template>
       <template #cell(symma)="data">
-        {{ Number(data.item.Count) * data.item.ProductOffer.prices }} Р
+        {{
+          (Number(data.item.Count) * data.item.ProductOffer.prices).toFixed(3)
+        }}
+        Р
       </template>
       <template #cell(Delete)="data">
         <DeleteCart :index="data.index" />
@@ -84,14 +84,15 @@ import vInput from "@/components/products/input/product-input-count";
 import mixinsEmit from "@/mixins/input/count-product/emit";
 import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
+import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 export default {
   mixins: [mixinsEmit, mixinsImg],
   data() {
     return {
       fields: [
-        { key: "brand", label: "Брэнд" },
+        { key: "brand", label: "Брэнд", class: "w-15" },
         { key: "sku", label: "Артикул" },
-        { key: "name", label: "Название товара" },
+        { key: "name", label: "Название товара", class: "w-15" },
         { key: "img", label: "" },
         { key: "supplier", label: "Поставщик" },
         { key: "price", label: "Цена" },
@@ -109,6 +110,7 @@ export default {
     }
   },
   components: {
+    AvailabilityOffers,
     CartButtonUpdateProduct,
     vInput,
     ImgModal,

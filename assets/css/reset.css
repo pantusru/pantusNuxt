@@ -92,7 +92,7 @@ li {
   list-style: none;
 }
 .reset-title{
-  word-break: break-all;
+  word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -108,5 +108,5 @@ li {
   text-overflow: ellipsis;
 }
 .wbba{
-  word-break: break-all;
+  word-break: break-word;
 }

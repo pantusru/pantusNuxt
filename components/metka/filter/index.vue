@@ -51,6 +51,7 @@ export default {
         name: "search",
         query: {
           ...this.$route.query,
+          page_number: undefined,
           [name]: query
         }
       });

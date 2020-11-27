@@ -40,7 +40,7 @@ export default {
       if (this.search.length !== 0) {
         await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
-        this.$store.commit("SetcheckFilterClick", undefined);
+        this.$store.commit("SetcheckFilterClick", false);
         await this.$router.push({
           name: "search",
           query: {
@@ -48,9 +48,9 @@ export default {
           }
         });
       }
-      await this.$store.dispatch("Products/_ProductAll", {
-        filter_substr: this.search
-      });
+      // await this.$store.dispatch("Products/_ProductAll", {
+      //   filter_substr: this.search
+      // });
     }
   }
 };

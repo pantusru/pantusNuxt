@@ -106,7 +106,7 @@ export default {
         this.form.filter_brands = this.form.filter_brands.join();
       }
       if (query.filter_substr !== undefined) {
-        // ПРОВЕРКА name SKU
+        // ПРОВЕРКА name search
         store.commit("formSearch/SetSearch", query.filter_substr);
         this.form.filter_substr = store.getters["formSearch/GetSearch"];
       }
@@ -234,10 +234,12 @@ export default {
         await this.$store.dispatch("Products/_ProductAll", this.form);
         this.form = {};
       } else {
-        // Клик на кнопку submit
+        // if (this.checkFilterClick === false) {
+        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+        // }
         await this.$store.dispatch("Products/_ProductAll", this.form);
-        this.form = {};
         this.$store.commit("SetcheckFilterClick", true);
+        this.form = {};
       }
     }
   }

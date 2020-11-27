@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     eventCheck(event) {
-      console.log(event.target.className);
       if (event.target.className !== "custom-select") {
         this.get = false;
       } else {

@@ -31,10 +31,14 @@ export default {
       if (this.$store.getters["formSearch/GetMinValue"] !== 0) {
         // ЦЕНА МИНИМУМ
         this.form.minvalue = this.$store.getters["formSearch/GetMinValue"];
+      } else {
+        this.form.minvalue = undefined;
       }
       if (this.$store.getters["formSearch/GetMaxValue"] !== 60000) {
         // ЦЕНА МАКСИМУМ
         this.form.maxvalue = this.$store.getters["formSearch/GetMaxValue"];
+      } else {
+        this.form.maxvalue = undefined;
       }
       if (this.$store.getters["formSearch/GetBrandsChecked"].length !== 0) {
         // БРЭНД
@@ -46,6 +50,8 @@ export default {
           ids: this.form.filter_brands
         });
         this.form.filter_brands = this.form.filter_brands.join();
+      } else {
+        this.form.filter_brands = undefined;
       }
       // КАТЕГОРИИ
       this.form.filter_categories = await this.$store.dispatch(
@@ -62,14 +68,13 @@ export default {
         "Applicabilities/Panel/SetAllIdUrl"
       );
       // PAGE
-      if (
-        this.$route.query.page_number !== undefined &&
-        Number(this.$route.query.page) !== NaN
-      ) {
+      if (this.$route.query.page_number !== undefined) {
         this.form.page_number = this.$route.query.page_number;
       }
-      if (this.$route.query.filter_substr !== undefined) {
-        this.form.filter_substr = this.$route.query.filter_substr;
+      if (this.$store.getters["formSearch/GetSearch"] !== "") {
+        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+      } else {
+        this.form.filter_substr = undefined;
       }
     },
     /**
@@ -95,6 +100,7 @@ export default {
           name: "search",
           query: { ...this.form, page_number: undefined }
         });
+        console.trace(this.form);
       }
     }
   }

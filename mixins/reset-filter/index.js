@@ -9,6 +9,7 @@ export default {
       this.$store.commit("formSearch/SetMinValue", 0);
       this.$store.commit("formSearch/SetAllBrandsChecked", []);
       if (seacrh) {
+        console.log("RESER SEARCH");
         this.$store.commit("formSearch/SetSearch", "");
       }
       this.$store.commit("formSearch/SetSort", { SortType: "", SortName: "" });

@@ -12,7 +12,6 @@ export default {
       await this.pushParamsFilter(event);
       this.pushParamsSort();
       await this.PushUrl();
-      this.$store.commit("SetcheckFilterClick", true);
     }
   }
 };

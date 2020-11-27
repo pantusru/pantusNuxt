@@ -19,7 +19,6 @@ export default {
         return;
       }
     }
-    console.log("Товара нету");
     await store.dispatch("Products/_ProductId", params.id);
   },
   computed: {

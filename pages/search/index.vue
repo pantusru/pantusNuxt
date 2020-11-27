@@ -235,12 +235,12 @@ export default {
         this.form = {};
       } else {
         if (this.checkFilterClick === false) {
+          // Кнопка поиск
           this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+          await this.$store.dispatch("Products/_ProductAll", this.form);
         }
-        // console.log(this.form);
-        // await this.$store.dispatch("Products/_ProductAll", this.form);
         this.$store.commit("SetcheckFilterClick", true);
-        // this.form = {};
+        this.form = {};
       }
     }
   }

@@ -92,6 +92,7 @@ li {
   list-style: none;
 }
 .reset-title{
+  word-break: break-all;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -105,4 +106,7 @@ li {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.wbba{
+  word-break: break-all;
 }

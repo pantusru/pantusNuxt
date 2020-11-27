@@ -27,7 +27,7 @@
         </b-col>
       </b-row>
       <div>
-        <h3 class="text-left ml-3 mt-4">{{ dataset.ProductCard.name }}</h3>
+        <h3 class="text-left ml-3 mt-4 wbba">{{ dataset.ProductCard.name }}</h3>
       </div>
     </div>
   </b-modal>

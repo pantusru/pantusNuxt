@@ -93,8 +93,8 @@ export default {
      * @function PushUrl - Переходит на новый запрос
      */
     async PushUrl(checkPush = true) {
-      // НОВЫЙ URL
       window.scrollTo(0, 0);
+      // НОВЫЙ URL
       if (checkPush) {
         await this.$router.push({
           name: "search",

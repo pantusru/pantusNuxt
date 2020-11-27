@@ -33,13 +33,13 @@
               <ImgGetModal :product="table" />
             </div>
           </b-td>
-          <b-td class="position-absolute border-0 p-0 pt-3">
-            <Chosen
-              v-if="CheckAnalogs === false && CheckUser === true"
-              :link="table"
-              :id="table.ProductCard.id"
-            />
-          </b-td>
+          <!--          <b-td class="position-absolute border-0 p-0 pt-3">-->
+          <!--            <Chosen-->
+          <!--              v-if="CheckAnalogs === false && CheckUser === true"-->
+          <!--              :link="table"-->
+          <!--              :id="table.ProductCard.id"-->
+          <!--            />-->
+          <!--          </b-td>-->
           <b-td
             class="w-15"
             :rowspan="table.productOffer.length + 1"

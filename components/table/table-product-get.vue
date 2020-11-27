@@ -33,6 +33,13 @@
               <ImgGetModal :product="table" />
             </div>
           </b-td>
+          <b-td class="position-absolute border-0 p-0 pt-3">
+            <Chosen
+              v-if="CheckAnalogs === false && CheckUser === true"
+              :link="table"
+              :id="table.ProductCard.id"
+            />
+          </b-td>
           <b-td
             class="w-15"
             :rowspan="table.productOffer.length + 1"
@@ -45,13 +52,6 @@
             >
               {{ table.ProductCard.name }}
             </nuxt-link>
-          </b-td>
-          <b-td class="position-absolute border-0 left-30">
-            <Chosen
-              v-if="CheckAnalogs === false && CheckUser === true"
-              :link="table"
-              :id="table.ProductCard.id"
-            />
           </b-td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">

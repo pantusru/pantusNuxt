@@ -234,12 +234,13 @@ export default {
         await this.$store.dispatch("Products/_ProductAll", this.form);
         this.form = {};
       } else {
-        // if (this.checkFilterClick === false) {
-        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
-        // }
-        await this.$store.dispatch("Products/_ProductAll", this.form);
+        if (this.checkFilterClick === false) {
+          this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+        }
+        // console.log(this.form);
+        // await this.$store.dispatch("Products/_ProductAll", this.form);
         this.$store.commit("SetcheckFilterClick", true);
-        this.form = {};
+        // this.form = {};
       }
     }
   }

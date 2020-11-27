@@ -100,7 +100,7 @@ export default {
           name: "search",
           query: { ...this.form, page_number: undefined }
         });
-        console.trace(this.form);
+        await this.$store.dispatch("Products/_ProductAll", this.form);
       }
     }
   }

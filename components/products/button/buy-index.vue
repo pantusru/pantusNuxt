@@ -52,6 +52,7 @@
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
+  name: "buy-button",
   components: { BaseButton },
   data() {
     return {

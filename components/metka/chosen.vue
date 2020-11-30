@@ -38,7 +38,7 @@ export default {
       if (this.selected) {
         // Убрать товар с selected
         this.selected = false;
-        let index = this.SelectedProducts.findIndex(
+        const index = this.SelectedProducts.findIndex(
           s => s.ProductCard.id == this.id
         );
         this.$store.commit("Selected/selected/DeleteSelected", index);
@@ -58,7 +58,7 @@ export default {
     }
   },
   created() {
-    let data = this.SelectedProducts;
+    const data = this.SelectedProducts;
     for (const key in data) {
       // Проверяем есть ли этот товар в избранных
       if (data[key].ProductCard.id == this.id) {
@@ -73,6 +73,7 @@ export default {
 <style>
 svg.d-none-chosen {
   display: none !important;
+  /*left: -20px;*/
 }
 
 svg.d-none-chosen.activ {

@@ -47,7 +47,7 @@ import ModalBuy from "@/components/modal/buy-product";
 import FilterApplicabilities from "@/components/forms/filter-applicabilities";
 import PanelVid from "@/components/search/product-panel/product-thead-get";
 import FilterForm from "@/components/forms/filter-products";
-import TableProduct from "@/components/table/table-product-get";
+import TableProduct from "@/components/table/product/table-product-get";
 import productBlog from "@/components/func/product-blogs-get";
 import productRow from "@/components/func/product-rows-get";
 import MetkaFilter from "@/components/metka/filter/catalog-metka-get";

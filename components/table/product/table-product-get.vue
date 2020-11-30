@@ -4,8 +4,8 @@
     <b-tbody>
       <template v-for="table in array">
         <b-tr :key="table.ProductCard.id" class="hover-true">
-          <b-td
-            :rowspan="table.productOffer.length + 1"
+          <table-product-cart-td
+            :length-offer="table.productOffer.length"
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
           >
             <nuxt-link
@@ -15,35 +15,32 @@
               "
               >{{ table.ProductCard.brand.name }}
             </nuxt-link>
-          </b-td>
-          <b-td :rowspan="table.productOffer.length + 1" class="w-15">
+          </table-product-cart-td>
+
+          <table-product-cart-td
+            class="w-15"
+            :length-offer="table.productOffer.length"
+          >
             <nuxt-link
               class="text-576b77 link-danger reset-title"
               :to="'product/' + table.ProductCard.id.toString()"
             >
               {{ table.ProductCard.sku.original }}
             </nuxt-link>
-          </b-td>
-          <b-td
-            :rowspan="table.productOffer.length + 1"
+          </table-product-cart-td>
+          <table-product-cart-td
             v-if="CheckAnalogs === false"
             class="d-none d-md-table-cell"
+            :length-offer="table.productOffer.length"
           >
             <div class="w-50px">
               <ImgGetModal :product="table" />
             </div>
-          </b-td>
-          <!--          <b-td class="position-absolute border-0 p-0 pt-3">-->
-          <!--            <Chosen-->
-          <!--              v-if="CheckAnalogs === false && CheckUser === true"-->
-          <!--              :link="table"-->
-          <!--              :id="table.ProductCard.id"-->
-          <!--            />-->
-          <!--          </b-td>-->
-          <b-td
+          </table-product-cart-td>
+          <table-product-cart-td
             class="w-15"
-            :rowspan="table.productOffer.length + 1"
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
+            :length-offer="table.productOffer.length"
           >
             <nuxt-link
               :title="table.ProductCard.name"
@@ -52,13 +49,20 @@
             >
               {{ table.ProductCard.name }}
             </nuxt-link>
+          </table-product-cart-td>
+          <b-td class="position-absolute border-0 p-0 pt-3">
+            <Chosen
+              v-if="CheckAnalogs === false && CheckUser === true"
+              :link="table"
+              :id="table.ProductCard.id"
+            />
           </b-td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">
           <b-tr
-            class="hover-true border-bottom"
             v-for="offer in table.productOffer"
             :key="offer.id"
+            class="hover-true border-bottom"
           >
             <b-td class="border-top-0 text-555">{{ offer.supplier.name }}</b-td>
             <availability-offers
@@ -94,9 +98,11 @@ import ImgGetModal from "@/components/products/product/element/img";
 import PanelVid from "@/components/search/product-panel/product-thead-get"; // Панель
 import Chosen from "@/components/metka/chosen"; // Метка избранный товар
 import BuyButton from "@/components/products/button/buy-index";
-import AvailabilityOffers from "@/components/products/product/element/availability-offers"; // Кнопка открыть модалку купить товар
+import AvailabilityOffers from "@/components/products/product/element/availability-offers";
+import TableProductCartTd from "@/components/table/product/components/table-product-cart-td";
 export default {
   components: {
+    TableProductCartTd,
     AvailabilityOffers,
     BuyButton,
     Chosen,

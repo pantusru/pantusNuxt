@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import Table from "@/components/table/table-product-get";
+import Table from "@/components/table/product/table-product-get";
 import ModalBuy from "@/components/modal/buy-product";
 import TableOffer from "@/components/table/table-offset-get";
 import Share from "@/components/modal/share";

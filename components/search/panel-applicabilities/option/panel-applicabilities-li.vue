@@ -66,7 +66,7 @@ export default {
   margin-right: 10px;
   content: "";
   border: #adb5bd solid 1px;
-  padding: 0px 7px;
+  padding: 0 7px;
   border-radius: 0.25rem;
 }
 .option-my.children.active-li:before {

@@ -28,8 +28,8 @@ export const actions = {
   async ChexboxCheckAll({ store, commit, dispatch }, data) {
     // ПРИНИМАЕТ DATA массив Элементов и VALUE значения на которое нужно поменять
     let ParentID = false;
-    let valueState = { CheckedType: [], Indeterminate: [] };
-    let arr = data.arr;
+    const valueState = { CheckedType: [], Indeterminate: [] };
+    const arr = data.arr;
     for (const key in arr) {
       // Прогоняем массив с вложенностью
       if (arr[key].parentId != null) {
@@ -39,7 +39,7 @@ export const actions = {
         // Выход из рекурсии
         return;
       }
-      if (typeof data.id == "number") {
+      if (typeof data.id === "number") {
         // Проверяем что это число
         data.id = [data.id];
       }

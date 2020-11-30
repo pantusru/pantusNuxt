@@ -17,7 +17,7 @@
         <div v-for="data in dataset.children" :key="data.id">
           <nuxt-link
             class="text-decoration link-decoration-none text-dark pl-3 d-block"
-            :to="'/search?filter_categoriesegories=' + data.id"
+            :to="'/search?filter_categories=' + data.id"
             >{{ data.name }}
           </nuxt-link>
         </div>

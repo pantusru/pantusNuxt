@@ -41,7 +41,10 @@ export default {
   watch: {
     // при изменения url
     $route() {
-      this.$store.commit("SetShow", true);
+      this.$store.commit("SetShow", true); // Показать загрузку экрана
+      this.$nextTick(() => {
+        this.$store.commit("SetNavMobile", false); // Убрать мобильное меню
+      });
     }
   },
   updated() {

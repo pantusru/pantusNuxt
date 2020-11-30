@@ -17,7 +17,7 @@ export const actions = {
         { data: element, value: false },
         { root: true }
       );
-      if (element.children.length != 0) {
+      if (element.children.length !== 0) {
         dispatch("_AllChexbox", element.children);
       }
     });
@@ -35,7 +35,7 @@ export const actions = {
         { data: element, value: true },
         { root: true }
       );
-      if (element.children.length != 0) {
+      if (element.children.length !== 0) {
         dispatch("_AllVisible", element.children);
       }
     });
@@ -47,12 +47,13 @@ export const actions = {
    */
   async _AllChexboxId({ commit, dispatch }, data) {
     // Найди ID chexbox у которых checked === true
-    let IdChexbox = [];
+    const IdChexbox = [];
     for (const key in data) {
+      if (data[key].CheckedType === true && data[key].Indeterminate === false) {
+        IdChexbox.push(data[key].id);
+      }
       if (data[key].children.length !== 0) {
         IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
-      } else if (data[key].CheckedType === true) {
-        IdChexbox.push(data[key].id);
       }
     }
     return IdChexbox.flat(Infinity);
@@ -66,8 +67,8 @@ export const actions = {
   async _AllChexboxTrue({ store, commit, dispatch, getters }, data) {
     // Найди ID с url и сделать ему checked = true
     // Педелелать в другую функцию
-    let dataset = data.data;
-    let ids = data.ids;
+    const dataset = data.data;
+    const ids = data.ids;
     await dispatch(
       "Catalog/Chexbox/ChexboxCheckAll",
       { arr: dataset, id: ids, value: true },

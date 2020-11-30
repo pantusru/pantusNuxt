@@ -12,7 +12,7 @@
       <b-navbar-nav class="d-flex ml-0 ml-lg-auto flex-row align-items-center">
         <div class="d-flex mr-2 align-items-center wm-60">
           <!-- icons -->
-          <div class="icons-nav-w20">
+          <div class="icons-nav-w20 mr-3 mr-lg-0">
             <img
               class="d-none d-lg-block"
               src="@img/icons/icon-avatar.png"

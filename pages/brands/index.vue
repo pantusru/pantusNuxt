@@ -16,6 +16,11 @@
       :number-of-pages="CountPages"
       :link-gen="linkGen"
       align="center"
+      first-number
+      last-number
+      hide-goto-end-buttons
+      limit="3"
+      size="sm"
     >
     </b-pagination-nav>
   </b-container>
@@ -34,9 +39,13 @@ export default {
   watch: {
     $route() {
       window.scrollTo(0, 0);
-      this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.page
-      );
+      if (this.$route.query.page !== undefined) {
+        this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
+          this.$route.query.page
+        );
+      } else {
+        this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
+      }
     }
   },
   created() {

@@ -100,7 +100,11 @@ export const actions = {
       getters.GetCartProduct.length === 0 ||
       getters.GetCartActual === false
     ) {
-      let data = await dispatch("Cart/axios/_CartProduct", {}, { root: true });
+      const data = await dispatch(
+        "Cart/axios/_CartProduct",
+        {},
+        { root: true }
+      );
       commit("SetCartProduct", data);
       commit("SetCartActual");
     }

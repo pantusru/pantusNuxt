@@ -16,7 +16,8 @@ export default {
           sizes: "192x192"
         }
       ]
-    }
+    },
+    workbox: {}
   },
   router: {
     prefetchLinks: false,

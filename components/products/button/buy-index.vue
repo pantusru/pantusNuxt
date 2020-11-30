@@ -61,14 +61,15 @@ export default {
        */
       userBasket: false,
       /**
-       * @property id корзины
-       **/
-      idCart: undefined,
-      /**
        * @type {String}
        * @property Есть ли товар в корзине
        */
-      text: "В корзине"
+      text: "В корзине",
+      /**
+       * @type {Number| String}
+       * IdCartProduct если товар добавлен в корзину
+       */
+      CartId: undefined
     };
   },
   props: {
@@ -85,14 +86,17 @@ export default {
      */
   },
   methods: {
+    resetAll() {
+      this.userBasket = false;
+      this.CartId = undefined;
+    },
     // Удалить товар с корзины
     deleteCartProduct() {
-      let index = this.CartProduct.findIndex(
+      const index = this.CartProduct.findIndex(
         s => s.ProductOffer.id === this.LinkOffer.id
       );
-      this.userBasket = false;
       this.$store.commit("Cart/CartAll/DeleteCartProduct", {
-        index: index,
+        index,
         flag: true
       });
     },
@@ -109,11 +113,26 @@ export default {
     }
   },
   watch: {
-    // Следим за  добавление товара в корзину
+    // Следим за  изменение  корзины
     CartProduct() {
       if (this.CartProduct.length > 0) {
+        // Добавление товара в корзину
         if (this.CartProduct[0].ProductOffer.id === this.LinkOffer.id) {
           this.userBasket = true;
+          this.CartId = this.CartProduct[0].ProductOffer.id;
+        }
+      } else if (this.CartProduct.length === 0) {
+        // Корзина пустая reset
+        this.resetAll();
+      }
+      if (this.CartId !== undefined) {
+        // Этот товар есть в корзине
+        if (
+          this.CartProduct.findIndex(
+            data => data.ProductOffer.id === this.CartId
+          ) === -1
+        ) {
+          this.resetAll();
         }
       }
     }
@@ -128,6 +147,7 @@ export default {
     for (const key in this.CartProduct) {
       if (this.CartProduct[key].ProductOffer.id === this.LinkOffer.id) {
         this.userBasket = true;
+        this.CartId = this.CartProduct[key].ProductOffer.id;
         // Добавить Id товара-в-корзине и передавать его в модалку
         // this.idCart = this.CartProduct.id
         break;

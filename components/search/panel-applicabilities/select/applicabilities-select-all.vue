@@ -34,6 +34,7 @@
       v-if="show && PanelData.length > 0"
     >
       <panel-applicabilities-li
+        :type="type"
         v-for="dataset in PanelData"
         :key="dataset.id"
         :dataset="dataset"
@@ -78,7 +79,8 @@ export default {
     hiddenForm(event) {
       if (
         event.target.className !== "option-my" &&
-        event.target.className !== "option-my active-li"
+        event.target.className !== "option-my active-li" &&
+        event.target.className !== "option-my active-li children"
       ) {
         this.show = false;
       }

@@ -1,6 +1,6 @@
 <template>
   <li
-    :class="{ 'active-li': selected }"
+    :class="{ 'active-li': selected, children: type === 'children' }"
     @click="clickLi"
     v-on="$listeners"
     class="option-my"
@@ -33,14 +33,14 @@ export default {
   methods: {
     clickLi() {
       this.selected = !this.selected;
-      console.log("kek" + this.dataset.id);
       this.$emit("panel", { id: this.dataset.id, value: this.selected });
     }
   },
   props: {
     arr: {},
     dataset: {},
-    panel: {}
+    panel: {},
+    type: {}
   }
 };
 </script>
@@ -49,8 +49,27 @@ export default {
 .active-li {
   background-color: #cccccc;
 }
+.active-li.children {
+  background-color: #fff;
+}
 .option-my {
+  display: flex;
   cursor: pointer;
   padding: 5px;
+}
+.option-my.children:before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 10px;
+  content: "";
+  border: #adb5bd solid 1px;
+  padding: 0px 7px;
+  border-radius: 0.25rem;
+}
+.option-my.children.active-li:before {
+  content: "\2714";
 }
 </style>

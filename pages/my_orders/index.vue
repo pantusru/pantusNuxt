@@ -14,12 +14,12 @@
 import MyOrder from "@/components/order/my-order/index";
 import NavProfile from "@/components/nav/profile/index";
 export default {
-  async fetch({ store, dispatch }) {
-    await store.dispatch("MyOrder/_MyOrderAll");
-  },
   components: {
     NavProfile,
     MyOrder
+  },
+  async fetch({ store, dispatch }) {
+    await store.dispatch("MyOrder/_MyOrderAll");
   },
   middleware: "CheckGuest"
 };

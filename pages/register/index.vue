@@ -99,26 +99,26 @@ import MSelect from "@/components/register/select";
 
 export default {
   middleware: "CheckUser",
-  mixins: [MixinsError, MixinsValidations],
-  watch: {
-    $v() {
-      // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
-    }
-  },
   components: {
     VInput,
     radioForm,
     Buttons,
     MSelect
   },
-  provide() {
-    return {
-      $v: this.$v
-    };
-  },
+  mixins: [MixinsError, MixinsValidations],
   data() {
     return {
       buyer: "Retail"
+    };
+  },
+  watch: {
+    $v() {
+      // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
+    }
+  },
+  provide() {
+    return {
+      $v: this.$v
     };
   }
 };

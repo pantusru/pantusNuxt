@@ -60,7 +60,7 @@
       </template>
       <template #cell(symma)="data">
         {{
-          (Number(data.item.Count) * data.item.ProductOffer.prices).toFixed(3)
+          (Number(data.item.Count) * data.item.ProductOffer.prices).toFixed(2)
         }}
         Р
       </template>
@@ -95,10 +95,10 @@ export default {
         { key: "name", label: "Название товара", class: "w-15" },
         { key: "img", label: "" },
         { key: "supplier", label: "Поставщик" },
-        { key: "price", label: "Цена" },
+        { key: "price", label: "Цена", class: "text-nowrap" },
         { key: "quantity", label: "Остаток, шт" },
         { key: "count", label: "Кол-во, шт" },
-        { key: "symma", label: "Сумма" },
+        { key: "symma", label: "Сумма", class: "text-nowrap" },
         { key: "Delete", label: "" },
         { key: "Update", label: "" }
       ]

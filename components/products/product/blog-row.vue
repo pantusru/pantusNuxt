@@ -51,10 +51,7 @@
             "
           >
             <RowAtr
-              v-for="data in Product.ProductCard.applicabilities.slice(
-                1,
-                Product.ProductCard.applicabilities.length
-              )"
+              v-for="data in Product.ProductCard.applicabilities.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
               :link="'search?filter_applicabilitiespplicabilities=' + data.id"
@@ -79,10 +76,7 @@
             "
           >
             <RowAtr
-              v-for="data in Product.ProductCard.ProductCardOem.slice(
-                1,
-                Product.ProductCard.ProductCardOem.length
-              )"
+              v-for="data in Product.ProductCard.ProductCardOem.slice(1, 5)"
               :key="data"
               :dataset="data"
               :link="'search?filter_substr=' + data"
@@ -108,10 +102,7 @@
             "
           >
             <RowAtr
-              v-for="data in Product.ProductCard.categories.slice(
-                1,
-                Product.ProductCard.categories.length
-              )"
+              v-for="data in Product.ProductCard.categories.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
               :link="'search?filter_categoriesegories=' + data.id"

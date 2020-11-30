@@ -29,16 +29,16 @@ import form_input_password_change from "@/components/change_password/form_input_
 
 export default {
   name: "change_password",
+  components: {
+    form_input_password_change,
+    form_button_password_set
+  },
+  mixins: [mixinValidator, mixinError],
   head() {
     return {
       title: "Pantus восстановить пароль"
     };
   },
-  middleware: "change_password",
-  mixins: [mixinValidator, mixinError],
-  components: {
-    form_input_password_change,
-    form_button_password_set
-  }
+  middleware: "change_password"
 };
 </script>

@@ -30,24 +30,24 @@ import Payment from "@/components/order/form/payment";
 import Dostavka from "@/components/order/form/dostavka";
 import Product from "@/components/order/form/product";
 export default {
-  middleware: "CheckGuest",
-  mixins: [mixitValid],
-  async fetch({ store }) {
-    await Promise.all([
-      store.dispatch("Order/Payment/Index/_Payment"),
-      store.dispatch("Order/Payment/Index/_Dostavka")
-    ]);
-  },
+  middleware: ["order-check-count-product", "CheckGuest"],
   components: {
     Contact,
     Payment,
     Dostavka,
     Product
   },
-  provide() {
-    return {
-      $v: this.$v
-    };
+  mixins: [mixitValid],
+  async fetch({ store }) {
+    await Promise.all([
+      store.dispatch("Order/Payment/Index/_Payment"),
+      store.dispatch("Order/Payment/Index/_Dostavka")
+    ]);
   }
+  // provide() {
+  //   return {
+  //     $v: this.$v
+  //   };
+  // }
 };
 </script>

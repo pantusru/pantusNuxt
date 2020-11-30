@@ -31,6 +31,7 @@
         "
       />
       <product-element-row-get
+        v-if="datasetProduct.ProductCard.ProductCardOem.length !== 0"
         name="OEM"
         :link="
           '/search?filter_substr=' +

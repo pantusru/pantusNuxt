@@ -1,10 +1,12 @@
 <template>
-  <b-icon-bookmark-plus
-    @click="SetChosen"
-    :class="{ activ: selected }"
-    class="cursor-pointer h4 d-none-chosen fz-5"
-  >
-  </b-icon-bookmark-plus>
+  <component :title="title" :is="'td'">
+    <b-icon-bookmark-plus
+      @click="SetChosen"
+      :class="{ activ: selected }"
+      class="cursor-pointer h4 d-none-chosen fz-5"
+    >
+    </b-icon-bookmark-plus>
+  </component>
 </template>
 
 <script>
@@ -15,7 +17,11 @@ export default {
       /**
        * @property Флаг выбран ли товар в израбранных
        */
-      selected: false
+      selected: false,
+      /**
+       * @property что отображать при наведение на иконку
+       */
+      title: "Добавить в избранное"
     };
   },
   props: {
@@ -28,7 +34,9 @@ export default {
     /**
      * @property Ссылка на Товар
      */
-    link: {}
+    link: {
+      type: Object
+    }
   },
   methods: {
     /**
@@ -42,10 +50,12 @@ export default {
           s => s.ProductCard.id == this.id
         );
         this.$store.commit("Selected/selected/DeleteSelected", index);
+        this.title = "Добавить в избранное Удалить из избранного";
       } else {
         // Добавить товар  в selected
         this.selected = true;
         this.$store.commit("Selected/selected/PushSelected", this.link);
+        this.title = "Удалить из избранного";
       }
     }
   },
@@ -63,6 +73,7 @@ export default {
       // Проверяем есть ли этот товар в избранных
       if (data[key].ProductCard.id == this.id) {
         this.selected = true;
+        this.title = "Удалить из избранного";
         break;
       }
     }

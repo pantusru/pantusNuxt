@@ -29,14 +29,6 @@ import FuncComponents from "@/components/func/product-rows-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
   middleware: "CheckGuest",
-  async fetch({ store }) {
-    await store.dispatch("Selected/selected/_Selected");
-  },
-  head() {
-    return {
-      title: "Pantus выбранные товары"
-    };
-  },
   components: {
     BaseTitleInfo,
     NavProfile,
@@ -44,10 +36,18 @@ export default {
     ModalImg,
     ModalBuy
   },
+  async fetch({ store }) {
+    await store.dispatch("Selected/selected/_Selected");
+  },
   computed: {
     Products() {
       return this.$store.getters["Selected/selected/GetSelected"];
     }
+  },
+  head() {
+    return {
+      title: "Pantus избранные товары"
+    };
   }
 };
 </script>

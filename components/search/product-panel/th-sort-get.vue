@@ -72,5 +72,6 @@ export default {
 <style>
 .product-th-sort {
   padding: 0.75rem 0.55rem !important;
+  white-space: nowrap;
 }
 </style>

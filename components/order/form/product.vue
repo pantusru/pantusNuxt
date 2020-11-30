@@ -1,8 +1,8 @@
 <template>
   <b-form>
-    <div class="mb-2">Товары: {{ stoimost }} Р</div>
+    <div class="mb-2">Товары: {{ GetCostProduct }} Р</div>
     <div class="mb-4">Доставка: {{ GetCostDostavka }}р</div>
-    <h3>Итог {{ stoimost + GetCostDostavka }}Р</h3>
+    <h3>Итог {{ GetCostOrder }}Р</h3>
     <b-button @click="formGo" class="bg-danger border-0"
       >Отправить заказ</b-button
     >
@@ -21,14 +21,15 @@ export default {
     }
   },
   computed: {
-    stoimost() {
+    GetCostProduct() {
       return this.$store.getters["Cart/CartAll/GetSymmaAll"];
     },
     GetCostDostavka() {
       return this.$store.getters["Order/Form/GetCostDostavka"];
     },
-    GetContact() {
-      return this.$store.getters["Order/Form/GetContact"];
+    GetCostOrder() {
+      const data = this.GetCostProduct + this.GetCostDostavka;
+      return data;
     }
   }
 };

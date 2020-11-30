@@ -38,18 +38,18 @@ import ButtonPasswordNew from "@/components/new_password/button-password-new";
 import NavProfile from "@/components/nav/profile/index";
 
 export default {
+  name: "new_password",
+  components: {
+    ButtonPasswordNew,
+    form_input_password_change,
+    NavProfile
+  },
+  mixins: [mixinValidator, mixinError],
   data() {
     return {
       value: ""
     };
   },
-  name: "new_password",
-  middleware: "CheckGuest",
-  mixins: [mixinValidator, mixinError],
-  components: {
-    ButtonPasswordNew,
-    form_input_password_change,
-    NavProfile
-  }
+  middleware: "CheckGuest"
 };
 </script>

@@ -59,6 +59,84 @@ import ButtonReplyShow from "@/components/base/button/button-reply-show";
 import BasePagination from "@/components/base/pagination/base-pagination";
 
 export default {
+  components: {
+    BasePagination,
+    ButtonReplyShow,
+    Share,
+    FilterForm,
+    TableProduct,
+    productBlog,
+    productRow,
+    PanelVid,
+    FilterApplicabilities,
+    MetkaFilter,
+    ModalImg,
+    ModalBuy
+  },
+  mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
+  computed: {
+    /***
+     *
+     * @returns {Object} - Список продуктов
+     */
+    Products() {
+      return this.$store.getters["Products/GetProducts"];
+    },
+    /***
+     *
+     * @returns {Object} - количество продуктов с указанными фильтрами
+     */
+    CountProducts() {
+      return this.$store.getters["Products/GetCountProducts"];
+    },
+    /***
+     *
+     * @returns {String} - Название  в каком виде отображаются товары
+     */
+    componentsName() {
+      return this.$store.getters["getProductType"];
+    },
+    /***
+     *
+     * @returns {Boolean} - Требуется ли обновлять все фильтры для нового запроса
+     */
+    checkFilterClick() {
+      return this.$store.getters["GetcheckFilterClick"];
+    }
+  },
+  watch: {
+    async $route(num, str) {
+      // Изменение route
+      if (this.checkFilterClick === true) {
+        console.log("Новый запрос reset all + count нужен");
+        await this.ResetNoApplicabilitiess();
+        await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        await this.CheckQueryFilter();
+        await this.pushParamsFilter();
+        await this.pushParamsSort();
+        await this.PushUrl(false);
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+        this.form = {};
+      } else {
+        if (this.checkFilterClick === false) {
+          // Кнопка поиск
+          this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+          await this.$store.dispatch("Products/_ProductAll", this.form);
+        }
+        this.$store.commit("SetcheckFilterClick", true);
+        this.form = {};
+      }
+    }
+  },
+  created() {
+    // КОстыль
+    // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
+    console.log("reset visible");
+    this.$store.dispatch(
+      "Catalog/All/_AllVisible",
+      this.$store.getters["Categories/CategoriesAll/GetCategories"]
+    );
+  },
   head() {
     return {
       title: "Pantus Спиоск товара",
@@ -71,7 +149,6 @@ export default {
       ]
     };
   },
-  mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
   async fetch({ query, store }) {
     await Promise.all([
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
@@ -178,83 +255,6 @@ export default {
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
-  },
-  components: {
-    BasePagination,
-    ButtonReplyShow,
-    Share,
-    FilterForm,
-    TableProduct,
-    productBlog,
-    productRow,
-    PanelVid,
-    FilterApplicabilities,
-    MetkaFilter,
-    ModalImg,
-    ModalBuy
-  },
-  computed: {
-    /***
-     *
-     * @returns {Object} - Список продуктов
-     */
-    Products() {
-      return this.$store.getters["Products/GetProducts"];
-    },
-    /***
-     *
-     * @returns {Object} - количество продуктов с указанными фильтрами
-     */
-    CountProducts() {
-      return this.$store.getters["Products/GetCountProducts"];
-    },
-    /***
-     *
-     * @returns {String} - Название  в каком виде отображаются товары
-     */
-    componentsName() {
-      return this.$store.getters["getProductType"];
-    },
-    /***
-     *
-     * @returns {Boolean} - Требуется ли обновлять все фильтры для нового запроса
-     */
-    checkFilterClick() {
-      return this.$store.getters["GetcheckFilterClick"];
-    }
-  },
-  created() {
-    // КОстыль
-    // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
-    console.log("reset visible");
-    this.$store.dispatch(
-      "Catalog/All/_AllVisible",
-      this.$store.getters["Categories/CategoriesAll/GetCategories"]
-    );
-  },
-  watch: {
-    async $route(num, str) {
-      // Изменение route
-      if (this.checkFilterClick === true) {
-        console.log("Новый запрос reset all + count нужен");
-        await this.ResetNoApplicabilitiess();
-        await this.$store.dispatch("Applicabilities/Panel/ResetAll");
-        await this.CheckQueryFilter();
-        await this.pushParamsFilter();
-        await this.pushParamsSort();
-        await this.PushUrl(false);
-        await this.$store.dispatch("Products/_ProductAll", this.form);
-        this.form = {};
-      } else {
-        if (this.checkFilterClick === false) {
-          // Кнопка поиск
-          this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
-          await this.$store.dispatch("Products/_ProductAll", this.form);
-        }
-        this.$store.commit("SetcheckFilterClick", true);
-        this.form = {};
-      }
-    }
   }
 };
 </script>

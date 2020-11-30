@@ -66,16 +66,16 @@ import NavProfile from "@/components/nav/profile/index";
 import Submit from "@/components/profile/profile-button-update";
 export default {
   middleware: "CheckGuest",
+  components: {
+    ElementForm,
+    NavProfile,
+    Submit
+  },
   // provide() {
   //   return {
   //     $v: this.$v,
   //   };
   // },
-  mixins: [mixinvalidator, mixinError],
-  components: {
-    ElementForm,
-    NavProfile,
-    Submit
-  }
+  mixins: [mixinvalidator, mixinError]
 };
 </script>

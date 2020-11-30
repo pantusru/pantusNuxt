@@ -8,22 +8,8 @@
 <script>
 import Product from "@/components/products/product/index";
 export default {
-  data() {
-    return {
-      title: ""
-    };
-  },
-  created() {
-    if (this.ProductData.length === 0) {
-      this.title = "Pantus товар не найден";
-    } else {
-      this.title = "Pantus товар " + this.ProductData[0].ProductCard.name;
-    }
-  },
-  head() {
-    return {
-      title: this.title
-    };
+  components: {
+    Product
   },
   async fetch({ store, params, getters }) {
     const ProductAll = store.getters["Products/GetProducts"]; // Все подгруженные товары
@@ -38,13 +24,27 @@ export default {
     }
     await store.dispatch("Products/_ProductId", params.id);
   },
+  data() {
+    return {
+      title: ""
+    };
+  },
   computed: {
     ProductData() {
       return this.$store.getters["Products/GetProduct"];
     }
   },
-  components: {
-    Product
+  created() {
+    if (this.ProductData.length === 0) {
+      this.title = "Pantus товар не найден";
+    } else {
+      this.title = "Pantus товар " + this.ProductData[0].ProductCard.name;
+    }
+  },
+  head() {
+    return {
+      title: this.title
+    };
   }
 };
 </script>

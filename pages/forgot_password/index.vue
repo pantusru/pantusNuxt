@@ -29,12 +29,12 @@ import MixinsValidations from "@/mixins/form/forgot-password/validator";
 import VInput from "@/components/register/index";
 import BaseButton from "@/components/base/button/base-button";
 export default {
-  mixins: [MixinsError, MixinsValidations],
-  middleware: "CheckUser",
   components: {
     BaseButton,
     VInput
   },
+  mixins: [MixinsError, MixinsValidations],
+  middleware: "CheckUser",
   methods: {
     ClickBnt() {
       this.$v.Form.$touch();

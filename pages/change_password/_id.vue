@@ -1,6 +1,7 @@
 <template>
   <b-container>
     <b-form>
+      <h1 class="mb-4">Восстановить пароль</h1>
       <form_input_password_change
         :error="error.password"
         :type="'password'"
@@ -28,6 +29,11 @@ import form_input_password_change from "@/components/change_password/form_input_
 
 export default {
   name: "change_password",
+  head() {
+    return {
+      title: "Pantus восстановить пароль"
+    };
+  },
   middleware: "change_password",
   mixins: [mixinValidator, mixinError],
   components: {

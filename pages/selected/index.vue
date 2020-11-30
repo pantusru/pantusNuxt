@@ -30,7 +30,12 @@ import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
   middleware: "CheckGuest",
   async fetch({ store }) {
-    store.dispatch("Selected/selected/_Selected");
+    await store.dispatch("Selected/selected/_Selected");
+  },
+  head() {
+    return {
+      title: "Pantus выбранные товары"
+    };
   },
   components: {
     BaseTitleInfo,

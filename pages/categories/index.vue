@@ -25,6 +25,11 @@ import Categories from "@/components/catalog/categories/categories-blog-get";
 import Vinput from "@/components/search/panel/input/index";
 import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
+  head() {
+    return {
+      title: "Pantus категории товаров"
+    };
+  },
   provide() {
     return {
       SetValue: "Categories/CategoriesAll/SetCategories"

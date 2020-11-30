@@ -17,7 +17,12 @@ import Applicabilities from "@/components/catalog/applicabilities/applicabilitie
 import Vinput from "@/components/search/panel/input/index";
 import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
-  async fetch({ query, store, getters, commit }) {
+  head() {
+    return {
+      title: "Pantus применяемости товаров"
+    };
+  },
+  async fetch({ store }) {
     await store.dispatch(
       "Applicabilities/ApplicabilitiessAll/_Applicabilitiess"
     );

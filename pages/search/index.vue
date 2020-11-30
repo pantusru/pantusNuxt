@@ -59,6 +59,18 @@ import ButtonReplyShow from "@/components/base/button/button-reply-show";
 import BasePagination from "@/components/base/pagination/base-pagination";
 
 export default {
+  head() {
+    return {
+      title: "Pantus Спиоск товара",
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз"
+        }
+      ]
+    };
+  },
   mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
   async fetch({ query, store }) {
     await Promise.all([

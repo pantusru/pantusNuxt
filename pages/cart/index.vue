@@ -18,15 +18,20 @@
 <script>
 import vButton from "@/components/cart/button/order-button-arrange";
 import CartButtonUpdate from "@/components/cart/button/cart-button-update";
-import Modal from "@/components/modal/authorization";
+// import Modal from "@/components/modal/authorization";
 import vTable from "@/components/table/table-cart-get";
 import VBlogCart from "@/components/cart/blog/cart-row-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
+  head() {
+    return {
+      title: "Pantus корзина"
+    };
+  },
   components: {
     BaseTitleInfo,
     vTable,
-    Modal,
+    // Modal,
     vButton,
     VBlogCart,
     CartButtonUpdate

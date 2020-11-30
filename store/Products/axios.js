@@ -56,7 +56,7 @@ export const actions = {
   _init_Product({ store, state }, data) {
     const dataset = [];
     if (data === undefined || data.length === 0) {
-      return;
+      return [];
     }
     data.forEach(elem => {
       dataset.push({

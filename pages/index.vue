@@ -16,6 +16,11 @@ import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
 import VueProductsIndex from "@/components/products/popular/index";
 export default {
+  head() {
+    return {
+      title: "Pantus главная"
+    };
+  },
   components: {
     VueNewsIndex,
     VueProductsIndex,

@@ -33,6 +33,11 @@ import PageMixins from "@/mixins/page/index";
 import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
   mixins: [PageMixins],
+  head() {
+    return {
+      title: "Pantus бренды товаров"
+    };
+  },
   async fetch({ store, getters, commit, query }) {
     await store.dispatch("Brand/BrandAll/_Brands");
   },

@@ -5,16 +5,17 @@
     <nav-mobile-button class="mr-3 d-block d-lg-none"></nav-mobile-button>
     <input
       v-model="search"
-      v-on:keyup.enter="SetSearch"
-      class="border-danger border-right-0 w-100 p-2 rounded-left bl-0"
       placeholder="Введите номер или название детали"
+      class="border-danger border-right-0 w-100 p-2 rounded-left bl-0"
+      @keyup.enter="SetSearch"
     />
-    <button
+    <base-button
       @click="SetSearch"
-      class="bg-danger px-2 py-2 border-danger rounded-right text-light mr-lg-2 mr-0"
+      class="px-2 py-2 border-danger rounded-right mr-lg-2 mr-0 left-off-rounded"
     >
       Найти
-    </button>
+    </base-button>
+    <!--    <button>Найти</button>-->
   </b-navbar-nav>
 </template>
 
@@ -56,4 +57,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.left-off-rounded {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+</style>

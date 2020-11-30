@@ -3,11 +3,11 @@ export const state = () => ({
    * @property Vuex массив для фильтров select состоящий из массивов
    */
   Panel: [],
-  /** @property Последний Id массива в Panel*/
+  /** @property Последний Id массива в Panel */
   Ids: 0
 });
 export const mutations = {
-  /*** @function  SetPanelNew - Добавляет новый  пустой массив в Panel*/
+  /**  @function  SetPanelNew - Добавляет новый  пустой массив в Panel */
   SetPanelNew(store) {
     store.Ids++;
     store.Panel.push({
@@ -33,7 +33,7 @@ export const mutations = {
    * @function  DeletePanel - Удаляет Element по index в Panel
    */
   DeleteElementPanel(store, data) {
-    let index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
+    const index = store.Panel.findIndex(panel => panel.id == data.IdPanel);
     store.Panel[index][data.NameElement].splice(data.indexElement, 1);
   },
   /**
@@ -50,11 +50,11 @@ export const mutations = {
    * @param {Array} data.value -  Значение на которое нужно поменять состояния Panel
    */
   SetPanel(store, data) {
-    let index = store.Panel.findIndex(panel => panel.id == data.id);
+    const index = store.Panel.findIndex(panel => panel.id == data.id);
     store.Panel[index][data.name] = data.value;
   },
   PushPanel(store, data) {
-    let index = store.Panel.findIndex(panel => panel.id == data.id);
+    const index = store.Panel.findIndex(panel => panel.id == data.id);
     store.Panel[index][data.name].push(data.value);
   },
   /**
@@ -63,7 +63,7 @@ export const mutations = {
    * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
    */
   SetPanelObject(store, data) {
-    let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
+    const indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
     data.name.forEach((element, indexData) => {
       store.Panel[indexPanel][element] = data.value[indexData];
     });
@@ -75,7 +75,7 @@ export const mutations = {
    * @param {*} data.name - Массив названии полей  которые изменятся  в Panel
    */
   PushPanelObject(store, data) {
-    let indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
+    const indexPanel = store.Panel.findIndex(panel => panel.id == data.id);
     data.name.forEach((element, indexData) => {
       store.Panel[indexPanel][element].push(data.value[indexData]);
     });
@@ -87,7 +87,7 @@ export const mutations = {
    * @param {String} data.NameData - Названия ключа Data который нужно сбросить в Panel
    */
   ResetClildren(store, data) {
-    let index = store.Panel.findIndex(panel => panel.id == data.id);
+    const index = store.Panel.findIndex(panel => panel.id == data.id);
     store.Panel[index][data.NameSelected] = [];
     store.Panel[index][data.NameData] = [];
   },
@@ -128,7 +128,7 @@ export const actions = {
   ResetAll({ commit, state, rootGetters }, data) {
     if (state.Panel.length !== 0) {
       for (const key in state.Panel) {
-        let index = rootGetters[
+        const index = rootGetters[
           "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"
         ](state.Panel[key].SelectedMarka);
         if (index !== -1) {
@@ -149,10 +149,10 @@ export const actions = {
    * @function  DeletePanel - Ищет Index по Id и отправляет в мутацию удаления Panel
    */
   DeletePanel({ store, commit, getters, state, rootGetters }, id) {
-    let index = getters.PanelfindIndex(id);
+    const index = getters.PanelfindIndex(id);
     if (state.Panel[index].SelectedMarka !== "") {
       console.log(state.Panel[index].SelectedMarka);
-      let indexReset = rootGetters[
+      const indexReset = rootGetters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"
       ](state.Panel[index].SelectedMarka); // Найди index применяемости
       if (indexReset !== -1) {
@@ -177,7 +177,7 @@ export const actions = {
    */
   SetAllIdUrl({ state, commit, dispatch, getters }) {
     let ids = [];
-    let deleteArr = [];
+    const deleteArr = [];
     state.Panel.forEach((element, index) => {
       if (element.SelectedMarka.length === 0) {
         deleteArr.push(element.id);
@@ -185,7 +185,7 @@ export const actions = {
       // ДОбавить SelectedGenerations
       if (element.SelectedGenerations.length !== 0) {
         ids.push(element.SelectedGenerations);
-        let DataModelSelected = [];
+        const DataModelSelected = [];
         for (const keyModel in element.SelectedModel) {
           // Прогоняем выбранные модели
           for (const keyModelData in element.DataModel) {

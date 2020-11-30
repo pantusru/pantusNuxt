@@ -19,6 +19,7 @@ module.exports = {
   rules: {
     "guard-for-in": 0, // check  в for hasOwnProperty -  не нужно
     "no-console": "warn", // Без консоли
-    "vue/require-default-prop": 0 // require props default
+    "vue/require-default-prop": 0, // require props default
+    "vue/name-property-casing": ["warn", "kebab-case"]
   }
 };

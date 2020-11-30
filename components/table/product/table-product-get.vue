@@ -127,4 +127,7 @@ export default {
 .hover-true:hover .d-none-chosen {
   display: block !important;
 }
+tbody tr:last-child {
+  border-bottom: 0 !important;
+}
 </style>

@@ -71,11 +71,16 @@
             <b-td class="border-top-0 text-555 d-none d-md-table-cell">{{
               offer.supplier.deliveryDelayView
             }}</b-td>
-            <b-td class="border-top-0 text-555 fz-5 font-weight-bold"
+            <b-td
+              class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap"
               >{{ offer.prices }} Р</b-td
             >
             <b-td class="border-top-0">
-              <BuyButton :LinkOffer="offer" :LinkProduct="table.ProductCard" />
+              <BuyButton
+                :LinkOffer="offer"
+                :LinkProduct="table.ProductCard"
+                class="text-nowrap"
+              />
             </b-td>
           </b-tr>
         </template>

@@ -6,6 +6,7 @@
       <!-- Выплывающий список все запчасти -->
       <b-button-group>
         <b-button
+          tabindex="-1"
           :href="data.to"
           class="bg-transparent border-0 text-555 link-ec0e1d font-weight-bold fz-5 px-3"
           @click.prevent="pushSearch(data.to)"
@@ -35,7 +36,7 @@ export default {
     pushSearch(to) {
       // this.$store.commit('SetcheckFilterClick', true)
       this.$router.push(to);
-    }
+    },
   },
   data() {
     return {
@@ -46,12 +47,12 @@ export default {
         { to: "/search?filter_applicabilities=3140", text: "Газ" },
         { to: "/search?filter_categories=264", text: "Рти" },
         { to: "/popular", text: "Популярные" },
-        { to: "", text: "Новинки" }
-      ]
+        { to: "", text: "Новинки" },
+      ],
     };
   },
   components: {
-    VueDropdown
-  }
+    VueDropdown,
+  },
 };
 </script>

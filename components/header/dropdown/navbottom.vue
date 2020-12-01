@@ -1,5 +1,6 @@
 <template>
   <b-nav-item-dropdown
+    tabindex="-1"
     center
     no-caret
     toggle-class="text-body link-danger font-weight-bold fz-5 px-0 w-100"
@@ -25,9 +26,9 @@ export default {
         { to: "/categories", text: "Категории запчастей" },
         { to: "", text: "Масло  и автохимия" },
         { to: "", text: "Антифризы, толосы" },
-        { to: "", text: "Каталоги оригинальных запчастей" }
-      ]
+        { to: "", text: "Каталоги оригинальных запчастей" },
+      ],
     };
-  }
+  },
 };
 </script>

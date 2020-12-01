@@ -6,15 +6,20 @@
           <b-col cols="4">
             <ImgGetModal :product="Product" />
           </b-col>
-          <h2 class="col-8 fz-3">
-            <nuxt-link
-              :title="Product.ProductCard.name"
-              class="text-555 reset-title"
-              :to="'product/' + Product.ProductCard.id"
-            >
-              {{ Product.ProductCard.name }}</nuxt-link
-            >
-          </h2>
+          <div class="col-8 d-flex justify-content-between align-items-start">
+            <h2 class="fz-3">
+              <nuxt-link
+                :title="Product.ProductCard.name"
+                class="text-555 reset-title"
+                :to="'product/' + Product.ProductCard.id"
+              >
+                {{ Product.ProductCard.name }}</nuxt-link
+              >
+            </h2>
+            <base-button v-if="Selected" @click="DeleteSelected" class="ml-3">
+              X
+            </base-button>
+          </div>
         </b-row>
       </b-row>
       <!--      <div>{{Product}}</div>-->
@@ -118,13 +123,6 @@
             :Linkoffset="Product.productOffer"
           />
         </b-row>
-        <b-button
-          v-if="Selected"
-          class="position-absolute bnt-delete-selected bg-danger border-0"
-          @click="DeleteSelected"
-        >
-          X
-        </b-button>
       </b-row>
     </b-card-body>
   </b-card>
@@ -134,6 +132,7 @@
 import ImgGetModal from "@/components/products/product/element/img";
 import RowAtr from "@/components/products/product/element/product-element-row-get";
 import TableOffset from "@/components/table/table-offset-get";
+import BaseButton from "@/components/base/button/base-button";
 
 export default {
   methods: {
@@ -142,24 +141,25 @@ export default {
         s => s.ProductCard.id == this.Product.ProductCard.id
       );
       this.$store.commit("Selected/selected/DeleteSelected", index);
-    }
+    },
   },
   name: "ProductBlogRow",
   props: {
     Product: {},
     Selected: {
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
+    BaseButton,
     RowAtr,
     TableOffset,
-    ImgGetModal
+    ImgGetModal,
   },
   computed: {
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
-    }
-  }
+    },
+  },
 };
 </script>

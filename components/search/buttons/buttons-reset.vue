@@ -9,6 +9,7 @@ export default {
   methods: {
     //  Обнулить форму!
     async Reset(event) {
+      this.$store.commit("SetcheckFilterClick", "resetAll");
       await this.ResetNoApplicabilitiess();
       await this.$router.push({
         name: "search",
@@ -21,16 +22,16 @@ export default {
           minvalue: undefined,
           maxvalue: undefined,
           filter_substr: undefined,
-          page_number: undefined
-        }
+          page_number: undefined,
+        },
       });
-    }
+    },
   },
   async destroyed() {
     // Сбрасываем все конфинги при уходе из страницы
     console.log("Уход с страницы");
     await this.ResetNoApplicabilitiess();
     this.$store.commit("Products/SetCountPage", 0);
-  }
+  },
 };
 </script>

@@ -1,6 +1,6 @@
 export const state = () => ({
   // Показывать ли затемнение при загрузки
-  showLoader: true,
+  showLoader: false,
   // Вид товара в фильтрах
   ProductType: "TableProduct",
   // Требуется ли прогонять всё фильтры при изменения route
@@ -8,9 +8,9 @@ export const state = () => ({
   Form: {
     password: false, // Проверка пароля с формы
     new_password: false, // Проверка пароля при отправки запроса на новый пароль
-    checkAuthorization: false // Проверка авторизации от сервера
+    checkAuthorization: false, // Проверка авторизации от сервера
   },
-  NavMobile: false
+  NavMobile: false,
 });
 export const mutations = {
   SetShow(store, data) {
@@ -27,7 +27,7 @@ export const mutations = {
   },
   SetcheckFilterClick(store, data) {
     store.checkFilterClick = data;
-  }
+  },
 };
 
 export const getters = {
@@ -37,5 +37,5 @@ export const getters = {
   GetFormPassword: s => s.Form.password,
   GetFormNewPassword: s => s.Form.new_password,
   GetcheckAuthorization: s => s.Form.checkAuthorization,
-  GetNavMobile: s => s.NavMobile
+  GetNavMobile: s => s.NavMobile,
 };

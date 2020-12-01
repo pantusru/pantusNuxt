@@ -13,6 +13,7 @@
 export default {
   methods: {
     async ResetApplicabilities() {
+      this.$store.commit("SetcheckFilterClick", "resetApplicabilities");
       await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       if (this.$route.query.filter_applicabilities !== undefined) {
         await this.$router.push({
@@ -20,16 +21,16 @@ export default {
           query: {
             ...this.$route.query,
             filter_applicabilities: undefined,
-            page_number: undefined
-          }
+            page_number: undefined,
+          },
         });
       } else {
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       }
-    }
+    },
   },
   destroyed() {
     this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
-  }
+  },
 };
 </script>

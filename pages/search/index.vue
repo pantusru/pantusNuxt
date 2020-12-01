@@ -83,7 +83,7 @@ export default {
     FilterApplicabilities,
     MetkaFilter,
     ModalImg,
-    ModalBuy
+    ModalBuy,
   },
   mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
   computed: {
@@ -110,19 +110,26 @@ export default {
     },
     /***
      *
-     * @returns {Boolean} - Требуется ли обновлять все фильтры для нового запроса
+     * @returns {Boolean | String} - Требуется ли обновлять все фильтры для нового запроса
      */
     checkFilterClick() {
       return this.$store.getters["GetcheckFilterClick"];
-    }
+    },
   },
   watch: {
-    async $route(num, str) {
+    async $route() {
       // Изменение route
-      if (this.checkFilterClick === true) {
+      if (this.checkFilterClick !== false) {
+        // Это не кнопка
         console.log("Новый запрос reset all + count нужен");
-        await this.ResetNoApplicabilitiess();
-        await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        if (this.checkFilterClick !== "resetAll") {
+          console.log("Кнопка no reset all");
+          await this.ResetNoApplicabilitiess();
+        }
+        if (this.checkFilterClick !== "resetApplicabilities") {
+          console.log("Кнопка no reset Panel");
+          await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        }
         await this.CheckQueryFilter();
         await this.pushParamsFilter();
         await this.pushParamsSort();
@@ -135,7 +142,7 @@ export default {
       }
       this.$store.commit("SetcheckFilterClick", true);
       this.form = {};
-    }
+    },
   },
   created() {
     // КОстыль
@@ -153,9 +160,9 @@ export default {
         {
           name: "keywords",
           content:
-            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз"
-        }
-      ]
+            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
+        },
+      ],
     };
   },
   async fetch({ query, store }) {
@@ -163,7 +170,7 @@ export default {
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
       store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
       store.dispatch("Brand/BrandAll/_Brands"), // бренды
-      store.dispatch("Selected/selected/_Selected") // запрос избранные товары user
+      store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
     ]);
     //   ПРОВЕРКА QUERY
     if (query !== undefined) {
@@ -195,10 +202,17 @@ export default {
         let brand = query.filter_brands.split(",");
         brand = Array.from(new Set(brand));
         brand.forEach(element => {
-          store.commit("formSearch/SetBrandsChecked", Number(element));
+          const id = Number(element);
+          if (
+            store.getters["Brand/BrandAll/GetBrand"].findIndex(
+              data => data.id === id
+            ) !== -1
+          ) {
+            store.commit("formSearch/SetBrandsChecked", id);
+          }
         });
         await store.dispatch("Catalog/Metks/SetMetksBrand", {
-          ids: brand
+          ids: brand,
         });
         this.form.filter_brands = store.getters["formSearch/GetBrandsChecked"];
         this.form.filter_brands = this.form.filter_brands.join();
@@ -213,7 +227,7 @@ export default {
         const ids = query.filter_categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
-          ids
+          ids,
         });
 
         await store.dispatch(
@@ -234,7 +248,7 @@ export default {
             store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             ],
-          id: ids
+          id: ids,
         });
         this.form.filter_applicabilities = await store.dispatch(
           "Applicabilities/Panel/SetAllIdUrl"
@@ -250,7 +264,7 @@ export default {
         // ПРОВЕРКА СОРТИРОВКИ
         store.commit("formSearch/SetSort", {
           SortType: query.sort_type,
-          SortName: query.sort_name
+          SortName: query.sort_name,
         });
         this.form.sort_name = store.getters["formSearch/GetSortName"];
         this.form.sort_type = store.getters["formSearch/GetSortType"];
@@ -264,6 +278,6 @@ export default {
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
-  }
+  },
 };
 </script>

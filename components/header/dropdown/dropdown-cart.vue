@@ -15,7 +15,7 @@
       </tr>
     </b-thead>
     <b-tbody>
-      <template v-for="(dataset, index) in CartProduct">
+      <template v-for="(dataset, index) in CartProduct.slice(0, 5)">
         <tr :key="dataset.id">
           <td class="w-50">
             <span
@@ -78,18 +78,18 @@ export default {
         { key: "sku", label: "Артикуль" + "\r\n" + "Наименование" },
         { key: "price", label: "Цена" },
         { key: "count", label: "Кол-во, шт" },
-        { key: "Delete", label: "" }
-      ]
+        { key: "Delete", label: "" },
+      ],
     };
   },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
+    },
   },
   components: {
-    DeleteCart
-  }
+    DeleteCart,
+  },
 };
 </script>
 

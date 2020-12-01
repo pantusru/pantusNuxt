@@ -4,7 +4,7 @@ export const state = () => ({
    */
   Panel: [],
   /** @property Последний Id массива в Panel */
-  Ids: 0
+  Ids: 0,
 });
 export const mutations = {
   /**  @function  SetPanelNew - Добавляет новый  пустой массив в Panel */
@@ -16,7 +16,7 @@ export const mutations = {
       SelectedModel: [],
       SelectedGenerations: [],
       DataModel: [],
-      DataGenerations: []
+      DataGenerations: [],
     });
   },
   /**
@@ -104,10 +104,10 @@ export const mutations = {
         SelectedModel: [],
         SelectedGenerations: [],
         DataModel: [],
-        DataGenerations: []
-      }
+        DataGenerations: [],
+      },
     ];
-  }
+  },
 };
 export const actions = {
   /**
@@ -136,7 +136,7 @@ export const actions = {
             "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
             {
               index,
-              value: false
+              value: false,
             },
             { root: true }
           );
@@ -161,7 +161,7 @@ export const actions = {
           {
             // Отобразить его
             index: indexReset,
-            value: false
+            value: false,
           },
           { root: true }
         );
@@ -175,67 +175,103 @@ export const actions = {
    * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
    * @returns {String}  Строку массива всех выбранных id с Panel
    */
+  // SetAllIdUrl({ state, commit, dispatch, getters }) {
+  //   let ids = [];
+  //   const deleteArr = []; // Массив пустых массивов
+  //   state.Panel.forEach((element, index) => {
+  //     if (element.SelectedMarka.length === 0) {
+  //       deleteArr.push(element.id);
+  //     }
+  //     // ДОбавить SelectedGenerations
+  //     if (element.SelectedGenerations.length !== 0) {
+  //       ids.push(element.SelectedGenerations);
+  //       const DataModelSelected = [];
+  //       for (const keyModel in element.SelectedModel) {
+  //         // Прогоняем выбранные модели
+  //         for (const keyModelData in element.DataModel) {
+  //           // Прогоняем Data всех моделей
+  //           if (
+  //             element.SelectedModel[keyModel] ===
+  //             element.DataModel[keyModelData].id
+  //           ) {
+  //             // ищем данные о выбранных моделей
+  //             DataModelSelected.push(element.DataModel[keyModelData]);
+  //             break;
+  //           }
+  //         }
+  //       }
+  //       for (const keyModel in DataModelSelected) {
+  //         // Прогоняем данные о выбранных моделей
+  //         let check = false;
+  //         for (const keyChildren in DataModelSelected[keyModel].children) {
+  //           // Прогоняем children выбранных Моделей
+  //           let checkChildren = false;
+  //           for (const keyGenerations in element.SelectedGenerations) {
+  //             // Прогоняет Id выбранных поколении
+  //             if (
+  //               DataModelSelected[keyModel].children[keyChildren].id ==
+  //               element.SelectedGenerations[keyGenerations]
+  //             ) {
+  //               // Проверяет есть ли совпадения
+  //               checkChildren = true;
+  //               check = true;
+  //               break;
+  //             }
+  //           }
+  //           if (checkChildren === true) {
+  //             // Совпадение найдено!
+  //             break;
+  //           }
+  //         }
+  //         if (check === false) {
+  //           // У модели нету выбранных поколении
+  //           ids.push(element.SelectedModel[keyModel]);
+  //         }
+  //       }
+  //       // ДОбавить SelectedModel
+  //     } else if (element.SelectedModel.length !== 0) {
+  //       ids.push(element.SelectedModel);
+  //       // ДОбавить SelectedMarka
+  //     } else if (element.SelectedMarka.length !== 0) {
+  //       ids.push(element.SelectedMarka);
+  //     }
+  //   });
+  //   // Удалить все пустые панели
+  //   deleteArr.forEach(elem => {
+  //     if (getters.PanelLength > 1) {
+  //       dispatch("Applicabilities/Panel/DeletePanel", elem, { root: true });
+  //     }
+  //   });
+  //   if (ids.length !== 0) {
+  //     ids = ids.flat(Infinity);
+  //     ids = Array.from(new Set(ids)).join();
+  //     return ids;
+  //   }
+  // },
+  /**
+   *
+   * @function SetAllIdUrl - Собирает с всех Panel id максимальной вложенности
+   * @returns {String}  Строку массива всех выбранных id с Panel
+   */
   SetAllIdUrl({ state, commit, dispatch, getters }) {
     let ids = [];
-    const deleteArr = [];
+    const deleteArr = []; // Массив пустых массивов
     state.Panel.forEach((element, index) => {
-      if (element.SelectedMarka.length === 0) {
+      if (element.SelectedMarka.length !== 0) {
+        // ДОбавить SelectedMarka
+        ids.push(element.SelectedMarka);
+        if (element.SelectedModel.length !== 0) {
+          // ДОбавить SelectedModel
+          ids.push(element.SelectedModel);
+          if (element.SelectedGenerations.length !== 0) {
+            ids.push(element.SelectedGenerations);
+          }
+        }
+      } else {
         deleteArr.push(element.id);
       }
-      // ДОбавить SelectedGenerations
-      if (element.SelectedGenerations.length !== 0) {
-        ids.push(element.SelectedGenerations);
-        const DataModelSelected = [];
-        for (const keyModel in element.SelectedModel) {
-          // Прогоняем выбранные модели
-          for (const keyModelData in element.DataModel) {
-            // Прогоняем Data всех моделей
-            if (
-              element.SelectedModel[keyModel] ===
-              element.DataModel[keyModelData].id
-            ) {
-              // ищем данные о выбранных моделей
-              DataModelSelected.push(element.DataModel[keyModelData]);
-              break;
-            }
-          }
-        }
-        for (const keyModel in DataModelSelected) {
-          // Прогоняем данные о выбранных моделей
-          let check = false;
-          for (const keyChildren in DataModelSelected[keyModel].children) {
-            // Прогоняем children выбранных Моделей
-            let checkChildren = false;
-            for (const keyGenerations in element.SelectedGenerations) {
-              // Прогоняет Id выбранных поколении
-              if (
-                DataModelSelected[keyModel].children[keyChildren].id ==
-                element.SelectedGenerations[keyGenerations]
-              ) {
-                // Проверяет есть ли совпадения
-                checkChildren = true;
-                check = true;
-                break;
-              }
-            }
-            if (checkChildren === true) {
-              // Совпадение найдено!
-              break;
-            }
-          }
-          if (check === false) {
-            // У модели нету выбранных поколении
-            ids.push(element.SelectedModel[keyModel]);
-          }
-        }
-        // ДОбавить SelectedModel
-      } else if (element.SelectedModel.length !== 0) {
-        ids.push(element.SelectedModel);
-        // ДОбавить SelectedMarka
-      } else if (element.SelectedMarka.length !== 0) {
-        ids.push(element.SelectedMarka);
-      }
     });
+    // Удалить все пустые панели
     deleteArr.forEach(elem => {
       if (getters.PanelLength > 1) {
         dispatch("Applicabilities/Panel/DeletePanel", elem, { root: true });
@@ -243,10 +279,11 @@ export const actions = {
     });
     if (ids.length !== 0) {
       ids = ids.flat(Infinity);
-      ids = Array.from(new Set(ids)).join();
+      ids = ids.join();
+      // ids = Array.from(new Set(ids)).join();
       return ids;
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -268,5 +305,5 @@ export const getters = {
    * #Вывод index панели по id
    * @returns {Object}  index Panel
    */
-  PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id)
+  PanelfindIndex: s => id => s.Panel.findIndex(panel => panel.id == id),
 };

@@ -9,19 +9,19 @@ export default {
       background_color: "#000",
       theme_color: "#000",
       start_url: "http://test2.pantus.ru:8083/",
-      icons: [
-        {
-          src: "/icon.png",
-          type: "image/png",
-          sizes: "192x192"
-        }
-      ]
+      // icons: [
+      //   {
+      //     src: "/icon.png",
+      //     type: "image/png",
+      //     sizes: "192x192"
+      //   }
+      // ]
     },
-    workbox: {}
+    workbox: {},
   },
   router: {
     prefetchLinks: false,
-    middleware: "user"
+    middleware: "user",
   },
   /*
    ** Nuxt rendering mode
@@ -39,11 +39,11 @@ export default {
    */
   server: {
     port: 8000,
-    host: "0.0.0.0"
+    host: "0.0.0.0",
   },
   head: {
     htmlAttrs: {
-      lang: "ru"
+      lang: "ru",
     },
     title: process.env.npm_package_name || "",
     meta: [
@@ -52,13 +52,13 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
-      }
+        content: process.env.npm_package_description || "",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: "apple-touch-icon", href: "/icon.png" }
-    ]
+      { rel: "apple-touch-icon", href: "/icon.png" },
+    ],
   },
   /*
    ** Global CSS
@@ -66,7 +66,7 @@ export default {
   css: [
     "@/assets/css/main.css",
     "@/assets/css/reset.css",
-    "@/assets/css/fonts.css"
+    "@/assets/css/fonts.css",
   ],
   /*
    ** Plugins to load before mounting the App
@@ -77,7 +77,7 @@ export default {
     { src: "./plugins/ConfingAxios.js" },
     { src: "./plugins/vuelidate.js" },
     { src: "./plugins/v-mask.js" },
-    { src: "./plugins/Clipboard.js" }
+    { src: "./plugins/Clipboard.js" },
     // {src:'./plugins/scroll.js'},
   ],
   /*
@@ -96,11 +96,11 @@ export default {
     [
       "bootstrap-vue/nuxt",
       {
-        icons: true
-      }
+        icons: true,
+      },
     ],
     ["cookie-universal-nuxt"],
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
   ],
 
   axios: {},
@@ -110,9 +110,9 @@ export default {
       config.resolve.alias["@img"] = path.resolve(__dirname, "assets/img");
       // config.resolve.alias['@components_Cart_Blog_blog']= path.resolve(__dirname, "components/Cart/Blog/blog");
     },
-    extractCSS: true
+    extractCSS: true,
   },
   env: {
-    api: "http://api.pantus.ru"
-  }
+    api: "http://api.pantus.ru",
+  },
 };

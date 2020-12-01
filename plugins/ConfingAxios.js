@@ -1,6 +1,7 @@
-export default function ({ $axios, redirect, app, request }) {
+export default function ({ $axios, redirect, app, request, store }) {
   $axios.onRequest(config => {
     // ПЕРЕХВАТЧИК ЗАПРОСА
+    store.commit("SetShow", true);
     if (app.$cookies.get("Authorization") !== undefined) {
       $axios.defaults.headers.common["Authorization"] = app.$cookies.get(
         "Authorization"
@@ -8,17 +9,19 @@ export default function ({ $axios, redirect, app, request }) {
     }
     console.log("Making request to " + config.url);
   });
-  // $axios.onResponse(res => {
-  //   // ПЕРЕХВАТЧИК ОТВЕТА
-  //   if (res.data !== undefined) {
-  //     return res;
-  //   } else {
-  //     return false;
-  //   }
-  // });
+  $axios.onResponse(res => {
+    store.commit("SetShow", false);
+    //   // ПЕРЕХВАТЧИК ОТВЕТА
+    //   if (res.data !== undefined) {
+    //     return res;
+    //   } else {
+    //     return false;
+    //   }
+  });
 
   $axios.onError(() => {
+    store.commit("SetShow", false);
     // ПЕРЕХВАТЧИК ОШИБКИ
-    redirect("/505");
+    redirect("/404");
   });
 }

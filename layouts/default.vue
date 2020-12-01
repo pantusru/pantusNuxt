@@ -15,7 +15,7 @@ import VueFooter from "@/components/footer/footer-main";
 export default {
   components: {
     VueHeader,
-    VueFooter
+    VueFooter,
   },
   computed: {
     show() {
@@ -23,11 +23,11 @@ export default {
     },
     NavMobule() {
       return this.$store.getters["GetNavMobile"];
-    }
+    },
   },
   mounted() {
     // при прогрузке странице
-    this.$store.commit("SetShow", false);
+    // this.$store.commit("SetShow", false);
     window.addEventListener("resize", () => {
       if (document.body.clientWidth > 992) {
         // Скрыть окно и показать контент
@@ -41,15 +41,15 @@ export default {
   watch: {
     // при изменения url
     $route() {
-      this.$store.commit("SetShow", true); // Показать загрузку экрана
+      // this.$store.commit("SetShow", true); // Показать загрузку экрана
       this.$nextTick(() => {
         this.$store.commit("SetNavMobile", false); // Убрать мобильное меню
       });
-    }
+    },
   },
   updated() {
     // при обновление страницы
-    this.$store.commit("SetShow", false);
-  }
+    // this.$store.commit("SetShow", false);
+  },
 };
 </script>

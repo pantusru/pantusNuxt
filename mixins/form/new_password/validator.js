@@ -3,23 +3,25 @@ import {
   minLength,
   maxLength,
   alphaNum,
-  sameAs
+  sameAs,
+  not,
 } from "vuelidate/lib/validators";
 let str_password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
-  alphaNum
+  alphaNum,
 };
 let password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
-  alphaNum
+  alphaNum,
+  sameAsPassword: not(sameAs("str_password")),
 };
 let password2 = {
   required,
-  sameAsPassword: sameAs("password")
+  sameAsPassword: sameAs("password"),
 };
 
 export default {
@@ -28,8 +30,8 @@ export default {
       Form: {
         password2: "",
         password: "",
-        str_password: ""
-      }
+        str_password: "",
+      },
     };
   },
   validations() {
@@ -37,8 +39,8 @@ export default {
       Form: {
         str_password: str_password,
         password: password,
-        password2: password2
-      }
+        password2: password2,
+      },
     };
-  }
+  },
 };

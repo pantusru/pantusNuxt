@@ -1,6 +1,6 @@
 <template>
   <b-navbar variant="light" class="d-none d-lg-flex">
-    <div class="container">
+    <div class="container px-15px">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="py-1">
@@ -22,7 +22,7 @@
             {{ data.text }}
           </b-nav-item>
         </b-navbar-nav>
-        <b-navbar-nav class="ml-auto px-10px">
+        <b-navbar-nav class="ml-auto">
           <b-nav-item
             link-classes="text-436174 pb-lg-0 pb-2 pt-0"
             href="tel:88005558721"
@@ -48,12 +48,12 @@ export default {
         { to: "", text: "Оплата" },
         { to: "/news/", text: "Новости" },
         { to: "", text: "Помощь" },
-        { to: "", text: "Контакты" }
-      ]
+        { to: "", text: "Контакты" },
+      ],
     };
   },
   components: {
-    VueDropdown
-  }
+    VueDropdown,
+  },
 };
 </script>

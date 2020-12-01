@@ -2,7 +2,7 @@
   <div>
     <b-row no-gutters v-if="Metks.length !== 0">
       <Metka
-        v-for="(data, index) in Metks.slice(0, countMetk)"
+        v-for="(data, index) in Metks.slice(0, countMetka)"
         :key="data.id"
         :link="data"
         :index="index"
@@ -10,20 +10,16 @@
       <!--      <transition v-if="getAllMetka" class="transition">-->
       <template v-if="getAllMetka">
         <Metka
-          v-for="(data, index) in Metks.slice(countMetk, Metks.length)"
+          v-for="(data, index) in Metks.slice(countMetka, Metks.length)"
           :key="data.id"
           :link="data"
           :index="index"
         />
       </template>
-
-      <!--      </transition>-->
     </b-row>
-    <base-button
-      v-if="Metks.length > countMetk"
-      @click="getAllMetka = !getAllMetka"
-      >Все метки</base-button
-    >
+    <base-button v-if="Metks.length > countMetka" @click="GetShowAllMetka">{{
+      BntAllMetkaText
+    }}</base-button>
   </div>
 </template>
 
@@ -35,8 +31,20 @@ export default {
   data() {
     return {
       getAllMetka: false,
-      countMetk: 10
+      countMetka: 10,
+      BntAllMetkaText: "Показать все метки"
     };
+  },
+  methods: {
+    GetShowAllMetka() {
+      if (this.getAllMetka === true) {
+        this.getAllMetka = false;
+        this.BntAllMetkaText = "Показать все метки";
+      } else if (this.getAllMetka === false) {
+        this.getAllMetka = true;
+        this.BntAllMetkaText = "Скрыть все метки";
+      }
+    }
   },
   computed: {
     Metks() {

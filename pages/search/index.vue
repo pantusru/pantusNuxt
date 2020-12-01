@@ -21,20 +21,32 @@
           </div>
           <!-- Выбран вид не таблица () => показываем table-head -->
           <b-table-simple
-            v-if="componentsName !== 'TableProduct'"
+            v-if="componentsName !== 'TableProduct' && Products.length !== 0"
             class="text-center fz-5_5"
           >
-            <PanelVid class="panelProductFilter mb-0" />
+            <PanelVid
+              v-if="Products.length !== 0"
+              class="panelProductFilter mb-0"
+            />
           </b-table-simple>
           <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
           <div class="d-none d-lg-block">
-            <components :is="componentsName" :array="Products" />
+            <components
+              v-if="Products.length !== 0"
+              :is="componentsName"
+              :array="Products"
+            />
           </div>
           <!-- Для Мобильных ()=>  вид товара блочный -->
           <div class="d-block d-lg-none">
-            <components :is="'productBlog'" :array="Products" />
+            <components
+              :is="'productBlog'"
+              :array="Products"
+              v-if="Products.length !== 0"
+            />
           </div>
-          <base-pagination :length="CountProducts" />
+          <h1 v-if="Products.length === 0" class="error">Товар не найден</h1>
+          <base-pagination v-if="CountProducts !== 0" :length="CountProducts" />
         </b-col>
       </b-row>
     </div>
@@ -114,18 +126,15 @@ export default {
         await this.CheckQueryFilter();
         await this.pushParamsFilter();
         await this.pushParamsSort();
-        await this.PushUrl(false);
         await this.$store.dispatch("Products/_ProductAll", this.form);
-        this.form = {};
-      } else {
-        if (this.checkFilterClick === false) {
-          // Кнопка поиск
-          this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
-          await this.$store.dispatch("Products/_ProductAll", this.form);
-        }
-        this.$store.commit("SetcheckFilterClick", true);
-        this.form = {};
+        window.scrollTo(0, 0);
+      } else if (this.checkFilterClick === false) {
+        // Кнопка поиск
+        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+        await this.$store.dispatch("Products/_ProductAll", this.form);
       }
+      this.$store.commit("SetcheckFilterClick", true);
+      this.form = {};
     }
   },
   created() {
@@ -161,7 +170,7 @@ export default {
       this.form = {};
       if (query.maxvalue !== undefined && query.minvalue !== undefined) {
         // Проверка МАКСИМУМА  + МИНИМУМА
-        if (query.maxvalue < query.minvalue) {
+        if (query.maxvalue > query.minvalue) {
           // Минимальное больше максимального
           store.commit("formSearch/SetMaxValue", query.minvalue);
           store.commit("formSearch/SetMinValue", query.maxvalue);

@@ -14,14 +14,6 @@
 <script>
 export default {
   name: "base-alert",
-  data() {
-    return {
-      /**
-       * @protected Переменная которая отсчитывает время когда alert изображается
-       */
-      dismissCountDown: this.dismissSecs
-    };
-  },
   props: {
     /**
      * Внешний вид alert
@@ -58,6 +50,14 @@ export default {
       default: 3,
       type: Number
     }
+  },
+  data() {
+    return {
+      /**
+       * @protected Переменная которая отсчитывает время когда alert изображается
+       */
+      dismissCountDown: this.dismissSecs
+    };
   },
   methods: {
     /**

@@ -5,6 +5,15 @@
 <script>
 export default {
   name: "base-exit-user",
+  props: {
+    /***
+     * Компонент в котором обвернется функция выход из аккаунта
+     */
+    components: {
+      request: true,
+      type: String
+    }
+  },
   methods: {
     /**
      * @function  exitUser - Выход user из аккаунта
@@ -14,15 +23,6 @@ export default {
       this.$store.commit("User/AuthorizationFalse");
       this.$cookies.remove("Authorization");
       this.$router.push({ name: "index" });
-    }
-  },
-  props: {
-    /***
-     * Компонент в котором обвернется функция выход из аккаунта
-     */
-    components: {
-      request: true,
-      type: String
     }
   }
 };

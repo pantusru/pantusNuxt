@@ -96,10 +96,12 @@ export default {
       window.scrollTo(0, 0);
       // НОВЫЙ URL
       if (checkPush) {
+        // Кнопка отправить запрос
         await this.$router.push({
           name: "search",
           query: { ...this.form, page_number: undefined }
         });
+        this.form.page_number = undefined;
         await this.$store.dispatch("Products/_ProductAll", this.form);
       }
     }

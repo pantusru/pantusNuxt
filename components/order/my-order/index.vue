@@ -1,19 +1,22 @@
 <template>
   <div class="mt-4">
-    <MyOrderBLog
-      v-if="MyOrder !== null"
-      v-for="data in MyOrder"
-      :key="data.id"
-      :data="data"
-    />
+    <template v-if="MyOrder !== null">
+      <MyOrderBLog v-for="data in MyOrder" :key="data.id" :data="data" />
+    </template>
     <b-pagination-nav
-      v-if="MyOrder !== null"
-      :link-gen="linkGen"
-      :number-of-pages="MyOrder.length"
-      use-router
+      v-if="MyOrder !== null && countPage !== 1"
+      limit="3"
+      hide-goto-end-buttons
+      size="sm"
+      :value="$route.query.page || 1"
+      first-number
+      last-number
       align="center"
+      :link-gen="linkGen"
+      :number-of-pages="countPage"
+      use-router
     />
-    <base-title-info v-else text="У вас нету заказов" />
+    <base-title-info v-if="MyOrder === null" text="У вас нету заказов" />
   </div>
 </template>
 
@@ -26,6 +29,14 @@ export default {
   computed: {
     MyOrder() {
       return this.$store.getters["MyOrder/GetMyOrder"];
+    },
+    countPage() {
+      const data = Math.ceil(this.MyOrder.length / 4);
+      if (data === 0) {
+        return 1;
+      } else {
+        return data;
+      }
     }
   },
   components: {

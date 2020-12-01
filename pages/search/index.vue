@@ -68,7 +68,7 @@ import CheckQueryFilter from "@/mixins/check-query-filter/index";
 import SubmitFilter from "@/mixins/search-submit/index";
 import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
-import BasePagination from "@/components/base/pagination/base-pagination";
+import BasePagination from "@/components/base/pagination/base-pagination-filter";
 
 export default {
   components: {

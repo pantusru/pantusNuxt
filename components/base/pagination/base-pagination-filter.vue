@@ -1,5 +1,6 @@
 <template>
   <b-pagination-nav
+    v-if="countPage > 1"
     limit="3"
     hide-goto-end-buttons
     size="sm"
@@ -16,7 +17,7 @@
 <script>
 import PageFilter from "@/mixins/page/filter";
 export default {
-  name: "base-pagination",
+  name: "base-pagination-filter",
   mixins: [PageFilter],
   props: {
     length: {

@@ -51,9 +51,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,css,vue}": "prettier --write",
     "**/*.{css}": [
-      "prettier --write",
       "stylelint --fix --config ./stylelint.config.js"
     ]
   }

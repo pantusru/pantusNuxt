@@ -1,3 +1,4 @@
+// eslint-disable-next-line nuxt/no-cjs-in-config
 const path = require("path");
 export default {
   pwa: {

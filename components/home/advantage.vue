@@ -74,50 +74,7 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      block: [
-        {
-          CheckLink: false,
-          title: "БОЛЕЕ",
-          titleDop: "22 000",
-          text: "автозапчастей в каталогах",
-          src: require("@img/advantage/feature-new-01.png"),
-          alt: "1",
-          href: "",
-        },
-        {
-          CheckLink: false,
-          title: "ДОСТАВКА",
-          titleDop: "ПО ВСЕМУ МИРУ",
-          text: "  От 0 руб. по России",
-          src: require("@img/advantage/feature-new-02.png"),
-          alt: "2",
-          href: "",
-        },
-        {
-          CheckLink: false,
-          title: "ИНДИВИДУАЛЬНОЕ",
-          titleDop: "",
-          text: "производство деталей",
-          src: require("@img/advantage/feature-new-03.png"),
-          alt: "3",
-          href: "",
-        },
-        {
-          CheckLink: false,
-          title: "Способов оплаты",
-          titleDop: "20",
-          text: "с возможностью отсрочки и оплаты при получении",
-          src: require("@img/advantage/feature-new-04.png"),
-          alt: "4",
-          href: "",
-        },
-      ],
-    };
-  },
-};
+export default {};
 </script>
 <style>
 .section {

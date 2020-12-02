@@ -12,28 +12,28 @@ export default {
   components: { BaseButton },
   props: {
     index: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
     GetCartUpdateCount() {
       return this.$store.getters["Cart/CartAll/GetCartUpdateCount"];
-    }
+    },
   },
   methods: {
     UpdateProduct() {
       // await Запрос на изменение товара
       this.$store.commit("Cart/CartAll/SetCartCheckCount", {
         index: this.index,
-        value: false
+        value: false,
       });
       const count = this.GetCartUpdateCount - 1;
       this.$store.commit("Cart/CartAll/SetCartUpdateCount", count);
       if (this.GetCartUpdateCount === 0) {
         this.$store.commit("Cart/CartAll/SetCartActual");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

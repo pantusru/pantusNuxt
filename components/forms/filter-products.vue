@@ -58,7 +58,7 @@ export default {
   name: "fulter-products",
   data() {
     return {
-      show: true
+      show: true,
     };
   },
   components: {
@@ -66,7 +66,7 @@ export default {
     Panel,
     Reset,
     Submit,
-    PanelBrand
-  }
+    PanelBrand,
+  },
 };
 </script>

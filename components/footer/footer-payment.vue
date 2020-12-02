@@ -31,17 +31,17 @@ export default {
       linksImg: [
         { src: require("@img/footer/cards.png"), href: "", alt: "11" },
         { src: require("@img/footer/cash.png"), href: "", alt: "22" },
-        { src: require("@img/footer/bank.png"), href: "", alt: "33" }
+        { src: require("@img/footer/bank.png"), href: "", alt: "33" },
       ],
       linksImgManu: [
         { src: require("@img/footer/paypal.png"), href: "", alt: "11" },
         { src: require("@img/footer/yandexmoney.png"), href: "", alt: "22" },
         { src: require("@img/footer/webmoney.png"), href: "", alt: "33" },
-        { src: require("@img/footer/qiwi.png"), href: "", alt: "33" }
+        { src: require("@img/footer/qiwi.png"), href: "", alt: "33" },
       ],
       text:
-        "Мы принимаем банковские карты Visa, MasterCard и Мир. А также предлагаем 10 других безопасных способов оплаты, включая безналичный расчет, электронные деньги и салоны связи. Возможна оплата товара при получении и отсрочка платежа."
+        "Мы принимаем банковские карты Visa, MasterCard и Мир. А также предлагаем 10 других безопасных способов оплаты, включая безналичный расчет, электронные деньги и салоны связи. Возможна оплата товара при получении и отсрочка платежа.",
     };
-  }
+  },
 };
 </script>

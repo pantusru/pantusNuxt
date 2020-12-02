@@ -69,7 +69,7 @@ export default {
   components: {
     BaseButton,
     VInput,
-    vueRecaptcha
+    vueRecaptcha,
   },
   methods: {
     registration() {
@@ -109,22 +109,22 @@ export default {
           this.hidden();
           console.log("ВЫ авторизованы");
           this.$cookies.set("Authorization", this.$v.Form.$model.email, {
-            maxAge: 60 * 60 * 24 * 7 * 365
+            maxAge: 60 * 60 * 24 * 7 * 365,
           });
           this.$store.commit("SetFormApi", {
             data: "checkAuthorization",
-            value: false
+            value: false,
           });
           this.$store.commit("User/AuthorizationTrue");
           this.$router.push("/");
         } else {
           this.$store.commit("SetFormApi", {
             data: "checkAuthorization",
-            value: true
+            value: true,
           });
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

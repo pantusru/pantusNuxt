@@ -15,19 +15,19 @@ export default {
   provide() {
     return {
       ArrayData: this.ArrayData,
-      SetValue: this.SetValue
+      SetValue: this.SetValue,
     };
   },
   components: {
     BaseTitleFilter,
     // ButtonFull,
     Data,
-    VInputV
+    VInputV,
   },
   computed: {
     data() {
       return this.$store.getters[this.ArrayData];
-    }
-  }
+    },
+  },
 };
 </script>

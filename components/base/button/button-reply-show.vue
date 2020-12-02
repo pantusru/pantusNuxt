@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "button-reply-show"
+  name: "button-reply-show",
 };
 </script>
 

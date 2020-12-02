@@ -11,8 +11,8 @@ export default {
      */
     components: {
       request: true,
-      type: String
-    }
+      type: String,
+    },
   },
   methods: {
     /**
@@ -23,8 +23,8 @@ export default {
       this.$store.commit("User/AuthorizationFalse");
       this.$cookies.remove("Authorization");
       this.$router.push({ name: "index" });
-    }
-  }
+    },
+  },
 };
 </script>
 

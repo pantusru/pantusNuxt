@@ -12,7 +12,7 @@ export default {
       await this.pushParamsFilter(event);
       this.pushParamsSort();
       await this.PushUrl();
-    }
-  }
+    },
+  },
 };
 </script>

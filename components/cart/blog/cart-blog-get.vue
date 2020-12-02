@@ -85,7 +85,7 @@ export default {
     ImgGetModal,
     DeleteCart,
     vInput,
-    ProductElementRowGet
+    ProductElementRowGet,
   },
   mixins: [mixit],
   props: {
@@ -93,14 +93,14 @@ export default {
      * data корзины 1 товара
      */
     datasetProduct: {
-      type: Object
+      type: Object,
     },
     /***
      * index корзины 1 товара
      */
     index: {
-      type: String | Number
-    }
-  }
+      type: String | Number,
+    },
+  },
 };
 </script>

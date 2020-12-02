@@ -18,14 +18,14 @@ export default {
   props: {
     data: {},
     placeholders: {
-      default: "Поиск по списку"
-    }
+      default: "Поиск по списку",
+    },
   },
   inject: ["SetValue"],
   data() {
     return {
       search: "",
-      error: false
+      error: false,
     };
   },
   methods: {
@@ -70,7 +70,7 @@ export default {
       if (check || this.search.length === 0) {
         this.error = false;
         let dataset_local = {
-          children: []
+          children: [],
         };
         dataset_local.children = JSON.parse(JSON.stringify(this.data));
         // КОСТЫЛИ НАШЕ ВСЁ!!
@@ -80,7 +80,7 @@ export default {
       } else {
         this.error = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>

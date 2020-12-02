@@ -22,11 +22,11 @@
 export default {
   props: {
     label: {
-      type: String
+      type: String,
     },
     SortName: {
-      type: String
-    }
+      type: String,
+    },
   },
   computed: {
     GetSortName() {
@@ -34,13 +34,13 @@ export default {
     },
     GetSortType() {
       return this.$store.getters["formSearch/GetSortType"];
-    }
+    },
   },
   methods: {
     SetName() {
       this.$store.commit("formSearch/SetSort", {
         SortType: this.SortType,
-        SortName: this.SortName
+        SortName: this.SortName,
       });
       window.scrollTo(0, 0);
       this.$router.push({
@@ -48,8 +48,8 @@ export default {
         query: {
           ...this.$route.query,
           sort_type: this.GetSortType,
-          sort_name: this.GetSortName
-        }
+          sort_name: this.GetSortName,
+        },
       });
     },
     SortSet() {
@@ -65,8 +65,8 @@ export default {
           break;
       }
       this.SetName();
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

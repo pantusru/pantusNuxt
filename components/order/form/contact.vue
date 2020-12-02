@@ -19,12 +19,12 @@ import vInput from "@/components/order/order-input/index";
 import Town from "@/components/order/order-input/town";
 export default {
   props: {
-    $v: {}
+    $v: {},
   },
   mixins: [mixitError],
   components: {
     vInput,
-    Town
-  }
+    Town,
+  },
 };
 </script>

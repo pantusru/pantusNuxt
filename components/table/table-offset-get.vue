@@ -42,12 +42,12 @@ import AvailabilityOffers from "@/components/products/product/element/availabili
 export default {
   props: {
     Linkoffset: {},
-    LinkProduct: {}
+    LinkProduct: {},
   },
   components: {
     AvailabilityOffers,
-    BuyButton
-  }
+    BuyButton,
+  },
 };
 </script>
 <style>

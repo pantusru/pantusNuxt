@@ -10,7 +10,7 @@
 <script>
 // import BaseNavMobuleLink from "@/components/base/nav-mobule/base-nav-mobule-link";
 export default {
-  name: "base-nav-mobule"
+  name: "base-nav-mobule",
   // components: { BaseNavMobuleLink }
 };
 </script>

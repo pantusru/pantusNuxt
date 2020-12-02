@@ -12,6 +12,6 @@
 <script>
 export default {
   name: "applicabilities-blog-get",
-  props: ["dataset"]
+  props: ["dataset"],
 };
 </script>

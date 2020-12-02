@@ -70,7 +70,7 @@ export default {
        * @type {Number| String}
        * IdCartProduct если товар добавлен в корзину
        */
-      CartId: undefined
+      CartId: undefined,
     };
   },
   props: {
@@ -81,7 +81,7 @@ export default {
     /**
      * @param {Number} LinkProduct - ссылка на продукт
      */
-    LinkProduct: {}
+    LinkProduct: {},
     /**
      * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
      */
@@ -98,7 +98,7 @@ export default {
       );
       this.$store.commit("Cart/CartAll/DeleteCartProduct", {
         index,
-        flag: true
+        flag: true,
       });
     },
     /**
@@ -108,10 +108,10 @@ export default {
       this.$store.commit("Modal/SetModaBuy", {
         LinkProduct: this.LinkProduct,
         LinkOffer: this.LinkOffer,
-        CheckCart: this.userBasket
+        CheckCart: this.userBasket,
       });
       this.$bvModal.show("buy");
-    }
+    },
   },
   watch: {
     // Следим за  изменение  корзины
@@ -136,12 +136,12 @@ export default {
           this.resetAll();
         }
       }
-    }
+    },
   },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
+    },
   },
   created() {
     // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
@@ -154,6 +154,6 @@ export default {
         break;
       }
     }
-  }
+  },
 };
 </script>

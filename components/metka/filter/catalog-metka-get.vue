@@ -32,7 +32,7 @@ export default {
     return {
       getAllMetka: false,
       countMetka: 10,
-      BntAllMetkaText: "Показать все метки"
+      BntAllMetkaText: "Показать все метки",
     };
   },
   methods: {
@@ -44,17 +44,17 @@ export default {
         this.getAllMetka = true;
         this.BntAllMetkaText = "Скрыть все метки";
       }
-    }
+    },
   },
   computed: {
     Metks() {
       return this.$store.getters["Catalog/Metks/GetMetks"];
-    }
+    },
   },
   components: {
     BaseButton,
-    Metka
-  }
+    Metka,
+  },
 };
 </script>
 

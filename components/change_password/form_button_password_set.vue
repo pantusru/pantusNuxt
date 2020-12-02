@@ -17,7 +17,7 @@ import BaseButton from "@/components/base/button/base-button";
 
 export default {
   props: {
-    $v: {}
+    $v: {},
   },
   name: "form_button_password_set",
   components: { BaseButton, BaseAlert },
@@ -25,7 +25,7 @@ export default {
     return {
       variant: undefined,
       text: "Пароль успешно изменен!",
-      getAlert: false
+      getAlert: false,
     };
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
           this.getAlert = true;
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

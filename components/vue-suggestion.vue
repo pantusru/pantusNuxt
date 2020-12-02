@@ -42,13 +42,13 @@ export default {
   props: {
     addClass: {
       type: String,
-      required: false
-    }
+      required: false,
+    },
   },
   watch: {
     items() {
       this.getItems();
-    }
+    },
   },
   data() {
     return {
@@ -57,7 +57,7 @@ export default {
       isOpen: false, // состояние открыто ли меню
       // search: '', // что ввел пользователь поиска
       arrowCounter: 0, // Index выделяющегося элемента списка
-      id: 0 // ID выбранного поиска
+      id: 0, // ID выбранного поиска
     };
   },
   computed: {
@@ -68,10 +68,10 @@ export default {
       set(value) {
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",
-          value: value
+          value: value,
         });
-      }
-    }
+      },
+    },
   },
   methods: {
     async GetData() {
@@ -89,7 +89,7 @@ export default {
             id: result[index].id,
             typeShort: result[index].typeShort,
             name: result[index].name,
-            parents: result[index].parents
+            parents: result[index].parents,
           });
         }
       }
@@ -145,14 +145,14 @@ export default {
         this.isOpen = false;
         this.arrowCounter = -1;
       }
-    }
+    },
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside);
   },
   destroyed() {
     document.removeEventListener("click", this.handleClickOutside);
-  }
+  },
 };
 </script>
 

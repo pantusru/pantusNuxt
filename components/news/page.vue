@@ -21,10 +21,10 @@ export default {
   mixins: [PageMixins],
   props: {
     dataset: {},
-    Count: {}
+    Count: {},
   },
   components: {
-    VueBlogNews
-  }
+    VueBlogNews,
+  },
 };
 </script>

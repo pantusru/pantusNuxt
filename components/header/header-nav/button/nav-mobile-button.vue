@@ -15,7 +15,7 @@ import BaseButton from "@/components/base/button/base-button";
 export default {
   name: "nav-mobile-button",
   mixins: [mixinsNav],
-  components: { BaseButton }
+  components: { BaseButton },
 };
 </script>
 

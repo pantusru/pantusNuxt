@@ -20,12 +20,12 @@
 export default {
   props: {
     name: {},
-    $v: {}
+    $v: {},
   },
   data() {
     return {
       get: false,
-      value: ""
+      value: "",
     };
   },
   methods: {
@@ -35,14 +35,14 @@ export default {
       } else {
         this.get = true;
       }
-    }
+    },
   },
   mounted() {
     document.addEventListener("click", this.eventCheck);
   },
   beforeDestroy() {
     document.removeEventListener("click", this.eventCheck);
-  }
+  },
 };
 </script>
 

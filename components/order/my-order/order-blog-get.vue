@@ -39,8 +39,8 @@ import OrderButtonCancel from "@/components/order/my-order/order-button-cancel";
 export default {
   components: { OrderButtonCancel, OrderTableGet },
   props: {
-    data: {}
-  }
+    data: {},
+  },
 };
 </script>
 

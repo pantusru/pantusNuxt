@@ -17,11 +17,11 @@ export default {
   name: "button-password-new",
   components: { BaseAlert, BaseButton },
   props: {
-    $v: {}
+    $v: {},
   },
   data() {
     return {
-      getAlert: false
+      getAlert: false,
     };
   },
   methods: {
@@ -49,12 +49,12 @@ export default {
           // Пароль не совпадает
           this.$store.commit("SetFormApi", {
             data: "new_password",
-            value: true
+            value: true,
           });
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

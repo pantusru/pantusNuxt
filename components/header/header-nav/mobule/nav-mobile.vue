@@ -33,10 +33,10 @@ export default {
         { data: { text: "Новости", to: "" } },
         { data: { text: "Помощь", to: "" } },
         { data: { text: "Контакты", to: "" } },
-        { data: { text: "Новинки", to: "" } }
-      ]
+        { data: { text: "Новинки", to: "" } },
+      ],
     };
-  }
+  },
 };
 </script>
 

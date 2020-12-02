@@ -19,7 +19,7 @@ export default {
   computed: {
     value() {
       return "http://localhost:8000" + this.$route.fullPath;
-    }
+    },
   },
   methods: {
     shareLink() {
@@ -27,7 +27,7 @@ export default {
       this.$refs.input.select();
       this.$clipboard(this.value);
       this.$refs.input.select();
-    }
-  }
+    },
+  },
 };
 </script>

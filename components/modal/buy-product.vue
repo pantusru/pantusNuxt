@@ -57,7 +57,7 @@ export default {
     return {
       close: false,
       count: "",
-      CartProduct: undefined
+      CartProduct: undefined,
     };
   },
   methods: {
@@ -95,15 +95,15 @@ export default {
         // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
         this.$store.commit("Cart/CartAll/SetCountProduct", {
           index: Index,
-          value: this.count
+          value: this.count,
         });
       }
       this.$bvModal.hide("buy");
-    }
+    },
   },
   components: {
     BaseButton,
-    VInput
+    VInput,
   },
   computed: {
     stoimost() {
@@ -117,7 +117,7 @@ export default {
     },
     CheckCart() {
       return this.$store.getters["Modal/GetCheckCart"];
-    }
-  }
+    },
+  },
 };
 </script>

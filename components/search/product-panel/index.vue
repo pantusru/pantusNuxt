@@ -26,12 +26,12 @@ export default {
   computed: {
     componentsName() {
       return this.$store.getters["getProductType"];
-    }
+    },
   },
   methods: {
     SetName(val) {
       this.$store.commit("SetProductType", val);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -27,13 +27,13 @@ export default {
     return {
       GetAlert: false,
       variant: undefined,
-      text: undefined
+      text: undefined,
     };
   },
   props: {
     data: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     async CancelOrder(data) {
@@ -54,8 +54,8 @@ export default {
       setTimeout(() => {
         this.GetAlert = false;
       }, 5000);
-    }
-  }
+    },
+  },
 };
 </script>
 

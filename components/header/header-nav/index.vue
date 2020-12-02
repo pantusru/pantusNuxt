@@ -95,14 +95,14 @@ export default {
   name: "NavIndex",
   data() {
     return {
-      getDropCart: false
+      getDropCart: false,
     };
   },
   components: {
     DropdownCart,
     ModalAuthorization,
     NavUser,
-    VButtonSearch
+    VButtonSearch,
   },
   computed: {
     User() {
@@ -116,8 +116,8 @@ export default {
     },
     GetLength() {
       return this.$store.getters["Cart/CartAll/GetLength"];
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

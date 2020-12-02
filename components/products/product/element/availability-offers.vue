@@ -20,17 +20,17 @@ export default {
   props: {
     component: {
       request: true,
-      type: String
+      type: String,
     },
     linkProduct: {
       request: true,
-      type: Object
+      type: Object,
     },
     linkOffers: {
       request: true,
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>
 

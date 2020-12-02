@@ -23,7 +23,7 @@ export default {
   computed: {
     CheckFormNewPassword() {
       return this.$store.getters["GetFormNewPassword"];
-    }
-  }
+    },
+  },
 };
 </script>

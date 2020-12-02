@@ -37,17 +37,17 @@ export default {
       } else {
         return data;
       }
-    }
+    },
   },
   components: {
     BaseTitleInfo,
-    MyOrderBLog
+    MyOrderBLog,
   },
   watch: {
     $route() {
       window.scrollTo(0, 0);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -21,17 +21,17 @@ export default {
   watch: {
     SearchElem() {
       this.$refs.scroll.scrollToOffset(0);
-    }
+    },
   },
   data() {
     return {
-      itemComponent: ChecboxBrand
+      itemComponent: ChecboxBrand,
     };
   },
   props: {
     SearchElem: {},
     GetChecbox: {},
-    SetChecbox: {}
+    SetChecbox: {},
   },
   computed: {
     chexbox: {
@@ -40,12 +40,12 @@ export default {
       },
       set(value) {
         this.$store.commit(this.SetChecbox, value);
-      }
-    }
+      },
+    },
   },
   components: {
     VirtualList,
-    ChecboxBrand
-  }
+    ChecboxBrand,
+  },
 };
 </script>

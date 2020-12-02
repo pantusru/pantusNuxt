@@ -35,30 +35,30 @@ export default {
       validator: value => {
         return ["right", "left"].includes(value) !== false;
       },
-      type: String
+      type: String,
     },
     /**
      * Информация для ссылки [to,text]
      */
     nav: {
       request: true,
-      type: Object
+      type: Object,
     },
     /**
      * value - какое модальное окно открыть при клике на ссылку или компонент
      */
     value: {
       default: false,
-      type: String | Boolean
+      type: String | Boolean,
     },
     /***
      * component -  чем является элемент ссылка или другое
      */
     component: {
       default: "nuxt-link",
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 };
 </script>
 

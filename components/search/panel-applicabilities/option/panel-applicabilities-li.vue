@@ -27,21 +27,21 @@ export default {
   },
   data() {
     return {
-      selected: false
+      selected: false,
     };
   },
   methods: {
     clickLi() {
       this.selected = !this.selected;
       this.$emit("panel", { id: this.dataset.id, value: this.selected });
-    }
+    },
   },
   props: {
     arr: {},
     dataset: {},
     panel: {},
-    type: {}
-  }
+    type: {},
+  },
 };
 </script>
 

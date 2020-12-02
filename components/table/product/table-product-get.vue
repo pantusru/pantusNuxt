@@ -108,19 +108,19 @@ export default {
     BuyButton,
     Chosen,
     PanelVid,
-    ImgGetModal
+    ImgGetModal,
   },
   props: {
     array: {},
     CheckAnalogs: {
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     CheckUser() {
       return this.$store.getters["User/CheckUser"];
-    }
-  }
+    },
+  },
 };
 </script>
 

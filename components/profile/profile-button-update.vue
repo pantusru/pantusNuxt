@@ -19,16 +19,16 @@ export default {
     return {
       getAlert: false,
       variant: undefined,
-      text: undefined
+      text: undefined,
     };
   },
   mixins: [check_recaptcha],
   components: {
     BaseAlert,
-    vueRecaptcha
+    vueRecaptcha,
   },
   props: {
-    $v: {}
+    $v: {},
   },
   methods: {
     async SetDataUser() {
@@ -45,23 +45,23 @@ export default {
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
           this.$store.commit("User/SetFull", {
             name: "login",
-            value: this.$v.Form.$model.login
+            value: this.$v.Form.$model.login,
           });
           this.$store.commit("User/SetFull", {
             name: "name",
-            value: this.$v.Form.$model.name
+            value: this.$v.Form.$model.name,
           });
           this.$store.commit("User/SetFull", {
             name: "surname",
-            value: this.$v.Form.$model.surname
+            value: this.$v.Form.$model.surname,
           });
           this.$store.commit("User/SetFull", {
             name: "telephone",
-            value: this.$v.Form.$model.telephone
+            value: this.$v.Form.$model.telephone,
           });
           this.$store.commit("User/SetFull", {
             name: "patronymic",
-            value: this.$v.Form.$model.patronymic
+            value: this.$v.Form.$model.patronymic,
           });
           // ВРЕМЕННОЕ РЕШЕНИЕ БАН!
           this.getAlert = true;
@@ -72,16 +72,16 @@ export default {
         window.grecaptcha.reset();
         this.checkRecaptcha = false;
       }
-    }
+    },
   },
   computed: {
     passwordCheck() {
       return this.$store.getters["GetFormPassword"];
-    }
+    },
   },
   destroyed() {
     this.$store.commit("SetFormApi", { data: "password", value: false });
-  }
+  },
 };
 </script>
 

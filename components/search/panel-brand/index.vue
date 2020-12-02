@@ -18,19 +18,19 @@ export default {
   props: ["name", "SetChecbox", "GetName", "items", "GetChecbox"],
   data() {
     return {
-      SearchElem: this.$store.getters[this.GetName]
+      SearchElem: this.$store.getters[this.GetName],
     };
   },
   methods: {
     // получение результата от компонента поиска
     ValueSet(data) {
       this.SearchElem = data.data;
-    }
+    },
   },
   components: {
     BaseTitleFilter,
     Vinput,
-    Data
-  }
+    Data,
+  },
 };
 </script>

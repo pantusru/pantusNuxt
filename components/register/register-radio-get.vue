@@ -26,15 +26,15 @@ export default {
   methods: {
     GoEmit(event) {
       this.$emit("update:buyer", event);
-    }
+    },
   },
   data() {
     return {
-      buyer_local: this.buyer
+      buyer_local: this.buyer,
     };
   },
   props: {
-    buyer: {}
-  }
+    buyer: {},
+  },
 };
 </script>

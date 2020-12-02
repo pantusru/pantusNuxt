@@ -10,11 +10,11 @@ export default {
   props: {
     index: {
       // index of current item
-      type: Number
+      type: Number,
     },
     source: {
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>

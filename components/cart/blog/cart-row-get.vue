@@ -17,13 +17,13 @@ import BlogCart from "@/components/cart/blog/cart-blog-get";
 export default {
   name: "cart-row-get",
   components: {
-    BlogCart
+    BlogCart,
   },
   computed: {
     Cart() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -43,12 +43,12 @@ import PanelVid from "@/components/search/product-panel/index"; // Панель
 export default {
   props: {
     CheckAnalogs: {
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
     PanelVid,
-    tdSort
-  }
+    tdSort,
+  },
 };
 </script>

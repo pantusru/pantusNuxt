@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       check: null,
-      AddClass: "bg-danger border-0"
+      AddClass: "bg-danger border-0",
     };
   },
   computed: {
@@ -29,7 +29,7 @@ export default {
     },
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
-  }
+    },
+  },
 };
 </script>

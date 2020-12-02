@@ -23,11 +23,11 @@
 export default {
   data() {
     return {
-      MediaUrl: process.env.apiMedia
+      MediaUrl: process.env.apiMedia,
     };
   },
   props: {
-    data: {}
-  }
+    data: {},
+  },
 };
 </script>

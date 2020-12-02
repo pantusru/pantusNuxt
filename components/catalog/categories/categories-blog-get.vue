@@ -29,6 +29,6 @@
 <script>
 export default {
   name: "categories-blog-get",
-  props: ["dataset"]
+  props: ["dataset"],
 };
 </script>

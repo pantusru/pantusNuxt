@@ -31,16 +31,16 @@ export default {
   mixins: [mixitProps],
   props: {
     addClass: {
-      default: "col-lg-4 mb-2"
+      default: "col-lg-4 mb-2",
     },
     slots: {
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     GetcheckAuthorization() {
       return this.$store.getters["GetcheckAuthorization"];
-    }
-  }
+    },
+  },
 };
 </script>

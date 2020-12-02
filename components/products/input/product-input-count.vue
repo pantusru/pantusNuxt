@@ -31,33 +31,33 @@ export default {
   name: "product-input-count",
   props: {
     showIcon: {
-      default: false
+      default: false,
     },
     AddClassInput: {},
     AddClassForm: {},
     CountProps: {},
     multiplicity: {
-      default: 1
+      default: 1,
     },
-    array: null
+    array: null,
   },
   data() {
     return {
       error: false,
-      Count: this.CountProps
+      Count: this.CountProps,
     };
   },
   watch: {
     CountProps() {
       this.Count = this.CountProps;
-    }
+    },
   },
   methods: {
     //  Передача Emit
     emitGo() {
       this.$emit("Count", {
         Count: this.Count,
-        array: this.array
+        array: this.array,
       });
     },
     //  Уменьшать кол-во товар
@@ -95,7 +95,7 @@ export default {
       }
       this.error = false;
       this.emitGo();
-    }
-  }
+    },
+  },
 };
 </script>

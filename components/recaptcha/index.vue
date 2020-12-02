@@ -15,25 +15,25 @@ export default {
   props: {
     getError: {
       type: Boolean,
-      required: true
+      required: true,
     },
     checkRecaptcha: {
       type: Boolean,
-      required: true
+      required: true,
     },
     textError: {
       type: String,
-      default: "Пройдите капчу"
-    }
+      default: "Пройдите капчу",
+    },
   },
   components: {
-    vueRecaptcha
+    vueRecaptcha,
   },
   methods: {
     registerTrue() {
       this.$emit("update:checkRecaptcha", true);
       this.$emit("update:getError", false);
-    }
-  }
+    },
+  },
 };
 </script>

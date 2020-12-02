@@ -16,11 +16,11 @@ export default {
   props: {
     array: {},
     Selected: {
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
-    BlogRow
-  }
+    BlogRow,
+  },
 };
 </script>

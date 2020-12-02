@@ -11,7 +11,7 @@ export default {
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
+    },
   },
   methods: {
     updateCart() {
@@ -24,10 +24,10 @@ export default {
         // Убрать все flag не обновленных товаров
         this.$store.commit("Cart/CartAll/SetCartCheckCount", {
           value: false,
-          index
+          index,
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

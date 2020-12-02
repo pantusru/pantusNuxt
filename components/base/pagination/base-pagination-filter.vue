@@ -21,12 +21,12 @@ export default {
   mixins: [PageFilter],
   props: {
     length: {
-      type: Number
+      type: Number,
     },
     limit: {
       default: 10,
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
     countPage() {
@@ -36,8 +36,8 @@ export default {
       } else {
         return data;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style></style>

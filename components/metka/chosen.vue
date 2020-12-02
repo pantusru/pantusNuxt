@@ -21,7 +21,7 @@ export default {
       /**
        * @property что отображать при наведение на иконку
        */
-      title: "Добавить в избранное"
+      title: "Добавить в избранное",
     };
   },
   props: {
@@ -29,14 +29,14 @@ export default {
      * @property Id Товара
      */
     id: {
-      type: Number
+      type: Number,
     },
     /**
      * @property Ссылка на Товар
      */
     link: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     /**
@@ -57,7 +57,7 @@ export default {
         this.$store.commit("Selected/selected/PushSelected", this.link);
         this.title = "Удалить из избранного";
       }
-    }
+    },
   },
   computed: {
     /**
@@ -65,7 +65,7 @@ export default {
      */
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
-    }
+    },
   },
   created() {
     const data = this.SelectedProducts;
@@ -77,7 +77,7 @@ export default {
         break;
       }
     }
-  }
+  },
 };
 </script>
 

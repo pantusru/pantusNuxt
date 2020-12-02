@@ -100,21 +100,21 @@ export default {
         { key: "count", label: "Кол-во, шт" },
         { key: "symma", label: "Сумма", class: "text-nowrap" },
         { key: "Delete", label: "" },
-        { key: "Update", label: "" }
-      ]
+        { key: "Update", label: "" },
+      ],
     };
   },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    }
+    },
   },
   components: {
     AvailabilityOffers,
     CartButtonUpdateProduct,
     vInput,
     ImgModal,
-    DeleteCart
-  }
+    DeleteCart,
+  },
 };
 </script>

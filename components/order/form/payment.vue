@@ -17,17 +17,17 @@ export default {
   methods: {
     setPayment(event) {
       this.$store.commit("Order/Form/SetPayment", this.value);
-    }
+    },
   },
   data() {
     return {
-      value: this.$store.getters["Order/Form/GetPayment"]
+      value: this.$store.getters["Order/Form/GetPayment"],
     };
   },
   computed: {
     chexbox() {
       return this.$store.getters["Order/Payment/Index/GetPayment"];
-    }
-  }
+    },
+  },
 };
 </script>

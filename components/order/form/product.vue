@@ -12,13 +12,13 @@
 <script>
 export default {
   props: {
-    $v: {}
+    $v: {},
   },
   methods: {
     formGo() {
       // Отправить заказ
       this.$v.Form.$touch();
-    }
+    },
   },
   computed: {
     GetCostProduct() {
@@ -30,7 +30,7 @@ export default {
     GetCostOrder() {
       const data = this.GetCostProduct + this.GetCostDostavka;
       return data;
-    }
-  }
+    },
+  },
 };
 </script>

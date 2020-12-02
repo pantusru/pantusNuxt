@@ -21,7 +21,7 @@ export default {
     NavMobile,
     VueNavTop,
     VueNav,
-    VueNavBottom
-  }
+    VueNavBottom,
+  },
 };
 </script>

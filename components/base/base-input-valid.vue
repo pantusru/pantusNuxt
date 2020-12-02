@@ -26,7 +26,7 @@ import mixinsProps from "@/mixins/input/props/index";
 export default {
   name: "base-input-valid",
   components: { BaseErrorsValid },
-  mixins: [mixinsProps]
+  mixins: [mixinsProps],
 };
 </script>
 

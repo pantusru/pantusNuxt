@@ -33,19 +33,19 @@ export default {
   methods: {
     DeletePanel() {
       this.$store.dispatch("Applicabilities/Panel/DeletePanel", this.PanelId);
-    }
+    },
   },
   components: {
     Parent,
-    Children
+    Children,
   },
   props: {
-    PanelId: {}
+    PanelId: {},
   },
   computed: {
     PanelLength() {
       return this.$store.getters["Applicabilities/Panel/PanelLength"];
-    }
-  }
+    },
+  },
 };
 </script>

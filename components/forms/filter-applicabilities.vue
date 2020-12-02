@@ -39,19 +39,19 @@ export default {
     return {
       BntClass:
         "text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer",
-      showAll: false
+      showAll: false,
     };
   },
   components: {
     Vpanel,
     ButtonAdd,
     ButtonReset,
-    ButtonSubmit
+    ButtonSubmit,
   },
   computed: {
     Panels() {
       return this.$store.getters["Applicabilities/Panel/GetPanel"];
-    }
-  }
+    },
+  },
 };
 </script>

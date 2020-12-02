@@ -19,9 +19,9 @@ export default {
   name: "brand-blog-get",
   props: {
     source: {
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>
 <style></style>

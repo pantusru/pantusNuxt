@@ -7,7 +7,7 @@ export default {
   methods: {
     AddPanel() {
       this.$store.dispatch("Applicabilities/Panel/SetPanelNew");
-    }
+    },
   },
   computed: {
     lengthApplicabilitiess() {
@@ -20,8 +20,8 @@ export default {
     },
     show() {
       return this.lengthApplicabilitiess > this.lengthPanel;
-    }
-  }
+    },
+  },
 };
 </script>
 

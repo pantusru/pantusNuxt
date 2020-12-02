@@ -12,17 +12,17 @@ export default {
      * index массива элемента корзины 1 товара
      */
     index: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   methods: {
     deleteProduct() {
       // await Запрос на удаление товара с корзины
       this.$store.commit("Cart/CartAll/DeleteCartProduct", {
         index: this.index,
-        flag: true
+        flag: true,
       });
-    }
-  }
+    },
+  },
 };
 </script>

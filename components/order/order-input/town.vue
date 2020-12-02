@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       nameSet: "Order/Form/SetFull", // Изменить
-      nameSetTown: "Order/Form/SetFull"
+      nameSetTown: "Order/Form/SetFull",
     };
   },
   methods: {
@@ -33,10 +33,10 @@ export default {
       this.$v.Form.$model[this.name] = data.data;
       this.$store.commit(this.nameSetTown, { name: "Town", value: data.data });
       this.$store.commit(this.nameSetTown, { name: "TownId", value: data.id });
-    }
+    },
   },
   components: {
-    autocomplete
-  }
+    autocomplete,
+  },
 };
 </script>

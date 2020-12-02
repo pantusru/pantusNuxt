@@ -40,22 +40,22 @@ export default {
     showGo(event) {
       event.preventDefault();
       this.show = !this.show;
-    }
+    },
   },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   name: "VueChexbox",
   props: ["dataset"],
   components: {
-    Vchexbox
+    Vchexbox,
   },
   created() {
     // if(this.dataset.CheckedType || this.dataset.Indeterminate){
     //   this.show = true;
     // }
-  }
+  },
 };
 </script>

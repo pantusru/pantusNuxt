@@ -18,10 +18,10 @@ import BlogProduct from "@/components/products/popular/blog";
 export default {
   name: "product-blogs-get",
   props: {
-    array: {}
+    array: {},
   },
   components: {
-    BlogProduct
-  }
+    BlogProduct,
+  },
 };
 </script>

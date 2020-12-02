@@ -25,7 +25,7 @@ export default {
     /**
      * @property названия  потомка select выбранные
      */
-    NameSelectedClildren: {}
+    NameSelectedClildren: {},
   },
   computed: {
     /**
@@ -44,7 +44,7 @@ export default {
             // Сохранить новое значение во VUEX
             id: this.PanelId,
             value: value.id,
-            name: this.NameSelected
+            name: this.NameSelected,
           });
         } else {
           let index = this.Panel.findIndex(data => data == value.id);
@@ -52,7 +52,7 @@ export default {
             this.$store.commit("Applicabilities/Panel/DeleteElementPanel", {
               IdPanel: this.PanelId,
               indexElement: index,
-              NameElement: this.NameSelected
+              NameElement: this.NameSelected,
             });
           }
         }
@@ -65,7 +65,7 @@ export default {
               // Сохраняет во VUEX Data потомка
               id: this.PanelId,
               value: [],
-              name: this.NameSelectedClildren
+              name: this.NameSelectedClildren,
             });
           } else if (this.PanelSelectedChildren.length > 0) {
             // Проверка что нужно перебрать выбранные потомки
@@ -87,13 +87,13 @@ export default {
                   // Удаляем PanelSelectedChildren через index
                   IdPanel: this.PanelId,
                   indexElement: index,
-                  NameElement: this.NameSelectedClildren
+                  NameElement: this.NameSelectedClildren,
                 });
               }
             });
           }
         }
-      }
+      },
     },
     /**
      * @property Отображаемые Checbox в текущем select
@@ -118,7 +118,7 @@ export default {
       return this.$store.getters["Applicabilities/Panel/PanelId"](this.PanelId)[
         this.NameSelectedClildren
       ];
-    }
+    },
   },
 
   methods: {
@@ -137,10 +137,10 @@ export default {
         // Сохраняет во VUEX Data потомка
         id: this.PanelId,
         value: dataset,
-        name: this.NameData
+        name: this.NameData,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

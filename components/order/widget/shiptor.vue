@@ -19,7 +19,7 @@
 export default {
   name: "shiptor",
   props: {
-    text: {}
+    text: {},
   },
   mounted() {
     const elemShiptorWidget = document.querySelector(
@@ -35,7 +35,7 @@ export default {
         this.$store.commit("Order/Payment/Index/SetNameDostavka", {
           url: this.text,
           valueText: data.detail.pvz.cost,
-          valueCons: cons
+          valueCons: cons,
         });
         this.$store.commit("Order/Form/SetCostDostavka", cons);
       } else if (data.detail.method !== null) {
@@ -44,12 +44,12 @@ export default {
         this.$store.commit("Order/Payment/Index/SetNameDostavka", {
           url: this.text,
           valueText: data.detail.method.cost.total.readable,
-          valueCons: cons
+          valueCons: cons,
         });
         this.$store.commit("Order/Form/SetCostDostavka", cons);
       }
     });
-  }
+  },
 };
 </script>
 

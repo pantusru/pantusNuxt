@@ -33,9 +33,9 @@ export default {
   mixins: [mixinsProps],
   props: {
     addClass: {
-      default: "mb-2"
-    }
-  }
+      default: "mb-2",
+    },
+  },
   // computed:{
   //     User:{
   //         get(){

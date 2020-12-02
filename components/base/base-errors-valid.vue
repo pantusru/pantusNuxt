@@ -19,23 +19,23 @@ export default {
      * Состояния валидация для условия отображения ошибок
      */
     $v: {
-      request: true
+      request: true,
     },
     /**
      * Массив с выводом ошибок
      */
     error: {
       request: true,
-      type: Array
+      type: Array,
     },
     /***
      * Название элемента который будет проверятся в $v
      */
     name: {
       request: true,
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 };
 </script>
 

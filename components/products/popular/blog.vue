@@ -79,13 +79,13 @@ import AvailabilityOffers from "@/components/products/product/element/availabili
 export default {
   name: "BlogProduct",
   props: {
-    datasetProduct: {}
+    datasetProduct: {},
   },
   components: {
     AvailabilityOffers,
     ProductElementRowGet,
     BuyButton,
-    ImgGetModal
-  }
+    ImgGetModal,
+  },
 };
 </script>

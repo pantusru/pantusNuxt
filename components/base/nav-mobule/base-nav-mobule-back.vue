@@ -22,16 +22,16 @@ export default {
      */
     value: {
       default: false,
-      type: String | Boolean
+      type: String | Boolean,
     },
     /**
      * nav - пропс передающий потомку
      */
     nav: {
       request: true,
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>
 

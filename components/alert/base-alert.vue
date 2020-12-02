@@ -20,43 +20,43 @@ export default {
      */
     variant: {
       default: "success",
-      type: String
+      type: String,
     },
     /**
      * Флаг требуется ли делать router на главную
      */
     routerHome: {
       default: true,
-      type: Boolean
+      type: Boolean,
     },
     /**
      * Флаг когда показывать alert
      */
     getAlert: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     /**
      * Текст который вставлен в alert
      */
     text: {
       type: String,
-      default: "Изменение прошли успешно"
+      default: "Изменение прошли успешно",
     },
     /**
      *  Время жизни alert
      */
     dismissSecs: {
       default: 3,
-      type: Number
-    }
+      type: Number,
+    },
   },
   data() {
     return {
       /**
        * @protected Переменная которая отсчитывает время когда alert изображается
        */
-      dismissCountDown: this.dismissSecs
+      dismissCountDown: this.dismissSecs,
     };
   },
   methods: {
@@ -77,8 +77,8 @@ export default {
           this.dismissCountDown = this.dismissSecs;
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

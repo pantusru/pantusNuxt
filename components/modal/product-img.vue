@@ -40,7 +40,7 @@ export default {
   computed: {
     dataset() {
       return this.$store.getters["Modal/GetModaImgLinkProduct"];
-    }
-  }
+    },
+  },
 };
 </script>

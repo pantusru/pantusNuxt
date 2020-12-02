@@ -55,25 +55,25 @@ import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/op
 export default {
   components: { PanelApplicabilitiesLi },
   directives: {
-    onClickaway: onClickaway
+    onClickaway: onClickaway,
   },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   props: {
     PanelData: {
-      default: []
+      default: [],
     },
     panel: {},
     multiple: {
       type: Boolean,
-      default: true
+      default: true,
     },
     type: {
-      default: "children"
-    }
+      default: "children",
+    },
   },
   methods: {
     hiddenForm(event) {
@@ -91,15 +91,15 @@ export default {
         // Пропсом это флаг это родитель или потомок
         this.show = false;
       }
-    }
+    },
   },
   computed: {
     Applicabilities() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 

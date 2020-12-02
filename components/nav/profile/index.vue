@@ -53,14 +53,14 @@ export default {
   data() {
     return {
       ActiveClass: "font-weight-bold text-decoration",
-      classMain: "text-body mb-2 d-block"
+      classMain: "text-body mb-2 d-block",
     };
   },
   name: "NavProfile",
   computed: {
     User() {
       return this.$store.getters["User/FormData"];
-    }
-  }
+    },
+  },
 };
 </script>

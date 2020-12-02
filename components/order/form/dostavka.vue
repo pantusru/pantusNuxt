@@ -58,18 +58,18 @@ export default {
     // cdek,
   },
   props: {
-    $v: {}
+    $v: {},
   },
   data() {
     return {
       // show_cdek: true,
-      value: ""
+      value: "",
     };
   },
   computed: {
     GetDostavka() {
       return this.$store.getters["Order/Payment/Index/GetDostavka"];
-    }
+    },
   },
   methods: {
     changeInput(data) {
@@ -78,11 +78,11 @@ export default {
       if (data.TownId !== undefined) {
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",
-          value: data.Town
+          value: data.Town,
         });
         this.$store.commit("Order/Form/SetFull", {
           name: "TownId",
-          value: data.TownId
+          value: data.TownId,
         });
         this.$store.commit("Order/Form/SetDostavka", this.value);
         this.$v.Form.$model.Town = data.Town;
@@ -92,7 +92,7 @@ export default {
       this[data] = true;
 
       console.log(this.ShowShiptor);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -19,22 +19,22 @@ export default {
     checxboxGo() {
       this.$store.commit("Catalog/Chexbox/SetChecboxCheckedType", {
         data: this.dataset,
-        value: !this.dataset.CheckedType
+        value: !this.dataset.CheckedType,
       }); // Изменить состояние
       this.$store.commit("Catalog/Chexbox/SetChecboxIndeterminate", {
         data: this.dataset,
-        value: false
+        value: false,
       }); // 3 состоияние в false
       this.$store.dispatch(
         "Catalog/Chexbox/ChexboxCheckAll", //Изменить состояние всем элементам
         {
           arr: this.$store.getters[this.ArrayData],
           value: this.dataset.CheckedType,
-          id: this.dataset.id
+          id: this.dataset.id,
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 <style>

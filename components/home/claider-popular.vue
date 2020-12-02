@@ -2,12 +2,12 @@
   <b-container>
     <h2 class="mb-4 mt-4">Популярные товары</h2>
     <VueSlickCarousel
+      v-if="popular.length !== 0"
       class="blog-popular-claider"
       v-bind="settings"
-      v-if="popular.length !== 0"
     >
       <!--      <template #prevArrow> <div>вперед</div> </template>-->
-      <b-col class="mb-3" v-for="data in popular" :key="data.id">
+      <b-col v-for="data in popular" :key="data.id" class="mb-3">
         <BlogProduct :datasetProduct="data" />
       </b-col>
     </VueSlickCarousel>

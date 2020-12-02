@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props: ["name", "data"]
+  props: ["name", "data"],
 };
 </script>

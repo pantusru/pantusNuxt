@@ -24,20 +24,20 @@ export default {
   props: {
     name: {
       type: String | Number,
-      default: undefined
+      default: undefined,
     },
     dataset: {
       type: String | Number,
-      request: true
+      request: true,
     },
     link: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     component: {
       type: String,
-      default: "div"
-    }
-  }
+      default: "div",
+    },
+  },
 };
 </script>

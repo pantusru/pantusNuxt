@@ -18,15 +18,15 @@ export default {
      *index метки в массиве
      */
     index: {
-      request: true
+      request: true,
     },
     /**
      *  data метки
      */
     link: {
       request: true,
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     /**
@@ -52,8 +52,8 @@ export default {
         query: {
           ...this.$route.query,
           page_number: undefined,
-          [name]: query
-        }
+          [name]: query,
+        },
       });
     },
     /**
@@ -70,7 +70,7 @@ export default {
       }
       this.$store.commit("formSearch/RemoreBrandsChecked", {
         // Удаляет выбранный бренд в VUEX
-        id: this.link.id
+        id: this.link.id,
       });
       query = this.CheckLengthQuery(query);
       return query;
@@ -85,7 +85,7 @@ export default {
         // Найди chexbox и убрать его с фильтров
         arr: this.$store.getters["Categories/CategoriesAll/GetCategories"],
         value: false,
-        id: this.link.id
+        id: this.link.id,
       });
       let query = await this.$store.dispatch(
         // получить новые id выбранных фильтров
@@ -108,8 +108,8 @@ export default {
       } else {
         return query.join();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

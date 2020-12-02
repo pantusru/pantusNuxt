@@ -16,12 +16,12 @@
 import VueBlogNews from "@/components/news/news-blog-get";
 export default {
   components: {
-    VueBlogNews
+    VueBlogNews,
   },
   computed: {
     NewsIndex() {
       return this.$store.getters["News/NewsIndex/GetNewsIndex"];
-    }
-  }
+    },
+  },
 };
 </script>

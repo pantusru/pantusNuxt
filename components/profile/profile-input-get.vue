@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       nameSet: "User/SetFull",
-      value: ""
+      value: "",
     };
   },
   computed: {
@@ -36,7 +36,7 @@ export default {
     },
     passwordCheck() {
       return this.$store.getters["GetFormPassword"];
-    }
-  }
+    },
+  },
 };
 </script>

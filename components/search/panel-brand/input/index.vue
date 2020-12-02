@@ -17,13 +17,13 @@ export default {
   props: {
     GetName: {},
     placeholders: {
-      default: "Поиск по списку"
-    }
+      default: "Поиск по списку",
+    },
   },
   data() {
     return {
       search: "",
-      error: false
+      error: false,
     };
   },
   methods: {
@@ -41,12 +41,12 @@ export default {
         data = this.data;
       }
       this.$emit("Vsearch", { data: data, search: this.search.length });
-    }
+    },
   },
   computed: {
     data() {
       return this.$store.getters[this.GetName];
-    }
-  }
+    },
+  },
 };
 </script>

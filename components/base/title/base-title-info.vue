@@ -10,9 +10,9 @@ export default {
   props: {
     text: {
       type: String,
-      request: true
-    }
-  }
+      request: true,
+    },
+  },
 };
 </script>
 

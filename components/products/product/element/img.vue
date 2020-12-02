@@ -14,7 +14,7 @@ import Mixin from "@/mixins/modal/product-img";
 export default {
   mixins: [Mixin],
   props: {
-    product: {}
-  }
+    product: {},
+  },
 };
 </script>

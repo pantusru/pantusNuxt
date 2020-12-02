@@ -14,9 +14,9 @@ export default {
      */
     text: {
       type: String,
-      request: true
-    }
-  }
+      request: true,
+    },
+  },
 };
 </script>
 

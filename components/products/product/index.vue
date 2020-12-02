@@ -132,7 +132,7 @@ import ButtonReplyShow from "@/components/base/button/button-reply-show";
 export default {
   mixins: [mixins],
   props: {
-    dataset: {}
+    dataset: {},
   },
   created() {
     this.MainTrue();
@@ -140,14 +140,14 @@ export default {
   computed: {
     analogs() {
       return this.$store.getters["Products/analogs/GetProducts"];
-    }
+    },
   },
   components: {
     ButtonReplyShow,
     Share,
     TableOffer,
     ModalBuy,
-    Table
-  }
+    Table,
+  },
 };
 </script>

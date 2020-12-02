@@ -14,14 +14,14 @@ export default {
   components: { ApplicabilitiesSelectAll },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   props: {
     /**
      * @property id текущей Panel в которой находится select
      */
-    PanelId: {}
+    PanelId: {},
   },
   computed: {
     /**
@@ -61,19 +61,19 @@ export default {
           // Сохраняет во VUEX  SelectedMarka
           id: this.PanelId,
           value: value.id,
-          name: "SelectedMarka"
+          name: "SelectedMarka",
         });
         this.$store.commit("Applicabilities/Panel/SetPanel", {
           // Сохранить дата модель
           id: this.PanelId,
           value: this.Applicabilities[index].children,
-          name: "DataModel"
+          name: "DataModel",
         });
         this.$store.commit(
           "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
           {
             index: index,
-            value: true
+            value: true,
           }
         );
         if (indexReset !== -1) {
@@ -81,7 +81,7 @@ export default {
             "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
             {
               index: indexReset,
-              value: false
+              value: false,
             }
           );
         }
@@ -101,20 +101,20 @@ export default {
         this.$store.commit("Applicabilities/Panel/ResetClildren", {
           // RESET  selected model
           id: this.PanelId,
-          NameSelected: "SelectedModel"
+          NameSelected: "SelectedModel",
         });
         this.$store.commit("Applicabilities/Panel/ResetClildren", {
           // RESET потомка selected  generations
           id: this.PanelId,
-          NameSelected: "SelectedGenerations"
+          NameSelected: "SelectedGenerations",
         });
         this.$store.commit("Applicabilities/Panel/ResetClildren", {
           // RESET потомка data  generations
           id: this.PanelId,
-          NameSelected: "DataGenerations"
+          NameSelected: "DataGenerations",
         });
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

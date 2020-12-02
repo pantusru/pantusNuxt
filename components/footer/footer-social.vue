@@ -42,9 +42,9 @@ export default {
         { src: require("@img/footer/vk.png"), href: "", alt: "11" },
         { src: require("@img/footer/youtub.png"), href: "", alt: "22" },
         { src: require("@img/footer/instargam.png"), href: "", alt: "33" },
-        { src: require("@img/footer/telegram3.png"), href: "", alt: "33" }
-      ]
+        { src: require("@img/footer/telegram3.png"), href: "", alt: "33" },
+      ],
     };
-  }
+  },
 };
 </script>

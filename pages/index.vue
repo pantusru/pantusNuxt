@@ -2,7 +2,7 @@
   <main>
     <!-- <VueNewsIndex/> Популярные новости -->
     <!-- <Abvantage/> -->
-    <VueProductsIndex :popular="popular.slice(0, 10)" />
+    <claider-popular :popular="popular.slice(0, 10)" />
     <!-- Популярные Товары -->
     <ModalImg />
     <ModalBuy />
@@ -15,6 +15,7 @@ import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
 import VueProductsIndex from "@/components/products/popular/index";
+import ClaiderPopular from "@/components/home/claider-popular";
 export default {
   head() {
     return {
@@ -22,6 +23,7 @@ export default {
     };
   },
   components: {
+    ClaiderPopular,
     VueNewsIndex,
     VueProductsIndex,
     ModalImg,

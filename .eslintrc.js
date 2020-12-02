@@ -17,12 +17,17 @@ module.exports = {
   plugins: ["prettier"],
   // add your custom rules here
   rules: {
-    "guard-for-in": 0, // проверка в for hasOwnProperty -  не нужно
+    "guard-for-in": "warn", // проверка в for hasOwnProperty -  не нужно
     "no-console": "warn", // Без консоли
-    "vue/require-default-prop": 0, // обязательное значение props default
+    "vue/require-default-prop": "warn", // обязательное значение props default
     "vue/require-valid-default-prop": "warn", // Валидное значение по умолчанию
     "vue/name-property-casing": ["warn", "kebab-case"],
-    "vue/comment-directive": ["warn", { reportUnusedDisableDirectives: false }], // Комментарии ?
+    "vue/comment-directive": [
+      "error",
+      {
+        reportUnusedDisableDirectives: false,
+      },
+    ],
     "vue/custom-event-name-casing": "warn", // написание emit
     "vue/no-arrow-functions-in-watch": "warn", // Запрет писать стрелочные функции в watch
     "vue/no-async-in-computed-properties": "warn", //Запрет писать асинхронные функции в computed

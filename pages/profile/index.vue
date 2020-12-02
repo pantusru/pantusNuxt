@@ -69,13 +69,13 @@ export default {
   components: {
     ElementForm,
     NavProfile,
-    Submit
+    Submit,
   },
   // provide() {
   //   return {
   //     $v: this.$v,
   //   };
   // },
-  mixins: [mixinvalidator, mixinError]
+  mixins: [mixinvalidator, mixinError],
 };
 </script>

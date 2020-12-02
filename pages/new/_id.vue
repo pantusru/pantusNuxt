@@ -13,10 +13,10 @@ export default {
   computed: {
     NewsId() {
       return this.$store.getters["News/NewsId/GetNewsId"];
-    }
+    },
   },
   components: {
-    VueBlogNews
+    VueBlogNews,
   },
   mounted() {
     let img = document.querySelectorAll(".content img");
@@ -26,6 +26,6 @@ export default {
         process.env.apiMedia + element.getAttribute("src")
       );
     });
-  }
+  },
 };
 </script>

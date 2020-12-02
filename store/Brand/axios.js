@@ -18,9 +18,9 @@ export const actions = {
     data.data.forEach(array => {
       dataset.push({
         name: array.name,
-        id: array.id
+        id: array.id,
       });
     });
     return dataset;
-  }
+  },
 };

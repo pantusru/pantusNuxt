@@ -19,7 +19,7 @@ module.exports = {
   rules: {
     "guard-for-in": "warn", // проверка в for hasOwnProperty -  не нужно
     "no-console": "warn", // Без консоли
-    "vue/require-default-prop": "warn", // обязательное значение props default
+    "vue/require-default-prop": "0", // обязательное значение props default
     "vue/require-valid-default-prop": "warn", // Валидное значение по умолчанию
     "vue/name-property-casing": ["warn", "kebab-case"],
     // "vue/custom-event-name-casing": "warn", // написание emit
@@ -53,6 +53,12 @@ module.exports = {
       { startTag: "never", endTag: "never", selfClosingTag: "always" },
     ], // Требовать или запрещать использование пробела перед закрывающими скобками тега
     "vue/html-end-tags": "warn", // запретить отсутствие закрывающих тегов.
-    "vue/html-quotes": ["error", "double", { avoidEscape: true }], // Требовать кавычки
+    "vue/html-quotes": ["warn", "double", { avoidEscape: true }], // Требовать кавычки
+    "vue/html-self-closing": ["warn"],
+    "vue/mustache-interpolation-spacing": ["warn", "always"],
+    "vue/no-multi-spaces": ["warn"],
+    "vue/no-spaces-around-equal-signs-in-attribute": ["warn"],
+    "vue/prop-name-casing": ["warn", "snake_case"],
+    "vue/require-prop-types": "warn",
   },
 };

@@ -5,27 +5,27 @@ import {
   maxLength,
   alphaNum,
   email,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 let Name = {
-  required
+  required,
 };
 let Surname = {
-  required
+  required,
 };
 let Telephone = {
   required,
-  minLength: minLength(17)
+  minLength: minLength(17),
 };
 let Town = {
-  required
+  required,
 };
 // let all поля которые есть в 2 формах
 let all = {
   name: Name,
   surname: Surname,
   telephone: Telephone,
-  Town: Town
+  Town: Town,
 };
 
 export default {
@@ -35,8 +35,8 @@ export default {
   validations() {
     return {
       Form: {
-        ...all
-      }
+        ...all,
+      },
     };
   },
   data() {
@@ -45,8 +45,8 @@ export default {
         name: this.$store.getters["User/FormData"]["name"],
         surname: this.$store.getters["User/FormData"]["surname"],
         telephone: this.$store.getters["User/FormData"]["telephone"],
-        Town: this.$store.getters["User/FormData"]["Town"]
-      }
+        Town: this.$store.getters["User/FormData"]["Town"],
+      },
     };
-  }
+  },
 };

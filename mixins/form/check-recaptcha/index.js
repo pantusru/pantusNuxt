@@ -2,7 +2,7 @@ export default {
   data() {
     return {
       checkRecaptcha: false,
-      getError: false
+      getError: false,
     };
   },
   methods: {
@@ -14,6 +14,6 @@ export default {
         // Проверка капча  пройдена
         this.getError = false;
       }
-    }
-  }
+    },
+  },
 };

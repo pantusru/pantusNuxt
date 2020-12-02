@@ -1,14 +1,14 @@
 let password = [
   {
     ifv: "required",
-    text: "Укажите ваш пароль"
-  }
+    text: "Укажите ваш пароль",
+  },
 ];
 let email = [
   {
     ifv: "required",
-    text: "Укажите ваш email"
-  }
+    text: "Укажите ваш email",
+  },
 ];
 
 export default {
@@ -16,8 +16,8 @@ export default {
     return {
       error: {
         password: password,
-        email: email
-      }
+        email: email,
+      },
     };
-  }
+  },
 };

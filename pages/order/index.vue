@@ -35,15 +35,15 @@ export default {
     Contact,
     Payment,
     Dostavka,
-    Product
+    Product,
   },
   mixins: [mixitValid],
   async fetch({ store }) {
     await Promise.all([
       store.dispatch("Order/Payment/Index/_Payment"),
-      store.dispatch("Order/Payment/Index/_Dostavka")
+      store.dispatch("Order/Payment/Index/_Dostavka"),
     ]);
-  }
+  },
   // provide() {
   //   return {
   //     $v: this.$v

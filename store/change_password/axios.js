@@ -5,5 +5,5 @@ export const actions = {
     } else {
       return false;
     }
-  }
+  },
 };

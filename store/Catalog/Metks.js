@@ -1,5 +1,5 @@
 export const state = () => ({
-  Metks: []
+  Metks: [],
 });
 export const mutations = {
   /**
@@ -21,7 +21,7 @@ export const mutations = {
    */
   DeleteMetks(store, data) {
     store.Metks.splice(data.index, 1);
-  }
+  },
 };
 export const actions = {
   /**
@@ -35,7 +35,7 @@ export const actions = {
         if (data.ids[keyBrandID] == brandsAll[keyBrand].id) {
           let dataset = await dispatch("_init_Metka", {
             data: brandsAll[keyBrand],
-            type: "brand"
+            type: "brand",
           });
           commit("PushMetks", dataset);
           break;
@@ -52,7 +52,7 @@ export const actions = {
       if (data[key].CheckedType === true && data[key].Indeterminate === false) {
         let dataset = await dispatch("_init_Metka", {
           data: data[key],
-          type: "categories"
+          type: "categories",
         });
         commit("PushMetks", dataset);
         continue;
@@ -72,11 +72,11 @@ export const actions = {
     dataset.id = data.data.id;
     dataset.type = data.type;
     return dataset;
-  }
+  },
 };
 export const getters = {
   /**
    * @function  GetMetks - Возвращает всё метки фильтров
    */
-  GetMetks: s => s.Metks
+  GetMetks: s => s.Metks,
 };

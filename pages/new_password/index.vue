@@ -42,14 +42,14 @@ export default {
   components: {
     ButtonPasswordNew,
     form_input_password_change,
-    NavProfile
+    NavProfile,
   },
   mixins: [mixinValidator, mixinError],
   data() {
     return {
-      value: ""
+      value: "",
     };
   },
-  middleware: "CheckGuest"
+  middleware: "CheckGuest",
 };
 </script>

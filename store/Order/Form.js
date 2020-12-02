@@ -5,14 +5,14 @@ export const state = () => ({
       name: "",
       telephone: "",
       Town: "",
-      TownId: ""
+      TownId: "",
     },
     Checxbox: {
       Payment: "35",
-      Dostavka: ""
+      Dostavka: "",
     },
-    costDostavka: 0
-  }
+    costDostavka: 0,
+  },
 });
 export const mutations = {
   SetFull(store, data) {
@@ -26,12 +26,12 @@ export const mutations = {
   },
   SetCostDostavka(store, data) {
     store.Form.costDostavka = data;
-  }
+  },
 };
 
 export const getters = {
   GetContact: s => s.Form.Contact,
   GetPayment: s => s.Form.Checxbox.Payment,
   GetDostavka: s => s.Form.Checxbox.Dostavka,
-  GetCostDostavka: s => s.Form.costDostavka
+  GetCostDostavka: s => s.Form.costDostavka,
 };

@@ -6,7 +6,7 @@ export const state = () => ({
   /** @property ссылка на предложения товара который отображает в modal buy */
   ModaBuyLinkOffer: undefined,
   /** @property проверка  наличия товара в корзине*/
-  CheckCart: false
+  CheckCart: false,
 });
 export const mutations = {
   /** #Сохраняет в Vuex данные для modal buy
@@ -26,7 +26,7 @@ export const mutations = {
    */
   SetModalImg(store, data) {
     store.ModaImgLinkProduct = data;
-  }
+  },
 };
 export const getters = {
   /** @returns {Number}  ссылка  на товар для modal buy */
@@ -36,5 +36,5 @@ export const getters = {
   /** @returns {Boolean}  состояние товар в корзине  */
   GetCheckCart: s => s.CheckCart,
   /** @returns {Boolean}  Id товар для modal img*/
-  GetModaImgLinkProduct: s => s.ModaImgLinkProduct
+  GetModaImgLinkProduct: s => s.ModaImgLinkProduct,
 };

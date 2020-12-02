@@ -1,6 +1,6 @@
 export const state = () => ({
   Payment: "",
-  Dostavka: ""
+  Dostavka: "",
 });
 export const mutations = {
   SetPayment(store, data) {
@@ -12,7 +12,7 @@ export const mutations = {
   SetNameDostavka(store, data) {
     data.url.description = data.valueText;
     data.url.cost = data.valueCons;
-  }
+  },
 };
 export const actions = {
   async _Payment({ store, dispatch, commit, getters }) {
@@ -26,10 +26,10 @@ export const actions = {
       let data = await dispatch("Order/axios/_Dostavka", {}, { root: true });
       commit("SetDostavka", data);
     }
-  }
+  },
 };
 
 export const getters = {
   GetPayment: s => s.Payment,
-  GetDostavka: s => s.Dostavka
+  GetDostavka: s => s.Dostavka,
 };

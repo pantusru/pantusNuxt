@@ -13,7 +13,7 @@ export const actions = {
         await dispatch("_init_Applicabilities", {
           res: res,
           dataset: dataset,
-          TopParent: undefined
+          TopParent: undefined,
         });
         return dataset;
       });
@@ -37,15 +37,15 @@ export const actions = {
         children: [],
         visible: true,
         TopParent: data.TopParent,
-        selectChecked: false
+        selectChecked: false,
       });
       if (array.childs.length > 0) {
         await dispatch("_init_Applicabilities", {
           res: array.childs,
           dataset: data.dataset[index].children,
-          TopParent: data.TopParent
+          TopParent: data.TopParent,
         });
       }
     });
-  }
+  },
 };

@@ -7,7 +7,7 @@ export const actions = {
         let dataset = [];
         await dispatch("_init_CategoriesStrAll", {
           res: res,
-          dataset: dataset
+          dataset: dataset,
         });
         return dataset;
       });
@@ -27,14 +27,14 @@ export const actions = {
         children: [],
         visible: true,
         CheckedType: false,
-        Indeterminate: false
+        Indeterminate: false,
       });
       if (array.childs.length > 0) {
         await dispatch("_init_CategoriesStrAll", {
           res: array.childs,
-          dataset: data.dataset[index].children
+          dataset: data.dataset[index].children,
         });
       }
     });
-  }
+  },
 };

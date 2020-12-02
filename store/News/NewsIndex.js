@@ -1,10 +1,10 @@
 export const state = () => ({
-  NewsIndex: []
+  NewsIndex: [],
 });
 export const mutations = {
   SetNewsIndex(store, data) {
     store.NewsIndex = data;
-  }
+  },
 };
 export const actions = {
   async _NewsIndex({ store, dispatch, commit, getters }) {
@@ -16,10 +16,10 @@ export const actions = {
       );
       commit("SetNewsIndex", data.results);
     }
-  }
+  },
 };
 export const getters = {
-  GetNewsIndex: s => s.NewsIndex
+  GetNewsIndex: s => s.NewsIndex,
 };
 
 //  отображает новости на главной странице

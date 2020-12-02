@@ -19,7 +19,7 @@ import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
   head() {
     return {
-      title: "Pantus применяемости товаров"
+      title: "Pantus применяемости товаров",
     };
   },
   async fetch({ store }) {
@@ -29,23 +29,23 @@ export default {
   },
   provide() {
     return {
-      SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities"
+      SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities",
     };
   },
   components: {
     BaseTitleCatalog,
     Vinput,
-    Applicabilities
+    Applicabilities,
   },
   computed: {
     dataset() {
       return this.$store.getters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
-    }
+    },
   },
   created() {
     this.$store.dispatch("Catalog/All/_AllVisible", this.dataset);
-  }
+  },
 };
 </script>

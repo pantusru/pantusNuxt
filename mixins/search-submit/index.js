@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      form: {}
+      form: {},
     };
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
         ];
         // ДОбавление меток для Brand
         await this.$store.dispatch("Catalog/Metks/SetMetksBrand", {
-          ids: this.form.filter_brands
+          ids: this.form.filter_brands,
         });
         this.form.filter_brands = this.form.filter_brands.join();
       } else {
@@ -99,11 +99,11 @@ export default {
         // Кнопка отправить запрос
         await this.$router.push({
           name: "search",
-          query: { ...this.form, page_number: undefined }
+          query: { ...this.form, page_number: undefined },
         });
         this.form.page_number = undefined;
         await this.$store.dispatch("Products/_ProductAll", this.form);
       }
-    }
-  }
+    },
+  },
 };

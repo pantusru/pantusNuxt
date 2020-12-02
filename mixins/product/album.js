@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      UrlMain: ""
+      UrlMain: "",
     };
   },
   methods: {
@@ -13,6 +13,6 @@ export default {
     },
     reset() {
       this.UrlMain = this.dataset.ProductCard.ProductCardImage.url;
-    }
-  }
+    },
+  },
 };

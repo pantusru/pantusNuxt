@@ -5,47 +5,47 @@ import {
   maxLength,
   alphaNum,
   email,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 let name = {
-  required
+  required,
 };
 let surname = {
-  required
+  required,
 };
 let Myemail = {
   required,
-  email
+  email,
 };
 let password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
-  alphaNum
+  alphaNum,
 };
 let password2 = {
   required,
-  sameAsPassword: sameAs("password")
+  sameAsPassword: sameAs("password"),
 };
 let telephone = {
   required,
-  minLength: minLength(17)
+  minLength: minLength(17),
 };
 let inn = {
   required,
-  minLength: minLength(12)
+  minLength: minLength(12),
 };
 let organization = {
-  required
+  required,
 };
 let country = {
-  required
+  required,
 };
 let address = {
-  required
+  required,
 };
 let checbox = {
-  required: value => value === true
+  required: value => value === true,
 };
 
 // let all поля которые есть в 2 формах
@@ -56,13 +56,13 @@ let all = {
   password: password,
   password2: password2,
   telephone: telephone,
-  checbox: checbox
+  checbox: checbox,
 };
 let Wholesale = {
   inn: inn,
   organization: organization,
   country: country,
-  address: address
+  address: address,
 };
 
 export default {
@@ -79,24 +79,24 @@ export default {
         address: "",
         organization: "",
         inn: "",
-        checbox: false
-      }
+        checbox: false,
+      },
     };
   },
   validations() {
     if (this.buyer === "Retail") {
       return {
         Form: {
-          ...all
-        }
+          ...all,
+        },
       };
     } else {
       return {
         Form: {
           ...all,
-          ...Wholesale
-        }
+          ...Wholesale,
+        },
       };
     }
-  }
+  },
 };

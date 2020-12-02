@@ -23,14 +23,14 @@ export const actions = {
           if (data.data[keyData].level === 1) {
             // Приминимость 0 уровня
             dispatch("MarkaSet", {
-              link: data.data[keyData]
+              link: data.data[keyData],
             });
             commit(
               "Applicabilities/ApplicabilitiessAll/SetApplicabilitiesSelectChecked",
               {
                 // Отобразить его
                 index: keyData,
-                value: true
+                value: true,
               },
               { root: true }
             );
@@ -38,7 +38,7 @@ export const actions = {
             // Приминимость 1 уровня
             dispatch("ModelSet", {
               link: data.data[keyData],
-              DataModel: data.DataModel
+              DataModel: data.DataModel,
             });
           } else if (data.data[keyData].level === 3) {
             // Приминимость 2 уровня
@@ -46,7 +46,7 @@ export const actions = {
               DataModel: data.DataModel,
               MarkId: data.MarkId,
               link: data.data[keyData],
-              DataGenerations: data.DataGenerations
+              DataGenerations: data.DataGenerations,
             });
           }
           break;
@@ -59,7 +59,7 @@ export const actions = {
           id: data.id,
           MarkId: data.MarkId,
           DataModel: data.DataModel,
-          DataGenerations: data.DataGenerations
+          DataGenerations: data.DataGenerations,
         });
       }
     }
@@ -76,7 +76,7 @@ export const actions = {
         // Сохраняет SelectedMarka  DataModel
         id: Ids,
         name: ["SelectedMarka", "DataModel"],
-        value: [data.link.id, data.link.children]
+        value: [data.link.id, data.link.children],
       },
       { root: true }
     );
@@ -94,7 +94,7 @@ export const actions = {
         check = true;
         dispatch("PushPanelDataGenerations", {
           linkPanel: Panel[key],
-          linkApplicabilities: data.link
+          linkApplicabilities: data.link,
         });
         break;
       }
@@ -112,14 +112,14 @@ export const actions = {
             "SelectedMarka",
             "SelectedModel",
             "DataGenerations",
-            "DataModel"
+            "DataModel",
           ],
           value: [
             data.link.parentId,
             [data.link.id],
             data.link.children,
-            data.DataModel
-          ]
+            data.DataModel,
+          ],
         },
         { root: true }
       );
@@ -152,7 +152,7 @@ export const actions = {
                 // Сохраняет SelectedGenerations
                 id: Panel[keyPanel].id,
                 name: ["SelectedGenerations"],
-                value: [data.link.id]
+                value: [data.link.id],
               },
               { root: true }
             );
@@ -170,7 +170,7 @@ export const actions = {
             // Сохраняет SelectedGenerations
             id: Panel[keyPanel].id,
             name: ["SelectedGenerations"],
-            value: [data.link.id]
+            value: [data.link.id],
           },
           { root: true }
         );
@@ -178,8 +178,8 @@ export const actions = {
           linkPanel: Panel[keyPanel],
           linkApplicabilities: {
             children: data.DataGenerations,
-            id: data.link.parentId
-          }
+            id: data.link.parentId,
+          },
         });
       }
     }
@@ -189,8 +189,8 @@ export const actions = {
         // Сохраняет DataModel, selectedMark
         link: {
           id: data.MarkId,
-          children: data.DataModel
-        }
+          children: data.DataModel,
+        },
       });
       commit(
         "Applicabilities/Panel/PushPanelObject",
@@ -198,7 +198,7 @@ export const actions = {
           // СОхраняет SelectedGenerations
           id: Panel[Panel.length - 1].id,
           name: ["SelectedGenerations"],
-          value: [data.link.id]
+          value: [data.link.id],
         },
         { root: true }
       );
@@ -207,8 +207,8 @@ export const actions = {
         linkPanel: Panel[Panel.length - 1],
         linkApplicabilities: {
           children: data.DataGenerations,
-          id: data.link.parentId
-        }
+          id: data.link.parentId,
+        },
       });
     }
   },
@@ -225,7 +225,7 @@ export const actions = {
       // У Панели нету Data
       arr = [
         ...data.linkPanel.DataGenerations,
-        ...data.linkApplicabilities.children
+        ...data.linkApplicabilities.children,
       ];
     }
     commit(
@@ -234,7 +234,7 @@ export const actions = {
         // СОхраняет SelectedModel
         id: data.linkPanel.id,
         name: ["SelectedModel"],
-        value: [data.linkApplicabilities.id]
+        value: [data.linkApplicabilities.id],
       },
       { root: true }
     );
@@ -244,9 +244,9 @@ export const actions = {
         // Сохраняет DataGenerations
         id: data.linkPanel.id,
         name: "DataGenerations",
-        value: arr
+        value: arr,
       },
       { root: true }
     );
-  }
+  },
 };

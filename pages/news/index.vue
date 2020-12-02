@@ -25,7 +25,7 @@ export default {
   async fetch({ query, store, getters }) {
     await Promise.all([
       store.dispatch("News/CategoriesAll/_NewsCategories"),
-      store.dispatch("News/NewsPage/_NewsPage", query.page)
+      store.dispatch("News/NewsPage/_NewsPage", query.page),
     ]);
   },
   methods: {
@@ -35,11 +35,11 @@ export default {
         "News/NewsPage/_NewsPage",
         this.$route.query.page
       );
-    }
+    },
   },
   components: {
     NewsPageIndex,
-    NewsCategoriesAll
+    NewsCategoriesAll,
   },
   computed: {
     NewsPage() {
@@ -50,14 +50,14 @@ export default {
     },
     CountPage() {
       return this.$store.getters["News/NewsPage/GetPage"];
-    }
+    },
   },
   watch: {
     // при изменения page
     $route() {
       this.Add();
       window.scrollTo(0, 0);
-    }
-  }
+    },
+  },
 };
 </script>

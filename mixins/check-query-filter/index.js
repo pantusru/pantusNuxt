@@ -31,7 +31,7 @@ export default {
           let ids = this.$route.query.filter_categories.split(",");
           await this.$store.dispatch("Catalog/All/_AllChexboxTrue", {
             data: this.$store.getters["Categories/CategoriesAll/GetCategories"],
-            ids: ids
+            ids: ids,
           });
           // await this.$store.dispatch(
           //     "Catalog/Metks/SetMetksCategories",
@@ -45,7 +45,7 @@ export default {
             data: this.$store.getters[
               "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
             ],
-            id: ids
+            id: ids,
           });
           //   let ids = query.applicabilities.split(",");
           //   store.dispatch("Catalog/All/_AllChexboxTrue", {data: store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"], ids:ids });
@@ -56,7 +56,7 @@ export default {
           // ПРОВЕРКА СОРТИРОВКИ
           this.$store.commit("formSearch/SetSort", {
             SortType: this.$route.query.sort_type,
-            SortName: this.$route.query.sort_name
+            SortName: this.$route.query.sort_name,
           });
         }
         if (this.$route.query.filter_substr !== undefined) {
@@ -66,6 +66,6 @@ export default {
           );
         }
       }
-    }
-  }
+    },
+  },
 };

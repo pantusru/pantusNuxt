@@ -11,5 +11,5 @@ export const actions = {
     return await this.$axios.$get(a).then(res => {
       return res;
     });
-  }
+  },
 };

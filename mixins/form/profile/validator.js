@@ -5,32 +5,32 @@ import {
   maxLength,
   alphaNum,
   email,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 let name = {
-  required
+  required,
 };
 let surname = {
-  required
+  required,
 };
 let patronymic = {};
 let login = {
   required,
-  email
+  email,
 };
 let password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
-  alphaNum
+  alphaNum,
 };
 let password2 = {
   required,
-  sameAsPassword: sameAs("password")
+  sameAsPassword: sameAs("password"),
 };
 let telephone = {
   required,
-  minLength: minLength(17)
+  minLength: minLength(17),
 };
 
 // let all поля которые есть в 2 формах
@@ -41,7 +41,7 @@ let all = {
   telephone: telephone,
   password: password,
   password2: password2,
-  patronymic: patronymic
+  patronymic: patronymic,
 };
 
 export default {
@@ -54,15 +54,15 @@ export default {
         password: "",
         password2: "",
         telephone: "",
-        patronymic: ""
-      }
+        patronymic: "",
+      },
     };
   },
   validations() {
     return {
       Form: {
-        ...all
-      }
+        ...all,
+      },
     };
-  }
+  },
 };

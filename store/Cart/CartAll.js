@@ -10,7 +10,7 @@ export const state = () => ({
   /**
    * @property Количество товаров требующих обновление в корзине
    */
-  CartUpdateCount: 0
+  CartUpdateCount: 0,
   // CheckCartCount: null,
 });
 export const mutations = {
@@ -88,7 +88,7 @@ export const mutations = {
       store.CartActual = false;
     }
     store.CartProduct.splice(data.index, 1); // Удаление с корзины
-  }
+  },
 };
 export const actions = {
   /**
@@ -108,7 +108,7 @@ export const actions = {
       commit("SetCartProduct", data);
       commit("SetCartActual");
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -150,5 +150,5 @@ export const getters = {
    * @returns {Boolean} флаг обновления корзину
    */
   GetCartActual: s => s.CartActual,
-  GetCartUpdateCount: s => s.CartUpdateCount
+  GetCartUpdateCount: s => s.CartUpdateCount,
 };

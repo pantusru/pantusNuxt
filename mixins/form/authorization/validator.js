@@ -5,14 +5,14 @@ import {
   maxLength,
   alphaNum,
   email,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 
 let Myemail = {
-  required
+  required,
 };
 let password = {
-  required
+  required,
 };
 
 export default {
@@ -20,16 +20,16 @@ export default {
     return {
       Form: {
         email: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   },
   validations() {
     return {
       Form: {
         email: Myemail,
-        password: password
-      }
+        password: password,
+      },
     };
-  }
+  },
 };

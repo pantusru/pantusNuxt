@@ -19,8 +19,8 @@ export const state = () => ({
     name: undefined,
     surname: undefined,
     patronymic: undefined,
-    telephone: undefined
-  }
+    telephone: undefined,
+  },
 });
 export const mutations = {
   /**
@@ -62,7 +62,7 @@ export const mutations = {
    */
   AuthorizationFalse(store) {
     store.CheckUser = false;
-  }
+  },
 };
 export const actions = {
   /**
@@ -86,7 +86,7 @@ export const actions = {
       }
       commit("LoaderTrue");
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -100,5 +100,5 @@ export const getters = {
   /**
    * @function FormData - Возвращает флаг авторизованный ли user
    */
-  CheckUser: s => s.CheckUser
+  CheckUser: s => s.CheckUser,
 };

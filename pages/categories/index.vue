@@ -27,12 +27,12 @@ import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
   head() {
     return {
-      title: "Pantus категории товаров"
+      title: "Pantus категории товаров",
     };
   },
   provide() {
     return {
-      SetValue: "Categories/CategoriesAll/SetCategories"
+      SetValue: "Categories/CategoriesAll/SetCategories",
     };
   },
   async fetch({ query, store, getters, commit }) {
@@ -41,15 +41,15 @@ export default {
   components: {
     BaseTitleCatalog,
     Vinput,
-    Categories
+    Categories,
   },
   computed: {
     dataset() {
       return this.$store.getters["Categories/CategoriesAll/GetCategories"];
-    }
+    },
   },
   created() {
     this.$store.dispatch("Catalog/All/_AllVisible", this.dataset);
-  }
+  },
 };
 </script>

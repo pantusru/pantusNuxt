@@ -1,7 +1,7 @@
 <template>
   <b-button class="bg-danger _baseBnt" v-on="$listeners">
     {{ text }}
-    <slot></slot>
+    <slot />
   </b-button>
 </template>
 

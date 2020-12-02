@@ -16,17 +16,17 @@ export default {
      * type input
      */
     type: {
-      default: "text"
+      default: "text",
     },
     /**
      * маска для input
      */
     Vmask: {
-      default: null
+      default: null,
     },
     /***
      * Состояния валидация для условия отображения ошибок
      */
-    $v: {}
-  }
+    $v: {},
+  },
 };

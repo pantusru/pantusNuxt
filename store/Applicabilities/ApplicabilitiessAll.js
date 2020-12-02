@@ -2,7 +2,7 @@ export const state = () => ({
   /**
    * @property Vuex массив всех  применяемость
    */
-  Applicabilities: []
+  Applicabilities: [],
 });
 export const mutations = {
   /**
@@ -19,7 +19,7 @@ export const mutations = {
    */
   SetApplicabilitiesSelectChecked(store, data) {
     store.Applicabilities[data.index].selectChecked = data.value;
-  }
+  },
 };
 export const actions = {
   /**
@@ -36,7 +36,7 @@ export const actions = {
       // dispatch("Catalog/All/_All" , data,{ root: true }); //  Обработка данных в нужную структуру
       commit("SetApplicabilities", data);
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -45,5 +45,5 @@ export const getters = {
    */
   GetApplicabilities: s => s.Applicabilities,
   GetApplicabilitiesParentId: s => id =>
-    s.Applicabilities.findIndex(data => data.id === id)
+    s.Applicabilities.findIndex(data => data.id === id),
 };

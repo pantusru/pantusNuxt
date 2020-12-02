@@ -34,7 +34,7 @@ export default {
     NavProfile,
     FuncComponents,
     ModalImg,
-    ModalBuy
+    ModalBuy,
   },
   async fetch({ store }) {
     await store.dispatch("Selected/selected/_Selected");
@@ -42,12 +42,12 @@ export default {
   computed: {
     Products() {
       return this.$store.getters["Selected/selected/GetSelected"];
-    }
+    },
   },
   head() {
     return {
-      title: "Pantus избранные товары"
+      title: "Pantus избранные товары",
     };
-  }
+  },
 };
 </script>

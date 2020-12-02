@@ -2,7 +2,7 @@ export const state = () => ({
   NewsPage: [],
   NewsVisible: [],
   CountNews: 0,
-  limit: 12
+  limit: 12,
 });
 export const mutations = {
   SetNewsPage(store, data) {
@@ -13,7 +13,7 @@ export const mutations = {
   },
   SetCountNews(store, data) {
     store.CountNews = data;
-  }
+  },
 };
 export const actions = {
   async _NewsPage({ store, dispatch, commit, getters }, page) {
@@ -39,7 +39,7 @@ export const actions = {
       // данные загружены!
       commit("SetNewsVisible", getters.GetNewsPage[page]);
     }
-  }
+  },
 };
 export const getters = {
   GetNewsPage: s => s.NewsPage,
@@ -52,7 +52,7 @@ export const getters = {
     } else {
       return Number(s.CountNews / s.limit);
     }
-  }
+  },
 };
 
 //  отображает новости на главной странице

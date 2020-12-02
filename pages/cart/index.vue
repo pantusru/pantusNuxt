@@ -26,7 +26,7 @@ export default {
     vTable,
     vButton,
     VBlogCart,
-    CartButtonUpdate
+    CartButtonUpdate,
   },
   computed: {
     CartLength() {
@@ -34,12 +34,12 @@ export default {
     },
     CartActual() {
       return this.$store.getters["Cart/CartAll/GetCartActual"];
-    }
+    },
   },
   head() {
     return {
-      title: "Pantus корзина"
+      title: "Pantus корзина",
     };
-  }
+  },
 };
 </script>

@@ -2,7 +2,7 @@ export const state = () => ({
   NewsCategoriesPage: {},
   NewsVisible: [],
   CountNews: 0,
-  limit: 12
+  limit: 12,
 });
 export const mutations = {
   SetNewsCategoriesPage(store, data) {
@@ -21,7 +21,7 @@ export const mutations = {
   },
   SetCountNewws(store, data) {
     store.CountNews = data;
-  }
+  },
 };
 export const actions = {
   async _NewsCategoriesPage({ store, dispatch, commit, getters }, data) {
@@ -50,7 +50,7 @@ export const actions = {
       commit("SetNewsCategoriesPage", {
         dataset: dataset,
         page: data.page,
-        name: data.id
+        name: data.id,
       });
       commit("SetNewsVisible", dataset);
     } else {
@@ -60,7 +60,7 @@ export const actions = {
         getters.GetNewsCategoriesPage[data.id][data.page]
       );
     }
-  }
+  },
 };
 export const getters = {
   GetNewsCategoriesPage: s => s.NewsCategoriesPage,
@@ -73,7 +73,7 @@ export const getters = {
     } else {
       return Number(s.CountNews / s.limit);
     }
-  }
+  },
 };
 
 //  отображает новости на главной странице

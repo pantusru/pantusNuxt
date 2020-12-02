@@ -31,14 +31,14 @@ export default {
   name: "change_password",
   components: {
     form_input_password_change,
-    form_button_password_set
+    form_button_password_set,
   },
   mixins: [mixinValidator, mixinError],
   head() {
     return {
-      title: "Pantus восстановить пароль"
+      title: "Pantus восстановить пароль",
     };
   },
-  middleware: "change_password"
+  middleware: "change_password",
 };
 </script>

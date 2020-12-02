@@ -4,8 +4,8 @@ export const actions = {
       "http://api.pantus.ru/products_filter",
       {
         params: {
-          id
-        }
+          id,
+        },
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
@@ -24,8 +24,8 @@ export const actions = {
       {
         params: {
           ...dataset,
-          page_size: data.limit
-        }
+          page_size: data.limit,
+        },
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
@@ -42,8 +42,8 @@ export const actions = {
       "http://api.pantus.ru/products_filter",
       {
         params: {
-          page_size: data.limit
-        }
+          page_size: data.limit,
+        },
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
@@ -66,15 +66,15 @@ export const actions = {
           name: elem.name, // Название товара
           params: {
             // Параметры товара
-            measure: elem.params.measure
+            measure: elem.params.measure,
           },
           sku: {
             // Артикуль товара
             original: elem.sku.origin, // Оригинал
-            normalized: elem.sku.custom // Ссылка
+            normalized: elem.sku.custom, // Ссылка
           },
           ProductCardImage: {
-            url: elem.images.main // Изображение
+            url: elem.images.main, // Изображение
           },
           album: [],
           ProductCardOem: elem.oems, // OEM
@@ -82,19 +82,19 @@ export const actions = {
             // brand
             id: elem.brand.id,
             name: elem.brand.name,
-            deliveryDelay: elem.brand.deliveryDelay
+            deliveryDelay: elem.brand.deliveryDelay,
           },
           categories: [],
-          applicabilities: []
+          applicabilities: [],
         },
-        productOffer: []
+        productOffer: [],
       });
       if (elem.categories.length !== 0) {
         // Категории
         elem.categories.forEach(data => {
           dataset[dataset.length - 1].ProductCard.categories.push({
             id: data.id,
-            name: data.name
+            name: data.name,
           });
         });
       }
@@ -103,7 +103,7 @@ export const actions = {
         elem.applicabilities.forEach(data => {
           dataset[dataset.length - 1].ProductCard.applicabilities.push({
             id: data.id,
-            name: data.name
+            name: data.name,
           });
         });
       }
@@ -122,9 +122,9 @@ export const actions = {
           supplier: {
             name: data.supplier.name,
             deliveryDelay: data.supplier.deliveryDelay,
-            deliveryDelayView: data.supplier.deliveryDelayView
+            deliveryDelayView: data.supplier.deliveryDelayView,
           },
-          multiplicity: data.supplier.orderMultiplicity
+          multiplicity: data.supplier.orderMultiplicity,
         });
       });
     });
@@ -154,5 +154,5 @@ export const actions = {
       }
     }
     return filter;
-  }
+  },
 };

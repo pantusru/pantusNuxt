@@ -6,8 +6,8 @@ export const actions = {
       name: "Макс",
       surname: "Семенов",
       telephone: "+7(893) 747-91-57",
-      patronymic: "Александрович"
+      patronymic: "Александрович",
     };
     return User;
-  }
+  },
 };

@@ -2,7 +2,7 @@ export const state = () => ({
   /**
    * @property Массив всех категории
    */
-  Categories: []
+  Categories: [],
 });
 export const mutations = {
   /**
@@ -11,7 +11,7 @@ export const mutations = {
    */
   SetCategories(store, data) {
     store.Categories = data;
-  }
+  },
 };
 export const actions = {
   /**
@@ -28,7 +28,7 @@ export const actions = {
       // dispatch("Catalog/All/_All" , data,{ root: true });
       commit("SetCategories", data);
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -36,7 +36,7 @@ export const getters = {
    */
   GetCategories: s => s.Categories,
   // GetCategoriesId: s=> id => s.CartProduct.filter(cart => cart.ProductOffer.id == id),
-  GetCategoriesId: s => id => s.Categories.filter(todo => todo.id == id)
+  GetCategoriesId: s => id => s.Categories.filter(todo => todo.id == id),
 };
 
 //  Отображает данные всех категории товаров

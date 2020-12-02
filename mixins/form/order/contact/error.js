@@ -1,30 +1,30 @@
 let Surname = [
   {
     ifv: "required",
-    text: "Укажите вашу фамилию"
-  }
+    text: "Укажите вашу фамилию",
+  },
 ];
 let Name = [
   {
     ifv: "required",
-    text: "Укажите ваше Имя"
-  }
+    text: "Укажите ваше Имя",
+  },
 ];
 let Telephone = [
   {
     ifv: "required",
-    text: "Укажите ваш номер телефона"
+    text: "Укажите ваш номер телефона",
   },
   {
     ifv: "minLength",
-    text: "Укажите корректный номер телефона"
-  }
+    text: "Укажите корректный номер телефона",
+  },
 ];
 let Town = [
   {
     ifv: "required",
-    text: "Укажите  город доставки"
-  }
+    text: "Укажите  город доставки",
+  },
 ];
 export default {
   data() {
@@ -33,8 +33,8 @@ export default {
         surname: Surname,
         name: Name,
         telephone: Telephone,
-        Town: Town
-      }
+        Town: Town,
+      },
     };
-  }
+  },
 };

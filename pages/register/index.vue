@@ -103,23 +103,23 @@ export default {
     VInput,
     radioForm,
     Buttons,
-    MSelect
+    MSelect,
   },
   mixins: [MixinsError, MixinsValidations],
   data() {
     return {
-      buyer: "Retail"
+      buyer: "Retail",
     };
   },
   watch: {
     $v() {
       // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
-    }
+    },
   },
   provide() {
     return {
-      $v: this.$v
+      $v: this.$v,
     };
-  }
+  },
 };
 </script>

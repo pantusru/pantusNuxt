@@ -22,7 +22,7 @@ import {
   required,
   minLength,
   between,
-  alphaNum
+  alphaNum,
 } from "vuelidate/lib/validators";
 import MixinsError from "@/mixins/form/forgot-password/error";
 import MixinsValidations from "@/mixins/form/forgot-password/validator";
@@ -31,7 +31,7 @@ import BaseButton from "@/components/base/button/base-button";
 export default {
   components: {
     BaseButton,
-    VInput
+    VInput,
   },
   mixins: [MixinsError, MixinsValidations],
   middleware: "CheckUser",
@@ -41,7 +41,7 @@ export default {
       if (this.$v.Form.$error === false) {
         // ЗАПРОС  НА СЕРВЕР
       }
-    }
-  }
+    },
+  },
 };
 </script>

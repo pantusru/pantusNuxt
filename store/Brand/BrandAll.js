@@ -6,7 +6,7 @@ export const state = () => ({
   /**
    * @property количество брендов на 1 странице
    */
-  limit: 100
+  limit: 100,
 });
 export const mutations = {
   /**
@@ -15,7 +15,7 @@ export const mutations = {
    */
   SetBrand(store, data) {
     store.Brand = data;
-  }
+  },
 };
 export const actions = {
   /**
@@ -27,7 +27,7 @@ export const actions = {
       let data = await dispatch("Brand/axios/_Brands", {}, { root: true });
       commit("SetBrand", data);
     }
-  }
+  },
 };
 export const getters = {
   /**
@@ -47,5 +47,5 @@ export const getters = {
    */
   GetBrandLength: s => {
     return Math.ceil(s.Brand.length / s.limit);
-  }
+  },
 };

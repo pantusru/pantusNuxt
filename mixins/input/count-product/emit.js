@@ -10,17 +10,17 @@ export default {
       }
       this.$store.commit("Cart/CartAll/SetCountProductArr", {
         data: data.array,
-        value: data.Count
+        value: data.Count,
       });
       this.$store.commit("Cart/CartAll/SetCartCheckCount", {
         index: index,
-        value: true
+        value: true,
       });
-    }
+    },
   },
   computed: {
     GetCartUpdateCount() {
       return this.$store.getters["Cart/CartAll/GetCartUpdateCount"];
-    }
-  }
+    },
+  },
 };

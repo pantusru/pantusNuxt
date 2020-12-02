@@ -1,5 +1,5 @@
 export const state = () => ({
-  MyOrder: []
+  MyOrder: [],
 });
 export const mutations = {
   /***
@@ -15,15 +15,15 @@ export const mutations = {
   SetDataMyOrder(store, data) {
     data.code = "ОТ"; // Отмена
     data.name = "Отменен"; // Отмена
-  }
+  },
 };
 export const actions = {
   async _MyOrderAll({ store, dispatch, commit, getters }) {
     // Добавить data page, и передавать в API ЗАпрос
     let data = await dispatch("MyOrder/axios/_MyOrder", {}, { root: true });
     commit("SetMyOrder", data);
-  }
+  },
 };
 export const getters = {
-  GetMyOrder: s => s.MyOrder
+  GetMyOrder: s => s.MyOrder,
 };

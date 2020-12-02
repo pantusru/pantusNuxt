@@ -13,7 +13,7 @@ export default {
   async fetch({ query, store, getters, params }) {
     await store.dispatch("News/NewsCategoriesPage/_NewsCategoriesPage", {
       page: query.page,
-      id: params.id
+      id: params.id,
     });
   },
   methods: {
@@ -23,10 +23,10 @@ export default {
         "News/NewsCategoriesPage/_NewsCategoriesPage",
         { page: this.$route.query.page, id: this.$route.params.id }
       );
-    }
+    },
   },
   components: {
-    NewsPageIndex
+    NewsPageIndex,
   },
   computed: {
     NewsPage() {
@@ -34,14 +34,14 @@ export default {
     },
     CountPage() {
       return this.$store.getters["News/NewsCategoriesPage/GetPage"];
-    }
+    },
   },
   watch: {
     // при изменения page
     async $route() {
       window.scrollTo(0, 0);
       await this.Add();
-    }
-  }
+    },
+  },
 };
 </script>

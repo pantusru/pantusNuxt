@@ -3,7 +3,7 @@ export const actions = {
   async _Payment() {
     return [
       { id: 35, name: "Безналичный платеж" },
-      { id: 37, name: "Оплата наличными при получении" }
+      { id: 37, name: "Оплата наличными при получении" },
     ];
   },
   async _Dostavka() {
@@ -15,7 +15,7 @@ export const actions = {
         description: "Бесплатно",
         adress: "г. Балаково, ул. Транспортная, д. 11",
         TownId: "6400000400000",
-        Town: "Балаково"
+        Town: "Балаково",
       },
       {
         id: "36",
@@ -24,28 +24,28 @@ export const actions = {
         description: "Бесплатно",
         cost: 0,
         TownId: "6300000700000",
-        Town: "Тольятти"
+        Town: "Тольятти",
       },
       {
         id: "55",
         name: "Shiptor (агрегатор служб доставки)",
         adress: "dpd, pickpoint, boxberry и прочее",
         description: "Рассчитать стоимость",
-        nameWidget: "shiptor_widget_show"
+        nameWidget: "shiptor_widget_show",
       },
       {
         id: "15",
         name: "СДЭК",
         description: "Рассчитать стоимость",
-        nameWidget: ""
+        nameWidget: "",
       },
       { id: "59", name: "Почта России", description: "Не указан Город" },
       {
         id: "61",
         name: "Другие транспортные компании",
         description: "От 350 руб.",
-        cost: 350
-      }
+        cost: 350,
+      },
     ];
-  }
+  },
 };

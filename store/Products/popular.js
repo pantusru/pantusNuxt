@@ -1,10 +1,10 @@
 export const state = () => ({
-  productsPopular: []
+  productsPopular: [],
 });
 export const mutations = {
   SetProductsPopular(store, data) {
     store.productsPopular = data;
-  }
+  },
 };
 export const actions = {
   async _ProductPopularAll({ store, dispatch, commit, getters }, data) {
@@ -16,8 +16,8 @@ export const actions = {
       );
       commit("SetProductsPopular", dataset);
     }
-  }
+  },
 };
 export const getters = {
-  GetProductsPopular: s => s.productsPopular
+  GetProductsPopular: s => s.productsPopular,
 };

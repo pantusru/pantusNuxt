@@ -5,26 +5,26 @@ import {
   maxLength,
   alphaNum,
   email,
-  sameAs
+  sameAs,
 } from "vuelidate/lib/validators";
 let Myemail = {
   required,
-  email
+  email,
 };
 
 export default {
   data() {
     return {
       Form: {
-        Email: ""
-      }
+        Email: "",
+      },
     };
   },
   validations() {
     return {
       Form: {
-        Email: Myemail
-      }
+        Email: Myemail,
+      },
     };
-  }
+  },
 };

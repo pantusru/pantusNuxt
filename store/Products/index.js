@@ -1,7 +1,7 @@
 export const state = () => ({
   products: [],
   countProducts: 0,
-  product: []
+  product: [],
 });
 export const mutations = {
   SetProducts(store, data) {
@@ -12,7 +12,7 @@ export const mutations = {
   },
   SetCountPage(store, data) {
     store.countProducts = data;
-  }
+  },
 };
 export const actions = {
   async _ProductAll({ store, dispatch, commit, getters }, data) {
@@ -27,13 +27,13 @@ export const actions = {
   },
   async _ProductId({ store, dispatch, commit }, id) {
     const dataset = await dispatch("Products/axios/_ProductId", id, {
-      root: true
+      root: true,
     });
     commit("SetProduct", dataset);
-  }
+  },
 };
 export const getters = {
   GetProducts: s => s.products,
   GetProduct: s => s.product,
-  GetCountProducts: s => s.countProducts
+  GetCountProducts: s => s.countProducts,
 };

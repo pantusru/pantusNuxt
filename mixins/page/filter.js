@@ -12,9 +12,9 @@ export default {
         name: "search",
         query: {
           ...this.$route.query,
-          page_number: page
-        }
+          page_number: page,
+        },
       };
-    }
-  }
+    },
+  },
 };

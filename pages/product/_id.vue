@@ -9,7 +9,7 @@
 import Product from "@/components/products/product/index";
 export default {
   components: {
-    Product
+    Product,
   },
   async fetch({ store, params, getters }) {
     const ProductAll = store.getters["Products/GetProducts"]; // Все подгруженные товары
@@ -26,13 +26,13 @@ export default {
   },
   data() {
     return {
-      title: ""
+      title: "",
     };
   },
   computed: {
     ProductData() {
       return this.$store.getters["Products/GetProduct"];
-    }
+    },
   },
   created() {
     if (this.ProductData.length === 0) {
@@ -43,8 +43,8 @@ export default {
   },
   head() {
     return {
-      title: this.title
+      title: this.title,
     };
-  }
+  },
 };
 </script>

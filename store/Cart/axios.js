@@ -75,5 +75,5 @@ export const actions = {
       // }
     ];
     return product;
-  }
+  },
 };

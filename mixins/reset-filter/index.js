@@ -14,6 +14,6 @@ export default {
       }
       this.$store.commit("formSearch/SetSort", { SortType: "", SortName: "" });
       this.$store.commit("Catalog/Metks/ResetMetks");
-    }
-  }
+    },
+  },
 };

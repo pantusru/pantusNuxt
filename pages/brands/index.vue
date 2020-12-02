@@ -35,7 +35,7 @@ export default {
   mixins: [PageMixins],
   head() {
     return {
-      title: "Pantus бренды товаров"
+      title: "Pantus бренды товаров",
     };
   },
   async fetch({ store, getters, commit, query }) {
@@ -51,7 +51,7 @@ export default {
       } else {
         this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
       }
-    }
+    },
   },
   created() {
     if (this.$route.query.page !== undefined) {
@@ -66,18 +66,18 @@ export default {
     return {
       CountPages: this.$store.getters["Brand/BrandAll/GetBrandLength"],
       NameComponents: Brand,
-      SearchElem: ""
+      SearchElem: "",
     };
   },
   computed: {
     BrandLength() {
       return this.$store.getters["Brand/BrandAll/GetBrandLength"];
-    }
+    },
   },
   components: {
     BaseTitleCatalog,
     Vinput,
-    Brand
+    Brand,
   },
   methods: {
     // получение результата от компонента поиска
@@ -91,7 +91,7 @@ export default {
         );
         this.CountPages = this.BrandLength;
       }
-    }
-  }
+    },
+  },
 };
 </script>

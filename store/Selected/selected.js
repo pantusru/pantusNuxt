@@ -1,6 +1,6 @@
 export const state = () => ({
   Selected: [],
-  Loader: false
+  Loader: false,
 });
 export const mutations = {
   SetSelected(store, data) {
@@ -14,7 +14,7 @@ export const mutations = {
   },
   LoaderTrue(store) {
     store.Loader = true;
-  }
+  },
 };
 export const actions = {
   async _Selected({ store, dispatch, commit, getters }) {
@@ -23,9 +23,9 @@ export const actions = {
       commit("SetSelected", data);
       commit("LoaderTrue");
     }
-  }
+  },
 };
 export const getters = {
   GetSelected: s => s.Selected,
-  GetLoader: s => s.Loader
+  GetLoader: s => s.Loader,
 };

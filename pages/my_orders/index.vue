@@ -16,12 +16,12 @@ import NavProfile from "@/components/nav/profile/index";
 export default {
   components: {
     NavProfile,
-    MyOrder
+    MyOrder,
   },
   async fetch({ store, dispatch }) {
     await store.dispatch("MyOrder/_MyOrderAll");
   },
-  middleware: "CheckGuest"
+  middleware: "CheckGuest",
 };
 </script>
 

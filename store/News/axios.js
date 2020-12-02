@@ -35,5 +35,5 @@ export const actions = {
       .then(res => {
         return res;
       });
-  }
+  },
 };

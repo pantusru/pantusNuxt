@@ -1,23 +1,65 @@
 <template>
   <b-container>
-    <section>
+    <section class="section">
       <b-row>
-        <b-col v-for="data in block" :key="data.id">
-          <!-- link -->
-          <a :href="data.href" v-if="data.CheckLink == true">
-            <div><b-img :src="data.src" :alt="data.alt" /></div>
-            <h2>
-              {{ data.title }}
-              <span>{{ data.titleDop }} </span>
-            </h2>
-          </a>
-          <!-- not link -->
-          <div v-else>
-            <b-col><b-img :src="data.src" :alt="data.alt" /></b-col>
-            <h2>
-              {{ data.title }}
-              <span>{{ data.titleDop }} </span>
-            </h2>
+        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+          <div class="col-8 mx-auto mb-3">
+            <b-img :src="require('@img/advantage/feature-new-01.png')" />
+          </div>
+          <div class="text-center">
+            <b class="home-advantage-content-title">
+              Более
+              <nuxt-link to="/search" class="home-advantage-content-link">
+                22000
+              </nuxt-link>
+            </b>
+            <br />
+            <p class="home-advantage-content-text">автозапчастей в каталогах</p>
+          </div>
+        </b-col>
+        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+          <div class="col-8 mx-auto mb-3">
+            <b-img :src="require('@img/advantage/feature-new-02.png')" />
+          </div>
+          <div class="text-center">
+            <b class="home-advantage-content-title">
+              Доставка
+              <nuxt-link to="/search" class="home-advantage-content-link">
+                по всему миру
+              </nuxt-link>
+            </b>
+            <br />
+            <p class="home-advantage-content-text">От 0 руб. по России</p>
+          </div>
+        </b-col>
+        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+          <div class="col-8 mx-auto mb-3">
+            <b-img :src="require('@img/advantage/feature-new-03.png')" />
+          </div>
+          <div class="text-center">
+            <b class="home-advantage-content-title"> ИНДИВИДУАЛЬНОЕ </b>
+            <br />
+            <p class="home-advantage-content-text">производство деталей</p>
+          </div>
+        </b-col>
+        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+          <div class="col-8 mx-auto mb-3">
+            <b-img
+              :src="require('@img/advantage/feature-new-04.png')"
+              class="img-advantage-h120px"
+            />
+          </div>
+          <div class="text-center">
+            <b class="home-advantage-content-title">
+              <nuxt-link to="/search" class="home-advantage-content-link">
+                20
+              </nuxt-link>
+              СПОСОБОВ ОПЛАТЫ
+            </b>
+            <br />
+            <p class="home-advantage-content-text">
+              с возможностью отсрочки и оплаты при получении
+            </p>
           </div>
         </b-col>
       </b-row>
@@ -43,7 +85,7 @@ export default {
           text: "автозапчастей в каталогах",
           src: require("@img/advantage/feature-new-01.png"),
           alt: "1",
-          href: ""
+          href: "",
         },
         {
           CheckLink: false,
@@ -52,7 +94,7 @@ export default {
           text: "  От 0 руб. по России",
           src: require("@img/advantage/feature-new-02.png"),
           alt: "2",
-          href: ""
+          href: "",
         },
         {
           CheckLink: false,
@@ -61,7 +103,7 @@ export default {
           text: "производство деталей",
           src: require("@img/advantage/feature-new-03.png"),
           alt: "3",
-          href: ""
+          href: "",
         },
         {
           CheckLink: false,
@@ -70,10 +112,28 @@ export default {
           text: "с возможностью отсрочки и оплаты при получении",
           src: require("@img/advantage/feature-new-04.png"),
           alt: "4",
-          href: ""
-        }
-      ]
+          href: "",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
+<style>
+.section {
+  margin-top: 60px;
+}
+.home-advantage-content-title {
+  font-size: 14px;
+  color: #2d414e;
+}
+.home-advantage-content-link {
+  color: #c32836 !important;
+}
+.home-advantage-content-text {
+  font-size: 13px;
+}
+.img-advantage-h120px {
+  max-height: 120px;
+}
+</style>

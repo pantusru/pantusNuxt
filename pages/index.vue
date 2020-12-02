@@ -1,8 +1,8 @@
 <template>
   <main>
     <!-- <VueNewsIndex/> Популярные новости -->
-    <!-- <Abvantage/> -->
     <claider-popular :popular="popular.slice(0, 10)" />
+    <Abvantage />
     <!-- Популярные Товары -->
     <ModalImg />
     <ModalBuy />

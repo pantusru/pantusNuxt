@@ -51,12 +51,10 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.css": [
-        "prettier --write",
-        "stylelint --fix --config ./.stylelintrc-format",
-        "git add"
-      ]
-    }
+    "**/*.{js,css,vue}": "prettier --write",
+    "**/*.{css,vue}": [
+      "prettier --write",
+      "stylelint --fix --config ./.stylelint.config.js"
+    ]
   }
 }

@@ -2,9 +2,7 @@
   <b-col cols="12" lg="3" md="6">
     <h6 class="mb-3"><b>Доставка</b></h6>
     <div>
-      <a href="">
-        <!-- <img src="@img/footer/car-footer.png" alt="11" /> -->
-      </a>
+      <a href=""> </a>
     </div>
     <p>
       {{ text }}

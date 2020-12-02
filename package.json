@@ -11,7 +11,7 @@
     "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
     "prettier": "prettier --write {components,store,mixins,pages,assets}/**/*.{js,ts,vue,css,sass,less,scss}",
-    "lint:all":"npm run lint && npm run prettier"
+    "lint:all": "npm run lint && npm run prettier"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
@@ -19,6 +19,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "cookie-universal-nuxt": "^2.1.4",
+    "jsdoc-vuejs": "^3.0.9",
     "nuxt": "^2.14.0",
     "v-clipboard": "^2.2.3",
     "v-mask": "^2.2.3",

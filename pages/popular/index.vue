@@ -1,26 +1,28 @@
 <template>
   <b-container>
     <modal-buy-product></modal-buy-product>
-    <ProductRow :array="Products" />
+    <popular-products-index :popular="popular" />
   </b-container>
 </template>
 
 <script>
 import ProductRow from "@/components/func/product-blogs-get";
 import ModalBuyProduct from "@/components/modal/buy-product";
+import PopularProductsIndex from "@/components/products/popular/index";
 export default {
   components: {
+    PopularProductsIndex,
     ModalBuyProduct,
-    ProductRow
+    ProductRow,
   },
   async fetch({ store }) {
     await store.dispatch("Products/popular/_ProductPopularAll");
   },
   computed: {
-    Products() {
+    popular() {
       return this.$store.getters["Products/popular/GetProductsPopular"];
-    }
-  }
+    },
+  },
 };
 </script>
 

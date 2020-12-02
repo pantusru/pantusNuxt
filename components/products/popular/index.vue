@@ -8,13 +8,15 @@
 <script>
 import FuncComponents from "@/components/func/product-blogs-get";
 export default {
-  computed: {
-    popular() {
-      return this.$store.getters["Products/popular/GetProductsPopular"];
-    }
+  name: "popular-products-index",
+  props: {
+    popular: {
+      type: Array,
+      request: true,
+    },
   },
   components: {
-    FuncComponents
-  }
+    FuncComponents,
+  },
 };
 </script>

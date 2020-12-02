@@ -28,13 +28,13 @@
 <script>
 export default {
   methods: {
-    CheckValue() {
-      if (this.valueMin > this.valueMax) {
+    async CheckValue() {
+      if (Number(this.valueMin) > Number(this.valueMax)) {
         let rav = this.valueMin;
         this.valueMin = this.valueMax;
         this.valueMax = rav;
       }
-    }
+    },
   },
   computed: {
     valueMin: {
@@ -43,17 +43,18 @@ export default {
       },
       set(value) {
         this.$store.commit("formSearch/SetMinValue", value);
-      }
+      },
     },
     valueMax: {
       get() {
         return this.$store.getters["formSearch/GetMaxValue"];
       },
       set(value) {
+        // console.log("max" + value);
         this.$store.commit("formSearch/SetMaxValue", value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

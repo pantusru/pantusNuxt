@@ -22,7 +22,7 @@ export const state = () => ({
   /**
    * @property Поле поиска
    */
-  Search: ""
+  Search: "",
 });
 export const mutations = {
   /**
@@ -92,7 +92,7 @@ export const mutations = {
   RemoreBrandsChecked(store, data) {
     const index = store.BrandsChecked.indexOf(data.id);
     store.BrandsChecked.splice(index, 1);
-  }
+  },
 };
 export const getters = {
   /**
@@ -118,5 +118,5 @@ export const getters = {
   /**
    * @function GetSearch - Возвращает введеный текст поиска
    */
-  GetSearch: s => s.Search
+  GetSearch: s => s.Search,
 };

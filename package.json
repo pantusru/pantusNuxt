@@ -52,8 +52,8 @@
   },
   "lint-staged": {
     "**/*.{css, sass,less,scss}": [
-      "prettier --write --confing ./prettier.config.js"
-
+      "prettier --write --confing ./prettier.config.js",
+      "stylelint --fix --config ./stylelint.config.js"
     ],
     "**/*.{vue,js}": [
       "eslint --fix"

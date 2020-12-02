@@ -17,9 +17,9 @@ module.exports = {
   plugins: ["prettier"],
   // add your custom rules here
   rules: {
-    "guard-for-in": "warn", // проверка в for hasOwnProperty -  не нужно
+    "guard-for-in": 0, // проверка в for hasOwnProperty -  не нужно
     "no-console": "warn", // Без консоли
-    "vue/require-default-prop": "0", // обязательное значение props default
+    "vue/require-default-prop": 0, // обязательное значение props default
     "vue/require-valid-default-prop": "warn", // Валидное значение по умолчанию
     "vue/name-property-casing": ["warn", "kebab-case"],
     // "vue/custom-event-name-casing": "warn", // написание emit

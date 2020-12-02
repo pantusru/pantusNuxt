@@ -52,9 +52,9 @@
   },
   "lint-staged": {
     "**/*.{js,css,vue}": "prettier --write",
-    "**/*.{css,vue}": [
+    "**/*.{css}": [
       "prettier --write",
-      "stylelint --fix --config ./.stylelint.config.js"
+      "stylelint --fix --config ./stylelint.config.js"
     ]
   }
 }

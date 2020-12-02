@@ -15,7 +15,7 @@ export const mutations = {
   SetChecboxIndeterminate(state, data) {
     // Сохраняет  состояние не определености checkbox true/false
     data.data.Indeterminate = data.value;
-  }
+  },
 };
 export const actions = {
   /**
@@ -35,10 +35,11 @@ export const actions = {
       if (arr[key].parentId != null) {
         // Есть ли родитель у выбранного потомка
         ParentID = true;
-      } else if (data.check === true) {
-        // Выход из рекурсии
-        return;
       }
+      // else if (data.check === true) {
+      // Выход из рекурсии
+      // return;
+      // }
       if (typeof data.id === "number") {
         // Проверяем что это число
         data.id = [data.id];
@@ -47,15 +48,15 @@ export const actions = {
         // Прогоняем массив Id которых нужно найди
         if (arr[key].id == data.id[keyId]) {
           // Найден ID
-          data.check = true;
+          // data.check = true;
           commit("SetChecboxCheckedType", {
             data: arr[key],
-            value: data.value
+            value: data.value,
           });
           if (arr[key].children.length !== 0) {
             dispatch("ChexboxChildren", {
               data: arr[key].children,
-              value: data.value
+              value: data.value,
             });
           }
           if (ParentID === true) {
@@ -75,16 +76,16 @@ export const actions = {
           arr: arr[key].children,
           value: data.value,
           id: data.id,
-          check: data.check
+          // check: data.check,
         }).then(res => {
           if (res !== undefined) {
             commit("SetChecboxIndeterminate", {
               data: arr[key],
-              value: res.Indeterminate
+              value: res.Indeterminate,
             });
             commit("SetChecboxCheckedType", {
               data: arr[key],
-              value: res.CheckedType
+              value: res.CheckedType,
             });
             valueState.Indeterminate.pop();
             valueState.CheckedType.pop();
@@ -134,12 +135,12 @@ export const actions = {
     let data = dataset.data;
     data.forEach(element => {
       commit("SetChecboxCheckedType", { data: element, value: dataset.value });
-      if (element.children.lenght !== 0) {
+      if (element.children.length !== 0) {
         dispatch("ChexboxChildren", {
           data: element.children,
-          value: dataset.value
+          value: dataset.value,
         });
       }
     });
-  }
+  },
 };

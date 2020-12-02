@@ -49,10 +49,11 @@ export const actions = {
     // Найди ID chexbox у которых checked === true
     const IdChexbox = [];
     for (const key in data) {
+      if (data[key].children.length !== 0) {
+        IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
+      }
       if (data[key].CheckedType === true && data[key].Indeterminate === false) {
         IdChexbox.push(data[key].id);
-      } else if (data[key].children.length !== 0) {
-        IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
       }
     }
     return IdChexbox.flat(Infinity);

@@ -47,16 +47,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": ""
     }
   },
   "lint-staged": {
-    "**/*.{css, sass,less,scss}": [
+    "**/*.{css,sass,less,scss}": [
       "prettier --write --confing ./prettier.config.js",
       "stylelint --fix --config ./stylelint.config.js"
     ],
     "**/*.{vue,js}": [
-      "eslint --fix"
+      "eslint --fix --config ./.eslintrc.js"
     ]
   }
 }

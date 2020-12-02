@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  name: "base-alert",
   props: {
     /**
      * Внешний вид alert
@@ -36,6 +35,7 @@ export default {
       default: false,
       type: Boolean,
     },
+    name: "base-alert",
     /**
      * Текст который вставлен в alert
      */

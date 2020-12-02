@@ -38,7 +38,7 @@ module.exports = {
     "vue/no-unused-vars": "warn", //Запретить неиспользуемые определения переменных для директив v-for или атрибутов области видимости
     "vue/no-use-v-if-with-v-for": "warn", //Запретить использование v-if для того же элемента, что и v-for
     "vue / require-component-is": "warn", //Требуют v-bind:is от <component>элементов
-    "vue/require-prop-type-constructor": "0", //Требовать, чтобы тип опоры был конструктором
+    "vue/require-prop-type-constructor": "warn", //Требовать, чтобы тип опоры был конструктором
     "vue/require-render-return": "warn", //Заставить функцию рендеринга всегда возвращать значение
     "vue/require-v-for-key": "warn", // Требовать v-bind:key с v-for директивами
     "vue/return-in-computed-property": "warn", //Обеспечить наличие оператора возврата в вычисляемом свойстве

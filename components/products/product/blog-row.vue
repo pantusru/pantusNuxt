@@ -44,7 +44,7 @@
             name="Применяемость"
             :dataset="Product.ProductCard.applicabilities[0].name"
             :link="
-              'search?filter_applicabilitiespplicabilities=' +
+              'search?filter_applicabilities=' +
               Product.ProductCard.applicabilities[0].id
             "
           />
@@ -59,7 +59,7 @@
               v-for="data in Product.ProductCard.applicabilities.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?filter_applicabilitiespplicabilities=' + data.id"
+              :link="'search?filter_applicabilities=' + data.id"
             />
           </template>
           <!--  ОЕМ  -->
@@ -95,8 +95,7 @@
             "
             name="Категории"
             :link="
-              'search?filter_categoriesegories=' +
-              Product.ProductCard.categories[0].id
+              'search?filter_categories=' + Product.ProductCard.categories[0].id
             "
             :dataset="Product.ProductCard.categories[0].name"
           />
@@ -110,7 +109,7 @@
               v-for="data in Product.ProductCard.categories.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?filter_categoriesegories=' + data.id"
+              :link="'search?filter_categories=' + data.id"
             />
           </template>
         </b-row>

@@ -51,8 +51,7 @@ export const actions = {
     for (const key in data) {
       if (data[key].CheckedType === true && data[key].Indeterminate === false) {
         IdChexbox.push(data[key].id);
-      }
-      if (data[key].children.length !== 0) {
+      } else if (data[key].children.length !== 0) {
         IdChexbox.push(await dispatch("_AllChexboxId", data[key].children));
       }
     }
@@ -74,5 +73,5 @@ export const actions = {
       { arr: dataset, id: ids, value: true },
       { root: true }
     );
-  }
+  },
 };

@@ -39,8 +39,10 @@ export default {
       },
     };
   },
-  async mounted() {
+  async beforeMount() {
     await this.check_slide_count();
+  },
+  mounted() {
     // при прогрузке странице
     // this.$store.commit("SetShow", false);
     window.addEventListener("resize", () => {

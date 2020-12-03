@@ -9,14 +9,14 @@ export default {
       useWebmanifestExtension: false,
       background_color: "#000",
       theme_color: "#000",
-      start_url: "http://test2.pantus.ru:8083/",
-      // icons: [
-      //   {
-      //     src: "/icon.png",
-      //     type: "image/png",
-      //     sizes: "192x192"
-      //   }
-      // ]
+      // start_url: "http://test2.pantus.ru:8083/",
+      icons: [
+        {
+          src: "/icon.png",
+          type: "image/png",
+          sizes: "192x192",
+        },
+      ],
     },
     workbox: {},
   },

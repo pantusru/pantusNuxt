@@ -5,9 +5,9 @@
       :data="dataset"
       :placeholders="'Поиск по применимостям'"
     />
-    <base-title-catalog text="Применимости"></base-title-catalog>
+    <base-title-catalog text="Применимости" />
     <b-row>
-      <Applicabilities :dataset="data" v-for="data in dataset" :key="data.id" />
+      <Applicabilities v-for="data in dataset" :key="data.id" :dataset="data" />
     </b-row>
   </b-container>
 </template>
@@ -17,9 +17,14 @@ import Applicabilities from "@/components/catalog/applicabilities/applicabilitie
 import Vinput from "@/components/search/panel/input/index";
 import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
-  head() {
+  components: {
+    BaseTitleCatalog,
+    Vinput,
+    Applicabilities,
+  },
+  provide() {
     return {
-      title: "Pantus применяемости товаров",
+      SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities",
     };
   },
   async fetch({ store }) {
@@ -27,15 +32,10 @@ export default {
       "Applicabilities/ApplicabilitiessAll/_Applicabilitiess"
     );
   },
-  provide() {
+  head() {
     return {
-      SetValue: "Applicabilities/ApplicabilitiessAll/SetApplicabilities",
+      title: "Pantus применяемости товаров",
     };
-  },
-  components: {
-    BaseTitleCatalog,
-    Vinput,
-    Applicabilities,
   },
   computed: {
     dataset() {

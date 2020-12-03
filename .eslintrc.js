@@ -46,6 +46,7 @@ module.exports = {
     "vue/valid-v-else-if": "warn", // Обеспечить соблюдение действующих v-else-if директив
     "vue/valid-v-else": "warn", // Обеспечить соблюдение действующих v-else директив
     // "vue/no-multiple-template-root": "warn", // для VUE 2 обязательно иметь 1 корневой элемент
+    camelcase: 0,
     "vue/attribute-hyphenation": ["warn", "always"], // Применять стиль именования атрибутов для пользовательских компонентов в шаблоне always через дефис
     "vue/component-definition-name-casing": ["warn", "kebab-case"], // Принудительно применять конкретный регистр для имени определения компонента
     "vue/html-closing-bracket-spacing": [

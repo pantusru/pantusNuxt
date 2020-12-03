@@ -1,7 +1,7 @@
 <template>
   <div v-if="NavMobile === 'catalog'">
-    <base-nav-mobule-back value="main" :nav="{ text: 'Главная' }" />
     <BaseNavMobile>
+      <base-nav-mobule-back value="main" :nav="{ text: 'Главная' }" />
       <base-nav-mobule-link
         :value="dataset.value"
         :component="dataset.components"

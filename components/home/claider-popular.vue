@@ -8,7 +8,7 @@
     >
       <!--      <template #prevArrow> <div>вперед</div> </template>-->
       <b-col v-for="data in popular" :key="data.id" class="mb-3">
-        <BlogProduct :datasetProduct="data" />
+        <BlogProduct :dataset-product="data" />
       </b-col>
     </VueSlickCarousel>
   </b-container>
@@ -38,6 +38,32 @@ export default {
         slidesToScroll: 3,
       },
     };
+  },
+  async mounted() {
+    await this.check_slide_count();
+    // при прогрузке странице
+    // this.$store.commit("SetShow", false);
+    window.addEventListener("resize", () => {
+      this.check_slide_count();
+    });
+  },
+  destroyed() {
+    window.removeEventListener("resize", () => {});
+  },
+  methods: {
+    slideCount(count) {
+      this.settings.slidesToShow = count;
+      this.settings.slidesToScroll = count;
+    },
+    check_slide_count() {
+      if (document.body.clientWidth < 768) {
+        this.slideCount(1);
+      } else if (document.body.clientWidth < 992) {
+        this.slideCount(2);
+      } else {
+        this.slideCount(3);
+      }
+    },
   },
 };
 </script>

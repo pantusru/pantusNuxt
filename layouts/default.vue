@@ -4,8 +4,8 @@
       <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5" />
       <!-- Шапка сайта -->
-      <Nuxt v-show="NavMobule === false" />
-      <VueFooter v-show="NavMobule === false" />
+      <Nuxt />
+      <VueFooter />
     </b-overlay>
   </div>
 </template>
@@ -19,24 +19,8 @@ export default {
   },
   computed: {
     show() {
-      return this.$store.getters["GetshowLoader"];
+      return this.$store.getters.GetshowLoader;
     },
-    NavMobule() {
-      return this.$store.getters["GetNavMobile"];
-    },
-  },
-  mounted() {
-    // при прогрузке странице
-    // this.$store.commit("SetShow", false);
-    window.addEventListener("resize", () => {
-      if (document.body.clientWidth > 992) {
-        // Скрыть окно и показать контент
-        if (this.NavMobule !== false) {
-          // открыто окно
-          this.$store.commit("SetNavMobile", false);
-        }
-      }
-    });
   },
   watch: {
     // при изменения url
@@ -46,10 +30,6 @@ export default {
         this.$store.commit("SetNavMobile", false); // Убрать мобильное меню
       });
     },
-  },
-  updated() {
-    // при обновление страницы
-    // this.$store.commit("SetShow", false);
   },
 };
 </script>

@@ -9,10 +9,10 @@ export const actions = {
     return await this.$axios
       .$get(`${process.env.api}/product_applicabilities?view=tree`)
       .then(async res => {
-        let dataset = [];
+        const dataset = [];
         await dispatch("_init_Applicabilities", {
-          res: res,
-          dataset: dataset,
+          res,
+          dataset,
           TopParent: undefined,
         });
         return dataset;

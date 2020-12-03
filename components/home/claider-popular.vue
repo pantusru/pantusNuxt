@@ -39,10 +39,8 @@ export default {
       },
     };
   },
-  async beforeMount() {
-    await this.check_slide_count();
-  },
   mounted() {
+    this.check_slide_count();
     // при прогрузке странице
     // this.$store.commit("SetShow", false);
     window.addEventListener("resize", () => {
@@ -81,5 +79,11 @@ export default {
 }
 .blog-popular-claider .slick-arrow:before {
   color: #000;
+}
+.blog-popular-claider .slick-next {
+  right: -11px;
+}
+.blog-popular-claider .slick-prev {
+  left: -11px;
 }
 </style>

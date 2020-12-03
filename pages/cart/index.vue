@@ -12,6 +12,7 @@
     </div>
     <vButton class="mt-3" v-if="CartActual === true && CartLength !== 0" />
     <CartButtonUpdate v-if="CartActual === false" />
+    <advantage />
   </b-container>
 </template>
 <script>
@@ -20,8 +21,10 @@ import CartButtonUpdate from "@/components/cart/button/cart-button-update";
 import vTable from "@/components/table/table-cart-get";
 import VBlogCart from "@/components/cart/blog/cart-row-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
+import Advantage from "@/components/home/advantage";
 export default {
   components: {
+    Advantage,
     BaseTitleInfo,
     vTable,
     vButton,

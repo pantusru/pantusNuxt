@@ -3,7 +3,7 @@
     <section class="section">
       <b-row>
         <b-col
-          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+          class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-01.png')" />
@@ -20,7 +20,7 @@
           </div>
         </b-col>
         <b-col
-          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+          class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-02.png')" />
@@ -37,7 +37,7 @@
           </div>
         </b-col>
         <b-col
-          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+          class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-03.png')" />
@@ -49,7 +49,7 @@
           </div>
         </b-col>
         <b-col
-          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+          class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
             <b-img
@@ -71,18 +71,14 @@
           </div>
         </b-col>
       </b-row>
-
-      <b-row>
-        <b-col>
-          <nuxt-link to=""> </nuxt-link>
-        </b-col>
-      </b-row>
     </section>
   </b-container>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "advantage",
+};
 </script>
 <style>
 .section {

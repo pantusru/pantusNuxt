@@ -18,14 +18,14 @@
               src="@img/icons/icon-avatar.png"
               alt="Иконка пользователя"
             />
-            <nuxt-link to="profile" v-if="CheckUser === true">
+            <nuxt-link v-if="CheckUser === true" to="profile">
               <img
                 class="d-block d-lg-none"
                 src="@img/icons/icon-avatar.png"
                 alt="Иконка пользователя"
               />
             </nuxt-link>
-            <nuxt-link to="" v-b-modal.authorization v-if="CheckUser === false">
+            <nuxt-link v-if="CheckUser === false" v-b-modal.authorization to="">
               <img
                 class="d-block d-lg-none"
                 src="@img/icons/icon-avatar.png"
@@ -35,22 +35,22 @@
           </div>
           <!--data user -->
           <div
-            class="d-none d-sm-flex flex-column ml-1 fz-5"
             v-if="CheckUser === false"
+            class="d-none d-sm-flex flex-column ml-1 fz-5"
           >
             <nuxt-link
-              to=""
               v-b-modal.authorization
+              to=""
               class="text-secondary link-danger"
             >
               Вход
             </nuxt-link>
-            <nuxt-link to="/register" class="text-secondary link-danger fz-5"
-              >Регистрация
+            <nuxt-link to="/register" class="text-secondary link-danger fz-5">
+              Регистрация
             </nuxt-link>
           </div>
-          <div class="d-lg-block d-none" v-if="CheckUser === true">
-            <NavUser :userName="User.surname + ' ' + User.name" />
+          <div v-if="CheckUser === true" class="d-lg-block d-none">
+            <NavUser :user-name="User.surname + ' ' + User.name" />
           </div>
         </div>
         <!-- user -->
@@ -71,12 +71,12 @@
               <div class="d-lg-block d-none fz-5">
                 <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
               </div>
-              <strong class="fz-5 d-lg-block d-none" v-if="stoimost != 0.0"
+              <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
                 >{{ stoimost }} р</strong
               >
             </div>
           </nuxt-link>
-          <dropdown-cart v-if="getDropCart"></dropdown-cart>
+          <dropdown-cart v-if="getDropCart" />
         </div>
         <!-- Корзина-->
       </b-navbar-nav>
@@ -92,17 +92,17 @@ import ModalAuthorization from "@/components/modal/authorization";
 import DropdownCart from "@/components/header/dropdown/dropdown-cart";
 
 export default {
-  name: "NavIndex",
-  data() {
-    return {
-      getDropCart: false,
-    };
-  },
+  name: "nav-index",
   components: {
     DropdownCart,
     ModalAuthorization,
     NavUser,
     VButtonSearch,
+  },
+  data() {
+    return {
+      getDropCart: false,
+    };
   },
   computed: {
     User() {

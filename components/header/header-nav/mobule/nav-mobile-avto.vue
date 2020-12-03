@@ -1,28 +1,20 @@
 <template>
   <div v-if="NavMobile === 'catalog'">
-    <BaseNavMobile>
-      <base-nav-mobule-back value="main" :nav="{ text: 'Главная' }" />
-      <base-nav-mobule-link
-        :value="dataset.value"
-        :component="dataset.components"
-        :nav="dataset.data"
-        v-for="dataset in nav"
-        :key="dataset.id"
-      />
+    <BaseNavMobile :link="nav">
+      <template #header>
+        <base-nav-mobule-back value="main" :nav="{ text: 'Главная' }" />
+      </template>
     </BaseNavMobile>
   </div>
 </template>
 
 <script>
-import mixinsNav from "@/mixins/nav-mobule/index";
 import BaseNavMobile from "@/components/base/nav-mobule/base-nav-mobule";
-import BaseNavMobuleLink from "@/components/base/nav-mobule/base-nav-mobule-link";
 import BaseNavMobuleBack from "@/components/base/nav-mobule/base-nav-mobule-back";
 
 export default {
   name: "nav-mobile-avto",
-  components: { BaseNavMobuleBack, BaseNavMobuleLink, BaseNavMobile },
-  mixins: [mixinsNav],
+  components: { BaseNavMobuleBack, BaseNavMobile },
   data() {
     return {
       nav: [
@@ -34,6 +26,11 @@ export default {
         { data: { text: "Онлайн-каталоги", to: "/" } },
       ],
     };
+  },
+  computed: {
+    NavMobile() {
+      return this.$store.getters.GetNavMobile;
+    },
   },
 };
 </script>

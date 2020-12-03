@@ -6,24 +6,16 @@
       <!-- Выплывающий список все запчасти -->
       <b-button-group>
         <b-button
+          v-for="data in links"
+          :key="data.id"
           tabindex="-1"
           :href="data.to"
           class="bg-transparent border-0 text-555 link-ec0e1d font-weight-bold fz-5 px-3"
           @click.prevent="pushSearch(data.to)"
-          v-for="data in links"
-          :key="data.id"
         >
           {{ data.text }}
         </b-button>
       </b-button-group>
-      <!-- <b-nav-item
-        :to="data.to"
-        link-classes="text-555 link-ec0e1d font-weight-bold fz-5"
-        v-for="data in links"
-        :key="data.id"
-      >
-        {{ data.text }}
-      </b-nav-item> -->
     </b-nav>
   </div>
 </template>
@@ -31,12 +23,9 @@
 <script>
 import VueDropdown from "@/components/header/dropdown/navbottom";
 export default {
-  name: "NavBottom",
-  methods: {
-    pushSearch(to) {
-      // this.$store.commit('SetcheckFilterClick', true)
-      this.$router.push(to);
-    },
+  name: "nav-bottom",
+  components: {
+    VueDropdown,
   },
   data() {
     return {
@@ -51,8 +40,10 @@ export default {
       ],
     };
   },
-  components: {
-    VueDropdown,
+  methods: {
+    pushSearch(to) {
+      this.$router.push(to);
+    },
   },
 };
 </script>

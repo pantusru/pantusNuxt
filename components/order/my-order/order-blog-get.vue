@@ -9,9 +9,7 @@
         <time :datetime="data.dates.created" class="d-block">
           Дата: {{ data.dates.created }}
         </time>
-        <nuxt-link class="text-my-body text-decoration-none" to=""
-          >Скопировать заказ в корзину
-        </nuxt-link>
+        <order-button-copy-cart :id_order="data.id" />
       </b-col>
       <b-col>
         <div class="mb-2">
@@ -35,9 +33,10 @@
 <script>
 import OrderTableGet from "@/components/order/my-order/order-table-get";
 import OrderButtonCancel from "@/components/order/my-order/order-button-cancel";
+import OrderButtonCopyCart from "@/components/order/my-order/order-button-copy-cart";
 
 export default {
-  components: { OrderButtonCancel, OrderTableGet },
+  components: { OrderButtonCopyCart, OrderButtonCancel, OrderTableGet },
   props: {
     data: {},
   },

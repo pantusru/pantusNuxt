@@ -31,6 +31,11 @@ export default {
       ],
     };
   },
+  computed: {
+    NavMobile() {
+      return this.$store.getters.GetNavMobile;
+    },
+  },
 };
 </script>
 

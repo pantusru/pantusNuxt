@@ -17,11 +17,6 @@ import VueNewsIndex from "@/components/news/index";
 import VueProductsIndex from "@/components/products/popular/index";
 import ClaiderPopular from "@/components/home/claider-popular";
 export default {
-  head() {
-    return {
-      title: "Pantus главная",
-    };
-  },
   components: {
     ClaiderPopular,
     VueNewsIndex,
@@ -35,6 +30,11 @@ export default {
       // store.dispatch("News/NewsIndex/_NewsIndex"),
       store.dispatch("Products/popular/_ProductPopularAll"),
     ]);
+  },
+  head() {
+    return {
+      title: "Pantus главная",
+    };
   },
   computed: {
     popular() {

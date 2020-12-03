@@ -21,11 +21,8 @@
 </template>
 
 <script>
-import mixinsNav from "@/mixins/nav-mobule/index";
-
 export default {
   name: "base-nav-mobule-link",
-  mixins: [mixinsNav],
   props: {
     /***
      * сторона стрелки в ссылках которые открывают другое окно right|left
@@ -57,6 +54,11 @@ export default {
     component: {
       default: "nuxt-link",
       type: String,
+    },
+  },
+  methods: {
+    GetMainNav(name) {
+      this.$store.commit("SetNavMobile", name);
     },
   },
 };

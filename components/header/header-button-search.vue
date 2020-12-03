@@ -2,7 +2,7 @@
   <b-navbar-nav
     class="flex-row col-12 col-lg-7 order-4 order-lg-0 pr-0 mt-2 mt-lg-0 align-items-center"
   >
-    <nav-mobile-button class="mr-3 d-block d-lg-none"></nav-mobile-button>
+    <nav-mobile-button class="mr-3 d-block d-lg-none" />
     <input
       v-model="search"
       placeholder="Введите номер или название детали"
@@ -10,8 +10,8 @@
       @keyup.enter="SetSearch"
     />
     <base-button
-      @click="SetSearch"
       class="px-2 py-2 border-danger rounded-right mr-lg-2 mr-0 left-off-rounded"
+      @click="SetSearch"
     >
       Найти
     </base-button>
@@ -51,9 +51,6 @@ export default {
         });
         this.$store.commit("SetcheckFilterClick", false);
       }
-      // await this.$store.dispatch("Products/_ProductAll", {
-      //   filter_substr: this.search
-      // });
     },
   },
 };

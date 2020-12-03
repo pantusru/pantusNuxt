@@ -2,7 +2,9 @@
   <b-container>
     <section class="section">
       <b-row>
-        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+        <b-col
+          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+        >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-01.png')" />
           </div>
@@ -17,7 +19,9 @@
             <p class="home-advantage-content-text">автозапчастей в каталогах</p>
           </div>
         </b-col>
-        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+        <b-col
+          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+        >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-02.png')" />
           </div>
@@ -32,7 +36,9 @@
             <p class="home-advantage-content-text">От 0 руб. по России</p>
           </div>
         </b-col>
-        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+        <b-col
+          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+        >
           <div class="col-8 mx-auto mb-3">
             <b-img :src="require('@img/advantage/feature-new-03.png')" />
           </div>
@@ -42,7 +48,9 @@
             <p class="home-advantage-content-text">производство деталей</p>
           </div>
         </b-col>
-        <b-col class="col-lg-3 d-flex justify-content-center flex-column">
+        <b-col
+          class="col-lg-3 d-flex align-self-center justify-content-center flex-column"
+        >
           <div class="col-8 mx-auto mb-3">
             <b-img
               :src="require('@img/advantage/feature-new-04.png')"

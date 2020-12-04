@@ -6,7 +6,6 @@
     <!-- Популярные Товары -->
     <ModalImg />
     <ModalBuy />
-    <test />
   </main>
 </template>
 
@@ -17,10 +16,8 @@ import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
 import VueProductsIndex from "@/components/products/popular/index";
 import ClaiderPopular from "@/components/home/claider-popular";
-import Test from "@/components/test/test";
 export default {
   components: {
-    Test,
     ClaiderPopular,
     VueNewsIndex,
     VueProductsIndex,

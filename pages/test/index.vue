@@ -1,23 +1,18 @@
 <template>
   <div>
-    <test name_class="nav-index">
-      <b-container>
-        <test name_class="nav-index-wrapper">
-          <nuxt-link to="/" class="logo">
-            <test component_tag="img" :src="require('@/assets/img/logo.png')" />
-          </nuxt-link>
-          <test name_class="input-header-search-wrapper">
-            <test name_class="input-header-search" component_tag="input" />
-            <test
-              name_class="input-header-search-button"
-              component_tag="button"
-            >
-              Найти
-            </test>
-          </test>
+    <b-container>
+      <test component_tag="div" class="input-filter_catalog">
+        <test
+          type="checkbox"
+          id="31"
+          component_tag="input"
+          class="input-filter_catalog_input"
+        ></test>
+        <test for="31" component_tag="label" class="input-filter_catalog_label">
+          Машина
         </test>
-      </b-container>
-    </test>
+      </test>
+    </b-container>
   </div>
 </template>
 
@@ -25,6 +20,11 @@
 import test from "@/components/test/test";
 export default {
   name: "test-view",
+  data() {
+    return {
+      getBlog: false,
+    };
+  },
   components: {
     test,
   },
@@ -32,6 +32,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../assets/sass/nav/nav-header-index"
-@import "assets/sass/input/input-header-search"
+@import "assets/sass/input/input-filter_catalog"
 </style>

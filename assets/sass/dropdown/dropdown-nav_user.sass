@@ -1,0 +1,19 @@
+@import ../../sass-mixin/index.sass
+.dropdown-nav_user
+  position: absolute
+  z-index: 100
+  background-color: #fff
+  transition: all 0.2s linear
+  box-shadow: 0 10px 15px rgba(0,0,0,.1)
+  width: 100%
+  max-width: 180px
+
+.dropdown-nav_user-link
+  text-decoration: none
+  +d-display(block)
+  +py(10px)
+  +px(20px)
+  +fz(12px)
+  color: #4a4a4a
+  &:hover
+    background-color: #f1f3f4

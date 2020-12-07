@@ -12,8 +12,8 @@
               name_class="input-header-search-button"
               component_tag="button"
             >
-              Найти</test
-            >
+              Найти
+            </test>
           </test>
         </test>
       </b-container>
@@ -32,6 +32,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass/nav/nav-index"
+@import "../../assets/sass/nav/nav-header-index"
 @import "assets/sass/input/input-header-search"
 </style>

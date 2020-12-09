@@ -13,7 +13,7 @@
       no-body
     >
       <b-card-body class="px-3 py-2">
-        <span @click="showAll = false" class="cursor-pointer link-danger">
+        <span class="cursor-pointer link-danger" @click="showAll = false">
           Указать применяемости
           <b-icon-arrow-up></b-icon-arrow-up>
         </span>

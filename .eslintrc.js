@@ -21,7 +21,7 @@ module.exports = {
     "no-console": "warn", // Без консоли
     "vue/require-default-prop": 0, // обязательное значение props default
     "vue/require-valid-default-prop": "warn", // Валидное значение по умолчанию
-    "vue/name-property-casing": ["warn", "kebab-case"],
+    "vue/name-property-casing": ["warn", "PascalCase"],
     // "vue/custom-event-name-casing": "warn", // написание emit
     // "vue/no-arrow-functions-in-watch": "warn", // Запрет писать стрелочные функции в watch
     "vue/no-async-in-computed-properties": "warn", // Запрет писать асинхронные функции в computed
@@ -46,9 +46,9 @@ module.exports = {
     "vue/valid-v-else-if": "warn", // Обеспечить соблюдение действующих v-else-if директив
     "vue/valid-v-else": "warn", // Обеспечить соблюдение действующих v-else директив
     // "vue/no-multiple-template-root": "warn", // для VUE 2 обязательно иметь 1 корневой элемент
-    camelcase: 0,
+    camelcase: 1,
     "vue/attribute-hyphenation": ["warn", "always"], // Применять стиль именования атрибутов для пользовательских компонентов в шаблоне always через дефис
-    "vue/component-definition-name-casing": ["warn", "kebab-case"], // Принудительно применять конкретный регистр для имени определения компонента
+    "vue/component-definition-name-casing": ["warn", "PascalCase"], // Принудительно применять конкретный регистр для имени определения компонента
     "vue/html-closing-bracket-spacing": [
       "warn",
       { startTag: "never", endTag: "never", selfClosingTag: "always" },
@@ -59,7 +59,7 @@ module.exports = {
     "vue/mustache-interpolation-spacing": ["warn", "always"],
     "vue/no-multi-spaces": ["warn"],
     "vue/no-spaces-around-equal-signs-in-attribute": ["warn"],
-    "vue/prop-name-casing": ["warn", "snake_case"],
+    "vue/prop-name-casing": ["warn", "camelCase"],
     "vue/require-prop-types": "warn",
     "vue/order-in-components": [
       "error",

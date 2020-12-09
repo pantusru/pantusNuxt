@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container>
-      <table class="table-product">
+      <test component_tag="table" class="table-product">
         <thead class="table-product-thead">
           <tr>
             <th class="table-product-th">Бренд</th>
@@ -82,7 +82,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </test>
     </b-container>
   </div>
 </template>
@@ -91,11 +91,6 @@
 import test from "@/components/test/test";
 export default {
   name: "test-view",
-  data() {
-    return {
-      getBlog: false,
-    };
-  },
   components: {
     test,
   },

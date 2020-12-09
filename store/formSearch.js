@@ -78,13 +78,13 @@ export const mutations = {
     store.SortType = data.SortType;
     store.SortName = data.SortName;
   },
-  /**
-   * @function SetSort - Сохраняет новый тип сортировки
-   * @param {String} data.SortType - Тип сортировки
-   */
-  SetSortType(store, data) {
-    store.SortType = data.SortType;
-  },
+  // /**
+  //  * @function SetSort - Сохраняет новый тип сортировки
+  //  * @param {String} data.SortType - Тип сортировки
+  //  */
+  // SetSortType(store, data) {
+  //   store.SortType = data.SortType;
+  // },
   /**
    * @function RemoreBrandsChecked - Удаляет выбранный бренд по index
    * @param {Number} data.id - Id Удаляемого Checked у Бренда

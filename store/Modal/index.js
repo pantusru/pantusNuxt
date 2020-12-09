@@ -5,7 +5,7 @@ export const state = () => ({
   ModaImgLinkProduct: undefined,
   /** @property ссылка на предложения товара который отображает в modal buy */
   ModaBuyLinkOffer: undefined,
-  /** @property проверка  наличия товара в корзине*/
+  /** @property проверка  наличия товара в корзине */
   CheckCart: false,
 });
 export const mutations = {
@@ -35,6 +35,6 @@ export const getters = {
   GetModaBuyLinkOffer: s => s.ModaBuyLinkOffer,
   /** @returns {Boolean}  состояние товар в корзине  */
   GetCheckCart: s => s.CheckCart,
-  /** @returns {Boolean}  Id товар для modal img*/
+  /** @returns {Boolean}  Id товар для modal img */
   GetModaImgLinkProduct: s => s.ModaImgLinkProduct,
 };

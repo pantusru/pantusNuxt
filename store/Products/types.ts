@@ -22,12 +22,12 @@ export interface interfaceBrandProduct {
 /***
  *  @interface skuProduct - артикуль для продукта
  */
-export interface skuProduct {
+export interface interfaceSkuProduct {
   normalized: string;
   original: string;
 }
 /***
- *  @interface offerProduct - предложения для продукта
+ *  @interface interfaceSupplier - поставщик продуктов
  */
 export interface interfaceSupplier {
   deliveryDelay: number;
@@ -41,7 +41,7 @@ export interface interfaceSupplier {
 export interface interfaceCartProduct {
   id: number;
   name: string;
-  sku: skuProduct;
+  sku: interfaceSkuProduct;
   productCardImage: {
     url: string;
   };

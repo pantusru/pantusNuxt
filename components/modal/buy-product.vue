@@ -62,10 +62,10 @@ export default {
   },
   methods: {
     ShowModal() {
-      this.CartProduct = this.$store.getters["Cart/CartAll/GetCartProductId"](
-        this.LinkOffer.id
-      )[0];
       if (this.CheckCart === true) {
+        this.CartProduct = this.$store.getters["Cart/CartAll/GetCartProductId"](
+          this.LinkOffer.id
+        )[0];
         // Есть в корзине
         this.count = this.CartProduct.Count;
       } else {

@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-container>
-      <test component_tag="table" class="table-product">
-        <thead class="table-product-thead">
+      <test component_tag="table" :class="$style['table-product']">
+        <thead :class="$style['table-product-thead']">
           <tr>
             <th class="table-product-th">Бренд</th>
             <th class="table-product-th">Артикул</th>
@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" module>
 @import "assets/sass/table/table-product-card"
 @import "assets/sass/button/button-product-buy"
 @import "assets/sass/special-class/trim-text"

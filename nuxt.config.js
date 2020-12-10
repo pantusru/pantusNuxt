@@ -1,6 +1,10 @@
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const path = require("path");
 export default {
+  storybook: {
+    addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
+    stories: ["@/stories/**/*.stories.js"],
+  },
   pwa: {
     manifest: {
       name: "Pantus интернет магазин",

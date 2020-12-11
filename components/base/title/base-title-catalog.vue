@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "base-title-catalog",
+  name: "BaseTitleCatalog",
   props: {
     text: {
       type: String,

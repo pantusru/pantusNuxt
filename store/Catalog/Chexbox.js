@@ -46,7 +46,7 @@ export const actions = {
       }
       for (const keyId in data.id) {
         // Прогоняем массив Id которых нужно найди
-        if (arr[key].id == data.id[keyId]) {
+        if (arr[key].id === Number(data.id[keyId])) {
           // Найден ID
           // data.check = true;
           commit("SetChecboxCheckedType", {
@@ -132,7 +132,7 @@ export const actions = {
   ChexboxChildren({ commit, dispatch }, dataset) {
     // ВСЕХ ПОТОМКАМ ВЫБРАННОГО ID СТАВИМ его значение
     // ПРИНИМАЕТ DATA массив потомков и VALUE значения этим потомкам
-    let data = dataset.data;
+    const data = dataset.data;
     data.forEach(element => {
       commit("SetChecboxCheckedType", { data: element, value: dataset.value });
       if (element.children.length !== 0) {

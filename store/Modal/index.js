@@ -13,13 +13,11 @@ export const mutations = {
    * @param {Number} data.LinkProduct -  ссылка на  товар
    * @param {Number} data.LinkOffer -  ссылка на предложения товара
    * @param {Number} data.CheckCart -  состояние если товар в корзине
-   * @param {Number} data.NameGettersModal -  Названия getters для отображения товара в modal buy
    */
   SetModaBuy(store, data) {
     store.ModaBuyLinkProduct = data.LinkProduct;
     store.ModaBuyLinkOffer = data.LinkOffer;
     store.CheckCart = data.CheckCart;
-    store.NameGettersModal = data.NameGettersModal;
   },
   /** #Сохраняет в Vuex данные для modal img
    * @param {Number} data -  id товара

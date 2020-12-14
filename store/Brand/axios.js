@@ -6,15 +6,15 @@ export const actions = {
    *
    */
   async _Brands({ dispatch }) {
-    let data = await this.$axios.$get(`${process.env.api}/product_brands`);
-    return await dispatch("_init_Brands", { data: data });
+    const data = await this.$axios.$get(`${process.env.api}/product_brands`);
+    return await dispatch("_init_Brands", { data });
   },
   /**
    *
    * @param data
    */
   _init_Brands({}, data) {
-    let dataset = [];
+    const dataset = [];
     data.data.forEach(array => {
       dataset.push({
         name: array.name,

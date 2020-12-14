@@ -29,11 +29,11 @@ export const actions = {
    * @param {Array} data.ids -  Массив Id Выбранных Брендов
    */
   async SetMetksBrand({ state, commit, rootGetters, dispatch }, data) {
-    let brandsAll = rootGetters["Brand/BrandAll/GetBrand"];
+    const brandsAll = rootGetters["Brand/BrandAll/GetBrand"];
     for (const keyBrandID in data.ids) {
       for (const keyBrand in brandsAll) {
         if (data.ids[keyBrandID] == brandsAll[keyBrand].id) {
-          let dataset = await dispatch("_init_Metka", {
+          const dataset = await dispatch("_init_Metka", {
             data: brandsAll[keyBrand],
             type: "brand",
           });
@@ -50,24 +50,21 @@ export const actions = {
   async SetMetksCategories({ commit, dispatch }, data) {
     for (const key in data) {
       if (data[key].CheckedType === true && data[key].Indeterminate === false) {
-        let dataset = await dispatch("_init_Metka", {
+        const dataset = await dispatch("_init_Metka", {
           data: data[key],
           type: "categories",
         });
         commit("PushMetks", dataset);
-        continue;
-      } else if (data[key].Indeterminate === false) {
-        continue;
       } else if (
         data[key].Indeterminate === true &&
-        data[key].children.length
+        data[key].children.length > 0
       ) {
         await dispatch("SetMetksCategories", data[key].children);
       }
     }
   },
   _init_Metka({}, data) {
-    let dataset = {};
+    const dataset = {};
     dataset.name = data.data.name;
     dataset.id = data.data.id;
     dataset.type = data.type;

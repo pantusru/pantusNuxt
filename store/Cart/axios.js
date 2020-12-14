@@ -1,6 +1,6 @@
 export const actions = {
   async _CartProduct() {
-    let product = [
+    const product = [
       // {
       //   Count: 4,
       //   checkCount: false,

@@ -121,13 +121,13 @@ export const getters = {
    * @returns {Object} объект товара с корзины
    */
   GetCartProductId: s => id =>
-    s.CartProduct.filter(cart => cart.ProductOffer.id == id),
+    s.CartProduct.filter(cart => cart.ProductOffer.id === id),
   /**
    * ### Вывод index товара с корзины по Id
    * @returns {Number} index товара с корзины
    */
   GetCartProduct_offersIndex: s => id => {
-    return s.CartProduct.findIndex(cart => cart.ProductOffer.id == id);
+    return s.CartProduct.findIndex(cart => cart.ProductOffer.id === id);
   },
   /**
    * ### Вывод сумму всех товаров с корзины

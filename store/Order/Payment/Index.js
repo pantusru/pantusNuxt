@@ -15,15 +15,15 @@ export const mutations = {
   },
 };
 export const actions = {
-  async _Payment({ store, dispatch, commit, getters }) {
+  async _Payment({ dispatch, commit, getters }) {
     if (getters.GetPayment.length === 0) {
-      let data = await dispatch("Order/axios/_Payment", {}, { root: true });
+      const data = await dispatch("Order/axios/_Payment", {}, { root: true });
       commit("SetPayment", data);
     }
   },
   async _Dostavka({ store, dispatch, commit, getters }) {
     if (getters.GetDostavka.length === 0) {
-      let data = await dispatch("Order/axios/_Dostavka", {}, { root: true });
+      const data = await dispatch("Order/axios/_Dostavka", {}, { root: true });
       commit("SetDostavka", data);
     }
   },

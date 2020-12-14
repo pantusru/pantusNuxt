@@ -18,9 +18,9 @@ export const mutations = {
   },
 };
 export const actions = {
-  async _MyOrderAll({ store, dispatch, commit, getters }) {
+  async _MyOrderAll({ dispatch, commit }) {
     // Добавить data page, и передавать в API ЗАпрос
-    let data = await dispatch("MyOrder/axios/_MyOrder", {}, { root: true });
+    const data = await dispatch("MyOrder/axios/_MyOrder", {}, { root: true });
     commit("SetMyOrder", data);
   },
 };

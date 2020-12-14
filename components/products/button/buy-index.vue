@@ -82,9 +82,6 @@ export default {
      * @param {Number} LinkProduct - ссылка на продукт
      */
     LinkProduct: {},
-    /**
-     * @param {Number} NameGettersModal - Названия геттера для отображеия товара в modal buy
-     */
   },
   methods: {
     resetAll() {

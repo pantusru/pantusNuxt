@@ -2,7 +2,7 @@
   <b-form class="mb-3">
     <b-container>
       <h3 class="mb-3">Зарегистрироваться как:</h3>
-      <radioForm v-bind:buyer.sync="buyer" />
+      <radioForm :buyer.sync="buyer" />
       <b-form-group>
         <VInput
           items="Фамилия:"
@@ -27,7 +27,7 @@
           :$v="$v"
         />
         <VInput
-          Vmask="+7(###) ###-##-##"
+          vmask="+7(###) ###-##-##"
           items="Мобильный телефон"
           name="telephone"
           :error="error.telephone"
@@ -52,13 +52,12 @@
           :$v="$v"
         >
           <b-form-textarea
+            id="address"
             v-model="$v.Form.address.$model"
             no-resize
             type="text"
-            id="address"
             size="lg"
-          >
-          </b-form-textarea>
+          />
         </VInput>
         <VInput
           items="Название организации"
@@ -67,7 +66,7 @@
           :$v="$v"
         />
         <VInput
-          Vmask="############"
+          vmask="############"
           items="Инн"
           name="inn"
           :error="error.inn"
@@ -98,7 +97,6 @@ import Buttons from "@/components/register/register-button-set";
 import MSelect from "@/components/register/select";
 
 export default {
-  middleware: "CheckUser",
   components: {
     VInput,
     radioForm,
@@ -106,6 +104,7 @@ export default {
     MSelect,
   },
   mixins: [MixinsError, MixinsValidations],
+  middleware: "CheckUser",
   data() {
     return {
       buyer: "Retail",
@@ -115,11 +114,6 @@ export default {
     $v() {
       // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
     },
-  },
-  provide() {
-    return {
-      $v: this.$v,
-    };
   },
 };
 </script>

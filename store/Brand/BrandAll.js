@@ -24,7 +24,7 @@ export const actions = {
    */
   async _Brands({ store, dispatch, commit, getters }) {
     if (getters.GetBrand.length === 0) {
-      let data = await dispatch("Brand/axios/_Brands", {}, { root: true });
+      const data = await dispatch("Brand/axios/_Brands", {}, { root: true });
       commit("SetBrand", data);
     }
   },

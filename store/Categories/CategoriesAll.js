@@ -36,7 +36,7 @@ export const getters = {
    */
   GetCategories: s => s.Categories,
   // GetCategoriesId: s=> id => s.CartProduct.filter(cart => cart.ProductOffer.id == id),
-  GetCategoriesId: s => id => s.Categories.filter(todo => todo.id == id),
+  // GetCategoriesId: s => id => s.Categories.filter(todo => todo.id == id),
 };
 
 //  Отображает данные всех категории товаров

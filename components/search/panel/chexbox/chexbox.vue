@@ -26,7 +26,7 @@ export default {
         value: false,
       }); // 3 состоияние в false
       this.$store.dispatch(
-        "Catalog/Chexbox/ChexboxCheckAll", //Изменить состояние всем элементам
+        "Catalog/Chexbox/ChexboxCheckAll", // Изменить состояние всем элементам
         {
           arr: this.$store.getters[this.ArrayData],
           value: this.dataset.CheckedType,

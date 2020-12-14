@@ -19,7 +19,11 @@ export const mutations = {
 export const actions = {
   async _Selected({ store, dispatch, commit, getters }) {
     if (getters.GetLoader === false) {
-      let data = await dispatch("Selected/axios/_Product", {}, { root: true });
+      const data = await dispatch(
+        "Selected/axios/_Product",
+        {},
+        { root: true }
+      );
       commit("SetSelected", data);
       commit("LoaderTrue");
     }

@@ -1,5 +1,5 @@
 <template>
-  <b-modal @hidden="reset" id="authorization" centered>
+  <b-modal id="authorization" centered @hidden="reset">
     <template #modal-header>
       <div class="d-flex aling-items-center justify-content-between w-100">
         <h3>Вход</h3>
@@ -14,14 +14,14 @@
     </template>
     <b-form>
       <VInput
-        addClass="mb-2 col-7"
+        add-class="mb-2 col-7"
         name="email"
         items="Логин"
         :error="error.email"
         :$v="$v"
       />
       <VInput
-        addClass="mb-2 col-7"
+        add-class="mb-2 col-7"
         type="password"
         items="Пароль:"
         name="password"
@@ -31,7 +31,7 @@
     </b-form>
     <template #modal-footer>
       <div>
-        <base-button class="mr-3" @click="check" text="Воити"></base-button>
+        <base-button class="mr-3" text="Воити" @click="check" />
         <b-button
           class="border-0 p-0 bg-white text-dark link-danger"
           @click="password"
@@ -47,8 +47,8 @@
       </div>
       <b-row no-gutters class="flex-column">
         <vueRecaptcha
-          :getError.sync="getError"
-          :checkRecaptcha.sync="checkRecaptcha"
+          :get-error.sync="getError"
+          :check-recaptcha.sync="checkRecaptcha"
         />
       </b-row>
     </template>
@@ -65,12 +65,12 @@ import vueRecaptcha from "@/components/recaptcha/index";
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  mixins: [MixinsError, MixinsValidations, check_recaptcha],
   components: {
     BaseButton,
     VInput,
     vueRecaptcha,
   },
+  mixins: [MixinsError, MixinsValidations, check_recaptcha],
   methods: {
     registration() {
       this.hidden();
@@ -102,27 +102,24 @@ export default {
       this.checkValidateRecaptcha();
       if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
         // Проверка что данные не валидны
-        return;
+      } else if (true) {
+        // Проверка валидности данных с сервера
+        this.hidden();
+        console.log("ВЫ авторизованы");
+        this.$cookies.set("Authorization", this.$v.Form.$model.email, {
+          maxAge: 60 * 60 * 24 * 7 * 365,
+        });
+        this.$store.commit("SetFormApi", {
+          data: "checkAuthorization",
+          value: false,
+        });
+        this.$store.commit("User/AuthorizationTrue");
+        this.$router.push("/");
       } else {
-        if (true) {
-          // Проверка валидности данных с сервера
-          this.hidden();
-          console.log("ВЫ авторизованы");
-          this.$cookies.set("Authorization", this.$v.Form.$model.email, {
-            maxAge: 60 * 60 * 24 * 7 * 365,
-          });
-          this.$store.commit("SetFormApi", {
-            data: "checkAuthorization",
-            value: false,
-          });
-          this.$store.commit("User/AuthorizationTrue");
-          this.$router.push("/");
-        } else {
-          this.$store.commit("SetFormApi", {
-            data: "checkAuthorization",
-            value: true,
-          });
-        }
+        this.$store.commit("SetFormApi", {
+          data: "checkAuthorization",
+          value: true,
+        });
       }
     },
   },

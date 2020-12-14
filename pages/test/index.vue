@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-container>
-      <test component_tag="table" :class="$style['table-product']">
-        <thead :class="$style['table-product-thead']">
+      <test component_tag="table" class="table-product">
+        <thead class="table-product-thead">
           <tr>
             <th class="table-product-th">Бренд</th>
             <th class="table-product-th">Артикул</th>
@@ -18,9 +18,9 @@
         <tbody>
           <tr class="table-product-tr">
             <td class="table-product-td">
-              <span class="table-product-brand trim-text">
+              <nuxt-link to="/" class="table-product-brand trim-text">
                 Ассоциация Балаковских Производителей Автозапчастей
-              </span>
+              </nuxt-link>
             </td>
             <td class="table-product-td">
               <div class="table-product-name trim-text">10036560ASP</div>
@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style lang="sass" module>
+<style lang="sass">
 @import "assets/sass/table/table-product-card"
 @import "assets/sass/button/button-product-buy"
 @import "assets/sass/special-class/trim-text"

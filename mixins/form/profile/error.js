@@ -55,10 +55,10 @@ let login = [
 ];
 
 let telephone = [
-  {
-    ifv: "required",
-    text: "Укажите ваш номер телефона",
-  },
+  // {
+  //   ifv: "required",
+  //   text: "Укажите ваш номер телефона",
+  // },
   {
     ifv: "minLength",
     text: "Укажите корректный номер телефона",

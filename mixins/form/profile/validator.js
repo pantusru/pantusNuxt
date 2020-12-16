@@ -29,7 +29,7 @@ let password2 = {
   sameAsPassword: sameAs("password"),
 };
 let telephone = {
-  required,
+  // required,
   minLength: minLength(17),
 };
 

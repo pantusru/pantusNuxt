@@ -19,6 +19,9 @@
         {{ data.text }}
       </div>
     </div>
+    <div class="error" v-if="GetcheckAuthorization">
+      Введены не верно логин или пароль
+    </div>
   </div>
 </template>
 
@@ -32,6 +35,11 @@ export default {
     },
     slots: {
       default: false,
+    },
+  },
+  computed: {
+    GetcheckAuthorization() {
+      return this.$store.getters["GetcheckAuthorization"];
     },
   },
 };

@@ -1,9 +1,7 @@
 export const actions = {
   async _User({ dispatch }) {
     // const User = await this.$axios.get(`${process.env.api}/personal/profile`);
-    const User = await this.$axios.get(
-      `https://www.pantus.ru/api/rest/2.0/auth`
-    );
+    const User = await this.$axios.get(`${process.env.api}/personal/profile`);
     return dispatch("MapUser", User.data);
   },
   async _Authorization({}, data) {

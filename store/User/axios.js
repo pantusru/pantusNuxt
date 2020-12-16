@@ -5,7 +5,7 @@ export const actions = {
     return dispatch("MapUser", User.data);
   },
   async _Authorization({}, data) {
-    return await this.$axios.get(`https://www.pantus.ru/api/rest/2.0/auth`, {
+    return await this.$axios.get(`${process.env.api}/auth`, {
       headers: {
         Authorization: `Basic ${window.btoa(data.login + `:` + data.password)}`,
       },

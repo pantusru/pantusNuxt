@@ -56,7 +56,6 @@
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
 import MixinsError from "@/mixins/form/authorization/error";
 import check_recaptcha from "@/mixins/form/check-recaptcha/index";
 import MixinsValidations from "@/mixins/form/authorization/validator";
@@ -94,32 +93,46 @@ export default {
       this.$v.$reset();
       this.getError = false;
       this.checkRecaptcha = false;
+      this.$store.commit("SetFormApi", {
+        data: "checkAuthorization",
+        value: false,
+      });
     },
-    check(bvModalEvt) {
+    async check(bvModalEvt) {
       // Проверка что данные введены
       bvModalEvt.preventDefault();
       this.$v.Form.$touch();
       this.checkValidateRecaptcha();
       if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
         // Проверка что данные не валидны
-      } else if (true) {
-        // Проверка валидности данных с сервера
-        this.hidden();
-        console.log("ВЫ авторизованы");
-        this.$cookies.set("Authorization", this.$v.Form.$model.email, {
-          maxAge: 60 * 60 * 24 * 7 * 365,
-        });
-        this.$store.commit("SetFormApi", {
-          data: "checkAuthorization",
-          value: false,
-        });
-        this.$store.commit("User/AuthorizationTrue");
-        this.$router.push("/");
       } else {
-        this.$store.commit("SetFormApi", {
-          data: "checkAuthorization",
-          value: true,
+        const data = await this.$store.dispatch("User/axios/_Authorization", {
+          login: this.$v.Form.email.$model,
+          password: this.$v.Form.password.$model,
         });
+        console.log(data.data);
+        if (data.data.id !== null) {
+          //   // Проверка валидности данных с сервера
+          console.log("ВЫ авторизованы");
+          this.$cookies.set("PHPSESSID", data.data.token, {
+            maxAge: 60 * 60 * 24 * 7 * 365,
+          });
+          this.$store.commit("SetFormApi", {
+            data: "checkAuthorization",
+            value: false,
+          });
+          await this.$store.dispatch("User/_User_Authorization");
+          await this.$router.push("/");
+          this.hidden();
+        } else {
+          window.grecaptcha.reset();
+          this.$v.Form.password.$model = "";
+          this.$v.$reset();
+          this.$store.commit("SetFormApi", {
+            data: "checkAuthorization",
+            value: true,
+          });
+        }
       }
     },
   },

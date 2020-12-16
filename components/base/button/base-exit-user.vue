@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "base-exit-user",
+  name: "BaseExitUser",
   props: {
     /***
      * Компонент в котором обвернется функция выход из аккаунта
@@ -21,7 +21,7 @@ export default {
     exitUser() {
       this.$store.commit("User/ResetForm");
       this.$store.commit("User/AuthorizationFalse");
-      this.$cookies.remove("Authorization");
+      `      this.$cookies.remove("PHPSESSID");`;
       this.$router.push({ name: "index" });
     },
   },

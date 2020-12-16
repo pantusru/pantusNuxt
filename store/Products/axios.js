@@ -1,7 +1,7 @@
 export const actions = {
   async _ProductId({ dispatch }, id) {
     const product = await this.$axios.$get(
-      "http://api.pantus.ru/products_filter",
+      `${process.env.api}/products_filter`,
       {
         params: {
           id,
@@ -20,7 +20,7 @@ export const actions = {
   async _ProductFilter({ dispatch, commit }, data) {
     const dataset = await dispatch("_init_MapFilter", data.data);
     const product = await this.$axios.$get(
-      "http://api.pantus.ru/products_filter",
+      `${process.env.api}/products_filter`,
       {
         params: {
           ...dataset,
@@ -39,7 +39,7 @@ export const actions = {
    */
   async _ProductPopularFilter({ dispatch }, data) {
     const product = await this.$axios.$get(
-      "http://api.pantus.ru/products_filter",
+      `${process.env.api}/products_filter`,
       {
         params: {
           page_size: data.limit,

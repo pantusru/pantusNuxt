@@ -73,7 +73,8 @@ export const actions = {
     // СПОРНОЕ РЕШЕНИЕ
     if (getters.Loader === false) {
       // пользователь не загружен
-      if (this.$cookies.get("Authorization") !== undefined) {
+      if (this.$cookies.get("PHPSESSID") !== undefined) {
+        console.log("Куки есть");
         // У пользователя есть токен
         const data = await dispatch("User/axios/_User", {}, { root: true });
         if (data !== undefined) {
@@ -86,6 +87,10 @@ export const actions = {
       }
       commit("LoaderTrue");
     }
+  },
+  async _User_Authorization({ commit, dispatch }) {
+    const data = await dispatch("User/axios/_User", {}, { root: true });
+    commit("SetAll", data);
   },
 };
 export const getters = {

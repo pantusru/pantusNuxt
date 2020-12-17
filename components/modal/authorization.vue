@@ -103,7 +103,10 @@ export default {
       bvModalEvt.preventDefault();
       this.$v.Form.$touch();
       this.checkValidateRecaptcha();
-      if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
+      if (
+        this.$v.Form.$error === true
+        // || this.checkRecaptcha === false
+      ) {
         // Проверка что данные не валидны
       } else {
         const data = await this.$store.dispatch("User/axios/_Authorization", {
@@ -114,14 +117,14 @@ export default {
         if (data.data.id !== null) {
           //   // Проверка валидности данных с сервера
           console.log("ВЫ авторизованы");
-          this.$cookies.set("PHPSESSID", data.data.token, {
+          this.$cookies.set("Authorization", data.data.token, {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
+          await this.$store.dispatch("User/_User_Authorization");
           this.$store.commit("SetFormApi", {
             data: "checkAuthorization",
             value: false,
           });
-          await this.$store.dispatch("User/_User_Authorization");
           await this.$router.push("/");
           this.hidden();
         } else {

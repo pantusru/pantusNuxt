@@ -2,20 +2,23 @@ export default function ({ $axios, redirect, app, request, store }) {
   $axios.onRequest(config => {
     // ПЕРЕХВАТЧИК ЗАПРОСА
     store.commit("SetShow", true);
-    if (app.$cookies.get("PHPSESSID") !== undefined) {
-      $axios.defaults.headers.common.Cookie =
-        "PHPSESSID" + app.$cookies.get("PHPSESSID"); // Передача токена в каждом запросе
+    // console.log("Bearer " + app.$cookies.get("Authorization"));
+    console.log(app.$cookies.get("Authorization") !== undefined);
+    if (app.$cookies.get("Authorization") !== undefined) {
+      $axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${app.$cookies.get("Authorization")}`; // Передача токена в каждом запросе
     }
     console.log("Making request to " + config.url);
   });
   $axios.onResponse(res => {
     store.commit("SetShow", false);
-    //   // ПЕРЕХВАТЧИК ОТВЕТА
-    //   if (res.data !== undefined) {
-    //     return res;
-    //   } else {
-    //     return false;
-    //   }
+    //  ПЕРЕХВАТЧИК ОТВЕТА
+    // if (res.data !== undefined) {
+    //   return res;
+    // } else {
+    //   return false;
+    // }
   });
 
   $axios.onError(() => {

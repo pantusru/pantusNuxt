@@ -3,11 +3,13 @@ export default function ({ $axios, redirect, app, request, store }) {
     // ПЕРЕХВАТЧИК ЗАПРОСА
     store.commit("SetShow", true);
     // console.log("Bearer " + app.$cookies.get("Authorization"));
-    console.log(app.$cookies.get("Authorization") !== undefined);
+    // app.$cookies.remove();
     if (app.$cookies.get("Authorization") !== undefined) {
-      $axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${app.$cookies.get("Authorization")}`; // Передача токена в каждом запросе
+      // store.commit("SetCookie", app.$cookies.get("Authorization"));
+      // $axios.setHeader("Authorization", `${app.$cookies.get("Authorization")}`);
+      // $axios.defaults.headers["Authorization"] = `Bearer ${app.$cookies.get(
+      // ("Authorization");
+      // )}`; // Передача токена в каждом запросе
     }
     console.log("Making request to " + config.url);
   });

@@ -11,8 +11,12 @@ export const state = () => ({
     checkAuthorization: false, // Проверка авторизации от сервера
   },
   NavMobile: false,
+  cookie: "",
 });
 export const mutations = {
+  SetCookie(store, data) {
+    store.cookie = data;
+  },
   SetShow(store, data) {
     store.showLoader = data;
   },
@@ -31,6 +35,7 @@ export const mutations = {
 };
 
 export const getters = {
+  GetCookie: s => s.cookie,
   GetshowLoader: s => s.showLoader,
   getProductType: s => s.ProductType,
   GetcheckFilterClick: s => s.checkFilterClick,

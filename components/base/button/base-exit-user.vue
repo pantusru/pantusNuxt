@@ -21,7 +21,7 @@ export default {
     exitUser() {
       this.$store.commit("User/ResetForm");
       this.$store.commit("User/AuthorizationFalse");
-      `      this.$cookies.remove("PHPSESSID");`;
+      this.$cookies.remove("Authorization");
       this.$router.push({ name: "index" });
     },
   },

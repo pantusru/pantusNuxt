@@ -59,7 +59,7 @@
 import MixinsError from "@/mixins/form/authorization/error";
 import check_recaptcha from "@/mixins/form/check-recaptcha/index";
 import MixinsValidations from "@/mixins/form/authorization/validator";
-import VInput from "@/components/register/index";
+import VInput from "@/components/authorization/index";
 import vueRecaptcha from "@/components/recaptcha/index";
 import BaseButton from "@/components/base/button/base-button";
 
@@ -103,10 +103,7 @@ export default {
       bvModalEvt.preventDefault();
       this.$v.Form.$touch();
       this.checkValidateRecaptcha();
-      if (
-        this.$v.Form.$error === true
-        // || this.checkRecaptcha === false
-      ) {
+      if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
         // Проверка что данные не валидны
       } else {
         const data = await this.$store.dispatch("User/axios/_Authorization", {
@@ -115,11 +112,13 @@ export default {
         });
         console.log(data.data);
         if (data.data.id !== null) {
+          // Сервер не дал ошибку
           //   // Проверка валидности данных с сервера
           console.log("ВЫ авторизованы");
           this.$cookies.set("Authorization", data.data.token, {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
+          this.$store.commit("SetCookie", data.data.token);
           await this.$store.dispatch("User/_User_Authorization");
           this.$store.commit("SetFormApi", {
             data: "checkAuthorization",
@@ -128,6 +127,7 @@ export default {
           await this.$router.push("/");
           this.hidden();
         } else {
+          // На сервере ошибка
           window.grecaptcha.reset();
           this.$v.Form.password.$model = "";
           this.$v.$reset();

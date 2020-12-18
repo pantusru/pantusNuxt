@@ -69,7 +69,7 @@ export const actions = {
    * #Запрос на получения данных о user
    * @function  _User проверка на наличие, запрос, сохранения в vuex
    */
-  async _User({ store, dispatch, commit, getters }) {
+  async _User({ dispatch, commit, getters }) {
     // СПОРНОЕ РЕШЕНИЕ
     if (getters.Loader === false) {
       // пользователь не загружен
@@ -77,10 +77,13 @@ export const actions = {
         console.log("Куки есть");
         // У пользователя есть токен
         const data = await dispatch("User/axios/_User", {}, { root: true });
-        if (data !== undefined) {
+        if (data.error === undefined) {
           commit("SetAll", data);
           // Спорная вещь------
           commit("AuthorizationTrue");
+        } else {
+          // Не валидный токен
+          this.$cookies.remove("Authorization");
         }
       } else {
         // Другой запрос который выдает пользователю Токен

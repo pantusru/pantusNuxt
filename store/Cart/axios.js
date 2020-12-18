@@ -1,5 +1,10 @@
 export const actions = {
-  async _CartProduct() {
+  async _CartProduct({ rootGetters }) {
+    const data = await this.$axios.$get(`${process.env.api}/personal/cart`, {
+      headers: { Authorization: `Bearer ${rootGetters["GetCookie"]}` },
+    });
+    console.log(data);
+    // return data;
     const product = [
       // {
       //   Count: 4,

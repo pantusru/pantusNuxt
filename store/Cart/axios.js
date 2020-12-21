@@ -1,84 +1,25 @@
 export const actions = {
-  async _CartProduct({ rootGetters }) {
+  async _CartProduct({ rootGetters, dispatch }) {
     const data = await this.$axios.$get(`${process.env.api}/personal/cart`, {
-      headers: { Authorization: `Bearer ${rootGetters["GetCookie"]}` },
+      headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });
-    console.log(data);
-    // return data;
-    const product = [
-      // {
-      //   Count: 4,
-      //   checkCount: false,
-      //   ProductCard: {
-      //     id: 30,
-      //     name: "Товар1",
-      //     brand: {
-      //       id: 5,
-      //       name: "A-Sport"
-      //     },
-      //     sku: {
-      //       original: "6534-ку",
-      //       normalized: "6534-ru"
-      //     },
-      //     ProductCardImage: {
-      //       url:
-      //         "http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"
-      //     },
-      //     album: [
-      //       {
-      //         url:
-      //           "http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"
-      //       }
-      //     ]
-      //   },
-      //   ProductOffer: {
-      //     id: 3,
-      //     prices: 356,
-      //     quantity: 411,
-      //     supplier: {
-      //       name: "Пантус",
-      //       deliveryDelay: "Сегодня"
-      //     },
-      //     multiplicity: 2
-      //   }
-      // },
-      // {
-      //   Count: 7,
-      //   checkCount: false,
-      //   ProductCard: {
-      //     id: 30,
-      //     name: "Товар1",
-      //     sku: {
-      //       original: "6534-ку",
-      //       normalized: "6534-ru"
-      //     },
-      //     brand: {
-      //       id: 5,
-      //       name: "A-Sport"
-      //     },
-      //     ProductCardImage: {
-      //       url:
-      //         "http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"
-      //     },
-      //     album: [
-      //       {
-      //         url:
-      //           "http://www.pantus.ru/upload/iblock/eca/00034867ALT%20-%20Патрубки%20печки%20ВАЗ%201118%20-%20Ассоциация%20Балаковских%20Производителей%20Автозапчастей.jpg"
-      //       }
-      //     ]
-      //   },
-      //   ProductOffer: {
-      //     id: 13,
-      //     prices: 356,
-      //     quantity: 411,
-      //     supplier: {
-      //       name: "Пумма",
-      //       deliveryDelay: "Завтра"
-      //     },
-      //     multiplicity: 1
-      //   }
-      // }
-    ];
-    return product;
+    let dataCart = await dispatch("Products/axios/_init_Product", data, {
+      root: true,
+    });
+    dataCart = await dispatch("MapCart", { dataCart, dataApi: data });
+    return dataCart;
+  },
+  MapCart({}, data) {
+    for (const key in data.dataCart) {
+      data.dataCart[key].checkCount = false;
+
+      if (data.dataCart[key].productOffer.length > 0) {
+        for (const offer in data.dataApi) {
+          data.dataCart[key].Count =
+            data.dataApi[key].offers[offer].quantityInCart;
+        }
+      }
+    }
+    return data.dataCart;
   },
 };

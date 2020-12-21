@@ -4,20 +4,20 @@
     class="text-center dropdown-cart d-none d-md-table"
   >
     <b-thead>
-      <tr>
+      <tr class="border-bottom">
         <th>
           Артикуль <br />
           Наименование
         </th>
         <th>Цена</th>
         <th>Кол-во</th>
-        <th></th>
+        <th />
       </tr>
     </b-thead>
     <b-tbody>
       <template v-for="(dataset, index) in CartProduct.slice(0, 5)">
         <tr :key="dataset.id">
-          <td class="w-50">
+          <td class="w-50 border-0" :rowspan="dataset.productOffer.length + 1">
             <span
               class="reset-title reset-title-line-2 mb-1"
               :title="dataset.ProductCard.sku.original"
@@ -29,10 +29,14 @@
               >{{ dataset.ProductCard.name }}</span
             >
           </td>
-          <td>{{ dataset.ProductOffer.prices }} Р</td>
-          <td>{{ dataset.Count }}</td>
-          <td><DeleteCart :index="index" /></td>
         </tr>
+        <template v-for="offers in dataset.productOffer">
+          <tr>
+            <td class="border-0">{{ offers.prices }} Р</td>
+            <td class="border-0">{{ dataset.Count }}</td>
+            <td class="border-0"><DeleteCart :index="index" /></td>
+          </tr>
+        </template>
       </template>
     </b-tbody>
   </b-table-simple>
@@ -56,7 +60,7 @@
   <!--    </template>-->
 
   <!--    <template #cell(price)="data">-->
-  <!--      {{ data.item.ProductOffer.prices }} Р  -->
+  <!--      {{ data.item.productOffer.prices }} Р  -->
   <!--    </template>-->
 
   <!--    <template #cell(count)="data">-->
@@ -71,7 +75,10 @@
 <script>
 import DeleteCart from "@/components/cart/button/cart-button-delete";
 export default {
-  name: "dropdown-cart",
+  name: "DropdownCart",
+  components: {
+    DeleteCart,
+  },
   data() {
     return {
       fields: [
@@ -86,9 +93,6 @@ export default {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
     },
-  },
-  components: {
-    DeleteCart,
   },
 };
 </script>

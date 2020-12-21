@@ -105,6 +105,7 @@ export const actions = {
         {},
         { root: true }
       );
+      console.log(...data);
       commit("SetCartProduct", data);
       commit("SetCartActual");
     }
@@ -120,14 +121,17 @@ export const getters = {
    * ### Вывод  товара с корзины по Id
    * @returns {Object} объект товара с корзины
    */
-  GetCartProductId: s => id =>
-    s.CartProduct.filter(cart => cart.ProductOffer.id === id),
+  GetCartProductId: s => id => {
+    for (const keyProduct in s.CartProduct) {
+      s.CartProduct[keyProduct].productOffer.filter(offer => offer.id === id);
+    }
+  },
   /**
    * ### Вывод index товара с корзины по Id
    * @returns {Number} index товара с корзины
    */
   GetCartProduct_offersIndex: s => id => {
-    return s.CartProduct.findIndex(cart => cart.ProductOffer.id === id);
+    return s.CartProduct.findIndex(cart => cart.productOffer.id === id);
   },
   /**
    * ### Вывод сумму всех товаров с корзины
@@ -136,7 +140,12 @@ export const getters = {
   GetSymmaAll: s => {
     let data = 0;
     for (const key in s.CartProduct) {
-      data += s.CartProduct[key].Count * s.CartProduct[key].ProductOffer.prices;
+      // console.log(s.CartProduct[key].Count);
+      for (const keyOffer in s.CartProduct[key].productOffer) {
+        data +=
+          s.CartProduct[key].Count *
+          s.CartProduct[key].productOffer[keyOffer].prices;
+      }
     }
     return Number(data.toFixed(2));
   },

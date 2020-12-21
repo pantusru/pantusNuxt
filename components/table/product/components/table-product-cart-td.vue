@@ -1,5 +1,5 @@
 <template>
-  <b-td :rowspan="rowspan">
+  <b-td :rowspan="lengthOffer + 1">
     <slot></slot>
   </b-td>
 </template>
@@ -7,21 +7,21 @@
 <script>
 export default {
   name: "table-product-cart-td",
-  data() {
-    return {
-      rowspan: 1,
-    };
-  },
+  // data() {
+  // return {
+  // rowspan: 1,
+  // };
+  // },
   props: {
     lengthOffer: {
       type: Number,
       request: true,
     },
   },
-  created() {
-    // if (this.lengthOffer !== 1) {
-    this.rowspan = this.lengthOffer + 1;
-    // }
-  },
+  // created() {
+  // if (this.lengthOffer !== 1) {
+  // this.rowspan = this.lengthOffer + 1;
+  // }
+  // },
 };
 </script>

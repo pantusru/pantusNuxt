@@ -1,16 +1,16 @@
 <template>
   <b-nav-item-dropdown
-    no-caret
     id="my-nav-user"
+    no-caret
     :text="userName"
     toggle-class="nav-link-custom fz-5 my-nav-user"
     center
   >
     <b-dropdown-item
-      class="fz-5"
-      :to="data.to"
       v-for="data in links"
       :key="data.id"
+      class="fz-5"
+      :to="data.to"
       >{{ data.text }}</b-dropdown-item
     >
     <base-exit-user components="b-dropdown-item" class="fz-5" />

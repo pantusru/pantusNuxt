@@ -6,7 +6,7 @@ export default function ({ $axios, redirect, app, request, store }) {
     // app.$cookies.remove();
     if (app.$cookies.get("Authorization") !== undefined) {
       // store.commit("SetCookie", app.$cookies.get("Authorization"));
-      $axios.setHeader("Authorization", `${app.$cookies.get("Authorization")}`);
+      // $axios.setHeader("Authorization", `${store.getters[""]}`);
       // $axios.defaults.headers["Authorization"] = `Bearer ${app.$cookies.get(
       //   "Authorization"
       // )}`; // Передача токена в каждом запросе

@@ -12,7 +12,8 @@
       <template #cell(brand)="data">
         <template v-if="data.item !== undefined">
           <div>
-            {{ data.item.ProductCard.brand.name }}
+            Бренд
+            <!--                         //data.item.ProductCard.brand.name-->
           </div>
         </template>
       </template>
@@ -24,43 +25,47 @@
         </template>
       </template>
       <template #cell(name)="data">
-        {{ data.item.ProductCard.name }}
+        Название
+        <!--        data.item.ProductCard.name-->
       </template>
       <template #cell(img)="data">
         <div v-if="data.item.ProductCard.ProductCardImage.url">
           <b-icon-camera-fill
             class="cursor-pointer"
             @click="ModalImg(data.item)"
-          ></b-icon-camera-fill>
+          />
         </div>
       </template>
       <template #cell(price)="data">
-        {{ data.item.ProductOffer.prices }} Р
+        {{ data.item.productOffer[0].prices }} Р
       </template>
       <template #cell(supplier)="data">
-        {{ data.item.ProductOffer.supplier.name }}
+        Поставщик
+        <!--                  //data.item.productOffer[0].supplier.name-->
       </template>
       <template #cell(quantity)="data">
         <availability-offers
           component="div"
           :link-product="data.item.ProductCard"
-          :link-offers="data.item.ProductOffer"
+          :link-offers="data.item.productOffer[0]"
         />
       </template>
       <template #cell(count)="data">
         <vInput
-          :multiplicity="data.item.ProductOffer.multiplicity"
-          :AddClassInput="'p-0 col-12 col-lg-4'"
-          :AddClassForm="'justify-content-center'"
-          :CountProps="data.item.Count"
-          :showIcon="true"
+          :multiplicity="data.item.productOffer[0].multiplicity"
+          :add-class-input="'p-0 col-12 col-lg-4'"
+          :add-class-form="'justify-content-center'"
+          :count-props="data.item.Count"
+          :show-icon="true"
           :array="data.item"
           @Count="SetCount($event, data.index)"
         />
       </template>
       <template #cell(symma)="data">
         {{
-          (Number(data.item.Count) * data.item.ProductOffer.prices).toFixed(2)
+          (Number(data.item.Count) * data.item.productOffer[0].prices).toFixed(
+            2
+          )
         }}
         Р
       </template>
@@ -69,12 +74,13 @@
       </template>
       <template #cell(Update)="data">
         <cart-button-update-product
-          :index="data.index"
           v-if="data.item.checkCount"
-        ></cart-button-update-product>
+          :index="data.index"
+        />
       </template>
     </b-table>
   </div>
+  <!--  <div></div>-->
 </template>
 
 <script>
@@ -86,6 +92,13 @@ import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 export default {
+  components: {
+    AvailabilityOffers,
+    CartButtonUpdateProduct,
+    vInput,
+    ImgModal,
+    DeleteCart,
+  },
   mixins: [mixinsEmit, mixinsImg],
   data() {
     return {
@@ -108,13 +121,6 @@ export default {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
     },
-  },
-  components: {
-    AvailabilityOffers,
-    CartButtonUpdateProduct,
-    vInput,
-    ImgModal,
-    DeleteCart,
   },
 };
 </script>

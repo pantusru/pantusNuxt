@@ -92,7 +92,7 @@ import ModalAuthorization from "@/components/modal/authorization";
 import DropdownCart from "@/components/header/dropdown/dropdown-cart";
 
 export default {
-  name: "nav-index",
+  name: "NavIndex",
   components: {
     DropdownCart,
     ModalAuthorization,

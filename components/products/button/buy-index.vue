@@ -91,7 +91,7 @@ export default {
     // Удалить товар с корзины
     deleteCartProduct() {
       const index = this.CartProduct.findIndex(
-        s => s.ProductOffer.id === this.LinkOffer.id
+        s => s.productOffer.id === this.LinkOffer.id
       );
       this.$store.commit("Cart/CartAll/DeleteCartProduct", {
         index,
@@ -115,9 +115,9 @@ export default {
     CartProduct() {
       if (this.CartProduct.length > 0) {
         // Добавление товара в корзину
-        if (this.CartProduct[0].ProductOffer.id === this.LinkOffer.id) {
+        if (this.CartProduct[0].productOffer.id === this.LinkOffer.id) {
           this.userBasket = true;
-          this.CartId = this.CartProduct[0].ProductOffer.id;
+          this.CartId = this.CartProduct[0].productOffer.id;
         }
       } else if (this.CartProduct.length === 0) {
         // Корзина пустая reset
@@ -127,7 +127,7 @@ export default {
         // Этот товар есть в корзине
         if (
           this.CartProduct.findIndex(
-            data => data.ProductOffer.id === this.CartId
+            data => data.productOffer.id === this.CartId
           ) === -1
         ) {
           this.resetAll();
@@ -143,9 +143,9 @@ export default {
   created() {
     // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
     for (const key in this.CartProduct) {
-      if (this.CartProduct[key].ProductOffer.id === this.LinkOffer.id) {
+      if (this.CartProduct[key].productOffer.id === this.LinkOffer.id) {
         this.userBasket = true;
-        this.CartId = this.CartProduct[key].ProductOffer.id;
+        this.CartId = this.CartProduct[key].productOffer.id;
         // Добавить Id товара-в-корзине и передавать его в модалку
         // this.idCart = this.CartProduct.id
         break;

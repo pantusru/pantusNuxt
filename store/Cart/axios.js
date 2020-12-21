@@ -10,13 +10,12 @@ export const actions = {
     return dataCart;
   },
   MapCart({}, data) {
-    for (const key in data.dataCart) {
-      data.dataCart[key].checkCount = false;
-
-      if (data.dataCart[key].productOffer.length > 0) {
-        for (const offer in data.dataApi) {
-          data.dataCart[key].Count =
-            data.dataApi[key].offers[offer].quantityInCart;
+    for (const keyCart in data.dataApi) {
+      if (data.dataCart[keyCart].productOffer.length !== 0) {
+        for (const keyOffer in data.dataApi[keyCart].offers) {
+          data.dataCart[keyCart].productOffer[keyOffer].Count =
+            data.dataApi[keyCart].offers[keyOffer].quantityInCart;
+          data.dataCart[keyCart].productOffer[keyOffer].checkCount = false;
         }
       }
     }

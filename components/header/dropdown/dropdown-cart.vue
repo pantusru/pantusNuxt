@@ -33,8 +33,10 @@
         <template v-for="offers in dataset.productOffer">
           <tr>
             <td class="border-0">{{ offers.prices }} Р</td>
-            <td class="border-0">{{ dataset.Count }}</td>
-            <td class="border-0"><DeleteCart :index="index" /></td>
+            <td class="border-0">{{ offers.Count }}</td>
+            <td class="border-0">
+              <DeleteCart :cart-product="dataset.productOffer" :index="index" />
+            </td>
           </tr>
         </template>
       </template>

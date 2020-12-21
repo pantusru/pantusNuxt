@@ -1,11 +1,11 @@
 <template>
-  <base-button @click="deleteProduct()"><b-icon-x></b-icon-x></base-button>
+  <base-button @click="deleteProduct()"><b-icon-x /></base-button>
 </template>
 
 <script>
 import BaseButton from "@/components/base/button/base-button";
 export default {
-  name: "cart-button-delete",
+  name: "CartButtonDelete",
   components: { BaseButton },
   props: {
     /***
@@ -14,14 +14,19 @@ export default {
     index: {
       type: Number,
     },
+    cartProduct: {
+      type: Array,
+    },
   },
   methods: {
-    deleteProduct() {
+    async deleteProduct() {
       // await Запрос на удаление товара с корзины
       this.$store.commit("Cart/CartAll/DeleteCartProduct", {
+        data: this.cartProduct,
         index: this.index,
         flag: true,
       });
+      await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
     },
   },
 };

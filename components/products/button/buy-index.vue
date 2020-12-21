@@ -3,45 +3,44 @@
     <!--  Кнопка купить если товара нету в корзине   -->
     <div class="d-lg-flex d-none justify-content-end">
       <base-button
-        text="Купить"
-        @click="ModalProduct()"
         v-if="!userBasket"
+        text="Купить"
         class="py-1 px-2"
-      >
-      </base-button>
+        @click="ModalProduct()"
+      />
       <!--  Кнопка купить если товар в корзине   -->
       <base-button
         v-else-if="userBasket"
         :text="text"
+        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
         @mouseout="text = 'В корзине'"
         @mouseover="text = 'Добавить'"
         @click="ModalProduct()"
-        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
-      ></base-button>
+      />
       <b-button
         v-if="userBasket"
-        @click="deleteCartProduct"
         class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"
+        @click="deleteCartProduct"
         >X
       </b-button>
     </div>
     <!--  Кнопка купить если товара нету в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">
-      <base-button @click="ModalProduct()" v-if="!userBasket" class="py-1 px-2">
-        <b-icon-cart-4></b-icon-cart-4>
+      <base-button v-if="!userBasket" class="py-1 px-2" @click="ModalProduct()">
+        <b-icon-cart-4 />
       </base-button>
       <!--  Кнопка купить если товар в корзине мобильная версия   -->
       <base-button
         v-else-if="userBasket"
-        @click="ModalProduct()"
         class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
+        @click="ModalProduct()"
       >
-        <b-icon-cart-4></b-icon-cart-4>
+        <b-icon-cart-4 />
       </base-button>
       <b-button
         v-if="userBasket"
-        @click="deleteCartProduct"
         class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"
+        @click="deleteCartProduct"
         >X
       </b-button>
     </div>
@@ -52,8 +51,18 @@
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  name: "buy-button",
+  name: "BuyButton",
   components: { BaseButton },
+  props: {
+    /**
+     * @param {Object} LinkOffer - ссылка на предложения продукта
+     */
+    LinkOffer: {},
+    /**
+     * @param {Number} LinkProduct - ссылка на продукт
+     */
+    LinkProduct: {},
+  },
   data() {
     return {
       /**
@@ -73,15 +82,64 @@ export default {
       CartId: undefined,
     };
   },
-  props: {
-    /**
-     * @param {Object} LinkOffer - ссылка на предложения продукта
-     */
-    LinkOffer: {},
-    /**
-     * @param {Number} LinkProduct - ссылка на продукт
-     */
-    LinkProduct: {},
+  computed: {
+    CartProduct() {
+      return this.$store.getters["Cart/CartAll/GetCartProduct"];
+    },
+  },
+  watch: {
+    // Следим за  изменение  корзины
+    CartProduct() {
+      if (this.CartProduct.length > 0) {
+        // Добавление товара в корзину
+        for (const keyOffer in this.CartProduct[0].productOffer) {
+          console.log(this.CartProduct[0].productOffer[keyOffer].id);
+          console.log(this.LinkOffer.id);
+          if (
+            this.CartProduct[0].productOffer[keyOffer].id === this.LinkOffer.id
+          ) {
+            this.userBasket = true;
+            this.CartId = this.CartProduct[0].productOffer.id;
+            break;
+          }
+        }
+      } else if (this.CartProduct.length === 0) {
+        // Корзина пустая reset
+        this.resetAll();
+      }
+      if (this.CartId !== undefined) {
+        // Этот товар есть в корзине
+        for (const key in this.CartProduct) {
+          if (this.CartProduct[key].CartProduct.id === this.LinkProduct.id) {
+            // Товар есть в корзине
+            if (
+              this.CartProduct[key].findIndex(
+                data => data.productOffer.id === this.CartId
+              ) === -1
+            ) {
+              this.resetAll();
+            }
+          }
+        }
+      }
+    },
+  },
+  created() {
+    // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
+    for (const key in this.CartProduct) {
+      if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
+        for (const offerKey in this.CartProduct[key].productOffer) {
+          if (
+            this.CartProduct[key].productOffer[offerKey].id ===
+            this.LinkOffer.id
+          ) {
+            this.userBasket = true;
+            this.CartId = this.CartProduct[key].productOffer.id;
+            return;
+          }
+        }
+      }
+    }
   },
   methods: {
     resetAll() {
@@ -89,14 +147,21 @@ export default {
       this.CartId = undefined;
     },
     // Удалить товар с корзины
-    deleteCartProduct() {
-      const index = this.CartProduct.findIndex(
-        s => s.productOffer.id === this.LinkOffer.id
-      );
-      this.$store.commit("Cart/CartAll/DeleteCartProduct", {
-        index,
-        flag: true,
-      });
+    async deleteCartProduct() {
+      for (const key in this.CartProduct) {
+        if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
+          const index = this.CartProduct[key].productOffer.findIndex(
+            s => s.id === this.LinkOffer.id
+          );
+          this.$store.commit("Cart/CartAll/DeleteCartProduct", {
+            index,
+            data: this.CartProduct[key].productOffer,
+            flag: true,
+          });
+          await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
+          return;
+        }
+      }
     },
     /**
      * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно
@@ -109,48 +174,6 @@ export default {
       });
       this.$bvModal.show("buy");
     },
-  },
-  watch: {
-    // Следим за  изменение  корзины
-    CartProduct() {
-      if (this.CartProduct.length > 0) {
-        // Добавление товара в корзину
-        if (this.CartProduct[0].productOffer.id === this.LinkOffer.id) {
-          this.userBasket = true;
-          this.CartId = this.CartProduct[0].productOffer.id;
-        }
-      } else if (this.CartProduct.length === 0) {
-        // Корзина пустая reset
-        this.resetAll();
-      }
-      if (this.CartId !== undefined) {
-        // Этот товар есть в корзине
-        if (
-          this.CartProduct.findIndex(
-            data => data.productOffer.id === this.CartId
-          ) === -1
-        ) {
-          this.resetAll();
-        }
-      }
-    },
-  },
-  computed: {
-    CartProduct() {
-      return this.$store.getters["Cart/CartAll/GetCartProduct"];
-    },
-  },
-  created() {
-    // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
-    for (const key in this.CartProduct) {
-      if (this.CartProduct[key].productOffer.id === this.LinkOffer.id) {
-        this.userBasket = true;
-        this.CartId = this.CartProduct[key].productOffer.id;
-        // Добавить Id товара-в-корзине и передавать его в модалку
-        // this.idCart = this.CartProduct.id
-        break;
-      }
-    }
   },
 };
 </script>

@@ -66,13 +66,25 @@ export const mutations = {
   PushCartProduct(store, data) {
     store.CartProduct.unshift(data);
   },
+  deteleCartProductIndex(stote, index) {
+    stote.CartProduct.splice(index, 1);
+  },
+  /**
+   * #Сохраняет в Vuex новый товар в корзину
+   * @param {Array} data.data - Ссылка на продукт
+   *  @param {Array} data.value - Новый offer;
+   */
+  PushOfferProduct(store, data) {
+    data.data[0].productOffer.push(data.value);
+  },
   /**
    * #Удаляет с Vuex товар из корзину
-   * @param {Array} data.index - index удаляемого товара
+   * @param {Array} data.data - Сслыка на удаляемый массив
+   *  @param {Array} data.index - index удаляемого offers
    * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
    */
-  DeleteCartProduct(store, data) {
-    if (store.CartProduct[data.index].checkCount === true) {
+  async DeleteCartProduct(store, data) {
+    if (data.data.checkCount === true) {
       // Проверка является ли удаленный товар с корзине измененным
       store.CartUpdateCount = store.CartUpdateCount - 1;
     }
@@ -87,7 +99,7 @@ export const mutations = {
       // Требовать обновить корзину
       store.CartActual = false;
     }
-    store.CartProduct.splice(data.index, 1); // Удаление с корзины
+    data.data.splice(data.index, 1); // Удаление с корзины
   },
 };
 export const actions = {
@@ -105,10 +117,16 @@ export const actions = {
         {},
         { root: true }
       );
-      console.log(...data);
       commit("SetCartProduct", data);
       commit("SetCartActual");
     }
+  },
+  CartProductDeleteNotOffers({ state, commit }) {
+    state.CartProduct.forEach((data, index) => {
+      if (data.productOffer.length === 0) {
+        commit("deteleCartProductIndex", index);
+      }
+    });
   },
 };
 export const getters = {
@@ -123,15 +141,30 @@ export const getters = {
    */
   GetCartProductId: s => id => {
     for (const keyProduct in s.CartProduct) {
-      s.CartProduct[keyProduct].productOffer.filter(offer => offer.id === id);
+      const data = s.CartProduct[keyProduct].productOffer.filter(
+        offer => offer.id === id
+      );
+      if (data.length !== 0) {
+        return data;
+      }
     }
+  },
+  GetCartProductCartId: s => id => {
+    return s.CartProduct.filter(data => data.ProductCard.id === id);
   },
   /**
    * ### Вывод index товара с корзины по Id
    * @returns {Number} index товара с корзины
    */
   GetCartProduct_offersIndex: s => id => {
-    return s.CartProduct.findIndex(cart => cart.productOffer.id === id);
+    // for (const keyProduct in s.CartProduct) {
+    // const data = s.CartProduct[keyProduct].productOffer.findIndex(
+    //   cart => cart.productOffer.id === id
+    // );
+    // if (data.length !== 0) {
+    // return data;
+    // }
+    // }
   },
   /**
    * ### Вывод сумму всех товаров с корзины
@@ -143,7 +176,7 @@ export const getters = {
       // console.log(s.CartProduct[key].Count);
       for (const keyOffer in s.CartProduct[key].productOffer) {
         data +=
-          s.CartProduct[key].Count *
+          s.CartProduct[key].productOffer[keyOffer].Count *
           s.CartProduct[key].productOffer[keyOffer].prices;
       }
     }

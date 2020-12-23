@@ -12,7 +12,7 @@
       <template #cell(brand)="data">
         <template v-if="data.item !== undefined">
           <div>
-            Бренд
+            {{ data.item.ProductCard.brand.name }}
             <!--                         //data.item.ProductCard.brand.name-->
           </div>
         </template>
@@ -25,7 +25,7 @@
         </template>
       </template>
       <template #cell(name)="data">
-        Название
+        {{ data.item.ProductCard.name }}
         <!--        data.item.ProductCard.name-->
       </template>
       <template #cell(img)="data">
@@ -40,8 +40,8 @@
         {{ data.item.productOffer[0].prices }} Р
       </template>
       <template #cell(supplier)="data">
-        Поставщик
-        <!--                  //data.item.productOffer[0].supplier.name-->
+        {{ data.item.productOffer[0].supplier.name }}
+        <!--                  //  -->
       </template>
       <template #cell(quantity)="data">
         <availability-offers
@@ -55,7 +55,7 @@
           :multiplicity="data.item.productOffer[0].multiplicity"
           :add-class-input="'p-0 col-12 col-lg-4'"
           :add-class-form="'justify-content-center'"
-          :count-props="data.item.Count"
+          :count-props="data.item.productOffer[0].Count"
           :show-icon="true"
           :array="data.item"
           @Count="SetCount($event, data.index)"
@@ -63,14 +63,15 @@
       </template>
       <template #cell(symma)="data">
         {{
-          (Number(data.item.Count) * data.item.productOffer[0].prices).toFixed(
-            2
-          )
+          (
+            Number(data.item.productOffer[0].Count) *
+            data.item.productOffer[0].prices
+          ).toFixed(2)
         }}
         Р
       </template>
       <template #cell(Delete)="data">
-        <DeleteCart :index="data.index" />
+        <DeleteCart :index="0" :cart-product="data.item.productOffer" />
       </template>
       <template #cell(Update)="data">
         <cart-button-update-product

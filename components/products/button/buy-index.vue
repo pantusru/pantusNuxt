@@ -93,8 +93,6 @@ export default {
       if (this.CartProduct.length > 0) {
         // Добавление товара в корзину
         for (const keyOffer in this.CartProduct[0].productOffer) {
-          console.log(this.CartProduct[0].productOffer[keyOffer].id);
-          console.log(this.LinkOffer.id);
           if (
             this.CartProduct[0].productOffer[keyOffer].id === this.LinkOffer.id
           ) {
@@ -153,11 +151,10 @@ export default {
           const index = this.CartProduct[key].productOffer.findIndex(
             s => s.id === this.LinkOffer.id
           );
-          this.$store.commit("Cart/CartAll/DeleteCartProduct", {
-            index,
-            data: this.CartProduct[key].productOffer,
-            flag: true,
-          });
+          this.$store.dispatch(
+            "Cart/CartAll/DeleteCartProduct",
+            this.LinkOffer.id
+          );
           await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
           return;
         }

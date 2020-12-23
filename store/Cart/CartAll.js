@@ -83,7 +83,7 @@ export const mutations = {
    *  @param {Array} data.index - index удаляемого offers
    * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
    */
-  async DeleteCartProduct(store, data) {
+  DeleteCartProduct(store, data) {
     if (data.data.checkCount === true) {
       // Проверка является ли удаленный товар с корзине измененным
       store.CartUpdateCount = store.CartUpdateCount - 1;
@@ -93,6 +93,7 @@ export const mutations = {
       store.CartActual = true;
     }
     if (data.flag === true) {
+      console.log(data.data[data.index].id);
       // Сделать запрос
       console.log("Запрос на обновление корзины");
     } else {
@@ -103,6 +104,14 @@ export const mutations = {
   },
 };
 export const actions = {
+  async DeleteCartProduct({ dispatch, store, commit }, id) {
+    console.log(id);
+    const data = await dispatch("Cart/axios/_CartProductDelete", id, {
+      root: true,
+    });
+    commit("SetCartProduct", data);
+  },
+
   /**
    * #Запрос на получения товаров с корзины пользователя
    * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex

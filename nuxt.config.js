@@ -104,6 +104,7 @@ export default {
         icons: true,
       },
     ],
+    // https://www.npmjs.com/package/cookie-universal-nuxt
     ["cookie-universal-nuxt"],
     "@nuxtjs/axios",
   ],

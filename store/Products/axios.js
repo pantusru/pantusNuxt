@@ -55,7 +55,7 @@ export const actions = {
    */
   _init_Product({ store, state }, data) {
     const dataset = [];
-    if (data === undefined || data.length === 0) {
+    if (data.length === 0 || data.error !== undefined) {
       return [];
     }
     data.forEach(elem => {

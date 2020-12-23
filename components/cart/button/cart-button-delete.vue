@@ -1,5 +1,5 @@
 <template>
-  <base-button @click="deleteProduct()"><b-icon-x /></base-button>
+  <base-button @click="deleteProduct()"><b-icon-x /> </base-button>
 </template>
 
 <script>
@@ -21,11 +21,10 @@ export default {
   methods: {
     async deleteProduct() {
       // await Запрос на удаление товара с корзины
-      this.$store.commit("Cart/CartAll/DeleteCartProduct", {
-        data: this.cartProduct,
-        index: this.index,
-        flag: true,
-      });
+      await this.$store.dispatch(
+        "Cart/CartAll/DeleteCartProduct",
+        this.cartProduct[this.index].id
+      );
       await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
     },
   },

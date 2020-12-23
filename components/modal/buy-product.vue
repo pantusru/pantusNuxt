@@ -95,7 +95,7 @@ export default {
       this.count = Count.Count;
     },
     // Кнопка купить
-    buy() {
+    async buy() {
       const ProductCartId = this.$store.getters[
         "Cart/CartAll/GetCartProductCartId"
       ](this.LinkProducts.id);
@@ -121,6 +121,10 @@ export default {
         data.ProductCard = this.LinkProducts;
         this.$store.commit("Cart/CartAll/PushCartProduct", data);
       }
+      await this.$store.dispatch("Cart/axios/_CartProductPut", {
+        id: this.LinkOffer.id,
+        quantity: this.count,
+      });
       // this.$bvModal.hide('buy');
       // const Index = this.$store.getters[
       // "Cart/CartAll/GetCartProduct_offersIndex"

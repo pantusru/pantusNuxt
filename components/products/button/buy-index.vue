@@ -90,75 +90,86 @@ export default {
   watch: {
     // Следим за  изменение  корзины
     CartProduct() {
-      if (this.CartProduct.length > 0) {
-        // Добавление товара в корзину
-        for (const keyOffer in this.CartProduct[0].productOffer) {
-          if (
-            this.CartProduct[0].productOffer[keyOffer].id === this.LinkOffer.id
-          ) {
-            this.userBasket = true;
-            this.CartId = this.CartProduct[0].productOffer.id;
-            break;
-          }
-        }
-      } else if (this.CartProduct.length === 0) {
-        // Корзина пустая reset
-        this.resetAll();
-      }
-      if (this.CartId !== undefined) {
-        // Этот товар есть в корзине
-        for (const key in this.CartProduct) {
-          if (this.CartProduct[key].CartProduct.id === this.LinkProduct.id) {
-            // Товар есть в корзине
+      this.checkProductCart();
+      // console.log("ds");
+      // if (this.CartProduct.length > 0) {
+      //   // Добавление товара в корзину
+      //   for (const keyOffer in this.CartProduct[0].productOffer) {
+      //     if (
+      //       this.CartProduct[0].productOffer[keyOffer].id === this.LinkOffer.id
+      //     ) {
+      //       this.userBasket = true;
+      //       this.CartId = this.CartProduct[0].productOffer.id;
+      //       break;
+      //     }
+      //   }
+      // } else if (this.CartProduct.length === 0) {
+      //   // Корзина пустая reset
+      //   this.resetAll();
+      // }
+      // if (this.CartId !== undefined) {
+      //   // Этот товар есть в корзине
+      //   for (const key in this.CartProduct) {
+      //     if (this.CartProduct[key].CartProduct.id === this.LinkProduct.id) {
+      //       // Товар есть в корзине
+      //       if (
+      //         this.CartProduct[key].findIndex(
+      //           data => data.productOffer.id === this.CartId
+      //         ) === -1
+      //       ) {
+      //         this.resetAll();
+      //       }
+      //     }
+      //   }
+      // }
+    },
+  },
+  created() {
+    // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В
+    this.checkProductCart();
+  },
+  methods: {
+    checkProductCart() {
+      this.userBasket = false;
+      for (const key in this.CartProduct) {
+        if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
+          for (const offerKey in this.CartProduct[key].productOffer) {
             if (
-              this.CartProduct[key].findIndex(
-                data => data.productOffer.id === this.CartId
-              ) === -1
+              this.CartProduct[key].productOffer[offerKey].id ===
+              this.LinkOffer.id
             ) {
-              this.resetAll();
+              this.userBasket = true;
+              this.CartId = this.CartProduct[key].productOffer.id;
+              return;
             }
           }
         }
       }
     },
-  },
-  created() {
-    // ПРОВЕРКА ЕСЛИ ЛИ ТОВАР В КОРЗИНЕ
-    for (const key in this.CartProduct) {
-      if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
-        for (const offerKey in this.CartProduct[key].productOffer) {
-          if (
-            this.CartProduct[key].productOffer[offerKey].id ===
-            this.LinkOffer.id
-          ) {
-            this.userBasket = true;
-            this.CartId = this.CartProduct[key].productOffer.id;
-            return;
-          }
-        }
-      }
-    }
-  },
-  methods: {
     resetAll() {
       this.userBasket = false;
       this.CartId = undefined;
     },
     // Удалить товар с корзины
     async deleteCartProduct() {
-      for (const key in this.CartProduct) {
-        if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
-          const index = this.CartProduct[key].productOffer.findIndex(
-            s => s.id === this.LinkOffer.id
-          );
-          this.$store.dispatch(
-            "Cart/CartAll/DeleteCartProduct",
-            this.LinkOffer.id
-          );
-          await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
-          return;
-        }
-      }
+      // for (const key in this.CartProduct) {
+      const data = await this.$store.dispatch(
+        "Cart/axios/_CartProductDelete",
+        this.LinkOffer.id
+      );
+      this.$store.commit("Cart/CartAll/SetCartProduct", data);
+
+      // if (this.CartProduct[key].ProductCard.id === this.LinkProduct.id) {
+      //   const index = this.CartProduct[key].productOffer.findIndex(
+      //     s => s.id === this.LinkOffer.id
+      //   );
+      //   this.$store.dispatch(
+      //     "Cart/CartAll/DeleteCartProduct",
+      //     this.LinkOffer.id
+      //   );
+      //   // await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
+      //   return;
+      // }
     },
     /**
      * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно

@@ -1,85 +1,121 @@
 <template>
   <div>
-    <ImgModal />
-    <b-table
-      class="mt-4 text-center"
-      :fields="fields"
+    <!--          :fields="fields"
       :items="CartProduct"
       bordered
       hover
-      thead-class="bg-light"
-    >
-      <template #cell(brand)="data">
-        <template v-if="data.item !== undefined">
-          <div>
-            {{ data.item.ProductCard.brand.name }}
-            <!--                         //data.item.ProductCard.brand.name-->
-          </div>
+      thead-class="bg-light"-->
+    <ImgModal />
+    <b-table-simple class="mt-4 text-center">
+      <b-thead>
+        <b-tr>
+          <b-th>Брэнд</b-th>
+          <b-th>Артикул</b-th>
+          <b-th>Название товара</b-th>
+          <b-th />
+          <b-th>Поставщик</b-th>
+          <b-th>Цена</b-th>
+          <b-th>Остаток, шт</b-th>
+          <b-th>Количество, шт</b-th>
+          <b-th>Сумма</b-th>
+          <b-th />
+        </b-tr>
+      </b-thead>
+      <b-tbody>
+        <template v-for="(table, index) in CartProduct">
+          <b-tr :key="table.ProductCard.id" class="hover-true">
+            <table-product-cart-td
+              class="w-15 border-bottom"
+              :length-offer="table.productOffer.length"
+            >
+              <span class="text-576b77 font-weight-bold"
+                >{{ table.ProductCard.brand.name }}
+              </span>
+            </table-product-cart-td>
+
+            <table-product-cart-td
+              class="w-15 border-bottom"
+              :length-offer="table.productOffer.length"
+            >
+              <span class="text-576b77 reset-title">
+                {{ table.ProductCard.sku.original }}
+              </span>
+            </table-product-cart-td>
+
+            <table-product-cart-td
+              class="w-15 border-bottom"
+              :length-offer="table.productOffer.length"
+            >
+              <span
+                :title="table.ProductCard.name"
+                class="text-576b77 link-danger reset-title"
+              >
+                {{ table.ProductCard.name }}
+              </span>
+            </table-product-cart-td>
+
+            <table-product-cart-td
+              class="border-bottom"
+              :length-offer="table.productOffer.length"
+            >
+              <b-icon-camera-fill
+                v-if="table.ProductCard.ProductCardImage.url"
+                class="cursor-pointer"
+                @click="ModalImg(table)"
+              />
+            </table-product-cart-td>
+          </b-tr>
+          <template v-if="table.productOffer.length !== 0">
+            <b-tr
+              v-for="(offer, indexOffer) in table.productOffer"
+              :key="offer.id"
+              class="hover-true border-bottom"
+            >
+              <b-td class="border-top-0 text-555">{{
+                offer.supplier.name
+              }}</b-td>
+              <b-td
+                class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap"
+                >{{ offer.prices }} Р</b-td
+              >
+              <availability-offers
+                class="border-top-0"
+                component="b-td"
+                :link-offers="offer"
+                :link-product="table.ProductCard"
+              />
+              <b-td class="border-top-0">
+                <vInput
+                  :multiplicity="offer.multiplicity"
+                  :add-class-input="'p-0 col-12 col-lg-4'"
+                  :add-class-form="'justify-content-center'"
+                  :count-props="offer.Count"
+                  :show-icon="true"
+                  :array="offer"
+                  @Count="SetCount($event, offer)"
+                />
+              </b-td>
+              <b-td class="border-top-0">
+                {{ (Number(offer.Count) * offer.prices).toFixed(2) }}
+                Р
+              </b-td>
+              <b-td class="border-top-0">
+                <DeleteCart
+                  :index="indexOffer"
+                  :cart-product="table.productOffer"
+                />
+              </b-td>
+              <b-td class="border-top-0">
+                <!--                <cart-button-update-product-->
+                <!--                  v-if="offer.checkCount"-->
+                <!--                  :linkOffer="offer"-->
+                <!--                />-->
+              </b-td>
+            </b-tr>
+          </template>
         </template>
-      </template>
-      <template #cell(sku)="data">
-        <template v-if="data.item !== undefined">
-          <div class="reset-title">
-            {{ data.item.ProductCard.sku.original }}
-          </div>
-        </template>
-      </template>
-      <template #cell(name)="data">
-        {{ data.item.ProductCard.name }}
-        <!--        data.item.ProductCard.name-->
-      </template>
-      <template #cell(img)="data">
-        <div v-if="data.item.ProductCard.ProductCardImage.url">
-          <b-icon-camera-fill
-            class="cursor-pointer"
-            @click="ModalImg(data.item)"
-          />
-        </div>
-      </template>
-      <template #cell(price)="data">
-        {{ data.item.productOffer[0].prices }} Р
-      </template>
-      <template #cell(supplier)="data">
-        {{ data.item.productOffer[0].supplier.name }}
-        <!--                  //  -->
-      </template>
-      <template #cell(quantity)="data">
-        <availability-offers
-          component="div"
-          :link-product="data.item.ProductCard"
-          :link-offers="data.item.productOffer[0]"
-        />
-      </template>
-      <template #cell(count)="data">
-        <vInput
-          :multiplicity="data.item.productOffer[0].multiplicity"
-          :add-class-input="'p-0 col-12 col-lg-4'"
-          :add-class-form="'justify-content-center'"
-          :count-props="data.item.productOffer[0].Count"
-          :show-icon="true"
-          :array="data.item"
-          @Count="SetCount($event, data.index)"
-        />
-      </template>
-      <template #cell(symma)="data">
-        {{
-          (
-            Number(data.item.productOffer[0].Count) *
-            data.item.productOffer[0].prices
-          ).toFixed(2)
-        }}
-        Р
-      </template>
-      <template #cell(Delete)="data">
-        <DeleteCart :index="0" :cart-product="data.item.productOffer" />
-      </template>
-      <template #cell(Update)="data">
-        <cart-button-update-product
-          v-if="data.item.checkCount"
-          :index="data.index"
-        />
-      </template>
-    </b-table>
+      </b-tbody>
+    </b-table-simple>
   </div>
   <!--  <div></div>-->
 </template>
@@ -101,23 +137,6 @@ export default {
     DeleteCart,
   },
   mixins: [mixinsEmit, mixinsImg],
-  data() {
-    return {
-      fields: [
-        { key: "brand", label: "Брэнд", class: "w-15" },
-        { key: "sku", label: "Артикул" },
-        { key: "name", label: "Название товара", class: "w-15" },
-        { key: "img", label: "" },
-        { key: "supplier", label: "Поставщик" },
-        { key: "price", label: "Цена", class: "text-nowrap" },
-        { key: "quantity", label: "Остаток, шт" },
-        { key: "count", label: "Кол-во, шт" },
-        { key: "symma", label: "Сумма", class: "text-nowrap" },
-        { key: "Delete", label: "" },
-        { key: "Update", label: "" },
-      ],
-    };
-  },
   computed: {
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];

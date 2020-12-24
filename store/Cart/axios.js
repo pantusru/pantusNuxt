@@ -20,6 +20,7 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
+    console.log(data);
     let dataCart = await dispatch("Products/axios/_init_Product", data, {
       root: true,
     });
@@ -31,7 +32,6 @@ export const actions = {
     }
   },
   async _CartProductPut({ rootGetters, dispatch, commit }, data) {
-    console.log(data);
     const dataset = await this.$axios.$put(
       `${process.env.api}/personal/cart/${data.id}`,
       {
@@ -41,6 +41,28 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
+    console.log(dataset);
+    let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
+      root: true,
+    });
+    if (dataCart.length !== 0) {
+      dataCart = await dispatch("MapCart", { dataCart, dataApi: dataset });
+      return dataCart;
+    } else {
+      return [];
+    }
+  },
+  async _CartProductPutAll({ rootGetters, dispatch, commit }, data) {
+    const dataset = await this.$axios.$put(
+      `${process.env.api}/personal/cart`,
+      {
+        ...data,
+      },
+      {
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+      }
+    );
+    console.log(dataset);
     let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
       root: true,
     });

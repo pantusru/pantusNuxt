@@ -96,40 +96,13 @@ export default {
     },
     // Кнопка купить
     async buy() {
-      const ProductCartId = this.$store.getters[
-        "Cart/CartAll/GetCartProductCartId"
-      ](this.LinkProducts.id);
-      if (ProductCartId.length !== 0) {
-        // Такой товар уже есть в корзине с другим offer
-        if (this.CartProduct) {
-        }
-        const data = this.LinkOffer;
-        data.Count = this.count;
-        data.checkCount = false;
-        this.$store.commit("Cart/CartAll/PushOfferProduct", {
-          data: ProductCartId,
-          value: data,
-        });
-      } else {
-        console.log("Товара нету в корзине");
-        // Товара нету в корзине
-        const data = {};
-        data.productOffer = [];
-        data.productOffer.push(this.LinkOffer);
-        data.productOffer[data.productOffer.length - 1].Count = this.count;
-        data.productOffer[data.productOffer.length - 1].checkCount = false;
-        data.ProductCard = this.LinkProducts;
-        this.$store.commit("Cart/CartAll/PushCartProduct", data);
-      }
-      await this.$store.dispatch("Cart/axios/_CartProductPut", {
+      const data = await this.$store.dispatch("Cart/axios/_CartProductPut", {
         id: this.LinkOffer.id,
         quantity: this.count,
       });
-      // this.$bvModal.hide('buy');
-      // const Index = this.$store.getters[
-      // "Cart/CartAll/GetCartProduct_offersIndex"
-      // ](this.LinkOffer.id);
-      // ИЗМЕНИТЬ КОЛИЧЕСТВО ТОВАРА В КОРЗИНЕ
+      if (data.error === undefined) {
+        this.$store.commit("Cart/CartAll/SetCartProduct", data);
+      }
 
       this.$bvModal.hide("buy");
     },

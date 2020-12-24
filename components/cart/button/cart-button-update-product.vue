@@ -8,11 +8,11 @@
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  name: "cart-button-update-product",
+  name: "CartButtonUpdateProduct",
   components: { BaseButton },
   props: {
-    index: {
-      type: Number,
+    linkOffer: {
+      type: Object,
     },
   },
   computed: {
@@ -21,14 +21,12 @@ export default {
     },
   },
   methods: {
-    UpdateProduct() {
+    async UpdateProduct() {
       // await Запрос на изменение товара
-      this.$store.commit("Cart/CartAll/SetCartCheckCount", {
-        index: this.index,
-        value: false,
+      const data = await this.$store.dispatch("Cart/axios/_CartProductPut", {
+        id: this.LinkOffer.id,
+        quantity: this.count,
       });
-      const count = this.GetCartUpdateCount - 1;
-      this.$store.commit("Cart/CartAll/SetCartUpdateCount", count);
       if (this.GetCartUpdateCount === 0) {
         this.$store.commit("Cart/CartAll/SetCartActual");
       }

@@ -57,6 +57,7 @@ export const mutations = {
    */
   SetCountProductArr(store, data) {
     data.data.Count = data.value;
+    data.data.checkCount = true;
     store.CartActual = false;
   },
   /**

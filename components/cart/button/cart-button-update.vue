@@ -1,12 +1,12 @@
 <template>
-  <base-button @click="updateCart" text="Обновить корзину"></base-button>
+  <base-button text="Обновить корзину" @click="updateCart" />
 </template>
 
 <script>
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  name: "cart-button-update",
+  name: "CartButtonUpdate",
   components: { BaseButton },
   computed: {
     CartProduct() {
@@ -14,19 +14,24 @@ export default {
     },
   },
   methods: {
-    updateCart() {
-      // await Запрос на изменение full cart
-      // flag обновлена ли корзина
-      this.$store.commit("Cart/CartAll/SetCartActual");
-      // Количество не обновленных товаров
-      this.$store.commit("Cart/CartAll/SetCartUpdateCount", 0);
-      for (const index in this.CartProduct) {
-        // Убрать все flag не обновленных товаров
-        this.$store.commit("Cart/CartAll/SetCartCheckCount", {
-          value: false,
-          index,
-        });
+    async updateCart() {
+      const arr = [];
+      for (const product in this.CartProduct) {
+        for (const offer in this.CartProduct[product].productOffer) {
+          arr.push({
+            id: this.CartProduct[product].productOffer[offer].id,
+            quantity: this.CartProduct[product].productOffer[offer].Count,
+          });
+        }
       }
+      const data = await this.$store.dispatch(
+        "Cart/axios/_CartProductPutAll",
+        arr
+      );
+      if (data.error === undefined) {
+        this.$store.commit("Cart/CartAll/SetCartProduct", data);
+      }
+      this.$store.commit("Cart/CartAll/SetCartActual");
     },
   },
 };

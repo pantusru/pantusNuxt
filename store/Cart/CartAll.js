@@ -14,6 +14,9 @@ export const state = () => ({
   // CheckCartCount: null,
 });
 export const mutations = {
+  ResetCartProduct(store) {
+    store.CartProduct = [];
+  },
   /**
    * #Сохраняет в Vuex количество измененных товаров
    * @param {Array} data - количество измененных товаров

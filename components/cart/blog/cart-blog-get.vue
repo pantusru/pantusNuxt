@@ -13,7 +13,7 @@
         </nuxt-link>
       </h6>
       <div class="text-right">
-        <DeleteCart :index="index" />
+        <DeleteCart :id="datasetProduct.productOffer[index].id" />
       </div>
     </template>
     <div>
@@ -30,11 +30,11 @@
       />
       <product-element-row-get
         name="В наличии:"
-        :dataset="datasetProduct.productOffer[0].quantity"
+        :dataset="datasetProduct.productOffer[index].quantity"
       />
       <product-element-row-get
         name="Поставщик:"
-        :dataset="datasetProduct.productOffer[0].supplier.name"
+        :dataset="datasetProduct.productOffer[index].supplier.name"
       />
     </div>
     <template #footer>
@@ -42,13 +42,13 @@
         <b-col>
           <div class="mb-2">
             <span class="mb-3">Цена:</span>
-            <b>{{ datasetProduct.productOffer[0].prices }} Р</b>
+            <b>{{ datasetProduct.productOffer[index].prices }} Р</b>
           </div>
           <div class="d-flex align-items-start justify-content-between">
             <vInput
               :AddClassInput="'col-5 col-sm-6 col-md-4'"
-              :multiplicity="datasetProduct.productOffer[0].multiplicity"
-              :CountProps="datasetProduct.Count"
+              :multiplicity="datasetProduct.productOffer[index].multiplicity"
+              :CountProps="datasetProduct.productOffer[index].Count"
               :array="datasetProduct"
               @Count="SetCount($event, index)"
             />
@@ -60,7 +60,8 @@
           <div class="mt-3">
             Стоимость:<b
               >{{
-                datasetProduct.productOffer[0].prices * datasetProduct.Count
+                datasetProduct.productOffer[index].prices *
+                datasetProduct.productOffer[index].Count
               }}р</b
             >
           </div>

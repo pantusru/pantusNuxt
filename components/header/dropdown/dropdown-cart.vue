@@ -15,7 +15,7 @@
       </tr>
     </b-thead>
     <b-tbody>
-      <template v-for="(dataset, index) in CartProduct.slice(0, 5)">
+      <template v-for="(dataset, index) in CartProduct">
         <tr :key="dataset.id">
           <td class="w-50 border-0" :rowspan="dataset.productOffer.length + 1">
             <span
@@ -42,36 +42,6 @@
       </template>
     </b-tbody>
   </b-table-simple>
-  <!--  <b-table-->
-  <!--    v-if="CartProduct.length > 0"-->
-  <!--    class="text-center dropdown-cart d-none d-md-table" -->
-  <!--    :fields="fields"-->
-  <!--    :items="CartProduct"-->
-  <!--    hover-->
-  <!--    thead-class=""-->
-  <!--  >-->
-  <!--    <template #cell(sku)="data">-->
-  <!--      <div class="w-15">-->
-  <!--        <div class="reset-title">-->
-  <!--          {{ data.item.ProductCard.sku.original }}-->
-  <!--        </div>-->
-  <!--        <div class="reset-title">-->
-  <!--          {{ data.item.ProductCard.name }}-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </template>-->
-
-  <!--    <template #cell(price)="data">-->
-  <!--      {{ data.item.productOffer.prices }} Р  -->
-  <!--    </template>-->
-
-  <!--    <template #cell(count)="data">-->
-  <!--      <div>{{ data.item.Count }}</div>-->
-  <!--    </template>-->
-  <!--    <template #cell(Delete)="data">-->
-  <!--      <DeleteCart :index="data.index" />-->
-  <!--    </template>-->
-  <!--  </b-table>-->
 </template>
 
 <script>

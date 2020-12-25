@@ -1,21 +1,23 @@
 <template>
   <b-row class="mt-3">
-    <b-col
-      v-for="(data, index) in Cart"
-      :key="data.id"
-      class="mb-3"
-      cols="11"
-      sm="6"
-    >
-      <BlogCart :datasetProduct="data" :index="index" />
-    </b-col>
+    <template v-for="data in Cart">
+      <template v-for="(offer, indexOffer) in data.productOffer">
+        <b-col :key="data.id" class="mb-3" cols="11" sm="6">
+          <BlogCart
+            :key="offer.id"
+            :dataset-product="data"
+            :index="indexOffer"
+          />
+        </b-col>
+      </template>
+    </template>
   </b-row>
 </template>
 
 <script>
 import BlogCart from "@/components/cart/blog/cart-blog-get";
 export default {
-  name: "cart-row-get",
+  name: "CartRowGet",
   components: {
     BlogCart,
   },

@@ -11,7 +11,7 @@ export default {
     /***
      * index массива элемента корзины 1 товара
      */
-    index: {
+    id: {
       type: Number,
     },
     cartProduct: {
@@ -20,12 +20,10 @@ export default {
   },
   methods: {
     async deleteProduct() {
+      console.log(this.id);
       // await Запрос на удаление товара с корзины
-      await this.$store.dispatch(
-        "Cart/CartAll/DeleteCartProduct",
-        this.cartProduct[this.index].id
-      );
-      await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
+      await this.$store.dispatch("Cart/CartAll/DeleteCartProduct", this.id);
+      // await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
     },
   },
 };

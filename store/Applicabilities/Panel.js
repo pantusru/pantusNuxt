@@ -87,7 +87,7 @@ export const mutations = {
    * @param {String} data.NameData - Названия ключа Data который нужно сбросить в Panel
    */
   ResetClildren(store, data) {
-    const index = store.Panel.findIndex(panel => panel.id == data.id);
+    const index = store.Panel.findIndex(panel => panel.id === data.id);
     store.Panel[index][data.NameSelected] = [];
     store.Panel[index][data.NameData] = [];
   },

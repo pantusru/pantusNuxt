@@ -16,6 +16,7 @@
     "storybook:build": "nuxt storybook build"
   },
   "dependencies": {
+    "@nodelib/fs.walk": "^1.2.6",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.2.2",
     "bootstrap": "^4.5.0",

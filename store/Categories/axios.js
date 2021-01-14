@@ -4,10 +4,10 @@ export const actions = {
     return await this.$axios
       .$get(`${process.env.api}/product_categories?view=tree`)
       .then(async res => {
-        let dataset = [];
+        const dataset = [];
         await dispatch("_init_CategoriesStrAll", {
-          res: res,
-          dataset: dataset,
+          res,
+          dataset,
         });
         return dataset;
       });
@@ -24,6 +24,7 @@ export const actions = {
         parentId: array.parentId,
         name: array.name,
         level: array.depthLevel,
+        code: array.code,
         children: [],
         visible: true,
         CheckedType: false,

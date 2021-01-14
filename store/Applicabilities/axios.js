@@ -35,6 +35,7 @@ export const actions = {
         name: array.name,
         level: array.depthLevel,
         children: [],
+        code: array.code,
         visible: true,
         TopParent: data.TopParent,
         selectChecked: false,

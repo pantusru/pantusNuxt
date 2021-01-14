@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <modal-buy-product></modal-buy-product>
+    <modal-buy-product />
     <popular-products-index :popular="popular" />
   </b-container>
 </template>

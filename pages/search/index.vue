@@ -3,7 +3,7 @@
     <!-- Модалки -->
     <ModalImg />
     <ModalBuy />
-    <share></share>
+    <share />
     <!-- Модалки -->
     <div class="container">
       <!-- Фильтры применяемости -->
@@ -32,8 +32,8 @@
           <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
           <div class="d-none d-lg-block">
             <components
-              v-if="Products.length !== 0"
               :is="componentsName"
+              v-if="Products.length !== 0"
               :array="Products"
             />
           </div>
@@ -41,8 +41,8 @@
           <div class="d-block d-lg-none">
             <components
               :is="'productBlog'"
-              :array="Products"
               v-if="Products.length !== 0"
+              :array="Products"
             />
           </div>
           <h1 v-if="Products.length === 0" class="error">Товар не найден</h1>
@@ -86,86 +86,6 @@ export default {
     ModalBuy,
   },
   mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
-  computed: {
-    /***
-     *
-     * @returns {Object} - Список продуктов
-     */
-    Products() {
-      return this.$store.getters["Products/GetProducts"];
-    },
-    /***
-     *
-     * @returns {Object} - количество продуктов с указанными фильтрами
-     */
-    CountProducts() {
-      return this.$store.getters["Products/GetCountProducts"];
-    },
-    /***
-     *
-     * @returns {String} - Название  в каком виде отображаются товары
-     */
-    componentsName() {
-      return this.$store.getters["getProductType"];
-    },
-    /***
-     *
-     * @returns {Boolean | String} - Требуется ли обновлять все фильтры для нового запроса
-     */
-    checkFilterClick() {
-      return this.$store.getters["GetcheckFilterClick"];
-    },
-  },
-  watch: {
-    async $route() {
-      // Изменение route
-      if (this.checkFilterClick !== false) {
-        // Это не кнопка
-        console.log("Новый запрос reset all + count нужен");
-        if (this.checkFilterClick !== "resetAll") {
-          console.log("Кнопка no reset all");
-          await this.ResetNoApplicabilitiess();
-        }
-        if (this.checkFilterClick !== "resetApplicabilities") {
-          console.log("Кнопка no reset Panel");
-          await this.$store.dispatch("Applicabilities/Panel/ResetAll");
-        }
-        await this.CheckQueryFilter();
-        await this.pushParamsFilter();
-        await this.pushParamsSort();
-        await this.$store.dispatch("Products/_ProductAll", this.form);
-        window.scrollTo(0, 0);
-      } else if (this.checkFilterClick === false) {
-        // Кнопка поиск
-        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
-        await this.$store.dispatch("Products/_ProductAll", this.form);
-      }
-      this.$store.commit("SetcheckFilterClick", true);
-      this.form = {};
-    },
-  },
-  created() {
-    console.log(this.$route);
-    // КОстыль
-    // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
-    console.log("reset visible");
-    this.$store.dispatch(
-      "Catalog/All/_AllVisible",
-      this.$store.getters["Categories/CategoriesAll/GetCategories"]
-    );
-  },
-  head() {
-    return {
-      title: "Pantus Спиcок товара",
-      meta: [
-        {
-          name: "keywords",
-          content:
-            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
-        },
-      ],
-    };
-  },
   async fetch({ query, store }) {
     await Promise.all([
       store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
@@ -279,6 +199,81 @@ export default {
       this.form = {};
     }
     //   ПРОВЕРКА QUERY
+  },
+  head() {
+    return {
+      title: "Pantus Спиcок товара",
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
+        },
+      ],
+    };
+  },
+  computed: {
+    /***
+     *
+     * @returns {Object} - Список продуктов
+     */
+    Products() {
+      return this.$store.getters["Products/GetProducts"];
+    },
+    /***
+     *
+     * @returns {Object} - количество продуктов с указанными фильтрами
+     */
+    CountProducts() {
+      return this.$store.getters["Products/GetCountProducts"];
+    },
+    /***
+     *
+     * @returns {String} - Название  в каком виде отображаются товары
+     */
+    componentsName() {
+      return this.$store.getters.getProductType;
+    },
+    /***
+     *
+     * @returns {Boolean | String} - Требуется ли обновлять все фильтры для нового запроса
+     */
+    checkFilterClick() {
+      return this.$store.getters.GetcheckFilterClick;
+    },
+  },
+  watch: {
+    async $route() {
+      // Изменение route
+      if (this.checkFilterClick !== false) {
+        // Это не кнопка
+        if (this.checkFilterClick !== "resetAll") {
+          await this.ResetNoApplicabilitiess();
+        }
+        if (this.checkFilterClick !== "resetApplicabilities") {
+          await this.$store.dispatch("Applicabilities/Panel/ResetAll");
+        }
+        await this.CheckQueryFilter();
+        await this.pushParamsFilter();
+        await this.pushParamsSort();
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+        window.scrollTo(0, 0);
+      } else if (this.checkFilterClick === false) {
+        // Кнопка поиск
+        this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+        await this.$store.dispatch("Products/_ProductAll", this.form);
+      }
+      this.$store.commit("SetcheckFilterClick", true);
+      this.form = {};
+    },
+  },
+  created() {
+    // КОстыль
+    // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
+    this.$store.dispatch(
+      "Catalog/All/_AllVisible",
+      this.$store.getters["Categories/CategoriesAll/GetCategories"]
+    );
   },
 };
 </script>

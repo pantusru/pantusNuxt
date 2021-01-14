@@ -17,7 +17,13 @@
         name="companyCountry"
         :error="error['companyCountry']"
       />
-
+      <BaseTextareaValid
+        class=""
+        :$v="$v"
+        items="Адрес"
+        name="companyAddress"
+        :error="error['companyAddress']"
+      />
       <vInput
         :$v="$v"
         items="Название"
@@ -33,10 +39,12 @@
 import mixitError from "@/mixins/form/order/contact/error";
 import vInput from "@/components/order/order-input/index";
 import Town from "@/components/order/order-input/town";
+import BaseTextareaValid from "@/components/base/base-textarea-valid";
 export default {
   components: {
     vInput,
     Town,
+    BaseTextareaValid,
   },
   mixins: [mixitError],
   props: {

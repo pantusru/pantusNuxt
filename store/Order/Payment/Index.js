@@ -15,9 +15,13 @@ export const mutations = {
   },
 };
 export const actions = {
-  async _Payment({ dispatch, commit, getters }) {
+  async _Payment({ dispatch, commit, getters, rootGetters }) {
+    const userType = rootGetters["User/FormData"].type;
+    const checkPayment = !(userType === "wholesale");
     if (getters.GetPayment.length === 0) {
-      const data = await dispatch("Order/axios/_Payment", {}, { root: true });
+      const data = await dispatch("Order/axios/_Payment", checkPayment, {
+        root: true,
+      });
       commit("SetPayment", data);
     }
   },

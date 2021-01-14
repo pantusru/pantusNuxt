@@ -20,7 +20,7 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-    console.log(data);
+
     let dataCart = await dispatch("Products/axios/_init_Product", data, {
       root: true,
     });
@@ -41,7 +41,7 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-    console.log(dataset);
+
     let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
       root: true,
     });
@@ -62,7 +62,7 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-    console.log(dataset);
+
     let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
       root: true,
     });

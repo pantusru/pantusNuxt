@@ -33,7 +33,7 @@
           <b-col cols="3" class="cursor-pointer" :data-role="data.nameWidget">{{
             data.description
           }}</b-col>
-          <!--          <shiptor :text="data"/>-->
+            <shiptor :text="data"/>
         </template>
         <!--        <template v-else-if="data.nameWidget = '' ">-->
 
@@ -49,12 +49,12 @@
 </template>
 
 <script>
-// import shiptor from "@/components/order/widget/shiptor";
+import shiptor from "@/components/order/widget/shiptor";
 // import cdek from "@/components/order/widget/cdek";
 export default {
   name: "dostavka",
   components: {
-    // shiptor,
+    shiptor,
     // cdek,
   },
   props: {

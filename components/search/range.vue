@@ -50,7 +50,6 @@ export default {
         return this.$store.getters["formSearch/GetMaxValue"];
       },
       set(value) {
-        // console.log("max" + value);
         this.$store.commit("formSearch/SetMaxValue", value);
       },
     },

@@ -2,14 +2,13 @@ export default function ({ $axios, redirect, app, request, store }) {
   $axios.onRequest(config => {
     // ПЕРЕХВАТЧИК ЗАПРОСА
     store.commit("SetShow", true);
-    // console.log("Bearer " + app.$cookies.get("Authorization"));
-    // app.$cookies.remove();
+    app.$cookies.remove();
     if (app.$cookies.get("Authorization") !== undefined) {
-      // store.commit("SetCookie", app.$cookies.get("Authorization"));
+      store.commit("SetCookie", app.$cookies.get("Authorization"));
       // $axios.setHeader("Authorization", `${store.getters[""]}`);
-      // $axios.defaults.headers["Authorization"] = `Bearer ${app.$cookies.get(
-      //   "Authorization"
-      // )}`; // Передача токена в каждом запросе
+      $axios.defaults.headers["Authorization"] = `Bearer ${app.$cookies.get(
+        "Authorization"
+      )}`; // Передача токена в каждом запросе
     }
     console.log("Making request to " + config.url);
   });

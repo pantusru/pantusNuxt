@@ -13,7 +13,6 @@ export default {
     // Проверка всех правил Input client
     // Передается название input
     OnSwitch(keyNameInput) {
-      // console.log();
       for (const keyReg in this.VuexForm[keyNameInput].regulations) {
         switch (this.VuexForm[keyNameInput].regulations[keyReg]) {
           case "Undefined":

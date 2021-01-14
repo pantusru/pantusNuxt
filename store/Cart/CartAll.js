@@ -97,9 +97,7 @@ export const mutations = {
       store.CartActual = true;
     }
     if (data.flag === true) {
-      console.log(data.data[data.index].id);
       // Сделать запрос
-      console.log("Запрос на обновление корзины");
     } else {
       // Требовать обновить корзину
       store.CartActual = false;
@@ -109,7 +107,6 @@ export const mutations = {
 };
 export const actions = {
   async DeleteCartProduct({ dispatch, store, commit }, id) {
-    console.log(id);
     const data = await dispatch("Cart/axios/_CartProductDelete", id, {
       root: true,
     });

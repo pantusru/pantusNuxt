@@ -102,7 +102,6 @@ export default {
      * @returns Возвращает query - в массиве есть элементы
      */
     CheckLengthQuery(query) {
-      console.log("query Check" + query);
       if (query.length === 0) {
         return undefined;
       } else {

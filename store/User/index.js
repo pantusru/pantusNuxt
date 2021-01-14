@@ -74,7 +74,6 @@ export const actions = {
     if (getters.Loader === false) {
       // пользователь не загружен
       if (this.$cookies.get("Authorization") !== undefined) {
-        console.log("Куки есть");
         // У пользователя есть токен
         const data = await dispatch("User/axios/_User", {}, { root: true });
         if (data.error === undefined) {

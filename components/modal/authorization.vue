@@ -46,10 +46,10 @@
         >
       </div>
       <b-row no-gutters class="flex-column">
-        <vueRecaptcha
+        <!-- <vueRecaptcha
           :get-error.sync="getError"
           :check-recaptcha.sync="checkRecaptcha"
-        />
+        /> -->
       </b-row>
     </template>
   </b-modal>
@@ -57,7 +57,7 @@
 
 <script>
 import MixinsError from "@/mixins/form/authorization/error";
-import check_recaptcha from "@/mixins/form/check-recaptcha/index";
+// import check_recaptcha from "@/mixins/form/check-recaptcha/index";
 import MixinsValidations from "@/mixins/form/authorization/validator";
 import VInput from "@/components/authorization/index";
 import vueRecaptcha from "@/components/recaptcha/index";
@@ -69,7 +69,7 @@ export default {
     VInput,
     vueRecaptcha,
   },
-  mixins: [MixinsError, MixinsValidations, check_recaptcha],
+  mixins: [MixinsError, MixinsValidations],
   methods: {
     registration() {
       this.hidden();
@@ -91,8 +91,6 @@ export default {
       this.$v.Form.email.$model = "";
       this.$v.Form.password.$model = "";
       this.$v.$reset();
-      this.getError = false;
-      this.checkRecaptcha = false;
       this.$store.commit("SetFormApi", {
         data: "checkAuthorization",
         value: false,
@@ -102,19 +100,17 @@ export default {
       // Проверка что данные введены
       bvModalEvt.preventDefault();
       this.$v.Form.$touch();
-      this.checkValidateRecaptcha();
-      if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
+      // this.checkValidateRecaptcha();
+      if (this.$v.Form.$error === true) {
         // Проверка что данные не валидны
       } else {
         const data = await this.$store.dispatch("User/axios/_Authorization", {
           login: this.$v.Form.email.$model,
           password: this.$v.Form.password.$model,
         });
-        console.log(data.data);
         if (data.data.id !== null) {
           // Сервер не дал ошибку
           //   // Проверка валидности данных с сервера
-          console.log("ВЫ авторизованы");
           this.$cookies.set("Authorization", data.data.token, {
             maxAge: 60 * 60 * 24 * 7 * 365,
           });
@@ -129,7 +125,6 @@ export default {
           this.hidden();
         } else {
           // На сервере ошибка
-          window.grecaptcha.reset();
           this.$v.Form.password.$model = "";
           this.$v.$reset();
           this.$store.commit("SetFormApi", {

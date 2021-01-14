@@ -1,7 +1,6 @@
 export default {
   methods: {
     SetCount(data, index) {
-      // console.log(data, index);
       // if (data.array.checkCount === false) {
       //   // Данный товар не является обновленным
       //   this.$store.commit(

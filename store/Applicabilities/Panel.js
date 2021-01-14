@@ -151,7 +151,6 @@ export const actions = {
   DeletePanel({ store, commit, getters, state, rootGetters }, id) {
     const index = getters.PanelfindIndex(id);
     if (state.Panel[index].SelectedMarka !== "") {
-      console.log(state.Panel[index].SelectedMarka);
       const indexReset = rootGetters[
         "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesParentId"
       ](state.Panel[index].SelectedMarka); // Найди index применяемости

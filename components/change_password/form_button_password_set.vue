@@ -33,7 +33,6 @@ export default {
       this.$v.Form.$touch();
       if (this.$v.$error === false) {
         console.log(this.$v.Form.$model.password); // передать к API
-        console.log(this.$route.query.check_user);
         console.log("Запрос на изменение");
         // Вывести алерт
         if (false) {

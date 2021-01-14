@@ -29,9 +29,6 @@ let all = {
 };
 
 export default {
-  mounted() {
-    console.log(this.$store.getters["User/FormData"]["name"]);
-  },
   validations() {
     return {
       Form: {

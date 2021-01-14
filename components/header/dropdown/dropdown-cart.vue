@@ -15,7 +15,7 @@
       </tr>
     </b-thead>
     <b-tbody>
-      <template v-for="(dataset, index) in CartProduct">
+      <template v-for="(dataset, index) in CartProduct.slice(0,5)">
         <tr :key="dataset.id">
           <td class="w-50 border-0" :rowspan="dataset.productOffer.length + 1">
             <span

@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     async deleteProduct() {
-      console.log(this.id);
       // await Запрос на удаление товара с корзины
       await this.$store.dispatch("Cart/CartAll/DeleteCartProduct", this.id);
       // await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");

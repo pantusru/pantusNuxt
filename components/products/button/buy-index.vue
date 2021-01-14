@@ -91,7 +91,6 @@ export default {
     // Следим за  изменение  корзины
     CartProduct() {
       this.checkProductCart();
-      // console.log("ds");
       // if (this.CartProduct.length > 0) {
       //   // Добавление товара в корзину
       //   for (const keyOffer in this.CartProduct[0].productOffer) {

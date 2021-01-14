@@ -38,7 +38,6 @@ export default {
         )[this.NameSelected];
       },
       set(value) {
-        console.log(value);
         let length = this.Panel.length;
         if (value.value) {
           this.$store.commit("Applicabilities/Panel/PushPanel", {

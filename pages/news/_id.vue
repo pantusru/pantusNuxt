@@ -10,23 +10,14 @@
 <script>
 import NewsPageIndex from "~/components/news/page";
 export default {
+  components: {
+    NewsPageIndex,
+  },
   async fetch({ query, store, getters, params }) {
     await store.dispatch("News/NewsCategoriesPage/_NewsCategoriesPage", {
       page: query.page,
       id: params.id,
     });
-  },
-  methods: {
-    async Add() {
-      // Закачка товара при клике на ссылку
-      await this.$store.dispatch(
-        "News/NewsCategoriesPage/_NewsCategoriesPage",
-        { page: this.$route.query.page, id: this.$route.params.id }
-      );
-    },
-  },
-  components: {
-    NewsPageIndex,
   },
   computed: {
     NewsPage() {
@@ -41,6 +32,15 @@ export default {
     async $route() {
       window.scrollTo(0, 0);
       await this.Add();
+    },
+  },
+  methods: {
+    async Add() {
+      // Закачка товара при клике на ссылку
+      await this.$store.dispatch(
+        "News/NewsCategoriesPage/_NewsCategoriesPage",
+        { page: this.$route.query.page, id: this.$route.params.id }
+      );
     },
   },
 };

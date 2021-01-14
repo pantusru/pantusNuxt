@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-2">
     <div class="d-flex justify-content-between">
       <label class="mr-3 pl-0" :for="name">{{ items }}</label>
       <autocomplete addClass="w-75" @input="SetValue"></autocomplete>

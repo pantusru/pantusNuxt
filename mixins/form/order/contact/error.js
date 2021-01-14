@@ -1,16 +1,16 @@
-let Surname = [
+const Surname = [
   {
     ifv: "required",
     text: "Укажите вашу фамилию",
   },
 ];
-let Name = [
+const Name = [
   {
     ifv: "required",
     text: "Укажите ваше Имя",
   },
 ];
-let Telephone = [
+const Telephone = [
   {
     ifv: "required",
     text: "Укажите ваш номер телефона",
@@ -20,10 +20,16 @@ let Telephone = [
     text: "Укажите корректный номер телефона",
   },
 ];
-let Town = [
+const Town = [
   {
     ifv: "required",
     text: "Укажите  город доставки",
+  },
+];
+const companyName = [
+  {
+    ifv: "required",
+    text: "Укажите  название компании",
   },
 ];
 export default {
@@ -33,7 +39,8 @@ export default {
         surname: Surname,
         name: Name,
         telephone: Telephone,
-        Town: Town,
+        Town,
+        companyName,
       },
     };
   },

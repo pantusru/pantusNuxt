@@ -7,42 +7,69 @@ import {
   email,
   sameAs,
 } from "vuelidate/lib/validators";
-let Name = {
+const Name = {
   required,
 };
-let Surname = {
+const Surname = {
   required,
 };
-let Telephone = {
+const Telephone = {
   required,
   minLength: minLength(17),
 };
-let Town = {
+const Town = {
   required,
 };
 // let all поля которые есть в 2 формах
-let all = {
+const all = {
   name: Name,
   surname: Surname,
   telephone: Telephone,
-  Town: Town,
+  Town,
 };
 
+const companyName = {
+  required,
+};
+const companyAddress = {};
+const companyCountry = {};
+const company = {
+  companyName,
+  companyAddress,
+  companyCountry,
+};
 export default {
+  computed: {
+    UserStatus() {
+      return this.$store.getters["User/FormData"].type;
+    },
+  },
   validations() {
-    return {
-      Form: {
-        ...all,
-      },
-    };
+    if (this.UserStatus === "retail") {
+      return {
+        Form: {
+          ...all,
+        },
+      };
+    } else if (this.UserStatus === "wholesale") {
+      return {
+        Form: {
+          ...all,
+          ...company,
+        },
+      };
+    }
   },
   data() {
     return {
       Form: {
-        name: this.$store.getters["User/FormData"]["name"],
-        surname: this.$store.getters["User/FormData"]["surname"],
-        telephone: this.$store.getters["User/FormData"]["telephone"],
-        Town: this.$store.getters["User/FormData"]["Town"],
+        name: this.$store.getters["User/FormData"].name,
+        surname: this.$store.getters["User/FormData"].surname,
+        telephone: this.$store.getters["User/FormData"].telephone,
+        Town: this.$store.getters["User/FormData"].Town,
+        companyName: "",
+        companyAddress: "",
+        companyCountry: "",
       },
     };
   },

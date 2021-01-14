@@ -145,6 +145,7 @@ export default {
     },
   },
   created() {
+    console.log(this.$route);
     // КОстыль
     // let categories = this.$store.getters["Categories/CategoriesAll/GetCategories"];
     console.log("reset visible");
@@ -155,7 +156,7 @@ export default {
   },
   head() {
     return {
-      title: "Pantus Спиоск товара",
+      title: "Pantus Спиcок товара",
       meta: [
         {
           name: "keywords",

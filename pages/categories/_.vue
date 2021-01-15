@@ -1,5 +1,6 @@
 <template>
   <b-container>
+    <ModalImg />
     <div v-if="GetProduct.length !== 0">
       <h2>Товар категории: {{ GetFilter.name }}</h2>
       <FilterTop />
@@ -19,6 +20,7 @@ import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import FilterTop from "~/components/filter-top";
+import ModalImg from "~/components/modal/product-img";
 
 export default {
   name: "CategoriesProduct",
@@ -27,6 +29,7 @@ export default {
     FuncComponents,
     ModalBuyProduct,
     BasePagination,
+    ModalImg,
   },
   mixins: [mixin],
   async fetch({ params, store, getters, commit }) {

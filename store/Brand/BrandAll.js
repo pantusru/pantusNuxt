@@ -3,6 +3,7 @@ export const state = () => ({
    * @property массив всех брендов
    */
   Brand: [],
+  BrandId: {},
   /**
    * @property количество брендов на 1 странице
    */
@@ -16,6 +17,9 @@ export const mutations = {
   SetBrand(store, data) {
     store.Brand = data;
   },
+  SetBrandId(store, data) {
+    store.BrandId = data;
+  },
 };
 export const actions = {
   /**
@@ -27,6 +31,10 @@ export const actions = {
       const data = await dispatch("Brand/axios/_Brands", {}, { root: true });
       commit("SetBrand", data);
     }
+  },
+  async _BrandId({ store, dispatch, commit, getters }) {
+    const data = await dispatch("Brand/axios/_BrandsId", {}, { root: true });
+    commit("SetBrandId", data);
   },
 };
 export const getters = {
@@ -48,4 +56,5 @@ export const getters = {
   GetBrandLength: s => {
     return Math.ceil(s.Brand.length / s.limit);
   },
+  GetBrandId: s => s.BrandId,
 };

@@ -1,10 +1,10 @@
 <template>
   <b-card-body class="p-0 break-avoid">
-    <div class="shadow py-3 px-3" v-if="dataset.visible">
+    <div v-if="dataset.visible" class="shadow py-3 px-3">
       <div class="d-flex justify-content-between">
         <nuxt-link
           class="text-e1002b link-danger text-decoration d-block mb-2 fz-4"
-          :to="'/search?filter_categories=' + dataset.id"
+          :to="'/categories/' + dataset.code"
           >{{ dataset.name }}
         </nuxt-link>
         <!--                <span-->
@@ -13,11 +13,11 @@
         <!--                        {{ dataset.children.length }}-->
         <!--                </span>-->
       </div>
-      <div class="mb-1" v-if="dataset.children.length != 0">
+      <div v-if="dataset.children.length != 0" class="mb-1">
         <div v-for="data in dataset.children" :key="data.id">
           <nuxt-link
             class="text-decoration link-decoration-none text-dark pl-3 d-block"
-            :to="'/search?filter_categories=' + data.id"
+            :to="'/categories/' + dataset.code + '/' + data.code"
             >{{ data.name }}
           </nuxt-link>
         </div>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "categories-blog-get",
+  name: "CategoriesBlogGet",
   props: ["dataset"],
 };
 </script>

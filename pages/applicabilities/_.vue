@@ -1,14 +1,11 @@
 <template>
   <b-container>
-    <div v-if="GetProduct.length !== 0">
-      <h2>Товар категории: {{ GetFilter.name }}</h2>
+      <h2>Товар приминяемости: {{ GetFilter.name }}</h2>
       <FilterTop />
-      <div class="mt-3">
-        <modal-buy-product />
-        <FuncComponents :array="GetProduct" />
-      </div>
+    <div class="mt-3">
+      <modal-buy-product />
+      <FuncComponents :array="GetProduct" />
     </div>
-    <h2 v-else class="text-danger">Товар не найден</h2>
   </b-container>
 </template>
 
@@ -16,11 +13,9 @@
 import ModalBuyProduct from "@/components/modal/buy-product";
 import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
-import FilterTop from "~/components/filter-top";
 export default {
-  name: "CategoriesProduct",
+  name: "ApplicabilitiesProduct",
   components: {
-    FilterTop,
     FuncComponents,
     ModalBuyProduct,
   },
@@ -40,14 +35,17 @@ export default {
       }
       return id;
     };
-    await store.dispatch("Categories/CategoriesAll/_Categories");
+    await store.dispatch(
+      "Applicabilities/ApplicabilitiessAll/_Applicabilitiess"
+    );
     const data = params.pathMatch.split("/");
-    const dataset = store.getters["Categories/CategoriesAll/GetCategories"];
-    const categories = await functionSearch(data, dataset, 0);
-    if (categories) {
-      store.commit("product-static/SetFilter", categories);
+    const dataset =
+      store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"];
+    const applicabilities = await functionSearch(data, dataset, 0);
+    if (applicabilities) {
+      store.commit("product-static/SetFilter", applicabilities);
       await store.dispatch("product-static/RequestProduct", {
-        filter_categories: categories.id,
+        filter_applicabilities: applicabilities.id,
       });
     }
   },
@@ -63,10 +61,10 @@ export default {
     async $router() {
       const data = this.$route.params.pathMatch.split("/");
       const dataset = this.$store.getters[
-        "Categories/CategoriesAll/GetCategories"
+        "applicabilities/applicabilitiesAll/Getapplicabilities"
       ];
-      const categories = this.functionSearch(data, dataset, 0);
-      await this.SetProductVue(categories.id, categories);
+      const applicabilities = this.functionSearch(data, dataset, 0);
+      await this.SetProductVue(applicabilities.id, applicabilities);
     },
   },
 };

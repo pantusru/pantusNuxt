@@ -23,7 +23,7 @@
 <script>
 import VueDropdown from "@/components/header/dropdown/navbottom";
 export default {
-  name: "nav-bottom",
+  name: "NavBottom",
   components: {
     VueDropdown,
   },
@@ -31,10 +31,10 @@ export default {
     return {
       links: [
         { to: "", text: "Оригинальные каталоги" },
-        { to: "/search?filter_applicabilities=3138", text: "Ваз" },
-        { to: "/search?filter_applicabilities=4921", text: "Камаз" },
-        { to: "/search?filter_applicabilities=3140", text: "Газ" },
-        { to: "/search?filter_categories=264", text: "Рти" },
+        { to: "/applicabilities/zapchasti-vaz", text: "Ваз" },
+        { to: "/applicabilities/zapchasti-kamaz", text: "Камаз" },
+        { to: "/applicabilities/zapchasti-gaz", text: "Газ" },
+        { to: "/categories/rti", text: "Рти" },
         { to: "/popular", text: "Популярные" },
         { to: "", text: "Новинки" },
       ],

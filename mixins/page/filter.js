@@ -9,7 +9,7 @@ export default {
         page = pageNum;
       }
       return {
-        name: "search",
+        name: this.$route.query.name,
         query: {
           ...this.$route.query,
           page_number: page,

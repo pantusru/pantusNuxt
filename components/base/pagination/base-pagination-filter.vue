@@ -17,7 +17,7 @@
 <script>
 import PageFilter from "@/mixins/page/filter";
 export default {
-  name: "base-pagination-filter",
+  name: "BasePaginationFilter",
   mixins: [PageFilter],
   props: {
     length: {

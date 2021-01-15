@@ -30,8 +30,7 @@ export const actions = {
       }
     );
     const dataProduct = await dispatch("_init_Product", product.data);
-    commit("Products/SetCountPage", product.meta.count, { root: true });
-    return dataProduct;
+    return { product: dataProduct, count: product.meta.count };
   },
   /**
    *

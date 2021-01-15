@@ -22,7 +22,8 @@ export const actions = {
       { data, limit: 10 },
       { root: true }
     );
-    commit("SetProducts", dataset);
+    commit("SetCountPage", dataset.count);
+    commit("SetProducts", dataset.product);
     // }
   },
   async _ProductId({ store, dispatch, commit }, id) {

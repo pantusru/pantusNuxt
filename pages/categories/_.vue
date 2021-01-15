@@ -6,6 +6,7 @@
       <div class="mt-3">
         <modal-buy-product />
         <FuncComponents :array="GetProduct" />
+        <BasePagination :length="getCountProducts" :limit="20" />
       </div>
     </div>
     <h2 v-else class="text-danger">Товар не найден</h2>
@@ -16,13 +17,16 @@
 import ModalBuyProduct from "@/components/modal/buy-product";
 import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
+import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import FilterTop from "~/components/filter-top";
+
 export default {
   name: "CategoriesProduct",
   components: {
     FilterTop,
     FuncComponents,
     ModalBuyProduct,
+    BasePagination,
   },
   mixins: [mixin],
   async fetch({ params, store, getters, commit }) {
@@ -48,6 +52,7 @@ export default {
       store.commit("product-static/SetFilter", categories);
       await store.dispatch("product-static/RequestProduct", {
         filter_categories: categories.id,
+        page_number: this.$route?.query?.page_number,
       });
     }
   },
@@ -58,15 +63,20 @@ export default {
     GetProduct() {
       return this.$store.getters["product-static/getProduct"];
     },
+    getCountProducts() {
+      return this.$store.getters["product-static/getCountProducts"];
+    },
   },
   watch: {
-    async $router() {
+    async $route() {
+      console.log("Изменения");
       const data = this.$route.params.pathMatch.split("/");
       const dataset = this.$store.getters[
         "Categories/CategoriesAll/GetCategories"
       ];
       const categories = this.functionSearch(data, dataset, 0);
       await this.SetProductVue(categories.id, categories);
+      window.scrollTo(0, 0);
     },
   },
 };

@@ -27,6 +27,22 @@ export default {
   router: {
     prefetchLinks: false,
     middleware: "user",
+
+    // extendRoutes(routes, resolve) {
+    //   return [
+    //     {
+    //       name: 'app',
+    //       path: '/app',
+    //       component: resolve(__dirname, 'pages/app/index.vue'),
+    //       meta: {
+    //         test: 'asdasd'
+    //       }
+    //     },
+    //   ]
+    //
+    // }
+
+
   },
   /*
    ** Nuxt rendering mode

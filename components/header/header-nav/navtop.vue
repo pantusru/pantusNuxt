@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       links: [
-        { to: "", text: "Мобильное приложение" },
+        { to: "/app", text: "Мобильное приложение" },
         { to: "", text: "Доставка" },
         { to: "", text: "Оплата" },
         { to: "/news/", text: "Новости" },

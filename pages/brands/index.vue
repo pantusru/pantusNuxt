@@ -2,11 +2,11 @@
   <b-container>
     <Vinput
       class="col-12 col-lg-3 mx-auto"
-      v-on:Vsearch="ValueSet"
-      :GetName="'Brand/BrandAll/GetBrand'"
+      :get-name="'Brand/BrandAll/GetBrand'"
       :placeholders="'Поиск по брендам'"
+      @Vsearch="ValueSet"
     />
-    <base-title-catalog text="Бренды"></base-title-catalog>
+    <base-title-catalog text="Бренды" />
     <b-row class="mt-3 mt-lg-5">
       <Brand v-for="source in SearchElem" :key="source.id" :source="source" />
     </b-row>
@@ -21,8 +21,7 @@
       hide-goto-end-buttons
       limit="3"
       size="sm"
-    >
-    </b-pagination-nav>
+    />
   </b-container>
 </template>
 
@@ -32,14 +31,31 @@ import Brand from "@/components/catalog/brand/brand-blog-get";
 import PageMixins from "@/mixins/page/index";
 import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
 export default {
+  components: {
+    BaseTitleCatalog,
+    Vinput,
+    Brand,
+  },
   mixins: [PageMixins],
+  data() {
+    return {
+      CountPages: this.$store.getters["Brand/BrandAll/GetBrandLength"],
+      NameComponents: Brand,
+      SearchElem: "",
+    };
+  },
+  async fetch({ store, getters, commit, query }) {
+    await store.dispatch("Brand/BrandAll/_Brands");
+  },
   head() {
     return {
       title: "Pantus бренды товаров",
     };
   },
-  async fetch({ store, getters, commit, query }) {
-    await store.dispatch("Brand/BrandAll/_Brands");
+  computed: {
+    BrandLength() {
+      return this.$store.getters["Brand/BrandAll/GetBrandLength"];
+    },
   },
   watch: {
     $route() {
@@ -61,23 +77,6 @@ export default {
     } else {
       this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
     }
-  },
-  data() {
-    return {
-      CountPages: this.$store.getters["Brand/BrandAll/GetBrandLength"],
-      NameComponents: Brand,
-      SearchElem: "",
-    };
-  },
-  computed: {
-    BrandLength() {
-      return this.$store.getters["Brand/BrandAll/GetBrandLength"];
-    },
-  },
-  components: {
-    BaseTitleCatalog,
-    Vinput,
-    Brand,
   },
   methods: {
     // получение результата от компонента поиска

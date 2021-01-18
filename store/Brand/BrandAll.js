@@ -32,8 +32,8 @@ export const actions = {
       commit("SetBrand", data);
     }
   },
-  async _BrandId({ store, dispatch, commit, getters }) {
-    const data = await dispatch("Brand/axios/_BrandsId", {}, { root: true });
+  async _BrandId({ store, dispatch, commit, getters }, id) {
+    const data = await dispatch("Brand/axios/_BrandsId", id, { root: true });
     commit("SetBrandId", data);
   },
 };

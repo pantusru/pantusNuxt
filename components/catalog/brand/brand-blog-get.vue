@@ -7,7 +7,9 @@
         :to="'/search?filter_brands=' + source.id"
         >Перейти к товарам
       </nuxt-link>
-      <nuxt-link to="" class="catalog-blog-link text-decoration"
+      <nuxt-link
+        :to="'brands/' + source.id"
+        class="catalog-blog-link text-decoration"
         >О брэнде
       </nuxt-link>
     </div>
@@ -16,7 +18,7 @@
 
 <script>
 export default {
-  name: "brand-blog-get",
+  name: "BrandBlogGet",
   props: {
     source: {
       type: Object,

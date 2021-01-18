@@ -20,10 +20,12 @@ import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import ModalImg from "@/components/modal/product-img";
+import FilterTop from "~/components/filter-top";
 
 export default {
   name: "ApplicabilitiesProduct",
   components: {
+    FilterTop,
     FuncComponents,
     ModalBuyProduct,
     BasePagination,

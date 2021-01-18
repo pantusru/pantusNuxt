@@ -9,8 +9,8 @@ export const actions = {
     const data = await this.$axios.$get(`${process.env.api}/product_brands`);
     return await dispatch("_init_Brands", { data });
   },
-  async _BrandsId({ dispatch }) {
-    const data = await this.$axios.$get(`${process.env.api}/product_brands`);
+  async _BrandsId({ dispatch }, id) {
+    const data = await this.$axios.$get(`${process.env.api}/product_brands/${id}`);
     return data;
     // return await dispatch("_init_Brands", { data });
   },

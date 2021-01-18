@@ -3,7 +3,7 @@
     <nuxt-link
       v-for="filter in GetFilter.children"
       :key="filter.id"
-      class="px-3 mb-1"
+      class="px-3 mb-1 text-decoration text-555"
       :to="$route.path + '/' + filter.code"
     >
       {{ filter.name }}

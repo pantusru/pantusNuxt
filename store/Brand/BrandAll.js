@@ -39,8 +39,6 @@ export const actions = {
         root: true,
       });
       commit("SetBrandId", data);
-    } else {
-      // router 404
     }
   },
 };

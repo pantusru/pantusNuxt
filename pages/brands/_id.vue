@@ -11,9 +11,12 @@
 <script>
 export default {
   name: "IdVue",
-  async fetch({ params, store, getters, commit }) {
+  async fetch({ params, store, getters, commit, redirect }) {
     await store.dispatch("Brand/BrandAll/_Brands");
     await store.dispatch("Brand/BrandAll/_BrandId", params.id);
+    if (store.getters["Brand/BrandAll/GetBrandId"].id === undefined) {
+      redirect("/404");
+    }
   },
   computed: {
     brand() {

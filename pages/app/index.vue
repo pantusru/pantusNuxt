@@ -16,12 +16,12 @@
             </div>
           </div>
 
-          <div class="header_text header_title">Pantus AR</div>
+          <div class="header_text header_title"><h1>Pantus AR</h1></div>
           <div class="header_text ">
             <article class="header_description">
-              Отсканируйте упаковку товара с помощью этого приложения, чтобы увидеть его 3D-модели на экране смартфона в
+              Отсканируйте упаковку товара с помощью этого приложения, чтобы увидеть <br> его 3D-модели на экране смартфона в
               дополненной
-              реальности и получить информацию о его особенностях и преимуществах.
+              реальности и <br>получить информацию о его особенностях и преимуществах.
             </article>
           </div>
 
@@ -53,18 +53,68 @@
           </div>
         </div>
         <div class="section-2">
-          <div class="section-2__row">
-            <div class="section-2-img">
+          <div class="demonstrations__row reverse-column">
+            <div class="demonstrations__img img-left">
               <img src="https://www.pantus.ru/app/assets/images/section-1.png" alt="app-phone-3d">
             </div>
-            <div class="section-2-text-block">
-              <div class="text-block__contain">
+            <div class="demonstrations__text-block block-right">
+              <div class="text-block__contain contain-right">
                 <div class="text-block__title">3d модель запчасти</div>
-                <div class="text-block__description">Отсканируйте упаковку товара с помощью этого приложения,
+                <div class="text-block__description ">Отсканируйте упаковку товара с помощью этого приложения,
                   чтобы увидеть его 3D-модели на экране смартфона в дополненной реальности
                   и получить информацию о его особенностях и преимуществах.</div>
               </div>
 
+            </div>
+          </div>
+        </div>
+        <div class="section-3">
+          <div class="demonstrations__row direct-column">
+
+            <div class="demonstrations__text-block block-left">
+              <div class="text-block__contain contain-left">
+                <div class="text-block__title">Запчасти на экране в дополненной реальности</div>
+                <div class="text-block__description ">В дополненной реальности вы можете посмотреть деталь со всех сторон,
+                  узнать важную информацию о технологии производства запчасти,
+                  посмотреть видео или перейти на страницу запчасти на сайте pantus.ru</div>
+              </div>
+
+            </div>
+            <div class="demonstrations__img img-right">
+              <img src="https://www.pantus.ru/app/assets/images/section-2.png" alt="app-phone-vr">
+            </div>
+          </div>
+        </div>
+        <div class="section-4">
+          <div class="demonstrations__row reverse-column">
+            <div class="demonstrations__img img-left">
+              <img src="https://www.pantus.ru/app/assets/images/section-3.png" alt="app-phone-catalog">
+            </div>
+            <div class="demonstrations__text-block block-right">
+              <div class="text-block__contain contain-right">
+                <div class="text-block__title">Каталог и товары</div>
+                <div class="text-block__description ">В нашем приложении также реализован каталог, с поиском запчастей.
+                  В карточке запчасти предоставлена минимально-важная информация,
+                  вы можете посмотреть видео о запчасти или перейти на страницу запчасти на сайте pantus.ru,
+                  или оставить заявку прямо с приложения.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="section-5">
+          <div class="demonstrations__row direct-column">
+
+            <div class="demonstrations__text-block block-left">
+              <div class="text-block__contain contain-left">
+                <div class="text-block__title">Новости компании</div>
+                <div class="text-block__description ">Перейдя в раздел Новости, ознакомтесь с последними событиями компании,
+                  текущих акциях, и специальных предложениях для наших покупателей и партнеров.</div>
+              </div>
+
+            </div>
+            <div class="demonstrations__img img-right">
+              <img src="https://www.pantus.ru/app/assets/images/section-4.png" alt="app-phone-news">
             </div>
           </div>
         </div>
@@ -78,12 +128,12 @@ export default {
   name: "index",
   head() {
     return {
-      title: "Мобильное приложение автозапчасти",
+      title: "Pantus Мобильное приложение автозапчасти",
       meta: [
         {
           name: "app",
           content:
-            "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
+            "Приложение, Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
 
         },
       ],
@@ -96,7 +146,7 @@ export default {
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&subset=cyrillic');
 
 * {
   border: 1px solid black;
@@ -106,7 +156,7 @@ export default {
 .app-bg {
   position: relative;
   width: 100%;
-  min-width: 320px;
+  min-width: 390px;
   /*height: 1900px;*/
   overflow-x: hidden;
   background-color: #292934 !important;
@@ -131,7 +181,7 @@ export default {
   top: -100px;
   left: 50%;
   width: 1920px;
-  height: 950px;
+  height: 1030px;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -160,6 +210,19 @@ export default {
   font-size: 16px;
 }
 
+.header_title{
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+
+  line-height: 42px;
+  text-align: center;
+}
+.header_title > h1{
+  font-weight: 700;
+}
+
 .header_description {
   /*max-width: 690px;*/
   /*margin: 30px auto 0;*/
@@ -167,6 +230,8 @@ export default {
   font-size: 18px;
   line-height: 28px;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .header-logo-panel__col {
@@ -183,10 +248,11 @@ export default {
   display: block;
 
   color: #272727;
-  font-family: roboto-600, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 18px;
   /*line-height: 21px;*/
-  font-weight: 400;
+
 }
 
 .header-logo-panel__phone-text:before {
@@ -218,8 +284,7 @@ export default {
 }
 
 .section-1 {
-  /*display: flex;*/
-  /*justify-content: center;*/
+  margin-top: 35px;
 }
 
 .section-1__img {
@@ -256,23 +321,29 @@ export default {
 }
 
 
-.section-2__row{
+.demonstrations__row{
   display: flex;
 }
 
-.section-2-img{
-  /*width: 40%;*/
+.demonstrations__img{
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  width: 50%;
+  max-width: 500px;
+
 }
-.section-2-text-block{
+.demonstrations__text-block{
   display: flex;
-  justify-content: center;
+  /*justify-content: flex-end;*/
+  width: 50%;
 }
 
 
 .text-block__title{
   margin-bottom: 30px;
   color: #fff;
-  font-family: roboto-600, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 36px;
   line-height: 42px;
   text-align: left;
@@ -283,14 +354,40 @@ export default {
   font-size: 18px;
   line-height: 32px;
   padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
 }
 
 .text-block__contain{
- width: 70%;
+ width: 85%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
+.block-left{
+  justify-content: flex-start;
+}
+.block-right{
+  justify-content: flex-end;
+}
+.contain-left{
+  padding-left: 20px;
+}
+.contain-right{
+  padding-right: 20px;
+}
 
-
+.img-left{
+  padding-left: 20px;
+  margin-right: auto;
+}
+.img-right{
+  padding-right: 20px;
+  margin-left: auto;
+}
 
 
 
@@ -304,6 +401,32 @@ export default {
 
   .section-1__img{
     max-width: 100%;
+  }
+
+  .reverse-column {
+    flex-direction: column-reverse;
+  }
+  .direct-column{
+    flex-direction: column;
+  }
+
+  .text-block__contain{
+    width: 100%;
+    padding: 0;
+  }
+  .demonstrations__img{
+    width: 100%;
+    padding: 10px;
+  }
+  .demonstrations__text-block{
+    width: 100%;
+  }
+  .text-block__title{
+    text-align: center;
+  }
+  .img-left, .img-right{
+    margin-right: auto;
+    margin-left: auto;
   }
 
 

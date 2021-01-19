@@ -28,20 +28,20 @@
         </div>
         <div class="app-market">
           <div class="app-market__row">
-            <div class="app-market__button"><a class="btn_android"
+            <div class="app-market__button"><a class="btn-qr-code"
                                                href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus">
               <img src="https://www.pantus.ru/app/assets/images/btn-android.png" alt="app-android">
             </a></div>
             <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
-                                                  alt="app-android-qr"></div>
+                                                  alt="app-android-qr" @click="openModal('android')"></div>
           </div>
           <div class="app-market__row">
-            <div class="app-market__button"><a class="btn_android"
+            <div class="app-market__button"><a class="btn-qr-code"
                                                href="https://apps.apple.com/us/app/pantus/id1475702773">
               <img src="https://www.pantus.ru/app/assets/images/btn-ios.png" alt="app-ios">
             </a></div>
             <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
-                                                  alt="app-ios-qr"></div>
+                                                  alt="app-ios-qr" @click="openModal('ios')"></div>
           </div>
         </div>
         <div class="section-1">
@@ -132,20 +132,20 @@
         </div>
         <div class="app-market">
           <div class="app-market__row">
-            <div class="app-market__button"><a class="btn_android"
+            <div class="app-market__button"><a class="btn-qr-code"
                                                href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus">
-              <img src="https://www.pantus.ru/app/assets/images/btn-android.png" alt="app-android">
+              <img src="https://www.pantus.ru/app/assets/images/btn-android.png" alt="app-android" >
             </a></div>
             <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
-                                                  alt="app-android-qr"></div>
+                                                  alt="app-android-qr" @click="openModal('android')"></div>
           </div>
           <div class="app-market__row">
-            <div class="app-market__button"><a class="btn_android"
+            <div class="app-market__button"><a class="btn-qr-code"
                                                href="https://apps.apple.com/us/app/pantus/id1475702773">
               <img src="https://www.pantus.ru/app/assets/images/btn-ios.png" alt="app-ios">
             </a></div>
             <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
-                                                  alt="app-ios-qr"></div>
+                                                  alt="app-ios-qr" @click="openModal('ios')"></div>
           </div>
         </div>
         <div class="copyrite-text">
@@ -156,6 +156,24 @@
       </div>
 
     </div>
+
+    <div id="myModal" class="modal" ref="myModal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header-block">
+          <span class="close" ref="close" @click="closeModal">&times;</span>
+        </div>
+        <div class="modal-image-block">
+          <img :src="qrCodeUrl" alt="modal-qr-code" >
+        </div>
+        <div class="modal-text-block">
+          ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО
+          ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -174,6 +192,24 @@ export default {
         },
       ],
     };
+  },
+
+  data(){
+    return{
+      qrCodeUrl: null,
+    }
+  },
+  methods: {
+    openModal(typeQrCode){
+      typeQrCode === 'android' ? this.qrCodeUrl = 'https://www.pantus.ru/app/assets/images/frame-android.png' : this.qrCodeUrl = 'https://www.pantus.ru/app/assets/images/frame-ios.png'
+       let mdl = this.$refs.myModal
+        mdl.style.display = 'block'
+    },
+
+    closeModal(){
+      let mdl = this.$refs.myModal
+      mdl.style.display = 'none'
+    },
   },
 
 
@@ -273,12 +309,10 @@ export default {
 
 .header-logo-panel__phone-text {
   display: block;
-
   color: #272727;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 18px;
-
 
 }
 
@@ -502,7 +536,65 @@ display: flex;
     flex-direction: column;
   }
 
+}
 
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header-block{
+  text-align: end;
+}
+.modal-image-block{
+  width: 80%;
+  align-self: center;
+}
+.modal-text-block{
+  margin: 30px 0 5px;
+  color: #b1b5b7;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 

@@ -50,7 +50,7 @@ export default {
         { to: "", text: "Оплата" },
         { to: "/news/", text: "Новости" },
         { to: "", text: "Помощь" },
-        { to: "", text: "Контакты" },
+        { to: "/contacts", text: "Контакты" },
       ],
     };
   },

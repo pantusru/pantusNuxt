@@ -1,14 +1,10 @@
 <template>
   <b-container>
     <div
-      v-if="brand.description !== ''"
+      v-if="brand !== undefined"
       class="container-static"
       v-html="brand.description"
     />
-    <h2 v-if="brand.description === undefined" class="text-danger">
-      Нету описания Бренда
-    </h2>
-    <h2 v-if="brand.name === null" class="text-danger">Бренд не найден</h2>
   </b-container>
 </template>
 
@@ -16,6 +12,7 @@
 export default {
   name: "IdVue",
   async fetch({ params, store, getters, commit }) {
+    await store.dispatch("Brand/BrandAll/_Brands");
     await store.dispatch("Brand/BrandAll/_BrandId", params.id);
   },
   computed: {

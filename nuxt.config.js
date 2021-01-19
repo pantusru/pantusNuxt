@@ -33,7 +33,7 @@ export default {
     //     {
     //       name: 'app',
     //       path: '/app',
-    //       component: resolve(__dirname, 'pages/app/index.vue'),
+    //       component: resolve(__dirname, 'pages/app/index-2.vue'),
     //       meta: {
     //         test: 'asdasd'
     //       }

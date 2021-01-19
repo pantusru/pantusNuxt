@@ -31,7 +31,6 @@ export default {
     BasePagination,
     ModalImg,
   },
-  mixins: [mixin],
   async fetch({ params, store, getters, commit }) {
     const functionSearch = (data, dataset, index) => {
       let id;

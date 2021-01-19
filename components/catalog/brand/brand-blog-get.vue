@@ -8,10 +8,12 @@
         >Перейти к товарам
       </nuxt-link>
       <nuxt-link
-        :to="'brands/' + source.id"
+        v-if="source.active"
+        :to="'brands/' + source.code"
         class="catalog-blog-link text-decoration"
         >О брэнде
       </nuxt-link>
+      <span v-else>О брэнде</span>
     </div>
   </b-col>
 </template>

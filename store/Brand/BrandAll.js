@@ -32,9 +32,16 @@ export const actions = {
       commit("SetBrand", data);
     }
   },
-  async _BrandId({ store, dispatch, commit, getters }, id) {
-    const data = await dispatch("Brand/axios/_BrandsId", id, { root: true });
-    commit("SetBrandId", data);
+  async _BrandId({ state, dispatch, commit, getters }, id) {
+    const dataset = state.Brand.filter(data => data.code === id);
+    if (dataset.length !== 0) {
+      const data = await dispatch("Brand/axios/_BrandsId", dataset[0].id, {
+        root: true,
+      });
+      commit("SetBrandId", data);
+    } else {
+      // router 404
+    }
   },
 };
 export const getters = {

@@ -457,7 +457,6 @@ display: flex;
 .footer:before{
   content: "";
   position: absolute;
-
   left: 50%;
   width: 1920px;
   height: 950px;

@@ -46,11 +46,11 @@ export default {
     return {
       links: [
         { to: "/app", text: "Мобильное приложение" },
-        { to: "", text: "Доставка" },
-        { to: "", text: "Оплата" },
+        { to: "/delivery", text: "Доставка" },
+        { to: "/pay", text: "Оплата" },
         { to: "/news/", text: "Новости" },
-        { to: "", text: "Помощь" },
-        { to: "", text: "Контакты" },
+        { to: "/help", text: "Помощь" },
+        { to: "/contacts", text: "Контакты" },
       ],
     };
   },

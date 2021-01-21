@@ -1,5 +1,6 @@
 <template>
   <div class="app-bg">
+<!--    test22-->
     <div class="mobile-app">
       <div class="main-block">
         <div class="header">
@@ -276,6 +277,7 @@ export default {
         },
       ],
     };
+
   },
   methods: {
     openModal(typeQrCode) {

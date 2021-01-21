@@ -49,11 +49,7 @@ export default {
         { to: "/delivery", text: "Доставка" },
         { to: "/pay", text: "Оплата" },
         { to: "/news/", text: "Новости" },
-<<<<<<< HEAD
-        { to: "", text: "Помощь" },
-=======
         { to: "/help", text: "Помощь" },
->>>>>>> origin/WWW-92
         { to: "/contacts", text: "Контакты" },
       ],
     };

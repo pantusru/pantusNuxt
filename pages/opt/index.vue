@@ -39,7 +39,7 @@
             <div class="promocontent">
               <div id="anti-shadow-div">
                 <div class="promoblock_left-wrap">
-                  <div class="promoblock_left">
+                  <div class="promoblock_left col-12 col-md-8">
                     <div>
                       <h2>
                         Поставляем 30 000 000 автозапчастей в год по всей России
@@ -704,7 +704,7 @@
     </div>
     <div class="container">
       <div class="deliverycta">
-        <h3>
+        <h3 class="mb-2">
           Создайте аккаунт оптового клиента и получите <br>
           доступ к оптовому прайсу
         </h3>
@@ -722,32 +722,32 @@
         <div style="text-align: center">
           <h2 class="mt-3">Помогаем зарабатывать <strong>больше, быстрее</strong></h2>
         </div>
-        <div class="promoadvantagecontainer">
+        <div class="row flex-column flex-lg-row">
           <!--контейнер флекс для всего -->
-          <div class="advantages">
+          <div class="mx-auto col-12 col-md-6 row">
             <!-- блок с предложениями -->
-            <div class="advantage">
+            <div class="col-12 col-md-6">
               <img src="https://www.pantus.ru/opt/media/pr14.png">
               <p>
                 Острочка платежа<br>
                 Отгрузка без аванса
               </p>
             </div>
-            <div class="advantage">
+            <div class="col-12 col-md-6">
               <img src="https://www.pantus.ru/opt/media/pr-edo.png">
               <p>
                 Электронный<br>
                 документооборот
               </p>
             </div>
-            <div class="advantage">
+            <div class="col-12 col-md-6">
               <img src="https://www.pantus.ru/opt/media/pr-doc.png">
               <p>
                 Онлайн<br>
                 остатки и цены
               </p>
             </div>
-            <div class="advantage">
+            <div class="col-12 col-md-6">
               <img src="https://www.pantus.ru/opt/media/adpirojok.png">
               <p>
                 Оформляйте заказ там,<br>
@@ -755,28 +755,27 @@
               </p>
             </div>
           </div>
-          <div class="advantagesgallery">
-            <div class="gallerymims popupgallery">
+          <div class="mx-auto col-12 col-md-6 row">
               <!-- блок с галереей -->
-              <a
+              <a class="col-12 col-md-8 mb-3"
                 href="https://www.pantus.ru/upload/medialibrary/26f/031-IMG_4809-5000.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/1.jpg">
+                <img src="https://www.pantus.ru/opt/media/gallery/first/1.jpg" class="h-100">
               </a>
-              <a
+              <a class="col-12 col-md-4 mb-3"
                 href="www.pantus.ru/upload/medialibrary/26f/024-IMG_4798-5000.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/2.jpg">
+                <img src="https://www.pantus.ru/opt/media/gallery/first/2.jpg" class="h-100">
               </a>
-              <a
+              <a class="col-12 col-md-8 mb-3"
                 href="https://www.pantus.ru/upload/medialibrary/26f/027-IMG_4805-5000.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/3.jpg">
+                <img src="https://www.pantus.ru/opt/media/gallery/first/3.jpg" class="h-100">
               </a>
-              <a href="https://www.pantus.ru/media/gallery/first/mims2018.jpg">
-                <img src="https://www.pantus.ru/media/gallery/first/4.jpg">
+              <a class="col-12 col-md-4 mb-3"
+                 href="https://www.pantus.ru/opt/media/gallery/first/mims2018.jpg">
+                <img src="https://www.pantus.ru/opt/media/gallery/first/4.jpg" class="h-100">
               </a>
-            </div>
             <div>
               <div style="text-align: center">
                 <p>МИМС Автомеханика 2018</p>
@@ -791,55 +790,72 @@
         <div style="text-align: center">
           <!-- компании с которыми работаем -->
           <h2>Работаем с крупными игроками</h2>
-          <div class="promotestimonialscontainer">
-            <div class="bigplayers">
-              <img src="https://www.pantus.ru/opt/media/brands/pr-armtek.png">
-              <img src="https://www.pantus.ru/opt/media/brands/pr-autodoc.png">
-              <img src="https://www.pantus.ru/opt/media/brands/pr-avtoto.png">
-              <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png">
+          <div class="container">
+            <div class="row justify-content-between flex-column flex-lg-row">
+              <div>
+                <img src="https://www.pantus.ru/opt/media/brands/pr-armtek.png">
+              </div>
+              <div>
+                <img src="https://www.pantus.ru/opt/media/brands/pr-autodoc.png">
+              </div>
+              <div>
+                <img src="https://www.pantus.ru/opt/media/brands/pr-avtoto.png">
+              </div>
+             <div>
+               <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png">
+             </div>
+            <div>
               <img src="https://www.pantus.ru/opt/media/brands/pr-exist.png">
+            </div>
+            <div>
               <img src="https://www.pantus.ru/opt/media/brands/pr-pasker.png">
+            </div>
+            <div>
               <img src="https://www.pantus.ru/opt/media/brands/pr-partcom.png">
+            </div>
             </div>
             <p style="margin-bottom: 30px">
               И еще более чем с 2 000 компаний разного размера
             </p>
             <h2>Отзывы клиентов</h2>
-            <div class="clientsays">
+            <div class="row">
               <!-- блок с отзывами -->
-              <div class="testimonial">
-                <div style="display: flex; flex-flow: row">
-                  <div>
-                    <img
-                      src="https://www.pantus.ru/opt/media/testimonials/mariam.jpg"
-                    >
+              <div class="col-12 col-sm-7 mx-auto mx-lg-0 col-lg-4">
+                <div class="testimonial">
+                  <div style="display: flex; flex-flow: row">
+                    <div class="mr-2">
+                      <img
+                        src="https://www.pantus.ru/opt/media/testimonials/mariam.jpg"
+                      >
+                    </div>
+                    <p>
+                      <strong>Марина Абдуалева</strong><br>
+                      <br>
+                      Деловой партнер<br>
+                      ООО «ПАНТУС»<br>
+                      (г. Грозный)
+                    </p>
                   </div>
-                  <p>
-                    <strong>Марина Абдуалева</strong><br>
+                  <div>
+                    <p class="mt-3">
+                      С ООО «ПАНТУС» мы сотрудничаем с 2012 года. Доставка груза
+                      происходит в один и тот же день, что очень удобно клиентам.
+                      Груз приходит в полной комплектации, в полной сохранности.
+                      Все четко, ящики с деталями подписаны.
+                    </p>
                     <br>
-                    Деловой партнер<br>
-                    ООО «ПАНТУС»<br>
-                    (г. Грозный)
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    С ООО «ПАНТУС» мы сотрудничаем с 2012 года. Доставка груза
-                    происходит в один и тот же день, что очень удобно клиентам.
-                    Груз приходит в полной комплектации, в полной сохранности.
-                    Все четко, ящики с деталями подписаны.
-                  </p>
-                  <br>
+                  </div>
                 </div>
               </div>
-              <div class="testimonial">
-                <div style="display: flex; flex-flow: row">
-                  <div>
+              <div class="col-12 col-sm-7 mx-auto mx-lg-0 col-lg-4">
+                <div class="testimonial">
+                  <div style="display: flex; flex-flow: row">
+                    <div class="mr-2">
                     <img
-                      src="https://www.pantus.ru/opt/https://www.pantus.ru/opt/media/gallery/first/mims2018.jpgmedia/estimonials/sherb.png"
+                      src="https://www.pantus.ru/opt/media/testimonials/sherb.png"
                     >
                   </div>
-                  <p>
+                  <p class="mt-2">
                     <strong>Александр Щербаков</strong><br>
                     <br>
                     Генеральный директор <br>
@@ -848,7 +864,7 @@
                   </p>
                 </div>
                 <div>
-                  <p>
+                  <p class="mt-3">
                     В отрасли я уже больше 20 лет, а с фирмой «ПАНТУС» у нас
                     больше 5 лет вместе пройдено. Всегда считал и считаю
                     «ПАНТУС» достойным предприятием. Работать мне с ним очень
@@ -856,12 +872,14 @@
                     отношения.
                   </p>
                 </div>
+                </div>
               </div>
-              <div class="testimonial">
+              <div class="col-12 col-sm-7 mx-auto mx-lg-0 col-lg-4">
+                <div class="testimonial">
                 <div style="display: flex; flex-flow: row">
-                  <div>
+                  <div class="mr-2">
                     <img
-                      src="https://www.pantus.ru/media/testimonials/kamservice.jpg"
+                      src="https://www.pantus.ru/opt/media/testimonials/kamservice.jpg"
                     >
                   </div>
                   <p>
@@ -873,13 +891,14 @@
                   </p>
                 </div>
                 <div>
-                  <p>
+                  <p class="mt-3">
                     За те годы, что мы работаем вместе, я бы охарактеризовал
                     «ПАНТУС» только с положительной стороны. Заявки выполняются
                     в полном объеме, доставка товара ведется четко по графику.
                     Наши менеджеры отличные специалисты, могу сказать о них
                     много хорошего.
                   </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -1036,7 +1055,6 @@ export default {
 }
 .promoblock_left {
   padding: 70px 30px 20px 30px;
-  width: 85%;
   background: #fff;
   clip-path: polygon(100% 0%, 80% 50%, 100% 100%, 0 100%, 0 0);
   margin-bottom: -2px;
@@ -1067,10 +1085,10 @@ export default {
     , rgba(225, 0, 44, 1) , rgba(126, 0, 54, 1));
   color: #fff;
 }
-.advantage{
-  width: 225px;
-  margin: 0 auto;
-}
+/*.advantage{*/
+/*  width: 225px;*/
+/*  margin: 0 auto;*/
+/*}*/
 .promoadvantage {
   padding-bottom: 70px;
   padding-top: 70px;
@@ -1082,11 +1100,7 @@ export default {
 .advantages {
   display: flex;
   flex-flow: row wrap;
-  width: 50%;
   justify-content: space-evenly;
-}
-.advantagesgallery {
-  width: 50%;
 }
 .promoadvantagecontainer {
   display: flex;
@@ -1097,5 +1111,22 @@ export default {
 .gallerymims {
   display: flex;
   flex-flow: row wrap;
+}
+.gallerymims img {
+  margin: 10px;
+}
+.bigplayers {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+.testimonial {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 </style>

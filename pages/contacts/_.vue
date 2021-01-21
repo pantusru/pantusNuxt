@@ -106,18 +106,19 @@
 export default {
   name: "ContactsAll",
   fetch({ params, store, getters, commit, redirect }) {
+    let check = false;
     const data = params.pathMatch.split("/")[0];
     const contacts = store.getters["contacts/getContactsAll"];
     contacts.filter(contact => {
       const cityData = contact.cities.filter(city => city.code === data);
       if (cityData.length !== 0) {
-        this.check = true;
+        check = true;
         store.commit("contacts/setDataContactsData", { h1: cityData[0].name });
-      } else {
-        redirect("/404");
-        // router 404
       }
     });
+    if (!check) {
+      redirect("/404");
+    }
   },
   computed: {
     getCheck() {

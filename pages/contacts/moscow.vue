@@ -93,6 +93,13 @@
           </table>
 
         </div>
+        <div class="col-md-6 col-12">
+          <h3>Адрес:</h3>
+          <p>
+            <b>Московская область, г. Дзержинский, ул. Алексеевская, 2Б, офис 307</b><br>
+          </p>
+          <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/21735/dzerzhinsky/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Дзержинский</a><a href="https://yandex.ru/maps/21735/dzerzhinsky/house/alekseyevskaya_ulitsa_2b/Z04YfgdnT0EAQFtvfXpycHpiYQ==/?ll=37.807647%2C55.631616&utm_medium=mapframe&utm_source=maps&z=17.3" style="color:#eee;font-size:12px;position:absolute;top:14px;">Алексеевская улица, 2Б — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUIjYTwlB" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+        </div>
       </div>
     </div>
   </b-container>

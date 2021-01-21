@@ -17,7 +17,7 @@
 <script>
 import BlogProduct from "@/components/products/popular/blog";
 export default {
-  name: "claider-popular",
+  name: "ClaiderPopular",
   components: {
     BlogProduct,
   },

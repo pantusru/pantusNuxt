@@ -37,14 +37,14 @@ h4 {
   font-weight: 700;
 }
 
-.content a {
+.container a {
   color: #436174;
   -webkit-transition: color linear 300ms;
   -o-transition: color linear 300ms;
   transition: color linear 300ms;
   text-decoration: underline;
 }
-.content a:hover{
+.container a:hover{
   text-decoration: none;
 }
 
@@ -76,6 +76,10 @@ ol li, ul li {
   counter-increment: chapter;
   list-style: none;
   position: relative;
+}
+
+p{
+  line-height: 22px;
 }
 
 

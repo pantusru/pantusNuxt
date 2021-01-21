@@ -210,9 +210,6 @@ export default {
 
 @import "assets/css/static-page-main.css";
 
-/** {*/
-/*  border: 1px black solid;*/
-/*}*/
 
 .icon-block{
   margin: 10px 0;

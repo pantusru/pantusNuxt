@@ -1,9 +1,10 @@
 <template>
   <b-container class="pay-main-block">
     <b-row class="mx-0">
+
       <sidebar />
 
-      <b-col class="content mt-3 ml-4">
+      <b-col class="content mt-3 pl-lg-4">
 
         <b-row>
           <b-col class="title-block ">
@@ -22,7 +23,7 @@
           </b-col>
         </b-row>
 
-        <b-row class="payment-nav" cols="3">
+        <b-row class="payment-nav" cols="1" cols-md="2" cols-lg="3">
           <b-col>
 
             <div class="icon-block">

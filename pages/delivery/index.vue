@@ -5,7 +5,7 @@
 
       <sidebar pc-cols="2" />
 
-      <b-col cols="12" lg="10" class="content px-4 py-3">
+      <b-col cols="12" lg="10" class="content px-3 py-3 pl-lg-4">
         <b-row class="my-3 my-sm-0" >
           <div class="px-3 w-100">
             <h1>Доставка</h1>

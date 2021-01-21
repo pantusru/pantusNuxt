@@ -13,7 +13,7 @@
         <a  href="/help/feedback/">Единая служба качества</a>
       </nav>
     </div>
-    <div class=" w-100 px-4">
+    <div class=" w-100 px-3">
       <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
         <b-row>
           <b-col >

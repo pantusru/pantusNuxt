@@ -904,7 +904,7 @@
             </div>
           </div>
           <p>
-            <a href="https://www.pantus.ru/https://www.pantus.ru/news/intervyu/"
+            <a href="https://www.pantus.ru/opt/news/intervyu/"
               >Посмореть все отзывы</a
             >
           </p>
@@ -912,71 +912,73 @@
       </div>
     </div>
     <div class="lastcta">
-      <div class="lastctacontainer">
-        <div class="ctagallery">
-          <!-- Галерея -->
-          <div
-            class="gallerymims popupgallery"
-            style="display: flex; flex-flow: row wrap; justify-content: center"
-          >
-            <a
-              href="https://www.pantus.ru/https://www.pantus.ru/upload/iblock/023/Pantus%20Automechanika%20Moscow%202019%20-%201.jpg"
+      <div class="container">
+        <div class="row">
+          <div class="ctagallery">
+            <!-- Галерея -->
+            <div
+              class="gallerymims popupgallery"
+              style="display: flex; flex-flow: row wrap; justify-content: center"
             >
-              <img src="https://www.pantus.ru/media/gallery/second/1.jpg">
-            </a>
-            <a
-              href="https://www.pantus.ru/https://www.pantus.ru/upload/iblock/2b2/Pantus%20Automechanika%20Moscow%202019%20-%204.jpg"
-            >
-              <img src="https://www.pantus.ru/media/gallery/second/2.jpg">
-            </a>
-            <a
-              href="https://www.pantus.ru/https://www.pantus.ru/upload/iblock/573/Pantus%20Automechanika%20Moscow%202019%20%D0%9F%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8B%20(10).jpg"
-            >
-              <img src="https://www.pantus.ru/media/gallery/second/3.jpg"
-            ></a>
-            <a
-              href="https://www.pantus.ru/https://www.pantus.ru/upload/iblock/9ca/063-3M0A7551-5000.jpg"
-            >
-              <img src="https://www.pantus.ru/media/gallery/second/4.jpg">
-            </a>
+              <a
+                href="https://www.pantus.ru/upload/iblock/023/Pantus%20Automechanika%20Moscow%202019%20-%201.jpg"
+              >
+                <img src="https://www.pantus.ru/opt/media/gallery/second/1.jpg">
+              </a>
+              <a
+                href="https://www.pantus.ru/upload/iblock/2b2/Pantus%20Automechanika%20Moscow%202019%20-%204.jpg"
+              >
+                <img src="https://www.pantus.ru/opt/media/gallery/second/2.jpg">
+              </a>
+              <a
+                href="https://www.pantus.ru/upload/iblock/573/Pantus%20Automechanika%20Moscow%202019%20%D0%9F%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8B%20(10).jpg"
+              >
+                <img src="https://www.pantus.ru/opt/media/gallery/second/3.jpg"
+                ></a>
+              <a
+                href="https://www.pantus.ru/upload/iblock/9ca/063-3M0A7551-5000.jpg"
+              >
+                <img src="https://www.pantus.ru/opt/media/gallery/second/4.jpg">
+              </a>
+            </div>
+            <div style="text-align: center">
+              <p>МИМС Автомеханика 2019</p>
+            </div>
           </div>
-          <div style="text-align: center">
-            <p>МИМС Автомеханика 2019</p>
-          </div>
-        </div>
-        <div class="ctatext">
-          <!-- как оформить заказ -->
-          <h2>Как оформить заказ?</h2>
-          <h3>
-            Создайте аккаунт оптового клиента и получите доступ к оптовому
-            прайсу
-          </h3>
-          <ol>
-            <li>Зарегистрируйтесь на сайте</li>
-            <li>
-              Получите подтверждение вашего аккаунта у менеджера, чтобы работать
-              по оптовым ценам
-            </li>
-            <li>
-              Найдите необходимые детали в каталоге и отправьте их в корзину
-            </li>
-            <li>Оформите заказ</li>
-            <li>Мы свяжемся с вами и обсудим детали доставки и оплаты</li>
-            <li>
-              Есть вопросы или предложения по работе сайта? Звоните 8 800 555
-              8721 или пишите на
-              <a href="https://www.pantus.ru/">aberezkin@pantus.ru</a>
-            </li>
-          </ol>
+          <div class="ctatext">
+            <!-- как оформить заказ -->
+            <h2>Как оформить заказ?</h2>
+            <h3>
+              Создайте аккаунт оптового клиента и получите доступ к оптовому
+              прайсу
+            </h3>
+            <ol>
+              <li>Зарегистрируйтесь на сайте</li>
+              <li>
+                Получите подтверждение вашего аккаунта у менеджера, чтобы работать
+                по оптовым ценам
+              </li>
+              <li>
+                Найдите необходимые детали в каталоге и отправьте их в корзину
+              </li>
+              <li>Оформите заказ</li>
+              <li>Мы свяжемся с вами и обсудим детали доставки и оплаты</li>
+              <li>
+                Есть вопросы или предложения по работе сайта? Звоните 8 800 555
+                8721 или пишите на
+                <a href="https://www.pantus.ru/">aberezkin@pantus.ru</a>
+              </li>
+            </ol>
 
-          <div class="pn_centr marg_0_0_30_0">
-            <button
-              onclick="location.href='/auth/?register=yes&amp;opt=yes'"
-              type="button"
-              class="createaccountbutton"
-            >
-              Cоздать аккаунт
-            </button>
+            <div class="pn_centr marg_0_0_30_0">
+              <button
+                onclick="location.href='/auth/?register=yes&amp;opt=yes'"
+                type="button"
+                class="createaccountbutton"
+              >
+                Cоздать аккаунт
+              </button>
+            </div>
           </div>
         </div>
       </div>

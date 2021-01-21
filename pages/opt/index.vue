@@ -836,7 +836,7 @@
                 <div style="display: flex; flex-flow: row">
                   <div>
                     <img
-                      src="https://www.pantus.ru/media/testimonials/sherb.png"
+                      src="https://www.pantus.ru/opt/https://www.pantus.ru/opt/media/gallery/first/mims2018.jpgmedia/estimonials/sherb.png"
                     >
                   </div>
                   <p>
@@ -1061,6 +1061,7 @@ export default {
   background: #c8312b;
 }
 .promogradient {
+  margin-top: 50px;
   background-image: linear-gradient(
     72deg
     , rgba(225, 0, 44, 1) , rgba(126, 0, 54, 1));
@@ -1069,5 +1070,32 @@ export default {
 .advantage{
   width: 225px;
   margin: 0 auto;
+}
+.promoadvantage {
+  padding-bottom: 70px;
+  padding-top: 70px;
+}
+.gallerymims {
+  display: flex;
+  flex-flow: row wrap;
+}
+.advantages {
+  display: flex;
+  flex-flow: row wrap;
+  width: 50%;
+  justify-content: space-evenly;
+}
+.advantagesgallery {
+  width: 50%;
+}
+.promoadvantagecontainer {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  align-items: center;
+}
+.gallerymims {
+  display: flex;
+  flex-flow: row wrap;
 }
 </style>

@@ -4,6 +4,7 @@
       <div class="main-block">
         <div class="header">
           <div class="header-logo-panel">
+<<<<<<< HEAD
             <div class="header-logo-panel__col header-logo-panel_left">
               <a href="https://pantus.ru"
                 ><img
@@ -32,11 +33,32 @@
               Отсканируйте упаковку товара с помощью этого приложения, чтобы
               увидеть его 3D-модели на экране смартфона в дополненной реальности
               и получить информацию о его особенностях и преимуществах.
+=======
+            <div class="header-logo-panel__col header-logo-panel_left"><a href="https://pantus.ru"><img
+              class="logo-ico"
+              src="https://www.pantus.ru/app/assets/images/pantus_logo.jpg"
+              alt="pantus"></a></div>
+            <div class="header-logo-panel__col"><img class="logo-ico"
+                                                     src="https://www.pantus.ru/app/assets/images/icon.png"
+                                                     alt="pantus_l"></div>
+            <div class="header-logo-panel__col header-logo-panel_right"><a href="tel:8(800)5558721"
+                                                                           class="header-logo-panel__phone-text"><span>8 (800) 555 87 21</span></a>
+            </div>
+          </div>
+
+          <div class="header_text company_title"><h1>Pantus AR</h1></div>
+          <div class="header_text ">
+            <article class="header_description">
+              Отсканируйте упаковку товара с помощью этого приложения, чтобы увидеть <br> его 3D-модели на экране смартфона в
+              дополненной
+              реальности и <br>получить информацию о его особенностях и преимуществах.
+>>>>>>> origin/WWW-92
             </article>
           </div>
         </div>
         <div class="app-market">
           <div class="app-market__row">
+<<<<<<< HEAD
             <div class="app-market__button">
               <a
                 class="btn_android"
@@ -73,6 +95,22 @@
                 alt="app-ios-qr"
               >
             </div>
+=======
+            <div class="app-market__button"><a class="btn-qr-code"
+                                               href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus">
+              <img src="https://www.pantus.ru/app/assets/images/btn-android.png" alt="app-android">
+            </a></div>
+            <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                                                  alt="app-android-qr" @click="openModal('android')"></div>
+          </div>
+          <div class="app-market__row">
+            <div class="app-market__button"><a class="btn-qr-code"
+                                               href="https://apps.apple.com/us/app/pantus/id1475702773">
+              <img src="https://www.pantus.ru/app/assets/images/btn-ios.png" alt="app-ios">
+            </a></div>
+            <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                                                  alt="app-ios-qr" @click="openModal('ios')"></div>
+>>>>>>> origin/WWW-92
           </div>
         </div>
         <div class="section-1">
@@ -87,28 +125,144 @@
           </div>
         </div>
         <div class="section-2">
+<<<<<<< HEAD
           <div class="section-2__row">
             <div class="section-2-img">
               <img
                 src="https://www.pantus.ru/app/assets/images/section-1.png"
                 alt="app-phone-3d"
               >
+=======
+          <div class="demonstrations__row reverse-column">
+            <div class="demonstrations__img img-left">
+              <img src="https://www.pantus.ru/app/assets/images/section-1.png" alt="app-phone-3d">
+>>>>>>> origin/WWW-92
             </div>
-            <div class="section-2-text-block">
-              <div class="text-block__contain">
+            <div class="demonstrations__text-block block-right">
+              <div class="text-block__contain contain-right">
                 <div class="text-block__title">3d модель запчасти</div>
+<<<<<<< HEAD
                 <div class="text-block__description">
                   Отсканируйте упаковку товара с помощью этого приложения, чтобы
                   увидеть его 3D-модели на экране смартфона в дополненной
                   реальности и получить информацию о его особенностях и
                   преимуществах.
                 </div>
+=======
+                <div class="text-block__description ">Отсканируйте упаковку товара с помощью этого приложения,
+                  чтобы увидеть его 3D-модели на экране смартфона в дополненной реальности
+                  и получить информацию о его особенностях и преимуществах.</div>
+>>>>>>> origin/WWW-92
               </div>
             </div>
           </div>
         </div>
+        <div class="section-3">
+          <div class="demonstrations__row direct-column">
+
+            <div class="demonstrations__text-block block-left">
+              <div class="text-block__contain contain-left">
+                <div class="text-block__title">Запчасти на экране в дополненной реальности</div>
+                <div class="text-block__description ">В дополненной реальности вы можете посмотреть деталь со всех сторон,
+                  узнать важную информацию о технологии производства запчасти,
+                  посмотреть видео или перейти на страницу запчасти на сайте pantus.ru</div>
+              </div>
+
+            </div>
+            <div class="demonstrations__img img-right">
+              <img src="https://www.pantus.ru/app/assets/images/section-2.png" alt="app-phone-vr">
+            </div>
+          </div>
+        </div>
+        <div class="section-4">
+          <div class="demonstrations__row reverse-column">
+            <div class="demonstrations__img img-left">
+              <img src="https://www.pantus.ru/app/assets/images/section-3.png" alt="app-phone-catalog">
+            </div>
+            <div class="demonstrations__text-block block-right">
+              <div class="text-block__contain contain-right">
+                <div class="text-block__title">Каталог и товары</div>
+                <div class="text-block__description ">В нашем приложении также реализован каталог, с поиском запчастей.
+                  В карточке запчасти предоставлена минимально-важная информация,
+                  вы можете посмотреть видео о запчасти или перейти на страницу запчасти на сайте pantus.ru,
+                  или оставить заявку прямо с приложения.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="section-5">
+          <div class="demonstrations__row direct-column">
+
+            <div class="demonstrations__text-block block-left">
+              <div class="text-block__contain contain-left">
+                <div class="text-block__title">Новости компании</div>
+                <div class="text-block__description ">Перейдя в раздел Новости, ознакомтесь с последними событиями компании,
+                  текущих акциях, и специальных предложениях для наших покупателей и партнеров.</div>
+              </div>
+
+            </div>
+            <div class="demonstrations__img img-right">
+              <img src="https://www.pantus.ru/app/assets/images/section-4.png" alt="app-phone-news">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+    <div class="footer">
+      <div class="footer-contain">
+        <div class="footer-logo">
+          <div class="footer-logo__ico"><img
+            class="logo-ico"
+            src="https://www.pantus.ru/app/assets/images/icon.png"
+            alt="pantus-logo"></div>
+          <div class="company_title"><h1>Pantus AR</h1></div>
+        </div>
+        <div class="app-market">
+          <div class="app-market__row">
+            <div class="app-market__button"><a class="btn-qr-code"
+                                               href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus">
+              <img src="https://www.pantus.ru/app/assets/images/btn-android.png" alt="app-android" >
+            </a></div>
+            <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                                                  alt="app-android-qr" @click="openModal('android')"></div>
+          </div>
+          <div class="app-market__row">
+            <div class="app-market__button"><a class="btn-qr-code"
+                                               href="https://apps.apple.com/us/app/pantus/id1475702773">
+              <img src="https://www.pantus.ru/app/assets/images/btn-ios.png" alt="app-ios">
+            </a></div>
+            <div class="app-market__qr-code"><img src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                                                  alt="app-ios-qr" @click="openModal('ios')"></div>
+          </div>
+        </div>
+        <div class="copyrite-text">
+          <div>© 2003–2018 ООО «ПАНТУС» Все права защищены</div>
+          <div>Визуальные материалы подготовлены в ознакомительный целях</div>
+          <div>Разработано в mitroliti</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="myModal" class="modal" ref="myModal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header-block">
+          <span class="close" ref="close" @click="closeModal">&times;</span>
+        </div>
+        <div class="modal-image-block">
+          <img :src="qrCodeUrl" alt="modal-qr-code" >
+        </div>
+        <div class="modal-text-block">
+          ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО
+          ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -117,31 +271,63 @@ export default {
   name: "Index",
   head() {
     return {
-      title: "Мобильное приложение автозапчасти",
+      title: "Pantus Мобильное приложение автозапчасти",
       meta: [
         {
           name: "app",
           content:
+<<<<<<< HEAD
             "Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
+=======
+            "Приложение, Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз",
+
+>>>>>>> origin/WWW-92
         },
       ],
     };
   },
+<<<<<<< HEAD
+=======
+
+  data(){
+    return{
+      qrCodeUrl: null,
+    }
+  },
+  methods: {
+    openModal(typeQrCode){
+      typeQrCode === 'android' ? this.qrCodeUrl = 'https://www.pantus.ru/app/assets/images/frame-android.png' : this.qrCodeUrl = 'https://www.pantus.ru/app/assets/images/frame-ios.png'
+       let mdl = this.$refs.myModal
+        mdl.style.display = 'block'
+    },
+
+    closeModal(){
+      let mdl = this.$refs.myModal
+      mdl.style.display = 'none'
+    },
+  },
+
+
+>>>>>>> origin/WWW-92
 };
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   border: 1px solid black;
 }
+=======
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&subset=cyrillic');
+>>>>>>> origin/WWW-92
 
 .app-bg {
   position: relative;
   width: 100%;
-  min-width: 320px;
-  /*height: 1900px;*/
+  min-width: 390px;
   overflow-x: hidden;
   background-color: #292934 !important;
   color: #272727;
@@ -164,7 +350,7 @@ export default {
   top: -100px;
   left: 50%;
   width: 1920px;
-  height: 950px;
+  height: 1030px;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -193,13 +379,25 @@ export default {
   font-size: 16px;
 }
 
+.company_title{
+  margin-top: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+}
+.company_title > h1{
+  font-weight: 700;
+}
+
 .header_description {
-  /*max-width: 690px;*/
-  /*margin: 30px auto 0;*/
   color: #464646;
   font-size: 18px;
   line-height: 28px;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .header-logo-panel__col {
@@ -207,19 +405,18 @@ export default {
   align-items: center;
 }
 
-.header-logo-panel__ico {
+.logo-ico {
   height: 68px;
   width: auto;
 }
 
 .header-logo-panel__phone-text {
   display: block;
-
   color: #272727;
-  font-family: roboto-600, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 18px;
-  /*line-height: 21px;*/
-  font-weight: 400;
+
 }
 
 .header-logo-panel__phone-text:before {
@@ -253,8 +450,7 @@ export default {
 }
 
 .section-1 {
-  /*display: flex;*/
-  /*justify-content: center;*/
+  margin-top: 35px;
 }
 
 .section-1__img {
@@ -289,6 +485,7 @@ export default {
   background-size: 16px 16px;
 }
 
+<<<<<<< HEAD
 .section-2__row {
   display: flex;
 }
@@ -297,14 +494,29 @@ export default {
   /*width: 40%;*/
 }
 .section-2-text-block {
+=======
+
+.demonstrations__row{
   display: flex;
-  justify-content: center;
+}
+
+.demonstrations__img{
+
+  width: 50%;
+  max-width: 500px;
+
+}
+.demonstrations__text-block{
+>>>>>>> origin/WWW-92
+  display: flex;
+  width: 50%;
 }
 
 .text-block__title {
   margin-bottom: 30px;
   color: #fff;
-  font-family: roboto-600, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 36px;
   line-height: 42px;
   text-align: left;
@@ -315,12 +527,93 @@ export default {
   font-size: 18px;
   line-height: 32px;
   padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
 }
 
+<<<<<<< HEAD
 .text-block__contain {
   width: 70%;
 }
 
+=======
+.text-block__contain{
+ width: 85%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.block-left{
+  justify-content: flex-start;
+}
+.block-right{
+  justify-content: flex-end;
+}
+.contain-left{
+  padding-left: 20px;
+}
+.contain-right{
+  padding-right: 20px;
+}
+
+.img-left{
+  padding-left: 20px;
+  margin-right: auto;
+}
+.img-right{
+  padding-right: 20px;
+  margin-left: auto;
+}
+
+.footer{
+display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.footer:before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1920px;
+  height: 950px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-radius: 1000px 1000px 0px 0px;
+  background-color: #fff;
+}
+
+
+.footer-contain{
+  margin-top: 50px;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.footer-logo{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.copyrite-text {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #b1b5b7;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+>>>>>>> origin/WWW-92
 @media screen and (max-width: 950px) {
   .header-logo-panel_right,
   .header-logo-panel_left {
@@ -333,5 +626,98 @@ export default {
   .section-1__img {
     max-width: 100%;
   }
+<<<<<<< HEAD
+=======
+
+  .reverse-column {
+    flex-direction: column-reverse;
+  }
+  .direct-column{
+    flex-direction: column;
+  }
+
+  .text-block__contain{
+    width: 100%;
+    padding: 0;
+  }
+  .demonstrations__img{
+    width: 100%;
+    padding: 10px;
+  }
+  .demonstrations__text-block{
+    width: 100%;
+  }
+  .text-block__title{
+    text-align: center;
+  }
+  .img-left, .img-right{
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .copyrite-text{
+    flex-direction: column;
+  }
+
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header-block{
+  text-align: end;
+}
+.modal-image-block{
+  width: 80%;
+  align-self: center;
+}
+.modal-text-block{
+  margin: 30px 0 5px;
+  color: #b1b5b7;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+>>>>>>> origin/WWW-92
 }
 </style>

@@ -46,10 +46,14 @@ export default {
     return {
       links: [
         { to: "/app", text: "Мобильное приложение" },
-        { to: "", text: "Доставка" },
-        { to: "", text: "Оплата" },
+        { to: "/delivery", text: "Доставка" },
+        { to: "/pay", text: "Оплата" },
         { to: "/news/", text: "Новости" },
+<<<<<<< HEAD
         { to: "", text: "Помощь" },
+=======
+        { to: "/help", text: "Помощь" },
+>>>>>>> origin/WWW-92
         { to: "/contacts", text: "Контакты" },
       ],
     };

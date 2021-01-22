@@ -304,7 +304,7 @@ export default {
 .app-bg {
   position: relative;
   width: 100%;
-  min-width: 390px;
+  min-width: 370px;
   overflow-x: hidden;
   background-color: #292934 !important;
   color: #272727;
@@ -340,6 +340,7 @@ export default {
   margin-top: 50px;
   margin-bottom: 50px;
   max-width: 1200px;
+
 }
 
 .header-logo-panel {
@@ -568,6 +569,11 @@ export default {
 }
 
 @media screen and (max-width: 950px) {
+
+  .main-block{
+    width: 90%;
+  }
+
   .header-logo-panel_right,
   .header-logo-panel_left {
     display: none;
@@ -610,6 +616,13 @@ export default {
   .copyrite-text {
     flex-direction: column;
   }
+
+  .app-market__button > a > img, .app-market__qr-code > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
 }
 
 /* The Modal (background) */

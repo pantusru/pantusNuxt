@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       links: [
-        { to: "", text: "О компании" },
+        { to: "/about", text: "О компании" },
         { to: "", text: "Работа в компании" },
         { to: "", text: "ОПТ" },
         { to: "", text: "Поставщикам" },

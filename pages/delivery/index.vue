@@ -1,52 +1,11 @@
 <template>
 
   <b-container class="delivery-main-block">
-    <b-row >
-      <b-col cols="12" lg="2" class="sidebar py-3 px-0">
-        <div class="sidebar-box d-none d-lg-block">
-          <nav class="nav-sidebar">
-            <a class="nav-item" href="/help/">Помощь</a>
-            <a class="nav-item" href="/help/#kak-sdelat-zakaz">Заказ</a>
-            <a class="nav-item" href="/delivery/">Доставка</a>
-            <a class="nav-item" href="/delivery/#freedeliverу">Условия бесплатной доставки</a>
-            <a class="nav-item" href="/pay/">Оплата</a>
-            <a class="nav-item" href="/help/#returns">Возврат</a>
-            <a class="nav-item" href="/documents/privacypolicy/">Обработка персональных данных</a>
-            <a class="nav-item" href="/documents/user-agreement/">Пользовательское соглашение</a>
-            <a class="nav-item" href="/help/feedback/">Единая служба качества</a>
-          </nav>
-        </div>
-        <div class=" w-100 px-4">
-          <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
-            <b-row>
-              <b-col >
-                <b-row cols="1" class="px-3">
-                <a class="nav-item" href="/help/" >Помощь</a>
-                <a class="nav-item" href="/help/#kak-sdelat-zakaz">Заказ</a>
-                <a class="nav-item" href="/delivery/">Доставка</a>
-                <a class="nav-item" href="/delivery/#freedeliverу">Условия бесплатной доставки</a>
-                <a class="nav-item" href="/pay/">Оплата</a>
-                </b-row>
+    <b-row class="mx-0">
 
-              </b-col>
+      <sidebar pc-cols="2" />
 
-              <b-col >
-                <b-row cols="1" class="px-3">
-                <a class="nav-item" href="/help/#returns">Возврат</a>
-                <a class="nav-item" href="/documents/privacypolicy/">Обработка персональных данных</a>
-                <a class="nav-item" href="/documents/user-agreement/">Пользовательское соглашение</a>
-                <a class="nav-item" href="/help/feedback/">Единая служба качества</a>
-                </b-row>
-              </b-col>
-            </b-row>
-
-
-          </nav>
-        </div>
-      </b-col>
-
-
-      <b-col cols="12" lg="10" class="content px-4 py-3">
+      <b-col cols="12" lg="10" class="content px-3 py-3 pl-lg-4">
         <b-row class="my-3 my-sm-0" >
           <div class="px-3 w-100">
             <h1>Доставка</h1>
@@ -573,91 +532,19 @@
 </template>
 
 <script>
+import sidebar from '@/components/sidebar/index'
 export default {
   name: "index",
+  components: {
+    sidebar
+  },
+
 };
 </script>
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-
-/** {*/
-/*  border: black 1px solid;*/
-/*}*/
-
-.delivery-main-block {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  color: #555;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  line-height: 1.1;
-  color: #515151;
-}
-
-h1, .h1 {
-  font-size: 30px;
-}
-
-h2, .h2 {
-  font-size: 22px;
-}
-
-h3 {
-  font-size: 18px;
-  /*margin-top: 0;*/
-  /*margin-bottom: 15px;*/
-}
-
-h5, .h5 {
-  font-size: 13px;
-}
-h4 {
-  font-size: 13px;
-  /*margin-bottom: 15px;*/
-  font-weight: 700;
-}
-
-a {
-  color: #436174;
-  -webkit-transition: color linear 300ms;
-  -o-transition: color linear 300ms;
-  transition: color linear 300ms;
-}
-
-ul > li:before {
-  width: 5px;
-  height: 5px;
-  margin-right: 12px;
-  margin-top: 8px;
-  border-radius: 5px;
-  background: #c8312b;
-}
-
-ol li:before, ul li:before {
-  position: absolute;
-  top: 0;
-  right: 100%;
-  color: #c8312b;
-  content: '';
-}
-
-ol, ul {
-  margin: 13px 0;
-  counter-reset: chapter 0;
-  padding-left: 25px;
-}
-
-ol li, ul li {
-  margin: 5px 0;
-  counter-increment: chapter;
-  list-style: none;
-  position: relative;
-}
+@import "assets/css/static-page-main.css";
 
 .img-icon-block {
   display: flex;
@@ -674,44 +561,5 @@ img {
   max-height: 100px;
   width: 100%;
 }
-
-.sidebar-box {
-  /*max-width: 228px;*/
-  background: #a7d2ee url(https://www.pantus.ru/bitrix/templates/main/img/d/bg-sidebar.jpg) 0 0 no-repeat;
-  position: relative;
-  padding: 20px 13px 10px 13px;
-}
-
-.nav-sidebar{
-  font-size: 15px;
-  color: #555;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  line-height: 20px;
-}
-.sidebar-box:after{
-  position: absolute;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 52px;
-  background: transparent url(https://www.pantus.ru/bitrix/templates/main/img/d/bg-sidebar-01.png) 0 0 no-repeat;
-  bottom: -52px;
-  left: 0;
-}
-
-.side-bar-mobile-box{
-  line-height: 20px;
-}
-
-.nav-item {
-  text-decoration: underline;
-  margin-bottom: 10px;
-}
-.nav-item:hover {
-  text-decoration: none;
-}
-
 
 </style>

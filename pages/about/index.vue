@@ -179,7 +179,11 @@ name: "index",
   object-fit: contain;
 }
 
-
+.about-main-block h2 {
+  color: #9a001d;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
 
 
 

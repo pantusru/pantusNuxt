@@ -78,6 +78,12 @@ ol li, ul li {
   position: relative;
 }
 
+ol > li:before {
+  width: 25px;
+  content: counter(chapter, decimal) ".";
+  font-weight: bold;
+}
+
 p{
   line-height: 22px;
 }

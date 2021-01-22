@@ -196,7 +196,7 @@
 </template>
 
 <script>
-import sidebar from "@/components/sidebar/index";
+import sidebar from "@/components/static/elements/sidebar/index";
 
 export default {
   name: "index",

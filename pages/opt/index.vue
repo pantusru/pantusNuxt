@@ -1,4 +1,4 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="container-static">
     <div class="promocontainer">
       <!-- промо шапка -->
@@ -9,7 +9,7 @@
               <div class="promohead">
                 <h2>
                   <b>
-                    Покупайте автозапчасти оптом с доставкой<br>
+                    Покупайте автозапчасти оптом с доставкой<br />
                     от 0 рублей по России и СНГ без аванса
                   </b>
                 </h2>
@@ -18,7 +18,7 @@
                   автомобилей и легковых иномарок
                 </p>
                 <p style="font-size: 20px">
-                  Создайте аккаунт оптового клиента, чтобы получить<br>
+                  Создайте аккаунт оптового клиента, чтобы получить<br />
                   доступ к полному оптовому прайсу
                 </p>
                 <nuxt-link
@@ -50,7 +50,7 @@
                           <b
                             >ЛЕГКОВЫЕ ОТЕЧЕСТВЕННЫЕ, ГРУЗОВЫЕ АВТОМОБИЛИ И
                             ИНОМАРКИ</b
-                          ><br>
+                          ><br />
                           Запчасти и компоненты для автомобилей ВАЗ, ГАЗ, ЗАЗ,
                           УАЗ, ИЖ, ЛУАЗ, АЗЛК, ЗИЛ, МАЗ, КАМАЗ, Kia, Renault,
                           Hyundai, Daewoo, Toyota, BMW, Mercedes-Benz и многих
@@ -59,7 +59,7 @@
                         </li>
                         <li>
                           <b>1 000 000 НАИМЕНОВАНИЙ ТОВАРОВ В АССОРТИМЕНТЕ</b
-                          ><br>
+                          ><br />
                           Автозапчасти, РТИ, автопластик, расходники и
                           автохимия: от охлаждающих жидкостей до стоек
                           амортизатора и крупноузловых элементов
@@ -68,7 +68,7 @@
                           <b
                             >5 ЭКСКЛЮЗИВНЫХ БРЕНДОВ АВТОЗАПЧАСТЕЙ И
                             КОМПОНЕНТОВ</b
-                          ><br>
+                          ><br />
                           Производим товары под собственным брендом Pantus, а
                           также являемся официальными представителями торговых
                           марок A-Sport, RTD, Fra-Roi и Isang в России
@@ -97,7 +97,7 @@
           </h2>
           <div class="promoslidercontainer">
             <VueSlickCarousel class="opt-claider" v-bind="settings">
-              <div class="item" style="width: 100%; display: inline-block">
+              <div class="item mr-2" style="width: 100%; display: inline-block">
                 <a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
                 >
@@ -293,8 +293,10 @@
                     title="Пантус - сертификат о дилерстве УРАЛАТИ"
                   >
                 </a>
-                <img src="https://www.pantus.ru//opt/media/suppliers/trek.png"
-                     class="logo-icon" alt=""
+                <img
+                  src="https://www.pantus.ru//opt/media/suppliers/trek.png"
+                  class="logo-icon"
+                  alt=""
                 >
               </div>
               <div class="item" style="width: 100%; display: inline-block">
@@ -603,14 +605,13 @@
       </div>
     </div>
 
-
     <div class="promofullwidth promoleftpict">
       <div class="container promodelivery">
         <div style="text-align: center">
-          <h2 class="mt-3 text-left">
+          <h2 class="mt-3 text-left fz-3">
             Бесплатно доставляем заказы в 140 городов России, 5 городов
-            Казахстана
-            и не берем деньги за доставку до терминала транспортной компании
+            Казахстана и не берем деньги за доставку до терминала транспортной
+            компании
           </h2>
         </div>
         <div class="promotruck" />
@@ -623,80 +624,90 @@
               доступной на территории нашей страны
             </p>
             <div class="justify-content-sm-end row">
-                <div class="col-sm-4">
-                  <p>
-                    <strong
+              <div class="col-sm-4">
+                <p>
+                  <strong
                     ><span style="color: #e1002c">Бесплатная</span> доставка
-                      нашим транспортом</strong
-                    >
-                  </p>
-                  <ul>
-                    <li>
-                      <nuxt-link to="/contacts/goroda"
-                      >Список городов</nuxt-link
-                      >
-                    </li>
-                    <li>
-                      <a href="https://www.pantus.ru//delivery/#freedelivery"
+                    нашим транспортом</strong
+                  >
+                </p>
+                <ul>
+                  <li>
+                    <nuxt-link to="/contacts/goroda">Список городов</nuxt-link>
+                  </li>
+                  <li>
+                    <a href="https://www.pantus.ru//delivery/#freedelivery"
                       >Условия</a
-                      >
-                    </li>
-                  </ul>
-                  <p>
-                    <strong>Филиалы и пункты самовывоза</strong>
-                  </p>
-                  <div style="display: block">
-                    <div style="display: inline-block; margin-right: 30px">
-                      <ul>
-                        <li>Москва</li>
-                        <li>Тольятти</li>
-                      </ul>
-                    </div>
-                    <div style="display: inline-block">
-                      <ul>
-                        <li>Балаково</li>
-                        <li>Астрахань</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <p>
-                    <strong>Другие способы доставки</strong><br>
-                    Если вы не нашли в списке удобный для вас способ доставки, мы
-                    рассмотрим возможность доставки вашего заказа другим
-                    подходящим вам способом. Просто укажите в комментарии к заказу
-                    ваши предпочтения.
-                  </p>
-                </div>
-                <div class="col-sm-4">
-                  <p>
-                    <strong
-                    >Службы экспресс доставки и транспортные компании</strong
                     >
-                  </p>
-                  <div style="display: block">
-                    <div style="display: inline-block; margin-right: 30px">
-                      <ul>
-                        <li>СДЭК</li>
-                        <li>DPD</li>
-                        <li>Почта РФ</li>
-                        <li>Деловые линии</li>
-                      </ul>
-                    </div>
-                    <div style="display: inline-block; vertical-align: top">
-                      <ul>
-                        <li>ПЭК</li>
-                        <li>Энергия</li>
-                        <li>Байкал сервис</li>
-                      </ul>
-                    </div>
+                  </li>
+                </ul>
+                <p>
+                  <strong>Филиалы и пункты самовывоза</strong>
+                </p>
+                <div style="display: block">
+                  <div style="display: inline-block; margin-right: 30px">
+                    <ul>
+                      <li>Москва</li>
+                      <li>Тольятти</li>
+                    </ul>
                   </div>
-                  <div class="">
-                    <img style="width: 50px;" src="https://www.pantus.ru/opt/media/ds1.png">
-                    <img style="width: 50px;" src="https://www.pantus.ru/opt/media/ds2.png">
-                    <img style="width: 76px;" src="https://www.pantus.ru/opt/media/ds3.png"><br>
-                    <img style="width: 200px;" src="https://www.pantus.ru/opt/media/ds4.png">
+                  <div style="display: inline-block">
+                    <ul>
+                      <li>Балаково</li>
+                      <li>Астрахань</li>
+                    </ul>
                   </div>
                 </div>
+                <p>
+                  <strong>Другие способы доставки</strong><br />
+                  Если вы не нашли в списке удобный для вас способ доставки, мы
+                  рассмотрим возможность доставки вашего заказа другим
+                  подходящим вам способом. Просто укажите в комментарии к заказу
+                  ваши предпочтения.
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <p>
+                  <strong
+                    >Службы экспресс доставки и транспортные компании</strong
+                  >
+                </p>
+                <div style="display: block">
+                  <div style="display: inline-block; margin-right: 30px">
+                    <ul>
+                      <li>СДЭК</li>
+                      <li>DPD</li>
+                      <li>Почта РФ</li>
+                      <li>Деловые линии</li>
+                    </ul>
+                  </div>
+                  <div style="display: inline-block; vertical-align: top">
+                    <ul>
+                      <li>ПЭК</li>
+                      <li>Энергия</li>
+                      <li>Байкал сервис</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="">
+                  <img
+                    style="width: 50px"
+                    src="https://www.pantus.ru/opt/media/ds1.png"
+                  >
+                  <img
+                    style="width: 50px"
+                    src="https://www.pantus.ru/opt/media/ds2.png"
+                  >
+                  <img
+                    style="width: 76px"
+                    src="https://www.pantus.ru/opt/media/ds3.png"
+                  ><br >
+                  <img
+                    style="width: 200px"
+                    src="https://www.pantus.ru/opt/media/ds4.png"
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -705,7 +716,7 @@
     <div class="container">
       <div class="deliverycta">
         <h3 class="mb-2">
-          Создайте аккаунт оптового клиента и получите <br>
+          Создайте аккаунт оптового клиента и получите <br />
           доступ к оптовому прайсу
         </h3>
         <button
@@ -720,62 +731,81 @@
     <div class="promofullwidth promogradient">
       <div class="container promoadvantage">
         <div style="text-align: center">
-          <h2 class="mt-3">Помогаем зарабатывать <strong>больше, быстрее</strong></h2>
+          <h2 class="mt-3">
+            Помогаем зарабатывать <strong>больше, быстрее</strong>
+          </h2>
         </div>
         <div class="row flex-column flex-lg-row">
           <!--контейнер флекс для всего -->
           <div class="mx-auto col-12 col-md-6 row">
             <!-- блок с предложениями -->
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr14.png">
+              <img src="https://www.pantus.ru/opt/media/pr14.png" />
               <p>
-                Острочка платежа<br>
+                Острочка платежа<br />
                 Отгрузка без аванса
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr-edo.png">
+              <img src="https://www.pantus.ru/opt/media/pr-edo.png" />
               <p>
-                Электронный<br>
+                Электронный<br />
                 документооборот
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr-doc.png">
+              <img src="https://www.pantus.ru/opt/media/pr-doc.png" />
               <p>
-                Онлайн<br>
+                Онлайн<br />
                 остатки и цены
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/adpirojok.png">
+              <img src="https://www.pantus.ru/opt/media/adpirojok.png" />
               <p>
-                Оформляйте заказ там,<br>
+                Оформляйте заказ там,<br />
                 где вам удобно
               </p>
             </div>
           </div>
           <div class="mx-auto col-12 col-md-6 row">
-              <!-- блок с галереей -->
-              <a class="col-12 col-md-8 mb-3"
-                href="https://www.pantus.ru/upload/medialibrary/26f/031-IMG_4809-5000.jpg"
+            <!-- блок с галереей -->
+            <a
+              class="col-12 col-md-8 mb-3"
+              href="https://www.pantus.ru/upload/medialibrary/26f/031-IMG_4809-5000.jpg"
+            >
+              <img
+                src="https://www.pantus.ru/opt/media/gallery/first/1.jpg"
+                class="h-100"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/1.jpg" class="h-100">
-              </a>
-              <a class="col-12 col-md-4 mb-3"
-                href="www.pantus.ru/upload/medialibrary/26f/024-IMG_4798-5000.jpg"
+            </a>
+            <a
+              class="col-12 col-md-4 mb-3"
+              href="www.pantus.ru/upload/medialibrary/26f/024-IMG_4798-5000.jpg"
+            >
+              <img
+                src="https://www.pantus.ru/opt/media/gallery/first/2.jpg"
+                class="h-100"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/2.jpg" class="h-100">
-              </a>
-              <a class="col-12 col-md-8 mb-3"
-                href="https://www.pantus.ru/upload/medialibrary/26f/027-IMG_4805-5000.jpg"
+            </a>
+            <a
+              class="col-12 col-md-8 mb-3"
+              href="https://www.pantus.ru/upload/medialibrary/26f/027-IMG_4805-5000.jpg"
+            >
+              <img
+                src="https://www.pantus.ru/opt/media/gallery/first/3.jpg"
+                class="h-100"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/first/3.jpg" class="h-100">
-              </a>
-              <a class="col-12 col-md-4 mb-3"
-                 href="https://www.pantus.ru/opt/media/gallery/first/mims2018.jpg">
-                <img src="https://www.pantus.ru/opt/media/gallery/first/4.jpg" class="h-100">
-              </a>
+            </a>
+            <a
+              class="col-12 col-md-4 mb-3"
+              href="https://www.pantus.ru/opt/media/gallery/first/mims2018.jpg"
+            >
+              <img
+                src="https://www.pantus.ru/opt/media/gallery/first/4.jpg"
+                class="h-100"
+              >
+            </a>
             <div>
               <div style="text-align: center">
                 <p>МИМС Автомеханика 2018</p>
@@ -789,30 +819,44 @@
       <div class="promotestimonials">
         <div style="text-align: center">
           <!-- компании с которыми работаем -->
-          <h2>Работаем с крупными игроками</h2>
+          <h2 class="mt-4">Работаем с крупными игроками</h2>
           <div class="container">
-            <div class="row justify-content-between flex-column flex-lg-row">
-              <div>
-                <img src="https://www.pantus.ru/opt/media/brands/pr-armtek.png">
+            <div
+              class="row justify-content-between flex-column flex-lg-row align-items-center flex-gap-15px mb-2"
+            >
+              <div class="mb-2">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-armtek.png"
+                >
               </div>
               <div>
-                <img src="https://www.pantus.ru/opt/media/brands/pr-autodoc.png">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-autodoc.png"
+                >
               </div>
-              <div>
-                <img src="https://www.pantus.ru/opt/media/brands/pr-avtoto.png">
+              <div сlass="mb-2">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-avtoto.png"
+                >
               </div>
-             <div>
-               <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png">
-             </div>
-            <div>
-              <img src="https://www.pantus.ru/opt/media/brands/pr-exist.png">
-            </div>
-            <div>
-              <img src="https://www.pantus.ru/opt/media/brands/pr-pasker.png">
-            </div>
-            <div>
-              <img src="https://www.pantus.ru/opt/media/brands/pr-partcom.png">
-            </div>
+              <div сlass="mb-2">
+                <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png" />
+              </div>
+              <div сlass="mb-2">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-exist.png"
+                >
+              </div>
+              <div сlass="mb-2">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-pasker.png"
+                >
+              </div>
+              <div сlass="mb-2">
+                <img
+                  src="https://www.pantus.ru/opt/media/brands/pr-partcom.png"
+                >
+              </div>
             </div>
             <p style="margin-bottom: 30px">
               И еще более чем с 2 000 компаний разного размера
@@ -829,21 +873,21 @@
                       >
                     </div>
                     <p>
-                      <strong>Марина Абдуалева</strong><br>
-                      <br>
-                      Деловой партнер<br>
-                      ООО «ПАНТУС»<br>
+                      <strong>Марина Абдуалева</strong><br />
+                      <br />
+                      Деловой партнер<br />
+                      ООО «ПАНТУС»<br />
                       (г. Грозный)
                     </p>
                   </div>
                   <div>
                     <p class="mt-3">
                       С ООО «ПАНТУС» мы сотрудничаем с 2012 года. Доставка груза
-                      происходит в один и тот же день, что очень удобно клиентам.
-                      Груз приходит в полной комплектации, в полной сохранности.
-                      Все четко, ящики с деталями подписаны.
+                      происходит в один и тот же день, что очень удобно
+                      клиентам. Груз приходит в полной комплектации, в полной
+                      сохранности. Все четко, ящики с деталями подписаны.
                     </p>
-                    <br>
+                    <br />
                   </div>
                 </div>
               </div>
@@ -851,54 +895,54 @@
                 <div class="testimonial">
                   <div style="display: flex; flex-flow: row">
                     <div class="mr-2">
-                    <img
-                      src="https://www.pantus.ru/opt/media/testimonials/sherb.png"
-                    >
+                      <img
+                        src="https://www.pantus.ru/opt/media/testimonials/sherb.png"
+                      >
+                    </div>
+                    <p class="mt-2">
+                      <strong>Александр Щербаков</strong><br />
+                      <br />
+                      Генеральный директор <br />
+                      ООО «Автомобилист 82» <br />
+                      (г. Саратов)
+                    </p>
                   </div>
-                  <p class="mt-2">
-                    <strong>Александр Щербаков</strong><br>
-                    <br>
-                    Генеральный директор <br>
-                    ООО «Автомобилист 82» <br>
-                    (г. Саратов)
-                  </p>
-                </div>
-                <div>
-                  <p class="mt-3">
-                    В отрасли я уже больше 20 лет, а с фирмой «ПАНТУС» у нас
-                    больше 5 лет вместе пройдено. Всегда считал и считаю
-                    «ПАНТУС» достойным предприятием. Работать мне с ним очень
-                    нравится. За годы сотрудничества сложились очень хорошие
-                    отношения.
-                  </p>
-                </div>
+                  <div>
+                    <p class="mt-3">
+                      В отрасли я уже больше 20 лет, а с фирмой «ПАНТУС» у нас
+                      больше 5 лет вместе пройдено. Всегда считал и считаю
+                      «ПАНТУС» достойным предприятием. Работать мне с ним очень
+                      нравится. За годы сотрудничества сложились очень хорошие
+                      отношения.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="col-12 col-sm-7 mx-auto mx-lg-0 col-lg-4">
                 <div class="testimonial">
-                <div style="display: flex; flex-flow: row">
-                  <div class="mr-2">
-                    <img
-                      src="https://www.pantus.ru/opt/media/testimonials/kamservice.jpg"
-                    >
+                  <div style="display: flex; flex-flow: row">
+                    <div class="mr-2">
+                      <img
+                        src="https://www.pantus.ru/opt/media/testimonials/kamservice.jpg"
+                      >
+                    </div>
+                    <p>
+                      <strong>Александр Ветошкин</strong><br />
+                      <br />
+                      Директор<br />
+                      ООО «КАМСЕРВИС»<br />
+                      (г. Тверь)
+                    </p>
                   </div>
-                  <p>
-                    <strong>Александр Ветошкин</strong><br>
-                    <br>
-                    Директор<br>
-                    ООО «КАМСЕРВИС»<br>
-                    (г. Тверь)
-                  </p>
-                </div>
-                <div>
-                  <p class="mt-3">
-                    За те годы, что мы работаем вместе, я бы охарактеризовал
-                    «ПАНТУС» только с положительной стороны. Заявки выполняются
-                    в полном объеме, доставка товара ведется четко по графику.
-                    Наши менеджеры отличные специалисты, могу сказать о них
-                    много хорошего.
-                  </p>
-                </div>
+                  <div>
+                    <p class="mt-3">
+                      За те годы, что мы работаем вместе, я бы охарактеризовал
+                      «ПАНТУС» только с положительной стороны. Заявки
+                      выполняются в полном объеме, доставка товара ведется четко
+                      по графику. Наши менеджеры отличные специалисты, могу
+                      сказать о них много хорошего.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -914,38 +958,48 @@
     <div class="lastcta">
       <div class="container">
         <div class="row">
-          <div class="ctagallery">
+          <div class="col-lg-8 col-12">
             <!-- Галерея -->
             <div
               class="gallerymims popupgallery"
-              style="display: flex; flex-flow: row wrap; justify-content: center"
+              style="
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+              "
             >
               <a
                 href="https://www.pantus.ru/upload/iblock/023/Pantus%20Automechanika%20Moscow%202019%20-%201.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/second/1.jpg">
+                <img
+                  src="https://www.pantus.ru/opt/media/gallery/second/1.jpg"
+                >
               </a>
               <a
                 href="https://www.pantus.ru/upload/iblock/2b2/Pantus%20Automechanika%20Moscow%202019%20-%204.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/second/2.jpg">
+                <img
+                  src="https://www.pantus.ru/opt/media/gallery/second/2.jpg"
+                >
               </a>
               <a
                 href="https://www.pantus.ru/upload/iblock/573/Pantus%20Automechanika%20Moscow%202019%20%D0%9F%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8B%20(10).jpg"
               >
                 <img src="https://www.pantus.ru/opt/media/gallery/second/3.jpg"
-                ></a>
+              ></a>
               <a
                 href="https://www.pantus.ru/upload/iblock/9ca/063-3M0A7551-5000.jpg"
               >
-                <img src="https://www.pantus.ru/opt/media/gallery/second/4.jpg">
+                <img
+                  src="https://www.pantus.ru/opt/media/gallery/second/4.jpg"
+                >
               </a>
             </div>
-            <div style="text-align: center">
+            <div class="mt-2" style="text-align: center">
               <p>МИМС Автомеханика 2019</p>
             </div>
           </div>
-          <div class="ctatext">
+          <div class="col-lg-4 col-12">
             <!-- как оформить заказ -->
             <h2>Как оформить заказ?</h2>
             <h3>
@@ -955,8 +1009,8 @@
             <ol>
               <li>Зарегистрируйтесь на сайте</li>
               <li>
-                Получите подтверждение вашего аккаунта у менеджера, чтобы работать
-                по оптовым ценам
+                Получите подтверждение вашего аккаунта у менеджера, чтобы
+                работать по оптовым ценам
               </li>
               <li>
                 Найдите необходимые детали в каталоге и отправьте их в корзину
@@ -985,7 +1039,7 @@
     </div>
   </div>
   <!--  </div>-->
-</div></template>
+</template>
 
 <script>
 export default {
@@ -999,6 +1053,30 @@ export default {
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 5,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: true,
+              focusOnSelect: true,
+              infinite: true,
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              arrows: true,
+              focusOnSelect: true,
+              infinite: true,
+              speed: 500,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+        ],
       },
     };
   },
@@ -1010,8 +1088,7 @@ export default {
   display: flex !important;
 }
 .opt-claider [data-v-e4caeaf8] {
-  height: 100%;
-  /*margin-right: 10px;*/
+  height: 100%; /*margin-right: 10px;*/
 }
 .opt-claider .slick-arrow:before {
   color: #000;
@@ -1020,40 +1097,40 @@ export default {
   right: -25px;
 }
 .opt-claider .slick-prev {
-  left: -25px;
+  left: -19px;
 }
-.opt-claider .item{
+.opt-claider .item {
   display: block !important;
 }
-.promocoverblack{
-  background-color: rgba(0,0,0,0.65);
+.promocoverblack {
+  background-color: rgba(0, 0, 0, 0.65);
   padding: 70px 0;
 }
-.promocenterpict{
+.promocenterpict {
   background-image: url("https://www.pantus.ru/opt/media/optmain.jpg");
   background-size: cover;
   background-position: center bottom;
   margin-top: 33px;
 }
-.promohead{
+.promohead {
   color: #fff;
   text-align: center;
 }
-.createaccountbutton{
+.createaccountbutton {
   padding: 10px 50px;
   background: rgba(225, 0, 44, 1);
   border: none;
-  color: #fff;
+  color: #fff !important;
   font-size: 20px;
   border-radius: 3px;
   font-weight: 300;
 }
-.promorightpict{
+.promorightpict {
   background: url("https://www.pantus.ru/opt/media/products.jpg") right center;
   margin-bottom: 50px;
 }
-.promoblock_left-wrap{
-  filter: drop-shadow(10px 0px 10px rgba(0,0,0,0.5));
+.promoblock_left-wrap {
+  filter: drop-shadow(10px 0px 10px rgba(0, 0, 0, 0.5));
 }
 .promoblock_left {
   padding: 70px 30px 20px 30px;
@@ -1067,9 +1144,26 @@ export default {
   background-size: 50% auto;
 }
 .promoleftpict {
-  background: url("https://www.pantus.ru/opt/media/promodeliv.jpg") no-repeat bottom left;
+  background: url("https://www.pantus.ru/opt/media/promodeliv.jpg") no-repeat
+    bottom left;
+  background-size: contain;
 }
-.container-static li::before {
+.container-static ol {
+  counter-reset: chapter 0;
+  padding-left: 0;
+}
+.container-static ol li {
+  counter-increment: chapter;
+  margin-bottom: 10px;
+}
+.container-static ol li::before {
+  margin-right: 10px;
+  width: 25px;
+  content: counter(chapter, decimal) ".";
+  font-weight: bold;
+  color: #c8312b;
+}
+.container-static ul li::before {
   position: absolute;
   color: #c8312b;
   content: "";
@@ -1083,8 +1177,10 @@ export default {
 .promogradient {
   margin-top: 50px;
   background-image: linear-gradient(
-    72deg
-    , rgba(225, 0, 44, 1) , rgba(126, 0, 54, 1));
+    72deg,
+    rgba(225, 0, 44, 1),
+    rgba(126, 0, 54, 1)
+  );
   color: #fff;
 }
 /*.advantage{*/
@@ -1098,6 +1194,8 @@ export default {
 .gallerymims {
   display: flex;
   flex-flow: row wrap;
+  gap: 15px;
+  gap: 15px;
 }
 .advantages {
   display: flex;
@@ -1114,9 +1212,6 @@ export default {
   display: flex;
   flex-flow: row wrap;
 }
-.gallerymims img {
-  margin: 10px;
-}
 .bigplayers {
   display: flex;
   flex-flow: row wrap;
@@ -1125,10 +1220,16 @@ export default {
   margin-bottom: 30px;
 }
 .testimonial {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
+}
+.flex-gap-15px {
+  gap: 15px;
+}
+.slick-slide {
+  padding: 0 10px;
 }
 </style>

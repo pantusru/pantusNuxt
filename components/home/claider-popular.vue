@@ -36,34 +36,24 @@ export default {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+        ],
       },
     };
-  },
-  mounted() {
-    this.check_slide_count();
-    // при прогрузке странице
-    // this.$store.commit("SetShow", false);
-    window.addEventListener("resize", () => {
-      this.check_slide_count();
-    });
-  },
-  destroyed() {
-    window.removeEventListener("resize", () => {});
-  },
-  methods: {
-    slideCount(count) {
-      this.settings.slidesToShow = count;
-      this.settings.slidesToScroll = count;
-    },
-    check_slide_count() {
-      if (document.body.clientWidth < 768) {
-        this.slideCount(1);
-      } else if (document.body.clientWidth < 992) {
-        this.slideCount(2);
-      } else {
-        this.slideCount(3);
-      }
-    },
   },
 };
 </script>

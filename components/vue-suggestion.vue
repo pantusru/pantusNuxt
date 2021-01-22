@@ -50,16 +50,16 @@ export default {
       this.getItems();
     },
   },
-  data() {
-    return {
-      items: [], // Массив результата города
-      timerId: null, // ID таймер для stop запросов
-      isOpen: false, // состояние открыто ли меню
-      // search: '', // что ввел пользователь поиска
-      arrowCounter: 0, // Index выделяющегося элемента списка
-      id: 0, // ID выбранного поиска
-    };
-  },
+  // data() {
+  //   return {
+  //     items: [], // Массив результата города
+  //     timerId: null, // ID таймер для stop запросов
+  //     isOpen: false, // состояние открыто ли меню
+  //     // search: '', // что ввел пользователь поиска
+  //     arrowCounter: 0, // Index выделяющегося элемента списка
+  //     id: 0, // ID выбранного поиска
+  //   };
+  // },
   computed: {
     search: {
       get() {

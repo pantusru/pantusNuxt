@@ -9,7 +9,7 @@
               <div class="promohead">
                 <h2>
                   <b>
-                    Покупайте автозапчасти оптом с доставкой<br />
+                    Покупайте автозапчасти оптом с доставкой<br>
                     от 0 рублей по России и СНГ без аванса
                   </b>
                 </h2>
@@ -18,7 +18,7 @@
                   автомобилей и легковых иномарок
                 </p>
                 <p style="font-size: 20px">
-                  Создайте аккаунт оптового клиента, чтобы получить<br />
+                  Создайте аккаунт оптового клиента, чтобы получить<br>
                   доступ к полному оптовому прайсу
                 </p>
                 <nuxt-link
@@ -50,7 +50,7 @@
                           <b
                             >ЛЕГКОВЫЕ ОТЕЧЕСТВЕННЫЕ, ГРУЗОВЫЕ АВТОМОБИЛИ И
                             ИНОМАРКИ</b
-                          ><br />
+                          ><br>
                           Запчасти и компоненты для автомобилей ВАЗ, ГАЗ, ЗАЗ,
                           УАЗ, ИЖ, ЛУАЗ, АЗЛК, ЗИЛ, МАЗ, КАМАЗ, Kia, Renault,
                           Hyundai, Daewoo, Toyota, BMW, Mercedes-Benz и многих
@@ -59,7 +59,7 @@
                         </li>
                         <li>
                           <b>1 000 000 НАИМЕНОВАНИЙ ТОВАРОВ В АССОРТИМЕНТЕ</b
-                          ><br />
+                          ><br>
                           Автозапчасти, РТИ, автопластик, расходники и
                           автохимия: от охлаждающих жидкостей до стоек
                           амортизатора и крупноузловых элементов
@@ -68,7 +68,7 @@
                           <b
                             >5 ЭКСКЛЮЗИВНЫХ БРЕНДОВ АВТОЗАПЧАСТЕЙ И
                             КОМПОНЕНТОВ</b
-                          ><br />
+                          ><br>
                           Производим товары под собственным брендом Pantus, а
                           также являемся официальными представителями торговых
                           марок A-Sport, RTD, Fra-Roi и Isang в России
@@ -97,62 +97,68 @@
           </h2>
           <div class="promoslidercontainer">
             <VueSlickCarousel class="opt-claider" v-bind="settings">
-              <div class="item mr-2" style="width: 100%; display: inline-block">
-                <a
-                  href="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
-                >
-                  <img
-                    alt="Пантус - сертификат о дилерстве ВРТ"
-                    src="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
-                    title="Пантус - сертификат о дилерстве ВРТ"
+              <div class="item" style="width: 100%; display: inline-block">
+                <div class="h-75 ">
+                  <a
+                    href="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
                   >
-                </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                    <img
+                      alt="Пантус - сертификат о дилерстве ВРТ"
+                      src="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
+                      title="Пантус - сертификат о дилерстве ВРТ"
+                    >
+                  </a>
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
+                    class="logo-icon"
+                    alt=""
+                  >
+                </div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
-                  href="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
-                  class="popupsingle"
-                  tabindex="-1"
-                >
-                  <img
-                    alt="Пантус - сертификат о дилерстве БМРТ"
-                    src="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
-                    class="cert"
-                    title="Пантус - сертификат о дилерстве БМРТ"
+                <div class="h-75 ">
+                  <a
+                    href="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
+                    class="popupsingle"
+                    tabindex="-1"
                   >
-                </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                    <img
+                      alt="Пантус - сертификат о дилерстве БМРТ"
+                      src="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
+                      class="cert"
+                      title="Пантус - сертификат о дилерстве БМРТ"
+                    >
+                  </a>
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
+                    class="logo-icon"
+                    alt=""
+                  >
+                </div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
-                  href="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
-                  class="popupsingle"
-                  tabindex="-1"
-                >
-                  <img
-                    alt="Пантус - сертификат о дилерстве КЗАТЭ"
-                    src="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
-                    class="cert"
-                    title="Пантус - сертификат о дилерстве КЗАТЭ"
+                <div class="h-75 ">
+                  <a
+                    href="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
+                    class="popupsingle"
+                    tabindex="-1"
                   >
-                </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/kzate.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                    <img
+                      alt="Пантус - сертификат о дилерстве КЗАТЭ"
+                      src="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
+                      class="cert"
+                      title="Пантус - сертификат о дилерстве КЗАТЭ"
+                    >
+                  </a>
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/kzate.png"
+                    class="logo-icon"
+                    alt=""
+                  >
+                </div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/resinotechnika.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -164,14 +170,14 @@
                     title="Пантус - сертификат о дилерстве РТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/ptp.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -183,14 +189,14 @@
                     title="Пантус - сертификат о дилерстве ПТП64"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/brt.jpg"
                   class="popupsingle"
                   tabindex="0"
@@ -200,14 +206,14 @@
                     class="cert"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/brt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/brt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75"><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/ss20.jpg"
                   class="popupsingle"
                   tabindex="0"
@@ -217,14 +223,15 @@
                     class="cert"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/ss20.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/ss20.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 ">
+                  <a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/soate.jpg"
                   class="popupsingle"
                   tabindex="0"
@@ -236,14 +243,15 @@
                     title="Сертификат официального дилера ЗАО «СОАТЭ»"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/soate.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/soate.png"
+                    class="logo-icon"
+                    alt=""
+                  >
+                </div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/sevi.jpg"
                   class="popupsingle"
                   tabindex="0"
@@ -255,14 +263,14 @@
                     title="Пантус - сертификат о дилерстве Сэви"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/sevi.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/sevi.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/bzak.jpg"
                   class="popupsingle"
                   tabindex="0"
@@ -274,14 +282,14 @@
                     title="Пантус - сертификат о дилерстве БЗАК"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/bzak.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/bzak.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/trek.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -293,14 +301,14 @@
                     title="Пантус - сертификат о дилерстве УРАЛАТИ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/trek.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/trek.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -312,14 +320,14 @@
                     title="Пантус - сертификат о дилерстве ВРТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -331,14 +339,14 @@
                     title="Пантус - сертификат о дилерстве БМРТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -350,14 +358,14 @@
                     title="Пантус - сертификат о дилерстве КЗАТЭ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/kzate.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/kzate.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/resinotechnika.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -369,14 +377,14 @@
                     title="Пантус - сертификат о дилерстве РТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/ptp.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -388,14 +396,14 @@
                     title="Пантус - сертификат о дилерстве ПТП64"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/brt.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -405,14 +413,15 @@
                     class="cert"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/brt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/brt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75">
+                  <a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/ss20.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -422,14 +431,14 @@
                     class="cert"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/ss20.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/ss20.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/soate.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -441,14 +450,14 @@
                     title="Сертификат официального дилера ЗАО «СОАТЭ»"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/soate.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/soate.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/sevi.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -460,33 +469,33 @@
                     title="Пантус - сертификат о дилерстве Сэви"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/sevi.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/sevi.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
-                  href="https://www.pantus.ru//opt/media/suppliers/certificates/bzak.jpg"
-                  class="popupsingle"
-                  tabindex="-1"
+                <div class="h-75 "><a
+                href="https://www.pantus.ru//opt/media/suppliers/certificates/bzak.jpg"
+                class="popupsingle"
+                tabindex="-1"
                 >
-                  <img
-                    alt="Пантус - сертификат о дилерстве БЗАК"
-                    src="https://www.pantus.ru//opt/media/suppliers/certificates/bzak.jpg"
-                    class="cert"
-                    title="Пантус - сертификат о дилерстве БЗАК"
-                  >
-                </a>
+                <img
+                  alt="Пантус - сертификат о дилерстве БЗАК"
+                  src="https://www.pantus.ru//opt/media/suppliers/certificates/bzak.jpg"
+                  class="cert"
+                  title="Пантус - сертификат о дилерстве БЗАК"
+                >
+              </a>
                 <img
                   src="https://www.pantus.ru//opt/media/suppliers/bzak.png"
                   class="logo-icon"
                   alt=""
-                >
+                ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/trek.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -498,14 +507,14 @@
                     title="Пантус - сертификат о дилерстве УРАЛАТИ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/trek.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/trek.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/vrt.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -517,14 +526,14 @@
                     title="Пантус - сертификат о дилерстве ВРТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/vrt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/bmrt.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -536,14 +545,14 @@
                     title="Пантус - сертификат о дилерстве БМРТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/bmrt.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -553,7 +562,7 @@
                     src="https://www.pantus.ru//opt/media/suppliers/certificates/kzate.jpg"
                     class="cert"
                     title="Пантус - сертификат о дилерстве КЗАТЭ"
-                  >
+                  ></a></div>
                 </a>
                 <img
                   src="https://www.pantus.ru//opt/media/suppliers/kzate.png"
@@ -562,7 +571,7 @@
                 >
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/resinotechnika.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -574,14 +583,14 @@
                     title="Пантус - сертификат о дилерстве РТ"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/resinotechnika.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
               <div class="item" style="width: 100%; display: inline-block">
-                <a
+                <div class="h-75 "><a
                   href="https://www.pantus.ru//opt/media/suppliers/certificates/ptp.jpg"
                   class="popupsingle"
                   tabindex="-1"
@@ -593,11 +602,11 @@
                     title="Пантус - сертификат о дилерстве ПТП64"
                   >
                 </a>
-                <img
-                  src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
-                  class="logo-icon"
-                  alt=""
-                >
+                  <img
+                    src="https://www.pantus.ru//opt/media/suppliers/ptp.png"
+                    class="logo-icon"
+                    alt=""
+                  ></div>
               </div>
             </VueSlickCarousel>
           </div>
@@ -659,7 +668,7 @@
                   </div>
                 </div>
                 <p>
-                  <strong>Другие способы доставки</strong><br />
+                  <strong>Другие способы доставки</strong><br>
                   Если вы не нашли в списке удобный для вас способ доставки, мы
                   рассмотрим возможность доставки вашего заказа другим
                   подходящим вам способом. Просто укажите в комментарии к заказу
@@ -701,7 +710,7 @@
                   <img
                     style="width: 76px"
                     src="https://www.pantus.ru/opt/media/ds3.png"
-                  ><br >
+                  ><br>
                   <img
                     style="width: 200px"
                     src="https://www.pantus.ru/opt/media/ds4.png"
@@ -716,7 +725,7 @@
     <div class="container">
       <div class="deliverycta">
         <h3 class="mb-2">
-          Создайте аккаунт оптового клиента и получите <br />
+          Создайте аккаунт оптового клиента и получите <br>
           доступ к оптовому прайсу
         </h3>
         <button
@@ -740,30 +749,30 @@
           <div class="mx-auto col-12 col-md-6 row">
             <!-- блок с предложениями -->
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr14.png" />
+              <img src="https://www.pantus.ru/opt/media/pr14.png">
               <p>
-                Острочка платежа<br />
+                Острочка платежа<br>
                 Отгрузка без аванса
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr-edo.png" />
+              <img src="https://www.pantus.ru/opt/media/pr-edo.png">
               <p>
-                Электронный<br />
+                Электронный<br>
                 документооборот
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/pr-doc.png" />
+              <img src="https://www.pantus.ru/opt/media/pr-doc.png">
               <p>
-                Онлайн<br />
+                Онлайн<br>
                 остатки и цены
               </p>
             </div>
             <div class="col-12 col-md-6">
-              <img src="https://www.pantus.ru/opt/media/adpirojok.png" />
+              <img src="https://www.pantus.ru/opt/media/adpirojok.png">
               <p>
-                Оформляйте заказ там,<br />
+                Оформляйте заказ там,<br>
                 где вам удобно
               </p>
             </div>
@@ -776,7 +785,7 @@
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/1.jpg"
-                class="h-100"
+                class="h-75"
               >
             </a>
             <a
@@ -785,7 +794,7 @@
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/2.jpg"
-                class="h-100"
+                class="h-75"
               >
             </a>
             <a
@@ -794,7 +803,7 @@
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/3.jpg"
-                class="h-100"
+                class="h-75"
               >
             </a>
             <a
@@ -803,7 +812,7 @@
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/4.jpg"
-                class="h-100"
+                class="h-75"
               >
             </a>
             <div>
@@ -840,7 +849,7 @@
                 >
               </div>
               <div сlass="mb-2">
-                <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png" />
+                <img src="https://www.pantus.ru/opt/media/brands/pr-emex.png">
               </div>
               <div сlass="mb-2">
                 <img
@@ -873,10 +882,10 @@
                       >
                     </div>
                     <p>
-                      <strong>Марина Абдуалева</strong><br />
-                      <br />
-                      Деловой партнер<br />
-                      ООО «ПАНТУС»<br />
+                      <strong>Марина Абдуалева</strong><br>
+                      <br>
+                      Деловой партнер<br>
+                      ООО «ПАНТУС»<br>
                       (г. Грозный)
                     </p>
                   </div>
@@ -887,7 +896,7 @@
                       клиентам. Груз приходит в полной комплектации, в полной
                       сохранности. Все четко, ящики с деталями подписаны.
                     </p>
-                    <br />
+                    <br>
                   </div>
                 </div>
               </div>
@@ -900,10 +909,10 @@
                       >
                     </div>
                     <p class="mt-2">
-                      <strong>Александр Щербаков</strong><br />
-                      <br />
-                      Генеральный директор <br />
-                      ООО «Автомобилист 82» <br />
+                      <strong>Александр Щербаков</strong><br>
+                      <br>
+                      Генеральный директор <br>
+                      ООО «Автомобилист 82» <br>
                       (г. Саратов)
                     </p>
                   </div>
@@ -927,10 +936,10 @@
                       >
                     </div>
                     <p>
-                      <strong>Александр Ветошкин</strong><br />
-                      <br />
-                      Директор<br />
-                      ООО «КАМСЕРВИС»<br />
+                      <strong>Александр Ветошкин</strong><br>
+                      <br>
+                      Директор<br>
+                      ООО «КАМСЕРВИС»<br>
                       (г. Тверь)
                     </p>
                   </div>
@@ -1102,6 +1111,7 @@ export default {
 .opt-claider .item {
   display: block !important;
 }
+
 .promocoverblack {
   background-color: rgba(0, 0, 0, 0.65);
   padding: 70px 0;
@@ -1232,4 +1242,8 @@ export default {
 .slick-slide {
   padding: 0 10px;
 }
+.logo-icon{
+  height: 25% !important;
+}
+
 </style>

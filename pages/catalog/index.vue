@@ -80,8 +80,7 @@ export default {
   font-weight: 600;
   text-decoration: underline;
   margin-bottom: 10px;
-  display: block;git fetch origin
-git checkout master
+  display: block;
 }
 .catalog-frame a:hover {
   text-decoration: none;

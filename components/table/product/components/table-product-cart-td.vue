@@ -1,18 +1,29 @@
 <template>
-  <b-td :rowspan="lengthOffer + 1">
-    <slot></slot>
+  <b-td :rowspan="offer">
+    <slot />
   </b-td>
 </template>
 
 <script>
 export default {
-  name: "table-product-cart-td",
-
+  name: "TableProductCartTd",
   props: {
     lengthOffer: {
       type: Number,
       request: true,
     },
+  },
+  data() {
+    return {
+      offer: 0,
+    };
+  },
+  created() {
+    if (this.lengthOffer === 0) {
+      this.offer = 2;
+    } else {
+      this.offer = this.lengthOffer + 1;
+    }
   },
 };
 </script>

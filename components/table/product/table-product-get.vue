@@ -1,6 +1,6 @@
 <template>
   <b-table-simple class="text-center fz-5_5">
-    <PanelVid :CheckAnalogs="CheckAnalogs" />
+    <PanelVid :check-analogs="CheckAnalogs" />
     <b-tbody>
       <template v-for="table in array">
         <b-tr :key="table.ProductCard.id" class="hover-true">
@@ -52,10 +52,10 @@
           </table-product-cart-td>
           <!--          <b-td class="position-absolute border-0 p-0 pt-3">-->
           <Chosen
-            class="position-absolute border-0 p-0 pt-3"
             v-if="CheckAnalogs === false && CheckUser === true"
-            :link="table"
             :id="table.ProductCard.id"
+            class="position-absolute border-0 p-0 pt-3"
+            :link="table"
           />
           <!--          </b-td>-->
         </b-tr>
@@ -82,13 +82,18 @@
             >
             <b-td class="border-top-0">
               <BuyButton
-                :LinkOffer="offer"
-                :LinkProduct="table.ProductCard"
+                :link-offer="offer"
+                :link-product="table.ProductCard"
                 class="text-nowrap"
               />
             </b-td>
           </b-tr>
         </template>
+        <b-tr v-else>
+          <td>
+            <h2 class="error">нет в продаже</h2>
+          </td>
+        </b-tr>
       </template>
     </b-tbody>
   </b-table-simple>

@@ -62,12 +62,13 @@
             :link-product="datasetProduct.ProductCard"
           />
           <BuyButton
-            :LinkOffer="datasetProduct.productOffer[0]"
-            :LinkProduct="datasetProduct.ProductCard"
+            :link-offer="datasetProduct.productOffer[0]"
+            :link-product="datasetProduct.ProductCard"
           />
         </b-col>
       </b-row>
     </template>
+    <div v-else><h2 class="error">нет в продаже</h2></div>
   </b-card>
 </template>
 
@@ -78,14 +79,14 @@ import ProductElementRowGet from "@/components/products/product/element/product-
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 export default {
   name: "BlogProduct",
-  props: {
-    datasetProduct: {},
-  },
   components: {
     AvailabilityOffers,
     ProductElementRowGet,
     BuyButton,
     ImgGetModal,
+  },
+  props: {
+    datasetProduct: {},
   },
 };
 </script>

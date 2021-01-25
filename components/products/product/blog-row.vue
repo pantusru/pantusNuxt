@@ -16,7 +16,7 @@
                 {{ Product.ProductCard.name }}</nuxt-link
               >
             </h2>
-            <base-button v-if="Selected" @click="DeleteSelected" class="ml-3">
+            <base-button v-if="Selected" class="ml-3" @click="DeleteSelected">
               X
             </base-button>
           </div>
@@ -118,8 +118,8 @@
           class="justify-content-between flex-column col-12 col-lg-8"
         >
           <TableOffset
-            :LinkProduct="Product.ProductCard"
-            :Linkoffset="Product.productOffer"
+            :link-product="Product.ProductCard"
+            :linkoffset="Product.productOffer"
           />
         </b-row>
       </b-row>
@@ -134,30 +134,30 @@ import TableOffset from "@/components/table/table-offset-get";
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
-  methods: {
-    DeleteSelected() {
-      const index = this.SelectedProducts.findIndex(
-        s => s.ProductCard.id == this.Product.ProductCard.id
-      );
-      this.$store.commit("Selected/selected/DeleteSelected", index);
-    },
-  },
   name: "ProductBlogRow",
-  props: {
-    Product: {},
-    Selected: {
-      default: false,
-    },
-  },
   components: {
     BaseButton,
     RowAtr,
     TableOffset,
     ImgGetModal,
   },
+  props: {
+    Product: {},
+    Selected: {
+      default: false,
+    },
+  },
   computed: {
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
+    },
+  },
+  methods: {
+    DeleteSelected() {
+      const index = this.SelectedProducts.findIndex(
+        s => s.ProductCard.id == this.Product.ProductCard.id
+      );
+      this.$store.commit("Selected/selected/DeleteSelected", index);
     },
   },
 };

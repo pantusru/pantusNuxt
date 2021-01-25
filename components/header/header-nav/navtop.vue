@@ -46,6 +46,7 @@ export default {
     return {
       links: [
         { to: "/app", text: "Мобильное приложение" },
+        { to: "/opt", text: "Опт" },
         { to: "/delivery", text: "Доставка" },
         { to: "/pay", text: "Оплата" },
         { to: "/news/", text: "Новости" },

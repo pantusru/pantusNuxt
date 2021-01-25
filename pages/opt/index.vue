@@ -1173,6 +1173,14 @@ export default {
   font-weight: bold;
   color: #c8312b;
 }
+.container-static a{
+  color: #436174;
+  text-decoration: underline;
+}
+.container-static a:hover{
+  text-decoration: none;
+}
+
 .container-static ul li::before {
   position: absolute;
   color: #c8312b;
@@ -1245,5 +1253,5 @@ export default {
 .logo-icon{
   height: 25% !important;
 }
-
+@import "assets/css/static-page-main.css";
 </style>

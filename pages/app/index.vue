@@ -1,256 +1,260 @@
 <template>
   <div class="app-bg">
-<!--    test22-->
-    <div class="mobile-app">
-      <div class="main-block">
-        <div class="header">
-          <div class="header-logo-panel">
-            <div class="header-logo-panel__col header-logo-panel_left">
-              <a href="https://pantus.ru"
-                ><img
+    <div class="container-static">
+      <!--    test22-->
+      <div class="mobile-app">
+        <div class="main-block">
+          <div class="header">
+            <div class="header-logo-panel">
+              <div class="header-logo-panel__col header-logo-panel_left">
+                <a href="https://pantus.ru"
+                  ><img
+                    class="logo-ico"
+                    src="https://www.pantus.ru/app/assets/images/pantus_logo.jpg"
+                    alt="pantus"
+                ></a>
+              </div>
+              <div class="header-logo-panel__col">
+                <img
                   class="logo-ico"
-                  src="https://www.pantus.ru/app/assets/images/pantus_logo.jpg"
-                  alt="pantus"
-              ></a>
+                  src="https://www.pantus.ru/app/assets/images/icon.png"
+                  alt="pantus_l"
+                >
+              </div>
+              <div class="header-logo-panel__col header-logo-panel_right">
+                <a
+                  href="tel:8(800)5558721"
+                  class="header-logo-panel__phone-text"
+                  ><span>8 (800) 555 87 21</span></a
+                >
+              </div>
             </div>
-            <div class="header-logo-panel__col">
+
+            <div class="header_text company_title"><h1>Pantus AR</h1></div>
+            <div class="header_text">
+              <article class="header_description">
+                Отсканируйте упаковку товара с помощью этого приложения, чтобы
+                увидеть <br >
+                его 3D-модели на экране смартфона в дополненной реальности и
+                <br >получить информацию о его особенностях и преимуществах.
+              </article>
+            </div>
+          </div>
+          <div class="app-market">
+            <div class="app-market__row">
+              <div class="app-market__button">
+                <a
+                  class="btn-qr-code"
+                  href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
+                >
+                  <img
+                    src="https://www.pantus.ru/app/assets/images/btn-android.png"
+                    alt="app-android"
+                  >
+                </a>
+              </div>
+              <div class="app-market__qr-code">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                  alt="app-android-qr"
+                  @click="openModal('android')"
+                >
+              </div>
+            </div>
+            <div class="app-market__row">
+              <div class="app-market__button">
+                <a
+                  class="btn-qr-code"
+                  href="https://apps.apple.com/us/app/pantus/id1475702773"
+                >
+                  <img
+                    src="https://www.pantus.ru/app/assets/images/btn-ios.png"
+                    alt="app-ios"
+                  >
+                </a>
+              </div>
+              <div class="app-market__qr-code">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                  alt="app-ios-qr"
+                  @click="openModal('ios')"
+                >
+              </div>
+            </div>
+          </div>
+          <div class="section-1">
+            <div class="section-1__img">
+              <img
+                src="https://www.pantus.ru/app/assets/images/section_1_bottom_phone.png"
+                alt=""
+              >
+            </div>
+            <div class="arrow">
+              <div class="arrow-ico" />
+            </div>
+          </div>
+          <div class="section-2">
+            <div class="demonstrations__row reverse-column">
+              <div class="demonstrations__img img-left">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/section-1.png"
+                  alt="app-phone-3d"
+                >
+              </div>
+              <div class="demonstrations__text-block block-right">
+                <div class="text-block__contain contain-right">
+                  <div class="text-block__title">3d модель запчасти</div>
+                  <div class="text-block__description">
+                    Отсканируйте упаковку товара с помощью этого приложения,
+                    чтобы увидеть его 3D-модели на экране смартфона в
+                    дополненной реальности и получить информацию о его
+                    особенностях и преимуществах.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-3">
+            <div class="demonstrations__row direct-column">
+              <div class="demonstrations__text-block block-left">
+                <div class="text-block__contain contain-left">
+                  <div class="text-block__title">
+                    Запчасти на экране в дополненной реальности
+                  </div>
+                  <div class="text-block__description">
+                    В дополненной реальности вы можете посмотреть деталь со всех
+                    сторон, узнать важную информацию о технологии производства
+                    запчасти, посмотреть видео или перейти на страницу запчасти
+                    на сайте pantus.ru
+                  </div>
+                </div>
+              </div>
+              <div class="demonstrations__img img-right">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/section-2.png"
+                  alt="app-phone-vr"
+                >
+              </div>
+            </div>
+          </div>
+          <div class="section-4">
+            <div class="demonstrations__row reverse-column">
+              <div class="demonstrations__img img-left">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/section-3.png"
+                  alt="app-phone-catalog"
+                >
+              </div>
+              <div class="demonstrations__text-block block-right">
+                <div class="text-block__contain contain-right">
+                  <div class="text-block__title">Каталог и товары</div>
+                  <div class="text-block__description">
+                    В нашем приложении также реализован каталог, с поиском
+                    запчастей. В карточке запчасти предоставлена
+                    минимально-важная информация, вы можете посмотреть видео о
+                    запчасти или перейти на страницу запчасти на сайте
+                    pantus.ru, или оставить заявку прямо с приложения.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-5">
+            <div class="demonstrations__row direct-column">
+              <div class="demonstrations__text-block block-left">
+                <div class="text-block__contain contain-left">
+                  <div class="text-block__title">Новости компании</div>
+                  <div class="text-block__description">
+                    Перейдя в раздел Новости, ознакомтесь с последними событиями
+                    компании, текущих акциях, и специальных предложениях для
+                    наших покупателей и партнеров.
+                  </div>
+                </div>
+              </div>
+              <div class="demonstrations__img img-right">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/section-4.png"
+                  alt="app-phone-news"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-contain">
+          <div class="footer-logo">
+            <div class="footer-logo__ico">
               <img
                 class="logo-ico"
                 src="https://www.pantus.ru/app/assets/images/icon.png"
-                alt="pantus_l"
+                alt="pantus-logo"
               >
             </div>
-            <div class="header-logo-panel__col header-logo-panel_right">
-              <a href="tel:8(800)5558721" class="header-logo-panel__phone-text"
-                ><span>8 (800) 555 87 21</span></a
-              >
-            </div>
+            <div class="company_title"><h1>Pantus AR</h1></div>
           </div>
-
-          <div class="header_text company_title"><h1>Pantus AR</h1></div>
-          <div class="header_text">
-            <article class="header_description">
-              Отсканируйте упаковку товара с помощью этого приложения, чтобы
-              увидеть <br />
-              его 3D-модели на экране смартфона в дополненной реальности и
-              <br />получить информацию о его особенностях и преимуществах.
-            </article>
-          </div>
-        </div>
-        <div class="app-market">
-          <div class="app-market__row">
-            <div class="app-market__button">
-              <a
-                class="btn-qr-code"
-                href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
-              >
-                <img
-                  src="https://www.pantus.ru/app/assets/images/btn-android.png"
-                  alt="app-android"
+          <div class="app-market">
+            <div class="app-market__row">
+              <div class="app-market__button">
+                <a
+                  class="btn-qr-code"
+                  href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
                 >
-              </a>
-            </div>
-            <div class="app-market__qr-code">
-              <img
-                src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
-                alt="app-android-qr"
-                @click="openModal('android')"
-              >
-            </div>
-          </div>
-          <div class="app-market__row">
-            <div class="app-market__button">
-              <a
-                class="btn-qr-code"
-                href="https://apps.apple.com/us/app/pantus/id1475702773"
-              >
+                  <img
+                    src="https://www.pantus.ru/app/assets/images/btn-android.png"
+                    alt="app-android"
+                  >
+                </a>
+              </div>
+              <div class="app-market__qr-code">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/btn-ios.png"
-                  alt="app-ios"
+                  src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                  alt="app-android-qr"
+                  @click="openModal('android')"
                 >
-              </a>
+              </div>
             </div>
-            <div class="app-market__qr-code">
-              <img
-                src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
-                alt="app-ios-qr"
-                @click="openModal('ios')"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="section-1">
-          <div class="section-1__img">
-            <img
-              src="https://www.pantus.ru/app/assets/images/section_1_bottom_phone.png"
-              alt=""
-            >
-          </div>
-          <div class="arrow">
-            <div class="arrow-ico" />
-          </div>
-        </div>
-        <div class="section-2">
-          <div class="demonstrations__row reverse-column">
-            <div class="demonstrations__img img-left">
-              <img
-                src="https://www.pantus.ru/app/assets/images/section-1.png"
-                alt="app-phone-3d"
-              >
-            </div>
-            <div class="demonstrations__text-block block-right">
-              <div class="text-block__contain contain-right">
-                <div class="text-block__title">3d модель запчасти</div>
-                <div class="text-block__description">
-                  Отсканируйте упаковку товара с помощью этого приложения, чтобы
-                  увидеть его 3D-модели на экране смартфона в дополненной
-                  реальности и получить информацию о его особенностях и
-                  преимуществах.
-                </div>
+            <div class="app-market__row">
+              <div class="app-market__button">
+                <a
+                  class="btn-qr-code"
+                  href="https://apps.apple.com/us/app/pantus/id1475702773"
+                >
+                  <img
+                    src="https://www.pantus.ru/app/assets/images/btn-ios.png"
+                    alt="app-ios"
+                  >
+                </a>
+              </div>
+              <div class="app-market__qr-code">
+                <img
+                  src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                  alt="app-ios-qr"
+                  @click="openModal('ios')"
+                >
               </div>
             </div>
           </div>
-        </div>
-        <div class="section-3">
-          <div class="demonstrations__row direct-column">
-            <div class="demonstrations__text-block block-left">
-              <div class="text-block__contain contain-left">
-                <div class="text-block__title">
-                  Запчасти на экране в дополненной реальности
-                </div>
-                <div class="text-block__description">
-                  В дополненной реальности вы можете посмотреть деталь со всех
-                  сторон, узнать важную информацию о технологии производства
-                  запчасти, посмотреть видео или перейти на страницу запчасти на
-                  сайте pantus.ru
-                </div>
-              </div>
-            </div>
-            <div class="demonstrations__img img-right">
-              <img
-                src="https://www.pantus.ru/app/assets/images/section-2.png"
-                alt="app-phone-vr"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="section-4">
-          <div class="demonstrations__row reverse-column">
-            <div class="demonstrations__img img-left">
-              <img
-                src="https://www.pantus.ru/app/assets/images/section-3.png"
-                alt="app-phone-catalog"
-              >
-            </div>
-            <div class="demonstrations__text-block block-right">
-              <div class="text-block__contain contain-right">
-                <div class="text-block__title">Каталог и товары</div>
-                <div class="text-block__description">
-                  В нашем приложении также реализован каталог, с поиском
-                  запчастей. В карточке запчасти предоставлена минимально-важная
-                  информация, вы можете посмотреть видео о запчасти или перейти
-                  на страницу запчасти на сайте pantus.ru, или оставить заявку
-                  прямо с приложения.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section-5">
-          <div class="demonstrations__row direct-column">
-            <div class="demonstrations__text-block block-left">
-              <div class="text-block__contain contain-left">
-                <div class="text-block__title">Новости компании</div>
-                <div class="text-block__description">
-                  Перейдя в раздел Новости, ознакомтесь с последними событиями
-                  компании, текущих акциях, и специальных предложениях для наших
-                  покупателей и партнеров.
-                </div>
-              </div>
-            </div>
-            <div class="demonstrations__img img-right">
-              <img
-                src="https://www.pantus.ru/app/assets/images/section-4.png"
-                alt="app-phone-news"
-              >
-            </div>
+          <div class="copyrite-text">
+            <div>© 2003–2018 ООО «ПАНТУС» Все права защищены</div>
+            <div>Визуальные материалы подготовлены в ознакомительный целях</div>
+            <div>Разработано в mitroliti</div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <div class="footer-contain">
-        <div class="footer-logo">
-          <div class="footer-logo__ico">
-            <img
-              class="logo-ico"
-              src="https://www.pantus.ru/app/assets/images/icon.png"
-              alt="pantus-logo"
-            >
-          </div>
-          <div class="company_title"><h1>Pantus AR</h1></div>
-        </div>
-        <div class="app-market">
-          <div class="app-market__row">
-            <div class="app-market__button">
-              <a
-                class="btn-qr-code"
-                href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
-              >
-                <img
-                  src="https://www.pantus.ru/app/assets/images/btn-android.png"
-                  alt="app-android"
-                >
-              </a>
-            </div>
-            <div class="app-market__qr-code">
-              <img
-                src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
-                alt="app-android-qr"
-                @click="openModal('android')"
-              >
-            </div>
-          </div>
-          <div class="app-market__row">
-            <div class="app-market__button">
-              <a
-                class="btn-qr-code"
-                href="https://apps.apple.com/us/app/pantus/id1475702773"
-              >
-                <img
-                  src="https://www.pantus.ru/app/assets/images/btn-ios.png"
-                  alt="app-ios"
-                >
-              </a>
-            </div>
-            <div class="app-market__qr-code">
-              <img
-                src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
-                alt="app-ios-qr"
-                @click="openModal('ios')"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="copyrite-text">
-          <div>© 2003–2018 ООО «ПАНТУС» Все права защищены</div>
-          <div>Визуальные материалы подготовлены в ознакомительный целях</div>
-          <div>Разработано в mitroliti</div>
-        </div>
-      </div>
-    </div>
 
-    <div id="myModal" ref="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header-block">
-          <span ref="close" class="close" @click="closeModal">&times;</span>
-        </div>
-        <div class="modal-image-block">
-          <img :src="qrCodeUrl" alt="modal-qr-code">
-        </div>
-        <div class="modal-text-block">
-          ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
+      <div id="myModal" ref="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header-block">
+            <span ref="close" class="close" @click="closeModal">&times;</span>
+          </div>
+          <div class="modal-image-block">
+            <img :src="qrCodeUrl" alt="modal-qr-code" />
+          </div>
+          <div class="modal-text-block">
+            ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
+          </div>
         </div>
       </div>
     </div>
@@ -277,7 +281,6 @@ export default {
         },
       ],
     };
-
   },
   methods: {
     openModal(typeQrCode) {
@@ -340,7 +343,6 @@ export default {
   margin-top: 50px;
   margin-bottom: 50px;
   max-width: 1200px;
-
 }
 
 .header-logo-panel {
@@ -569,8 +571,7 @@ export default {
 }
 
 @media screen and (max-width: 950px) {
-
-  .main-block{
+  .main-block {
     width: 90%;
   }
 
@@ -617,12 +618,12 @@ export default {
     flex-direction: column;
   }
 
-  .app-market__button > a > img, .app-market__qr-code > img {
+  .app-market__button > a > img,
+  .app-market__qr-code > img {
     height: 100%;
     width: 100%;
     object-fit: contain;
   }
-
 }
 
 /* The Modal (background) */

@@ -1,6 +1,6 @@
 <template>
 <b-container>
-  <b-row>
+  <div class="container-static">   <b-row>
     <sidebar />
     <b-col class="content py-3 pl-lg-4">
 
@@ -369,6 +369,7 @@
         </p>
     </b-col>
   </b-row>
+  </div>
 </b-container>
 </template>
 

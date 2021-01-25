@@ -1,54 +1,61 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
-container {
+.container-static {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   color: #555;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+.container-static h1,
+.container-static h2,
+.container-static h3,
+.container-static h4,
+.container-static h5,
+.container-static h6,
+.container-static .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   line-height: 1.1;
   color: #515151;
 }
 
-h1, .h1 {
+.container-static h1,
+.container-static .h1 {
   font-size: 30px;
 }
 
-h2, .h2 {
+.container-static h2, .container-static  .h2 {
   font-size: 22px;
 }
 
-h3 {
+.container-static h3 {
   font-size: 18px;
   /*margin-top: 0;*/
   /*margin-bottom: 15px;*/
 }
 
-h5, .h5 {
+.container-static h5, .container-static .h5 {
   font-size: 13px;
 }
-h4 {
+.container-static  h4 {
   font-size: 13px;
   /*margin-bottom: 15px;*/
   font-weight: 700;
 }
 
-.container a {
+.container-static  a {
   color: #436174;
   -webkit-transition: color linear 300ms;
   -o-transition: color linear 300ms;
   transition: color linear 300ms;
   text-decoration: underline;
 }
-.container a:hover{
+.container-static  a:hover{
   text-decoration: none;
 }
 
-ul > li:before {
+.container-static ul > li:before {
   width: 5px;
   height: 5px;
   margin-right: 12px;
@@ -57,7 +64,8 @@ ul > li:before {
   background: #c8312b;
 }
 
-ol li:before, ul li:before {
+.container-static  ol li:before,
+.container-static  ul li:before {
   position: absolute;
   top: 0;
   right: 100%;
@@ -65,26 +73,28 @@ ol li:before, ul li:before {
   content: '';
 }
 
-ol, ul {
+.container-static  ol,
+.container-static  ul {
   margin: 13px 0;
   counter-reset: chapter 0;
   padding-left: 25px;
 }
 
-ol li, ul li {
+.container-static ol li,
+.container-static  ul li {
   margin: 5px 0;
   counter-increment: chapter;
   list-style: none;
   position: relative;
 }
 
-ol > li:before {
+.container-static  ol > li:before {
   width: 25px;
   content: counter(chapter, decimal) ".";
   font-weight: bold;
 }
 
-p{
+.container-static  p{
   line-height: 22px;
 }
 

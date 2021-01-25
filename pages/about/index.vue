@@ -1,5 +1,6 @@
 <template>
   <b-container class="about-main-block">
+    <div class="container-static">
     <b-row class="company mb-5">
       <b-col lg="7">
 
@@ -155,7 +156,7 @@
 
 
     </b-row>
-
+    </div>
   </b-container>
 </template>
 

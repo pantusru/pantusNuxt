@@ -2,15 +2,21 @@
   <b-col :cols="mobileCols" :lg="pcCols" class="sidebar py-3 px-0">
     <div class="sidebar-box d-none d-lg-block">
       <nav class="nav-sidebar">
-        <a href="/help/">Помощь</a>
-        <a href="/help/#kak-sdelat-zakaz">Заказ</a>
-        <a href="/delivery/">Доставка</a>
-        <a href="/delivery/#freedeliverу">Условия бесплатной доставки</a>
-        <a href="/pay/">Оплата</a>
-        <a href="/help/#returns">Возврат</a>
-        <a href="/documents/privacypolicy/">Обработка персональных данных</a>
-        <a href="/documents/user-agreement/">Пользовательское соглашение</a>
-        <a href="/help/feedback/">Единая служба качества</a>
+        <nuxt-link to="/help/">Помощь</nuxt-link>
+        <nuxt-link to="/help/#kak-sdelat-zakaz">Заказ</nuxt-link>
+        <nuxt-link to="/delivery/">Доставка</nuxt-link>
+        <nuxt-link to="/delivery/#freedeliverу"
+          >Условия бесплатной доставки</nuxt-link
+        >
+        <nuxt-link to="/pay/">Оплата</nuxt-link>
+        <nuxt-link to="/help/#returns">Возврат</nuxt-link>
+        <nuxt-link to="/documents/privacypolicy/"
+          >Обработка персональных данных</nuxt-link
+        >
+        <nuxt-link to="/documents/user-agreement/"
+          >Пользовательское соглашение</nuxt-link
+        >
+        <nuxt-link to="/help/feedback/">Единая служба качества</nuxt-link>
       </nav>
     </div>
     <div class="w-100 px-3">
@@ -18,24 +24,24 @@
         <b-row>
           <b-col>
             <b-row cols="1" class="px-3">
-              <a href="/help/">Помощь</a>
-              <a href="/help/#kak-sdelat-zakaz">Заказ</a>
-              <a href="/delivery/">Доставка</a>
-              <a href="/delivery/#freedeliverу">Условия бесплатной доставки</a>
-              <a href="/pay/">Оплата</a>
+              <nuxt-link to="/help/">Помощь</nuxt-link>
+              <nuxt-link to="/help/#kak-sdelat-zakaz">Заказ</nuxt-link>
+              <nuxt-link to="/delivery/">Доставка</nuxt-link>
+              <a href="#freedelivery">Условия бесплатной доставки</a>
+              <nuxt-link to="/pay/">Оплата</nuxt-link>
             </b-row>
           </b-col>
 
           <b-col>
             <b-row cols="1" class="px-3">
-              <a href="/help/#returns">Возврат</a>
-              <a href="/documents/privacypolicy/"
-                >Обработка персональных данных</a
+              <nuxt-link to="/help/#returns">Возврат</nuxt-link>
+              <nuxt-link to="/documents/privacypolicy/"
+                >Обработка персональных данных</nuxt-link
               >
-              <a href="/documents/user-agreement/"
-                >Пользовательское соглашение</a
+              <nuxt-link to="/documents/user-agreement/"
+                >Пользовательское соглашение</nuxt-link
               >
-              <a href="/help/feedback/">Единая служба качества</a>
+              <nuxt-link to="/help/feedback/">Единая служба качества</nuxt-link>
             </b-row>
           </b-col>
         </b-row>

@@ -1,5 +1,5 @@
 <template>
-  <b-container class="pay-main-block">
+  <b-container class="pay-main-block container-static">
     <b-row class="mx-0">
 
       <sidebar />

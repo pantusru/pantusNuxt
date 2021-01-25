@@ -130,3 +130,6 @@ export default {
   },
 };
 </script>
+<style>
+@import "assets/css/static-page-main.css";
+</style>

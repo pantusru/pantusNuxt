@@ -2,7 +2,10 @@
   <b-container class="delivery-main-block">
     <div class="container-static">
       <b-row class="mx-0">
-        <sidebar pc-cols="2" />
+        <sidebar
+          pc-cols="2"
+          :items-menu="sideBarItems"
+        />
 
         <b-col cols="12" lg="10" class="content px-3 py-3 pl-lg-4">
           <b-row class="my-3 my-sm-0">
@@ -630,6 +633,21 @@ export default {
   name: "Index",
   components: {
     sidebar,
+  },
+  data(){
+    return{
+      sideBarItems: [
+        { to: '/help/', name: 'Помощь' },
+        { to: '/help/#kak-sdelat-zakaz', name: 'Заказ' },
+        { to: '/delivery/', name: 'Доставка' },
+        { to: '/delivery/#freedeliverу', name: 'Условия бесплатной доставки' },
+        { to: '/pay/', name: 'Оплата' },
+        { to: '/help/#returns', name: 'Возврат' },
+        { to: '/documents/privacypolicy/', name: 'Обработка персональных данных' },
+        { to: '/documents/user-agreement/', name: 'Пользовательское соглашение' },
+        { to: '/help/feedback/', name: 'Единая служба качества' },
+      ],
+    }
   },
 };
 </script>

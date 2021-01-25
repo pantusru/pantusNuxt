@@ -1,49 +1,17 @@
 <template>
   <b-col :cols="mobileCols" :lg="pcCols" class="sidebar py-3 px-0">
     <div class="sidebar-box d-none d-lg-block">
-      <nav class="nav-sidebar">
-        <nuxt-link to="/help/">Помощь</nuxt-link>
-        <nuxt-link to="/help/#kak-sdelat-zakaz">Заказ</nuxt-link>
-        <nuxt-link to="/delivery/">Доставка</nuxt-link>
-        <nuxt-link to="/delivery/#freedeliverу"
-          >Условия бесплатной доставки</nuxt-link
-        >
-        <nuxt-link to="/pay/">Оплата</nuxt-link>
-        <nuxt-link to="/help/#returns">Возврат</nuxt-link>
-        <nuxt-link to="/documents/privacypolicy/"
-          >Обработка персональных данных</nuxt-link
-        >
-        <nuxt-link to="/documents/user-agreement/"
-          >Пользовательское соглашение</nuxt-link
-        >
-        <nuxt-link to="/help/feedback/">Единая служба качества</nuxt-link>
+      <nav class="nav-sidebar" v-for="item in itemsMenu">
+        <nuxt-link :to="item.to">{{item.name}}</nuxt-link>
       </nav>
     </div>
+
     <div class="w-100 px-3">
       <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
-        <b-row>
-          <b-col>
-            <b-row cols="1" class="px-3">
-              <nuxt-link to="/help/">Помощь</nuxt-link>
-              <nuxt-link to="/help/#kak-sdelat-zakaz">Заказ</nuxt-link>
-              <nuxt-link to="/delivery/">Доставка</nuxt-link>
-              <a href="#freedelivery">Условия бесплатной доставки</a>
-              <nuxt-link to="/pay/">Оплата</nuxt-link>
-            </b-row>
-          </b-col>
-
-          <b-col>
-            <b-row cols="1" class="px-3">
-              <nuxt-link to="/help/#returns">Возврат</nuxt-link>
-              <nuxt-link to="/documents/privacypolicy/"
-                >Обработка персональных данных</nuxt-link
-              >
-              <nuxt-link to="/documents/user-agreement/"
-                >Пользовательское соглашение</nuxt-link
-              >
-              <nuxt-link to="/help/feedback/">Единая служба качества</nuxt-link>
-            </b-row>
-          </b-col>
+        <b-row cols="2" >
+            <nav class="nav-sidebar" v-for="item in itemsMenu">
+              <b-col> <nuxt-link :to="item.to">{{ item.name }}</nuxt-link> </b-col>
+            </nav>
         </b-row>
       </nav>
     </div>
@@ -61,6 +29,10 @@ export default {
     pcCols: {
       type: String,
       default: "2",
+    },
+    itemsMenu: {
+      type: Array,
+
     },
   },
 };
@@ -92,7 +64,7 @@ export default {
 .nav-sidebar {
   font-size: 15px;
   color: #555;
-  margin-top: 40px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   line-height: 20px;

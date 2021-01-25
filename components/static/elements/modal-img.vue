@@ -8,16 +8,12 @@
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header-block">
-          <span ref="close" class="close" @click="modalVisible = !modalVisible">&times;</span>
+          <span class="close" @click="modalVisible = !modalVisible">&times;</span>
         </div>
         <div class="modal-image-block">
-
           <slot name="modal" class="modal-content" />
-
         </div>
-        <div class="modal-text-block">
-          ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
-        </div>
+        <slot name="text-description" />
       </div>
     </div>
 
@@ -85,18 +81,8 @@ export default {
 .modal-image-block {
   width: 80%;
   align-self: center;
-}
-.modal-text-block {
-  margin: 30px 0 5px;
-  color: #b1b5b7;
-  font-size: 16px;
-  line-height: 24px;
   text-align: center;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
 }
-
 
 
 </style>

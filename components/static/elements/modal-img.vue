@@ -1,45 +1,102 @@
 <template>
   <div>
-    <div @click="get = true">
-      <slot name="click" />
-    </div>
-    <div v-if="get" class="modal-img-wrapper">
-      <div class="exit-modal-img" @click="get = false">X</div>
+    <div @click="modalVisible = !modalVisible">
       <slot name="modal" />
     </div>
+
+    <div id="myModal" v-if="modalVisible" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header-block">
+          <span ref="close" class="close" @click="modalVisible = !modalVisible">&times;</span>
+        </div>
+        <div class="modal-image-block">
+
+          <slot name="modal" class="modal-content" />
+
+        </div>
+        <div class="modal-text-block">
+          ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
 <script>
 export default {
   name: "ModalImg",
-  data() {
-    return {
-      get: false,
-    };
+
+  data(){
+    return{
+      modalVisible: false,
+    }
   },
+
 };
 </script>
 
 <style scoped>
-.modal-img-wrapper {
+
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
   top: 0;
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-.exit-modal-img {
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
-  padding: 10px;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 25px;
-  background: #fff;
-  color: #9a001d;
 }
+
+.modal-header-block {
+  text-align: end;
+}
+.modal-image-block {
+  width: 80%;
+  align-self: center;
+}
+.modal-text-block {
+  margin: 30px 0 5px;
+  color: #b1b5b7;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+
+
 </style>

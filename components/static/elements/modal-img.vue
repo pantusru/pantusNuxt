@@ -40,7 +40,8 @@ export default {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 3%; /* Location of the box */
+  padding-bottom: 3%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -56,8 +57,8 @@ export default {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
+  max-width: fit-content;
+  height: 100%;
 }
 
 /* The Close Button */
@@ -77,11 +78,28 @@ export default {
 
 .modal-header-block {
   text-align: end;
+  margin-bottom: 10px;
 }
 .modal-image-block {
-  width: 80%;
   align-self: center;
   text-align: center;
+  height: 95%;
+  width: 100%;
+  display: flex;
+}
+
+.modal-image-block img{
+  max-height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+@media screen and (max-width: 760px) {
+  .modal-content {
+    height: fit-content;
+    top: 25%;
+    width: 95%;
+  }
 }
 
 

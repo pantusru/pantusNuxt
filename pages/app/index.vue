@@ -672,6 +672,7 @@ export default {
 .modal-image-block {
   width: 80%;
   align-self: center;
+  height: 500px;
 }
 .modal-text-block {
   margin: 30px 0 5px;

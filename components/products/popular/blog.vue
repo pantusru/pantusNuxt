@@ -68,7 +68,7 @@
         </b-col>
       </b-row>
     </template>
-    <div v-else><h2 class="error">нет в продаже</h2></div>
+    <div v-else><h2 class="error fz-4">нет в продаже</h2></div>
   </b-card>
 </template>
 

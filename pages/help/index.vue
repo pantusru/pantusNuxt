@@ -2,7 +2,7 @@
   <b-container>
     <div class="container-static">
       <div class="row">
-        <sidebar/>
+        <sidebar />
         <div class="col-md-10">
           <h1>Помощь</h1>
           <h4><a href="#kak-sdelat-zakaz">Как сделать заказ?</a></h4>
@@ -21,7 +21,7 @@
           <h4><a href="#pass">Забыли пароль?</a><br></h4>
           <h4>
             <a href="#voprosi-prodlozheniya"
-            >Есть вопросы, предложения или нашли ошибку?</a
+              >Есть вопросы, предложения или нашли ошибку?</a
             ><br>
           </h4>
           <h2><a name="kak-sdelat-zakaz">Как сделать заказ?</a></h2>
@@ -38,17 +38,17 @@
           <br>
           <br>
           <i
-          ><span style="color: #959595"
-          >Видеоинструкция по регистрации и входу на сайт</span
-          ></i
+            ><span style="color: #959595"
+              >Видеоинструкция по регистрации и входу на сайт</span
+            ></i
           >
           <ol>
             <li>
               Кликните на ссылку&nbsp;<a
-              href="http://www.pantus.ru/auth/?register=yes"
-              target="_blank"
-            >Регистрация</a
-            >&nbsp;в верхнем правом углу экрана. Эта ссылка доступна на любой
+                href="http://www.pantus.ru/auth/?register=yes"
+                target="_blank"
+                >Регистрация</a
+              >&nbsp;в верхнем правом углу экрана. Эта ссылка доступна на любой
               странице сайта.&nbsp;
             </li>
             <li>
@@ -56,16 +56,16 @@
                 <img
                   width="1349"
                   alt="Ссылка на регистрацию"
-                  src="/upload/medialibrary/f4f/registration.png"
+                  src="https://www.pantus.ru/upload/medialibrary/f4f/registration.png"
                   height="173"
                   style="border: 4px solid #8e8f9a"
                   title="Ссылка на регистрацию"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Ссылка на регистрацию в шапке сайта</span
-                ></i
+                  ><span style="color: #959595"
+                    >Ссылка на регистрацию в шапке сайта</span
+                  ></i
                 >
               </p>
             </li>
@@ -78,16 +78,16 @@
               <img
                 width="1005"
                 alt="newuser.png"
-                src="/upload/medialibrary/684/newuser.png"
+                src="https://www.pantus.ru/upload/medialibrary/684/newuser.png"
                 height="559"
                 style="border: 4px solid #8e8f9a"
                 title="newuser.png"
                 class="foto-fancy-img"
               ><br>
               <i
-              ><span style="color: #959595"
-              >Форма регистрации нового пользователя</span
-              ></i
+                ><span style="color: #959595"
+                  >Форма регистрации нового пользователя</span
+                ></i
               >
             </p>
             <li>
@@ -106,7 +106,7 @@
             <img
               width="1024"
               alt="enter.png"
-              src="/upload/medialibrary/216/enter.png"
+              src="https://www.pantus.ru/upload/medialibrary/216/enter.png"
               height="112"
               style="border: 4px solid #8e8f9a"
               title="enter.png"
@@ -116,13 +116,13 @@
           </p>
           <p>
             <i
-            >Если вы уже являетесь нашим клиентом и оформляли заказы через отдел
-              продаж, то вы можете просто связаться с вашим менеджером по
+              >Если вы уже являетесь нашим клиентом и оформляли заказы через
+              отдел продаж, то вы можете просто связаться с вашим менеджером по
               телефону:&nbsp;<a href="tel:88005558721">8 800 555 8721</a> и
-              сказать, что вы хотите начать работать через сайт. Мы сами создадим
-              для вас аккаунт, а данные для входа вы получите на свой ящик
-              электронной почты. В этом случае ваш аккаунт сразу будет готов к
-              работе: в каталоге вы будете видеть свои оптовые цены.
+              сказать, что вы хотите начать работать через сайт. Мы сами
+              создадим для вас аккаунт, а данные для входа вы получите на свой
+              ящик электронной почты. В этом случае ваш аккаунт сразу будет
+              готов к работе: в каталоге вы будете видеть свои оптовые цены.
             </i>
           </p>
           <h3><a name="search">Поиск запчастей и наполнение корзины</a></h3>
@@ -138,33 +138,35 @@
               allowfullscreen=""
             /><br>
             <i
-            ><span style="color: #959595"
-            >Видеоинструкция по поиску и подбору автозапчастей</span
-            ></i
+              ><span style="color: #959595"
+                >Видеоинструкция по поиску и подбору автозапчастей</span
+              ></i
             >
             <ol>
               <li>
                 <b>Поиск по номеру, артикулу или названию детали</b> –
-                <i>Наиболее эффективный способ поиска товаров на сайте</i>.<br>
+                <i>Наиболее эффективный способ поиска товаров на сайте</i
+                >.<br>
                 В форме поиска&nbsp;в шапке сайта введите название, артикул или
-                OEM-код детали. Так же вы можете ввести название марки автомобиля
-                или модели, чтобы посмотреть полный список соответствующих запросу
-                наименований. Затем кликните на кнопку "Найти".
+                OEM-код детали. Так же вы можете ввести название марки
+                автомобиля или модели, чтобы посмотреть полный список
+                соответствующих запросу наименований. Затем кликните на кнопку
+                "Найти".
               </li>
               <p>
                 <img
                   width="1024"
                   alt="search.png"
-                  src="/upload/medialibrary/61c/search.png"
+                  src="https://www.pantus.ru/upload/medialibrary/61c/search.png"
                   height="116"
                   style="border: 4px solid #8e8f9a"
                   title="search.png"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Форма поиска запчастей в шапке сайта</span
-                ></i
+                  ><span style="color: #959595"
+                    >Форма поиска запчастей в шапке сайта</span
+                  ></i
                 >
               </p>
               <li><b>Поиск детали по оригинальным онлайн каталогам.</b></li>
@@ -174,7 +176,7 @@
                 <img
                   width="1003"
                   alt="originalparts.png"
-                  src="/upload/medialibrary/c03/originalparts.png"
+                  src="https://www.pantus.ru/upload/medialibrary/c03/originalparts.png"
                   height="1024"
                   style="border: 4px solid #8e8f9a"
                   title="originalparts.png"
@@ -182,42 +184,48 @@
                 >Форма поиска по марке и модели автомобиля через каталог<br>
               </p>
               <p>
-                Выбрав нужную модель, вы попадете на страницу со списком категорий
-                автозапчастей.<br>
+                Выбрав нужную модель, вы попадете на страницу со списком
+                категорий автозапчастей.<br>
               </p>
               <p>
                 <img
                   width="1024"
                   alt="carparts.png"
-                  src="/upload/medialibrary/e64/carparts.png"
+                  src="https://www.pantus.ru/upload/medialibrary/e64/carparts.png"
                   height="605"
                   style="border: 4px solid #8e8f9a"
                   title="carparts.png"
                   class="foto-fancy-img"
                 ><br>
-                <i><span style="color: #959595">Категории автозапчастей</span></i>
+                <i
+                  ><span style="color: #959595"
+                    >Категории автозапчастей</span
+                  ></i
+                >
               </p>
               <p>
-                После выбора нужного узла вы попадёте на страницу со схемой узла и
-                списком его компонентов.
+                После выбора нужного узла вы попадёте на страницу со схемой узла
+                и списком его компонентов.
               </p>
               <p>
                 <img
                   width="1024"
                   alt="parts.png"
-                  src="/upload/medialibrary/b3a/parts.png"
+                  src="https://www.pantus.ru/upload/medialibrary/b3a/parts.png"
                   height="571"
                   style="border: 4px solid #8e8f9a"
                   title="parts.png"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595">Схема узла автозапчастей</span></i
+                  ><span style="color: #959595"
+                    >Схема узла автозапчастей</span
+                  ></i
                 >
               </p>
               <p>
-                Кликните по названию или номеру детали, чтобы проверить наличие и
-                узнать цену.
+                Кликните по названию или номеру детали, чтобы проверить наличие
+                и узнать цену.
               </p>
               <li>
                 Вы попадете на страницу с результатами поиска. Если по запросу
@@ -230,16 +238,16 @@
                 <img
                   width="1024"
                   alt="listparts.png"
-                  src="/upload/medialibrary/5b1/listparts.png"
+                  src="https://www.pantus.ru/upload/medialibrary/5b1/listparts.png"
                   height="521"
                   style="border: 4px solid #8e8f9a"
                   title="listparts.png"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Результат поиска запчасти</span
-                ></i
+                  ><span style="color: #959595"
+                    >Результат поиска запчасти</span
+                  ></i
                 >
               </p>
               <p>
@@ -250,39 +258,38 @@
                 <img
                   width="307"
                   alt="Добавить в корзину"
-                  src="/upload/medialibrary/c32/2.3. Добавить в корзину.jpg"
+                  src="https://www.pantus.ru/upload/medialibrary/c32/2.3. Добавить в корзину.jpg"
                   height="225"
                   class="foto-fancy-img"
                   style="border: 4px solid #8e8f9a"
                   title="Добавить в корзину"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Добавление товара в корзину</span
-                ></i
+                  ><span style="color: #959595"
+                    >Добавление товара в корзину</span
+                  ></i
                 >
-              </p>
-              <p />
+              </p/>
               <li>
-                В процессе наполнения корзины вы всегда сможете увидеть количество
-                позиций и сумму заказа рядом со значком корзины, по наведение
-                курсора на эту иконку отобразится более подробная информацию о
-                заказе.
+                В процессе наполнения корзины вы всегда сможете увидеть
+                количество позиций и сумму заказа рядом со значком корзины, по
+                наведение курсора на эту иконку отобразится более подробная
+                информацию о заказе.
               </li>
               <p>
                 <img
                   width="1024"
                   alt="maincart.png"
-                  src="/upload/medialibrary/d61/maincart.png"
+                  src="https://www.pantus.ru/upload/medialibrary/d61/maincart.png"
                   height="251"
                   style="border: 4px solid #8e8f9a"
                   title="maincart.png"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Иконка корзины со списком автозапчастей</span
-                ></i
+                  ><span style="color: #959595"
+                    >Иконка корзины со списком автозапчастей</span
+                  ></i
                 >
               </p>
             </ol>
@@ -301,9 +308,9 @@
             />
             <br>
             <i
-            ><span style="color: #959595"
-            >Видеоинструкция по оформлению заказа</span
-            ></i
+              ><span style="color: #959595"
+                >Видеоинструкция по оформлению заказа</span
+              ></i
             >
             <ol>
               <li>
@@ -315,7 +322,7 @@
                 <img
                   width="1024"
                   alt="cart.png"
-                  src="/upload/medialibrary/391/cart.png"
+                  src="https://www.pantus.ru/upload/medialibrary/391/cart.png"
                   height="324"
                   style="border: 4px solid #8e8f9a"
                   title="cart.png"
@@ -324,26 +331,25 @@
                 <i><span style="color: #959595">Страница корзины</span></i>
               </p>
               <p />
-              <li>
-                Если вы вошли на сайт, то попадете на страницу оформления заказа.
-                В противном случае на следующем шаге вам нужно найти войти на сайт
-                под своим логином, если вы этого еще не сделали или создать
-                аккаунт (см. п.1)
+                Если вы вошли на сайт, то попадете на страницу оформления
+                заказа. В противном случае на следующем шаге вам нужно найти
+                войти на сайт под своим логином, если вы этого еще не сделали
+                или создать аккаунт (см. п.1)
               </li>
               <p>
                 <img
                   width="263"
                   alt="autorisation.png"
-                  src="/upload/medialibrary/def/autorisation.png"
+                  src="https://www.pantus.ru/upload/medialibrary/def/autorisation.png"
                   height="223"
                   style="border: 4px solid #8e8f9a"
                   title="autorisation.png"
                   class="foto-fancy-img"
                 ><br>
                 <i
-                ><span style="color: #959595"
-                >Вход на сайт или регистрация</span
-                ></i
+                  ><span style="color: #959595"
+                    >Вход на сайт или регистрация</span
+                  ></i
                 >
               </p>
               <p />
@@ -357,7 +363,7 @@
                 <img
                   width="1024"
                   alt="cartprocess.png"
-                  src="/upload/medialibrary/ab6/cartprocess.png"
+                  src="https://www.pantus.ru/upload/medialibrary/ab6/cartprocess.png"
                   height="568"
                   style="border: 4px solid #8e8f9a"
                   title="cartprocess.png"
@@ -366,10 +372,10 @@
                 <i><span style="color: #959595">Оформление заказа</span></i>
               </p>
               <p />
-              Вы получите электронное письмо на ваш адрес с подробностями о
-              заказе. Мы проверим наличие каждой позиции вашего заказа на складе
-              и в течение 1го часа в рабочее время свяжемся с вами, чтобы
-              сообщить детали об оплате и времени доставки.<br>
+                Вы получите электронное письмо на ваш адрес с подробностями о
+                заказе. Мы проверим наличие каждой позиции вашего заказа на
+                складе и в течение 1го часа в рабочее время свяжемся с вами,
+                чтобы сообщить детали об оплате и времени доставки.<br>
               </li>
             </ol>
           </div>
@@ -384,21 +390,21 @@
               allowfullscreen=""
             /><br>
             <i
-            ><span style="color: #959595"
-            ><b>1:40</b> - Избранные товары<br>
-              <b>3:05</b> - Копирование заказов<br> </span
+              ><span style="color: #959595"
+                ><b>1:40</b> - Избранные товары<br>
+                <b>3:05</b> - Копирование заказов<br> </span
             ></i>
             <p>
               Вам всегда доступна
-              <a href="/profile/?page=history">история ваших заказов</a> в личном
-              кабинете. Вы можете просмотреть сделанные ранее заказы и, в случае
-              необходимости, отменить текущий заказ в работе.
+              <a href="/profile/?page=history">история ваших заказов</a> в
+              личном кабинете. Вы можете просмотреть сделанные ранее заказы и, в
+              случае необходимости, отменить текущий заказ в работе.
             </p>
             <h2><a name="favorite">Избранное</a></h2>
             <p>
-              Авторизованные пользователи при наведении на товары в каталоге видят
-              специальный значок, по клику на который вы можете добавить любой
-              товар в избранное, после чего он появится в
+              Авторизованные пользователи при наведении на товары в каталоге
+              видят специальный значок, по клику на который вы можете добавить
+              любой товар в избранное, после чего он появится в
               <a href="/selected/">специальном разделе</a> и вам больше не нужно
               будет тратить время на его поиск.
             </p>
@@ -406,16 +412,16 @@
               <img
                 width="1024"
                 alt="favorite.png"
-                src="/upload/medialibrary/0c2/favorite.png"
+                src="https://www.pantus.ru/upload/medialibrary/0c2/favorite.png"
                 height="235"
                 style="border: 4px solid #8e8f9a"
                 title="favorite.png"
                 class="foto-fancy-img"
               ><br>
               <i
-              ><span style="color: #959595"
-              >Добавление товара в избранные</span
-              ></i
+                ><span style="color: #959595"
+                  >Добавление товара в избранные</span
+                ></i
               >
             </p>
             <p>
@@ -426,11 +432,11 @@
             <p>
               Еще одно обновление, важное для постоянных клиентов - копирование
               заказов. После оформления одного или нескольких заказов, вы можете
-              скопировать любой из них в корзину. Все позиции, которые были в этом
-              заказе, заново попадут в корзину. Далее вы можете изменить
-              количество единиц по каждой позиции или удалить лишние. Это удобно,
-              например, если вы делали большой заказ месяц назад, и сейчас вам
-              нужно его повторить.
+              скопировать любой из них в корзину. Все позиции, которые были в
+              этом заказе, заново попадут в корзину. Далее вы можете изменить
+              количество единиц по каждой позиции или удалить лишние. Это
+              удобно, например, если вы делали большой заказ месяц назад, и
+              сейчас вам нужно его повторить.
             </p>
           </div>
           <h2><a name="downloadprice">Скачать прайс</a></h2>
@@ -445,16 +451,16 @@
               <img
                 width="1024"
                 alt="dwldprice.png"
-                src="/upload/medialibrary/88e/dwldprice.png"
+                src="https://www.pantus.ru/upload/medialibrary/88e/dwldprice.png"
                 height="228"
                 style="border: 4px solid #8e8f9a"
                 title="dwldprice.png"
                 class="foto-fancy-img"
               >
               <i
-              ><span style="color: #959595"
-              >Скачивание файла прайса из списка запчастей</span
-              ></i
+                ><span style="color: #959595"
+                  >Скачивание файла прайса из списка запчастей</span
+                ></i
               >
             </div>
             <div class="col-md-6" style="padding-left: 0px">
@@ -469,10 +475,10 @@
                 allowfullscreen=""
               />
               <i
-              ><span style="color: #959595"
-              >Видеоинструкция по скачиванию прайса и импорту заказа из
-                файла</span
-              ></i
+                ><span style="color: #959595"
+                  >Видеоинструкция по скачиванию прайса и импорту заказа из
+                  файла</span
+                ></i
               >
             </div>
           </div>
@@ -492,20 +498,20 @@
                   <img
                     width="1024"
                     alt="import.png"
-                    src="/upload/medialibrary/bd3/import.png"
+                    src="https://www.pantus.ru/upload/medialibrary/bd3/import.png"
                     height="233"
                     title="import.png"
                     class="foto-fancy-img"
                     style="
-                    border-width: 4px;
-                    border-style: solid;
-                    border-color: #8e8f9a;
-                  "
+                      border-width: 4px;
+                      border-style: solid;
+                      border-color: #8e8f9a;
+                    "
                   >
                   <i
-                  ><span style="color: #959595"
-                  >Импорт заказа на запчасти из файла</span
-                  ></i
+                    ><span style="color: #959595"
+                      >Импорт заказа на запчасти из файла</span
+                    ></i
                   >
                 </p>
               </div>
@@ -522,18 +528,19 @@
                 allowfullscreen=""
               />
               <i
-              ><span style="color: #959595"
-              >Видеоинструкция по импорту заказа из файла</span
-              ></i
+                ><span style="color: #959595"
+                  >Видеоинструкция по импорту заказа из файла</span
+                ></i
               >
             </div>
           </div>
           <div class="col-md-12" style="padding-left: 0px">
             <div class="col-md-6" style="padding-left: 0px">
               <h2><a name="returns">Условия возврата</a></h2>
-              Товар, купленный в интернет-магазине pantus.ru может быть возвращен
-              в течение 14-ти дней <b>со дня получения товара на руки</b>, не
-              считая дня покупки, только если:
+              Товар, купленный в интернет-магазине pantus.ru может быть
+              возвращен в течение 14-ти дней
+              <b>со дня получения товара на руки</b>, не считая дня покупки,
+              только если:
               <ul>
                 <li>у товара нет признаков эксплуатации;</li>
                 <li>сохранена упаковка, если товар был упакован.</li>
@@ -541,8 +548,8 @@
               <h4>Как вернуть товар?</h4>
               <ol>
                 <li>
-                  Свяжитесь с администрацией интернет-магазина по телефону 8 (800)
-                  555 8721, чтобы согласовать способ возврата товара.
+                  Свяжитесь с администрацией интернет-магазина по телефону 8
+                  (800) 555 8721, чтобы согласовать способ возврата товара.
                 </li>
                 <li>
                   Денежные средства будут возвращены тем же способом, которым вы
@@ -561,11 +568,11 @@
                 товара" и передать его вместе с товаром на возврат
               </p>
               <span class="elem-file">
-              <a href="/upload/files/akt_vozvrata.xlsx"
-              >Акт о возврате товара</a
-              >
-              (XLSX, 11,75 Кб)
-            </span>
+                <a href="/upload/files/akt_vozvrata.xlsx"
+                  >Акт о возврате товара</a
+                >
+                (XLSX, 11,75 Кб)
+              </span>
               <h2><a name="pass">Забыли пароль?</a></h2>
               <p>
                 Вы можете восстановить его на этой
@@ -573,21 +580,24 @@
               </p>
               <h2>
                 <a name="voprosi-prodlozheniya"
-                >Есть вопросы, предложения или нашли ошибку?</a
+                  >Есть вопросы, предложения или нашли ошибку?</a
                 >
               </h2>
               <p>
                 Если у вас есть вопросы и предложения по работе нашего сайта или
                 вы нашли ошибку в его функционале, пожалуйста, сообщите нам об
-                этом через онлайн консультанта, по телефону или электронной почте:
+                этом через онлайн консультанта, по телефону или электронной
+                почте:
               </p>
               <ul>
                 <li>
                   <a href="tel:+78005558721"
-                  >8&nbsp;800&nbsp;555 8721 (доб. 192)</a
+                    >8&nbsp;800&nbsp;555 8721 (доб. 192)</a
                   >
                 </li>
-                <li><a href="mailto:support@pantus.ru">support@pantus.ru</a></li>
+                <li>
+                  <a href="mailto:support@pantus.ru">support@pantus.ru</a>
+                </li>
               </ul>
               <b>Отвечаем быстро!</b>
               <p />
@@ -610,9 +620,9 @@
 import sidebar from "@/components/static/elements/sidebar/index";
 export default {
   name: "Index",
-  components:{
-    sidebar
-  }
+  components: {
+    sidebar,
+  },
 };
 </script>
 

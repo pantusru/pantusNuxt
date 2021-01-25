@@ -9,7 +9,7 @@
 
               <h1 class="long my-3">Работа в компании</h1>
                 <b-row class="justify-content-start">
-                  <b-col cols="4" lg="2"> <h4>Условия труда</h4></b-col>
+                  <b-col cols="5" lg="2"> <h4>Условия труда</h4></b-col>
                   <b-col cols="4" lg="2"><h4><a href="/about/career/jobs/">Вакансии</a></h4></b-col>
                 </b-row>
 

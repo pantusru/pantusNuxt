@@ -4,11 +4,13 @@
       <slot name="modal" />
     </div>
 
-    <div id="myModal" v-if="modalVisible" class="modal">
+    <div v-if="modalVisible" id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header-block">
-          <span class="close" @click="modalVisible = !modalVisible">&times;</span>
+          <span class="close" @click="modalVisible = !modalVisible"
+            >&times;</span
+          >
         </div>
         <div class="modal-image-block">
           <slot name="modal" class="modal-content" />
@@ -16,8 +18,6 @@
         <slot name="text-description" />
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -25,17 +25,15 @@
 export default {
   name: "ModalImg",
 
-  data(){
-    return{
+  data() {
+    return {
       modalVisible: false,
-    }
+    };
   },
-
 };
 </script>
 
 <style scoped>
-
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -101,6 +99,4 @@ export default {
     width: 95%;
   }
 }
-
-
 </style>

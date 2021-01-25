@@ -30,7 +30,7 @@
             title="Регистрация на сайте pantus.ru"
             width="459"
             height="344"
-            src="//www.youtube.com/embed/Da1p9WpIZuo?feature=oembed"
+            src="https://www.youtube.com/embed/Da1p9WpIZuo?feature=oembed"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen=""
@@ -44,10 +44,10 @@
           >
           <ol>
             <li>
-              Кликните на ссылку&nbsp;<a
-                href="http://www.pantus.ru/auth/?register=yes"
+              Кликните на ссылку&nbsp;<nuxt-link
+                to="/register"
                 target="_blank"
-                >Регистрация</a
+                >Регистрация</nuxt-link
               >&nbsp;в верхнем правом углу экрана. Эта ссылка доступна на любой
               странице сайта.&nbsp;
             </li>
@@ -440,7 +440,7 @@
             </p>
           </div>
           <h2><a name="downloadprice">Скачать прайс</a></h2>
-          <div class="col-md-12" style="padding-left: 0px; margin-bottom: 20px">
+          <div class="row" style="padding-left: 0px; margin-bottom: 20px">
             <div class="col-md-6" style="padding-left: 0px">
               <p>
                 В списке товаров, кликните на ссылку "Скачать в CSV", чтобы
@@ -483,7 +483,7 @@
             </div>
           </div>
           <h2><a name="importorder">Импорт заказа из файла</a></h2>
-          <div class="col-md-12" style="padding-left: 0px">
+          <div class="row" style="padding-left: 0px">
             <div class="col-md-6" style="padding-left: 0px">
               <p>
                 Вы можете импортировать (загрузить на сайт) заказ с помощью
@@ -568,7 +568,7 @@
                 товара" и передать его вместе с товаром на возврат
               </p>
               <span class="elem-file">
-                <a href="/upload/files/akt_vozvrata.xlsx"
+                <a href="https://www.pantus.ru/upload/files/akt_vozvrata.xlsx"
                   >Акт о возврате товара</a
                 >
                 (XLSX, 11,75 Кб)
@@ -576,7 +576,7 @@
               <h2><a name="pass">Забыли пароль?</a></h2>
               <p>
                 Вы можете восстановить его на этой
-                <a href="/auth/?forgot_password=yes">странице</a>
+                <nuxt-link to="/forgot_password">странице</nuxt-link>
               </p>
               <h2>
                 <a name="voprosi-prodlozheniya"

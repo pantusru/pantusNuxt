@@ -92,6 +92,22 @@
           alt=""
       /></template>
     </modal-img>
+    <modal-img>
+      <template #click>Нажми меня2</template>
+      <template #modal>
+        <img
+          src="https://www.pantus.ru/about/certificates/sertificate/pao_brt.jpg"
+          alt=""
+        /></template>
+    </modal-img>
+    <modal-img>
+      <template #click>Нажми меня3</template>
+      <template #modal>
+        <img
+          src="https://www.pantus.ru/about/certificates/sertificate/pao_brt.jpg"
+          alt=""
+        /></template>
+    </modal-img>
   </div>
 </template>
 

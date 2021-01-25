@@ -121,7 +121,7 @@
         <b-row class="my-3">
           <b-col cols="12">
 
-            <h3 class="mb-3">Список городов</h3>
+            <h2 class="mb-3">Список городов</h2>
             <b-row cols="1" cols-md="2">
             <b-col >
                 <b>Алтайский край.</b> Регион - 22<br>
@@ -430,7 +430,7 @@
             </b-row>
             <b-row>
               <b-col >
-                <h2>Казахстан</h2>
+                <h3>Казахстан</h3>
                 <ul>
                   <li>Уральск, <i>4 раз в месяц</i></li>
                   <li>Актобе, <i>4 раз в месяц</i></li>
@@ -560,6 +560,12 @@ img {
 .img-banner{
   max-height: 100px;
   width: 100%;
+}
+
+.content h2 {
+  color: #9a001d;
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 </style>

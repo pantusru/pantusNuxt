@@ -18,11 +18,11 @@ export default {
     return {
       links: [
         { to: "/about", text: "О компании" },
-        { to: "", text: "Работа в компании" },
-        { to: "", text: "ОПТ" },
-        { to: "", text: "Поставщикам" },
+        { to: "/about/career", text: "Работа в компании" },
+        { to: "/opt", text: "ОПТ" },
+        { to: "/about/suppliers", text: "Поставщикам" },
         { to: "/documents", text: "Документы и реквизиты" },
-        { to: "", text: "Дилерские сертификаты" },
+        { to: "/about/certificates", text: "Дилерские сертификаты" },
       ],
     };
   },

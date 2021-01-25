@@ -2,7 +2,7 @@
   <b-modal id="img" hide-footer @show="MainTrue">
     <div v-if="dataset != undefined">
       <div class="col-7 mb-4">
-        <b-img class="img-100" :src="UrlMain"></b-img>
+        <b-img class="img-100" :src="UrlMain" />
       </div>
       <b-row>
         <!-- БЛОК с альбомом -->
@@ -11,19 +11,19 @@
             class="img-100 cursor-pointer"
             :src="dataset.ProductCard.ProductCardImage.url"
             @click="MainTrue()"
-          ></b-img>
+          />
         </b-col>
         <b-col
-          cols="2"
           v-for="(data, index) in dataset.ProductCard.album"
           :key="data.id"
+          cols="2"
         >
           <!-- БЛОК с альбомом -->
           <b-img
             class="img-100 cursor-pointer"
             :src="data.url"
             @click="MainUrl(index)"
-          ></b-img>
+          />
         </b-col>
       </b-row>
       <div>

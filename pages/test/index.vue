@@ -84,13 +84,21 @@
         </tbody>
       </test>
     </b-container>
+    <modal-img>
+      <template #click>Нажми меня</template>
+      <template #modal>
+        <img
+          src="https://www.pantus.ru/about/certificates/sertificate/pao_brt.jpg"
+          alt=""
+      /></template>
+    </modal-img>
   </div>
 </template>
 
 <script>
 import test from "@/components/test/test";
 export default {
-  name: "test-view",
+  name: "TestView",
   components: {
     test,
   },

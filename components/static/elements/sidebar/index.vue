@@ -1,17 +1,19 @@
 <template>
   <b-col :cols="mobileCols" :lg="pcCols" class="sidebar py-3 px-0">
     <div class="sidebar-box d-none d-lg-block">
-      <nav class="nav-sidebar" v-for="item in itemsMenu">
-        <nuxt-link :to="item.to">{{item.name}}</nuxt-link>
+      <nav v-for="item in itemsMenu" class="nav-sidebar">
+        <nuxt-link :to="item.to">{{ item.name }}</nuxt-link>
       </nav>
     </div>
 
     <div class="w-100 px-3">
       <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
-        <b-row cols="2" >
-            <nav class="nav-sidebar" v-for="item in itemsMenu">
-              <b-col> <nuxt-link :to="item.to">{{ item.name }}</nuxt-link> </b-col>
-            </nav>
+        <b-row cols="2">
+          <nav v-for="item in itemsMenu" class="nav-sidebar">
+            <b-col>
+              <nuxt-link :to="item.to">{{ item.name }}</nuxt-link>
+            </b-col>
+          </nav>
         </b-row>
       </nav>
     </div>
@@ -32,7 +34,6 @@ export default {
     },
     itemsMenu: {
       type: Array,
-
     },
   },
 };

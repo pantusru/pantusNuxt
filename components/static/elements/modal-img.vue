@@ -86,7 +86,7 @@ export default {
   display: flex;
 }
 
-.modal-image-block img{
+.modal-image-block img {
   max-height: 100% !important;
   max-width: 100% !important;
   object-fit: contain !important;

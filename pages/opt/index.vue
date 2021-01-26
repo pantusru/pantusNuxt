@@ -781,7 +781,6 @@
             <!-- блок с галереей -->
             <a
               class="col-12 col-md-8 mb-3"
-              href="https://www.pantus.ru/upload/medialibrary/26f/031-IMG_4809-5000.jpg"
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/1.jpg"
@@ -1093,6 +1092,7 @@ export default {
 </script>
 
 <style>
+@import "assets/css/static-page-main.css";
 .opt-claider {
   display: flex !important;
 }
@@ -1134,6 +1134,7 @@ export default {
   font-size: 20px;
   border-radius: 3px;
   font-weight: 300;
+  text-decoration: none;
 }
 .promorightpict {
   background: url("https://www.pantus.ru/opt/media/products.jpg") right center;
@@ -1253,5 +1254,4 @@ export default {
 .logo-icon{
   height: 25% !important;
 }
-@import "assets/css/static-page-main.css";
 </style>

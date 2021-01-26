@@ -2,7 +2,7 @@
   <b-container>
     <div class="container-static">
       <div class="row">
-        <sidebar />
+        <sidebar :itemsMenu="sideBarItems" />
         <div class="col-md-10">
           <h1>Помощь</h1>
           <h4><a href="#kak-sdelat-zakaz">Как сделать заказ?</a></h4>
@@ -622,6 +622,21 @@ export default {
   name: "Index",
   components: {
     sidebar,
+  },
+  data(){
+    return{
+      sideBarItems: [
+        { to: '/help/', name: 'Помощь' },
+        { to: '/help/#kak-sdelat-zakaz', name: 'Заказ' },
+        { to: '/delivery/', name: 'Доставка' },
+        { to: '/delivery/#freedeliverу', name: 'Условия бесплатной доставки' },
+        { to: '/pay/', name: 'Оплата' },
+        { to: '/help/#returns', name: 'Возврат' },
+        { to: '/documents/privacypolicy/', name: 'Обработка персональных данных' },
+        { to: '/documents/user-agreement/', name: 'Пользовательское соглашение' },
+        { to: '/help/feedback/', name: 'Единая служба качества' },
+      ],
+    }
   },
 };
 </script>

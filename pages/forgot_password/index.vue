@@ -6,12 +6,7 @@
       будут высланы вам по E-Mail.
     </p>
     <b-row class="mb-2">
-      <VInput
-        items="Email:"
-        name="Email"
-        :error="error.Email"
-        :$v="$v"
-      ></VInput>
+      <VInput items="Email:" name="Email" :error="error.Email" :$v="$v" />
     </b-row>
     <base-button @click="ClickBnt">Отправить</base-button>
   </b-container>

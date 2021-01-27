@@ -20,6 +20,7 @@ const name = {
 const lastName = {
   required,
 };
+const tlf = {};
 export default {
   data() {
     return {
@@ -28,6 +29,7 @@ export default {
         message: "",
         name: "",
         lastName: "",
+        tlf: "",
       },
     };
   },
@@ -35,9 +37,10 @@ export default {
     return {
       Form: {
         Email: Myemail,
-        message:message,
+        message,
         name,
         lastName,
+        tlf,
       },
     };
   },

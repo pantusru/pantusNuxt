@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import {
-  required,
-  minLength,
-  between,
-  alphaNum,
-} from "vuelidate/lib/validators";
+// import {
+//   required,
+//   minLength,
+//   between,
+//   alphaNum,
+// } from "vuelidate/lib/validators";
 import MixinsError from "@/mixins/form/forgot-password/error";
 import MixinsValidations from "@/mixins/form/forgot-password/validator";
 import VInput from "@/components/register/index";

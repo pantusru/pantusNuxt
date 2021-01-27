@@ -40,7 +40,14 @@
           />
           <VInput items="Имя:" name="name" :error="error.name" :$v="$v" />
           <VInput items="Email:" name="Email" :error="error.Email" :$v="$v" />
-          <div class="col">
+          <VInput
+            items="Телефон:"
+            name="tlf"
+            :error="error.tlf"
+            :$v="$v"
+            vmask="+7(###) ###-##-##"
+          />
+          <div class="col-12 col-md-6">
             <label>Сообщение:</label>
             <b-textarea
               id="message"
@@ -52,6 +59,9 @@
             />
             <base-errors-valid name="message" :error="error.message" :$v="$v" />
           </div>
+        </div>
+        <div class="px-15px">
+          <base-button @click="ClickBnt">Отправить</base-button>
         </div>
       </div>
     </div>
@@ -90,6 +100,14 @@ export default {
         { to: "/help/feedback/", name: "Единая служба качества" },
       ],
     };
+  },
+  methods: {
+    ClickBnt() {
+      this.$v.Form.$touch();
+      if (this.$v.Form.$error === false) {
+        // ЗАПРОС  НА СЕРВЕР
+      }
+    },
   },
 };
 </script>

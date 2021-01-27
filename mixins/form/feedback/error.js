@@ -26,6 +26,7 @@ const message = [
     text: "Укажите ваше сообщение",
   },
 ];
+const tlf = [];
 export default {
   data() {
     return {
@@ -34,6 +35,7 @@ export default {
         name,
         lastName,
         message,
+        tlf,
       },
     };
   },

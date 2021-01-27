@@ -7,7 +7,7 @@
           <div class="container">
             <div class="promocontent">
               <div class="promohead">
-                <h2>
+                <h2 class="text-light">
                   <b>
                     Покупайте автозапчасти оптом с доставкой<br>
                     от 0 рублей по России и СНГ без аванса

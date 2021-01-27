@@ -72,6 +72,7 @@
 import MixinsError from "@/mixins/form/feedback/error";
 import MixinsValidations from "@/mixins/form/feedback/validator";
 import VInput from "@/components/register/index";
+import MixinMenuAll from "@/mixins/static-data/menu-all"
 import sidebar from "@/components/static/elements/sidebar/index";
 export default {
   name: "Feedback",
@@ -79,28 +80,7 @@ export default {
     sidebar,
     VInput,
   },
-  mixins: [MixinsError, MixinsValidations],
-  data() {
-    return {
-      sideBarItems: [
-        { to: "/help/", name: "Помощь" },
-        { to: "/help/#kak-sdelat-zakaz", name: "Заказ" },
-        { to: "/delivery/", name: "Доставка" },
-        { to: "/delivery/#freedeliverу", name: "Условия бесплатной доставки" },
-        { to: "/pay/", name: "Оплата" },
-        { to: "/help/#returns", name: "Возврат" },
-        {
-          to: "/documents/privacypolicy/",
-          name: "Обработка персональных данных",
-        },
-        {
-          to: "/documents/user-agreement/",
-          name: "Пользовательское соглашение",
-        },
-        { to: "/help/feedback/", name: "Единая служба качества" },
-      ],
-    };
-  },
+  mixins: [MixinsError, MixinsValidations, MixinMenuAll],
   methods: {
     ClickBnt() {
       this.$v.Form.$touch();

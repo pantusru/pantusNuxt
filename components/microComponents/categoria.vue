@@ -1,21 +1,23 @@
 <template>
-  <div class="blog-categoria">
-    <div class="categoria-content col-12 col-md-8">
-      <h2>
-        <a href="" class="categoria-title"> {{ title }}</a>
-      </h2>
-      <div class="categoria-ul">
-        <a
-          v-for="data in ul"
-          :key="data.id"
-          :href="data.href"
-          class="categoria-link"
+  <div class="col-12 col-lg-8 mb-2 mb-lg-0">
+    <div class="blog-categoria">
+      <div class="categoria-content">
+        <h2>
+          <a href="" class="categoria-title"> {{ title }}</a>
+        </h2>
+        <div class="categoria-ul">
+          <a
+            v-for="data in ul"
+            :key="data.id"
+            :href="data.href"
+            class="categoria-link"
           >{{ data.name }}</a
-        >
+          >
+        </div>
       </div>
-    </div>
-    <div class="categoria-img">
-      <img :src="src" :alt="alt">
+      <div class="categoria-img">
+        <img :src="src" :alt="alt" />
+      </div>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="banner col-3">
+  <div class="banner col-12 col-md-3 mt-3 mt-lg-0">
     <VueSlickCarousel v-bind="Settings">
       <a v-for="data in img" :key="data.id" class="banner_img">
         <img :src="data.src" :alt="data.alt" >

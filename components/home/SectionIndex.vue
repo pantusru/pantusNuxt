@@ -1,32 +1,45 @@
 <template>
   <section class="section-index">
-    <div class="content-categoria col-md-9 col-12">
+    <div class="content-categoria col-lg-9 col-12 row">
       <categoriaVue
         title="Автозапчасти ВАЗ"
         :ul="categoriaUrl[0]"
-        src="@/assets/img/home-car-1.png"
+        src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"
         alt="1"
       />
-      <div class="blog-mini-categoria">
-        <h2>
-          <a href="" class="categoria-title link-hover">Шланги поливочные</a>
-        </h2>
-        <div class="mini-categoria-img">
-          <img src="@/assets/img/home/home-car-2.png" alt="">
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+        <div class="blog-mini-categoria">
+          <h2 class="pt-2">
+            <a href="" class="categoria-title link-hover">Генераторы СОАТЭ</a>
+          </h2>
+          <div class="mini-categoria-img">
+            <img
+              style="width: 150px; margin-left: auto; display: block"
+              src="https://www.pantus.ru/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
+
       <categoriaVue
         title="Запчасти для корейских Авто"
         :ul="categoriaUrl[1]"
-        src="@/assets/img/home/home-car-3.png"
+        src="https://www.pantus.ru/upload/medialibrary/4ae/4457741.jpg"
         alt="1"
       />
-      <div class="blog-mini-categoria">
-        <h2>
-          <a href="" class="categoria-title link-hover">Запчасти Renault</a>
-        </h2>
-        <div class="mini-categoria-img">
-          <img src="@/assets/img/home/home-car-4.png" alt="">
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+        <div class="blog-mini-categoria">
+          <h2>
+            <a href="" class="categoria-title link-hover">Запчасти Renault</a>
+          </h2>
+          <div class="mini-categoria-img">
+            <img
+              style="width: 180px; margin-left: auto; display: block"
+              src="@/assets/img/home/home-car-4.png"
+              alt=""
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -87,10 +100,6 @@ export default {
     display: flex
     justify-content: space-between
     flex-wrap: wrap
-.content-categoria
-    display: grid
-    grid-template-columns: 2fr 1fr
-    grid-gap: 35px
 .blog-mini-categoria
     box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
 </style>

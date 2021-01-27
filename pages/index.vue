@@ -3,8 +3,8 @@
     <!-- <VueNewsIndex/> Популярные новости -->
     <b-container>
       <SectionIndex />
-<!--      <SectionReklama />-->
-<!--      <SectionIndexGVue />-->
+      <SectionReklama />
+      <SectionIndexGVue />
 <!--      <SectionDealersVue />-->
 <!--      <SectionContentVue />-->
 <!--      <SectionAdvantageVue />-->
@@ -29,8 +29,8 @@ import VueProductsIndex from "@/components/products/popular/index";
 import ClaiderPopular from "@/components/home/claider-popular";
 
 import SectionIndex from "../components/home/SectionIndex";
-// import SectionReklama from "../components/home/SectionReklama";
-// import SectionIndexGVue from "../components/home/SectionIndexG.vue";
+import SectionReklama from "../components/home/SectionReklama";
+import SectionIndexGVue from "../components/home/SectionIndexG.vue";
 // import SectionDealersVue from "../components/home/SectionDealers.vue";
 // import SectionContentVue from "../components/home/SectionContent.vue";
 // import SectionAdvantageVue from "../components/home/SectionAdvantage.vue";
@@ -47,8 +47,8 @@ export default {
 
 
     SectionIndex,
-    // SectionReklama,
-    // SectionIndexGVue,
+    SectionReklama,
+    SectionIndexGVue,
     // SectionDealersVue,
     // SectionContentVue,
     // SectionAdvantageVue,

@@ -14,7 +14,7 @@
           </h2>
           <div class="mini-categoria-img">
             <img
-              style="width: 150px; margin-left: auto; display: block"
+              style="width: 180px; margin-left: auto; display: block"
               src="https://www.pantus.ru/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg"
               alt=""
             />

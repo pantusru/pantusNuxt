@@ -14,11 +14,9 @@
       src="img/home-car-6.png"
       alt="1"
     />
-    <div class="col-6 bg-red ">
+    <div class="col-6 bg-red">
       <h2>
-        <a href="" class="categoria-title"
-          >Автомасла автокосметика автохимия</a
-        >
+        <a href="" class="categoria-title">Автомасла автокосметика автохимия</a>
       </h2>
     </div>
     <categoriaVue
@@ -34,34 +32,33 @@
 <script>
 import categoriaVue from "../microComponents/categoria.vue";
 export default {
+  components: {
+    categoriaVue,
+  },
   data() {
     return {
       categoriaUrl: [
         [
           { name: "ГАЗель и легковые", href: "" },
-          { name: "Грузовые ГАЗ", href: "" }
+          { name: "Грузовые ГАЗ", href: "" },
         ],
         [
           { name: "Запчасти КАМАЗ", href: "" },
           { name: "Запчасти МАЗ", href: "" },
-          { name: "Запчасти ЗИЛ", href: "" }
+          { name: "Запчасти ЗИЛ", href: "" },
         ],
         [
           { name: "Лампы", href: "" },
-          { name: "Оптика", href: "" }
-        ]
-      ]
+          { name: "Оптика", href: "" },
+        ],
+      ],
     };
   },
-  components: {
-    categoriaVue: categoriaVue
-  }
 };
 </script>
 
 <style lang="sass">
-.col-6
-    +size(6)
+//.col-6
     padding-bottom: 100px
     &:nth-child(2),  &:nth-child(1)
         margin-bottom: 30px
@@ -84,7 +81,7 @@ export default {
                 background: linear-gradient(to right, rgba(155,166,180,1) 0%, rgba(112,128,147,1) 120%)
     &.bg-red
         box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
-        background-image: url(../../../public/img/home-car-7.png)
+        //background-image: url("../../../public/img/home-car-7.png")
         background-repeat: no-repeat
         background-size: cover
         .categoria-title

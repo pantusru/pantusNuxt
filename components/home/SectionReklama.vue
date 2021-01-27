@@ -1,16 +1,13 @@
 <template>
   <section class="section-reklama">
     <div class="img-reklama">
-      <img src="@/assets/logo (1).png" alt="21" />
+      <img src="https://www.pantus.ru/upload/medialibrary/d26/Luzar.jpg" alt="Luzar" />
     </div>
-    <p class="text">
-      Пантус заключил диллерское соглашение с производителем широкой
-      ассортиментной линейки автомобильного электрооборудования и приборов для
-      отечественных автомобилей Автоприбор!
-    </p>
     <div class="img-reklama">
-      <img src="@/assets/photo-min2.0.jpg" alt="2" />
+      <img src="https://www.pantus.ru/upload/medialibrary/56f/image (510).png" alt="Trialli" />
     </div>
+    <p class="text">ПАНТУС заключил дистрибьюторское соглашение с управляющей компанией «Карвиль». Документ наделил нашу компанию правом реализовывать продукцию торговых марок LUZAR и TRIALLI. Это известные производители автозапчастей и электрооборудования для автомобилей отечественного и зарубежного производства.
+    </p>
     <button class="bnt-reklama-more">Подробнее</button>
   </section>
 </template>
@@ -21,7 +18,8 @@ export default {};
 
 <style lang="sass">
 .section-reklama
-    padding-left: 20px
+    margin-top: 20px
+    padding: 20px
     display: flex
     box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
     // justify-content: space-between

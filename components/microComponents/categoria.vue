@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 col-lg-8 mb-2 mb-lg-0">
-    <div class="blog-categoria">
+  <div class="">
+    <div class="blog-categoria d-block d-lg-flex">
       <div class="categoria-content">
         <h2>
           <a href="" class="categoria-title"> {{ title }}</a>
@@ -11,12 +11,12 @@
             :key="data.id"
             :href="data.href"
             class="categoria-link"
-          >{{ data.name }}</a
+            >{{ data.name }}</a
           >
         </div>
       </div>
       <div class="categoria-img">
-        <img :src="src" :alt="alt" />
+        <img :class="classImg" :src="src" :alt="alt" >
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  props: ["title", "ul", "src", "alt"],
+  props: ["title", "ul", "src", "alt", "classImg"],
 };
 </script>
 
@@ -59,9 +59,11 @@ export default {
             display: flex
             flex-direction: column
     .categoria-img
-        width: 60%
-        position: absolute
-        right: 0
-        top: 20%
-        z-index: -2
+      margin-left: auto
+      max-width: 60%
+      //width: 60%
+        //position: absolute
+        //right: 0
+        //top: 20%
+        //z-index: -2
 </style>

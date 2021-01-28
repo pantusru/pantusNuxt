@@ -1,29 +1,29 @@
 <template>
   <section class="section-index">
     <categoriaVue
-      class="col-6"
+      class="col-12 col-lg-6 mb-2 mb-lg-0"
       title="Запчасти ГАЗ"
       :ul="categoriaUrl[0]"
-      src="img/home-car-5.png"
+      src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-5.png"
       alt="1"
     />
     <categoriaVue
-      class="col-6"
-      title="Запчасти на грузовые авто    "
+      class="col-12 col-lg-6 mb-2 mb-lg-0"
+      title="Запчасти на грузовые авто"
       :ul="categoriaUrl[1]"
-      src="img/home-car-6.png"
+      src="https://www.pantus.ru/bitrix/templates/main/img/IMG_3848.png.blog-mini-categoria"
       alt="1"
     />
-    <div class="col-6 bg-red">
+    <div class="col-12 col-lg-6 mb-2 mb-lg-0 bg-red">
       <h2>
         <a href="" class="categoria-title">Автомасла автокосметика автохимия</a>
       </h2>
     </div>
     <categoriaVue
-      class="col-6 bg"
+      class="col-12 col-lg-6 mb-2 mb-lg-0 bg"
       title="Автосвет и лампы"
       :ul="categoriaUrl[2]"
-      src="img/home-car-8.png"
+      src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-7.png"
       alt="1"
     />
   </section>

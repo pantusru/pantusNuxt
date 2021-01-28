@@ -2,6 +2,7 @@
   <section class="section-index">
     <div class="content-categoria col-lg-9 col-12 row">
       <categoriaVue
+        class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Автозапчасти ВАЗ"
         :ul="categoriaUrl[0]"
         src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"
@@ -23,6 +24,7 @@
       </div>
 
       <categoriaVue
+        class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Запчасти для корейских Авто"
         :ul="categoriaUrl[1]"
         src="https://www.pantus.ru/upload/medialibrary/4ae/4457741.jpg"
@@ -102,4 +104,7 @@ export default {
     flex-wrap: wrap
 .blog-mini-categoria
     box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
+    height: 100%
+.mini-categoria-img
+
 </style>

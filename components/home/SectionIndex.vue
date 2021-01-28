@@ -10,7 +10,7 @@
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
-          <h2 class="pt-2">
+          <h2 class="pt-4">
             <a href="" class="categoria-title link-hover">Генераторы СОАТЭ</a>
           </h2>
           <div class="mini-categoria-img">
@@ -32,7 +32,7 @@
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
-          <h2>
+          <h2 class="pt-4">
             <a href="" class="categoria-title link-hover">Запчасти Renault</a>
           </h2>
           <div class="mini-categoria-img">

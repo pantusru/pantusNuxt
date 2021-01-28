@@ -1,22 +1,24 @@
 <template>
   <div class="">
-    <div class="blog-categoria d-block d-lg-flex">
-      <div class="categoria-content">
-        <h2>
-          <a href="" class="categoria-title"> {{ title }}</a>
-        </h2>
-        <div class="categoria-ul">
-          <a
-            v-for="data in ul"
-            :key="data.id"
-            :href="data.href"
-            class="categoria-link"
-            >{{ data.name }}</a
-          >
+    <div class="blog-categoria">
+      <h2 class="pt-4">
+        <a href="" class="categoria-title"> {{ title }}</a>
+      </h2>
+      <div class="d-block d-lg-flex">
+        <div class="categoria-content">
+          <div class="categoria-ul">
+            <a
+              v-for="data in ul"
+              :key="data.id"
+              :href="data.href"
+              class="categoria-link"
+              >{{ data.name }}</a
+            >
+          </div>
         </div>
-      </div>
-      <div class="categoria-img">
-        <img :class="classImg" :src="src" :alt="alt" >
+        <div class="categoria-img">
+          <img :class="classImg" :src="src" :alt="alt">
+        </div>
       </div>
     </div>
   </div>
@@ -45,6 +47,7 @@ export default {
         padding-bottom: 10px
         padding-top: 15px
         padding-left: 30px
+        padding-right: 15px
         &:hover
             color: #fff
             background: linear-gradient(to right, rgba(224,107,117,1) 0%, rgba(255,255,255,1) 120%)
@@ -52,8 +55,8 @@ export default {
     padding: 20px
     box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
     position: relative
-    display: flex
-    justify-content: space-between
+    //display: flex
+    //justify-content: space-between
     .categoria-content
         .categoria-ul
             display: flex

@@ -9,13 +9,14 @@
     />
     <categoriaVue
       class="col-12 col-lg-6 mb-2 mb-lg-0"
+      class-img="w-230px"
       title="Запчасти на грузовые авто"
       :ul="categoriaUrl[1]"
-      src="https://www.pantus.ru/bitrix/templates/main/img/IMG_3848.png.blog-mini-categoria"
+      :src="require('@/assets/img/home/home-car-6.png')"
       alt="1"
     />
     <div class="col-12 col-lg-6 mb-2 mb-lg-0 bg-red">
-      <h2>
+      <h2 class="pt-4">
         <a href="" class="categoria-title">Автомасла автокосметика автохимия</a>
       </h2>
     </div>
@@ -58,6 +59,8 @@ export default {
 </script>
 
 <style lang="sass">
+.w-230px
+  width: 230px
 //.col-6
     padding-bottom: 100px
     &:nth-child(2),  &:nth-child(1)

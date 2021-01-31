@@ -9,7 +9,7 @@ export const mutations = {
 export const actions = {
   async _NewsCategories({ store, dispatch, commit, getters }) {
     if (getters.GetNewsCategories.length === 0) {
-      let data = await dispatch(
+      const data = await dispatch(
         "News/axios/_NewsСategoriesAll",
         {},
         { root: true }

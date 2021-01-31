@@ -1,8 +1,8 @@
 <template>
-  <section class="" v-if="NewsPage">
+  <section v-if="NewsPage" class="">
     <div class="container">
       <h3 class="mb-3">Новости</h3>
-      <NewsPageIndex :dataset="NewsPage" :Count="CountPage" />
+      <NewsPageIndex :dataset="NewsPage" :count="CountPage" />
     </div>
   </section>
 </template>

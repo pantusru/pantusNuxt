@@ -40,15 +40,15 @@ export const actions = {
     }
     // ПРОВЕРКА ДАННЫХ НА НАЛИЧИЕ!!
     if (load) {
-      let offets = (data.page - 1) * getters.GetLimit;
-      let dataset = await dispatch(
+      const offets = (data.page - 1) * getters.GetLimit;
+      const dataset = await dispatch(
         "News/axios/_CategoriesNews",
-        { id: data.id, offets: offets, limit: getters.GetLimit },
+        { id: data.id, offets, limit: getters.GetLimit },
         { root: true }
       );
       commit("SetCountNewws", dataset[0].category.amount_news); // ИЗМЕНИТЬ КОГДА АНДРЕЙ ПОФИКсИТ!
       commit("SetNewsCategoriesPage", {
-        dataset: dataset,
+        dataset,
         page: data.page,
         name: data.id,
       });

@@ -23,17 +23,17 @@ export const actions = {
     }
     if (getters.GetNewsPage[page] === undefined) {
       // данные не загруженны!
-      let offets = (page - 1) * getters.GetLimit;
-      let data = await dispatch(
+      const offets = (page - 1) * getters.GetLimit;
+      const data = await dispatch(
         "News/axios/_NewsAll",
-        { offets: offets, limit: getters.GetLimit },
+        { offets, limit: getters.GetLimit },
         { root: true }
       );
       if (getters.GetCountNews === 0) {
         commit("SetCountNews", data.count);
       }
-      let dataset = data.results;
-      commit("SetNewsPage", { dataset: dataset, page: page });
+      const dataset = data;
+      commit("SetNewsPage", { dataset, page });
       commit("SetNewsVisible", dataset);
     } else {
       // данные загружены!
@@ -47,7 +47,7 @@ export const getters = {
   GetCountNews: s => s.CountNews,
   GetLimit: s => s.limit,
   GetPage: s => {
-    if (s.CountNews % s.limit != 0) {
+    if (s.CountNews % s.limit !== 0) {
       return Number(s.CountNews / s.limit) + 1;
     } else {
       return Number(s.CountNews / s.limit);

@@ -18,13 +18,13 @@
 import VueBlogNews from "@/components/news/news-blog-get";
 import PageMixins from "@/mixins/page/index";
 export default {
+  components: {
+    VueBlogNews,
+  },
   mixins: [PageMixins],
   props: {
     dataset: {},
     Count: {},
-  },
-  components: {
-    VueBlogNews,
   },
 };
 </script>

@@ -9,12 +9,12 @@ export const mutations = {
 export const actions = {
   async _NewsIndex({ store, dispatch, commit, getters }) {
     if (getters.GetNewsIndex.length === 0) {
-      let data = await dispatch(
+      const data = await dispatch(
         "News/axios/_NewsAll",
         { offets: 0, limit: 9 },
         { root: true }
       );
-      commit("SetNewsIndex", data.results);
+      commit("SetNewsIndex", data);
     }
   },
 };

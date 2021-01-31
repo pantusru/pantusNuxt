@@ -1,30 +1,36 @@
 <template>
   <section class="section-index">
     <categoriaVue
-      class="col-12 col-lg-6 mb-2 mb-lg-0"
-      title="Запчасти ГАЗ"
+      class="col-12 col-lg-6 mb-3"
+      title="Запчасти для а/м ГАЗ"
       :ul="categoriaUrl[0]"
       src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-5.png"
       alt="1"
     />
     <categoriaVue
-      class="col-12 col-lg-6 mb-2 mb-lg-0"
+      class="col-12 col-lg-6 mb-3"
       class-img="w-230px"
       title="Запчасти на грузовые авто"
       :ul="categoriaUrl[1]"
       :src="require('@/assets/img/home/home-car-6.png')"
       alt="1"
     />
-    <div class="col-12 col-lg-6 mb-2 mb-lg-0 bg-red">
-      <h2 class="pt-4">
-        <a href="" class="categoria-title">Автомасла автокосметика автохимия</a>
-      </h2>
+    <div class="col-12 col-lg-6 mb-3">
+      <div class="bg-cover d-flex flex-column justify-content-between h-100">
+        <h2 class="pt-4 text-center">
+          <a href="" class="text-light categoria-title"
+            >Автомасла автокосметика автохимия</a
+          >
+        </h2>
+        <img :src="require('@/assets/img/home/home-car-7.png')" alt="" />
+      </div>
     </div>
     <categoriaVue
-      class="col-12 col-lg-6 mb-2 mb-lg-0 bg"
+      class-img="w-200px"
+      class="col-12 col-lg-6 mb-3 bg"
       title="Автосвет и лампы"
       :ul="categoriaUrl[2]"
-      src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-7.png"
+      src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-8.png"
       alt="1"
     />
   </section>
@@ -59,6 +65,11 @@ export default {
 </script>
 
 <style lang="sass">
+.bg-cover
+  background-size: cover
+  background-color: #cb444e
+.w-200px
+  width: 200px
 .w-230px
   width: 230px
 //.col-6

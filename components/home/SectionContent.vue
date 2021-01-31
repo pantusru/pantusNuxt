@@ -1,19 +1,19 @@
 <template>
   <section class="section-content">
-    <div class="blog-catalogs">
+    <div class="blog-catalogs col-md-4 col-12">
       <h2>
         <a class="title-content link-hover" href="">Оригинальные каталоги </a>
       </h2>
-      <img src="img/zapchasti.png" alt="11" />
+      <img :src="require('@/assets/img/home/zapchasti.png')" alt="11">
     </div>
-    <div class="blog-brand">
+    <div class="blog-brand col-12 col-md-8">
       <h2>
-        <a href="" class="title-content link-hover ">Бренды запчастей</a>
+        <a href="" class="title-content link-hover">Бренды запчастей</a>
       </h2>
       <table class="table-brand">
         <tbody>
-          <tr class="brand-tr" v-for="data in table" :key="data.id">
-            <td class="brand-td" v-for="dataset in data" :key="dataset.id">
+          <tr v-for="data in table" :key="data.id" class="brand-tr">
+            <td v-for="dataset in data" :key="dataset.id" class="brand-td">
               <a class="brand-link link-hover" :href="dataset.href">{{
                 dataset.name
               }}</a>
@@ -35,29 +35,29 @@ export default {
           { name: "ВРТ", href: "" },
           { name: "БРТ", href: "" },
           { name: "Lada", href: "" },
-          { name: "Элад", href: "" }
+          { name: "Элад", href: "" },
         ],
         [
           { name: "AMD", href: "" },
           { name: "ASAM", href: "" },
           { name: "SA", href: "" },
-          { name: "РезиноТехника", href: "" }
+          { name: "РезиноТехника", href: "" },
         ],
         [
           { name: "РезиноТехника", href: "" },
           { name: "СЭВИ", href: "" },
           { name: "SA", href: "" },
-          { name: "РезиноТехника", href: "" }
+          { name: "РезиноТехника", href: "" },
         ],
         [
           { name: "БМРТ", href: "" },
           { name: "СЭВИ", href: "" },
           { name: "ТехноПартнер", href: "" },
-          { name: "Hanse", href: "" }
-        ]
-      ]
+          { name: "Hanse", href: "" },
+        ],
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -73,13 +73,11 @@ export default {
     padding-top: 20px
     border: 1px solid rgba(179, 179, 179, 0.2)
 .blog-catalogs
-    +size(4)
     .title-content
         display: block
         margin-bottom: 30px
         text-align: center
 .blog-brand
-    +size(8)
     padding-left: 20px
     .table-brand
         font-size: 16px

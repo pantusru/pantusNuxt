@@ -32,6 +32,7 @@ export default {};
 <style lang="sass">
 .section-reklama
     margin-top: 20px
+    margin-bottom: 20px
     padding: 20px
     display: flex
     //flex-wrap: wrap

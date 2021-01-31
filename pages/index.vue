@@ -6,7 +6,7 @@
       <SectionReklama />
       <SectionIndexGVue />
 <!--      <SectionDealersVue />-->
-<!--      <SectionContentVue />-->
+      <SectionContentVue />
 <!--      <SectionAdvantageVue />-->
     </b-container>
     <claider-popular :popular="popular.slice(0, 10)" />
@@ -32,7 +32,7 @@ import SectionIndex from "../components/home/SectionIndex";
 import SectionReklama from "../components/home/SectionReklama";
 import SectionIndexGVue from "../components/home/SectionIndexG.vue";
 // import SectionDealersVue from "../components/home/SectionDealers.vue";
-// import SectionContentVue from "../components/home/SectionContent.vue";
+import SectionContentVue from "../components/home/SectionContent.vue";
 // import SectionAdvantageVue from "../components/home/SectionAdvantage.vue";
 // import SectionNews from "../components/home/SectionNews.vue";
 // import SectionAboutVue from "../components/home/SectionAbout.vue";
@@ -50,7 +50,7 @@ export default {
     SectionReklama,
     SectionIndexGVue,
     // SectionDealersVue,
-    // SectionContentVue,
+    SectionContentVue,
     // SectionAdvantageVue,
     // SectionNews,
     // SectionAboutVue

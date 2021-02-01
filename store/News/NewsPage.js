@@ -17,21 +17,25 @@ export const mutations = {
 };
 export const actions = {
   async _NewsPage({ store, dispatch, commit, getters }, page) {
+    const count = await dispatch(
+      "News/axios/_NewsAllCount",
+      {},
+      { root: true }
+    );
+    commit("SetCountNews", count);
     if (page === undefined) {
       // проверка что пришло!
       page = 1;
     }
     if (getters.GetNewsPage[page] === undefined) {
       // данные не загруженны!
-      const offets = (page - 1) * getters.GetLimit;
+      // const offets = (page - 1) * getters.GetLimit;
       const data = await dispatch(
         "News/axios/_NewsAll",
-        { offets, limit: getters.GetLimit },
+        { offets: page, limit: getters.GetLimit },
         { root: true }
       );
-      if (getters.GetCountNews === 0) {
-        commit("SetCountNews", data.count);
-      }
+      // }
       const dataset = data;
       commit("SetNewsPage", { dataset, page });
       commit("SetNewsVisible", dataset);

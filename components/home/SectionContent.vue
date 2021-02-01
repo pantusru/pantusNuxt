@@ -4,7 +4,11 @@
       <h2>
         <a class="title-content link-hover" href="">Оригинальные каталоги </a>
       </h2>
-      <img :src="require('@/assets/img/home/zapchasti.png')" alt="11">
+      <img
+        class="img-100-auto"
+        :src="require('@/assets/img/home/zapchasti.png')"
+        alt="11"
+      />
     </div>
     <div class="blog-brand col-12 col-md-8">
       <h2>
@@ -90,6 +94,8 @@ export default {
     .brand-link
         color: #6b6b6b
     .btn-full-brand
+        border: 0
+        background: transparent
         margin-top: 20px
         font-size: 16px
         color: #cb444e

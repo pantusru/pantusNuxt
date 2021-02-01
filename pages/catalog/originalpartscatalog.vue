@@ -2,6 +2,7 @@
   <b-container>
     <iframe
       id="acat-frame"
+      style="min-height: 70vh"
       src="https://pantus.acat.online"
       width="90%"
       height="100%"

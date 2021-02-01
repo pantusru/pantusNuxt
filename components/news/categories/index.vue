@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="'/news/' + dataset.id"
+    :to="'/news/' + dataset.code"
     class="d-flex justify-content-between text-decoration-none shadow px-3 py-4 mb-3"
   >
     <div class="text-danger">{{ dataset.name }}</div>

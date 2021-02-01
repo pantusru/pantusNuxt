@@ -12,14 +12,14 @@
                     class="logo-ico"
                     src="https://www.pantus.ru/app/assets/images/pantus_logo.jpg"
                     alt="pantus"
-                ></a>
+                /></a>
               </div>
               <div class="header-logo-panel__col">
                 <img
                   class="logo-ico"
                   src="https://www.pantus.ru/app/assets/images/icon.png"
                   alt="pantus_l"
-                >
+                />
               </div>
               <div class="header-logo-panel__col header-logo-panel_right">
                 <a
@@ -34,9 +34,9 @@
             <div class="header_text">
               <article class="header_description">
                 Отсканируйте упаковку товара с помощью этого приложения, чтобы
-                увидеть <br >
+                увидеть <br />
                 его 3D-модели на экране смартфона в дополненной реальности и
-                <br >получить информацию о его особенностях и преимуществах.
+                <br />получить информацию о его особенностях и преимуществах.
               </article>
             </div>
           </div>
@@ -50,7 +50,7 @@
                   <img
                     src="https://www.pantus.ru/app/assets/images/btn-android.png"
                     alt="app-android"
-                  >
+                  />
                 </a>
               </div>
               <div class="app-market__qr-code">
@@ -58,7 +58,7 @@
                   src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
                   alt="app-android-qr"
                   @click="openModal('android')"
-                >
+                />
               </div>
             </div>
             <div class="app-market__row">
@@ -70,7 +70,7 @@
                   <img
                     src="https://www.pantus.ru/app/assets/images/btn-ios.png"
                     alt="app-ios"
-                  >
+                  />
                 </a>
               </div>
               <div class="app-market__qr-code">
@@ -78,7 +78,7 @@
                   src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
                   alt="app-ios-qr"
                   @click="openModal('ios')"
-                >
+                />
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
               <img
                 src="https://www.pantus.ru/app/assets/images/section_1_bottom_phone.png"
                 alt=""
-              >
+              />
             </div>
             <div class="arrow">
               <div class="arrow-ico" />
@@ -99,7 +99,7 @@
                 <img
                   src="https://www.pantus.ru/app/assets/images/section-1.png"
                   alt="app-phone-3d"
-                >
+                />
               </div>
               <div class="demonstrations__text-block block-right">
                 <div class="text-block__contain contain-right">
@@ -133,7 +133,7 @@
                 <img
                   src="https://www.pantus.ru/app/assets/images/section-2.png"
                   alt="app-phone-vr"
-                >
+                />
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@
                 <img
                   src="https://www.pantus.ru/app/assets/images/section-3.png"
                   alt="app-phone-catalog"
-                >
+                />
               </div>
               <div class="demonstrations__text-block block-right">
                 <div class="text-block__contain contain-right">
@@ -175,7 +175,7 @@
                 <img
                   src="https://www.pantus.ru/app/assets/images/section-4.png"
                   alt="app-phone-news"
-                >
+                />
               </div>
             </div>
           </div>
@@ -189,7 +189,7 @@
                 class="logo-ico"
                 src="https://www.pantus.ru/app/assets/images/icon.png"
                 alt="pantus-logo"
-              >
+              />
             </div>
             <div class="company_title"><h1>Pantus AR</h1></div>
           </div>
@@ -203,7 +203,7 @@
                   <img
                     src="https://www.pantus.ru/app/assets/images/btn-android.png"
                     alt="app-android"
-                  >
+                  />
                 </a>
               </div>
               <div class="app-market__qr-code">
@@ -211,7 +211,7 @@
                   src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
                   alt="app-android-qr"
                   @click="openModal('android')"
-                >
+                />
               </div>
             </div>
             <div class="app-market__row">
@@ -223,7 +223,7 @@
                   <img
                     src="https://www.pantus.ru/app/assets/images/btn-ios.png"
                     alt="app-ios"
-                  >
+                  />
                 </a>
               </div>
               <div class="app-market__qr-code">
@@ -231,7 +231,7 @@
                   src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
                   alt="app-ios-qr"
                   @click="openModal('ios')"
-                >
+                />
               </div>
             </div>
           </div>
@@ -264,7 +264,7 @@
 <script>
 export default {
   name: "Index",
-
+  layout: "app",
   data() {
     return {
       qrCodeUrl: null,

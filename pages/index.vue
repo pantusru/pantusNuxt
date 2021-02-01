@@ -5,14 +5,12 @@
       <SectionIndex />
       <SectionReklama />
       <SectionIndexGVue />
-<!--      <SectionDealersVue />-->
       <SectionContentVue />
-<!--      <SectionAdvantageVue />-->
+      <Abvantage />
     </b-container>
     <claider-popular :popular="popular.slice(0, 10)" />
-    <Abvantage />
     <b-container>
-<!--      <SectionAboutVue />-->
+      <SectionAboutVue />
     </b-container>
     <!-- Популярные Товары -->
     <ModalImg />
@@ -35,16 +33,15 @@ import SectionIndexGVue from "../components/home/SectionIndexG.vue";
 import SectionContentVue from "../components/home/SectionContent.vue";
 // import SectionAdvantageVue from "../components/home/SectionAdvantage.vue";
 // import SectionNews from "../components/home/SectionNews.vue";
-// import SectionAboutVue from "../components/home/SectionAbout.vue";
+import SectionAboutVue from "../components/home/SectionAbout.vue";
 export default {
   components: {
     ClaiderPopular,
-    VueNewsIndex,
-    VueProductsIndex,
+    // VueNewsIndex,
+    // VueProductsIndex,
     ModalImg,
     ModalBuy,
     Abvantage,
-
 
     SectionIndex,
     SectionReklama,
@@ -53,7 +50,7 @@ export default {
     SectionContentVue,
     // SectionAdvantageVue,
     // SectionNews,
-    // SectionAboutVue
+    SectionAboutVue,
   },
   async fetch({ store }) {
     await Promise.all([

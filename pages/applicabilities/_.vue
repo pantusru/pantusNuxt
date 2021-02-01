@@ -9,6 +9,7 @@
         <FuncComponents :array="GetProduct" />
         <BasePagination :length="getCountProducts" :limit="20" />
       </div>
+      <div v-html="getGetApplicabilitiesDescription.description"></div>
     </div>
     <h2 v-else class="text-danger">Товар не найден</h2>
   </b-container>
@@ -60,6 +61,10 @@ export default {
         filter_applicabilities: applicabilities.id,
         page_number: this.$route?.query?.page_number,
       });
+      await store.dispatch(
+        "Applicabilities/ApplicabilitiessAll/_ApplicabilitiesDescription",
+        applicabilities.id
+      );
     }
   },
   computed: {
@@ -71,6 +76,11 @@ export default {
     },
     getCountProducts() {
       return this.$store.getters["product-static/getCountProducts"];
+    },
+    getGetApplicabilitiesDescription() {
+      return this.$store.getters[
+        "Applicabilities/ApplicabilitiessAll/GetApplicabilitiesDescription"
+      ];
     },
   },
   watch: {

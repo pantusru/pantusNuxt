@@ -10,6 +10,9 @@ export const actions = {
         return res;
       });
   },
+  async _NewsAllCount() {
+    return await this.$axios.$get(`${process.env.api}/news/count`);
+  },
   //  Получить одну новость по ID
   async _NewsId({}, id) {
     return await this.$axios.$get(`${process.env.api}/news/${id}`).then(res => {

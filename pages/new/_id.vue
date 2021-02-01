@@ -18,14 +18,14 @@ export default {
       return this.$store.getters["News/NewsId/GetNewsId"];
     },
   },
-  mounted() {
-    const img = document.querySelectorAll(".content img");
-    img.forEach(element => {
-      element.setAttribute(
-        "src",
-        process.env.apiMedia + element.getAttribute("src")
-      );
-    });
-  },
+  // mounted() {
+  //   const img = document.querySelectorAll(".content img");
+  //   img.forEach(element => {
+  //     element.setAttribute(
+  //       "src",
+  //       process.env.apiMedia + element.getAttribute("src")
+  //     );
+  //   });
+  // },
 };
 </script>

@@ -3,6 +3,7 @@
     <div class="content-categoria col-lg-9 col-12 row">
       <categoriaVue
         class="col-12 col-lg-8 mb-2 mb-lg-0"
+        class-img="img-100-auto"
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
         src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"
@@ -15,6 +16,7 @@
           </h2>
           <div class="mini-categoria-img">
             <img
+              class="img-100-auto"
               style="width: 180px; margin-left: auto; display: block"
               src="https://www.pantus.ru/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg"
               alt=""
@@ -24,7 +26,7 @@
       </div>
 
       <categoriaVue
-        class-img="w-250px"
+        class-img="w-250px img-100-auto"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Новые бренды на Pantus.ru"
         :ul="categoriaUrl[1]"
@@ -38,10 +40,11 @@
           </h2>
           <div class="mini-categoria-img">
             <img
+              class="img-100-auto"
               style="width: 180px; margin-left: auto; display: block"
               src="@/assets/img/home/home-car-4.png"
               alt=""
-            >
+            />
           </div>
         </div>
       </div>
@@ -112,5 +115,4 @@ export default {
     flex-direction: column
     justify-content: space-between
 .mini-categoria-img
-
 </style>

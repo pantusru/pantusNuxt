@@ -5,12 +5,12 @@
         <b-img-lazy class="img-100" :src="data.preview.image" alt="" />
       </b-col>
       <b-col cols="7" class="pl-3">
-<!--        <div class="date"> -->
-<!--          <time class="day">{{ data.created_at[0].day }} </time>-->
-<!--          <time class="month">{{ data.created_at[0].month }}</time>-->
-<!--          <time class="year">{{ data.created_at[0].year }}</time>-->
-<!--        </div>-->
-        <nuxt-link class="text-body fz-5" :to="'/new/' + data.id">{{
+        <!--        <div class="date"> -->
+        <!--          <time class="day">{{ data.created_at[0].day }} </time>-->
+        <!--          <time class="month">{{ data.created_at[0].month }}</time>-->
+        <!--          <time class="year">{{ data.created_at[0].year }}</time>-->
+        <!--        </div>-->
+        <nuxt-link class="text-body fz-5" :to="'/news/' + data.id">{{
           data.name
         }}</nuxt-link>
       </b-col>

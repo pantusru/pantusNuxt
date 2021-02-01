@@ -20,6 +20,8 @@ export const actions = {
 };
 export const getters = {
   GetNewsCategories: s => s.NewsCategories,
+  GetNewsCategoriesCode: s => code =>
+    s.NewsCategories.filter(data => data.code === code),
 };
 
 //  Отображает данные всех категории новостей

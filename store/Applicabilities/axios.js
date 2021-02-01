@@ -18,6 +18,14 @@ export const actions = {
         return dataset;
       });
   },
+
+  async _ApplicabilitiesDescription({ dispatch }, id) {
+    const res = await this.$axios.$get(
+      `${process.env.api}/product_applicabilities/${id}`
+    );
+    return dispatch("_init_ApplicabilitiesDescription", res);
+  },
+
   /**
    * @param data.res - data api
    * @param data.dataset - dataset interface
@@ -48,5 +56,10 @@ export const actions = {
         });
       }
     });
+  },
+  _init_ApplicabilitiesDescription({}, data) {
+    return {
+      description: data.description,
+    };
   },
 };

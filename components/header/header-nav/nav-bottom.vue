@@ -31,10 +31,14 @@ export default {
     return {
       links: [
         { to: "", text: "Оригинальные каталоги" },
-        { to: "/applicabilities/zapchasti-vaz", text: "Ваз" },
-        { to: "/applicabilities/zapchasti-kamaz", text: "Камаз" },
-        { to: "/applicabilities/zapchasti-gaz", text: "Газ" },
-        { to: "/categories/rti", text: "Рти" },
+        { to: "/search?filter_applicabilities=3138", text: "Ваз" },
+        { to: "/search?filter_applicabilities=4921", text: "Камаз" },
+        { to: "/search?filter_applicabilities=3140", text: "Газ" },
+        {
+          to:
+            "/search?filter_categories=265,3009,266,267,297,268,271,272,273,277,281,5342,287,308,322,326,335,334,336,337,369,371,373,375,3059,3060,3069,3072,5327,264",
+          text: "Рти",
+        },
         { to: "/popular", text: "Популярные" },
         { to: "", text: "Новинки" },
       ],

@@ -6,7 +6,16 @@ body {
   margin: 0;
   font-weight: 400;
 }
-img {
+header img, .section-index img{
+  width: 100%;
+  height: auto;
+}
+
+/*img{*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*}*/
+.img-100-auto{
   width: 100%;
   height: auto;
 }

@@ -3,12 +3,14 @@
     <div class="row">
       <div class="img-reklama col">
         <img
+          class="img-100-auto"
           src="https://www.pantus.ru/upload/medialibrary/d26/Luzar.jpg"
           alt="Luzar"
         />
       </div>
       <div class="img-reklama col">
         <img
+          class="img-100-auto"
           src="https://www.pantus.ru/upload/medialibrary/56f/image (510).png"
           alt="Trialli"
         />

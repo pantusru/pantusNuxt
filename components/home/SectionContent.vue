@@ -2,7 +2,9 @@
   <section class="section-content">
     <div class="blog-catalogs col-md-4 col-12">
       <h2>
-        <a class="title-content link-hover" href="">Оригинальные каталоги </a>
+        <nuxt-link class="title-content link-hover" to="catalog/"
+          >Оригинальные каталоги
+        </nuxt-link>
       </h2>
       <img
         class="img-100-auto"
@@ -12,20 +14,22 @@
     </div>
     <div class="blog-brand col-12 col-md-8">
       <h2>
-        <a href="" class="title-content link-hover">Бренды запчастей</a>
+        <nuxt-link to="/brands" class="title-content link-hover"
+          >Бренды запчастей</nuxt-link
+        >
       </h2>
       <table class="table-brand">
         <tbody>
           <tr v-for="data in table" :key="data.id" class="brand-tr">
             <td v-for="dataset in data" :key="dataset.id" class="brand-td">
-              <a class="brand-link link-hover" :href="dataset.href">{{
+              <nuxt-link class="brand-link link-hover" :to="dataset.href">{{
                 dataset.name
-              }}</a>
+              }}</nuxt-link>
             </td>
           </tr>
         </tbody>
       </table>
-      <button class="btn-full-brand">Все бренды</button>
+      <nuxt-link to="/brands" class="btn-full-brand">Все бренды</nuxt-link>
     </div>
   </section>
 </template>
@@ -36,28 +40,28 @@ export default {
     return {
       table: [
         [
-          { name: "ВРТ", href: "" },
-          { name: "БРТ", href: "" },
-          { name: "Lada", href: "" },
-          { name: "Элад", href: "" },
+          { name: "ВРТ", href: "search?filter_brand=227" },
+          { name: "БРТ", href: "search?filter_brand=226" },
+          { name: "Lada", href: "search?filter_brand=591" },
+          { name: "Элад", href: "search?filter_brand=609" },
         ],
         [
-          { name: "AMD", href: "" },
-          { name: "ASAM", href: "" },
-          { name: "SA", href: "" },
-          { name: "РезиноТехника", href: "" },
+          { name: "AMD", href: "search?filter_brand=673" },
+          { name: "ASAM", href: "search?filter_brand=679" },
+          { name: "СОАТЭ", href: "search?filter_brand=453" },
+          { name: "РезиноТехника", href: "search?filter_brand=618" },
         ],
         [
-          { name: "РезиноТехника", href: "" },
-          { name: "СЭВИ", href: "" },
-          { name: "SA", href: "" },
-          { name: "РезиноТехника", href: "" },
+          { name: "БМРТ", href: "search?filter_brand=339" },
+          { name: "СЭВИ", href: "search?filter_brand=272b" },
+          { name: "ТехноПартнер", href: "search?filter_brand=631" },
+          { name: "ТРЕК", href: "search?filter_brand=531" },
         ],
         [
-          { name: "БМРТ", href: "" },
-          { name: "СЭВИ", href: "" },
-          { name: "ТехноПартнер", href: "" },
-          { name: "Hanse", href: "" },
+          { name: "ФОБОС", href: "search?filter_brand=227" },
+          { name: "ПромТехПласт", href: "search?filter_brand=227" },
+          { name: "Hanse", href: "search?filter_brand=227" },
+          { name: "Rezkon", href: "search?filter_brand=227" },
         ],
       ],
     };

@@ -2,6 +2,7 @@
   <section class="section-index">
     <div class="content-categoria col-lg-9 col-12 row">
       <categoriaVue
+        srcIndex="/search?filter_applicabilities=3138"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         class-img="img-100-auto"
         title="Автозапчасти для а/м ВАЗ"
@@ -12,7 +13,11 @@
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
           <h2 class="pt-4">
-            <a href="" class="categoria-title link-hover">Генераторы СОАТЭ</a>
+            <nuxt-link
+              to="/search?filter_brands=453"
+              class="categoria-title link-hover"
+              >Генераторы СОАТЭ</nuxt-link
+            >
           </h2>
           <div class="mini-categoria-img">
             <img
@@ -26,6 +31,7 @@
       </div>
 
       <categoriaVue
+        srcIndex="/search?filter_applicabilities=4837,4798,4800"
         class-img="w-250px img-100-auto"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Новые бренды на Pantus.ru"
@@ -36,7 +42,11 @@
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
           <h2 class="pt-4">
-            <a href="" class="categoria-title link-hover">Запчасти Renault</a>
+            <nuxt-link
+              to="search?filter_applicabilities=4802"
+              class="categoria-title link-hover"
+              >Запчасти Renault</nuxt-link
+            >
           </h2>
           <div class="mini-categoria-img">
             <img
@@ -86,14 +96,23 @@ export default {
       ],
       categoriaUrl: [
         [
-          { name: "Запчасти на Приору", href: "" },
-          { name: "Запчасти на Весту", href: "" },
-          { name: "Все запчасти ВАЗ", href: "" },
+          {
+            name: "Запчасти на Приору",
+            href: "/search?filter_applicabilities=4864",
+          },
+          {
+            name: "Запчасти на Весту",
+            href: "/search?filter_applicabilities=4973",
+          },
+          {
+            name: "Все запчасти ВАЗ",
+            href: "/search?filter_applicabilities=3138",
+          },
         ],
         [
-          { name: "Daewoo", href: "" },
-          { name: "Hyundai", href: "" },
-          { name: "Kia", href: "" },
+          { name: "Daewoo", href: "/search?filter_applicabilities=4798" },
+          { name: "Hyundai", href: "/search?filter_applicabilities=4800" },
+          { name: "Kia", href: "/search?filter_applicabilities=4837" },
         ],
       ],
     };

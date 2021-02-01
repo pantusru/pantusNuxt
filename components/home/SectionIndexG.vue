@@ -1,6 +1,7 @@
 <template>
   <section class="section-index">
     <categoriaVue
+      src-index="search?filter_applicabilities=3140"
       class="col-12 col-lg-6 mb-3"
       title="Запчасти для а/м ГАЗ"
       :ul="categoriaUrl[0]"
@@ -8,6 +9,7 @@
       alt="1"
     />
     <categoriaVue
+      src-index="search?filter_applicabilities=4921,4815"
       class="col-12 col-lg-6 mb-3"
       class-img="w-230px"
       title="Запчасти на грузовые авто"
@@ -18,14 +20,17 @@
     <div class="col-12 col-lg-6 mb-3">
       <div class="bg-cover d-flex flex-column justify-content-between h-100">
         <h2 class="pt-4 text-center">
-          <a href="" class="text-light categoria-title"
-            >Автомасла автокосметика автохимия</a
+          <nuxt-link
+            to="search/filter_brands=636,791"
+            class="text-light categoria-title"
+            >Автомасла автокосметика автохимия</nuxt-link
           >
         </h2>
         <img :src="require('@/assets/img/home/home-car-7.png')" alt="" />
       </div>
     </div>
     <categoriaVue
+      src-index="/search?filter_categories=406"
       class-img="w-200px"
       class="col-12 col-lg-6 mb-3 bg"
       title="Автосвет и лампы"
@@ -50,13 +55,16 @@ export default {
           { name: "Грузовые ГАЗ", href: "" },
         ],
         [
-          { name: "Запчасти КАМАЗ", href: "" },
-          { name: "Запчасти МАЗ", href: "" },
-          { name: "Запчасти ЗИЛ", href: "" },
+          {
+            name: "Запчасти КАМАЗ",
+            href: "/search?filter_applicabilities=4921",
+          },
+          { name: "Запчасти МАЗ", href: "/search?filter_applicabilities=4815" },
+          { name: "Запчасти ЗИЛ", href: "/search?filter_applicabilities=4849" },
         ],
         [
           { name: "Лампы", href: "" },
-          { name: "Оптика", href: "" },
+          { name: "Оптика", href: "/search?filter_categories=406" },
         ],
       ],
     };

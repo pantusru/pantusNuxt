@@ -68,5 +68,8 @@ export default {
       return this.$store.getters["Products/popular/GetProductsPopular"];
     },
   },
+  // async created() {
+  //   await this.$store.dispatch("Products/popular/_ProductPopularAll");
+  // },
 };
 </script>

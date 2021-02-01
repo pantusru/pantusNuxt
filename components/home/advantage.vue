@@ -9,8 +9,8 @@
             <b-img :src="require('@img/advantage/feature-new-01.png')" />
           </div>
           <div class="text-center">
-            <b class="home-advantage-content-title">
-              Более
+            <b class="home-advantage-content-title"
+              >` Более
               <nuxt-link to="/search" class="home-advantage-content-link">
                 22000
               </nuxt-link>
@@ -28,7 +28,7 @@
           <div class="text-center">
             <b class="home-advantage-content-title">
               Доставка
-              <nuxt-link to="/search" class="home-advantage-content-link">
+              <nuxt-link to="/delivery" class="home-advantage-content-link">
                 по всему миру
               </nuxt-link>
             </b>
@@ -59,7 +59,7 @@
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title">
-              <nuxt-link to="/search" class="home-advantage-content-link">
+              <nuxt-link to="/pay" class="home-advantage-content-link">
                 20
               </nuxt-link>
               СПОСОБОВ ОПЛАТЫ
@@ -77,7 +77,7 @@
 
 <script>
 export default {
-  name: "advantage",
+  name: "Advantage",
 };
 </script>
 <style>

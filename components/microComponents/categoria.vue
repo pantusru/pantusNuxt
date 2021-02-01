@@ -2,22 +2,24 @@
   <div class="">
     <div class="blog-categoria">
       <h2 class="pt-4">
-        <a href="" class="categoria-title"> {{ title }}</a>
+        <nuxt-link :to="srcIndex" class="categoria-title">
+          {{ title }}</nuxt-link
+        >
       </h2>
       <div class="d-block d-lg-flex">
         <div class="categoria-content">
           <div class="categoria-ul">
-            <a
+            <nuxt-link
               v-for="data in ul"
               :key="data.id"
-              :href="data.href"
+              :to="data.href"
               class="categoria-link"
-              >{{ data.name }}</a
+              >{{ data.name }}</nuxt-link
             >
           </div>
         </div>
         <div class="categoria-img">
-          <img :class="classImg" :src="src" :alt="alt">
+          <img :class="classImg" :src="src" :alt="alt" />
         </div>
       </div>
     </div>
@@ -26,7 +28,17 @@
 
 <script>
 export default {
-  props: ["title", "ul", "src", "alt", "classImg"],
+  props: {
+    title: {},
+    ul: {},
+    src: {},
+    alt: {},
+    classImg: {},
+    srcIndex: {
+      type: String,
+      default: "",
+    },
+  },
 };
 </script>
 

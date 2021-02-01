@@ -1,7 +1,7 @@
 <template>
   <b-col cols="12" md="6" lg="4" class="mb-4 news-border">
     <b-row no-gutters>
-      <b-col cols="5" v-if="data.preview.image !== null">
+      <b-col v-if="data.preview.image !== null" cols="5">
         <b-img class="img-100" :src="data.preview.image" alt="" />
       </b-col>
       <b-col cols="7" class="pl-3">

@@ -39,14 +39,14 @@ export const actions = {
    */
   async _ProductPopularFilter({ dispatch }, data) {
     const product = await this.$axios.$get(
-      `${process.env.api}/products_filter`,
+      `${process.env.api}/popular_products`,
       {
         params: {
           page_size: data.limit,
         },
       }
     );
-    const dataProduct = await dispatch("_init_Product", product.data);
+    const dataProduct = await dispatch("_init_Product", product);
     return dataProduct;
   },
   /***

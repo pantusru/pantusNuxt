@@ -2,7 +2,7 @@
   <b-container>
     <h2 class="mb-4 mt-4">Популярные товары</h2>
     <VueSlickCarousel
-      v-if="popular.length !== 0"
+      v-if="popular"
       class="blog-popular-claider"
       v-bind="settings"
     >

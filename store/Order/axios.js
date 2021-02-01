@@ -1,5 +1,4 @@
 export const actions = {
-  // Получить все категории товаров с структурой потомок родитель!
   async _Payment({}, check) {
     if (check) {
       return [

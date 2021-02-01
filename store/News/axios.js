@@ -4,7 +4,7 @@ export const actions = {
   async _NewsAll({}, data) {
     return await this.$axios
       .$get(
-        `${process.env.api}/news?page_size=${data.limit}&page_number=${data.offets}`
+        `${process.env.api}/news?page_size=${data.limit}&page_number=${data.offets}&sort_order=desc`
       )
       .then(res => {
         return res;
@@ -12,6 +12,11 @@ export const actions = {
   },
   async _NewsAllCount() {
     return await this.$axios.$get(`${process.env.api}/news/count`);
+  },
+  async _NewsCategoriesCount({}, id) {
+    return await this.$axios.$get(
+      `${process.env.api}/news/count?filter_categories=${id}`
+    );
   },
   //  Получить одну новость по ID
   async _NewsId({}, id) {
@@ -31,7 +36,7 @@ export const actions = {
   async _CategoriesNews({}, data) {
     return await this.$axios
       .$get(
-        `${process.env.api}/news/category/?id=${data.id}&page_size=${data.limit}&page_number=${data.offets}`
+        `${process.env.api}/news?filter_categories=${data.id}&page_size=${data.limit}&page_number=${data.offets}&sort_order=desc`
       )
       .then(res => {
         return res;

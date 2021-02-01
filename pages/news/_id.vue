@@ -20,14 +20,15 @@ export default {
   },
   async fetch({ query, store, getters, params, redirect }) {
     if (!isNaN(params.id)) {
-      await store.dispatch("News/NewsId/_NewsId", params.id);
+      await store.dispatch("News/NewsId/_NewsId", params.id); // 1 новость
     } else {
-      await store.dispatch("News/CategoriesAll/_NewsCategories");
+      await store.dispatch("News/CategoriesAll/_NewsCategories"); // Все категории
       const id = store.getters["News/CategoriesAll/GetNewsCategoriesCode"](
         params.id
       )[0].id;
-      if (!id) {
+      if (id) {
         await store.dispatch("News/NewsCategoriesPage/_NewsCategoriesPage", {
+          // все новости 1 категории
           page: query.page,
           id,
         });
@@ -44,28 +45,13 @@ export default {
   //     return this.$store.getters["News/NewsCategoriesPage/GetPage"];
   //   },
   // },
-  watch: {
-    // при изменения page
-    async $route() {
-      window.scrollTo(0, 0);
-      await this.Add();
-    },
-  },
+
   created() {
     if (!isNaN(this.$route.params.id)) {
       this.getBlock = "id";
     } else {
       this.getBlock = "categories";
     }
-  },
-  methods: {
-    async Add() {
-      // Закачка товара при клике на ссылку
-      await this.$store.dispatch(
-        "News/NewsCategoriesPage/_NewsCategoriesPage",
-        { page: this.$route.query.page, id: this.$route.params.id }
-      );
-    },
   },
 };
 </script>

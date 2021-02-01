@@ -25,41 +25,27 @@ export const mutations = {
 };
 export const actions = {
   async _NewsCategoriesPage({ store, dispatch, commit, getters }, data) {
-    let load = false;
     if (data.page === undefined) {
       // проверка пагинации !
       data.page = 1;
     }
-    // ПРОВЕРКА ДАННЫХ НА НАЛИЧИЕ!!
-    if (getters.GetNewsCategoriesPage[data.id] === undefined) {
-      load = true;
-    } else if (
-      getters.GetNewsCategoriesPage[data.id][data.page] === undefined
-    ) {
-      load = true;
-    }
-    // ПРОВЕРКА ДАННЫХ НА НАЛИЧИЕ!!
-    if (load) {
-      const offets = (data.page - 1) * getters.GetLimit;
-      const dataset = await dispatch(
-        "News/axios/_CategoriesNews",
-        { id: data.id, offets, limit: getters.GetLimit },
-        { root: true }
-      );
-      commit("SetCountNewws", dataset[0].category.amount_news); // ИЗМЕНИТЬ КОГДА АНДРЕЙ ПОФИКсИТ!
-      commit("SetNewsCategoriesPage", {
-        dataset,
-        page: data.page,
-        name: data.id,
-      });
-      commit("SetNewsVisible", dataset);
-    } else {
-      // данные загруженны!
-      commit(
-        "SetNewsVisible",
-        getters.GetNewsCategoriesPage[data.id][data.page]
-      );
-    }
+    const dataset = await dispatch(
+      "News/axios/_CategoriesNews",
+      { id: data.id, offets: data.page, limit: getters.GetLimit },
+      { root: true }
+    );
+    const count = await dispatch("News/axios/_NewsCategoriesCount", data.id, {
+      root: true,
+    });
+    console.log(count);
+    commit("SetCountNewws", count);
+    // console.log(data);
+    // commit("SetNewsCategoriesPage", {
+    //   dataset,
+    //   page: data.page,
+    //   name: data.id,
+    // });
+    commit("SetNewsVisible", dataset);
   },
 };
 export const getters = {
@@ -68,10 +54,11 @@ export const getters = {
   GetCountNews: s => s.CountNews,
   GetLimit: s => s.limit,
   GetPage: s => {
-    if (s.CountNews % s.limit != 0) {
-      return Number(s.CountNews / s.limit) + 1;
+    const data = Math.ceil(s.CountNews / s.limit);
+    if (data === 0) {
+      return 1;
     } else {
-      return Number(s.CountNews / s.limit);
+      return data;
     }
   },
 };

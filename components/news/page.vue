@@ -3,7 +3,7 @@
     <b-row>
       <VueBlogNews v-for="data in dataset" :key="data.id" :data="data" />
     </b-row>
-    <div class="overflow-auto">
+    <div v-if="Count > 1" class="overflow-auto">
       <b-pagination-nav
         :link-gen="linkGen"
         :number-of-pages="Count"

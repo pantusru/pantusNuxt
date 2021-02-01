@@ -1,7 +1,7 @@
 <template>
   <section class="">
     <div class="container">
-      <!--      <h2 class="mb-3">Новости</h2>-->
+      <h2 class="mb-3">Новости</h2>
       <b-row v-if="NewsIndex">
         <VueBlogNews v-for="data in NewsIndex" :key="data.id" :data="data" />
       </b-row>

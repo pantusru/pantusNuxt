@@ -31,6 +31,10 @@ export default {
   padding-bottom: 30px;
   border-bottom: 1px solid #cfd8df;
 }
+.news-border:nth-last-child(-n + 3) {
+  border-bottom: 0;
+  padding-bottom: 0px;
+}
 .link-newsId {
   color: #436174;
   text-decoration: underline;

@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- <VueNewsIndex/> Популярные новости -->
     <b-container>
       <SectionIndex />
       <SectionReklama />
@@ -9,6 +8,7 @@
       <Abvantage />
     </b-container>
     <claider-popular :popular="popular.slice(0, 10)" />
+    <VueNewsIndex class="mb-5 mt-4" />
     <b-container>
       <SectionAboutVue />
     </b-container>
@@ -23,7 +23,7 @@ import Abvantage from "@/components/home/advantage";
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
-import VueProductsIndex from "@/components/products/popular/index";
+// import VueProductsIndex from "@/components/products/popular/index";
 import ClaiderPopular from "@/components/home/claider-popular";
 
 import SectionIndex from "../components/home/SectionIndex";
@@ -37,7 +37,7 @@ import SectionAboutVue from "../components/home/SectionAbout.vue";
 export default {
   components: {
     ClaiderPopular,
-    // VueNewsIndex,
+    VueNewsIndex,
     // VueProductsIndex,
     ModalImg,
     ModalBuy,
@@ -54,7 +54,7 @@ export default {
   },
   async fetch({ store }) {
     await Promise.all([
-      // store.dispatch("News/NewsIndex/_NewsIndex"),
+      store.dispatch("News/NewsIndex/_NewsIndex"),
       store.dispatch("Products/popular/_ProductPopularAll"),
     ]);
   },

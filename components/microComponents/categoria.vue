@@ -6,7 +6,7 @@
           {{ title }}</nuxt-link
         >
       </h2>
-      <div class="d-block d-lg-flex">
+      <div class="d-block d-md-flex">
         <div class="categoria-content">
           <div class="categoria-ul">
             <nuxt-link

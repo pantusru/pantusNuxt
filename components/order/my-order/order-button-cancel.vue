@@ -1,7 +1,7 @@
 <template>
   <div class="w-100">
     <span
-      v-if="data.status.code !== 'ОТ'"
+      v-if="data.status.code !== 'C'"
       @click="CancelOrder(data.status)"
       class="text-body cursor-pointer"
       >Отменить заказ</span

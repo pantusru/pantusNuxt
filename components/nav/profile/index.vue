@@ -18,19 +18,19 @@
             <nuxt-link
               :active-class="ActiveClass"
               :class="classMain"
-              to="/my_orders"
+              to="/profile/orders"
               >История заказов</nuxt-link
             >
             <nuxt-link
               :active-class="ActiveClass"
               :class="classMain"
-              to="/selected"
+              to="/profile/selected"
               >Избранные товары</nuxt-link
             >
             <nuxt-link
               :active-class="ActiveClass"
               :class="classMain"
-              to="/new_password"
+              to="/profile/new_password"
             >
               Изменить пароль</nuxt-link
             >

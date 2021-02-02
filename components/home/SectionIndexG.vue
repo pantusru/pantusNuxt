@@ -52,24 +52,24 @@ export default {
       categoriaUrl: [
         [
           {
-            name: "ГАЗель и легковые",
+            name: "Легковые",
             href: "/search?filter_applicabilities=3140,5136,5143,4943",
           },
           {
-            name: "Грузовые ГАЗ",
+            name: "Грузовые",
             href: "/search?filter_applicabilities=3140,4922,5139",
           },
         ],
         [
           {
-            name: "Запчасти КАМАЗ",
+            name: "Для а/м КАМАЗ",
             href: "/search?filter_applicabilities=4921",
           },
-          { name: "Запчасти МАЗ", href: "/search?filter_applicabilities=4815" },
-          { name: "Запчасти ЗИЛ", href: "/search?filter_applicabilities=4849" },
+          { name: "Для а/м МАЗ", href: "/search?filter_applicabilities=4815" },
+          { name: "Для а/м ЗИЛ", href: "/search?filter_applicabilities=4849" },
         ],
         [
-          { name: "Лампы", href: "" },
+          { name: "Лампы", href: "/search?filter_categories=438" },
           { name: "Оптика", href: "/search?filter_categories=406" },
         ],
       ],

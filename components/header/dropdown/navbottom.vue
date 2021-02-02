@@ -21,12 +21,12 @@ export default {
   data() {
     return {
       links: [
+        { to: "/catalog", text: "Автокаталоги" },
         { to: "/brands", text: "Бренды запчастей" },
         { to: "/applicabilities", text: "Марки автомобилей" },
         { to: "/categories", text: "Категории запчастей" },
-        { to: "", text: "Масло  и автохимия" },
-        { to: "", text: "Антифризы, толосы" },
-        { to: "", text: "Каталоги оригинальных запчастей" },
+        { to: "/search?filter_categories=434,517", text: "Масло  и автохимия" },
+        { to: "/search?filter_categories=515", text: "Антифризы, толосы" },
       ],
     };
   },

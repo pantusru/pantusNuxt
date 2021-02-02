@@ -9,23 +9,23 @@
         <time :datetime="data.dates.created" class="d-block">
           Дата: {{ data.dates.created }}
         </time>
-        <order-button-copy-cart :id_order="data.id" />
+        <!--        <order-button-copy-cart :id_order="data.id" />-->
       </b-col>
       <b-col>
         <div class="mb-2">
           <b>Статус заказа:</b><span> {{ data.status.name }} </span>
         </div>
-        <order-button-cancel :data="data"></order-button-cancel>
+        <order-button-cancel :data="data" />
       </b-col>
     </b-row>
-    <b-button
+    <nuxt-link
+      :to="'/profile/orders/' + data.id"
       class="bg-transparent text-e1002b border-0 mt-2 pl-0"
-      v-b-toggle="'myOrder' + data.id"
       >Подробнее
-    </b-button>
-    <b-collapse :id="'myOrder' + data.id">
-      <order-table-get :data="data"></order-table-get>
-    </b-collapse>
+    </nuxt-link>
+    <!--    <b-collapse :id="'myOrder' + data.id">-->
+    <!--      <order-table-get v-if="false" :data="data" />-->
+    <!--    </b-collapse>-->
   </div>
   <!--  компонент -->
 </template>

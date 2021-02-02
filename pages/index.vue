@@ -4,6 +4,7 @@
       <SectionIndex />
       <SectionReklama />
       <SectionIndexGVue />
+      <SectionDealersVue />
       <SectionContentVue />
       <Abvantage />
     </b-container>
@@ -29,7 +30,7 @@ import ClaiderPopular from "@/components/home/claider-popular";
 import SectionIndex from "../components/home/SectionIndex";
 import SectionReklama from "../components/home/SectionReklama";
 import SectionIndexGVue from "../components/home/SectionIndexG.vue";
-// import SectionDealersVue from "../components/home/SectionDealers.vue";
+import SectionDealersVue from "../components/home/SectionDealers.vue";
 import SectionContentVue from "../components/home/SectionContent.vue";
 // import SectionAdvantageVue from "../components/home/SectionAdvantage.vue";
 // import SectionNews from "../components/home/SectionNews.vue";
@@ -46,7 +47,7 @@ export default {
     SectionIndex,
     SectionReklama,
     SectionIndexGVue,
-    // SectionDealersVue,
+    SectionDealersVue,
     SectionContentVue,
     // SectionAdvantageVue,
     // SectionNews,
@@ -56,6 +57,7 @@ export default {
     await Promise.all([
       store.dispatch("News/NewsIndex/_NewsIndex"),
       store.dispatch("Products/popular/_ProductPopularAll"),
+      store.dispatch("Brand/brand-carousel/actionBrandCarouser"),
     ]);
   },
   head() {

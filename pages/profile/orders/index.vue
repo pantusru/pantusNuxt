@@ -18,10 +18,16 @@ export default {
     NavProfile,
     MyOrder,
   },
-  async fetch({ store, dispatch }) {
-    await store.dispatch("MyOrder/_MyOrderAll");
-  },
   middleware: "CheckGuest",
+  async fetch({ store, dispatch, query }) {
+    let page;
+    if (query.page === undefined) {
+      page = 1;
+    } else {
+      page = query.page;
+    }
+    await store.dispatch("MyOrder/_MyOrderAll", { page });
+  },
 };
 </script>
 

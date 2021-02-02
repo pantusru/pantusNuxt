@@ -45,7 +45,7 @@
             <nuxt-link
               to="search?filter_applicabilities=4802"
               class="categoria-title link-hover"
-              >Запчасти Renault</nuxt-link
+              >Запчасти для а/м Renault</nuxt-link
             >
           </h2>
           <div class="mini-categoria-img">
@@ -97,15 +97,15 @@ export default {
       categoriaUrl: [
         [
           {
-            name: "Запчасти на Приору",
+            name: "Запчасти для а/м Приору",
             href: "/search?filter_applicabilities=4864",
           },
           {
-            name: "Запчасти на Весту",
+            name: "Запчасти для а/м а Весту",
             href: "/search?filter_applicabilities=4973",
           },
           {
-            name: "Все запчасти ВАЗ",
+            name: "Запчасти для а/м  ВАЗ",
             href: "/search?filter_applicabilities=3138",
           },
         ],

@@ -8,12 +8,9 @@
           <FuncComponents
             v-if="Products.length > 0"
             :array="Products"
-            :Selected="true"
+            :selected="true"
           />
-          <base-title-info
-            v-else
-            text="Нету избранных товаров"
-          ></base-title-info>
+          <base-title-info v-else text="Нету избранных товаров" />
         </div>
       </b-col>
     </b-row>
@@ -28,7 +25,6 @@ import NavProfile from "@/components/nav/profile/index";
 import FuncComponents from "@/components/func/product-rows-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
-  middleware: "CheckGuest",
   components: {
     BaseTitleInfo,
     NavProfile,
@@ -36,18 +32,19 @@ export default {
     ModalImg,
     ModalBuy,
   },
+  middleware: "CheckGuest",
   async fetch({ store }) {
     await store.dispatch("Selected/selected/_Selected");
-  },
-  computed: {
-    Products() {
-      return this.$store.getters["Selected/selected/GetSelected"];
-    },
   },
   head() {
     return {
       title: "Pantus избранные товары",
     };
+  },
+  computed: {
+    Products() {
+      return this.$store.getters["Selected/selected/GetSelected"];
+    },
   },
 };
 </script>

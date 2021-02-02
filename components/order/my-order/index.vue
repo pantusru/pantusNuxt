@@ -25,13 +25,20 @@ import PageMixins from "@/mixins/page/index";
 import MyOrderBLog from "@/components/order/my-order/order-blog-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 export default {
+  components: {
+    BaseTitleInfo,
+    MyOrderBLog,
+  },
   mixins: [PageMixins],
   computed: {
     MyOrder() {
       return this.$store.getters["MyOrder/GetMyOrder"];
     },
+    MyOrderCount() {
+      return this.$store.getters["MyOrder/GetCount"];
+    },
     countPage() {
-      const data = Math.ceil(this.MyOrder.length / 4);
+      const data = Math.ceil(this.MyOrderCount / 15);
       if (data === 0) {
         return 1;
       } else {
@@ -39,13 +46,16 @@ export default {
       }
     },
   },
-  components: {
-    BaseTitleInfo,
-    MyOrderBLog,
-  },
   watch: {
-    $route() {
+    async $route() {
       window.scrollTo(0, 0);
+      let page;
+      if (this.$route.query.page === undefined) {
+        page = 1;
+      } else {
+        page = this.$route.query.page;
+      }
+      await this.$store.dispatch("MyOrder/_MyOrderAll", { page });
     },
   },
 };

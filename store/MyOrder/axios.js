@@ -1,159 +1,82 @@
 export const actions = {
-  async _MyOrder() {
-    let order = [
+  async _MyOrder({ rootGetters, dispatch }, dataset) {
+    const data = await this.$axios.$get(
+      `${process.env.api}/personal/orders?sort_order=desc&page_size=${dataset.limit}&page_number=${dataset.page}`,
       {
-        price: 1200,
-        id: 51,
-        status: {
-          code: "О",
-          name: "Отправлено",
-        },
-        delivery: {
-          price: 120,
-        },
-        dates: {
-          created: "2020-04-15 16:02:43",
-        },
-        offers: [
-          {
-            id: 1,
-            name: "Кронштейн опоры двигателя задний ВАЗ 1118-1001032 КАЛИНА",
-            price: 491,
-            quantity: 2,
-            guid: "981B2B97-7815-42C7",
-          },
-          {
-            id: 2,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2HR97-7815-4417",
-          },
-          {
-            id: 3,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2B97-7815-42C7",
-          },
-        ],
-      },
-      {
-        price: 1200,
-        id: 541,
-        status: {
-          code: "О",
-          name: "Отправлено",
-        },
-        delivery: {
-          price: 120,
-        },
-        dates: {
-          created: "2020-04-15 16:02:43",
-        },
-        offers: [
-          {
-            id: 1,
-            name: "Кронштейн опоры двигателя задний ВАЗ 1118-1001032 КАЛИНА",
-            price: 491,
-            quantity: 2,
-            guid: "981B2B97-7815-42C7",
-          },
-          {
-            id: 2,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2HR97-7815-4417",
-          },
-          {
-            id: 3,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2B97-7815-42C7",
-          },
-        ],
-      },
-      {
-        price: 1200,
-        id: 511,
-        status: {
-          code: "О",
-          name: "Отправлено",
-        },
-        delivery: {
-          price: 120,
-        },
-        dates: {
-          created: "2020-04-15 16:02:43",
-        },
-        offers: [
-          {
-            id: 1,
-            name: "Кронштейн опоры двигателя задний ВАЗ 1118-1001032 КАЛИНА",
-            price: 491,
-            quantity: 2,
-            guid: "981B2B97-7815-42C7",
-          },
-          {
-            id: 2,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2HR97-7815-4417",
-          },
-          {
-            id: 3,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2B97-7815-42C7",
-          },
-        ],
-      },
-      {
-        price: 1200,
-        id: 75,
-        status: {
-          code: "О",
-          name: "Отправлено",
-        },
-        delivery: {
-          price: 120,
-        },
-        dates: {
-          created: "2020-04-15 16:02:43",
-        },
-        offers: [
-          {
-            id: 1,
-            name: "Кронштейн опоры двигателя задний ВАЗ 1118-1001032 КАЛИНА",
-            price: 491,
-            quantity: 2,
-            guid: "981B2B97-7815-42C7",
-          },
-          {
-            id: 2,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2HR97-7815-4417",
-          },
-          {
-            id: 3,
-            name: "Кронштейн опоры двигателя задний 1118-1001032 ",
-            price: 690,
-            quantity: 5,
-            guid: "981B2B97-7815-42C7",
-          },
-        ],
-      },
-    ];
-    // let  order = null;
-    return order;
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+      }
+    );
+    return await dispatch("MapMyOrder", data);
   },
-  async _CancelMyOrder() {
+  async _MyOrderCount({ rootGetters, dispatch }) {
+    return await this.$axios.$get(`${process.env.api}/personal/orders/count`, {
+      headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+    });
+  },
+
+  async _MyOrderId({ rootGetters, dispatch }, id) {
+    const data = await this.$axios.$get(
+      `${process.env.api}/personal/orders/${id}`,
+      {
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+      }
+    );
+    return await dispatch("MapMyOrderId", data);
+  },
+
+  MapMyOrder({}, data) {
+    const dataset = [];
+    data.forEach(order => {
+      dataset.push({
+        id: order.id,
+        dates: {
+          created: order.dates.created,
+        },
+        status: {
+          name: order.status.name,
+          code: order.status.code,
+        },
+      });
+    });
+    return dataset;
+  },
+
+  MapMyOrderId({}, data) {
+    return {
+      id: data.id,
+      price: data.price,
+      dates: {
+        created: data.dates.created,
+      },
+      user: {
+        nameFirst: data.user.name.first,
+        nameLast: data.user.name.last,
+        phone: data.user.phone,
+      },
+      status: {
+        code: data.status.code,
+        name: data.status.name,
+      },
+      address: {
+        city: data?.address?.city,
+        detailed: data?.address?.detailed,
+      },
+      paysystem: {
+        id: data?.paysystem?.id,
+        name: data?.paysystem?.name,
+      },
+      service: {
+        id: data?.delivery?.service?.id,
+        name: data?.delivery.service?.name,
+      },
+      payerType: {
+        id: data.payerType.id,
+        name: data.payerType.name,
+      },
+    };
+  },
+
+  _CancelMyOrder() {
     // Запрос на отказ заказа
     // Временное решение
     if (false) {

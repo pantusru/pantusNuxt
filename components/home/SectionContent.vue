@@ -1,5 +1,5 @@
 <template>
-  <section class="section-content">
+  <section class="section-content row">
     <div class="blog-catalogs col-md-4 col-12">
       <h2>
         <nuxt-link class="title-content link-hover" to="catalog/"

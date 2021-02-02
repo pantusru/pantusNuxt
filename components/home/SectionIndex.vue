@@ -77,20 +77,20 @@ export default {
         {
           src: "https://www.pantus.ru/bitrix/images/site/optbanner2.jpg",
           alt: "12",
-          href: "11",
+          href: "/opt",
           id: 1,
         },
         {
           src:
             "https://www.pantus.ru/bitrix/images/site/banner.1millionproducts.jpg",
           alt: "12",
-          href: "11",
+          href: "/news/3416139",
           id: 2,
         },
         {
           src: "https://www.pantus.ru/bitrix/images/site/appbanner.jpg",
-          alt: "12",
-          href: "11",
+          alt: "слайдер мобильного приложения",
+          href: "/app",
           id: 3,
         },
       ],

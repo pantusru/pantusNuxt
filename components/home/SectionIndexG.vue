@@ -51,8 +51,14 @@ export default {
     return {
       categoriaUrl: [
         [
-          { name: "ГАЗель и легковые", href: "" },
-          { name: "Грузовые ГАЗ", href: "" },
+          {
+            name: "ГАЗель и легковые",
+            href: "/search?filter_applicabilities=3140,5136,5143,4943",
+          },
+          {
+            name: "Грузовые ГАЗ",
+            href: "/search?filter_applicabilities=3140,4922,5139",
+          },
         ],
         [
           {

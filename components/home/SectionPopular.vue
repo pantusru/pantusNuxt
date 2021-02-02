@@ -1,12 +1,18 @@
 <template>
   <section class="section-popular">
-    <h2 class="title-blog">Популярные товары</h2>
+    <h2 class="title-blog">
+      <nuxt-link to="/popular">Популярные товары</nuxt-link>
+    </h2>
     <VueSlickCarousel
+      v-if="checkPopular"
       class="blog-popular"
       v-bind="settings"
-      v-if="checkPopular"
     >
-      <productPopular v-for="(data, index) in product" :key="index" :arr="data" />
+      <productPopular
+        v-for="(data, index) in product"
+        :key="index"
+        :arr="data"
+      />
     </VueSlickCarousel>
     <div class="link-more-center">
       <button class="link-more">ПОСМОТРЕТЬ ВСЕ ПОПУЛЯРНЫЕ ТОВАРЫ</button>
@@ -24,6 +30,10 @@ import { RepositoryFactory } from "./../../axios/RepositoryFactory";
 const ProductRepository = RepositoryFactory.get("product");
 
 export default {
+  components: {
+    productPopular,
+    VueSlickCarousel,
+  },
   data() {
     return {
       settings: {
@@ -32,15 +42,11 @@ export default {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 3,
       },
       product: 0,
-      checkPopular: false
+      checkPopular: false,
     };
-  },
-  components: {
-    productPopular: productPopular,
-    VueSlickCarousel: VueSlickCarousel
   },
   created() {
     this.fetch();
@@ -53,8 +59,8 @@ export default {
         console.log(response.data);
         this.checkPopular = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

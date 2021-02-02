@@ -23,7 +23,9 @@
       и электрооборудования для автомобилей отечественного и зарубежного
       производства.
     </p>
-    <button class="bnt-reklama-more mt-3 mt-sm-0">Подробнее</button>
+    <nuxt-link to="/news/7065098/" class="bnt-reklama-more mt-3 mt-sm-0"
+      >Подробнее</nuxt-link
+    >
   </section>
 </template>
 

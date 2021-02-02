@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="content-static" v-html="NewsId.content" />
+    <table class="w-100"></table>
   </div>
 </template>
 

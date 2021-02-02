@@ -1,6 +1,8 @@
 <template>
   <b-container>
-    <h2 class="mb-4 mt-4">Популярные товары</h2>
+    <h2 class="mb-4 mt-4">
+      <nuxt-link class="text-dark" to="/popular">Популярные товары</nuxt-link>
+    </h2>
     <VueSlickCarousel
       v-if="popular"
       class="blog-popular-claider"

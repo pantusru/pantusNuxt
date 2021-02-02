@@ -10,7 +10,7 @@
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title"
-              >` Более
+              >Более
               <nuxt-link to="/search" class="home-advantage-content-link">
                 22000
               </nuxt-link>

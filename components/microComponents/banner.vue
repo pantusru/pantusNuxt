@@ -1,9 +1,11 @@
 <template>
   <div class="banner col-12 col-lg-3 mt-3 mt-lg-0">
     <VueSlickCarousel v-bind="Settings">
-      <a v-for="data in img" :key="data.id" class="banner_img">
-        <img :src="data.src" :alt="data.alt" >
-      </a>
+      <div v-for="data in img" :key="data.id">
+        <nuxt-link :to="data.href" class="banner_img">
+          <img :src="data.src" :alt="data.alt" />
+        </nuxt-link>
+      </div>
     </VueSlickCarousel>
   </div>
 </template>
@@ -20,7 +22,7 @@ export default {
   data() {
     return {
       Settings: {
-        fade: true,
+        // fade: true,
         arrows: false,
         infinite: true,
         slidesToShow: 1,
@@ -33,3 +35,8 @@ export default {
   },
 };
 </script>
+<style>
+.pointer-event {
+  /*pointer-events: none;*/
+}
+</style>

@@ -3,9 +3,17 @@ export const actions = {
     // const User = await this.$axios.get(`${process.env.api}/personal/profile`);
     // console.log(await this.$axios.get(`${process.env.api}/personal/profile`));
     const User = await this.$axios.get(`${process.env.api}/personal/profile`, {
-      headers: { Authorization: `Bearer ${rootGetters["GetCookie"]}` },
+      headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });
     return await dispatch("MapUser", User.data);
+  },
+  async _UserCreate({ dispatch }, user) {
+    const userRegister = dispatch("mapUserCreate", user);
+    await this.$axios.post(`${process.env.api}/users`, userRegister, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
   },
   async _Authorization({}, data) {
     return await this.$axios.get(`${process.env.api}/auth`, {
@@ -27,5 +35,27 @@ export const actions = {
     } else {
       return data;
     }
+  },
+  mapUserCreate({}, user) {
+    return {
+      organization: {
+        name: user.organization,
+        address: user.address,
+        tin: user.inn,
+      },
+      account: {
+        type: user.type,
+      },
+      name: {
+        first: user.name,
+        last: user.surname,
+      },
+      contacts: {
+        email: user.email,
+        phone: {
+          personal: user.telephone,
+        },
+      },
+    };
   },
 };

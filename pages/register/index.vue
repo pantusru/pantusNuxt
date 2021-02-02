@@ -35,15 +35,15 @@
         />
       </b-form-group>
       <b-form-group v-if="buyer === 'Wholesale'">
-        <VInput
-          :slots="true"
-          items="Страна:"
-          name="country"
-          :error="error.country"
-          :$v="$v"
-        >
-          <MSelect :$v="$v" name="country" />
-        </VInput>
+        <!--        <VInput-->
+        <!--          :slots="true"-->
+        <!--          items="Страна:"-->
+        <!--          name="country"-->
+        <!--          :error="error.country"-->
+        <!--          :$v="$v"-->
+        <!--        >-->
+        <!--          <MSelect :$v="$v" name="country" />-->
+        <!--        </VInput>-->
         <VInput
           :slots="true"
           items="Физический адрес"
@@ -83,7 +83,7 @@
           </p>
         </b-form-checkbox>
       </VInput>
-      <Buttons :$v="$v" />
+      <Buttons :$v="$v" :buyer="buyer" />
     </b-container>
   </b-form>
 </template>

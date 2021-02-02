@@ -39,7 +39,7 @@ let organization = {
   required,
 };
 let country = {
-  required,
+  // required,
 };
 let address = {
   required,

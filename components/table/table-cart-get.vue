@@ -101,7 +101,7 @@
               </b-td>
               <b-td class="border-top-0">
                 <DeleteCart
-                  :id="table.id"
+                  :id="offer.id"
                   :index="indexOffer"
                   :cart-product="table.productOffer"
                 />

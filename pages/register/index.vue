@@ -34,7 +34,7 @@
           :$v="$v"
         />
       </b-form-group>
-      <b-form-group v-if="buyer === 'Wholesale'">
+      <b-form-group v-if="buyer === 'wholesale'">
         <!--        <VInput-->
         <!--          :slots="true"-->
         <!--          items="Страна:"-->
@@ -108,7 +108,7 @@ export default {
   middleware: "CheckUser",
   data() {
     return {
-      buyer: "Retail",
+      buyer: "retail",
     };
   },
   computed: {

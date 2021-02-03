@@ -84,7 +84,7 @@ export default {
     };
   },
   validations() {
-    if (this.buyer === "Retail") {
+    if (this.buyer === "retail") {
       return {
         Form: {
           ...all,

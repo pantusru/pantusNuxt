@@ -9,6 +9,7 @@ export const state = () => ({
     password: false, // Проверка пароля с формы
     new_password: false, // Проверка пароля при отправки запроса на новый пароль
     checkAuthorization: false, // Проверка авторизации от сервера
+    errorRegister: undefined, // Ошибки при регистрации пользователя
   },
   NavMobile: false,
   cookie: "",
@@ -40,6 +41,7 @@ export const getters = {
   getProductType: s => s.ProductType,
   GetcheckFilterClick: s => s.checkFilterClick,
   GetFormPassword: s => s.Form.password,
+  GetErrorRegister: s => s.Form.errorRegister,
   GetFormNewPassword: s => s.Form.new_password,
   GetcheckAuthorization: s => s.Form.checkAuthorization,
   GetNavMobile: s => s.NavMobile,

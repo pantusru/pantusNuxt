@@ -9,7 +9,7 @@ export const actions = {
   },
   async _UserCreate({ dispatch }, user) {
     const userRegister = await dispatch("mapUserCreate", user);
-    await this.$axios.post(`${process.env.api}/users`, userRegister, {
+    return await this.$axios.post(`${process.env.api}/users`, userRegister, {
       headers: {
         "Content-Type": "application/json",
       },

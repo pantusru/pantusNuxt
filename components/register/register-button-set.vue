@@ -3,6 +3,11 @@
     <b-button size="md" class="bg-danger border-danger" @click="go">
       Зарегистрироваться
     </b-button>
+    <base-alert
+      text="Вы успешно зарегистрировались"
+      :get-alert="get"
+      :router-home="true"
+    />
     <vueRecaptcha
       class="mb-3 mt-3"
       :get-error.sync="getError"
@@ -14,8 +19,10 @@
 <script>
 import check_recaptcha from "@/mixins/form/check-recaptcha/index";
 import vueRecaptcha from "@/components/recaptcha/index";
+import BaseAlert from "@/components/alert/base-alert";
 export default {
   components: {
+    BaseAlert,
     vueRecaptcha,
   },
   mixins: [check_recaptcha],
@@ -23,19 +30,30 @@ export default {
     $v: {},
     buyer: {},
   },
+  data: () => ({
+    get: false,
+  }),
   methods: {
-    go() {
+    async go() {
       this.$v.Form.$touch();
       this.checkValidateRecaptcha();
       if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
       } else {
-        // this.$cookies.set("Authorization", this.$v.Form.$model.email, {
-        //   maxAge: 60 * 60 * 24 * 7 * 365,
-        // });
-        // this.$store.commit("User/AuthorizationTrue");
         const user = this.$v.Form.$model;
         user.type = this.buyer;
-        this.$store.dispatch("User/axios/_UserCreate", user);
+        const res = await this.$store.dispatch("User/axios/_UserCreate", user);
+        if (res.data.error !== undefined) {
+          this.$store.commit("SetFormApi", {
+            data: "errorRegister",
+            value: res.data.error,
+          });
+        } else {
+          this.get = true;
+          this.$store.commit("SetFormApi", {
+            data: "errorRegister",
+            value: undefined,
+          });
+        }
       }
     },
   },

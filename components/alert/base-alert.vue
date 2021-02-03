@@ -47,7 +47,7 @@ export default {
      *  Время жизни alert
      */
     dismissSecs: {
-      default: 3,
+      default: 5,
       type: Number,
     },
   },

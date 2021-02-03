@@ -73,6 +73,7 @@
           :$v="$v"
         />
       </b-form-group>
+      <h6 class="error" v-if="ErrorApi !== undefined">{{ ErrorApi }}</h6>
       <VInput :$v="$v" :slots="true" name="checbox" :error="error.checbox">
         <b-form-checkbox v-model="$v.Form.checbox.$model">
           <p>
@@ -109,6 +110,11 @@ export default {
     return {
       buyer: "Retail",
     };
+  },
+  computed: {
+    ErrorApi() {
+      return this.$store.getters.GetErrorRegister;
+    },
   },
   watch: {
     $v() {

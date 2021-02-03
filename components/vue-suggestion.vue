@@ -18,17 +18,12 @@
         class="autocomplete-result"
         :class="{ 'is-active': i === arrowCounter }"
       >
-        {{ item.typeShort }}
-        {{ item.name }}
         <span
           class="text-muted"
           v-for="parent in item.parents"
           :key="parent.id"
         >
-          <template v-if="parent.typeShort == 'Респ'">
-            {{ parent.typeShort }} {{ parent.name }}
-          </template>
-          <template v-else> {{ parent.name }} {{ parent.typeShort }} </template>
+          {{ item.value }}
         </span>
       </li>
     </ul>

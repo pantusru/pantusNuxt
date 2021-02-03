@@ -15,6 +15,17 @@ export const actions = {
       },
     });
   },
+
+  async _UserUpdate({ dispatch, rootGetters }, user) {
+    const userUpdate = await dispatch("mapUserUpdate", user);
+    return await this.$axios.patch(`${process.env.api}/users`, userUpdate, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${rootGetters.GetCookie}`,
+      },
+    });
+  },
+
   async _Authorization({}, data) {
     return await this.$axios.get(`${process.env.api}/auth`, {
       headers: {
@@ -35,6 +46,20 @@ export const actions = {
     } else {
       return data;
     }
+  },
+  mapUserUpdate({}, user) {
+    return {
+      name: {
+        first: user.name,
+        last: user.surname,
+        patronymic: user.patronymic,
+      },
+      contacts: {
+        phone: {
+          personal: user.telephone,
+        },
+      },
+    };
   },
   mapUserCreate({}, user) {
     return {

@@ -11,12 +11,12 @@
     />
     <Town :$v="$v" items="Город" name="Town" :error="error['Town']" />
     <div v-if="UserStatus === 'wholesale'">
-      <vInput
-        :$v="$v"
-        items="Страна"
-        name="companyCountry"
-        :error="error['companyCountry']"
-      />
+      <!--      <vInput-->
+      <!--        :$v="$v"-->
+      <!--        items="Страна"-->
+      <!--        name="companyCountry"-->
+      <!--        :error="error['companyCountry']"-->
+      <!--      />-->
       <BaseTextareaValid
         class=""
         :$v="$v"

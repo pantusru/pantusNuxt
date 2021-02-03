@@ -42,6 +42,7 @@ export default {
       this.$store.commit("User/ResetForm");
       this.$store.commit("User/AuthorizationFalse");
       this.$cookies.remove("Authorization");
+      this.$store.commit("Cart/CartAll/ResetCartProduct");
       this.$router.push({ name: "index" });
     },
   },

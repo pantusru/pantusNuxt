@@ -7,41 +7,41 @@ import {
   email,
   sameAs,
 } from "vuelidate/lib/validators";
-let name = {
+const name = {
   required,
 };
-let surname = {
+const surname = {
   required,
 };
-let patronymic = {};
-let login = {
-  required,
-  email,
+const patronymic = {};
+const login = {
+  // required,
+  // email,
 };
-let password = {
-  required,
-  minLength: minLength(8),
-  maxLength: maxLength(25),
-  alphaNum,
+const password = {
+  // required,
+  // minLength: minLength(8),
+  // maxLength: maxLength(25),
+  // alphaNum,
 };
-let password2 = {
-  required,
-  sameAsPassword: sameAs("password"),
+const password2 = {
+  // required,
+  // sameAsPassword: sameAs("password"),
 };
-let telephone = {
+const telephone = {
   // required,
   minLength: minLength(17),
 };
 
 // let all поля которые есть в 2 формах
-let all = {
-  name: name,
-  surname: surname,
-  login: login,
-  telephone: telephone,
-  password: password,
-  password2: password2,
-  patronymic: patronymic,
+const all = {
+  name,
+  surname,
+  login,
+  telephone,
+  password,
+  password2,
+  patronymic,
 };
 
 export default {

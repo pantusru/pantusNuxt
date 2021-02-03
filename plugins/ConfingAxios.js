@@ -2,7 +2,7 @@ export default function ({ $axios, redirect, app, request, store }) {
   $axios.onRequest(config => {
     // ПЕРЕХВАТЧИК ЗАПРОСА
     store.commit("SetShow", true);
-    app.$cookies.remove();
+    // app.$cookies.remove();
     if (app.$cookies.get("Authorization") !== undefined) {
       store.commit("SetCookie", app.$cookies.get("Authorization"));
       // $axios.setHeader("Authorization", `${store.getters[""]}`);

@@ -5,12 +5,12 @@
       <b-col>
         <b-form autocomplete="off">
           <h5 class="mb-4">Личные данные</h5>
-          <ElementForm
-            name="login"
-            :items="'Логин (e-mail):'"
-            :error="error.login"
-            :$v="$v"
-          />
+          <!--          <ElementForm-->
+          <!--            name="login"-->
+          <!--            :items="'Логин (e-mail):'"-->
+          <!--            :error="error.login"-->
+          <!--            :$v="$v"-->
+          <!--          />-->
           <ElementForm
             name="name"
             :items="'Имя:'"
@@ -36,21 +36,21 @@
             :error="error.telephone"
             :$v="$v"
           />
-          <h5>Пароли</h5>
-          <ElementForm
-            name="password"
-            :items="'Пароль:'"
-            :error="error.password"
-            :type="'password'"
-            :$v="$v"
-          />
-          <ElementForm
-            name="password2"
-            :items="'Повторите пароль:'"
-            :error="error.password2"
-            :type="'password'"
-            :$v="$v"
-          />
+          <!--          <h5>Пароли</h5>-->
+          <!--          <ElementForm-->
+          <!--            name="password"-->
+          <!--            :items="'Пароль:'"-->
+          <!--            :error="error.password"-->
+          <!--            :type="'password'"-->
+          <!--            :$v="$v"-->
+          <!--          />-->
+          <!--          <ElementForm-->
+          <!--            name="password2"-->
+          <!--            :items="'Повторите пароль:'"-->
+          <!--            :error="error.password2"-->
+          <!--            :type="'password'"-->
+          <!--            :$v="$v"-->
+          <!--          />-->
           <Submit :$v="$v"></Submit>
         </b-form>
       </b-col>

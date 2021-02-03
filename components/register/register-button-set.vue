@@ -5,7 +5,7 @@
     </b-button>
     <base-alert
       text="Вы успешно зарегистрировались"
-      :get-alert="get"
+      :get-alert.sync="get"
       :router-home="true"
     />
     <vueRecaptcha

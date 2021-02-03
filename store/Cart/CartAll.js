@@ -117,10 +117,11 @@ export const actions = {
    * #Запрос на получения товаров с корзины пользователя
    * @function  _CartProduct проверка на наличие, запрос, сохранения в vuex
    */
-  async _CartProduct({ store, dispatch, commit, getters }) {
+  async _CartProduct({ store, dispatch, commit, getters }, check = false) {
     if (
       getters.GetCartProduct.length === 0 ||
-      getters.GetCartActual === false
+      getters.GetCartActual === false ||
+      check
     ) {
       const data = await dispatch(
         "Cart/axios/_CartProduct",

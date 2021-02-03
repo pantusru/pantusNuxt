@@ -120,7 +120,7 @@ export default {
             data: "checkAuthorization",
             value: false,
           });
-          await this.$store.dispatch("Cart/CartAll/_CartProduct");
+          await this.$store.dispatch("Cart/CartAll/_CartProduct", true);
           await this.$router.push("/");
           this.hidden();
         } else {

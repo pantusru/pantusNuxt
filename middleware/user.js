@@ -1,4 +1,12 @@
 export default async ({ route, store, getters, dispatch, app }) => {
+  if (!app.$cookies.get("Authorization")) {
+    const token = await store.dispatch(
+      "User/axios/getToken",
+      {},
+      { root: true }
+    );
+    app.$cookies.set("Authorization", token);
+  }
   if (store.getters["User/Loader"] === false) {
     store.commit("SetCookie", app.$cookies.get("Authorization"));
     await Promise.all([

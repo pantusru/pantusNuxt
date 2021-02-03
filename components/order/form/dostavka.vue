@@ -8,11 +8,11 @@
       >
         <b-col class="d-flex flex-wrap">
           <b-form-radio-group
-            name="dostavka"
             v-model="value"
+            name="dostavka"
             @change="changeInput(data)"
           >
-            <b-form-radio :value="data.id" :id="data.id"> </b-form-radio>
+            <b-form-radio :id="data.id.toString()" :value="data.id" />
           </b-form-radio-group>
           <div>
             <!-- shiptor_widget_show   -->
@@ -33,7 +33,7 @@
           <b-col cols="3" class="cursor-pointer" :data-role="data.nameWidget">{{
             data.description
           }}</b-col>
-            <shiptor :text="data"/>
+          <shiptor :text="data" />
         </template>
         <!--        <template v-else-if="data.nameWidget = '' ">-->
 
@@ -52,7 +52,7 @@
 import shiptor from "@/components/order/widget/shiptor";
 // import cdek from "@/components/order/widget/cdek";
 export default {
-  name: "dostavka",
+  name: "Dostavka",
   components: {
     shiptor,
     // cdek,

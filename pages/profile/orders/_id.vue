@@ -2,7 +2,7 @@
   <b-container>
     <b-row>
       <NavProfile />
-      <div class="col-12 col-lg-10">
+      <div v-if="GetMyOrderId" class="col-12 col-lg-10">
         <div class="order-name">
           Заказ {{ GetMyOrderId.id }} от {{ GetMyOrderId.dates.created }}
         </div>
@@ -35,6 +35,7 @@
           :value="GetMyOrderId.service.name"
         />
       </div>
+      <div v-else><h2>Заказ не найден</h2></div>
     </b-row>
   </b-container>
 </template>

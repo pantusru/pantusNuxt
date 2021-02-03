@@ -13,6 +13,7 @@
         </nuxt-link>
       </h6>
       <div class="text-right">
+        {{ datasetProduct.productOffer[index].id }}
         <DeleteCart :id="datasetProduct.productOffer[index].id" />
       </div>
     </template>

@@ -15,7 +15,7 @@
       </tr>
     </b-thead>
     <b-tbody>
-      <template v-for="(dataset, index) in CartProduct.slice(0,5)">
+      <template v-for="(dataset, index) in CartProduct.slice(0, 5)">
         <tr :key="dataset.id">
           <td class="w-50 border-0" :rowspan="dataset.productOffer.length + 1">
             <span
@@ -35,7 +35,11 @@
             <td class="border-0">{{ offers.prices }} Р</td>
             <td class="border-0">{{ offers.Count }}</td>
             <td class="border-0">
-              <DeleteCart :cart-product="dataset.productOffer" :index="index" />
+              <DeleteCart
+                :id="offers.id"
+                :cart-product="dataset.productOffer"
+                :index="index"
+              />
             </td>
           </tr>
         </template>

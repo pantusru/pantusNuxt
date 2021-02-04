@@ -1,29 +1,34 @@
 <template>
   <div :class="addClass" class="autocomplete">
     <b-input
+      v-model="search"
       autocomplete="off"
       type="text"
       @input="onChange"
-      v-model="search"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.enter="onEnter"
       @focus="getItems"
     />
-    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
+    <ul v-show="isOpen" id="autocomplete-results" class="autocomplete-results">
       <li
         v-for="(item, i) in items"
         :key="i"
-        @click="setResult(item.name, item.id)"
         class="autocomplete-result"
         :class="{ 'is-active': i === arrowCounter }"
+        @click="setResult(item.name, item.zip)"
       >
+        {{ item.typeShort }}
+        {{ item.name }}
         <span
-          class="text-muted"
           v-for="parent in item.parents"
-          :key="parent.id"
+          :key="parent.zip"
+          class="text-muted"
         >
-          {{ item.value }}
+          <template v-if="parent.typeShort == 'Респ'">
+            {{ parent.typeShort }} {{ parent.name }}
+          </template>
+          <template v-else> {{ parent.name }} {{ parent.typeShort }} </template>
         </span>
       </li>
     </ul>
@@ -32,7 +37,7 @@
 
 <script>
 export default {
-  name: "autocomplete",
+  name: "Autocomplete",
 
   props: {
     addClass: {
@@ -40,17 +45,11 @@ export default {
       required: false,
     },
   },
-  watch: {
-    items() {
-      this.getItems();
-    },
-  },
   data() {
     return {
       items: [], // Массив результата города
       timerId: null, // ID таймер для stop запросов
       isOpen: false, // состояние открыто ли меню
-      // search: '', // что ввел пользователь поиска
       arrowCounter: 0, // Index выделяющегося элемента списка
       id: 0, // ID выбранного поиска
     };
@@ -63,10 +62,25 @@ export default {
       set(value) {
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",
-          value: value,
+          value,
         });
+        this.$store.dispatch(
+          "Order/Payment/Index/SetDostavkaExtra",
+          `Не указан город`
+        );
       },
     },
+  },
+  watch: {
+    items() {
+      this.getItems();
+    },
+  },
+  mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+  },
+  destroyed() {
+    document.removeEventListener("click", this.handleClickOutside);
   },
   methods: {
     async GetData() {
@@ -82,6 +96,7 @@ export default {
         for (const index in result) {
           this.items.push({
             id: result[index].id,
+            zip: result[index].zip,
             typeShort: result[index].typeShort,
             name: result[index].name,
             parents: result[index].parents,
@@ -109,11 +124,12 @@ export default {
       this.$emit("input", { data: this.search, id: this.id });
       this.SetValue();
     },
-    setResult(result, id) {
+    setResult(result, zip) {
       // Была выбрана li
-      this.id = id;
+      this.id = zip;
       this.search = result;
       this.isOpen = false;
+      this.$store.dispatch("API/axios/_API_Russia", zip);
       this.$emit("input", { data: this.search, id: this.id });
     },
     onArrowDown() {
@@ -141,12 +157,6 @@ export default {
         this.arrowCounter = -1;
       }
     },
-  },
-  mounted() {
-    document.addEventListener("click", this.handleClickOutside);
-  },
-  destroyed() {
-    document.removeEventListener("click", this.handleClickOutside);
   },
 };
 </script>

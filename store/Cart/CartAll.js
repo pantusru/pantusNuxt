@@ -193,6 +193,13 @@ export const getters = {
     }
     return Number(data.toFixed(2));
   },
+  GetWeightAll: s => {
+    let data = 0;
+    for (const key in s.CartProduct) {
+      data += s.CartProduct[key].ProductCard.params.weight;
+    }
+    return data;
+  },
   /**
    * ### Вывод количество товара в корзине
    * @returns {Number} количество товара в корзине

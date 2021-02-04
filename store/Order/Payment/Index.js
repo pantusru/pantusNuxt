@@ -1,6 +1,7 @@
 export const state = () => ({
   Payment: "",
   Dostavka: "",
+  riles: [],
 });
 export const mutations = {
   SetPayment(store, data) {
@@ -9,9 +10,15 @@ export const mutations = {
   SetDostavka(store, data) {
     store.Dostavka = data;
   },
-  SetNameDostavka(store, data) {
-    data.url.description = data.valueText;
-    data.url.cost = data.valueCons;
+  SetDostavkaExtra(store, data) {
+    data.data.description = data.value;
+  },
+  SetActive(store, data) {
+    console.log(data);
+    data.data.active = data.value;
+  },
+  SetRiles(store, data) {
+    store.riles = data;
   },
 };
 export const actions = {
@@ -31,9 +38,23 @@ export const actions = {
       commit("SetDostavka", data);
     }
   },
+  SetDostavkaExtra({ store, rootGetters, commit }, value) {
+    const email = rootGetters["Order/Payment/Index/GetCostDostavkaId"](4)[0];
+    commit("SetDostavkaExtra", { data: email, value });
+  },
+  async ActionRiles({ store, commit, dispatch }) {
+    const res = await dispatch(
+      "Order/axios/_Payment_Dostavka",
+      {},
+      { root: true }
+    );
+    commit("SetRiles", res);
+  },
 };
 
 export const getters = {
   GetPayment: s => s.Payment,
   GetDostavka: s => s.Dostavka,
+  GetCostDostavkaId: s => id => s.Dostavka.filter(data => data.id === id),
+  GetRiles: s => s.riles,
 };

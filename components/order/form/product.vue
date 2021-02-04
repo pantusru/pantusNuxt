@@ -3,7 +3,7 @@
     <div class="mb-2">Товары: {{ GetCostProduct }} Р</div>
     <div class="mb-4">Доставка: {{ GetCostDostavka }}р</div>
     <h3>Итог {{ GetCostOrder }}Р</h3>
-    <b-button @click="formGo" class="bg-danger border-0"
+    <b-button class="bg-danger border-0" @click="formGo"
       >Отправить заказ</b-button
     >
   </b-form>
@@ -13,12 +13,6 @@
 export default {
   props: {
     $v: {},
-  },
-  methods: {
-    formGo() {
-      // Отправить заказ
-      this.$v.Form.$touch();
-    },
   },
   computed: {
     GetCostProduct() {
@@ -30,6 +24,12 @@ export default {
     GetCostOrder() {
       const data = this.GetCostProduct + this.GetCostDostavka;
       return data;
+    },
+  },
+  methods: {
+    formGo() {
+      // Отправить заказ
+      this.$v.Form.$touch();
     },
   },
 };

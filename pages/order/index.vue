@@ -30,6 +30,7 @@ import Contact from "@/components/order/form/contact";
 import Payment from "@/components/order/form/payment";
 import Dostavka from "@/components/order/form/dostavka";
 import Product from "@/components/order/form/product";
+import Mixin from "@/mixins/order-riles/index";
 // import "https://code.jquery.com/jquery-git.min.js";
 // import "@/plugins/query/jquery.fias.min";
 // import "@/plugins/query/1";
@@ -40,13 +41,15 @@ export default {
     Dostavka,
     Product,
   },
-  mixins: [mixitValid],
+  mixins: [mixitValid, Mixin],
   middleware: ["order-check-count-product", "CheckGuest"],
   async fetch({ store }) {
     await Promise.all([
       store.dispatch("Order/Payment/Index/_Payment"),
       store.dispatch("Order/Payment/Index/_Dostavka"),
+      store.dispatch("Order/Payment/Index/ActionRiles"),
     ]);
   },
+  // created() {},
 };
 </script>

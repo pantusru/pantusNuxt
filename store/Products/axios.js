@@ -67,6 +67,7 @@ export const actions = {
           params: {
             // Параметры товара
             measure: elem.params.measure,
+            weight: elem.params.weight,
           },
           sku: {
             // Артикуль товара

@@ -1,68 +1,53 @@
 <template>
   <div>
     <b-form>
-      <b-row
-        v-for="data in GetDostavka"
-        :key="data.id"
-        class="justify-content-between mb-3"
-      >
-        <b-col class="d-flex flex-wrap">
-          <b-form-radio-group
-            v-model="value"
-            name="dostavka"
-            @change="changeInput(data)"
-          >
-            <b-form-radio :id="data.id.toString()" :value="data.id" />
-          </b-form-radio-group>
-          <div>
-            <!-- shiptor_widget_show   -->
-            <template v-if="data.nameWidget === false">
-              <label :data-role="data.nameWidget" class="mb-1" :for="data.id">{{
+      <template v-for="data in GetDostavka">
+        <b-row
+          v-if="data.active"
+          :key="data.id"
+          class="justify-content-between mb-3"
+        >
+          <b-col class="d-flex">
+            <b-form-radio-group
+              v-model="value"
+              name="dostavka"
+              @change="changeInput(data)"
+            >
+              <b-form-radio
+                :id="'dostavka-' + data.id.toString()"
+                :value="data.id"
+              />
+            </b-form-radio-group>
+            <div>
+              <label class="mb-1" :for="'dostavka-' + data.id">{{
                 data.name
               }}</label>
-            </template>
-            <!-- all   -->
-            <template v-else>
-              <label class="mb-1" :for="data.id">{{ data.name }}</label>
-            </template>
-            <div>{{ data.adress }}</div>
-          </div>
-        </b-col>
-        <!--   shiptor  -->
-        <template v-if="data.nameWidget === 'shiptor_widget_show'">
-          <b-col cols="3" class="cursor-pointer" :data-role="data.nameWidget">{{
-            data.description
-          }}</b-col>
-          <shiptor :text="data" />
-        </template>
-        <!--        <template v-else-if="data.nameWidget = '' ">-->
-
-        <!--        </template>-->
-        <!--    all    -->
-        <template v-else>
+              <div v-html="data.adress" />
+            </div>
+          </b-col>
           <b-col cols="3" class="cursor-pointer">{{ data.description }}</b-col>
-        </template>
-      </b-row>
+        </b-row>
+      </template>
     </b-form>
     <!--    <cdek v-if="show_cdek"/>-->
   </div>
 </template>
 
 <script>
-import shiptor from "@/components/order/widget/shiptor";
+import Mixin from "@/mixins/order-riles/index";
+// import shiptor from "@/components/order/widget/shiptor";
 // import cdek from "@/components/order/widget/cdek";
 export default {
   name: "Dostavka",
-  components: {
-    shiptor,
-    // cdek,
-  },
+  mixins: [Mixin],
+  // components: {
+  //   shiptor,
+  // },
   props: {
     $v: {},
   },
   data() {
     return {
-      // show_cdek: true,
       value: "",
     };
   },
@@ -73,7 +58,13 @@ export default {
   },
   methods: {
     changeInput(data) {
-      console.log(data);
+      this.RilesOrder(
+        this.$store.getters["Order/Payment/Index/GetPayment"],
+        this.value,
+        "delivery_type_id",
+        "paysystem_type_id"
+      );
+      // console.log(data);
       this.$store.commit("Order/Form/SetCostDostavka", data.cost);
       if (data.TownId !== undefined) {
         this.$store.commit("Order/Form/SetFull", {
@@ -88,11 +79,11 @@ export default {
         this.$v.Form.$model.Town = data.Town;
       }
     },
-    WidgetShow(data) {
-      this[data] = true;
-
-      console.log(this.ShowShiptor);
-    },
+    // WidgetShow(data) {
+    //   this[data] = true;
+    //
+    //   console.log(this.ShowShiptor);
+    // },
   },
 };
 </script>

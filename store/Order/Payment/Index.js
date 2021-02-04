@@ -14,7 +14,6 @@ export const mutations = {
     data.data.description = data.value;
   },
   SetActive(store, data) {
-    console.log(data);
     data.data.active = data.value;
   },
   SetRiles(store, data) {

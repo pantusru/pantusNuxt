@@ -58,13 +58,6 @@ export default {
   },
   methods: {
     changeInput(data) {
-      this.RilesOrder(
-        this.$store.getters["Order/Payment/Index/GetPayment"],
-        this.value,
-        "delivery_type_id",
-        "paysystem_type_id"
-      );
-      // console.log(data);
       this.$store.commit("Order/Form/SetCostDostavka", data.cost);
       if (data.TownId !== undefined) {
         this.$store.commit("Order/Form/SetFull", {
@@ -75,9 +68,15 @@ export default {
           name: "TownId",
           value: data.TownId,
         });
-        this.$store.commit("Order/Form/SetDostavka", this.value);
         this.$v.Form.$model.Town = data.Town;
       }
+      this.$store.commit("Order/Form/SetDostavka", data.id);
+      this.RilesOrder(
+        this.$store.getters["Order/Payment/Index/GetPayment"],
+        this.$store.getters["Order/Form/GetDostavka"],
+        "delivery_type_id",
+        "paysystem_type_id"
+      );
     },
     // WidgetShow(data) {
     //   this[data] = true;

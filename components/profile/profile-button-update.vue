@@ -64,7 +64,6 @@ export default {
           "User/axios/_UserUpdate",
           userNews
         );
-        console.log(res);
         this.getAlert = true;
       }
       // this.$v.Form.password.$model = "";

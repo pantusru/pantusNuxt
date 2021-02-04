@@ -35,13 +35,13 @@ export default {
   },
   methods: {
     setPayment(event) {
+      this.$store.commit("Order/Form/SetPayment", event);
       this.RilesOrder(
         this.$store.getters["Order/Payment/Index/GetDostavka"],
-        this.value,
+        this.$store.getters["Order/Form/GetPayment"],
         "paysystem_type_id",
         "delivery_type_id"
       );
-      this.$store.commit("Order/Form/SetPayment", this.value);
     },
   },
 };

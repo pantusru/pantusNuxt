@@ -222,7 +222,7 @@ export const actions = {
       // У Панели уже есть Data
       arr = data.linkApplicabilities.children;
     } else {
-      // У Панели нету Data
+      // У Панели нет Data
       arr = [
         ...data.linkPanel.DataGenerations,
         ...data.linkApplicabilities.children,

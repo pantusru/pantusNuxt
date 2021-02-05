@@ -1,4 +1,5 @@
 export const state = () => ({
+  CheckCountProducts: false,
   // Показывать ли затемнение при загрузки
   showLoader: false,
   // Вид товара в фильтрах
@@ -15,6 +16,9 @@ export const state = () => ({
   cookie: "",
 });
 export const mutations = {
+  SetCheckCountProducts(store, data) {
+    store.CheckCountProducts = data;
+  },
   SetCookie(store, data) {
     store.cookie = data;
   },
@@ -45,4 +49,5 @@ export const getters = {
   GetFormNewPassword: s => s.Form.new_password,
   GetcheckAuthorization: s => s.Form.checkAuthorization,
   GetNavMobile: s => s.NavMobile,
+  getCheckCountProducts: s => s.CheckCountProducts,
 };

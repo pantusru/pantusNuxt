@@ -23,7 +23,14 @@
           >
             <nuxt-link
               class="text-576b77 link-danger reset-title"
-              :to="'product/' + table.ProductCard.id.toString()"
+              :to="
+                'products/' +
+                table.ProductCard.id.toString() +
+                '/' +
+                table.ProductCard.sku.normalized +
+                '-' +
+                table.ProductCard.brand.code
+              "
             >
               {{ table.ProductCard.sku.original }}
             </nuxt-link>
@@ -45,7 +52,14 @@
             <nuxt-link
               :title="table.ProductCard.name"
               class="text-576b77 link-danger reset-title"
-              :to="'product/' + table.ProductCard.id.toString()"
+              :to="
+                'products/' +
+                table.ProductCard.id.toString() +
+                '/' +
+                table.ProductCard.sku.normalized +
+                '-' +
+                table.ProductCard.brand.code
+              "
             >
               {{ table.ProductCard.name }}
             </nuxt-link>

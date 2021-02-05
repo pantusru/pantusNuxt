@@ -56,7 +56,6 @@ export default {
       await ProductRepository.popular().then(response => {
         this.$store.commit("setProductPopular", response.data.data);
         this.product = this.$store.getters.getProductPopular;
-        console.log(response.data);
         this.checkPopular = true;
       });
     },

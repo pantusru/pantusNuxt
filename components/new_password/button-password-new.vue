@@ -36,7 +36,7 @@ export default {
       console.log(this.$v.Form);
       this.$v.Form.$touch();
       if (!this.$v.Form.$error) {
-        // Нету ошибок от валидации
+        // нет ошибок от валидации
         const checkPassword = await this.$store.dispatch(
           "news-password/axios/_Check_Password_User",
           this.$v.Form.$model.str_password

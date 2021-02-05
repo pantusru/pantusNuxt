@@ -16,7 +16,7 @@
       :number-of-pages="countPage"
       use-router
     />
-    <base-title-info v-if="MyOrder === null" text="У вас нету заказов" />
+    <base-title-info v-if="MyOrder === null" text="У вас нет заказов" />
   </div>
 </template>
 

@@ -101,7 +101,7 @@ export const actions = {
       let ChexboxTrue;
       if (valueState.CheckedType.length === 1) {
         // Если 1 checkbox
-        ChexboxTrue = !valueState.Indeterminate[0] && valueState.CheckedType[0]; // нету 3 состояния но выбран этот элемент
+        ChexboxTrue = !valueState.Indeterminate[0] && valueState.CheckedType[0]; // нет 3 состояния но выбран этот элемент
         Indeterminate = valueState.Indeterminate[0];
       } else {
         Indeterminate = valueState.CheckedType.some(element => {

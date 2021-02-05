@@ -16,7 +16,7 @@
             </template>
           </span>
         </div>
-        <div v-else>Нету применяемости</div>
+        <div v-else>нет применяемости</div>
       </div>
       <!-- parent -->
       <div v-else-if="type === 'parent'">
@@ -25,7 +25,7 @@
             {{ Applicabilities.filter(data => data.id === panel)[0].name }}
           </template>
         </div>
-        <div v-else>Нету применяемости</div>
+        <div v-else>нет применяемости</div>
       </div>
     </div>
     <!--          :select-size="4" -->

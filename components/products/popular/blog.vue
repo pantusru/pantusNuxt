@@ -10,7 +10,14 @@
         <nuxt-link
           :title="datasetProduct.ProductCard.name"
           class="text-436174 text-decoration-none reset-title"
-          :to="'/product/' + datasetProduct.ProductCard.id"
+          :to="
+            '/products/' +
+            datasetProduct.ProductCard.id +
+            '/' +
+            datasetProduct.ProductCard.sku.normalized +
+            '-' +
+            datasetProduct.ProductCard.brand.code
+          "
         >
           {{ datasetProduct.ProductCard.name }}
         </nuxt-link>

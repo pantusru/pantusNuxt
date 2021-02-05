@@ -11,7 +11,14 @@
               <nuxt-link
                 :title="Product.ProductCard.name"
                 class="text-555 reset-title"
-                :to="'product/' + Product.ProductCard.id"
+                :to="
+                  'products/' +
+                  Product.ProductCard.id +
+                  '/' +
+                  Product.ProductCard.sku.normalized +
+                  '-' +
+                  Product.ProductCard.brand.code
+                "
               >
                 {{ Product.ProductCard.name }}</nuxt-link
               >

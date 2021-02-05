@@ -7,11 +7,11 @@ export const state = () => ({
 export const mutations = {
   SetNewsCategoriesPage(store, data) {
     if (store.NewsCategoriesPage[data.name] === undefined) {
-      // ЕСЛИ данной категории нету
+      // ЕСЛИ данной категории нет
       store.NewsCategoriesPage[data.name] = [];
       store.NewsCategoriesPage[data.name][data.page] = data.dataset;
     } else {
-      // ЕСЛИ данная категории есть но нету пагинации
+      // ЕСЛИ данная категории есть но нет пагинации
       store.NewsCategoriesPage[data.name][data.page] = data.dataset;
     }
   },

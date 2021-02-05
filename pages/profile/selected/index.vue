@@ -10,7 +10,7 @@
             :array="Products"
             :selected="true"
           />
-          <base-title-info v-else text="Нету избранных товаров" />
+          <base-title-info v-else text="нет избранных товаров" />
         </div>
       </b-col>
     </b-row>

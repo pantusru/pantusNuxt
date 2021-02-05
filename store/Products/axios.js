@@ -19,7 +19,6 @@ export const actions = {
    */
   async _ProductFilter({ dispatch, commit }, data) {
     const dataset = await dispatch("_init_MapFilter", data.data);
-    console.log(dataset);
     const product = await this.$axios.$get(
       `${process.env.api}/products_filter`,
       {
@@ -83,6 +82,7 @@ export const actions = {
             // brand
             id: elem.brand.id,
             name: elem.brand.name,
+            code: elem.brand.code,
             deliveryDelay: elem.brand.deliveryDelay,
           },
           categories: [],

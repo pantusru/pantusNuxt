@@ -606,7 +606,7 @@
            <div class="col-md-6" style="padding-left: 0px">
                  <iframe src="//player.vimeo.com/video/274482002?app_id=122963" width="580" height="330" frameborder="0" title="Регистрация на сайте pantus.ru" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
                  </iframe>
-                 <i><span style="color: #959595;">Видеоинструкция по личному кабинету</span></i>
+                 <i><span style="color: #959595;">Видеоинструкция по личному кабинет</span></i>
            </div>
            ------------------------------------------------------->
           </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--  Кнопка купить если товара нету в корзине   -->
+    <!--  Кнопка купить если товара нет в корзине   -->
     <div class="d-lg-flex d-none justify-content-end">
       <base-button
         v-if="!userBasket"
@@ -24,7 +24,7 @@
         >X
       </b-button>
     </div>
-    <!--  Кнопка купить если товара нету в корзине мобильная версия  -->
+    <!--  Кнопка купить если товара нет в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">
       <base-button v-if="!userBasket" class="py-1 px-2" @click="ModalProduct()">
         <b-icon-cart-4 />

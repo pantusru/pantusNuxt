@@ -14,6 +14,7 @@
           <FilterForm />
         </b-col>
         <b-col lg="9">
+          <get-count-res />
           <!-- Метки какие бренды и категории выбраны  -->
           <MetkaFilter />
           <div class="text-right">
@@ -69,9 +70,11 @@ import SubmitFilter from "@/mixins/search-submit/index";
 import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
+import GetCountRes from "@/components/search/getCountRes";
 
 export default {
   components: {
+    GetCountRes,
     BasePagination,
     ButtonReplyShow,
     Share,
@@ -106,7 +109,7 @@ export default {
           this.form.minvalue = store.getters["formSearch/GetMinValue"];
         }
       } else {
-        // Если одного нету
+        // Если одного нет
         if (query.minvalue !== undefined) {
           // ПРОВЕРКА МИНИМУМА
           store.commit("formSearch/SetMinValue", query.minvalue);
@@ -197,6 +200,7 @@ export default {
       // Запрос для получение товара
       await store.dispatch("Products/_ProductAll", this.form);
       this.form = {};
+      store.commit("SetCheckCountProducts", true);
     }
     //   ПРОВЕРКА QUERY
   },
@@ -244,6 +248,7 @@ export default {
   },
   watch: {
     async $route() {
+      this.$store.commit("SetCheckCountProducts", false);
       // Изменение route
       if (this.checkFilterClick !== false) {
         // Это не кнопка
@@ -265,6 +270,7 @@ export default {
       }
       this.$store.commit("SetcheckFilterClick", true);
       this.form = {};
+      this.$store.commit("SetCheckCountProducts", true);
     },
   },
   created() {

@@ -7,7 +7,14 @@
       <h6 class="mb-0">
         <nuxt-link
           class="text-dark"
-          :to="'/product/' + datasetProduct.ProductCard.id"
+          :to="
+            '/products/' +
+            datasetProduct.ProductCard.id +
+            '/' +
+            datasetProduct.ProductCard.sku.normalized +
+            '-' +
+            datasetProduct.ProductCard.brand.code
+          "
         >
           {{ datasetProduct.ProductCard.name }}
         </nuxt-link>

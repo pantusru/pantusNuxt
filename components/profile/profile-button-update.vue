@@ -47,7 +47,7 @@ export default {
       this.$v.$touch();
       this.checkValidateRecaptcha();
       if (this.$v.Form.$error === false && this.checkRecaptcha === true) {
-        // Нету ошибок
+        // нет ошибок
         // await this.$axios.$get("http://localhost:3000/").then((res, req) => {
         //   this.$store.commit("SetFormApi", { data: "password", value: res });
         // if (this.passwordCheck === false) {

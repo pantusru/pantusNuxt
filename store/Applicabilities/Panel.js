@@ -223,7 +223,7 @@ export const actions = {
   //           }
   //         }
   //         if (check === false) {
-  //           // У модели нету выбранных поколении
+  //           // У модели нет выбранных поколении
   //           ids.push(element.SelectedModel[keyModel]);
   //         }
   //       }

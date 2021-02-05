@@ -18,10 +18,14 @@
 
 <script>
 import BlogProduct from "@/components/products/popular/blog";
+// import ModalImg from "@/components/modal/product-img";
+// import ModalBuy from "@/components/modal/buy-product";
 export default {
   name: "ClaiderPopular",
   components: {
     BlogProduct,
+    // ModalImg,
+    // ModalBuy,
   },
   props: {
     popular: {

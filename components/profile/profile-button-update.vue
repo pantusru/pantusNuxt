@@ -60,10 +60,7 @@ export default {
           patronymic: this.$v.Form.$model.patronymic,
         };
         this.$store.commit("User/SetAll", userNews);
-        const res = await this.$store.dispatch(
-          "User/axios/_UserUpdate",
-          userNews
-        );
+        await this.$store.dispatch("User/axios/_UserUpdate", userNews);
         this.getAlert = true;
       }
       // this.$v.Form.password.$model = "";

@@ -124,6 +124,6 @@ li {
   word-break: break-word;
 }
 
-/**
-ФЕЙК КОМЕНТ dasdad das
- */
+.slick-prev {
+  left: -12px;
+}

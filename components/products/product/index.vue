@@ -6,14 +6,14 @@
         <!-- БЛОК с альбомом -->
         <b-col cols="3" class="">
           <b-img
-            class="mb-3"
+            class="mb-3 img-100-auto"
             :src="dataset.ProductCard.ProductCardImage.url"
             @click="MainTrue"
           ></b-img>
           <b-img
             :key="data.id"
             v-for="(data, index) in dataset.ProductCard.album"
-            class="mb-3"
+            class="mb-3 img-100-auto"
             :src="data.url"
             @click="MainUrl(index)"
           />

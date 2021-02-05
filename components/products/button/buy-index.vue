@@ -174,6 +174,7 @@ export default {
      * @function ModalProduct - Вызывает мутации для отображение модального окна и открывает модальное окно
      */
     ModalProduct() {
+      console.log("SetModaBuy");
       this.$store.commit("Modal/SetModaBuy", {
         LinkProduct: this.LinkProduct,
         LinkOffer: this.LinkOffer,

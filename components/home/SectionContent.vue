@@ -18,17 +18,15 @@
           >Бренды запчастей</nuxt-link
         >
       </h2>
-      <table class="table-brand">
-        <tbody>
-          <tr v-for="data in table" :key="data.id" class="brand-tr">
-            <td v-for="dataset in data" :key="dataset.id" class="brand-td">
-              <nuxt-link class="brand-link link-hover" :to="dataset.href">{{
-                dataset.name
-              }}</nuxt-link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-brand">
+        <div v-for="data in table" :key="data.id" class="brand-tr row">
+          <div v-for="dataset in data" :key="dataset.id" class="brand-td">
+            <nuxt-link class="brand-link link-hover" :to="dataset.href">{{
+              dataset.name
+            }}</nuxt-link>
+          </div>
+        </div>
+      </div>
       <nuxt-link to="/brands" class="btn-full-brand">Все бренды</nuxt-link>
     </div>
   </section>

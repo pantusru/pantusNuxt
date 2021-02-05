@@ -10,9 +10,9 @@
           </div>
           <nav>
             <nuxt-link
-              :active-class="ActiveClass"
+              :link-exact-active-class="ActiveClass"
               :class="classMain"
-              to="/profile"
+              to="/profile/"
               >Личный кабинет</nuxt-link
             >
             <nuxt-link

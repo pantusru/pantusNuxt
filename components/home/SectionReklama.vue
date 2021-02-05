@@ -1,14 +1,14 @@
 <template>
   <section class="section-reklama flex-column flex-md-row">
     <div class="row">
-      <div class="img-reklama col">
+      <div class="img-reklama col-6">
         <img
           class="img-100-auto"
           src="https://www.pantus.ru/upload/medialibrary/d26/Luzar.jpg"
           alt="Luzar"
         />
       </div>
-      <div class="img-reklama col">
+      <div class="img-reklama col-6">
         <img
           class="img-100-auto"
           src="https://www.pantus.ru/upload/medialibrary/56f/image (510).png"
@@ -52,4 +52,6 @@ export default {};
         color: #fff
         border-radius: 3px
         padding: 8px 15px
+.img-reklama
+  //max-width: 150px
 </style>

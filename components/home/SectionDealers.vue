@@ -37,6 +37,22 @@ export default {
         infinite: true,
         initialSlide: 4,
         swipeToSlide: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+            },
+          },
+        ],
       },
     };
   },

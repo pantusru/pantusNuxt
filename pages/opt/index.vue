@@ -1106,7 +1106,7 @@ export default {
   right: -25px;
 }
 .opt-claider .slick-prev {
-  left: -19px;
+  left: -12px;
 }
 .opt-claider .item {
   display: block !important;

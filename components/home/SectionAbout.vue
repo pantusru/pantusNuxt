@@ -25,7 +25,7 @@
     </div>
     <h3 class="about-title">Интернет-магазин запчастей Pantus.ru это:</h3>
     <div class="about-blog">
-      <div class="about-box col-6">
+      <div class="about-box col-12 col-md-6">
         <h4 class="about-box-title">11 безопасных способов оплаты товара:</h4>
         <div class="about-text">
           Оплата заказа онлайн с помощью любых банковских карт, электронных
@@ -50,7 +50,7 @@
           <li class="about-link">Подбор детали по VIN-номеру автомобиля.</li>
         </ul>
       </div>
-      <div class="about-box col-6">
+      <div class="about-box col-12 col-md-6">
         <h4 class="about-box-title">Доставка по всему миру:</h4>
         <div class="about-text">
           Мы доставим заказ в любую точку мира. Сделайте заказ и укажите ваш
@@ -103,7 +103,7 @@ export default {};
     margin-bottom: 15px
     display: flex
     justify-content: space-between
-.about-box
+    flex-wrap: wrap
 
 .about-box-title
     font-size: 13px

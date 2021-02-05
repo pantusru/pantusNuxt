@@ -1,37 +1,36 @@
 <template>
   <div>
     <b-form>
-      <template v-for="data in GetDostavka">
-        <b-row
-          v-if="data.active"
-          :key="data.id"
-          class="justify-content-between mb-3"
-        >
-          <b-col class="d-flex">
-            <b-form-radio-group
-              v-model="GetFormDostavka"
-              name="dostavka"
-              @change="changeInput(data)"
-            >
+      <b-form-radio-group v-model="GetFormDostavka" name="dostavka">
+        <template v-for="data in GetDostavka">
+          <b-row
+            v-if="data.active"
+            :key="data.id"
+            class="justify-content-between mb-3"
+          >
+            <b-col class="d-flex">
               <b-form-radio
                 :id="'dostavka-' + data.id.toString()"
                 :value="data.id"
+                @change="changeInput(data)"
               />
-            </b-form-radio-group>
-            <div>
-              <label class="mb-1" :for="'dostavka-' + data.id">{{
-                data.name
-              }}</label>
-              <div v-html="data.adress" />
-            </div>
-          </b-col>
-          <b-col cols="3" class="cursor-pointer">{{ data.description }}</b-col>
-        </b-row>
-      </template>
+              <div>
+                <label class="mb-1" :for="'dostavka-' + data.id">{{
+                  data.name
+                }}</label>
+                <div v-html="data.adress" />
+              </div>
+            </b-col>
+            <b-col cols="3" class="cursor-pointer">{{
+              data.description
+            }}</b-col>
+          </b-row>
+        </template>
+      </b-form-radio-group>
     </b-form>
-    <!--    <cdek v-if="show_cdek"/>-->
   </div>
 </template>
+<!--    <cdek v-if="show_cdek"/>-->
 
 <script>
 import Mixin from "@/mixins/order-riles/index";
@@ -46,11 +45,11 @@ export default {
   props: {
     $v: {},
   },
-  data() {
-    return {
-      value: "",
-    };
-  },
+  // data() {
+  //   return {
+  //     value: "",
+  //   };
+  // },
   computed: {
     GetDostavka() {
       return this.$store.getters["Order/Payment/Index/GetDostavka"];
@@ -67,7 +66,6 @@ export default {
   },
   methods: {
     changeInput(data) {
-      console.log(data);
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {
         this.$store.commit("Order/Form/SetFull", {

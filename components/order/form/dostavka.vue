@@ -9,7 +9,7 @@
         >
           <b-col class="d-flex">
             <b-form-radio-group
-              v-model="value"
+              v-model="GetFormDostavka"
               name="dostavka"
               @change="changeInput(data)"
             >
@@ -55,10 +55,26 @@ export default {
     GetDostavka() {
       return this.$store.getters["Order/Payment/Index/GetDostavka"];
     },
+    GetFormDostavka: {
+      get() {
+        return this.$store.getters["Order/Form/GetDostavka"];
+      },
+      set(val) {
+        // console.log(val);
+        // this.$store.commit("Order/Form/SetDostavka", val);
+      },
+    },
   },
   methods: {
     changeInput(data) {
-      this.$store.commit("Order/Form/SetCostDostavka", data.cost);
+      console.log(data);
+      this.$store.commit("Order/Form/SetCostDostavka", data.price);
+      if (data.city != null) {
+        this.$store.commit("Order/Form/SetFull", {
+          name: "Town",
+          value: data.city,
+        });
+      }
       if (data.TownId !== undefined) {
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",

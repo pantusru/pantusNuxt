@@ -8,8 +8,8 @@ export const state = () => ({
       TownId: "",
     },
     Checxbox: {
-      Payment: "35",
-      Dostavka: "",
+      Payment: undefined,
+      Dostavka: undefined,
     },
     costDostavka: 0,
   },

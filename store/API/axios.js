@@ -20,7 +20,7 @@ export const actions = {
     // const email = rootGetters["Order/Payment/Index/GetCostDostavkaId"](4)[0];
     dispatch(
       "Order/Payment/Index/SetDostavkaExtra",
-      `${res.data.paynds / 100} руб.`,
+      `${Number(res.data.paynds) / 100}`,
       { root: true }
     );
   },

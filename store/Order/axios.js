@@ -103,6 +103,8 @@ export const actions = {
           adress: elem.description,
           description: elem.extra,
           active: true,
+          city: elem.default_city,
+          price: elem.default_price,
         });
       }
     });

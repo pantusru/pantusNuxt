@@ -1,6 +1,6 @@
 export const state = () => ({
-  Payment: "",
-  Dostavka: "",
+  Payment: [],
+  Dostavka: [],
   riles: [],
 });
 export const mutations = {
@@ -11,7 +11,8 @@ export const mutations = {
     store.Dostavka = data;
   },
   SetDostavkaExtra(store, data) {
-    data.data.description = data.value;
+    data.data.description = data.value + "руб.";
+    data.data.price = Number(data.value);
   },
   SetActive(store, data) {
     data.data.active = data.value;

@@ -1,7 +1,9 @@
 export default function ({ $axios, redirect, app, request, store }) {
   $axios.onRequest(config => {
     // ПЕРЕХВАТЧИК ЗАПРОСА
-    store.commit("SetShow", true);
+
+    // store.commit("SetShow", true);
+
     // app.$cookies.remove();
     if (app.$cookies.get("Authorization") !== undefined) {
       store.commit("SetCookie", app.$cookies.get("Authorization"));
@@ -13,7 +15,7 @@ export default function ({ $axios, redirect, app, request, store }) {
     console.log("Making request to " + config.url);
   });
   $axios.onResponse(res => {
-    store.commit("SetShow", false);
+    // store.commit("SetShow", false);
     //  ПЕРЕХВАТЧИК ОТВЕТА
     // if (res.data !== undefined) {
     //   return res;

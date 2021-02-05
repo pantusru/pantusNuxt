@@ -68,6 +68,7 @@ export default {
           "Order/Payment/Index/SetDostavkaExtra",
           `Не указан город`
         );
+        this.$store.commit("Order/Form/SetDostavka", undefined);
       },
     },
   },

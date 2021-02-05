@@ -20,7 +20,11 @@
       </h2>
       <div class="table-brand">
         <div v-for="data in table" :key="data.id" class="brand-tr row">
-          <div v-for="dataset in data" :key="dataset.id" class="brand-td">
+          <div
+            v-for="dataset in data"
+            :key="dataset.id"
+            class="brand-td col-md-3 col-6"
+          >
             <nuxt-link class="brand-link link-hover" :to="dataset.href">{{
               dataset.name
             }}</nuxt-link>

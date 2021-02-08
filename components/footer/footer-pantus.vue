@@ -29,16 +29,16 @@ export default {
   data() {
     return {
       links: [
-        { name: "О компании", href: "" },
-        { name: "Вакансии", href: "" },
-        { name: "Помощь", href: "" },
-        { name: "Возврат", href: "" },
-        { name: "Единая служба качества ", href: "" },
-        { name: "Контакты", href: "" },
+        { name: "О компании", href: "/about" },
+        // { name: "Вакансии", href: "" },
+        { name: "Помощь", href: "/help" },
+        { name: "Возврат", href: "/help#returns" },
+        { name: "Единая служба качества ", href: "help/feedback/" },
+        { name: "Контакты", href: "/contacts" },
       ],
       links_bottom: [
-        { name: "Спецпредложение для оптовиков", href: "" },
-        { name: "Поставщикам", href: "" },
+        { name: "Спецпредложение для оптовиков", href: "/opt" },
+        { name: "Поставщикам", href: "/about/suppliers" },
       ],
     };
   },

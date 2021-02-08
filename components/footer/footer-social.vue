@@ -8,10 +8,16 @@
     </b-row>
     <b-row class="flex-md-column mb-2">
       <b-col cols="3" md="6" class="mb-2">
-        <a href=""><img src="@img/footer/googleplay.svg" alt="" /></a>
+        <a href="https://apps.apple.com/us/app/pantus/id1475702773">
+          <img src="@img/footer/googleplay.svg" alt="" />
+        </a>
       </b-col>
       <b-col cols="3" md="6">
-        <a href=""><img src="@img/footer/appstore.svg" alt="" /></a>
+        <a
+          href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
+        >
+          <img src="@img/footer/appstore.svg" alt="" />
+        </a>
       </b-col>
     </b-row>
     <div>
@@ -35,14 +41,30 @@
 
 <script>
 export default {
-  name: "footer-social",
+  name: "FooterSocial",
   data() {
     return {
       linksImg: [
-        { src: require("@img/footer/vk.png"), href: "", alt: "11" },
-        { src: require("@img/footer/youtub.png"), href: "", alt: "22" },
-        { src: require("@img/footer/instargam.png"), href: "", alt: "33" },
-        { src: require("@img/footer/telegram3.png"), href: "", alt: "33" },
+        {
+          src: require("@img/footer/vk.png"),
+          href: "https://vk.com/pantusclub",
+          alt: "vk.com",
+        },
+        {
+          src: require("@img/footer/youtub.png"),
+          href: "https://www.youtube.com/channel/UCwXbMkU-NXMp72xINxamRWQ",
+          alt: "youtube",
+        },
+        {
+          src: require("@img/footer/instargam.png"),
+          href: "https://www.instagram.com/pantus.ru/",
+          alt: "instagram",
+        },
+        {
+          src: require("@img/footer/telegram3.png"),
+          href: "https://tgclick.com/pantusclub",
+          alt: "telegram",
+        },
       ],
     };
   },

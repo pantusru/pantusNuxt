@@ -4,7 +4,6 @@
       <categoriaVue
         srcIndex="/search?filter_applicabilities=3138"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
-        class-img="img-100-auto"
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
         src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"

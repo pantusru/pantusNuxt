@@ -2,30 +2,27 @@
   <b-col cols="12" lg="4" md="6">
     <h6 class="mb-3"><b>Оплата</b></h6>
     <b-row no-gutters class="mb-4 flex-nowrap">
-      <a class="mr-4" v-for="data in linksImg" :key="data.id" :href="data.href">
+      <!--      <a class="mr-4" v-for="data in linksImg" :key="data.id" :href="data.href">-->
+      <div class="mr-4" v-for="data in linksImg" :key="data.id">
         <img :src="data.src" :alt="data.alt" />
-      </a>
+      </div>
+      <!--      </a>-->
     </b-row>
     <p class="mb-3">
       {{ text }}
     </p>
-    <a href="" class="mb-3 d-block">Подробнее</a>
+    <nuxt-link to="pay/" class="mb-3 d-block">Подробнее</nuxt-link>
     <b-row no-gutters class="flex-nowrap">
-      <a
-        class="mr-4"
-        v-for="data in linksImgManu"
-        :key="data.id"
-        :href="data.href"
-      >
+      <div v-for="data in linksImgManu" :key="data.id" class="mr-4">
         <img :src="data.src" :alt="data.alt" />
-      </a>
+      </div>
     </b-row>
   </b-col>
 </template>
 
 <script>
 export default {
-  name: "footer-payment",
+  name: "FooterPayment",
   data() {
     return {
       linksImg: [

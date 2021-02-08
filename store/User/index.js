@@ -82,7 +82,7 @@ export const actions = {
           commit("AuthorizationTrue");
         } else {
           // Не валидный токен
-          this.$cookies.remove("Authorization");
+          // this.$cookies.remove("Authorization");
         }
       } else {
         // Другой запрос который выдает пользователю Токен

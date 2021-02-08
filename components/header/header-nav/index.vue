@@ -68,7 +68,7 @@
               <img src="@img/icons/icon-shopping-cart.png" alt="" />
             </div>
             <div class="d-flex flex-column text-secondary pl-10px">
-              <div class="d-lg-block d-none fz-5">
+              <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
                 <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
               </div>
               <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"

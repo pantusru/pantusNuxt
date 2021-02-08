@@ -15,7 +15,7 @@ header img, .section-index img{
 /*  width: 100%;*/
 /*  height: auto;*/
 /*}*/
-.img-100-auto{
+img{
   width: 100%;
   height: auto;
 }

@@ -76,6 +76,7 @@ export default {
     .categoria-img
       margin-left: auto
       max-width: 60%
+      margin-top: auto
       //width: 60%
         //position: absolute
         //right: 0

@@ -72,7 +72,7 @@
 import MixinsError from "@/mixins/form/feedback/error";
 import MixinsValidations from "@/mixins/form/feedback/validator";
 import VInput from "@/components/register/index";
-import MixinMenuAll from "@/mixins/static-data/menu-all"
+import MixinMenuAll from "@/mixins/static-data/menu-all";
 import sidebar from "@/components/static/elements/sidebar/index";
 export default {
   name: "Feedback",
@@ -81,6 +81,21 @@ export default {
     VInput,
   },
   mixins: [MixinsError, MixinsValidations, MixinMenuAll],
+  head() {
+    return {
+      title: `Единая служба качества`,
+      meta: [
+        {
+          name: "description",
+          content: `Единая служба качества интернет-магазина "Пантус"`,
+        },
+        {
+          name: "keywords",
+          content: `Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз`,
+        },
+      ],
+    };
+  },
   methods: {
     ClickBnt() {
       this.$v.Form.$touch();

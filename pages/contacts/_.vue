@@ -120,6 +120,21 @@ export default {
       redirect("/404");
     }
   },
+  head() {
+    return {
+      title: `Контакты Пантус. Автозапчасти с доставкой - ${this.getH1}`,
+      meta: [
+        {
+          name: "description",
+          content: `Интернет-магазин Pantus.ru - Автозапчасти оптом и в розницу. Контакты ООО "Пантус" ${this.getH1}. Телефоны и Email отделов. График работы. Карта проезда, фактический адреса`,
+        },
+        {
+          name: "keywords",
+          content: `ооо пантус, контакты пантус, пантус ${this.getH1}, пантус телефон, автозапчасти ${this.getH1}`,
+        },
+      ],
+    };
+  },
   computed: {
     getCheck() {
       return this.$store.getters["contacts/getDataContacts"].check;

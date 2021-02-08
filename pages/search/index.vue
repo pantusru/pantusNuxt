@@ -206,7 +206,7 @@ export default {
   },
   head() {
     return {
-      title: "Pantus Спиcок товара",
+      title: "Список запчастей",
       meta: [
         {
           name: "keywords",

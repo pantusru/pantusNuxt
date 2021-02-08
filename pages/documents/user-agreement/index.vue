@@ -765,6 +765,21 @@ export default {
     sidebar,
   },
   mixins: [MixinMenuAll],
+  head() {
+    return {
+      title: `Пользовательское соглашение ООО Пантус`,
+      meta: [
+        {
+          name: "description",
+          content: `Информация для клиентов, партнеров и контрагентов. Пользовательское соглашение ООО Пантус.`,
+        },
+        {
+          name: "keywords",
+          content: `пантус документы пользовательское соглашение`,
+        },
+      ],
+    };
+  },
 };
 </script>
 

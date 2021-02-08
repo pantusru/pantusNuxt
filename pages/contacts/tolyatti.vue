@@ -2,7 +2,7 @@
   <b-container>
     <div class="container-static">
       <h1>Контакты Пантус - Тольятти</h1>
-      <ContactMenu/>
+      <ContactMenu />
       <div class="row">
         <div class="col-md-6 col-12">
           <h3>Телефон: <a href="tel:88005558721">8 (800) 555 87 21</a></h3>
@@ -111,9 +111,11 @@
         <div class="col-md-6 col-12" style="margin-top: 20px">
           <h3>Адрес:&nbsp;</h3>
           <p>
-            <b>Самарская область, г. Тольятти,&nbsp;Новозаводская ул., 2б, рынок СТАВР</b><br>
-            <b>
-              4 точки на авторынке СТАВР</b>:<br>
+            <b
+              >Самарская область, г. Тольятти,&nbsp;Новозаводская ул., 2б, рынок
+              СТАВР</b
+            ><br />
+            <b> 4 точки на авторынке СТАВР</b>:<br />
           </p>
           <ul>
             <li>Оптовый склад ВАЗ, ГАЗ, Renault - Ангар № 19И</li>
@@ -121,7 +123,38 @@
             <li>Оптовый склад ВАЗ - Ангар № 9Я</li>
             <li>Павильон 1, место 43&nbsp;</li>
           </ul>
-          <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/pantus/235907969830/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Пантус</a><a href="https://yandex.ru/maps/240/togliatti/category/online_store/184105742/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Интернет-магазин в Тольятти</a><a href="https://yandex.ru/maps/240/togliatti/category/auto_parts_and_accessories_store/184105320/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Магазин автозапчастей и автотоваров в Тольятти</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUIjYdjSA" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+          <div style="position: relative; overflow: hidden">
+            <a
+              href="https://yandex.ru/maps/org/pantus/235907969830/?utm_medium=mapframe&utm_source=maps"
+              style="color: #eee; font-size: 12px; position: absolute; top: 0px"
+              >Пантус</a
+            ><a
+              href="https://yandex.ru/maps/240/togliatti/category/online_store/184105742/?utm_medium=mapframe&utm_source=maps"
+              style="
+                color: #eee;
+                font-size: 12px;
+                position: absolute;
+                top: 14px;
+              "
+              >Интернет-магазин в Тольятти</a
+            ><a
+              href="https://yandex.ru/maps/240/togliatti/category/auto_parts_and_accessories_store/184105320/?utm_medium=mapframe&utm_source=maps"
+              style="
+                color: #eee;
+                font-size: 12px;
+                position: absolute;
+                top: 28px;
+              "
+              >Магазин автозапчастей и автотоваров в Тольятти</a
+            ><iframe
+              src="https://yandex.ru/map-widget/v1/-/CCUIjYdjSA"
+              width="100%"
+              height="400"
+              frameborder="1"
+              allowfullscreen="true"
+              style="position: relative"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -131,6 +164,21 @@
 <script>
 export default {
   name: "Moscow",
+  head() {
+    return {
+      title: `Автозапчасти в Тольятти - Доставка запчастей оптом и в розницу - Контакты ПАНТУС`,
+      meta: [
+        {
+          name: "description",
+          content: `Доставляем запчасти оптом и в розницу по всему миру. Беслпатно доставляем запчасти собственным транспортом в 110 родов. Отправляем заказы почтой, курьерскими службами или через сеть постаматов по всему миру.`,
+        },
+        {
+          name: "keywords",
+          content: `доставка запчасти оптом розницу бесплатная почтой курьером постаматы автозапчасти срочная`,
+        },
+      ],
+    };
+  },
 };
 </script>
 

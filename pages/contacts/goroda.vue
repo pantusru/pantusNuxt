@@ -33,6 +33,21 @@
 <script>
 export default {
   name: "ContactsGoroda",
+  head() {
+    return {
+      title: `Автозапчасти по категориям - Интернет-магазин запчастей`,
+      meta: [
+        {
+          name: "description",
+          content: `Подбор запчастей по категориям. Найти и купить запчасти по категориям деталей и местам установки, каталог запчастей по категориям и узлам`,
+        },
+        {
+          name: "keywords",
+          content: `категории запчастей места установки деталей`,
+        },
+      ],
+    };
+  },
   computed: {
     contacts() {
       return this.$store.getters["contacts/getContactsAll"];

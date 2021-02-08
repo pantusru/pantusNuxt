@@ -2,7 +2,7 @@
   <b-container>
     <div class="container-static">
       <div class="row">
-        <sidebar :itemsMenu="sideBarItems" />
+        <sidebar :items-menu="sideBarItems" />
         <div class="col-md-10">
           <h1>Помощь</h1>
           <h4><a href="#kak-sdelat-zakaz">Как сделать заказ?</a></h4>
@@ -637,6 +637,21 @@ export default {
         { to: '/help/feedback/', name: 'Единая служба качества' },
       ],
     }
+  },
+  head() {
+    return {
+      title: `Как сделать заказ?`,
+      meta: [
+        {
+          name: "description",
+          content: `Как сделать заказ в интернет-магазине "Пантус"`,
+        },
+        {
+          name: "keywords",
+          content: `Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз`,
+        },
+      ],
+    };
   },
 };
 </script>

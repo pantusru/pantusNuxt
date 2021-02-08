@@ -21,6 +21,21 @@ export default {
   async fetch({ store }) {
     await store.dispatch("Products/popular/_ProductPopularAll");
   },
+  head() {
+    return {
+      title: `Список популярных запчастей`,
+      meta: [
+        {
+          name: "description",
+          content: ``,
+        },
+        {
+          name: "keywords",
+          content: `Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз`,
+        },
+      ],
+    };
+  },
   computed: {
     popular() {
       return this.$store.getters["Products/popular/GetProductsPopular"];

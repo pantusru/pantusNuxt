@@ -3,7 +3,7 @@
     <div class="container-static">
       <div itemscope="" itemtype="http://schema.org/Organization">
         <h1>Контакты ООО "<span itemprop="legalName">Пантус</span>"</h1>
-        <ContactMenu/>
+        <ContactMenu />
         <div
           itemprop="address"
           itemscope=""
@@ -457,16 +457,47 @@
         </div>
       </div>
     </div>
-    <div class="w-100" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/11143/balakovo/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Балаково</a><a href="https://yandex.ru/maps/11143/balakovo/house/transportnaya_ulitsa_6/YE4YfgZpT0wDQFtrfXV4d3tkYg==/?ll=47.819694%2C51.996763&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Транспортная улица, 6 — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUIjYDk1D" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+    <div class="w-100" style="position: relative; overflow: hidden">
+      <a
+        href="https://yandex.ru/maps/11143/balakovo/?utm_medium=mapframe&utm_source=maps"
+        style="color: #eee; font-size: 12px; position: absolute; top: 0px"
+        >Балаково</a
+      ><a
+        href="https://yandex.ru/maps/11143/balakovo/house/transportnaya_ulitsa_6/YE4YfgZpT0wDQFtrfXV4d3tkYg==/?ll=47.819694%2C51.996763&utm_medium=mapframe&utm_source=maps&z=17"
+        style="color: #eee; font-size: 12px; position: absolute; top: 14px"
+        >Транспортная улица, 6 — Яндекс.Карты</a
+      ><iframe
+        src="https://yandex.ru/map-widget/v1/-/CCUIjYDk1D"
+        width="100%"
+        height="400"
+        frameborder="1"
+        allowfullscreen="true"
+        style="position: relative"
+      />
+    </div>
   </b-container>
 </template>
 
 <script>
 export default {
   name: "Index",
+  head() {
+    return {
+      title: `Контакты Пантус - продажа запчастей, РТИ оптом и в розницу`,
+      meta: [
+        {
+          name: "description",
+          content: `Контакты ООО "Пантус" Балаково. Телефоны и Email отделов. График работы. Карта проезда, почтовый и фактический адреса`,
+        },
+        {
+          name: "keywords",
+          content: `ооо пантус, контакты пантус, пантус балаково, пантус телефон`,
+        },
+      ],
+    };
+  },
 };
 </script>
-
 
 <style>
 @import "assets/css/static-page-main.css";

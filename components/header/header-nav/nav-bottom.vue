@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       links: [
-        { to: "", text: "Автокаталоги" },
+        { to: "/catalog", text: "Автокаталоги" },
         {
           to: "/search?filter_applicabilities=3138",
           text: "Запчасти для а/м ВАЗ",

@@ -5,7 +5,7 @@
       <nuxt-link to="/delivery">
         <img
           :src="require('@/assets/img/footer/car-footer.png')"
-          class="w-25 mb-2"
+          class="w-20 mb-2"
         />
       </nuxt-link>
     </div>
@@ -27,3 +27,8 @@ export default {
   },
 };
 </script>
+<style>
+.w-20 {
+  width: 20%;
+}
+</style>

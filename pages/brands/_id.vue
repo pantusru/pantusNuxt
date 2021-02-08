@@ -1,3 +1,4 @@
+f
 <template>
   <b-container>
     <div
@@ -17,6 +18,21 @@ export default {
     if (store.getters["Brand/BrandAll/GetBrandId"].id === undefined) {
       redirect("/404");
     }
+  },
+  head() {
+    return {
+      title: `Купить автозапчасти ${this.brand.name}`,
+      meta: [
+        {
+          name: "description",
+          content: `Производитель запчастей ${this.brand.name} - страна происхождения, преимущества, категории запчастей, условия гарантии. Купить запчасти ${this.brand.name} оптом и в розницу с доставкой.`,
+        },
+        {
+          name: "keywords",
+          content: `${this.brand.name}, запчасти, производитель автозапчастей, оптом, в розницу, купить`,
+        },
+      ],
+    };
   },
   computed: {
     brand() {

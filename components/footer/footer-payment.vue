@@ -3,8 +3,13 @@
     <h6 class="mb-3"><b>Оплата</b></h6>
     <b-row no-gutters class="mb-4 flex-nowrap">
       <!--      <a class="mr-4" v-for="data in linksImg" :key="data.id" :href="data.href">-->
-      <div class="mr-4" v-for="data in linksImg" :key="data.id">
-        <img :src="data.src" :alt="data.alt" />
+      <div
+        class="mr-4"
+        :class="data.class"
+        v-for="data in linksImg"
+        :key="data.id"
+      >
+        <img :src="data.src" :alt="data.alt" class="" />
       </div>
       <!--      </a>-->
     </b-row>
@@ -26,9 +31,24 @@ export default {
   data() {
     return {
       linksImg: [
-        { src: require("@img/footer/cards.png"), href: "", alt: "11" },
-        { src: require("@img/footer/cash.png"), href: "", alt: "22" },
-        { src: require("@img/footer/bank.png"), href: "", alt: "33" },
+        {
+          src: require("@img/footer/cards.png"),
+          href: "",
+          alt: "11",
+          class: "",
+        },
+        {
+          src: require("@img/footer/cash.png"),
+          href: "",
+          alt: "22",
+          class: "",
+        },
+        {
+          src: require("@img/footer/bank.png"),
+          href: "",
+          alt: "33",
+          class: "",
+        },
       ],
       linksImgManu: [
         { src: require("@img/footer/paypal.png"), href: "", alt: "11" },
@@ -42,3 +62,14 @@ export default {
   },
 };
 </script>
+<style>
+.mw-30 {
+  max-width: 30%;
+}
+.img-20px {
+  height: 20px;
+}
+.mw-15 {
+  max-width: 15%;
+}
+</style>

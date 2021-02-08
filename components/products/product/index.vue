@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="d-lg-none wbba">{{ dataset.ProductCard.name }}</h2>
-    <b-row class="mt-5 mb-3" v-if="dataset !== undefined">
+    <b-row v-if="dataset !== undefined" class="mt-5 mb-3">
       <b-col cols="12" sm="8" lg="4" class="d-flex flex-wrap">
         <!-- БЛОК с альбомом -->
         <b-col cols="3" class="">
@@ -9,10 +9,10 @@
             class="mb-3 img-100-auto"
             :src="dataset.ProductCard.ProductCardImage.url"
             @click="MainTrue"
-          ></b-img>
+          />
           <b-img
-            :key="data.id"
             v-for="(data, index) in dataset.ProductCard.album"
+            :key="data.id"
             class="mb-3 img-100-auto"
             :src="data.url"
             @click="MainUrl(index)"
@@ -21,7 +21,7 @@
         <!-- БЛОК с альбомом -->
         <b-col cols="8">
           <div>
-            <b-img class="img-100 hover-img" :src="UrlMain"></b-img>
+            <b-img class="img-100 hover-img" :src="UrlMain" />
             <!--                        <ProductZoomer :base-images="UrlMain"/>-->
           </div>
         </b-col>
@@ -42,9 +42,9 @@
             <b>Артикул</b>: <span>{{ dataset.ProductCard.sku.original }}</span>
           </b-col>
           <b-col
+            v-if="dataset.ProductCard.categories.length !== 0"
             class="mb-2"
             cols="12"
-            v-if="dataset.ProductCard.categories.length !== 0"
           >
             <b>Категория</b> :
             <nuxt-link
@@ -57,9 +57,9 @@
             </nuxt-link>
           </b-col>
           <b-col
+            v-if="dataset.ProductCard.applicabilities.length !== 0"
             class="mb-2"
             cols="12"
-            v-if="dataset.ProductCard.applicabilities.length !== 0"
           >
             <b>Применяемость</b> :
             <nuxt-link
@@ -85,18 +85,18 @@
           <div>Уровень цен: Розничный</div>
         </b-row>
         <TableOffer
-          :Linkoffset="dataset.productOffer"
-          :LinkProduct="dataset.ProductCard"
+          :linkoffset="dataset.productOffer"
+          :link-product="dataset.ProductCard"
         />
         <ModalBuy />
       </b-col>
     </b-row>
-    <h4 class="mb-4" v-if="analogs.length !== 0">Аналоги и заменители</h4>
+    <h4 v-if="analogs.length !== 0" class="mb-4">Аналоги и заменители</h4>
     <Table
       v-if="analogs.length !== 0"
       class="mb-4"
       :array="analogs"
-      :CheckAnalogs="true"
+      :check-analogs="true"
     />
     <h5
       v-if="dataset.ProductCard.ProductCardOem.length !== 0"
@@ -106,12 +106,12 @@
     </h5>
     <b-row class="justify-content-between col-12" lg="8">
       <b-col
+        v-for="oem in dataset.ProductCard.ProductCardOem"
+        :key="oem"
         cols="12"
         sm="6"
         lg="4"
         class="mb-1"
-        v-for="oem in dataset.ProductCard.ProductCardOem"
-        :key="oem"
       >
         <nuxt-link :to="'/search?filter_substr=' + oem" class="pr-3">
           {{ oem }}
@@ -130,24 +130,24 @@ import mixins from "@/mixins/product/album";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 
 export default {
-  mixins: [mixins],
-  props: {
-    dataset: {},
-  },
-  created() {
-    this.MainTrue();
-  },
-  computed: {
-    analogs() {
-      return this.$store.getters["Products/analogs/GetProducts"];
-    },
-  },
   components: {
     ButtonReplyShow,
     Share,
     TableOffer,
     ModalBuy,
     Table,
+  },
+  mixins: [mixins],
+  props: {
+    dataset: {},
+  },
+  computed: {
+    analogs() {
+      return this.$store.getters["Products/analogs/GetProducts"];
+    },
+  },
+  created() {
+    this.MainTrue();
   },
 };
 </script>

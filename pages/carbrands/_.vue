@@ -60,7 +60,6 @@ export default {
       store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"];
     const applicabilities = await functionSearch(data, dataset, 0);
     if (applicabilities) {
-      console.log(applicabilities);
       store.commit("product-static/SetFilter", applicabilities);
       await store.dispatch("product-static/RequestProduct", {
         filter_applicabilities: applicabilities.id,

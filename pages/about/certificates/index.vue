@@ -16,7 +16,7 @@
                         alt="img-sertificate"
                         :title="item.name"
                         class="item-image"
-                      >
+                      />
                     </template>
                   </modal-img>
 
@@ -139,6 +139,22 @@ export default {
           name: 'Сертификат официального дилера ЗАО "СОАТЭ"',
           image:
             "https://www.pantus.ru/brands/soate/sertificate/soate_dillersert.jpg",
+        },
+      ],
+    };
+  },
+  head() {
+    return {
+      title: "Дилерские сертификаты и свидетельства ООО Пантус",
+      meta: [
+        {
+          name: "keywords",
+          content: "дилерские свидетельства сертификаты пантус",
+        },
+        {
+          name: "description",
+          content:
+            'Сертификаты и дилерские свидетельства ООО "Пантус" от производителей запчастей. Ознакомьтесь с документами подтверждающими наши дилерские полномочия',
         },
       ],
     };

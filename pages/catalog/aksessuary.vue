@@ -21,6 +21,21 @@
 <script>
 export default {
   name: "Aksessuary",
+  head() {
+    return {
+      title: `Оригинальные каталоги`,
+      meta: [
+        {
+          name: "description",
+          content: ``,
+        },
+        {
+          name: "keywords",
+          content: `Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз`,
+        },
+      ],
+    };
+  },
 };
 </script>
 

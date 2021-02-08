@@ -1,6 +1,8 @@
 <template>
   <b-container>
-    <div style="width: 50%; height: 15px; position: absolute; background: #fff" />
+    <div
+      style="width: 50%; height: 15px; position: absolute; background: #fff"
+    />
     <script src="https://img.catalogs-parts.com/js/frame.js" />
     <iframe
       id="cp_frame"
@@ -19,6 +21,21 @@
 <script>
 export default {
   name: "Aftermarket",
+  head() {
+    return {
+      title: `Оригинальные каталоги`,
+      meta: [
+        {
+          name: "description",
+          content: ``,
+        },
+        {
+          name: "keywords",
+          content: `Запчасти, автозапчасти, купить запчасти, каталог запчастей, интернет магазин автозапчастей, продажа запчастей, запчасти ваз, газ, камаз, маз`,
+        },
+      ],
+    };
+  },
 };
 </script>
 

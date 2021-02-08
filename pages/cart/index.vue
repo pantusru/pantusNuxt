@@ -8,9 +8,9 @@
     <vTable v-if="CartLength !== 0" class="d-none d-lg-block" />
     <VBlogCart v-if="CartLength !== 0" class="d-flex d-lg-none" />
     <div v-if="CartLength === 0" class="mt-3">
-      <base-title-info text="Корзина пустая"></base-title-info>
+      <base-title-info text="Корзина пустая" />
     </div>
-    <vButton class="mt-3" v-if="CartActual === true && CartLength !== 0" />
+    <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
     <CartButtonUpdate v-if="CartActual === false" />
     <advantage />
   </b-container>
@@ -31,6 +31,21 @@ export default {
     VBlogCart,
     CartButtonUpdate,
   },
+  head() {
+    return {
+      title: ``,
+      meta: [
+        {
+          name: "description",
+          content: ``,
+        },
+        {
+          name: "keywords",
+          content: ``,
+        },
+      ],
+    };
+  },
   computed: {
     CartLength() {
       return this.$store.getters["Cart/CartAll/GetLength"];
@@ -38,11 +53,6 @@ export default {
     CartActual() {
       return this.$store.getters["Cart/CartAll/GetCartActual"];
     },
-  },
-  head() {
-    return {
-      title: "Pantus корзина",
-    };
   },
 };
 </script>

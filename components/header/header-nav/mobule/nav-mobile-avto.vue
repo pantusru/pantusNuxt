@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       nav: [
-        { data: { text: "Марки автомобилей", to: "/applicabilities" } },
+        { data: { text: "Марки автомобилей", to: "/carbrands" } },
         { data: { text: "Производители запчастей", to: "/brands" } },
         { data: { text: "Категории запчастей", to: "/categories" } },
         { data: { text: "Масла и автохимия", to: "/" } },

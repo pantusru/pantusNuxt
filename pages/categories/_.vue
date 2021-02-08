@@ -16,7 +16,7 @@
 
 <script>
 import ModalBuyProduct from "@/components/modal/buy-product";
-import mixin from "@/mixins/product-static/index";
+// import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import FilterTop from "~/components/filter-top";
@@ -31,16 +31,23 @@ export default {
     BasePagination,
     ModalImg,
   },
-  async fetch({ params, store, getters, commit }) {
+  async asyncData({ params, store, getters, commit, query }) {
+    const AllCategories = [];
+    let nameCategories;
+    let ParentCategories = "каталог товаров";
     const functionSearch = (data, dataset, index) => {
       let id;
       const code = data[index];
+      // if(data.length)
       const result = dataset.filter(elem => elem.code === code);
       if (result.length !== 0) {
+        AllCategories.push(result[0].name);
         if (data.length - 1 !== index) {
           index++;
+          ParentCategories = result[0].name;
           id = functionSearch(data, result[0].children, index);
         } else if (data.length - 1 === index) {
+          nameCategories = result[0].name;
           return result[0];
         }
       }
@@ -54,9 +61,27 @@ export default {
       store.commit("product-static/SetFilter", categories);
       await store.dispatch("product-static/RequestProduct", {
         filter_categories: categories.id,
-        page_number: this.$route?.query?.page_number,
+        page_number: query?.page_number,
       });
     }
+    return { nameCategories, ParentCategories, AllCategories };
+    // Купить болты в категории автокрепеж - по низким ценам с доставкой
+    //  Купить автокрепеж в категории каталог товаров - по низким ценам с доставкой
+  },
+  head() {
+    return {
+      title: `Купить ${this.nameCategories} в категории ${this.ParentCategories} - по низким ценам с доставкой`,
+      meta: [
+        {
+          name: "description",
+          content: `Купить ${this.nameCategories} в категории  ${this.ParentCategories}`,
+        },
+        {
+          name: "keywords",
+          content: `${this.AllCategories.join(", ")} Каталог товаров`,
+        },
+      ],
+    };
   },
   computed: {
     GetFilter() {

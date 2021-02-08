@@ -45,7 +45,7 @@ export default {
     SectionContentVue,
     SectionAboutVue,
   },
-  async fetch({ store }) {
+  async asyncData({ store }) {
     await Promise.all([
       store.dispatch("News/NewsIndex/_NewsIndex"),
       store.dispatch("Products/popular/_ProductPopularAll"),
@@ -54,7 +54,20 @@ export default {
   },
   head() {
     return {
-      title: "Pantus главная",
+      title:
+        "ПАНТУС - Интернет-магазин запчастей c низкими ценами и доставкой по России ",
+      meta: [
+        {
+          name: "keywords",
+          content:
+            "Запчасти / автозапчасти купить / запчасти / каталог запчастей / интернет магазин автозапчастей / продажа запчастей pantus a-sport / запчасти на а/м марок: ваз газ камаз маз",
+        },
+        {
+          name: "description",
+          content:
+            "Интернет-магазин запчастей Pantus.ru – более 25 000 наименований  автокомпонентов в наличии. Купить запчасти для автомобилей марок:  ВАЗ, RENAULT, ГАЗ, УАЗ, КАМАЗ, МАЗ оптом и в розницу",
+        },
+      ],
     };
   },
   computed: {

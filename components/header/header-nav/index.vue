@@ -9,8 +9,10 @@
       <VButtonSearch />
       <!-- right   -->
       <!-- user  -->
-      <b-navbar-nav class="d-flex ml-0 ml-lg-auto flex-row align-items-center">
-        <div class="d-flex mr-2 align-items-center w-50">
+      <b-navbar-nav
+        class="d-flex ml-0 ml-lg-auto flex-row align-items-center justify-content-between"
+      >
+        <div class="d-flex mr-2 align-items-center">
           <!-- icons -->
           <div class="icons-nav-w20 mr-3 mr-lg-0">
             <img

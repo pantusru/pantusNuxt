@@ -1,13 +1,12 @@
 <template>
   <div>
-    <base-button text="Подвердить" @click="SetPassword"></base-button>
+    <base-button text="Подвердить" @click="SetPassword" />
     <base-alert
       :variant="variant"
       class="w-25"
-      :getAlert.sync="getAlert"
+      :get-alert.sync="getAlert"
       :text="text"
-    >
-    </base-alert>
+    />
   </div>
 </template>
 
@@ -16,11 +15,11 @@ import BaseAlert from "@/components/alert/base-alert";
 import BaseButton from "@/components/base/button/base-button";
 
 export default {
+  name: "FormButtonPasswordSet",
+  components: { BaseButton, BaseAlert },
   props: {
     $v: {},
   },
-  name: "form_button_password_set",
-  components: { BaseButton, BaseAlert },
   data() {
     return {
       variant: undefined,

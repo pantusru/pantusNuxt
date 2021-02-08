@@ -1,17 +1,19 @@
 <template>
   <b-container>
-    <ModalImg />
-    <div v-if="GetProduct.length !== 0">
-      <h2>Товар приминяемости: {{ GetFilter.name }}</h2>
+    <div>
+      <h2>Товар приминяемости: запчасти для а/м {{ nameArray.join(" - ") }}</h2>
       <FilterTop />
-      <div class="mt-3">
+      <h2 v-if="GetProduct.length === 0" class="text-danger mt-4">
+        Товар не найден
+      </h2>
+      <div class="mt-3 mb-3" v-if="GetProduct.length !== 0">
+        <ModalImg />
         <modal-buy-product />
         <FuncComponents :array="GetProduct" />
         <BasePagination :length="getCountProducts" :limit="20" />
       </div>
-      <div v-html="getGetApplicabilitiesDescription.description"></div>
+      <div v-html="getGetApplicabilitiesDescription.description" />
     </div>
-    <h2 v-else class="text-danger">Товар не найден</h2>
   </b-container>
 </template>
 
@@ -33,12 +35,14 @@ export default {
     ModalImg,
   },
   mixins: [mixin],
-  async fetch({ params, store, getters, commit }) {
+  async asyncData({ params, store, getters, commit, query }) {
+    const nameArray = [];
     const functionSearch = (data, dataset, index) => {
       let id;
       const code = data[index];
       const result = dataset.filter(elem => elem.code === code);
       if (result.length !== 0) {
+        nameArray.push(result[0].name);
         if (data.length - 1 !== index) {
           index++;
           id = functionSearch(data, result[0].children, index);
@@ -56,16 +60,39 @@ export default {
       store.getters["Applicabilities/ApplicabilitiessAll/GetApplicabilities"];
     const applicabilities = await functionSearch(data, dataset, 0);
     if (applicabilities) {
+      console.log(applicabilities);
       store.commit("product-static/SetFilter", applicabilities);
       await store.dispatch("product-static/RequestProduct", {
         filter_applicabilities: applicabilities.id,
-        page_number: this.$route?.query?.page_number,
+        page_number: query.page_number,
       });
       await store.dispatch(
         "Applicabilities/ApplicabilitiessAll/_ApplicabilitiesDescription",
         applicabilities.id
       );
     }
+    let SeoKeywords = "";
+    const StringArray = nameArray.join(" ");
+    nameArray.forEach(elem => {
+      SeoKeywords += `запчасти на ${elem} `;
+    });
+    SeoKeywords += `запчасти на ${StringArray}`;
+    return { nameArray, StringArray, SeoKeywords };
+  },
+  head() {
+    return {
+      title: `Запчасти на ${this.StringArray} - купить в интернет-магазине по низким ценам`,
+      meta: [
+        {
+          name: "description",
+          content: `Купить запчасти на ${this.StringArray}, Предложения (цены) по низким ценам с доставкой по все России. Более 20 000 позиций запчастей в наличии оптом и в розницу`,
+        },
+        {
+          name: "keywords",
+          content: this.SeoKeywords,
+        },
+      ],
+    };
   },
   computed: {
     GetFilter() {

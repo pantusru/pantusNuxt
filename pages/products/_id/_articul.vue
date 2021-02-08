@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <Product :dataset="ProductData[0]" v-if="ProductData.length !== 0" />
+    <Product v-if="ProductData.length !== 0" :dataset="ProductData[0]" />
     <h1 v-else class="error">Товар не найден</h1>
   </b-container>
 </template>
@@ -11,7 +11,7 @@ export default {
   components: {
     Product,
   },
-  async fetch({ store, params, getters }) {
+  async asyncData({ store, params, getters }) {
     const ProductAll = store.getters["Products/GetProducts"]; // Все подгруженные товары
     if (ProductAll.length !== 0) {
       const datasetCheck = ProductAll.filter(
@@ -24,27 +24,36 @@ export default {
     }
     await store.dispatch("Products/_ProductId", params.id);
   },
-  data() {
+  head() {
     return {
-      title: "",
+      title: `${this.ProductData[0]?.ProductCard?.name} -  ${this.ProductData[0].ProductCard?.sku?.original} -  ${this.ProductData[0]?.ProductCard?.brand?.name}`,
+      meta: [
+        {
+          name: "description",
+          content: `${this.ProductData[0].ProductCard.name} Цена - ${
+            this.ProductData[0].productOffer[0].prices
+          }. Производитель - ${this.ProductData[0].ProductCard.brand.name}.
+          Артикул -  ${
+            this.ProductData[0].ProductCard.sku.original
+          }. OEM - ${this.ProductData[0].ProductCard.ProductCardOem.join(
+            ", "
+          )}`,
+        },
+        {
+          name: "keywords",
+          content: `${
+            this.ProductData[0].ProductCard.sku.original
+          } ${this.ProductData[0].ProductCard.ProductCardOem.join(", ")} ,${
+            this.ProductData[0].ProductCard.name
+          }`,
+        },
+      ],
     };
   },
   computed: {
     ProductData() {
       return this.$store.getters["Products/GetProduct"];
     },
-  },
-  created() {
-    if (this.ProductData.length === 0) {
-      this.title = "Pantus товар не найден";
-    } else {
-      this.title = "Pantus товар " + this.ProductData[0].ProductCard.name;
-    }
-  },
-  head() {
-    return {
-      title: this.title,
-    };
   },
 };
 </script>

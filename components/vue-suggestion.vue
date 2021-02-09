@@ -60,6 +60,7 @@ export default {
         return this.$store.getters["Order/Form/GetContact"].Town;
       },
       set(value) {
+        value = value.replace(/[-[\]{}()*+?.,\\^$|#%]/g, "");
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",
           value,

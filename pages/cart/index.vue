@@ -5,6 +5,8 @@
       Доступные способы доставки и оплаты вы сможете выбрать при оформлении
       заказа
     </b>
+    <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
+    <CartButtonUpdate v-if="CartActual === false" />
     <vTable v-if="CartLength !== 0" class="d-none d-lg-block" />
     <VBlogCart v-if="CartLength !== 0" class="d-flex d-lg-none" />
     <div v-if="CartLength === 0" class="mt-3">

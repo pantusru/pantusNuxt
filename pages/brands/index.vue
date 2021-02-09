@@ -96,7 +96,7 @@ export default {
         this.CountPages = 1;
       } else {
         this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-          this.$route.query.page
+          this.$route.query.page || 1
         );
         this.CountPages = this.BrandLength;
       }

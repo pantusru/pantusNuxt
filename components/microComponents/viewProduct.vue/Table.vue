@@ -23,7 +23,7 @@
         :key="data.id"
       >
         <div class="box-product">
-          <div class=" col-brand">{{ data.bran }}</div>
+          <div class="col-brand">{{ data.bran }}</div>
           <div class="">{{ data.x }}</div>
           <div class="col-img">
             <img :src="data.img" alt="" />
@@ -63,8 +63,8 @@ export default {
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
-            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 }
-          ]
+            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
+          ],
         },
         {
           bran: "Бренд",
@@ -73,8 +73,8 @@ export default {
           img:
             "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
           provider: [
-            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 }
-          ]
+            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
+          ],
         },
         {
           bran: "Бренд",
@@ -83,18 +83,16 @@ export default {
           img:
             "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
           provider: [
-            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 }
-          ]
-        }
-      ]
+            { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
+          ],
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style lang="sass">
-.grid-table
-
 .row-table // свойства row с названиями полей
     display: flex
     font-size: 12px

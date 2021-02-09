@@ -1,4 +1,3 @@
-f
 <template>
   <b-container>
     <div

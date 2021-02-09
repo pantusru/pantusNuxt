@@ -5,11 +5,11 @@
       <div class="filter-box">
         <div class="filter-box-plice">
           <div class="filter-name">От</div>
-          <input class="filter-input" min="0" type="number" name="" id="" />
+          <input id="" class="filter-input" min="0" type="number" name="" />
         </div>
         <div class="filter-box-plice">
           <div class="filter-name">До</div>
-          <input class="filter-input" min="0" type="number" name="" id="" />
+          <input id="" class="filter-input" min="0" type="number" name="" />
         </div>
       </div>
       <div class="filter-box-checkbox">
@@ -26,11 +26,11 @@
           <label class="text-checkbox">Новинки</label> <br />
           за
           <input
+            id=""
             class="input-date-checkbox"
             min="0"
             type="number"
             name=""
-            id=""
           />
           дн.
         </div>
@@ -46,6 +46,9 @@
 import DataFormFilterVue from "./DataFormFilter.vue";
 
 export default {
+  components: {
+    DataFormFilterVue,
+  },
   data() {
     return {
       checkFull: false,
@@ -59,13 +62,10 @@ export default {
         { name: "AABearing", kolvo: 45, val: "22", id: 7 },
         { name: "РТИ", kolvo: 5, val: "RTI", id: 8 },
         { name: "AABearing", kolvo: 15, val: "22", id: 9 },
-        { name: "AABearing", kolvo: 45, val: "22", id: 10 }
-      ]
+        { name: "AABearing", kolvo: 45, val: "22", id: 10 },
+      ],
     };
   },
-  components: {
-    DataFormFilterVue: DataFormFilterVue
-  }
 };
 </script>
 

@@ -23,11 +23,11 @@ export default {
     return {
       nav: [
         { data: { text: "Автозапчасти" }, components: "div", value: "catalog" },
-        { data: { text: "О компании", to: "" } },
-        { data: { text: "Новости", to: "" } },
-        { data: { text: "Помощь", to: "" } },
-        { data: { text: "Контакты", to: "" } },
-        { data: { text: "Новинки", to: "" } },
+        { data: { text: "О компании", to: "/about" } },
+        { data: { text: "Новости", to: "/news" } },
+        { data: { text: "Помощь", to: "/help" } },
+        { data: { text: "Контакты", to: "/contacts" } },
+        // { data: { text: "Новинки", to: "" } },
       ],
     };
   },

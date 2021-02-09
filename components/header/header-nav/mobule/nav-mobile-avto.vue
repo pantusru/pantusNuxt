@@ -21,9 +21,19 @@ export default {
         { data: { text: "Марки автомобилей", to: "/carbrands" } },
         { data: { text: "Производители запчастей", to: "/brands" } },
         { data: { text: "Категории запчастей", to: "/categories" } },
-        { data: { text: "Масла и автохимия", to: "/" } },
-        { data: { text: "Антифризы, тосолы", to: "/" } },
-        { data: { text: "Онлайн-каталоги", to: "/" } },
+        {
+          data: {
+            text: "Масла и автохимия",
+            to: "/search?filter_categories=434,517",
+          },
+        },
+        {
+          data: {
+            text: "Антифризы, тосолы",
+            to: "/search?filter_categories=515",
+          },
+        },
+        { data: { text: "Онлайн-каталоги", to: "/catalog" } },
       ],
     };
   },

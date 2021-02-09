@@ -2,14 +2,18 @@
   <div class="elem-product-popular">
     <div class="content-product-popular">
       <h2 class="">
-        <a  class="title-product-popular"> {{ arr.name }}</a>
+        <a class="title-product-popular"> {{ arr.name }}</a>
       </h2>
       <div class="img-product-popular">
-        <img :src="arr.images.main" alt="12" />
+        <img :src="arr.images.main" alt="12" >
       </div>
       <div class="row-product-popular">
         <div class="column-product-popular">Бренд</div>
-        <a  :href="arr.manufacturer.code" class="column-result-product-popular">{{ arr.manufacturer.name }}</a>
+        <a
+          :href="arr.manufacturer.code"
+          class="column-result-product-popular"
+          >{{ arr.manufacturer.name }}</a
+        >
       </div>
       <div class="row-product-popular">
         <div class="column-product-popular">Артикуль</div>
@@ -21,9 +25,9 @@
         <div class="column-product-popular">OEM</div>
         <div class="blog-result-product-popular">
           <a
-            class="column-result-product-popular"
             v-for="(data, index) in arr.oem.list.slice(0, 5)"
             :key="index"
+            class="column-result-product-popular"
           >
             {{ data }}
           </a>
@@ -33,7 +37,9 @@
     <div class="data-product-popular">
       <div class="blog-price-product-popular">
         <div class="name-price-product-popular">Цена</div>
-        <div class="value-price-product-popular">{{ arr.offer.prices.retail }} Р</div>
+        <div class="value-price-product-popular">
+          {{ arr.offer.prices.retail }} Р
+        </div>
       </div>
       <div class="blog-content-product-popular">
         <div class="kolvo-product-popular">{{ arr.offer.quantity }} шт</div>
@@ -45,7 +51,7 @@
 
 <script>
 export default {
-  props: ["arr"]
+  props: ["arr"],
 };
 </script>
 
@@ -120,7 +126,7 @@ export default {
   margin-left: auto
   max-width: 50%
   height: 120px
-  margin-bottom: 10px 
-  img 
+  margin-bottom: 10px
+  img
     height: 100%
 </style>

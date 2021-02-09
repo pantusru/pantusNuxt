@@ -1,5 +1,5 @@
 <template>
-  <section class="section-about mt-3">
+  <section class="section-about mt-5">
     <h2 class="about-title-index">Интернет-магазин запчастей Pantus.ru</h2>
     <div class="about-text">
       Интернет-магазин Pantus.ru – это выбор

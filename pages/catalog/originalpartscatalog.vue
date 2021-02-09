@@ -2,11 +2,8 @@
   <b-container>
     <iframe
       id="acat-frame"
-      style="min-height: 70vh"
+      style="min-height: 100vh; height: 100%; width: 90%"
       src="https://pantus.acat.online"
-      width="90%"
-      height="100%"
-      scrolling="no"
       frameborder="0"
     />
     <script type="text/javascript">

@@ -1,7 +1,7 @@
 <template>
   <div class="blog-hover" @mouseover="check = true" @mouseleave="check = false">
     <a :href="href" class="popul-link">{{ name }}</a>
-    <div class="get-blog" v-if="check" @mouseover="check = true">
+    <div v-if="check" class="get-blog" @mouseover="check = true">
       <a
         v-for="data in ul"
         :key="data.id"
@@ -15,12 +15,12 @@
 
 <script>
 export default {
+  props: ["ul", "name", "href"],
   data() {
     return {
-      check: 0
+      check: 0,
     };
   },
-  props: ["ul", "name", "href"]
 };
 </script>
 

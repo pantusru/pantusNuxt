@@ -1,5 +1,6 @@
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const path = require("path");
+
 export default {
   storybook: {
     addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
@@ -68,12 +69,12 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      // { name: "og:image", content: "/_nuxt/assets/img/logo.png" },
-      // {
-      //   hid: "description",
-      //   name: "description",
-      //   content: process.env.npm_package_description || "",
-      // },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content:
+          "https://www.pantus.ru/bitrix/templates/main/img/d/smallogo.png",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },

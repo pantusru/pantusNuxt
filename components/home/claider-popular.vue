@@ -37,7 +37,7 @@ export default {
     return {
       settings: {
         arrows: true,
-        focusOnSelect: true,
+        focusOnSelect: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,

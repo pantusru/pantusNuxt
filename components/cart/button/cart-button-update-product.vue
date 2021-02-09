@@ -1,6 +1,8 @@
 <template>
   <div>
-    <base-button @click="UpdateProduct"><b-icon-arrow-repeat /></base-button>
+    <base-button @click.once="UpdateProduct"
+      ><b-icon-arrow-repeat
+    /></base-button>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <base-button text="Обновить корзину" @click="updateCart" />
+  <base-button text="Обновить корзину" @click.once="updateCart" />
 </template>
 
 <script>

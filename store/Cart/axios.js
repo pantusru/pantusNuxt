@@ -3,7 +3,7 @@ export const actions = {
     const data = await this.$axios.$get(`${process.env.api}/personal/cart`, {
       headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });
-    console.log(data);
+    // console.log(data);
     let dataCart = await dispatch("Products/axios/_init_Product", data, {
       root: true,
     });

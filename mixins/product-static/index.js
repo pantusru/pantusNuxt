@@ -15,7 +15,6 @@ export default {
       return id;
     },
     async SetProductVue(id, filter) {
-      console.log(filter);
       this.$store.commit("product-static/SetFilter", filter);
       await this.$store.dispatch("product-static/RequestProduct", {
         filter_applicabilities: id,

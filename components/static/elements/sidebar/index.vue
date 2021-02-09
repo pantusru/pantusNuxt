@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "Index",
+  name: "side-bar",
   props: {
     mobileCols: {
       type: String,

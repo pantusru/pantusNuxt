@@ -1,9 +1,9 @@
 <template>
   <b-form>
     <b-form-radio-group
-      @input="setPayment($event)"
       v-model="value"
       class="d-flex flex-column"
+      @input="setPayment($event)"
     >
       <template v-for="data in chexbox">
         <b-form-radio

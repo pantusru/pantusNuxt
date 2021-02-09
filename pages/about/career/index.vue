@@ -7,7 +7,9 @@
         <b-row class="justify-content-start">
           <b-col cols="5" lg="2"><h4>Условия труда</h4></b-col>
           <b-col cols="4" lg="2"
-            ><h4><a href="/about/career/jobs/">Вакансии</a></h4></b-col
+            ><h4>
+              <nuxt-link to="/about/career/jobs/">Вакансии</nuxt-link>
+            </h4></b-col
           >
         </b-row>
 
@@ -171,6 +173,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import "assets/css/static-page-main.css";
 </style>

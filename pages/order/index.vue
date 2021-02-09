@@ -20,7 +20,6 @@
         <Product :$v="$v" />
       </b-col>
     </b-row>
-    <!--    <script src="https://code.jquery.com/jquery-git.min.js"></script>-->
   </b-container>
 </template>
 
@@ -32,9 +31,7 @@ import Payment from "@/components/order/form/payment";
 import Dostavka from "@/components/order/form/dostavka";
 import Product from "@/components/order/form/product";
 import Mixin from "@/mixins/order-riles/index";
-// import "https://code.jquery.com/jquery-git.min.js";
-// import "@/plugins/query/jquery.fias.min";
-// import "@/plugins/query/1";
+
 export default {
   components: {
     Contact,

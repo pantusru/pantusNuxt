@@ -12,10 +12,7 @@
           </b-col>
           <b-col cols="4" lg="2"><h4>Вакансии</h4></b-col>
         </b-row>
-        <template v-for="data in jobsAll">
-          <jobs :jobs="data" :key="data.id" />
-        </template>
-        <!--        СЮДА ВАКАНСИИ! -->
+        <jobs-id :jobs="jobsId" />
       </b-col>
     </b-row>
   </b-container>
@@ -24,9 +21,10 @@
 <script>
 import SideBar from "@/components/static/elements/sidebar/index";
 import Jobs from "@/components/jobs/jobs";
+import JobsId from "@/components/jobs/jobs-id";
 export default {
   name: "PageJobs",
-  components: { Jobs, SideBar },
+  components: { JobsId, SideBar },
   data() {
     return {
       sideBarItems: [
@@ -40,12 +38,12 @@ export default {
       ],
     };
   },
-  async fetch({ store }) {
-    await store.dispatch("jobs/actionsJobs");
+  async fetch({ store, params }) {
+    await store.dispatch("jobs/actionsJobsId", params.id);
   },
   computed: {
-    jobsAll() {
-      return this.$store.getters["jobs/getJobs"];
+    jobsId() {
+      return this.$store.getters["jobs/getJobsId"];
     },
   },
 };

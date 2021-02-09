@@ -42,7 +42,7 @@
       </div>
     </div>
     <template #modal-footer="">
-      <base-button class="py-1 px-2" text="Купить" @click="buy" />
+      <base-button class="py-1 px-2" text="Купить" @click.once="buy" />
     </template>
   </b-modal>
 </template>
@@ -103,7 +103,6 @@ export default {
       if (data.error === undefined) {
         this.$store.commit("Cart/CartAll/SetCartProduct", data);
       }
-
       this.$bvModal.hide("buy");
     },
   },

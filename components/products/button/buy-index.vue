@@ -20,7 +20,7 @@
       <b-button
         v-if="userBasket"
         class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"
-        @click="deleteCartProduct"
+        @click.once="deleteCartProduct"
         >X
       </b-button>
     </div>
@@ -40,7 +40,7 @@
       <b-button
         v-if="userBasket"
         class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"
-        @click="deleteCartProduct"
+        @click.once="deleteCartProduct"
         >X
       </b-button>
     </div>

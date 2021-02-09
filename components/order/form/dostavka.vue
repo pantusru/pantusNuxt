@@ -63,15 +63,11 @@ export default {
       get() {
         return this.$store.getters["Order/Form/GetDostavka"];
       },
-      set(val) {
-        // console.log(val);
-        // this.$store.commit("Order/Form/SetDostavka", val);
-      },
+      set(val) {},
     },
   },
   methods: {
     changeInput(data) {
-      // console.log(this.$v.Form.$model.dostavka);
       this.$v.Form.$model.dostavka = data.id;
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {

@@ -1,5 +1,5 @@
 <template>
-  <base-button @click="deleteProduct()"><b-icon-x /> </base-button>
+  <base-button @click.once="deleteProduct()"><b-icon-x /> </base-button>
 </template>
 
 <script>

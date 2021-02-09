@@ -3,11 +3,15 @@ export default {
     return {
       sideBarItems: [
         { to: "/help/", name: "Помощь" },
-        { to: "/help#kak-sdelat-zakaz", name: "Заказ" },
-        { to: "/delivery/", name: "Доставка" },
-        { to: "/delivery/#freedeliverу", name: "Условия бесплатной доставки" },
+        { to: "/help", hash: "#kak-sdelat-zakaz", name: "Заказ" },
+        { to: "/delivery", name: "Доставка" },
+        {
+          to: "/delivery",
+          hash: "#freedelivery",
+          name: "Условия бесплатной доставки",
+        },
         { to: "/pay/", name: "Оплата" },
-        { to: "/help#returns", name: "Возврат" },
+        { to: "/help", hash: "#returns", name: "Возврат" },
         {
           to: "/documents/privacypolicy/",
           name: "Обработка персональных данных",

@@ -32,6 +32,18 @@ const companyName = [
     text: "Укажите  название компании",
   },
 ];
+const dostavka = [
+  {
+    ifv: "required",
+    text: "вы не указали способ доставки",
+  },
+];
+const sistemPay = [
+  {
+    ifv: "required",
+    text: "вы не указали способ оплаты",
+  },
+];
 export default {
   data() {
     return {
@@ -41,6 +53,8 @@ export default {
         telephone: Telephone,
         Town,
         companyName,
+        dostavka,
+        sistemPay,
       },
     };
   },

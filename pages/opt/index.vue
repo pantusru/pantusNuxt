@@ -645,9 +645,9 @@
                     <nuxt-link to="/contacts/goroda">Список городов</nuxt-link>
                   </li>
                   <li>
-                    <a href="https://www.pantus.ru//delivery/#freedelivery"
-                      >Условия</a
-                    >
+                    <nuxt-link to="/delivery#freedelivery"
+                      >Условия
+                    </nuxt-link>
                   </li>
                 </ul>
                 <p>
@@ -789,7 +789,7 @@
             </a>
             <a
               class="col-12 col-md-4 mb-3"
-              href="www.pantus.ru/upload/medialibrary/26f/024-IMG_4798-5000.jpg"
+              href="https://www.pantus.ru/upload/medialibrary/26f/024-IMG_4798-5000.jpg"
             >
               <img
                 src="https://www.pantus.ru/opt/media/gallery/first/2.jpg"

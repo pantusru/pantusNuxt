@@ -27,6 +27,8 @@
           </b-row>
         </template>
       </b-form-radio-group>
+      <!--      {{ error }}-->
+      <base-errors-valid name="dostavka" :error="error['dostavka']" :$v="$v" />
     </b-form>
   </div>
 </template>
@@ -34,16 +36,19 @@
 
 <script>
 import Mixin from "@/mixins/order-riles/index";
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 // import shiptor from "@/components/order/widget/shiptor";
 // import cdek from "@/components/order/widget/cdek";
 export default {
   name: "Dostavka",
+  components: { BaseErrorsValid },
   mixins: [Mixin],
   // components: {
   //   shiptor,
   // },
   props: {
     $v: {},
+    error: {},
   },
   // data() {
   //   return {
@@ -66,23 +71,20 @@ export default {
   },
   methods: {
     changeInput(data) {
+      console.log(this.$v, data);
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {
         this.$store.commit("Order/Form/SetFull", {
           name: "Town",
           value: data.city,
         });
+        this.$v.Form.$model.Town = data.city;
       }
       if (data.TownId !== undefined) {
-        this.$store.commit("Order/Form/SetFull", {
-          name: "Town",
-          value: data.Town,
-        });
         this.$store.commit("Order/Form/SetFull", {
           name: "TownId",
           value: data.TownId,
         });
-        this.$v.Form.$model.Town = data.Town;
       }
       this.$store.commit("Order/Form/SetDostavka", data.id);
       this.RilesOrder(
@@ -92,11 +94,6 @@ export default {
         "paysystem_type_id"
       );
     },
-    // WidgetShow(data) {
-    //   this[data] = true;
-    //
-    //   console.log(this.ShowShiptor);
-    // },
   },
 };
 </script>

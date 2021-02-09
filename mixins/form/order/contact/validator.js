@@ -20,12 +20,21 @@ const Telephone = {
 const Town = {
   required,
 };
+
+const dostavka = {
+  required,
+};
+const sistemPay = {
+  required,
+};
 // let all поля которые есть в 2 формах
 const all = {
   name: Name,
   surname: Surname,
   telephone: Telephone,
   Town,
+  dostavka,
+  sistemPay,
 };
 
 const companyName = {
@@ -70,6 +79,8 @@ export default {
         companyName: "",
         companyAddress: "",
         companyCountry: "",
+        dostavka: undefined,
+        sistemPay: undefined,
       },
     };
   },

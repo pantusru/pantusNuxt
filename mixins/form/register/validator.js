@@ -7,62 +7,62 @@ import {
   email,
   sameAs,
 } from "vuelidate/lib/validators";
-let name = {
+const name = {
   required,
 };
-let surname = {
+const surname = {
   required,
 };
-let Myemail = {
+const Myemail = {
   required,
   email,
 };
-let password = {
+const password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
   alphaNum,
 };
-let password2 = {
+const password2 = {
   required,
   sameAsPassword: sameAs("password"),
 };
-let telephone = {
+const telephone = {
   required,
   minLength: minLength(17),
 };
-let inn = {
+const inn = {
   required,
   minLength: minLength(12),
 };
-let organization = {
+const organization = {
   required,
 };
-let country = {
+const country = {
   // required,
 };
-let address = {
+const address = {
   required,
 };
-let checbox = {
+const checbox = {
   required: value => value === true,
 };
 
 // let all поля которые есть в 2 формах
-let all = {
-  name: name,
-  surname: surname,
+const all = {
+  name,
+  surname,
   email: Myemail,
-  password: password,
-  password2: password2,
-  telephone: telephone,
-  checbox: checbox,
+  password,
+  password2,
+  telephone,
+  checbox,
 };
-let Wholesale = {
-  inn: inn,
-  organization: organization,
-  country: country,
-  address: address,
+const Wholesale = {
+  inn,
+  organization,
+  country,
+  address,
 };
 
 export default {

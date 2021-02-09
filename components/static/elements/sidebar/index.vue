@@ -2,7 +2,9 @@
   <b-col :cols="mobileCols" :lg="pcCols" class="sidebar py-3 px-0">
     <div class="sidebar-box d-none d-lg-block">
       <nav v-for="item in itemsMenu" class="nav-sidebar">
-        <nuxt-link :to="item.to">{{ item.name }}</nuxt-link>
+        <nuxt-link :to="{ path: item.to, hash: item.hash }"
+          >{{ item.name }}
+        </nuxt-link>
       </nav>
     </div>
 
@@ -11,7 +13,9 @@
         <b-row cols="2">
           <nav v-for="item in itemsMenu" class="nav-sidebar">
             <b-col>
-              <nuxt-link :to="item.to">{{ item.name }}</nuxt-link>
+              <nuxt-link :to="{ path: item.to, hash: item.hash }"
+                >{{ item.name }}
+              </nuxt-link>
             </b-col>
           </nav>
         </b-row>

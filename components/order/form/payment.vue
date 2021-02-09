@@ -16,13 +16,20 @@
         </b-form-radio>
       </template>
     </b-form-radio-group>
+    <base-errors-valid name="sistemPay" :error="error['sistemPay']" :$v="$v" />
   </b-form>
 </template>
 
 <script>
 import Mixin from "@/mixins/order-riles/index";
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 export default {
+  components: { BaseErrorsValid },
   mixins: [Mixin],
+  props: {
+    $v: {},
+    error: {},
+  },
   data() {
     return {
       value: this.$store.getters["Order/Form/GetPayment"],

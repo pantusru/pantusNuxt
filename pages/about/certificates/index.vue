@@ -15,7 +15,7 @@
                         :src="item.image"
                         alt="img-sertificate"
                         :title="item.name"
-                        class="item-image"
+                        class="item-image cursor-pointer"
                       />
                     </template>
                   </modal-img>

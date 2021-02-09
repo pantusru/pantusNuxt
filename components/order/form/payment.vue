@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     setPayment(event) {
+      this.$v.Form.$model.sistemPay = event;
       this.$store.commit("Order/Form/SetPayment", event);
       this.RilesOrder(
         this.$store.getters["Order/Payment/Index/GetDostavka"],

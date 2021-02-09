@@ -71,7 +71,8 @@ export default {
   },
   methods: {
     changeInput(data) {
-      console.log(this.$v, data);
+      // console.log(this.$v.Form.$model.dostavka);
+      this.$v.Form.$model.dostavka = data.id;
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {
         this.$store.commit("Order/Form/SetFull", {

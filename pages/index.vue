@@ -10,7 +10,7 @@
       <SectionContentVue />
       <Abvantage />
     </b-container>
-    <claider-popular :popular="popular.slice(0, 10)" />
+    <!--    <claider-popular :popular="popular.slice(0, 10)" />-->
     <!--    <VueNewsIndex class="mb-5 mt-4" />-->
     <b-container>
       <SectionAboutVue />
@@ -23,7 +23,7 @@ import Abvantage from "@/components/home/advantage";
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import VueNewsIndex from "@/components/news/index";
-import ClaiderPopular from "@/components/home/claider-popular";
+// import ClaiderPopular from "@/components/home/claider-popular";
 
 import SectionIndex from "../components/home/SectionIndex";
 import SectionReklama from "../components/home/SectionReklama";
@@ -33,7 +33,7 @@ import SectionContentVue from "../components/home/SectionContent.vue";
 import SectionAboutVue from "../components/home/SectionAbout.vue";
 export default {
   components: {
-    ClaiderPopular,
+    // ClaiderPopular,
     VueNewsIndex,
     ModalImg,
     ModalBuy,

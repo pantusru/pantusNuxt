@@ -31,7 +31,7 @@
           />
           <ElementForm
             name="telephone"
-            Vmask="+7(###) ###-##-##"
+            vmask="+7(###) ###-##-##"
             :items="'Телефон:'"
             :error="error.telephone"
             :$v="$v"
@@ -51,7 +51,7 @@
           <!--            :type="'password'"-->
           <!--            :$v="$v"-->
           <!--          />-->
-          <Submit :$v="$v"></Submit>
+          <Submit :$v="$v" />
         </b-form>
       </b-col>
     </b-row>
@@ -65,7 +65,6 @@ import ElementForm from "@/components/profile/profile-input-get";
 import NavProfile from "@/components/nav/profile/index";
 import Submit from "@/components/profile/profile-button-update";
 export default {
-  middleware: "CheckGuest",
   components: {
     ElementForm,
     NavProfile,
@@ -77,5 +76,6 @@ export default {
   //   };
   // },
   mixins: [mixinvalidator, mixinError],
+  middleware: "CheckGuest",
 };
 </script>

@@ -15,7 +15,7 @@
 <script>
 import BaseButton from "@/components/base/button/base-button";
 export default {
-  name: "order-button-arrange",
+  name: "OrderButtonArrange",
   components: { BaseButton },
   data() {
     return {

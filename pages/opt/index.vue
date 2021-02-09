@@ -728,13 +728,13 @@
           Создайте аккаунт оптового клиента и получите <br>
           доступ к оптовому прайсу
         </h3>
-        <button
-          onclick="location.href='/auth/?register=yes&amp;opt=yes'"
+        <nuxt-link
+          to="/register"
           type="button"
           class="createaccountbutton"
         >
           Cоздать аккаунт
-        </button>
+        </nuxt-link>
       </div>
     </div>
     <div class="promofullwidth promogradient">
@@ -956,8 +956,8 @@
             </div>
           </div>
           <p>
-            <a href="https://www.pantus.ru/opt/news/intervyu/"
-              >Посмореть все отзывы</a
+            <nuxt-link to="/news/intervyu"
+              >Посмореть все отзывы</nuxt-link
             >
           </p>
         </div>
@@ -1033,13 +1033,13 @@
             </ol>
 
             <div class="pn_centr marg_0_0_30_0">
-              <button
-                onclick="location.href='/auth/?register=yes&amp;opt=yes'"
+              <nuxt-link
+                to="/register"
                 type="button"
                 class="createaccountbutton"
               >
                 Cоздать аккаунт
-              </button>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -1149,7 +1149,7 @@ export default {
   font-size: 20px;
   border-radius: 3px;
   font-weight: 300;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .promorightpict {
   background: url("https://www.pantus.ru/opt/media/products.jpg") right center;

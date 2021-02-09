@@ -58,9 +58,11 @@ export default {
           surname: this.$v.Form.$model.surname,
           telephone: this.$v.Form.$model.telephone,
           patronymic: this.$v.Form.$model.patronymic,
+          type: this.FormData.type,
+          login: this.FormData.login,
         };
-        this.$store.commit("User/SetAll", userNews);
         await this.$store.dispatch("User/axios/_UserUpdate", userNews);
+        this.$store.commit("User/SetAll", userNews);
         this.getAlert = true;
       }
       // this.$v.Form.password.$model = "";

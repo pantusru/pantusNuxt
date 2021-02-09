@@ -128,6 +128,7 @@ export const actions = {
         {},
         { root: true }
       );
+      console.log(data);
       commit("SetCartProduct", data);
       commit("SetCartActual");
     }

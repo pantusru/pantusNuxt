@@ -1,10 +1,6 @@
 <template>
   <div>
-    <base-button
-      v-if="!CheckUser"
-      v-b-modal="'authorization'"
-      text="Оформить заказ"
-    />
+    <base-button v-if="!CheckUser" @click="getModal()" text="Оформить заказ" />
     <base-button v-if="CheckUser">
       <nuxt-link to="/order" class="text-white link-decoration-none">
         Оформить заказ
@@ -29,6 +25,14 @@ export default {
     },
     CartProduct() {
       return this.$store.getters["Cart/CartAll/GetCartProduct"];
+    },
+  },
+  methods: {
+    getModal() {
+      // this.$nextTick(() => {
+      this.$bvModal.show("authorization");
+      this.$store.commit("SetAuthorizationOrder", true);
+      // });
     },
   },
 };

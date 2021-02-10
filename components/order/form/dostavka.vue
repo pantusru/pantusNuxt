@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form>
-      <b-form-radio-group v-model="GetFormDostavka" name="dostavka">
+      <b-form-radio-group :value="this.$v.Form.$model.dostavka" name="dostavka">
         <template v-for="data in GetDostavka">
           <b-row
             v-if="data.active"
@@ -59,37 +59,44 @@ export default {
     GetDostavka() {
       return this.$store.getters["Order/Payment/Index/GetDostavka"];
     },
-    GetFormDostavka: {
-      get() {
-        return this.$store.getters["Order/Form/GetDostavka"];
-      },
-      set(val) {},
-    },
+    // GetFormDostavka: {
+    //   get() {
+    //     return this.$store.getters["Order/Form/GetDostavka"];
+    //   },
+    //   set(val) {},
+    // },
   },
   methods: {
     changeInput(data) {
       this.$v.Form.$model.dostavka = data.id;
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {
-        this.$store.commit("Order/Form/SetFull", {
-          name: "Town",
-          value: data.city,
-        });
+        // this.$store.commit("Order/Form/SetFull", {
+        //   name: "Town",
+        //   value: data.city,
+        // });
         this.$v.Form.$model.Town = data.city;
       }
       if (data.TownId !== undefined) {
-        this.$store.commit("Order/Form/SetFull", {
-          name: "TownId",
-          value: data.TownId,
-        });
+        this.$v.Form.$model.TownId = data.TownId;
+        // this.$store.commit("Order/Form/SetFull", {
+        //   name: "TownId",
+        //   value: data.TownId,
+        // });
       }
-      this.$store.commit("Order/Form/SetDostavka", data.id);
+      // this.$store.commit("Order/Form/SetDostavka", data.id);
       this.RilesOrder(
         this.$store.getters["Order/Payment/Index/GetPayment"],
-        this.$store.getters["Order/Form/GetDostavka"],
+        this.$v.Form.$model.dostavka,
         "delivery_type_id",
         "paysystem_type_id"
       );
+      // this.RilesOrder(
+      //   this.$store.getters["Order/Payment/Index/GetPayment"],
+      //   this.$store.getters["Order/Form/GetDostavka"],
+      //   "delivery_type_id",
+      //   "paysystem_type_id"
+      // );
     },
   },
 };

@@ -38,6 +38,7 @@
 <script>
 import mixitError from "@/mixins/form/order/contact/error";
 import vInput from "@/components/order/order-input/index";
+// import vInput from "@/components/base/base-input-valid";
 import Town from "@/components/order/order-input/town";
 import BaseTextareaValid from "@/components/base/base-textarea-valid";
 export default {

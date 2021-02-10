@@ -1,7 +1,7 @@
 <template>
   <div :class="addClass" class="autocomplete">
     <b-input
-      v-model="search"
+      v-model="$v.Form.$model.Town"
       autocomplete="off"
       type="text"
       @input="onChange"
@@ -44,6 +44,7 @@ export default {
       type: String,
       required: false,
     },
+    $v: {},
   },
   data() {
     return {
@@ -54,25 +55,20 @@ export default {
       id: 0, // ID выбранного поиска
     };
   },
-  computed: {
-    search: {
-      get() {
-        return this.$store.getters["Order/Form/GetContact"].Town;
-      },
-      set(value) {
-        value = value.replace(/[-[\]{}()*+?.,\\^$|#%]/g, "");
-        this.$store.commit("Order/Form/SetFull", {
-          name: "Town",
-          value,
-        });
-        this.$store.dispatch(
-          "Order/Payment/Index/SetDostavkaExtra",
-          `Не указан город`
-        );
-        this.$store.commit("Order/Form/SetDostavka", undefined);
-      },
-    },
-  },
+  // computed: {
+  //   search: {
+  //     get() {
+  //       return this.$store.getters["Order/Form/GetContact"].Town;
+  //     },
+  //     set(value) {
+  //       value = value.replace(/[-[\]{}()*+?.,\\^$|#%]/g, "");
+  //       // this.$store.commit("Order/Form/SetFull", {
+  //       //   name: "Town",
+  //       //   value,
+  //       // });
+  //     },
+  //   },
+  // },
   watch: {
     items() {
       this.getItems();
@@ -90,11 +86,12 @@ export default {
       this.items = [];
       const dataset = await this.$store.dispatch(
         "API/axios/_API_Town",
-        this.search
+        this.$v.Form.$model.Town
       );
       if (dataset.result.length > 1) {
         let result = dataset.result;
         result = result.slice(1, result.length);
+        // МАP
         for (const index in result) {
           this.items.push({
             id: result[index].id,
@@ -122,17 +119,27 @@ export default {
       this.timerId = setTimeout(this.GetData, 1000);
     },
     onChange() {
+      console.log(this.$v.Form.$model.Town);
+      this.$v.Form.$model.Town = this.$v.Form.$model.Town.replace(
+        /[-[\]{}()*+?.,\\^$|#%]/g,
+        ""
+      );
+      this.$store.dispatch(
+        "Order/Payment/Index/SetDostavkaExtra",
+        `Не указан город`
+      );
+      this.$v.Form.$model.dostavka = undefined;
       // Пока отправлять запрос и изменение vuex
-      this.$emit("input", { data: this.search, id: this.id });
+      // this.$emit("input", { data: this.search, id: this.id });
       this.SetValue();
     },
     setResult(result, zip) {
       // Была выбрана li
-      this.id = zip;
-      this.search = result;
+      this.$v.Form.$model.TownId = zip;
+      this.$v.Form.$model.Town = result;
       this.isOpen = false;
       this.$store.dispatch("API/axios/_API_Russia", zip);
-      this.$emit("input", { data: this.search, id: this.id });
+      // this.$emit("input", { data: this.search, id: this.id });
     },
     onArrowDown() {
       // Нажата кнопка вниз изменение
@@ -148,7 +155,8 @@ export default {
     },
     onEnter() {
       // нажата кнопка enter
-      this.search = this.items[this.arrowCounter];
+      this.$v.Form.$model.Town = this.items[this.arrowCounter].name;
+      this.$v.Form.$model.TownId = this.items[this.arrowCounter].id;
       this.isOpen = false;
       this.arrowCounter = -1;
     },

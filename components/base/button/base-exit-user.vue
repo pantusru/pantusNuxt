@@ -18,12 +18,14 @@ export default {
     /**
      * @function  exitUser - Выход user из аккаунта
      */
-    exitUser() {
+    async exitUser() {
+      const token = await this.$store.dispatch("User/axios/getToken");
+      this.$store.commit("SetCookie", token);
+      this.$cookies.set("Authorization", token);
       this.$store.commit("User/ResetForm");
       this.$store.commit("User/AuthorizationFalse");
-      this.$cookies.remove("Authorization");
       this.$store.commit("Cart/CartAll/ResetCartProduct");
-      this.$router.push({ name: "index" });
+      await this.$router.push({ name: "index" });
     },
   },
 };

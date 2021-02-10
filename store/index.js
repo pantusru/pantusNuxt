@@ -14,6 +14,7 @@ export const state = () => ({
   },
   NavMobile: false,
   cookie: "",
+  AuthorizationOrder: false,
 });
 export const mutations = {
   SetCheckCountProducts(store, data) {
@@ -24,6 +25,9 @@ export const mutations = {
   },
   SetShow(store, data) {
     store.showLoader = data;
+  },
+  SetAuthorizationOrder(store, data) {
+    store.AuthorizationOrder = data;
   },
   SetProductType(store, data) {
     store.ProductType = data;
@@ -50,4 +54,5 @@ export const getters = {
   GetcheckAuthorization: s => s.Form.checkAuthorization,
   GetNavMobile: s => s.NavMobile,
   getCheckCountProducts: s => s.CheckCountProducts,
+  getAuthorizationOrder: s => s.AuthorizationOrder,
 };

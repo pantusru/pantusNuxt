@@ -30,6 +30,7 @@ export default {
     formGo() {
       // Отправить заказ
       this.$v.Form.$touch();
+      console.log(this.$v.Form.$model);
     },
   },
 };

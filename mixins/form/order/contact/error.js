@@ -35,13 +35,13 @@ const companyName = [
 const dostavka = [
   {
     ifv: "required",
-    text: "вы не указали способ доставки",
+    text: "Укажите способ доставки",
   },
 ];
 const sistemPay = [
   {
     ifv: "required",
-    text: "вы не указали способ оплаты",
+    text: "Укажите способ оплаты",
   },
 ];
 export default {

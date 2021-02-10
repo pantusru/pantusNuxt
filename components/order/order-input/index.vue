@@ -12,19 +12,27 @@
       >
       </b-form-input>
     </div>
-    <div class="error-full text-center">
-      <div class="error" v-for="data in error" :key="data.id">
-        <span v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
-          >{{ data.text }}
-        </span>
-      </div>
-    </div>
+    <base-errors-valid
+      class="text-center"
+      :error="error"
+      :name="name"
+      :$v="$v"
+    />
+    <!--    <div class="error-full text-center">-->
+    <!--      <div class="error" v-for="data in error" :key="data.id">-->
+    <!--        <span v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"-->
+    <!--          >{{ data.text }}-->
+    <!--        </span>-->
+    <!--      </div>-->
+    <!--    </div>-->
   </div>
 </template>
 
 <script>
 import mixinsProps from "@/mixins/input/props/index";
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 export default {
+  components: { BaseErrorsValid },
   // created(){
   //   if(this.User !== undefined && this.User.length !== 0 ){
   //     // this.value= this.User;

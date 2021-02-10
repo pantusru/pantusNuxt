@@ -26,7 +26,11 @@ export const actions = {
     });
   },
   async getToken() {
-    const res = await this.$axios.get(`${process.env.api}/auth`);
+    const res = await this.$axios.get(`${process.env.api}/auth`, {
+      headers: {
+        Authorization: ``,
+      },
+    });
     return res.data.token;
   },
   async _Authorization({}, data) {

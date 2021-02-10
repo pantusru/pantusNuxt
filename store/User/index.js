@@ -14,12 +14,12 @@ export const state = () => ({
    *
    */
   FormData: {
-    id: undefined,
     login: undefined,
     name: undefined,
     surname: undefined,
     patronymic: undefined,
     telephone: undefined,
+    type: undefined,
   },
 });
 export const mutations = {
@@ -41,8 +41,15 @@ export const mutations = {
   /**
    * @function ResetForm - Удаляет все данные о пользователе
    */
-  ResetForm(store, data) {
-    store.FormData = {};
+  ResetForm(store) {
+    store.FormData = {
+      login: "",
+      name: "",
+      patronymic: "",
+      surname: "",
+      telephone: "",
+      type: "",
+    };
   },
 
   /**

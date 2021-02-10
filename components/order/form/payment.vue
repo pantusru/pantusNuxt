@@ -43,13 +43,19 @@ export default {
   methods: {
     setPayment(event) {
       this.$v.Form.$model.sistemPay = event;
-      this.$store.commit("Order/Form/SetPayment", event);
+      // this.$store.commit("Order/Form/SetPayment", event);
       this.RilesOrder(
         this.$store.getters["Order/Payment/Index/GetDostavka"],
-        this.$store.getters["Order/Form/GetPayment"],
+        this.$v.Form.$model.sistemPay,
         "paysystem_type_id",
         "delivery_type_id"
       );
+      // this.RilesOrder(
+      //   this.$store.getters["Order/Payment/Index/GetDostavka"],
+      //   this.$store.getters["Order/Form/GetPayment"],
+      //   "paysystem_type_id",
+      //   "delivery_type_id"
+      // );
     },
   },
 };

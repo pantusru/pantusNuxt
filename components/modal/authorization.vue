@@ -85,6 +85,9 @@ export default {
     GetcheckAuthorization() {
       return this.$store.getters.GetcheckAuthorization;
     },
+    getAuthorizationOrder() {
+      return this.$store.getters.getAuthorizationOrder;
+    },
   },
   methods: {
     registration() {
@@ -100,6 +103,7 @@ export default {
       // принудительно закрыть модальное окно
       this.$nextTick(() => {
         this.$bvModal.hide("authorization");
+        this.$store.commit("SetAuthorizationOrder", false);
       });
     },
     reset() {
@@ -137,7 +141,12 @@ export default {
             value: false,
           });
           await this.$store.dispatch("Cart/CartAll/_CartProduct", true);
-          await this.$router.push("/");
+          if (this.getAuthorizationOrder) {
+            await this.$router.push("/order");
+          } else {
+            await this.$router.push("/");
+          }
+
           this.hidden();
         } else {
           // На сервере ошибка

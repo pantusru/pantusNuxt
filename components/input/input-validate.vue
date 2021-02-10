@@ -2,7 +2,7 @@
   <div :class="addClass">
     <label :for="name">{{ items }}</label>
     <b-form-input
-      v-if="slots === false"
+      v-if="getInput === true"
       :id="name"
       v-model.trim="$v.Form[name].$model"
       v-mask="Vmask"
@@ -11,27 +11,28 @@
     />
     <slot v-if="slots === true" />
     <base-errors-valid :error="error" :$v="$v" :name="name" />
-    <div v-if="GetcheckAuthorization" class="error">
-      Введены не верно логин или пароль
-    </div>
   </div>
 </template>
 
 <script>
 import mixitProps from "@/mixins/input/props/index";
+import BaseErrorsValid from "@/components/base/base-errors-valid";
 export default {
+  name: "InputValidate",
+  components: { BaseErrorsValid },
   mixins: [mixitProps],
   props: {
     addClass: {
+      type: String,
       default: "col-lg-4 mb-2",
     },
     slots: {
+      type: Boolean,
       default: false,
     },
-  },
-  computed: {
-    GetcheckAuthorization() {
-      return this.$store.getters.GetcheckAuthorization;
+    getInput: {
+      type: Boolean,
+      default: true,
     },
   },
 };

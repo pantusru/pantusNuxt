@@ -13,15 +13,10 @@
 </template>
 
 <script>
-// import {
-//   required,
-//   minLength,
-//   between,
-//   alphaNum,
-// } from "vuelidate/lib/validators";
 import MixinsError from "@/mixins/form/forgot-password/error";
 import MixinsValidations from "@/mixins/form/forgot-password/validator";
-import VInput from "@/components/register/index";
+import VInput from "@/components/input/input-validate";
+// import VInput from "@/components/register/index";
 import BaseButton from "@/components/base/button/base-button";
 export default {
   components: {

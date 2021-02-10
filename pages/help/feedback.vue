@@ -71,7 +71,9 @@
 <script>
 import MixinsError from "@/mixins/form/feedback/error";
 import MixinsValidations from "@/mixins/form/feedback/validator";
-import VInput from "@/components/register/index";
+// import VInput from "@/components/register/index";
+// import VInput from "@/components/input/input-validate";
+import VInput from "@/components/input/input-validate";
 import MixinMenuAll from "@/mixins/static-data/menu-all";
 import sidebar from "@/components/static/elements/sidebar/index";
 export default {

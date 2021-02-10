@@ -14,20 +14,30 @@
     </template>
     <b-form>
       <VInput
+        :slots="true"
         add-class="mb-2 col-7"
         name="email"
         items="Логин"
         :error="error.email"
         :$v="$v"
-      />
+      >
+        <div v-if="GetcheckAuthorization" class="error">
+          Введены не верно логин или пароль
+        </div>
+      </VInput>
       <VInput
+        :slots="true"
         add-class="mb-2 col-7"
         type="password"
         items="Пароль:"
         name="password"
         :error="error.password"
         :$v="$v"
-      />
+      >
+        <div v-if="GetcheckAuthorization" class="error">
+          Введены не верно логин или пароль
+        </div>
+      </VInput>
     </b-form>
     <template #modal-footer>
       <div>
@@ -59,7 +69,8 @@
 import MixinsError from "@/mixins/form/authorization/error";
 // import check_recaptcha from "@/mixins/form/check-recaptcha/index";
 import MixinsValidations from "@/mixins/form/authorization/validator";
-import VInput from "@/components/authorization/index";
+// import VInput from "@/components/authorization/index";
+import VInput from "@/components/input/input-validate";
 import vueRecaptcha from "@/components/recaptcha/index";
 import BaseButton from "@/components/base/button/base-button";
 
@@ -70,6 +81,11 @@ export default {
     vueRecaptcha,
   },
   mixins: [MixinsError, MixinsValidations],
+  computed: {
+    GetcheckAuthorization() {
+      return this.$store.getters.GetcheckAuthorization;
+    },
+  },
   methods: {
     registration() {
       this.hidden();

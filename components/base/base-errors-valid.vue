@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "base-errors-valid",
+  name: "BaseErrorsValid",
   props: {
     /***
      * Состояния валидация для условия отображения ошибок

@@ -3,23 +3,15 @@
     <label :for="name">{{ items }}</label>
     <b-form-input
       v-if="slots === false"
+      :id="name"
+      v-model.trim="$v.Form[name].$model"
       v-mask="Vmask"
       :type="type"
-      v-model.trim="$v.Form[name].$model"
-      :id="name"
       size="sm"
-    >
-    </b-form-input>
-    <slot v-if="slots === true"> </slot>
-    <div class="error-full" v-for="data in error" :key="data.id">
-      <div
-        class="error"
-        v-if="!$v.Form[name][data.ifv] && $v.Form[name].$dirty"
-      >
-        {{ data.text }}
-      </div>
-    </div>
-    <div class="error" v-if="GetcheckAuthorization">
+    />
+    <slot v-if="slots === true" />
+    <base-errors-valid :error="error" :$v="$v" :name="name" />
+    <div v-if="GetcheckAuthorization" class="error">
       Введены не верно логин или пароль
     </div>
   </div>
@@ -39,7 +31,7 @@ export default {
   },
   computed: {
     GetcheckAuthorization() {
-      return this.$store.getters["GetcheckAuthorization"];
+      return this.$store.getters.GetcheckAuthorization;
     },
   },
 };

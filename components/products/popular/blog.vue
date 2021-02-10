@@ -76,7 +76,7 @@
       </b-row>
     </template>
     <div v-if="datasetProduct.productOffer.length === 0">
-      <h2 class="error fz-4">нет в продаже</h2>
+      <span class="error fz-4">нет в продаже</span>
     </div>
   </b-card>
 </template>

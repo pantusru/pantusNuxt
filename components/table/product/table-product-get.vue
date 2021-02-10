@@ -105,7 +105,7 @@
         </template>
         <b-tr v-else>
           <td>
-            <h2 class="error fz-4 pl-2">нет в продаже</h2>
+            <span class="error fz-4 pl-2">нет в продаже</span>
           </td>
         </b-tr>
       </template>

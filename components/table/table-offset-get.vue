@@ -35,7 +35,7 @@
         </template>
       </b-tbody>
     </b-table-simple>
-    <div v-else><h2 class="error fz-4">нет в продаже</h2></div>
+    <div v-else><span class="error fz-4">нет в продаже</span></div>
   </div>
 </template>
 

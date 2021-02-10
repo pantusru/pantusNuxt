@@ -17,21 +17,21 @@ export const mutations = {
   ResetCartProduct(store) {
     store.CartProduct = [];
   },
-  /**
-   * #Сохраняет в Vuex количество измененных товаров
-   * @param {Array} data - количество измененных товаров
-   */
-  SetCartUpdateCount(store, data) {
-    store.CartUpdateCount = data;
-  },
-  /**
-   * #Сохраняет в Vuex  flag измененного количество товара в корзине
-   * @param {Array} data.index - index товаров  в корзине
-   * @param {Array} data.value - значение flag
-   */
-  SetCartCheckCount(store, data) {
-    store.CartProduct[data.index].checkCount = data.value;
-  },
+  // /**
+  //  * #Сохраняет в Vuex количество измененных товаров
+  //  * @param {Array} data - количество измененных товаров
+  //  */
+  // SetCartUpdateCount(store, data) {
+  //   store.CartUpdateCount = data;
+  // },
+  // /**
+  //  * #Сохраняет в Vuex  flag измененного количество товара в корзине
+  //  * @param {Array} data.index - index товаров  в корзине
+  //  * @param {Array} data.value - значение flag
+  //  */
+  // SetCartCheckCount(store, data) {
+  //   store.CartProduct[data.index].checkCount = data.value;
+  // },
   /**
    * #Сохраняет в Vuex товары в корзине
    * @param {Array} data - Массив товаров
@@ -45,14 +45,15 @@ export const mutations = {
   SetCartActual(store) {
     store.CartActual = true;
   },
-  /**
-   * #Сохраняет в Vuex новое кол-во товара в корзине
-   * @param {Array} data.index - index массива CartProduct
-   * @param {Array} data.value - кол-во товара
-   */
-  SetCountProduct(store, data) {
-    store.CartProduct[data.index].Count = data.value;
-  },
+  // /**
+  //  * #Сохраняет в Vuex новое кол-во товара в корзине
+  //  * @param {Array} data.index - index массива CartProduct
+  //  * @param {Array} data.value - кол-во товара
+  //  */
+  // SetCountProduct(store, data) {
+  //   store.CartProduct[data.index].Count = data.value;
+  // },
+
   /**
    * #Сохраняет в Vuex новое кол-во товара в корзине
    * @param {Array} data.data - ссылка на элемент массива CartProduct
@@ -63,47 +64,47 @@ export const mutations = {
     data.data.checkCount = true;
     store.CartActual = false;
   },
-  /**
-   * #Сохраняет в Vuex новый товар в корзину
-   * @param {Array} data - массив товара
-   */
-  PushCartProduct(store, data) {
-    store.CartProduct.unshift(data);
-  },
-  deteleCartProductIndex(stote, index) {
-    stote.CartProduct.splice(index, 1);
-  },
-  /**
-   * #Сохраняет в Vuex новый товар в корзину
-   * @param {Array} data.data - Ссылка на продукт
-   *  @param {Array} data.value - Новый offer;
-   */
-  PushOfferProduct(store, data) {
-    data.data[0].productOffer.push(data.value);
-  },
-  /**
-   * #Удаляет с Vuex товар из корзину
-   * @param {Array} data.data - Сслыка на удаляемый массив
-   *  @param {Array} data.index - index удаляемого offers
-   * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
-   */
-  DeleteCartProduct(store, data) {
-    if (data.data.checkCount === true) {
-      // Проверка является ли удаленный товар с корзине измененным
-      store.CartUpdateCount = store.CartUpdateCount - 1;
-    }
-    if (store.CartUpdateCount === 0) {
-      // проверка если ли еще измененные товары
-      store.CartActual = true;
-    }
-    if (data.flag === true) {
-      // Сделать запрос
-    } else {
-      // Требовать обновить корзину
-      store.CartActual = false;
-    }
-    data.data.splice(data.index, 1); // Удаление с корзины
-  },
+  // /**
+  //  * #Сохраняет в Vuex новый товар в корзину
+  //  * @param {Array} data - массив товара
+  //  */
+  // PushCartProduct(store, data) {
+  //   store.CartProduct.unshift(data);
+  // },
+  // deteleCartProductIndex(stote, index) {
+  //   stote.CartProduct.splice(index, 1);
+  // },
+  // /**
+  //  * #Сохраняет в Vuex новый товар в корзину
+  //  * @param {Array} data.data - Ссылка на продукт
+  //  *  @param {Array} data.value - Новый offer;
+  //  */
+  // PushOfferProduct(store, data) {
+  //   data.data[0].productOffer.push(data.value);
+  // },
+  // /**
+  //  * #Удаляет с Vuex товар из корзину
+  //  * @param {Array} data.data - Сслыка на удаляемый массив
+  //  *  @param {Array} data.index - index удаляемого offers
+  //  * @param {Boolean} data.flag  - flag нужно ли кидать запрос на удаление с БД
+  //  */
+  // DeleteCartProduct(store, data) {
+  //   if (data.data.checkCount === true) {
+  //     Проверка является ли удаленный товар с корзине измененным
+  // store.CartUpdateCount = store.CartUpdateCount - 1;
+  // }
+  // if (store.CartUpdateCount === 0) {
+  //   проверка если ли еще измененные товары
+  // store.CartActual = true;
+  // }
+  // if (data.flag === true) {
+  //   Сделать запрос
+  // } else {
+  //   Требовать обновить корзину
+  // store.CartActual = false;
+  // }
+  // data.data.splice(data.index, 1); // Удаление с корзины
+  // },
 };
 export const actions = {
   async DeleteCartProduct({ dispatch, store, commit }, id) {
@@ -136,13 +137,13 @@ export const actions = {
       commit("SetCartActual");
     }
   },
-  CartProductDeleteNotOffers({ state, commit }) {
-    state.CartProduct.forEach((data, index) => {
-      if (data.productOffer.length === 0) {
-        commit("deteleCartProductIndex", index);
-      }
-    });
-  },
+  // CartProductDeleteNotOffers({ state, commit }) {
+  //   state.CartProduct.forEach((data, index) => {
+  //     if (data.productOffer.length === 0) {
+  //       commit("deteleCartProductIndex", index);
+  //     }
+  //   });
+  // },
 };
 export const getters = {
   /**

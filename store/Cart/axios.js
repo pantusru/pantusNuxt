@@ -1,18 +1,25 @@
 export const actions = {
+  async validateCart({ dispatch }, data) {
+    if (data.error === undefined) {
+      const dataCart = await dispatch("Products/axios/_init_Product", data, {
+        root: true,
+      });
+      return await dispatch("MapCart", { dataCart, dataApi: data });
+    }
+  },
   async _CartProduct({ rootGetters, dispatch }) {
     const data = await this.$axios.$get(`${process.env.api}/personal/cart`, {
       headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });
+    return await dispatch("validateCart", data);
     // console.log(data);
-    let dataCart = await dispatch("Products/axios/_init_Product", data, {
-      root: true,
-    });
-    if (dataCart.length !== 0) {
-      dataCart = await dispatch("MapCart", { dataCart, dataApi: data });
-      return dataCart;
-    } else {
-      return [];
-    }
+    // let dataCart = await dispatch("Products/axios/_init_Product", data, {
+    //   root: true,
+    // });
+    // if (dataCart.length !== 0) {
+    //   dataCart = await dispatch("MapCart", { dataCart, dataApi: data });
+    //   return dataCart;
+    // }
   },
   async _CartProductDelete({ rootGetters, dispatch, commit }, id) {
     const data = await this.$axios.$delete(
@@ -21,16 +28,16 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-
-    let dataCart = await dispatch("Products/axios/_init_Product", data, {
-      root: true,
-    });
-    if (dataCart.length !== 0) {
-      dataCart = await dispatch("MapCart", { dataCart, dataApi: data });
-      return dataCart;
-    } else {
-      return [];
-    }
+    return await dispatch("validateCart", data);
+    // let dataCart = await dispatch("Products/axios/_init_Product", data, {
+    //   root: true,
+    // });
+    // if (dataCart.length !== 0) {
+    //   dataCart = await dispatch("MapCart", { dataCart, dataApi: data });
+    //   return dataCart;
+    // } else {
+    //   return [];
+    // }
   },
   async _CartProductPut({ rootGetters, dispatch, commit }, data) {
     const dataset = await this.$axios.$put(
@@ -42,16 +49,16 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-
-    let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
-      root: true,
-    });
-    if (dataCart.length !== 0) {
-      dataCart = await dispatch("MapCart", { dataCart, dataApi: dataset });
-      return dataCart;
-    } else {
-      return [];
-    }
+    return await dispatch("validateCart", dataset);
+    // let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
+    //   root: true,
+    // });
+    // if (dataCart.length !== 0) {
+    //   dataCart = await dispatch("MapCart", { dataCart, dataApi: dataset });
+    //   return dataCart;
+    // } else {
+    //   return [];
+    // }
   },
   async _CartProductPutAll({ rootGetters, dispatch, commit }, data) {
     const dataset = await this.$axios.$put(
@@ -63,16 +70,15 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-
-    let dataCart = await dispatch("Products/axios/_init_Product", dataset, {
-      root: true,
-    });
-    if (dataCart.length !== 0) {
-      dataCart = await dispatch("MapCart", { dataCart, dataApi: dataset });
-      return dataCart;
-    } else {
-      return [];
-    }
+    return await dispatch("validateCart", dataset);
+    // if (dataset.length !== 0) {
+    //   const dataCart = await dispatch("Products/axios/_init_Product", dataset, {
+    //     root: true,
+    //   });
+    //   if (dataCart.length !== 0) {
+    //     return await dispatch("MapCart", { dataCart, dataApi: dataset });
+    //   }
+    // }
   },
   MapCart({}, data) {
     if (data.dataCart.length > 0) {

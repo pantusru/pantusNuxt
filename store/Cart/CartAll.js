@@ -110,7 +110,9 @@ export const actions = {
     const data = await dispatch("Cart/axios/_CartProductDelete", id, {
       root: true,
     });
-    commit("SetCartProduct", data);
+    if (data === undefined) {
+      commit("SetCartProduct", data);
+    }
   },
 
   /**
@@ -128,7 +130,9 @@ export const actions = {
         {},
         { root: true }
       );
-      commit("SetCartProduct", data);
+      if (data !== undefined) {
+        commit("SetCartProduct", data);
+      }
       commit("SetCartActual");
     }
   },

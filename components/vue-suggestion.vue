@@ -178,6 +178,8 @@ export default {
 
 .autocomplete-results {
   position: absolute;
+  z-index: 10;
+  background: #fff;
   padding: 0;
   margin: 0;
   border: 1px solid #eeeeee;
@@ -188,7 +190,7 @@ export default {
 
 .autocomplete-result {
   text-align: left;
-  padding: 4px 2px;
+  padding: 4px 5px;
   cursor: pointer;
 }
 

@@ -177,6 +177,7 @@ export default {
 }
 
 .autocomplete-results {
+  position: absolute;
   padding: 0;
   margin: 0;
   border: 1px solid #eeeeee;

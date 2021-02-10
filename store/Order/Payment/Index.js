@@ -45,6 +45,7 @@ export const actions = {
     }
   },
   SetDostavkaExtra({ store, rootGetters, commit }, value) {
+    commit("Order/Form/SetCostDostavka", 0, { root: true });
     const email = rootGetters["Order/Payment/Index/GetCostDostavkaId"](4)[0];
     const others = rootGetters["Order/Payment/Index/GetCostDostavkaId"](3)[0];
     commit("SetDostavkaExtra", {

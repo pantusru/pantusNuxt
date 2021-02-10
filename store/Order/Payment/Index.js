@@ -11,8 +11,14 @@ export const mutations = {
     store.Dostavka = data;
   },
   SetDostavkaExtra(store, data) {
-    data.data.description = data.value + "руб.";
-    data.data.price = Number(data.value);
+    console.log(data);
+    if (data.value !== false) {
+      data.data.description = data.value + "руб.";
+      data.data.price = Number(data.value);
+    } else {
+      data.data.description = data.text;
+      data.data.price = data.price;
+    }
   },
   SetActive(store, data) {
     data.data.active = data.value;
@@ -40,7 +46,25 @@ export const actions = {
   },
   SetDostavkaExtra({ store, rootGetters, commit }, value) {
     const email = rootGetters["Order/Payment/Index/GetCostDostavkaId"](4)[0];
-    commit("SetDostavkaExtra", { data: email, value });
+    const others = rootGetters["Order/Payment/Index/GetCostDostavkaId"](3)[0];
+    commit("SetDostavkaExtra", {
+      data: email,
+      value,
+      text: "Не указан город",
+      price: 0,
+    });
+    let values;
+    if (value) {
+      values = Number(value) + 150;
+    } else {
+      values = false;
+    }
+    commit("SetDostavkaExtra", {
+      data: others,
+      value: values,
+      text: "От 350 руб.",
+      price: 350,
+    });
   },
   async ActionRiles({ store, commit, dispatch }) {
     const res = await dispatch(

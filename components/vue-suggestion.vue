@@ -104,6 +104,10 @@ export default {
       }
     },
     getItems() {
+      if (this.$store.getters.getOrderUpdateCity) {
+        this.$store.commit("SetOrderUpdateCity", false);
+        this.GetData();
+      }
       //  если items пустой то не отображаем ul
       if (this.items.length > 0) {
         this.isOpen = true;
@@ -119,15 +123,11 @@ export default {
       this.timerId = setTimeout(this.GetData, 1000);
     },
     onChange() {
-      console.log(this.$v.Form.$model.Town);
       this.$v.Form.$model.Town = this.$v.Form.$model.Town.replace(
         /[-[\]{}()*+?.,\\^$|#%]/g,
         ""
       );
-      this.$store.dispatch(
-        "Order/Payment/Index/SetDostavkaExtra",
-        `Не указан город`
-      );
+      this.$store.dispatch("Order/Payment/Index/SetDostavkaExtra", false);
       this.$v.Form.$model.dostavka = undefined;
       // Пока отправлять запрос и изменение vuex
       // this.$emit("input", { data: this.search, id: this.id });

@@ -15,6 +15,7 @@ export const state = () => ({
   NavMobile: false,
   cookie: "",
   AuthorizationOrder: false,
+  orderUpdateCity: false,
 });
 export const mutations = {
   SetCheckCountProducts(store, data) {
@@ -22,6 +23,9 @@ export const mutations = {
   },
   SetCookie(store, data) {
     store.cookie = data;
+  },
+  SetOrderUpdateCity(store, data) {
+    store.orderUpdateCity = data;
   },
   SetShow(store, data) {
     store.showLoader = data;
@@ -55,4 +59,5 @@ export const getters = {
   GetNavMobile: s => s.NavMobile,
   getCheckCountProducts: s => s.CheckCountProducts,
   getAuthorizationOrder: s => s.AuthorizationOrder,
+  getOrderUpdateCity: s => s.orderUpdateCity,
 };

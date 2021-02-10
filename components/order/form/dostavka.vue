@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form>
-      <b-form-radio-group :value="this.$v.Form.$model.dostavka" name="dostavka">
+      <b-form-radio-group v-model="$v.Form.$model.dostavka" name="dostavka">
         <template v-for="data in GetDostavka">
           <b-row
             v-if="data.active"
@@ -71,10 +71,15 @@ export default {
       this.$v.Form.$model.dostavka = data.id;
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
       if (data.city != null) {
+        this.$store.commit("SetOrderUpdateCity", true);
         // this.$store.commit("Order/Form/SetFull", {
         //   name: "Town",
         //   value: data.city,
         // });
+
+        /**
+         * this.$store.dispatch("API/axios/_API_Russia", zip);
+         */
         this.$v.Form.$model.Town = data.city;
       }
       if (data.TownId !== undefined) {

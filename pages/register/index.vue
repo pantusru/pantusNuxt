@@ -74,7 +74,13 @@
         />
       </b-form-group>
       <h6 class="error" v-if="ErrorApi !== undefined">{{ ErrorApi }}</h6>
-      <VInput :$v="$v" :slots="true" name="checbox" :error="error.checbox">
+      <VInput
+        :get-input="false"
+        :$v="$v"
+        :slots="true"
+        name="checbox"
+        :error="error.checbox"
+      >
         <b-form-checkbox v-model="$v.Form.checbox.$model">
           <p>
             Я принимаю условия

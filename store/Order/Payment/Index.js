@@ -17,7 +17,7 @@ export const mutations = {
       data.data.price = Number(data.value);
     } else {
       data.data.description = data.text;
-      data.data.price = data.price;
+      data.data.price = Number(data.price);
     }
   },
   SetActive(store, data) {
@@ -51,20 +51,21 @@ export const actions = {
     commit("SetDostavkaExtra", {
       data: email,
       value,
-      text: "Не указан город",
-      price: 0,
+      text: email.default_description,
+      price: email.default_price,
     });
     let values;
     if (value) {
       values = Number(value) + 150;
+      values = values.toFixed(2);
     } else {
       values = false;
     }
     commit("SetDostavkaExtra", {
       data: others,
       value: values,
-      text: "От 350 руб.",
-      price: 350,
+      text: others.default_description,
+      price: others.default_price,
     });
   },
   async ActionRiles({ store, commit, dispatch }) {

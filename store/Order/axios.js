@@ -105,6 +105,9 @@ export const actions = {
           active: true,
           city: elem.default_city,
           price: elem.default_price,
+          default_price: elem.default_price,
+          default_description: elem.extra,
+          zip: elem.zip,
         });
       }
     });

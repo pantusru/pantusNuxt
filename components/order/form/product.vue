@@ -23,7 +23,7 @@ export default {
     },
     GetCostOrder() {
       const data = this.GetCostProduct + this.GetCostDostavka;
-      return data;
+      return data.toFixed(2);
     },
   },
   methods: {

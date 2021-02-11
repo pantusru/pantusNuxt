@@ -70,6 +70,9 @@ export default {
     changeInput(data) {
       this.$v.Form.$model.dostavka = data.id;
       this.$store.commit("Order/Form/SetCostDostavka", data.price);
+      // if (data.TownId !== undefined) {
+      //   this.$v.Form.$model.TownId = data.TownId;
+      // }
       if (data.city != null) {
         this.$store.commit("SetOrderUpdateCity", true);
         // this.$store.commit("Order/Form/SetFull", {
@@ -77,17 +80,12 @@ export default {
         //   value: data.city,
         // });
 
-        /**
-         * this.$store.dispatch("API/axios/_API_Russia", zip);
-         */
+        if (data.zip !== null) {
+          this.$store.dispatch("API/axios/_API_Russia", data.zip);
+          this.$v.Form.$model.TownId = data.zip;
+        }
+
         this.$v.Form.$model.Town = data.city;
-      }
-      if (data.TownId !== undefined) {
-        this.$v.Form.$model.TownId = data.TownId;
-        // this.$store.commit("Order/Form/SetFull", {
-        //   name: "TownId",
-        //   value: data.TownId,
-        // });
       }
       // this.$store.commit("Order/Form/SetDostavka", data.id);
       this.RilesOrder(

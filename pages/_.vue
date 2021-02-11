@@ -5,7 +5,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  asyncData({ redirect }) {
+    redirect("/404");
+  },
+};
 </script>
 
 <style></style>

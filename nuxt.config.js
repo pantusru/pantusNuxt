@@ -74,8 +74,7 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content:
-          "https://www.pantus.ru/bitrix/templates/main/img/d/smallogo.png",
+        content: `${process.env.pantus}/bitrix/templates/main/img/d/smallogo.png`,
       },
     ],
     link: [
@@ -146,5 +145,6 @@ export default {
   },
   env: {
     api: "https://api.pantus.ru",
+    pantus: "https://www.pantus.ru",
   },
 };

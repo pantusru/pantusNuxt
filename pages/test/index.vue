@@ -1,8 +1,9 @@
 <template>
   <div>
+    <div v-html="test" />
     <b-container>
       <span @click="scroll('test')">
-        <nuxt-link to="test#test">Ссылка</nuxt-link>
+        <nuxt-link to="help#kak-sdelat-zakaz">Ссылка</nuxt-link>
       </span>
       <div class="mb-10" />
       <div name="test">Ссылка якорь</div>
@@ -15,6 +16,14 @@ export default {
   name: "TestView",
   components: {
     // test,
+  },
+  async asyncData({ store, dispatch }) {
+    await store.dispatch("test/actionstest");
+  },
+  computed: {
+    test() {
+      return this.$store.getters["test/gettest"];
+    },
   },
   methods: {
     scroll(el) {

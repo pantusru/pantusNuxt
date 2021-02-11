@@ -9,7 +9,7 @@
       <img
         class="img-100-auto"
         :src="require('@/assets/img/home/zapchasti.png')"
-        alt="11"
+        alt="zapchasti"
       />
     </div>
     <div class="blog-brand col-12 col-md-8">

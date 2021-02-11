@@ -261,8 +261,8 @@
             размещения в соответствующем разделе Сервисов, если иное не
             предусмотрено новой редакцией Соглашения. Действующая редакция
             Соглашения всегда находится на сайте по адресу
-            <a href="https://www.pantus.ru/user-agreement/"
-              >https://www.pantus.ru/user-agreement/</a
+            <nuxt-link to="https://www.pantus.ru/documents/user-agreement">
+              https://www.pantus.ru/documents/user-agreement </nuxt-link
             >.
           </p>
           <p>

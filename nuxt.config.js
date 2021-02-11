@@ -34,24 +34,16 @@ export default {
         const elem = document.querySelector(`[name = ${hash}]`);
         if (elem) {
           const Rect = elem.getBoundingClientRect();
-          return { x: 0, y: Rect.y };
+          // window.location.href =
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve({ x: 0, y: Rect.y });
+            }, 500);
+          });
         }
       }
       return { x: 0, y: 0 };
     },
-    // extendRoutes(routes, resolve) {
-    //   return [
-    //     {
-    //       name: 'app',
-    //       path: '/app',
-    //       component: resolve(__dirname, 'pages/app/index-2.vue'),
-    //       meta: {
-    //         test: 'asdasd'
-    //       }
-    //     },
-    //   ]
-    //
-    // }
   },
   /*
    ** Nuxt rendering mode

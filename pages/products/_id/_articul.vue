@@ -30,9 +30,8 @@ export default {
       meta: [
         {
           name: "description",
-          content: `${this.ProductData[0].ProductCard.name} Цена - ${
-            this.ProductData[0].productOffer[0].prices
-          }. Производитель - ${this.ProductData[0].ProductCard.brand.name}.
+          content: `${this.ProductData[0].ProductCard.name}
+          . Производитель - ${this.ProductData[0].ProductCard.brand.name}.
           Артикул -  ${
             this.ProductData[0].ProductCard.sku.original
           }. OEM - ${this.ProductData[0].ProductCard.ProductCardOem.join(

@@ -10,6 +10,7 @@
           <b-img
             class="img-100 cursor-pointer"
             :src="dataset.ProductCard.ProductCardImage.url"
+            :alt="dataset.ProductCard.name"
             @click="MainTrue()"
           />
         </b-col>
@@ -22,6 +23,7 @@
           <b-img
             class="img-100 cursor-pointer"
             :src="data.url"
+            :alt="data.url"
             @click="MainUrl(index)"
           />
         </b-col>

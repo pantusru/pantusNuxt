@@ -34,27 +34,31 @@ export default {
         {
           src: require("@img/footer/cards.png"),
           href: "",
-          alt: "11",
+          alt: "cards",
           class: "",
         },
         {
           src: require("@img/footer/cash.png"),
           href: "",
-          alt: "22",
+          alt: "cash",
           class: "",
         },
         {
           src: require("@img/footer/bank.png"),
           href: "",
-          alt: "33",
+          alt: "bank",
           class: "",
         },
       ],
       linksImgManu: [
-        { src: require("@img/footer/paypal.png"), href: "", alt: "11" },
-        { src: require("@img/footer/yandexmoney.png"), href: "", alt: "22" },
-        { src: require("@img/footer/webmoney.png"), href: "", alt: "33" },
-        { src: require("@img/footer/qiwi.png"), href: "", alt: "33" },
+        { src: require("@img/footer/paypal.png"), href: "", alt: "paypal" },
+        {
+          src: require("@img/footer/yandexmoney.png"),
+          href: "",
+          alt: "yandexmoney",
+        },
+        { src: require("@img/footer/webmoney.png"), href: "", alt: "webmoney" },
+        { src: require("@img/footer/qiwi.png"), href: "", alt: "qiwi" },
       ],
       text:
         "Мы принимаем банковские карты Visa, MasterCard и Мир. А также предлагаем 10 других безопасных способов оплаты, включая безналичный расчет, электронные деньги и салоны связи. Возможна оплата товара при получении и отсрочка платежа.",

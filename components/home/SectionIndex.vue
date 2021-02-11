@@ -7,7 +7,7 @@
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
         src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"
-        alt="1"
+        alt="home-car-1"
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
@@ -23,7 +23,7 @@
               class="img-100-auto"
               style="width: 180px; margin-left: auto; display: block"
               src="https://www.pantus.ru/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg"
-              alt=""
+              alt="home-car-2"
             />
           </div>
         </div>
@@ -36,7 +36,7 @@
         title="Новые бренды на Pantus.ru"
         :ul="categoriaUrl[1]"
         src="https://www.pantus.ru/upload/medialibrary/4ae/4457741.jpg"
-        alt="1"
+        alt="home-car-3"
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
         <div class="blog-mini-categoria">
@@ -52,7 +52,7 @@
               class="img-100-auto"
               style="width: 180px; margin-left: auto; display: block"
               src="@/assets/img/home/home-car-4.png"
-              alt=""
+              alt="home-car-3"
             />
           </div>
         </div>
@@ -75,20 +75,20 @@ export default {
       dataImg: [
         {
           src: "https://www.pantus.ru/bitrix/images/site/optbanner2.jpg",
-          alt: "12",
+          alt: "Специальное предложение оптовикам",
           href: "/opt",
           id: 1,
         },
         {
           src:
             "https://www.pantus.ru/bitrix/images/site/banner.1millionproducts.jpg",
-          alt: "12",
+          alt: "Новый товар в каталогах",
           href: "/news/3416139",
           id: 2,
         },
         {
           src: "https://www.pantus.ru/bitrix/images/site/appbanner.jpg",
-          alt: "слайдер мобильного приложения",
+          alt: "Слайдер мобильного приложения",
           href: "/app",
           id: 3,
         },

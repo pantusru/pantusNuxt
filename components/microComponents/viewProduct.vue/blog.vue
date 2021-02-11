@@ -1,16 +1,18 @@
 <template>
   <div class="row-product">
-    <div class="row-table"></div>
+    <div class="row-table" />
     <div class="data-blog-3">
       <a
-        :href="data.href"
-        class="row-blog row-blog-3"
         v-for="data in product"
         :key="data.id"
+        :href="data.href"
+        class="row-blog row-blog-3"
       >
         <h3 class="title">{{ data.name }}</h3>
         <div class="blog-content">
-          <div class="product-row-img"><img :src="data.img" alt="" /></div>
+          <div class="product-row-img">
+            <img :src="data.img" :alt="data.name" />
+          </div>
           <div class="product-content">
             <div class="elem-product">
               <div class="elem-name">Бренд</div>
@@ -84,13 +86,14 @@ export default {
         // },
         {
           bran: "Бренд",
+          alt: "",
           article: "артикуль",
           name: "название",
           img:
             "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
           oem: ["123123", " 31253rfsfd", "dasd2133232"],
           plice: 300,
-          term: "По запросу"
+          term: "По запросу",
         },
         {
           bran: "Бренд",
@@ -100,11 +103,11 @@ export default {
             "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
           oem: ["123123", " 31253rfsfd", "dasd2133232"],
           plice: 300,
-          term: "По запросу"
-        }
-      ]
+          term: "По запросу",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

@@ -9,14 +9,14 @@
     <b-row class="flex-md-column mb-2">
       <b-col cols="3" md="6" class="mb-2">
         <a href="https://apps.apple.com/us/app/pantus/id1475702773">
-          <img src="@img/footer/googleplay.svg" alt="" />
+          <img src="@img/footer/googleplay.svg" alt="googleplay" />
         </a>
       </b-col>
       <b-col cols="3" md="6">
         <a
           href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
         >
-          <img src="@img/footer/appstore.svg" alt="" />
+          <img src="@img/footer/appstore.svg" alt="appstore" />
         </a>
       </b-col>
     </b-row>

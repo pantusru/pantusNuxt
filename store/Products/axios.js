@@ -114,20 +114,22 @@ export const actions = {
           dataset[dataset.length - 1].images.extra.push({ url: data });
         });
       }
-      elem.offers.forEach(data => {
-        // Предложение Товара
-        dataset[dataset.length - 1].productOffer.push({
-          id: data.id,
-          prices: data.price,
-          quantity: data.quantity,
-          supplier: {
-            name: data.supplier.name,
-            deliveryDelay: data.supplier.deliveryDelay,
-            deliveryDelayView: data.supplier.deliveryDelayView,
-          },
-          multiplicity: data.supplier.orderMultiplicity,
+      if (elem.offers.length !== 0) {
+        elem.offers.forEach(data => {
+          // Предложение Товара
+          dataset[dataset.length - 1].productOffer.push({
+            id: data.id,
+            prices: data.price,
+            quantity: data.quantity,
+            supplier: {
+              name: data.supplier.name,
+              deliveryDelay: data.supplier.deliveryDelay,
+              deliveryDelayView: data.supplier.deliveryDelayView,
+            },
+            multiplicity: data.supplier.orderMultiplicity,
+          });
         });
-      });
+      }
     });
     return dataset;
   },

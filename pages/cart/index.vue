@@ -35,7 +35,7 @@ export default {
   },
   head() {
     return {
-      title: ``,
+      title: `Корзина список товара`,
       meta: [
         {
           name: "description",

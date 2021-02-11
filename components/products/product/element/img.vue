@@ -2,9 +2,10 @@
   <div class="text-center">
     <b-img
       class="cursor-pointer w-75"
-      @click="ModalImg(product)"
       fluid
       :src="product.ProductCard.ProductCardImage.url"
+      :alt="product.ProductCard.name"
+      @click="ModalImg(product)"
     />
   </div>
 </template>

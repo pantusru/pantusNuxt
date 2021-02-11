@@ -6,7 +6,7 @@
       title="Запчасти для а/м ГАЗ"
       :ul="categoriaUrl[0]"
       src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-5.png"
-      alt="1"
+      alt="home-car-5"
     />
     <categoriaVue
       src-index="search?filter_applicabilities=4921,4815"
@@ -15,7 +15,7 @@
       title="Запчасти на грузовые авто"
       :ul="categoriaUrl[1]"
       :src="require('@/assets/img/home/home-car-6.png')"
-      alt="1"
+      alt="home-car-6"
     />
     <div class="col-12 col-lg-6 mb-3">
       <div class="bg-cover d-flex flex-column justify-content-between h-100">
@@ -26,7 +26,10 @@
             >Автомасла автокосметика автохимия</nuxt-link
           >
         </h2>
-        <img :src="require('@/assets/img/home/home-car-7.png')" alt="" />
+        <img
+          :src="require('@/assets/img/home/home-car-7.png')"
+          alt="home-car-7"
+        />
       </div>
     </div>
     <categoriaVue
@@ -36,7 +39,7 @@
       title="Автосвет и лампы"
       :ul="categoriaUrl[2]"
       src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-8.png"
-      alt="1"
+      alt="home-car-7"
     />
   </section>
 </template>

@@ -67,7 +67,10 @@
             class="d-flex align-items-center link-decoration-none"
           >
             <div class="icons-nav-w20">
-              <img src="@img/icons/icon-shopping-cart.png" alt="" />
+              <img
+                src="@img/icons/icon-shopping-cart.png"
+                alt="icon-shopping"
+              />
             </div>
             <div class="d-flex flex-column text-secondary pl-10px">
               <div class="d-lg-block d-none fz-5 w-100 justify-content-end">

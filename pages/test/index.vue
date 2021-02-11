@@ -1,36 +1,39 @@
 <template>
   <div>
-    <ModalImg />
-    <ModalBuy />
-    <claider-popular :popular="popular.slice(0, 10)" />
+    <b-container>
+      <span @click="scroll('test')">
+        <nuxt-link to="test#test">Ссылка</nuxt-link>
+      </span>
+      <div class="mb-10" />
+      <div name="test">Ссылка якорь</div>
+    </b-container>
   </div>
 </template>
 
 <script>
-import ModalImg from "@/components/modal/product-img";
-import ModalBuy from "@/components/modal/buy-product";
-// import "https://code.jquery.com/jquery-git.min.js";
-// import test from "@/components/test/test";
-// import "@/plugins/query/jquery.fias.min";
-// import "@/plugins/query/1";
-import ClaiderPopular from "@/components/home/claider-popular";
 export default {
   name: "TestView",
   components: {
-    ClaiderPopular,
-    ModalImg,
-    ModalBuy,
     // test,
   },
-  async fetch({ store }) {
-    await store.dispatch("Products/popular/_ProductPopularAll");
-  },
-  computed: {
-    popular() {
-      return this.$store.getters["Products/popular/GetProductsPopular"];
+  methods: {
+    scroll(el) {
+      this.$nextTick(() => {
+        if (el) {
+          const anchor = document.querySelector(`[name = ${el}]`);
+          if (anchor) {
+            window.scrollTo({
+              top: anchor.getBoundingClientRect().top + window.pageYOffset,
+            });
+          }
+        }
+      });
     },
   },
 };
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.mb-10
+  margin-bottom: 10000px
+</style>

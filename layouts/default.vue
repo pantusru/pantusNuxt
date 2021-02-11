@@ -22,6 +22,7 @@ export default {
       return this.$store.getters.GetshowLoader;
     },
   },
+  watch: {},
 };
 </script>
 <style lang="sass"></style>

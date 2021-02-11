@@ -28,7 +28,13 @@ export default {
   router: {
     prefetchLinks: false,
     middleware: "user",
-
+    scrollBehavior(to, from, savedPosition) {
+      if (to.hash) {
+        const elem = document.querySelector(`[name = ${to.hash}]`);
+        console.log(elem);
+      }
+      return { x: 0, y: 0 };
+    },
     // extendRoutes(routes, resolve) {
     //   return [
     //     {

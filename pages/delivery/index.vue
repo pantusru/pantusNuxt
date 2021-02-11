@@ -651,7 +651,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import "assets/css/static-page-main.css";
 
 .img-icon-block {

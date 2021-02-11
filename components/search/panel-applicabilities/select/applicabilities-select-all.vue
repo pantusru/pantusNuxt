@@ -1,8 +1,8 @@
 <template>
   <b-col cols="3" class="mb-3 mb-md-0">
     <div
-      class="mr-3 form-control h-30px"
       v-on-clickaway="hiddenForm"
+      class="mr-3 form-control h-30px"
       @click="show = true"
     >
       <!-- children -->
@@ -30,20 +30,18 @@
     </div>
     <!--          :select-size="4" -->
     <ul
-      class="overflow px-0 position-absolute app-select"
       v-if="show && PanelData.length > 0"
+      class="overflow px-0 position-absolute app-select"
     >
       <panel-applicabilities-li
-        :type="type"
         v-for="dataset in PanelData"
         :key="dataset.id"
+        :type="type"
         :dataset="dataset"
         :arr="PanelData"
         :panel="panel"
         @click="showHidden"
-        v-on:panel="
-          $emit('update:panel', { id: $event.id, value: $event.value })
-        "
+        @panel="$emit('update:panel', { id: $event.id, value: $event.value })"
       />
     </ul>
   </b-col>
@@ -55,12 +53,7 @@ import PanelApplicabilitiesLi from "@/components/search/panel-applicabilities/op
 export default {
   components: { PanelApplicabilitiesLi },
   directives: {
-    onClickaway: onClickaway,
-  },
-  data() {
-    return {
-      show: false,
-    };
+    onClickaway,
   },
   props: {
     PanelData: {
@@ -75,12 +68,26 @@ export default {
       default: "children",
     },
   },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  computed: {
+    Applicabilities() {
+      return this.$store.getters[
+        "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
+      ];
+    },
+  },
   methods: {
     hiddenForm(event) {
+      console.log(event);
       if (
         event.target.className !== "option-my" &&
         event.target.className !== "option-my active-li" &&
-        event.target.className !== "option-my active-li children"
+        event.target.className !== "option-my active-li children" &&
+        event.target.className !== "option-my children"
       ) {
         this.show = false;
       }
@@ -91,13 +98,6 @@ export default {
         // Пропсом это флаг это родитель или потомок
         this.show = false;
       }
-    },
-  },
-  computed: {
-    Applicabilities() {
-      return this.$store.getters[
-        "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-      ];
     },
   },
 };

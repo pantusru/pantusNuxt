@@ -30,8 +30,12 @@ export default {
     middleware: "user",
     scrollBehavior(to, from, savedPosition) {
       if (to.hash) {
-        const elem = document.querySelector(`[name = ${to.hash}]`);
-        console.log(elem);
+        const hash = to.hash.slice(1);
+        const elem = document.querySelector(`[name = ${hash}]`);
+        if (elem) {
+          const Rect = elem.getBoundingClientRect();
+          return { x: 0, y: Rect.y };
+        }
       }
       return { x: 0, y: 0 };
     },

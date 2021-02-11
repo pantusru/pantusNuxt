@@ -143,7 +143,7 @@ export default {
   build: {
     postcss: {
       plugins: {
-        "postcss-combine-media-query": {},
+        // "postcss-combine-media-query": {},
       },
     },
     extend(config) {

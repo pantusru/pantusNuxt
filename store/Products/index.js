@@ -19,7 +19,7 @@ export const actions = {
     // if(getters.GetProducts.length === 0){
     const dataset = await dispatch(
       "Products/axios/_ProductFilter",
-      { data, limit: 10 },
+      { data, limit: 12 },
       { root: true }
     );
     commit("SetCountPage", dataset.count);

@@ -1,6 +1,6 @@
 <template>
   <section class="section-about mt-5">
-    <h2 class="about-title-index">Интернет-магазин запчастей Pantus.ru</h2>
+    <h1 class="about-title-index">Интернет-магазин запчастей Pantus.ru</h1>
     <div class="about-text">
       Интернет-магазин Pantus.ru – это выбор
       <b>более чем 25 000 наименований в наличии.</b>. Здесь можете

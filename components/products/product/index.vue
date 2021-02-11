@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="d-lg-none wbba">{{ dataset.ProductCard.name }}</h2>
+    <h1 class="d-lg-none wbba h2">{{ dataset.ProductCard.name }}</h1>
     <b-row v-if="dataset !== undefined" class="mt-5 mb-3">
       <b-col cols="12" sm="8" lg="4" class="d-flex flex-wrap">
         <!-- БЛОК с альбомом -->

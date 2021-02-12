@@ -2,6 +2,7 @@
   <div>
     <div v-html="test" />
     <b-container>
+      <div>{{ test.aad.length }}</div>
       <span @click="scroll('test')">
         <nuxt-link to="help#kak-sdelat-zakaz">Ссылка</nuxt-link>
       </span>

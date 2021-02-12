@@ -4,7 +4,8 @@
   >
     <nav-mobile-button class="mr-3 d-block d-lg-none" />
     <input
-      v-model="search"
+      maxlength="256"
+      v-model.trim="search"
       placeholder="Введите номер или название детали"
       class="border-danger border-right-0 w-100 p-2 rounded-left bl-0"
       @keyup.enter="SetSearch"

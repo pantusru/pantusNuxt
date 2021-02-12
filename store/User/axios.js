@@ -70,6 +70,7 @@ export const actions = {
   },
   mapUserCreate({}, user) {
     return {
+      passwd: user.password,
       organization: {
         name: user.organization,
         address: user.address,

@@ -111,7 +111,6 @@ export const actions = {
     const data = await dispatch("Cart/axios/_CartProductDelete", id, {
       root: true,
     });
-    console.log(data);
     if (data !== undefined) {
       commit("SetCartProduct", data);
     }

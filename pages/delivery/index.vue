@@ -50,7 +50,7 @@
               <h3><a href="#pochtarf">Почта России</a></h3>
               <div class="img-icon-block">
                 <img
-                  src="https://www.pantus.ru/upload/medialibrary/e57/pochta_rf.jpg"
+                  :src="urlPantus + '/upload/medialibrary/e57/pochta_rf.jpg'"
                   height="auto"
                 />
               </div>
@@ -562,12 +562,12 @@
                     <b-row class="my-sm-2">
                       <div class="img-icon-block">
                         <img
-                          src="https://www.pantus.ru/upload/medialibrary/dea/dpd.jpg"
+                          :src="urlPantus + '/upload/medialibrary/dea/dpd.jpg'"
                         />
                       </div>
                       <div class="img-icon-block mx-sm-3">
                         <img
-                          src="https://www.pantus.ru/upload/medialibrary/dea/sdek.jpg"
+                          :src="urlPantus + '/upload/medialibrary/dea/sdek.jpg'"
                         />
                       </div>
                     </b-row>
@@ -592,7 +592,10 @@
                   </h2>
                   <div class="img-icon-block">
                     <img
-                      src="https://www.pantus.ru/upload/medialibrary/960/logistic_company.jpg"
+                      :src="
+                        urlPantus +
+                        '/upload/medialibrary/960/logistic_company.jpg'
+                      "
                       class="img-banner"
                     />
                   </div>
@@ -605,7 +608,9 @@
                   <h2><a name="pochtarf" />Почта России</h2>
                   <div class="img-icon-block">
                     <img
-                      src="https://www.pantus.ru/upload/medialibrary/e57/pochta_rf.jpg"
+                      :src="
+                        urlPantus + '/upload/medialibrary/e57/pochta_rf.jpg'
+                      "
                     />
                   </div>
 
@@ -631,6 +636,11 @@ export default {
   name: "Index",
   components: {
     sidebar,
+  },
+  data() {
+    return {
+      urlPantus: process.env.pantus,
+    };
   },
   mixins: [minix],
   head() {

@@ -6,7 +6,7 @@
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
-        src="https://www.pantus.ru/bitrix/templates/main/img/home/home-car-1.png"
+        :src="urlPantus + '/bitrix/templates/main/img/home/home-car-1.png'"
         alt="home-car-1"
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
@@ -22,7 +22,10 @@
             <img
               class="img-100-auto"
               style="width: 180px; margin-left: auto; display: block"
-              src="https://www.pantus.ru/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg"
+              :src="
+                urlPantus +
+                '/upload/medialibrary/5cf/mobile_file_2020-11-11_08-16-20 (2).jpg'
+              "
               alt="home-car-2"
             />
           </div>
@@ -35,7 +38,7 @@
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Новые бренды на Pantus.ru"
         :ul="categoriaUrl[1]"
-        src="https://www.pantus.ru/upload/medialibrary/4ae/4457741.jpg"
+        :src="urlPantus + '/upload/medialibrary/4ae/4457741.jpg'"
         alt="home-car-3"
       />
       <div class="col-12 col-lg-4 mb-2 mb-lg-0">
@@ -72,22 +75,22 @@ export default {
   },
   data() {
     return {
+      urlPantus: process.env.pantus,
       dataImg: [
         {
-          src: "https://www.pantus.ru/bitrix/images/site/optbanner2.jpg",
+          src: `${process.env.pantus}/bitrix/images/site/optbanner2.jpg`,
           alt: "Специальное предложение оптовикам",
           href: "/opt",
           id: 1,
         },
         {
-          src:
-            "https://www.pantus.ru/bitrix/images/site/banner.1millionproducts.jpg",
+          src: `${process.env.pantus}/bitrix/images/site/banner.1millionproducts.jpg`,
           alt: "Новый товар в каталогах",
           href: "/news/3416139",
           id: 2,
         },
         {
-          src: "https://www.pantus.ru/bitrix/images/site/appbanner.jpg",
+          src: `${process.env.pantus}/bitrix/images/site/appbanner.jpg`,
           alt: "Слайдер мобильного приложения",
           href: "/app",
           id: 3,
@@ -132,5 +135,4 @@ export default {
     display: flex
     flex-direction: column
     justify-content: space-between
-.mini-categoria-img
 </style>

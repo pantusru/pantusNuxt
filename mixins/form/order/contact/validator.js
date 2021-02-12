@@ -10,6 +10,7 @@ import {
 const Name = {
   required,
 };
+const Comments = {};
 const Surname = {
   required,
 };
@@ -35,6 +36,7 @@ const all = {
   Town,
   dostavka,
   sistemPay,
+  Comments,
 };
 
 const companyName = {
@@ -81,6 +83,7 @@ export default {
         companyCountry: "",
         dostavka: undefined,
         sistemPay: undefined,
+        Comments: undefined,
       },
     };
   },

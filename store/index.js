@@ -11,6 +11,7 @@ export const state = () => ({
     new_password: false, // Проверка пароля при отправки запроса на новый пароль
     checkAuthorization: false, // Проверка авторизации от сервера
     errorRegister: undefined, // Ошибки при регистрации пользователя
+    errorOrder: false,
   },
   NavMobile: false,
   cookie: "",
@@ -60,4 +61,5 @@ export const getters = {
   getCheckCountProducts: s => s.CheckCountProducts,
   getAuthorizationOrder: s => s.AuthorizationOrder,
   getOrderUpdateCity: s => s.orderUpdateCity,
+  getErrorOrder: s => s.Form.errorOrder,
 };

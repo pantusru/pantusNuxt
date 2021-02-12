@@ -113,4 +113,33 @@ export const actions = {
     });
     return dostavka;
   },
+
+  async PostOrder({ store, dispatch, rootGetters, commit }, data) {
+    const order = await dispatch("mapOrderSet", data);
+    const res = await this.$axios.post(
+      `${process.env.api}/personal/orders`,
+      order,
+      {
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+      }
+    );
+    if (res.error !== undefined) {
+      return false;
+    }
+    return res.data;
+  },
+  mapOrderSet({}, data) {
+    return {
+      first_name: data.name,
+      last_name: data.surname,
+      phone_number: data.telephone,
+      city_name: data.Town,
+      city_zip: data.TownId,
+      company_name: data.companyName,
+      detailed_adress: data.companyAddress,
+      paysystem_type_id: data.sistemPay,
+      delivery_type_id: data.dostavka,
+      user_comment: data.Comments,
+    };
+  },
 };

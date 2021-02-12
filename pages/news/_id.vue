@@ -25,7 +25,7 @@ export default {
       await store.dispatch("News/CategoriesAll/_NewsCategories"); // Все категории
       const id = store.getters["News/CategoriesAll/GetNewsCategoriesCode"](
         params.id
-      )[0].id;
+      )[0]?.id;
       if (id) {
         await store.dispatch("News/NewsCategoriesPage/_NewsCategoriesPage", {
           // все новости 1 категории

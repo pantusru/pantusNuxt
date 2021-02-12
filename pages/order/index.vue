@@ -15,9 +15,17 @@
       <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
         <h3 class="mb-3">Способ доставки</h3>
         <Dostavka :$v="$v" :error="error" />
+        <base-textarea-valid
+          items="Комментарий:"
+          name="Comments"
+          :$v="$v"
+          :error="error['Comments']"
+        />
+        <!--        <div></div>-->
       </b-col>
       <b-col cols="6" class="mt-lg-5 mt-3">
         <Product :$v="$v" />
+        <h5 v-if="getError" class="error mt-3">Ошибка сервера</h5>
       </b-col>
     </b-row>
   </b-container>
@@ -31,9 +39,11 @@ import Payment from "@/components/order/form/payment";
 import Dostavka from "@/components/order/form/dostavka";
 import Product from "@/components/order/form/product";
 import Mixin from "@/mixins/order-riles/index";
+import BaseTextareaValid from "@/components/base/base-textarea-valid";
 
 export default {
   components: {
+    BaseTextareaValid,
     Contact,
     Payment,
     Dostavka,
@@ -47,6 +57,14 @@ export default {
       store.dispatch("Order/Payment/Index/_Dostavka"),
       store.dispatch("Order/Payment/Index/ActionRiles"),
     ]);
+  },
+  computed: {
+    getError() {
+      return this.$store.getters.getErrorOrder;
+    },
+  },
+  destroyed() {
+    this.$store.commit("SetFormApi", { data: "errorOrder", value: false });
   },
   // created() {},
 };

@@ -44,29 +44,24 @@ export default {
       certificates: [
         {
           name: 'Свидетельство официального дилера ПАО "БАЛАКОВОРЕЗИНОТЕХНИКА"',
-          image:
-            "https://www.pantus.ru/about/certificates/sertificate/pao_brt.jpg",
+          image: `${process.env.pantus}/about/certificates/sertificate/pao_brt.jpg`,
         },
         {
           name: 'Свидетельство официального дилера АО "ВОЛЖСКРЕЗИНОТЕХНИКА"',
-          image:
-            "https://www.pantus.ru/brands/vrt/certificates/vrt_dilercrt.jpg",
+          image: `${process.env.pantus}/brands/vrt/certificates/vrt_dilercrt.jpg`,
         },
         {
           name: 'Свидетельство официального дилера "SEVI"',
-          image:
-            "https://www.pantus.ru/upload/medialibrary/ec6/%E2%84%96-0097.jpg",
+          image: `${process.env.pantus}/upload/medialibrary/ec6/%E2%84%96-0097.jpg`,
         },
         {
           name: 'Свидетельство официального представителя АО "РЕЗИНОТЕХНИКА"',
-          image:
-            "https://www.pantus.ru/about/certificates/sertificate/ao_resinotehnika.jpg",
+          image: `${process.env.pantus}/about/certificates/sertificate/ao_resinotehnika.jpg`,
         },
         {
           name:
             'Свидетельство официального представителя ООО "БалаковоМеталлоРезинотехника"',
-          image:
-            "https://www.pantus.ru/upload/medialibrary/8de/%D0%B1%D0%BC%D1%80%D1%82.jpg",
+          image: `${process.env.pantus}/upload/medialibrary/8de/%D0%B1%D0%BC%D1%80%D1%82.jpg`,
         },
         {
           name: 'Свидетельство официального дилера ПАО "КЗАТЭ"',

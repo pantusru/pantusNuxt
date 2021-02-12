@@ -27,10 +27,30 @@ export default {
     },
   },
   methods: {
-    formGo() {
+    async formGo() {
       // Отправить заказ
       this.$v.Form.$touch();
-      console.log(this.$v.Form.$model);
+      if (!this.$v.Form.$error) {
+        const res = await this.$store.dispatch(
+          "Order/axios/PostOrder",
+          this.$v.Form.$model
+        );
+        if (!res) {
+          // Ошибка
+          this.$store.commit("SetFormApi", {
+            data: "errorOrder",
+            value: true,
+          });
+        } else {
+          this.$store.commit("Cart/CartAll/ResetCartProduct");
+          // Гут
+          this.$store.commit("SetFormApi", {
+            data: "errorOrder",
+            value: false,
+          });
+          await this.$router.push("/profile/orders/" + res.success.order_id);
+        }
+      }
     },
   },
 };

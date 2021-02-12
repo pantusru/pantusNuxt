@@ -3,8 +3,14 @@
   <div class="mb-lg-5 mb-3">
     <b-row class="justify-content-between">
       <b-col cols="12" sm="6" class="mb-2 mb-lg-0">
-        <h4 class="mb-2 text-decoration">
-          Заказ №<span> {{ data.id }} </span>
+        <h4 class="mb-2">
+          <nuxt-link
+            class="text-decoration text-body"
+            :to="'/profile/orders/' + data.id"
+          >
+            Заказ №
+            {{ data.id }}
+          </nuxt-link>
         </h4>
         <time :datetime="data.dates.created" class="d-block">
           Дата: {{ data.dates.created }}
@@ -15,7 +21,7 @@
         <div class="mb-2">
           <b>Статус заказа:</b><span> {{ data.status.name }} </span>
         </div>
-        <order-button-cancel :data="data" />
+        <!--        <order-button-cancel :data="data" />-->
       </b-col>
     </b-row>
     <nuxt-link

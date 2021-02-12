@@ -9,11 +9,11 @@
       name="cp_frame"
       src="https://tires.catalogs-parts.com/#{client:sm90kj;page:tires;lang:ru;group:0}"
       onload="FrameManager.registerFrame(this)"
+      scrolling="no"
       frameborder="0"
       marginheight="0"
       marginwidth="0"
       width="100%"
-      style="height: 70vh"
     />
   </b-container>
 </template>

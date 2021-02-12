@@ -73,7 +73,7 @@ export default {
           article: "артикуль",
           name: "название",
           img:
-            "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
+            `${process.env.pantus}/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
           oem: ["123123", " 31253rfsfd", "dasd2133232"],
           plice: 300,
           term: "По запросу"

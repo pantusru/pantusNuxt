@@ -1,11 +1,12 @@
 export const actions = {
   async validateCart({ dispatch }, data) {
-    console.log(data);
     if (data.error === undefined) {
       const dataCart = await dispatch("Products/axios/_init_Product", data, {
         root: true,
       });
       return await dispatch("MapCart", { dataCart, dataApi: data });
+    } else {
+      return [];
     }
   },
   async _CartProduct({ rootGetters, dispatch }) {
@@ -41,7 +42,6 @@ export const actions = {
     // }
   },
   async _CartProductPut({ rootGetters, dispatch, commit }, data) {
-    console.log(data);
     const dataset = await this.$axios.$put(
       `${process.env.api}/personal/cart/${data.id}`,
       {

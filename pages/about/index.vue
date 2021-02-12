@@ -131,7 +131,7 @@
           <h2>6 причин, по которым нас выбирают&nbsp;</h2>
           <img
             alt="pantus_2-1.png"
-            src="https://www.pantus.ru//upload/medialibrary/c92/pantus_2-1.png"
+            :src="PantusUrl + '/upload/medialibrary/c92/pantus_2-1.png'"
             class="foto-fancy-img"
             title="pantus_2-1.png"
           />
@@ -203,6 +203,11 @@ export default {
   name: "Index",
   components: {
     bannerSpecialAction,
+  },
+  data() {
+    return {
+      PantusUrl: process.env.pantus,
+    };
   },
   head() {
     return {

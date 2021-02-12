@@ -34,6 +34,7 @@
           text="Служба доставки:"
           :value="GetMyOrderId.service.name"
         />
+        <order-table-get :data="GetMyOrderId" />
       </div>
       <div v-else><h2>Заказ не найден</h2></div>
     </b-row>
@@ -43,9 +44,10 @@
 <script>
 import OrderIdRow from "@/components/order/my-order/order-id-row";
 import NavProfile from "@/components/nav/profile/index";
+import OrderTableGet from "@/components/order/my-order/order-table-get";
 export default {
   name: "OrderId",
-  components: { NavProfile, OrderIdRow },
+  components: { OrderTableGet, NavProfile, OrderIdRow },
   middleware: "CheckGuest",
   async fetch({ store, params }) {
     await store.dispatch("MyOrder/_MyOrderId", params.id);

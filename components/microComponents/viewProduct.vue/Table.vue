@@ -57,8 +57,7 @@ export default {
           bran: "Бренд",
           article: "артикуль",
           name: "название",
-          img:
-            "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
+          img: `${process.env.pantus}upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg`,
           provider: [
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
@@ -70,8 +69,7 @@ export default {
           bran: "Бренд",
           article: "артикуль",
           name: "название",
-          img:
-            "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
+          img: `${process.env.pantus}/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg`,
           provider: [
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
           ],
@@ -80,8 +78,7 @@ export default {
           bran: "Бренд",
           article: "артикуль",
           name: "название",
-          img:
-            "https://www.pantus.ru/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg",
+          img: `${process.env.pantus}/upload/iblock/efb/1111-3501080 - Колодки тормозные передние Zollex ОКА - No Name.jpg`,
           provider: [
             { name: "Pantus", kolvo: 300, term: "По запросу", plice: 300 },
           ],

@@ -42,7 +42,7 @@ export const actions = {
   },
 
   MapMyOrderId({}, data) {
-    return {
+    const order = {
       id: data.id,
       price: data.price,
       dates: {
@@ -68,12 +68,25 @@ export const actions = {
       service: {
         id: data?.delivery?.service?.id,
         name: data?.delivery.service?.name,
+        price: data?.delivery.price,
       },
       payerType: {
         id: data.payerType.id,
         name: data.payerType.name,
       },
     };
+    order.offers = [];
+    if (data.offers.length !== 0) {
+      data.offers.forEach(elem => {
+        order.offers.push({
+          guid: elem.id,
+          name: elem.name,
+          price: elem.price,
+          quantity: elem.quantity,
+        });
+      });
+    }
+    return order;
   },
 
   _CancelMyOrder() {

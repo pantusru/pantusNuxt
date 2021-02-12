@@ -76,7 +76,7 @@ export default {
 <style>
 .dropdown-cart {
   padding: 20px;
-  top: 43px;
+  top: 30px;
   width: 400px;
   position: absolute;
   right: -69%;

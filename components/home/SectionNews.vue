@@ -27,7 +27,7 @@ export default {
         },
         {
           href: "",
-          img: "https://www.pantus.ru/upload/iblock/934/feature-new-01.png",
+          img: `${process.env.pantus}upload/iblock/934/feature-new-01.png`,
           title: "Новинки! Ремкомплекты на гранту и приору!",
           year: "2020",
           day: "10 июня",
@@ -36,7 +36,7 @@ export default {
         },
         {
           href: "",
-          img: "https://www.pantus.ru/upload/iblock/934/feature-new-01.png",
+          img: `${process.env.pantus}/upload/iblock/934/feature-new-01.png`,
           title: "Новинки! Ремкомплекты на гранту и приору!",
           year: "2020",
           day: "10 июня",
@@ -45,7 +45,7 @@ export default {
         },
         {
           href: "",
-          img: "https://www.pantus.ru/upload/iblock/934/feature-new-01.png",
+          img: `${process.env.pantus}upload/iblock/934/feature-new-01.png`,
           title: "Новинки! Ремкомплекты на гранту и приору!",
           year: "2020",
           day: "10 июня",

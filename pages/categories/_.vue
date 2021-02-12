@@ -31,7 +31,7 @@ export default {
     BasePagination,
     ModalImg,
   },
-  async asyncData({ params, store, getters, commit, query }) {
+  async asyncData({ params, store, getters, commit, query, redirect }) {
     const AllCategories = [];
     let nameCategories;
     let ParentCategories = "каталог товаров";
@@ -50,6 +50,8 @@ export default {
           nameCategories = result[0].name;
           return result[0];
         }
+      } else {
+        redirect("/404");
       }
       return id;
     };

@@ -12,7 +12,7 @@
                 :title="Product.ProductCard.name"
                 class="text-555 reset-title"
                 :to="
-                  'products/' +
+                  '/products/' +
                   Product.ProductCard.id +
                   '/' +
                   Product.ProductCard.sku.normalized +
@@ -37,7 +37,7 @@
           <!--            Бренд  -->
           <RowAtr
             name="Бренд"
-            :link="'search?filter_brands=' + Product.ProductCard.brand.id"
+            :link="'/search?filter_brands=' + Product.ProductCard.brand.id"
             :dataset="Product.ProductCard.brand.name"
           />
           <!--  Артикул  -->
@@ -51,7 +51,7 @@
             name="Применяемость"
             :dataset="Product.ProductCard.applicabilities[0].name"
             :link="
-              'search?filter_applicabilities=' +
+              '/search?filter_applicabilities=' +
               Product.ProductCard.applicabilities[0].id
             "
           />
@@ -66,7 +66,7 @@
               v-for="data in Product.ProductCard.applicabilities.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?filter_applicabilities=' + data.id"
+              :link="'/search?filter_applicabilities=' + data.id"
             />
           </template>
           <!--  ОЕМ  -->
@@ -77,7 +77,7 @@
             "
             name="ОЕМ"
             :link="
-              'search?filter_substr=' + Product.ProductCard.ProductCardOem[0]
+              '/search?filter_substr=' + Product.ProductCard.ProductCardOem[0]
             "
             :dataset="Product.ProductCard.ProductCardOem[0]"
           />
@@ -91,7 +91,7 @@
               v-for="data in Product.ProductCard.ProductCardOem.slice(1, 5)"
               :key="data"
               :dataset="data"
-              :link="'search?filter_substr=' + data"
+              :link="'/search?filter_substr=' + data"
             />
           </template>
           <!--  Категории  -->
@@ -102,7 +102,8 @@
             "
             name="Категории"
             :link="
-              'search?filter_categories=' + Product.ProductCard.categories[0].id
+              '/search?filter_categories=' +
+              Product.ProductCard.categories[0].id
             "
             :dataset="Product.ProductCard.categories[0].name"
           />
@@ -116,7 +117,7 @@
               v-for="data in Product.ProductCard.categories.slice(1, 5)"
               :key="data.id"
               :dataset="data.name"
-              :link="'search?filter_categories=' + data.id"
+              :link="'/search?filter_categories=' + data.id"
             />
           </template>
         </b-row>

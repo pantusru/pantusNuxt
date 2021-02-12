@@ -35,12 +35,13 @@ export default {
     ModalImg,
   },
   mixins: [mixin],
-  async asyncData({ params, store, getters, commit, query }) {
+  async asyncData({ params, store, getters, commit, query, redirect }) {
     const nameArray = [];
     const functionSearch = (data, dataset, index) => {
       let id;
       const code = data[index];
       const result = dataset.filter(elem => elem.code === code);
+      console.log(result);
       if (result.length !== 0) {
         nameArray.push(result[0].name);
         if (data.length - 1 !== index) {
@@ -49,6 +50,8 @@ export default {
         } else if (data.length - 1 === index) {
           return result[0];
         }
+      } else {
+        redirect("/404");
       }
       return id;
     };

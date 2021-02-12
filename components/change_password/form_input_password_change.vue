@@ -4,10 +4,10 @@
     :items="items"
     :error="error"
     :type="type"
-    :Vmask="Vmask"
+    :vmask="Vmask"
     :$v="$v"
   >
-    <div class="error" v-if="name === 'str_password' && CheckFormNewPassword">
+    <div v-if="name === 'str_password' && CheckFormNewPassword" class="error">
       Пароль не совпадает с БД
     </div>
   </base-input-valid>
@@ -17,12 +17,12 @@ import mixitProps from "@/mixins/input/props/index";
 import BaseErrorsValid from "@/components/base/base-errors-valid";
 import BaseInputValid from "@/components/base/base-input-valid";
 export default {
-  name: "form_input_password_change",
+  name: "FormInputPasswordChange",
   components: { BaseInputValid, BaseErrorsValid },
   mixins: [mixitProps],
   computed: {
     CheckFormNewPassword() {
-      return this.$store.getters["GetFormNewPassword"];
+      return this.$store.getters.GetFormNewPassword;
     },
   },
 };

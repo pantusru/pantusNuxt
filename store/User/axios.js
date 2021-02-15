@@ -1,7 +1,6 @@
 export const actions = {
   async _User({ dispatch, rootGetters }) {
-    // const User = await this.$axios.get(`${process.env.api}/personal/profile`);
-    // console.log(await this.$axios.get(`${process.env.api}/personal/profile`));
+    console.log(rootGetters.GetCookie);
     const User = await this.$axios.get(`${process.env.api}/personal/profile`, {
       headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });

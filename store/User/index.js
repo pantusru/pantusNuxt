@@ -80,19 +80,15 @@ export const actions = {
     // СПОРНОЕ РЕШЕНИЕ
     if (getters.Loader === false) {
       // пользователь не загружен
-      if (this.$cookies.get("Authorization") !== undefined) {
-        // У пользователя есть токен
-        const data = await dispatch("User/axios/_User", {}, { root: true });
-        if (data.error === undefined) {
-          commit("SetAll", data);
-          // Спорная вещь------
-          commit("AuthorizationTrue");
-        } else {
-          // Не валидный токен
-          // this.$cookies.remove("Authorization");
-        }
-      } else {
-        // Другой запрос который выдает пользователю Токен
+
+      // У пользователя есть токен
+      const data = await dispatch("User/axios/_User", {}, { root: true });
+      console.log(data);
+      if (data.error === undefined) {
+        // ошибок нету
+        commit("SetAll", data);
+        // Спорная вещь------
+        commit("AuthorizationTrue");
       }
       commit("LoaderTrue");
     }

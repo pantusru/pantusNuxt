@@ -1,7 +1,7 @@
 <template>
   <b-col lg="3" cols="12" sm="6" md="4" class="mb-4 brand-blog">
     <div class="mb-2 catalog-blog-name">{{ source.name }}</div>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column align-items-start">
       <nuxt-link
         class="catalog-blog-link text-decoration"
         :to="'/search?filter_brands=' + source.id"

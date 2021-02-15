@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <b-overlay :show="show" rounded="sm">
+    <b-overlay :show="show" rounded="sm" class="blog-full-content">
       <!-- Спиннер для всего сайта компонент bootstrap 4 -->
       <VueHeader class="mb-5" />
       <button-scroll-top />
@@ -27,4 +27,10 @@ export default {
   },
 };
 </script>
-<style lang="sass"></style>
+<style lang="sass">
+.blog-full-content
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+</style>

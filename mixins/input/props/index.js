@@ -1,5 +1,7 @@
 export default {
   props: {
+    placeholder: {},
+    maxlength: {},
     /***
      * Название элемента который проверяется в $v
      */

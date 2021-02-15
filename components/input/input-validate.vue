@@ -6,8 +6,10 @@
       :id="name"
       v-model.trim="$v.Form[name].$model"
       v-mask="Vmask"
+      :placeholder="placeholder"
       :type="type"
       size="sm"
+      v-on="$listeners"
     />
     <slot v-if="slots === true" />
     <base-errors-valid :error="error" :$v="$v" :name="name" />

@@ -8,10 +8,10 @@ import {
   sameAs,
 } from "vuelidate/lib/validators";
 
-let Myemail = {
+const Myemail = {
   required,
 };
-let password = {
+const password = {
   required,
 };
 
@@ -28,7 +28,7 @@ export default {
     return {
       Form: {
         email: Myemail,
-        password: password,
+        password,
       },
     };
   },

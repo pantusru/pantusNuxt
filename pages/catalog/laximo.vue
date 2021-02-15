@@ -5,13 +5,13 @@
         id="laximo-frame"
         class="laximoframe"
         src="https://6826123942.laximo.online"
-        scrolling="no"
+        scrolling=""
         frameborder="0"
         marginheight="0"
         marginwidth="0"
         width="1160"
         name="lxmfrm"
-        style="overflow: hidden; height: 1104px"
+        style="overflow: hidden; height: 1104px height: 100vh"
       />
     </div>
   </b-container>

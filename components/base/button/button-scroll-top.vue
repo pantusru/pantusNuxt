@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "button-scroll-top",
+  name: "ButtonScrollTop",
   methods: {
     scrollTop() {
       window.scroll(0, 0);

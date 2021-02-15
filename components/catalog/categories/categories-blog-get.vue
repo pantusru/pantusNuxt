@@ -16,7 +16,7 @@
       <div v-if="dataset.children.length != 0" class="mb-1">
         <div v-for="data in dataset.children" :key="data.id">
           <nuxt-link
-            class="text-decoration link-decoration-none text-dark pl-3 d-block"
+            class="text-decoration link-decoration-none text-dark pl-3"
             :to="'/categories/' + dataset.code + '/' + data.code"
             >{{ data.name }}
           </nuxt-link>

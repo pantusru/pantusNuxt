@@ -11,7 +11,13 @@
           :$v="$v"
         />
         <VInput items="Имя:" name="name" :error="error.name" :$v="$v" />
-        <VInput items="Email:" name="email" :error="error.email" :$v="$v" />
+        <VInput
+          items="Email:"
+          name="email"
+          :error="error.email"
+          :$v="$v"
+          @input="ofValidate"
+        />
         <VInput
           type="password"
           items="Пароль:"
@@ -73,7 +79,7 @@
           :$v="$v"
         />
       </b-form-group>
-      <h6 class="error" v-if="ErrorApi !== undefined">{{ ErrorApi }}</h6>
+      <h6 v-if="ErrorApi !== undefined" class="error">{{ ErrorApi }}</h6>
       <VInput
         :get-input="false"
         :$v="$v"
@@ -126,6 +132,14 @@ export default {
   watch: {
     $v() {
       // ХЗ БЕЗ ЭТОГО ВЫДАЕТ ОШИБКУ ЧТО МОДЕЛЬ НЕ НАЙДЕНА =(
+    },
+  },
+  methods: {
+    ofValidate() {
+      this.$store.commit("SetFormApi", {
+        data: "errorRegister",
+        value: undefined,
+      });
     },
   },
 };

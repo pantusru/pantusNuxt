@@ -1,12 +1,12 @@
+import { helpers } from "vuelidate/lib/validators";
 import {
   required,
   minLength,
-  between,
   maxLength,
-  alphaNum,
   email,
   sameAs,
 } from "vuelidate/lib/validators";
+
 const name = {
   required,
 };
@@ -21,7 +21,9 @@ const password = {
   required,
   minLength: minLength(8),
   maxLength: maxLength(25),
-  alphaNum,
+  alphaNum: value => {
+    return value.search(/[А-ЯёЁ]/gi) === -1;
+  },
 };
 const password2 = {
   required,

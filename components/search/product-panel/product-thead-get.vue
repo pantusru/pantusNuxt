@@ -7,32 +7,32 @@
       <tdSort
         :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
         label="Бренд"
-        SortName="brand"
+        sort-name="brand"
       />
-      <tdSort class="w-15" label="Артикул" SortName="sku" />
+      <tdSort class="w-15" label="Артикул" sort-name="sku" />
       <b-th v-if="CheckAnalogs == false">
-        <b-icon-camera-fill></b-icon-camera-fill>
+        <b-icon-camera-fill />
       </b-th>
       <tdSort
         class="w-15"
         :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
         label="Название"
-        SortName="name"
+        sort-name="name"
       />
-      <tdSort label="Поставщик" SortName="supplier" />
+      <tdSort label="Поставщик" sort-name="supplier" />
       <tdSort
         :class="{ 'd-none d-md-table-cell': CheckAnalogs }"
         label="Наличие"
-        SortName="quantity"
+        sort-name="quantity"
       />
       <tdSort
         :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
         label="Срок"
-        SortName="deliverydelay"
+        sort-name="deliverydelay"
       />
-      <tdSort label="Цена" SortName="prices" />
+      <tdSort label="Цена" sort-name="prices" />
       <b-th v-if="CheckAnalogs === false"><PanelVid /></b-th>
-      <b-th v-if="CheckAnalogs === true"></b-th>
+      <b-th v-if="CheckAnalogs === true" />
     </b-tr>
   </b-thead>
 </template>
@@ -41,14 +41,14 @@
 import tdSort from "@/components/search/product-panel/th-sort-get";
 import PanelVid from "@/components/search/product-panel/index"; // Панель
 export default {
+  components: {
+    PanelVid,
+    tdSort,
+  },
   props: {
     CheckAnalogs: {
       default: false,
     },
-  },
-  components: {
-    PanelVid,
-    tdSort,
   },
 };
 </script>

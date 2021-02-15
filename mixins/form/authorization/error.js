@@ -1,13 +1,13 @@
-let password = [
+const password = [
   {
     ifv: "required",
     text: "Укажите ваш пароль",
   },
 ];
-let email = [
+const email = [
   {
     ifv: "required",
-    text: "Укажите ваш email",
+    text: "Укажите ваш логин",
   },
 ];
 
@@ -15,8 +15,8 @@ export default {
   data() {
     return {
       error: {
-        password: password,
-        email: email,
+        password,
+        email,
       },
     };
   },

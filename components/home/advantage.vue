@@ -2,7 +2,8 @@
   <b-container>
     <section class="section">
       <b-row>
-        <b-col
+        <nuxt-link
+          to="/search"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
@@ -11,15 +12,16 @@
           <div class="text-center">
             <b class="home-advantage-content-title"
               >Более
-              <nuxt-link to="/search" class="home-advantage-content-link">
-                22000
-              </nuxt-link>
+              <span class="home-advantage-content-link"> 22000 </span>
             </b>
             <br />
-            <p class="home-advantage-content-text">автозапчастей в каталогах</p>
+            <p class="home-advantage-content-text text-body">
+              автозапчастей в каталогах
+            </p>
           </div>
-        </b-col>
-        <b-col
+        </nuxt-link>
+        <nuxt-link
+          to="/delivery"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
@@ -28,14 +30,14 @@
           <div class="text-center">
             <b class="home-advantage-content-title">
               Доставка
-              <nuxt-link to="/delivery" class="home-advantage-content-link">
-                по всему миру
-              </nuxt-link>
+              <span class="home-advantage-content-link"> по всему миру </span>
             </b>
             <br />
-            <p class="home-advantage-content-text">От 0 руб. по России</p>
+            <p class="home-advantage-content-text text-body">
+              От 0 руб. по России
+            </p>
           </div>
-        </b-col>
+        </nuxt-link>
         <b-col
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
@@ -48,7 +50,8 @@
             <p class="home-advantage-content-text">производство деталей</p>
           </div>
         </b-col>
-        <b-col
+        <nuxt-link
+          to="/pay"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
           <div class="col-8 mx-auto mb-3">
@@ -59,17 +62,15 @@
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title">
-              <nuxt-link to="/pay" class="home-advantage-content-link">
-                20
-              </nuxt-link>
+              <span to="/pay" class="home-advantage-content-link"> 20 </span>
               СПОСОБОВ ОПЛАТЫ
             </b>
             <br />
-            <p class="home-advantage-content-text">
+            <p class="home-advantage-content-text text-body">
               с возможностью отсрочки и оплаты при получении
             </p>
           </div>
-        </b-col>
+        </nuxt-link>
       </b-row>
     </section>
   </b-container>

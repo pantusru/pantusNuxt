@@ -14,18 +14,21 @@
     </template>
     <b-form>
       <VInput
+        :placeholder="'Введите ваш логин'"
         :slots="true"
         add-class="mb-2 col-7"
         name="email"
-        items="Логин"
+        items="Логин:"
         :error="error.email"
         :$v="$v"
+        @input="ofValidateServer"
       >
         <div v-if="GetcheckAuthorization" class="error">
           Введены не верно логин или пароль
         </div>
       </VInput>
       <VInput
+        :placeholder="'Введите ваш пароль'"
         :slots="true"
         add-class="mb-2 col-7"
         type="password"
@@ -33,6 +36,8 @@
         name="password"
         :error="error.password"
         :$v="$v"
+        @input="ofValidateServer"
+        @keydown.enter="check"
       >
         <div v-if="GetcheckAuthorization" class="error">
           Введены не верно логин или пароль
@@ -90,6 +95,12 @@ export default {
     },
   },
   methods: {
+    ofValidateServer() {
+      this.$store.commit("SetFormApi", {
+        data: "checkAuthorization",
+        value: false,
+      });
+    },
     registration() {
       this.hidden();
       this.$router.push("/register");

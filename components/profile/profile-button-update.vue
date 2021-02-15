@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vueRecaptcha
-      class="mb-4 mt-4"
-      :get-error.sync="getError"
-      :check-recaptcha.sync="checkRecaptcha"
-    />
+    <!--    <vueRecaptcha-->
+    <!--      class="mb-4 mt-4"-->
+    <!--      :get-error.sync="getError"-->
+    <!--      :check-recaptcha.sync="checkRecaptcha"-->
+    <!--    />-->
     <b-button class="border bg-danger" @click="SetDataUser">Изменить</b-button>
-    <base-alert class="w-25" :get-alert.sync="getAlert" />
+    <base-alert class="w-25" :get-alert.sync="getAlert" :routerHome="false" />
   </div>
 </template>
 
@@ -17,9 +17,9 @@ import BaseAlert from "@/components/alert/base-alert";
 export default {
   components: {
     BaseAlert,
-    vueRecaptcha,
+    // vueRecaptcha,
   },
-  mixins: [check_recaptcha],
+  // mixins: [check_recaptcha],
   props: {
     $v: {},
   },
@@ -45,8 +45,11 @@ export default {
     async SetDataUser() {
       // Временное решение
       this.$v.$touch();
-      this.checkValidateRecaptcha();
-      if (this.$v.Form.$error === false && this.checkRecaptcha === true) {
+      // this.checkValidateRecaptcha();
+      if (
+        this.$v.Form.$error === false
+        // && this.checkRecaptcha === true
+      ) {
         // нет ошибок
         // await this.$axios.$get("http://localhost:3000/").then((res, req) => {
         //   this.$store.commit("SetFormApi", { data: "password", value: res });
@@ -68,8 +71,8 @@ export default {
       // this.$v.Form.password.$model = "";
       // this.$v.Form.password2.$model = "";
       this.$v.Form.$reset();
-      window.grecaptcha.reset();
-      this.checkRecaptcha = false;
+      // window.grecaptcha.reset();
+      // this.checkRecaptcha = false;
     },
   },
   // },

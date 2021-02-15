@@ -12,18 +12,21 @@
           <!--            :$v="$v"-->
           <!--          />-->
           <ElementForm
+            :maxlength="64"
             name="name"
             :items="'Имя:'"
             :error="error.name"
             :$v="$v"
           />
           <ElementForm
+            :maxlength="64"
             name="surname"
             :items="'Фамилия:'"
             :error="error.surname"
             :$v="$v"
           />
           <ElementForm
+            :maxlength="64"
             name="patronymic"
             :items="'Отчество:'"
             :error="error.patronymic"

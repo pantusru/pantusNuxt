@@ -1,11 +1,12 @@
 <template>
   <div class="text-center">
     <b-img
-      class="cursor-pointer w-75"
+      :class="{ 'cursor-pointer': getModal }"
+      class="w-75"
       fluid
       :src="product.ProductCard.ProductCardImage.url"
       :alt="product.ProductCard.name"
-      @click="ModalImg(product)"
+      @click="getImg"
     />
   </div>
 </template>
@@ -16,6 +17,26 @@ export default {
   mixins: [Mixin],
   props: {
     product: {},
+  },
+  data() {
+    return {
+      getModal: false,
+    };
+  },
+  created() {
+    if (
+      this.product.ProductCard.ProductCardImage.url !==
+      "https://www.pantus.ru/bitrix/images/iblock/no_product.png"
+    ) {
+      this.getModal = true;
+    }
+  },
+  methods: {
+    getImg() {
+      if (this.getModal === true) {
+        this.ModalImg(this.product);
+      }
+    },
   },
 };
 </script>

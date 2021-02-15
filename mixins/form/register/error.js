@@ -1,16 +1,16 @@
-let surname = [
+const surname = [
   {
     ifv: "required",
     text: "Укажите вашу фамилию",
   },
 ];
-let name = [
+const name = [
   {
     ifv: "required",
     text: "Укажите ваше Имя",
   },
 ];
-let password = [
+const password = [
   {
     ifv: "required",
     text: "Укажите ваш пароль",
@@ -28,7 +28,7 @@ let password = [
     text: "Пароль должен состоять не более 25 символов ",
   },
 ];
-let password2 = [
+const password2 = [
   {
     ifv: "required",
     text: "Укажите пароль еще раз",
@@ -38,7 +38,7 @@ let password2 = [
     text: "Пароли не совпадают",
   },
 ];
-let email = [
+const email = [
   {
     ifv: "required",
     text: "Укажите ваш email",
@@ -48,7 +48,7 @@ let email = [
     text: "Укажите корректный email",
   },
 ];
-let inn = [
+const inn = [
   {
     ifv: "required",
     text: "Укажите ваш ИНН",
@@ -58,19 +58,19 @@ let inn = [
     text: "Укажите корректный ИНН",
   },
 ];
-let organization = [
+const organization = [
   {
     ifv: "required",
     text: "Укажите название вашей организации",
   },
 ];
-let country = [
+const country = [
   {
     ifv: "required",
     text: "Укажите название вашей страны",
   },
 ];
-let telephone = [
+const telephone = [
   {
     ifv: "required",
     text: "Укажите ваш номер телефона",
@@ -80,13 +80,13 @@ let telephone = [
     text: "Укажите корректный номер телефона",
   },
 ];
-let address = [
+const address = [
   {
     ifv: "required",
     text: "Укажите ваш адрес",
   },
 ];
-let checbox = [
+const checbox = [
   {
     ifv: "required",
     text: "Подтвердите ваше согласие на обработку персональных данных",
@@ -96,17 +96,17 @@ export default {
   data() {
     return {
       error: {
-        surname: surname,
-        name: name,
-        password: password,
-        password2: password2,
-        email: email,
-        inn: inn,
-        organization: organization,
-        country: country,
-        telephone: telephone,
-        address: address,
-        checbox: checbox,
+        surname,
+        name,
+        password,
+        password2,
+        email,
+        inn,
+        organization,
+        country,
+        telephone,
+        address,
+        checbox,
       },
     };
   },

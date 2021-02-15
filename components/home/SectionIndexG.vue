@@ -38,7 +38,7 @@
       class="col-12 col-lg-6 mb-3 bg"
       title="Автосвет и лампы"
       :ul="categoriaUrl[2]"
-      :src="urlPantus + 'bitrix/templates/main/img/home/home-car-8.png'"
+      :src="urlPantus + '/bitrix/templates/main/img/home/home-car-8.png'"
       alt="home-car-7"
     />
   </section>

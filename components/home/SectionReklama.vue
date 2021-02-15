@@ -52,6 +52,8 @@ export default {};
         color: #fff
         border-radius: 3px
         padding: 8px 15px
+        &:hover
+          background-color: #ec0e1d
 .img-reklama
   //max-width: 150px
 </style>

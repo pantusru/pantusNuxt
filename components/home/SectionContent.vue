@@ -99,6 +99,8 @@ export default {
         padding: 12px 0
     .brand-link
         color: #6b6b6b
+        &:hover
+          color: #ec0e1d !important
     .btn-full-brand
         border: 0
         background: transparent

@@ -8,8 +8,8 @@
         :data-key="'id'"
         :data-sources="SearchElem"
         :data-component="itemComponent"
-      >
-      </VirtualList>
+      />
+      <div v-if="SearchElem.length === 0">Нет результатов</div>
     </div>
   </b-form-checkbox-group>
 </template>
@@ -18,20 +18,19 @@
 import ChecboxBrand from "@/components/search/panel-brand/chexbox/index";
 import VirtualList from "vue-virtual-scroll-list";
 export default {
-  watch: {
-    SearchElem() {
-      this.$refs.scroll.scrollToOffset(0);
-    },
-  },
-  data() {
-    return {
-      itemComponent: ChecboxBrand,
-    };
+  components: {
+    VirtualList,
+    ChecboxBrand,
   },
   props: {
     SearchElem: {},
     GetChecbox: {},
     SetChecbox: {},
+  },
+  data() {
+    return {
+      itemComponent: ChecboxBrand,
+    };
   },
   computed: {
     chexbox: {
@@ -43,9 +42,10 @@ export default {
       },
     },
   },
-  components: {
-    VirtualList,
-    ChecboxBrand,
+  watch: {
+    SearchElem() {
+      this.$refs.scroll.scrollToOffset(0);
+    },
   },
 };
 </script>

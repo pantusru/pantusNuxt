@@ -66,8 +66,7 @@ export default {
   left: 0;
   bottom: 0;
 }
-input[type="range"]::-webkit-slider-thumb,
-input[type="range"]::-ms-thumb {
+input[type="range"]::-webkit-slider-thumb {
   z-index: 2;
   position: relative;
 }

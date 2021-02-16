@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-button v-if="!CheckUser" @click="getModal()" text="Оформить заказ" />
+    <base-button v-if="!CheckUser" text="Оформить заказ" @click="getModal()" />
     <base-button v-if="CheckUser">
       <nuxt-link to="/order" class="text-white link-decoration-none">
         Оформить заказ

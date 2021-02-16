@@ -99,6 +99,7 @@ export default {
     .brand-td
         padding: 12px 0
     .brand-link
+        padding-left: 5px
         color: #6b6b6b
         &:hover
           color: #ec0e1d !important

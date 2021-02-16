@@ -5,15 +5,20 @@
       Доступные способы доставки и оплаты вы сможете выбрать при оформлении
       заказа
     </b>
-    <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
-    <CartButtonUpdate v-if="CartActual === false" />
+    <div class="mt-3">
+      <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
+      <CartButtonUpdate v-if="CartActual === false" />
+    </div>
+
     <vTable v-if="CartLength !== 0" class="d-none d-lg-block" />
     <VBlogCart v-if="CartLength !== 0" class="d-flex d-lg-none" />
     <div v-if="CartLength === 0" class="mt-3">
       <base-title-info text="Корзина пустая" />
     </div>
-    <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
-    <CartButtonUpdate v-if="CartActual === false" />
+    <div>
+      <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
+      <CartButtonUpdate v-if="CartActual === false" />
+    </div>
     <advantage />
   </b-container>
 </template>

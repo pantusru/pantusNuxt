@@ -5,6 +5,7 @@
       :key="index"
       :dataset="dataset"
     />
+    <div v-if="data.length !== 0">Нету результатов</div>
   </div>
 </template>
 

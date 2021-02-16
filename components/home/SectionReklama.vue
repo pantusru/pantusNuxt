@@ -35,8 +35,7 @@ export default {};
 
 <style lang="sass">
 .section-reklama
-    margin-top: 20px
-    margin-bottom: 20px
+    margin: 20px -20px
     padding: 20px
     display: flex
     //flex-wrap: wrap
@@ -46,7 +45,6 @@ export default {};
     .text
         margin: 0 15px
     .bnt-reklama-more
-        margin-left: 40px
         background-color: #e1002b
         border: 2px solid #e1002b
         color: #fff

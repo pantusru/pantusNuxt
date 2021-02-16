@@ -1,5 +1,5 @@
 <template>
-  <div class="banner col-12 col-lg-3 mt-3 mt-lg-0">
+  <div class="banner col-5 mx-auto mx-lg-0 col-lg-3 mt-3 mt-lg-0">
     <VueSlickCarousel v-bind="Settings">
       <div v-for="data in img" :key="data.id">
         <nuxt-link :to="data.href" class="banner_img">

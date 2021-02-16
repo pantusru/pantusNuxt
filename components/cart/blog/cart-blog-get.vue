@@ -20,7 +20,6 @@
         </nuxt-link>
       </h6>
       <div class="text-right">
-        {{ datasetProduct.productOffer[index].id }}
         <DeleteCart :id="datasetProduct.productOffer[index].id" />
       </div>
     </template>
@@ -57,13 +56,13 @@
               :AddClassInput="'col-7'"
               :multiplicity="datasetProduct.productOffer[index].multiplicity"
               :CountProps="datasetProduct.productOffer[index].Count"
-              :array="datasetProduct"
-              @Count="SetCount($event, index)"
+              :array="datasetProduct.productOffer[index]"
+              @Count="SetCount($event, datasetProduct.productOffer[index])"
             />
-            <cart-button-update-product
-              v-if="datasetProduct.checkCount"
-              :index="index"
-            />
+            <!--            <cart-button-update-product-->
+            <!--              v-if="datasetProduct.checkCount"-->
+            <!--              :index="index"-->
+            <!--            />-->
           </div>
           <div class="mt-3">
             Стоимость:<b

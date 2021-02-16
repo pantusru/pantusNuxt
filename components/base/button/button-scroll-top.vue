@@ -10,7 +10,7 @@ export default {
   methods: {
     scrollTop() {
       if (document.documentElement.scrollTop > 0) {
-        window.scrollBy(0, -20);
+        window.scrollBy(0, -70);
         setTimeout(this.scrollTop, 5);
       }
       // window.scroll(0, 0);

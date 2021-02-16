@@ -9,7 +9,11 @@ export default {
   name: "ButtonScrollTop",
   methods: {
     scrollTop() {
-      window.scroll(0, 0);
+      if (document.documentElement.scrollTop > 0) {
+        window.scrollBy(0, -20);
+        setTimeout(this.scrollTop, 5);
+      }
+      // window.scroll(0, 0);
     },
   },
 };

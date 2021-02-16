@@ -40,13 +40,9 @@
             v-if="CheckUser === false"
             class="d-none d-sm-flex flex-column ml-1 fz-5"
           >
-            <nuxt-link
-              v-b-modal.authorization
-              to=""
-              class="text-secondary link-danger"
-            >
+            <span v-b-modal.authorization class="text-secondary link-danger">
               Вход
-            </nuxt-link>
+            </span>
             <nuxt-link to="/register" class="text-secondary link-danger fz-5">
               Регистрация
             </nuxt-link>

@@ -1,26 +1,30 @@
 <template>
   <div>
-    <b-form class="d-flex p-0 align-items-center" :class="AddClassForm">
+    <b-form
+      class="d-flex p-0 align-items-center"
+      :class="AddClassForm"
+      @submit.prevent=""
+    >
       <b-icon-dash
         class="cursor-pointer"
         :class="{ 'd-none d-lg-block': showIcon }"
         @click="dash"
-      ></b-icon-dash>
-      <b-input
+      />
+      <input
+        v-model.trim="Count"
         type="number"
+        :class="AddClassInput"
+        class="ml-2 mr-2 text-center form-control"
         @input="GetError"
         @blur="CheckInput"
-        :class="AddClassInput"
-        class="ml-2 mr-2 text-center"
-        v-model="Count"
-      ></b-input>
+      />
       <b-icon-plus
         class="cursor-pointer"
         :class="{ 'd-none d-lg-block': showIcon }"
         @click="plus"
-      ></b-icon-plus>
+      />
     </b-form>
-    <div class="error mt-2" v-if="error === true">
+    <div v-if="error === true" class="error mt-2">
       Не коррентное количество товара
     </div>
   </div>
@@ -28,7 +32,7 @@
 
 <script>
 export default {
-  name: "product-input-count",
+  name: "ProductInputCount",
   props: {
     showIcon: {
       default: false,
@@ -70,6 +74,9 @@ export default {
     //  Увеличить кол-во товар
     plus() {
       this.Count = Number(this.Count) + Number(this.multiplicity);
+      if (this.Count > 1000000) {
+        this.Count = 1000000;
+      }
       this.emitGo();
     },
     // Проверка количество товара
@@ -92,6 +99,9 @@ export default {
       }
       if (this.Count % this.multiplicity > 0) {
         this.Count = this.Count - (this.Count % this.multiplicity);
+      }
+      if (this.Count > 1000000) {
+        this.Count = 1000000;
       }
       this.error = false;
       this.emitGo();

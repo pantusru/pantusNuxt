@@ -52,6 +52,7 @@
         <!--        </VInput>-->
         <VInput
           :slots="true"
+          :get-input="false"
           items="Физический адрес"
           name="address"
           :error="error.address"

@@ -20,7 +20,7 @@ export default {
           to: "/documents/user-agreement/",
           name: "Пользовательское соглашение",
         },
-        { to: "/help/feedback/", name: "Единая служба качества" },
+        // { to: "/help/feedback/", name: "Единая служба качества" },
       ],
     };
   },

@@ -54,7 +54,7 @@
           </div>
           <div class="d-flex align-items-start justify-content-between">
             <vInput
-              :AddClassInput="'col-5 col-sm-6 col-md-4'"
+              :AddClassInput="'col-7'"
               :multiplicity="datasetProduct.productOffer[index].multiplicity"
               :CountProps="datasetProduct.productOffer[index].Count"
               :array="datasetProduct"

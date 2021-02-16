@@ -87,7 +87,7 @@
               <b-td class="border-top-0">
                 <vInput
                   :multiplicity="offer.multiplicity"
-                  :add-class-input="'p-0 col-12 col-lg-4'"
+                  :add-class-input="'p-0'"
                   :add-class-form="'justify-content-center'"
                   :count-props="offer.Count"
                   :show-icon="true"

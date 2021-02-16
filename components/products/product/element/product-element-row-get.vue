@@ -11,7 +11,7 @@
         v-if="link !== undefined"
         :title="dataset"
         :to="link"
-        class="text-decoration-none text-576b77 fz-6 text-nowrap-custom pl-2"
+        class="text-decoration-none text-576b77 fz-6 text-nowrap-custom pl-2 link-danger"
         >{{ dataset }}</nuxt-link
       >
       <component v-else :is="component">{{ dataset }}</component>

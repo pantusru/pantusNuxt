@@ -6,8 +6,10 @@
 
 <script>
 export default {
-  asyncData({ redirect }) {
-    redirect("/404");
+  asyncData({ redirect, route }) {
+    if (route.name !== "404") {
+      redirect("/404");
+    }
   },
 };
 </script>

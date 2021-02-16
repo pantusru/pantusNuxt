@@ -64,7 +64,6 @@ export default {
             color: #fff
             background: linear-gradient(to right, rgba(224,107,117,1) 0%, rgba(255,255,255,1) 120%)
 .blog-categoria
-    padding: 20px
     box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
     position: relative
     //display: flex

@@ -3,7 +3,7 @@
     <template #modal-title>
       <h2>Поделиться</h2>
     </template>
-    <h4>Ссылка на товар</h4>
+    <h4>{{ title }}</h4>
     <b-input :value="value" ref="input"></b-input>
     <template #modal-footer>
       <b-button @click="shareLink" class="bg-danger border-0 px-5">
@@ -16,9 +16,15 @@
 <script>
 export default {
   name: "share",
+  props: {
+    title: {
+      type: String,
+      default: "Ссылка на товар",
+    },
+  },
   computed: {
     value() {
-      return "http://localhost:8000" + this.$route.fullPath;
+      return process.env.pantus + this.$route.fullPath;
     },
   },
   methods: {

@@ -98,6 +98,9 @@ export default {
       ],
     };
   },
+  // async created() {
+  //   await this.$router.push("/404");
+  // },
   methods: {
     ClickBnt() {
       this.$v.Form.$touch();

@@ -4,7 +4,7 @@
       <NavProfile />
       <b-col>
         <b-form autocomplete="off">
-          <h5 class="mb-4">Личные данные</h5>
+          <h5 class="mb-3">Личные данные</h5>
           <!--          <ElementForm-->
           <!--            name="login"-->
           <!--            :items="'Логин (e-mail):'"-->

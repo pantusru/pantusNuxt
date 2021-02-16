@@ -3,7 +3,7 @@
     <!-- Модалки -->
     <ModalImg />
     <ModalBuy />
-    <share />
+    <share title="Ссылка на страницу" />
     <!-- Модалки -->
     <div class="container">
       <!-- Фильтры применяемости -->

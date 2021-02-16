@@ -123,7 +123,7 @@ export const actions = {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-    if (res.error !== undefined) {
+    if (res.data.error !== undefined) {
       return false;
     }
     return res.data;

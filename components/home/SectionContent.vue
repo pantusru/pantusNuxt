@@ -89,6 +89,7 @@ export default {
         text-align: center
 .blog-brand
     padding-left: 20px
+    padding-bottom: 10px
     .table-brand
         font-size: 16px
         margin-top: 20px

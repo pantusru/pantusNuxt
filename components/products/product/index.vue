@@ -32,7 +32,7 @@
           <b-col class="mb-2" cols="12">
             <b>Производитель</b> :
             <nuxt-link
-              class="text-decoration-none text-436174"
+              class="text-decoration-none text-436174 link-danger"
               :to="'/search?filter_brand=' + dataset.ProductCard.brand.id"
             >
               {{ dataset.ProductCard.brand.name }}
@@ -50,7 +50,7 @@
             <nuxt-link
               v-for="dataCategories in dataset.ProductCard.categories"
               :key="dataCategories.id"
-              class="text-decoration-none text-436174 pr-1"
+              class="text-decoration-none text-436174 pr-1 link-danger"
               :to="'/search?filter_categories=' + dataCategories.id"
             >
               {{ dataCategories.name }}
@@ -65,7 +65,7 @@
             <nuxt-link
               v-for="dataApplicabilities in dataset.ProductCard.applicabilities"
               :key="dataApplicabilities.id"
-              class="text-decoration-none text-436174 pr-1"
+              class="text-decoration-none text-436174 pr-1 link-danger"
               :to="'/search?filter_applicabilities=' + dataApplicabilities.id"
             >
               {{ dataApplicabilities.name }}
@@ -113,7 +113,10 @@
         lg="4"
         class="mb-1"
       >
-        <nuxt-link :to="'/search?filter_substr=' + oem" class="pr-3">
+        <nuxt-link
+          :to="'/search?filter_substr=' + oem"
+          class="pr-3 link-danger text-436174"
+        >
           {{ oem }}
         </nuxt-link>
       </b-col>

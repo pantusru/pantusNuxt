@@ -18,11 +18,19 @@ export default {
       type: Array,
     },
   },
+  computed: {
+    getCart() {
+      return this.$store.getters["Cart/CartAll/GetCartProduct"];
+    },
+  },
   methods: {
     async deleteProduct() {
       console.log(this.id);
       // await Запрос на удаление товара с корзины
       await this.$store.dispatch("Cart/CartAll/DeleteCartProduct", this.id);
+      if (this.$route.name === "order" && this.getCart.length === 0) {
+        await this.$router.push("/cart");
+      }
       // await this.$store.dispatch("Cart/CartAll/CartProductDeleteNotOffers");
     },
   },

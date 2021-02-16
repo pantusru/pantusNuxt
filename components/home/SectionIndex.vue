@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-    <!--    <banner :img="dataImg" class="d-none d-lg-block" />-->
+    <banner :img="dataImg" class="d-none d-lg-block" />
   </section>
 </template>
 

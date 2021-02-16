@@ -38,6 +38,15 @@ export default {
       return this.$store.getters["Brand/BrandAll/GetBrandId"];
     },
   },
+  mounted() {
+    const link = document.querySelectorAll(".btn.red");
+    link.forEach(elem => {
+      elem.onclick = event => {
+        event.preventDefault();
+        this.$router.push(`/search?filter_brands=${this.brand.id}`);
+      };
+    });
+  },
 };
 </script>
 <style>

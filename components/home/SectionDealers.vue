@@ -33,7 +33,7 @@ export default {
       Settings: {
         speed: 500,
         slidesToShow: 7,
-        arrows: true,
+        arrows: false,
         infinite: true,
         initialSlide: 4,
         swipeToSlide: true,
@@ -43,7 +43,7 @@ export default {
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
-              arrows: false,
+              // arrows: false,
             },
           },
           {
@@ -51,7 +51,7 @@ export default {
             settings: {
               slidesToShow: 4,
               slidesToScroll: 4,
-              arrows: false,
+              // arrows: false,
             },
           },
         ],

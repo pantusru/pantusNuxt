@@ -196,7 +196,9 @@ export const getters = {
           s.CartProduct[key].productOffer[keyOffer].prices;
       }
     }
-    return Number(data.toFixed(2));
+    data = data.toFixed(2);
+    // data = data.toString().replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, " ");
+    return Number(data);
   },
   GetWeightAll: s => {
     let data = 0;

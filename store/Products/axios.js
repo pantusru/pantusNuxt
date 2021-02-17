@@ -8,6 +8,7 @@ export const actions = {
         },
       }
     );
+    console.log("product-id");
     const dataProduct = await dispatch("_init_Product", product.data);
     return dataProduct;
   },

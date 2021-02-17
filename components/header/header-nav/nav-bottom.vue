@@ -32,20 +32,19 @@ export default {
       links: [
         { to: "/catalog", text: "Автокаталоги" },
         {
-          to: "/search?filter_applicabilities=3138",
+          to: "/carbrands/zapchasti-vaz",
           text: "Запчасти для а/м ВАЗ",
         },
         {
-          to: "/search?filter_applicabilities=4921",
+          to: "/carbrands/zapchasti-kamaz",
           text: "Запчасти для а/м КАМАЗ",
         },
         {
-          to: "/search?filter_applicabilities=3140",
+          to: "/carbrands/zapchasti-gaz",
           text: "Запчасти для а/м ГАЗ",
         },
         {
-          to:
-            "/search?filter_categories=265,3009,266,267,297,268,271,272,273,277,281,5342,287,308,322,326,335,334,336,337,369,371,373,375,3059,3060,3069,3072,5327,264",
+          to: "/categories/rti",
           text: "Рти",
         },
         { to: "/popular", text: "Популярные" },

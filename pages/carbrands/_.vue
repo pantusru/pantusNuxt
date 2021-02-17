@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <div>
-      <h2>Товар приминяемости: запчасти для а/м {{ nameArray.join(" - ") }}</h2>
+      <h2>Запчасти для а/м {{ nameArray.join(" - ") }} по моделям</h2>
       <FilterTop />
       <h2 v-if="GetProduct.length === 0" class="text-danger mt-4">
         Товар не найден

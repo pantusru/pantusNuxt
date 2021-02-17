@@ -22,6 +22,7 @@
             :length-offer="table.productOffer.length"
           >
             <nuxt-link
+              :title="table.ProductCard.sku.original"
               class="text-576b77 link-danger reset-title"
               :to="
                 'products/' +

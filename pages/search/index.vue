@@ -58,7 +58,7 @@
 import ModalImg from "@/components/modal/product-img";
 import ModalBuy from "@/components/modal/buy-product";
 import FilterApplicabilities from "@/components/forms/filter-applicabilities";
-import PanelVid from "@/components/search/product-panel/product-thead-get";
+// import PanelVid from "@/components/search/product-panel/product-thead-get";
 import FilterForm from "@/components/forms/filter-products";
 import TableProduct from "@/components/table/product/table-product-get";
 import productBlog from "@/components/func/product-blogs-get";
@@ -71,7 +71,7 @@ import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import GetCountRes from "@/components/search/getCountRes";
-
+import PanelVid from "@/components/search/product-panel/index"; // Панель
 export default {
   components: {
     GetCountRes,

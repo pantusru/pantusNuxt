@@ -3,7 +3,7 @@
     <div class="d-flex flex-column">
       <VirtualList
         ref="scroll"
-        class="overflow"
+        class="overflow pl-2"
         :keeps="20"
         :data-key="'id'"
         :data-sources="SearchElem"

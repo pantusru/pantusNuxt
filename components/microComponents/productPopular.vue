@@ -5,7 +5,7 @@
         <a class="title-product-popular"> {{ arr.name }}</a>
       </h2>
       <div class="img-product-popular">
-        <img :src="arr.images.main" alt="12" >
+        <img :src="arr.images.main" alt="12" />
       </div>
       <div class="row-product-popular">
         <div class="column-product-popular">Бренд</div>
@@ -16,7 +16,7 @@
         >
       </div>
       <div class="row-product-popular">
-        <div class="column-product-popular">Артикуль</div>
+        <div class="column-product-popular">Артикул</div>
         <a :href="arr.sku.custom" class="column-result-product-popular">{{
           arr.sku.origin
         }}</a>

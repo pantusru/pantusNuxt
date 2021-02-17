@@ -69,7 +69,7 @@ export const actions = {
             weight: elem.params.weight,
           },
           sku: {
-            // Артикуль товара
+            // Артикул товара
             original: elem.sku.origin, // Оригинал
             normalized: elem.sku.custom, // Ссылка
           },

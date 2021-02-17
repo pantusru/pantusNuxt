@@ -28,6 +28,7 @@ const dostavka = {
 const sistemPay = {
   required,
 };
+const companyAddress = {};
 // let all поля которые есть в 2 формах
 const all = {
   name: Name,
@@ -37,16 +38,16 @@ const all = {
   dostavka,
   sistemPay,
   Comments,
+  companyAddress,
 };
 
 const companyName = {
   required,
 };
-const companyAddress = {};
+
 const companyCountry = {};
 const company = {
   companyName,
-  companyAddress,
   companyCountry,
 };
 export default {

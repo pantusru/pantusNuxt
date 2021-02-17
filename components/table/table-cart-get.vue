@@ -48,7 +48,7 @@
             >
               <span
                 :title="table.ProductCard.name"
-                class="text-576b77 link-danger reset-title"
+                class="text-576b77 reset-title"
               >
                 {{ table.ProductCard.name }}
               </span>
@@ -84,7 +84,7 @@
                 :link-offers="offer"
                 :link-product="table.ProductCard"
               />
-              <b-td class="border-top-0">
+              <b-td class="border-top-0 w-15">
                 <vInput
                   :multiplicity="offer.multiplicity"
                   :add-class-input="'p-0'"
@@ -106,12 +106,12 @@
                   :cart-product="table.productOffer"
                 />
               </b-td>
-              <b-td class="border-top-0">
-                <!--                <cart-button-update-product-->
-                <!--                  v-if="offer.checkCount"-->
-                <!--                  :linkOffer="offer"-->
-                <!--                />-->
-              </b-td>
+              <!--              <b-td class="border-top-0">-->
+              <!--                <cart-button-update-product-->
+              <!--                  v-if="offer.checkCount"-->
+              <!--                  :linkOffer="offer"-->
+              <!--                />-->
+              <!--              </b-td>-->
             </b-tr>
           </template>
         </template>
@@ -145,3 +145,8 @@ export default {
   },
 };
 </script>
+<style>
+.w-15 {
+  width: 15%;
+}
+</style>

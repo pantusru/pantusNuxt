@@ -47,11 +47,11 @@
     <template #modal-footer>
       <div>
         <base-button class="mr-3" text="Воити" @click="check" />
-        <b-button
-          class="border-0 p-0 bg-white text-dark link-danger"
-          @click="password"
-          >Забыли пароль</b-button
-        >
+        <!--        <b-button-->
+        <!--          class="border-0 p-0 bg-white text-dark link-danger"-->
+        <!--          @click="password"-->
+        <!--          >Забыли пароль</b-button-->
+        <!--        >-->
       </div>
       <div class="w100">
         <b-button

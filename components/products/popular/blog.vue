@@ -31,7 +31,7 @@
         :link="'/search?filter_brands=' + datasetProduct.ProductCard.brand.id"
       />
       <product-element-row-get
-        name="Артикуль"
+        name="Артикул"
         :dataset="datasetProduct.ProductCard.sku.original"
         :link="
           '/search?filter_substr=' + datasetProduct.ProductCard.sku.original

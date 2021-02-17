@@ -7,7 +7,7 @@
     <!-- под заказ сколько дней -->
     <span v-else-if="linkProduct.brand.deliveryDelay != 0" class="text-d2b77e">
       Под заказ:
-      {{ linkProduct.brand.deliveryDelay }} дней
+      {{ linkProduct.brand.deliveryDelay }} дн.
     </span>
     <!-- под запросу  -->
     <span v-else class="text-d2b77e">По запросу</span>

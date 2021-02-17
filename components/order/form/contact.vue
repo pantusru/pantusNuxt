@@ -10,6 +10,13 @@
       :error="error['telephone']"
     />
     <Town :$v="$v" items="Город" name="Town" :error="error['Town']" />
+    <BaseTextareaValid
+      class=""
+      :$v="$v"
+      items="Адрес"
+      name="companyAddress"
+      :error="error['companyAddress']"
+    />
     <div v-if="UserStatus === 'wholesale'">
       <!--      <vInput-->
       <!--        :$v="$v"-->
@@ -17,13 +24,6 @@
       <!--        name="companyCountry"-->
       <!--        :error="error['companyCountry']"-->
       <!--      />-->
-      <BaseTextareaValid
-        class=""
-        :$v="$v"
-        items="Адрес"
-        name="companyAddress"
-        :error="error['companyAddress']"
-      />
       <vInput
         :$v="$v"
         items="Название"

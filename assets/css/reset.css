@@ -102,7 +102,6 @@ li {
   list-style: none;
 }
 .reset-title {
-  cursor: pointer;  /* СПОРНО */
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;

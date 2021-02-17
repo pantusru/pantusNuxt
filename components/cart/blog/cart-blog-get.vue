@@ -32,7 +32,7 @@
         :dataset="datasetProduct.ProductCard.brand.name"
       />
       <product-element-row-get
-        name="Артикуль:"
+        name="Артикул:"
         :dataset="datasetProduct.ProductCard.sku.original"
       />
       <product-element-row-get
@@ -65,10 +65,13 @@
             <!--            />-->
           </div>
           <div class="mt-3">
-            Стоимость:<b
+            Стоимость:
+            <b
               >{{
-                datasetProduct.productOffer[index].prices *
-                datasetProduct.productOffer[index].Count
+                (
+                  datasetProduct.productOffer[index].prices *
+                  datasetProduct.productOffer[index].Count
+                ).toFixed(2)
               }}р</b
             >
           </div>

@@ -43,7 +43,6 @@ export default {
             settings: {
               slidesToShow: 3,
               slidesToScroll: 3,
-              arrows: false,
             },
           },
           {
@@ -51,7 +50,6 @@ export default {
             settings: {
               slidesToShow: 4,
               slidesToScroll: 4,
-              arrows: false,
             },
           },
         ],

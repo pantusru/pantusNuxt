@@ -38,33 +38,33 @@ export default {
   },
   methods: {
     SetName() {
-      this.$store.commit("formSearch/SetSort", {
-        SortType: this.SortType,
-        SortName: this.SortName,
-      });
-      window.scrollTo(0, 0);
-      this.$router.push({
-        name: "search",
-        query: {
-          ...this.$route.query,
-          sort_type: this.GetSortType,
-          sort_name: this.GetSortName,
-        },
-      });
+      // this.$store.commit("formSearch/SetSort", {
+      //   SortType: this.SortType,
+      //   SortName: this.SortName,
+      // });
+      // window.scrollTo(0, 0);
+      // this.$router.push({
+      //   name: "search",
+      //   query: {
+      //     ...this.$route.query,
+      //     sort_type: this.GetSortType,
+      //     sort_name: this.GetSortName,
+      //   },
+      // });
     },
     SortSet() {
-      switch (this.SortType) {
-        case undefined:
-          this.SortType = "ask";
-          break;
-        case "ask":
-          this.SortType = "desk";
-          break;
-        case "desk":
-          this.SortType = "ask";
-          break;
-      }
-      this.SetName();
+      // switch (this.SortType) {
+      //   case undefined:
+      //     this.SortType = "ask";
+      //     break;
+      //   case "ask":
+      //     this.SortType = "desk";
+      //     break;
+      //   case "desk":
+      //     this.SortType = "ask";
+      //     break;
+      // }
+      // this.SetName();
     },
   },
 };

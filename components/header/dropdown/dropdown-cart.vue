@@ -6,7 +6,7 @@
     <b-thead>
       <tr class="border-bottom">
         <th>
-          Артикуль <br />
+          Артикул <br />
           Наименование
         </th>
         <th>Цена</th>
@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       fields: [
-        { key: "sku", label: "Артикуль" + "\r\n" + "Наименование" },
+        { key: "sku", label: "Артикул" + "\r\n" + "Наименование" },
         { key: "price", label: "Цена" },
         { key: "count", label: "Кол-во, шт" },
         { key: "Delete", label: "" },

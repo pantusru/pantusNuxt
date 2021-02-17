@@ -16,7 +16,7 @@
       <VInput
         :placeholder="'Введите ваш логин'"
         :slots="true"
-        add-class="mb-2 col-7"
+        add-class="mb-2 col-sm-7 col-10"
         name="email"
         items="Логин:"
         :error="error.email"
@@ -30,7 +30,7 @@
       <VInput
         :placeholder="'Введите ваш пароль'"
         :slots="true"
-        add-class="mb-2 col-7"
+        add-class="mb-2 col-sm-7 col-10"
         type="password"
         items="Пароль:"
         name="password"

@@ -83,7 +83,7 @@ export const actions = {
 
       // У пользователя есть токен
       const data = await dispatch("User/axios/_User", {}, { root: true });
-      console.log(data);
+      // console.log(data);
       if (data.error === undefined) {
         // ошибок нету
         commit("SetAll", data);

@@ -11,7 +11,7 @@ export const mutations = {
     store.Dostavka = data;
   },
   SetDostavkaExtra(store, data) {
-    console.log(data);
+    // console.log(data);
     if (data.value !== false) {
       data.data.description = data.value + "руб.";
       data.data.price = Number(data.value);

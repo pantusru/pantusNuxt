@@ -24,7 +24,7 @@ export default {
     // }
     await store.dispatch("Products/_ProductId", params.id);
     const Productid = store.getters["Products/GetProduct"];
-    console.log(Productid);
+    // console.log(Productid);
     if (Productid.length === 0) {
       redirect("/404");
     }

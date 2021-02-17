@@ -41,7 +41,7 @@ export default {
       let id;
       const code = data[index];
       const result = dataset.filter(elem => elem.code === code);
-      console.log(result);
+      // console.log(result);
       if (result.length !== 0) {
         nameArray.push(result[0].name);
         if (data.length - 1 !== index) {

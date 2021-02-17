@@ -33,7 +33,7 @@
         <b-col lg="5">
           <div class="company-image-box d-flex h-100">
             <img
-              src="https://www.pantus.ru/upload/medialibrary/b8d/pantus_asport_1.jpg"
+              :src="PantusUrl + '/upload/medialibrary/b8d/pantus_asport_1.jpg'"
               class="company-image-box__image"
               alt="parts"
               title="автозапчасти"
@@ -176,7 +176,7 @@
             </b-col>
             <b-col>
               <img
-                src="https://www.pantus.ru/upload/iblock/256/итог.png"
+                :src="PantusUrl + '/upload/iblock/256/итог.png'"
                 class="foto-fancy-img"
               />
             </b-col>

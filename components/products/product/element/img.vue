@@ -26,7 +26,7 @@ export default {
   created() {
     if (
       this.product.ProductCard.ProductCardImage.url !==
-      "https://www.pantus.ru/bitrix/images/iblock/no_product.png"
+      `${process.env.pantus}/bitrix/images/iblock/no_product.png`
     ) {
       this.getModal = true;
     }

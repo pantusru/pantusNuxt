@@ -35,7 +35,7 @@ export default {
           "Order/axios/PostOrder",
           this.$v.Form.$model
         );
-        console.log(res);
+        // console.log(res);
         if (!res) {
           // Ошибка
           this.$store.commit("SetFormApi", {

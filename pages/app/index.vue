@@ -85,7 +85,10 @@
           <div class="section-1">
             <div class="section-1__img">
               <img
-                src="https://www.pantus.ru/app/assets/images/section_1_bottom_phone.png"
+                :src="
+                  process.env.pantus +
+                  '/app/assets/images/section_1_bottom_phone.png'
+                "
                 alt=""
               />
             </div>
@@ -263,7 +266,7 @@
 
 <script>
 export default {
-  name: "Index",
+  name: "page-app",
   layout: "app",
   data() {
     return {

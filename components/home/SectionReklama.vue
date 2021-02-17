@@ -4,14 +4,14 @@
       <div class="img-reklama col-6">
         <img
           class="img-100-auto"
-          src="https://www.pantus.ru/upload/medialibrary/d26/Luzar.jpg"
+          :src="urlPantus + '/upload/medialibrary/d26/Luzar.jpg'"
           alt="Luzar"
         />
       </div>
       <div class="img-reklama col-6">
         <img
           class="img-100-auto"
-          src="https://www.pantus.ru/upload/medialibrary/56f/image (510).png"
+          :src="urlPantus + '/upload/medialibrary/56f/image (510).png'"
           alt="Trialli"
         />
       </div>
@@ -30,7 +30,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      urlPantus: process.env.pantus,
+    };
+  },
+};
 </script>
 
 <style lang="sass">

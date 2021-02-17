@@ -41,9 +41,9 @@ export default {
           {
             breakpoint: 768,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              // arrows: false,
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              arrows: false,
             },
           },
           {
@@ -51,7 +51,7 @@ export default {
             settings: {
               slidesToShow: 4,
               slidesToScroll: 4,
-              // arrows: false,
+              arrows: false,
             },
           },
         ],

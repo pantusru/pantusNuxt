@@ -2,7 +2,7 @@
   <b-row class="mt-3">
     <template v-for="data in Cart">
       <template v-for="(offer, indexOffer) in data.productOffer">
-        <b-col :key="offer.id" class="mb-3" cols="11" sm="6">
+        <b-col :key="offer.id" class="mb-3 mx-auto" cols="11" sm="6">
           <BlogCart :dataset-product="data" :index="indexOffer" />
         </b-col>
       </template>

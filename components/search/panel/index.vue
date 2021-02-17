@@ -1,8 +1,10 @@
 <template>
   <b-form-group class="border px-3 py-2 border-light">
-    <base-title-filter :text="items" />
-    <VInputV :data="data" />
-    <Data :name="name" :data="data" />
+    <get-filter :get-filter.sync="getFilter" :items="items" />
+    <template v-if="getFilter">
+      <VInputV :data="data" />
+      <Data :name="name" :data="data" />
+    </template>
   </b-form-group>
 </template>
 
@@ -10,8 +12,10 @@
 import VInputV from "@/components/search/panel/input/index";
 import Data from "@/components/search/panel/panel-data/index";
 import BaseTitleFilter from "@/components/base/title/base-title-filter";
+import GetFilter from "@/components/search/get-filter";
 export default {
   components: {
+    GetFilter,
     BaseTitleFilter,
     // ButtonFull,
     Data,
@@ -24,6 +28,11 @@ export default {
     };
   },
   props: ["items", "ArrayData", "name", "SetValue"],
+  data() {
+    return {
+      getFilter: true,
+    };
+  },
   computed: {
     data() {
       return this.$store.getters[this.ArrayData];

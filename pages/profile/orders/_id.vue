@@ -10,7 +10,7 @@
           text="Текущий статус:"
           :value="GetMyOrderId.status.name"
         />
-        <order-id-row text="Цена:	" :value="GetMyOrderId.price" />
+        <order-id-row text="Цена:	" :value="GetMyOrderId.price + 'р'" />
         <b class="mt-4 d-block fz-15px">Параметры заказа </b>
         <order-id-row
           text="Тип плательщика:"

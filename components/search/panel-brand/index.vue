@@ -1,12 +1,14 @@
 <template>
   <b-form-group class="border px-3 py-2 border-light">
-    <base-title-filter :text="items" />
-    <Vinput v-on:Vsearch="ValueSet" :GetName="GetName" />
-    <Data
-      :SearchElem="SearchElem"
-      :GetChecbox="GetChecbox"
-      :SetChecbox="SetChecbox"
-    />
+    <GetFilter :items="items" :get-filter.sync="getFilter" />
+    <template v-if="getFilter">
+      <Vinput :get-name="GetName" @Vsearch="ValueSet" />
+      <Data
+        :search-elem="SearchElem"
+        :get-checbox="GetChecbox"
+        :set-checbox="SetChecbox"
+      />
+    </template>
   </b-form-group>
 </template>
 
@@ -14,11 +16,19 @@
 import Data from "@/components/search/panel-brand/brands-data/index";
 import Vinput from "@/components/search/panel-brand/input/index";
 import BaseTitleFilter from "@/components/base/title/base-title-filter";
+import GetFilter from "@/components/search/get-filter";
 export default {
+  components: {
+    GetFilter,
+    BaseTitleFilter,
+    Vinput,
+    Data,
+  },
   props: ["name", "SetChecbox", "GetName", "items", "GetChecbox"],
   data() {
     return {
       SearchElem: this.$store.getters[this.GetName],
+      getFilter: true,
     };
   },
   methods: {
@@ -26,11 +36,9 @@ export default {
     ValueSet(data) {
       this.SearchElem = data.data;
     },
-  },
-  components: {
-    BaseTitleFilter,
-    Vinput,
-    Data,
+    // getFilterClick() {
+    //   this.getFilter = !this.getFilter;
+    // },
   },
 };
 </script>

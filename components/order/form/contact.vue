@@ -1,19 +1,25 @@
 <template>
   <b-form class="pt-3">
-    <vInput :$v="$v" items="Фамилия" name="surname" :error="error['surname']" />
-    <vInput :$v="$v" items="Имя" name="name" :error="error['name']" />
+    <vInput
+      :$v="$v"
+      items="Фамилия:"
+      name="surname"
+      :error="error['surname']"
+    />
+    <vInput :$v="$v" items="Имя:" name="name" :error="error['name']" />
     <vInput
       :$v="$v"
       vmask="+7(###) ###-##-##"
-      items="Телефон"
+      items="Телефон:"
       name="telephone"
+      :name="'telephone'"
       :error="error['telephone']"
     />
-    <Town :$v="$v" items="Город" name="Town" :error="error['Town']" />
+    <Town :$v="$v" items="Город:" name="Town" :error="error['Town']" />
     <BaseTextareaValid
       class=""
       :$v="$v"
-      items="Адрес"
+      items="Адрес:"
       name="companyAddress"
       :error="error['companyAddress']"
     />
@@ -26,7 +32,7 @@
       <!--      />-->
       <vInput
         :$v="$v"
-        items="Название"
+        items="Название:"
         name="companyName"
         :error="error['companyName']"
       />

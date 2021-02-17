@@ -2,7 +2,7 @@
   <b-container>
     <b-row>
       <NavProfile />
-      <b-form class="w-75">
+      <b-form class="w-75 col">
         <form_input_password_change
           :error="error.str_password"
           :type="'password'"

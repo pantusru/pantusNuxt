@@ -13,7 +13,7 @@
         >X</b-button
       >
       <!-- <Submit /> -->
-      <VueRange />
+      <!--      <VueRange />-->
       <!-- ЦЕНА-->
       <!-- БРЭНД -->
       <PanelBrand

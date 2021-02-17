@@ -1,7 +1,7 @@
 <template>
   <div class="row mt-3">
-    <div class="col-3">{{ text }}</div>
-    <div class="col-3">{{ value }}</div>
+    <div class="col-md-3 col-12">{{ text }}</div>
+    <div class="col-md-3 col-12">{{ value }}</div>
   </div>
 </template>
 
@@ -14,5 +14,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

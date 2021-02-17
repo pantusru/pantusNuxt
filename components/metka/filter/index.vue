@@ -120,4 +120,7 @@ export default {
 .metka-filter-product-block:hover {
   color: #98001f;
 }
+/*.close-mark {*/
+/*  width: 30px;*/
+/*}*/
 </style>

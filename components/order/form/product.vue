@@ -6,11 +6,14 @@
     <b-button class="bg-danger border-0" @click="formGo"
       >Отправить заказ</b-button
     >
+    <base-alert />
   </b-form>
 </template>
 
 <script>
+import BaseAlert from "@/components/alert/base-alert";
 export default {
+  components: { BaseAlert },
   props: {
     $v: {},
   },
@@ -49,7 +52,7 @@ export default {
             data: "errorOrder",
             value: false,
           });
-          await this.$router.push("/profile/orders/" + res.success.order_id);
+          // await this.$router.push("/profile/orders/" + res.success.order_id);
         }
       }
     },

@@ -10,14 +10,14 @@
                 <a href="https://pantus.ru"
                   ><img
                     class="logo-ico"
-                    src="https://www.pantus.ru/app/assets/images/pantus_logo.jpg"
+                    :src="urlPantus + '/app/assets/images/pantus_logo.jpg'"
                     alt="pantus"
                 /></a>
               </div>
               <div class="header-logo-panel__col">
                 <img
                   class="logo-ico"
-                  src="https://www.pantus.ru/app/assets/images/icon.png"
+                  :src="urlPantus + '/app/assets/images/icon.png'"
                   alt="pantus_l"
                 />
               </div>
@@ -48,14 +48,14 @@
                   href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
                 >
                   <img
-                    src="https://www.pantus.ru/app/assets/images/btn-android.png"
+                    :src="urlPantus + '/app/assets/images/btn-android.png'"
                     alt="app-android"
                   />
                 </a>
               </div>
               <div class="app-market__qr-code">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                  :src="urlPantus + '/app/assets/images/qr-code-android.png'"
                   alt="app-android-qr"
                   @click="openModal('android')"
                 />
@@ -68,14 +68,14 @@
                   href="https://apps.apple.com/us/app/pantus/id1475702773"
                 >
                   <img
-                    src="https://www.pantus.ru/app/assets/images/btn-ios.png"
+                    :src="urlPantus + '/app/assets/images/btn-ios.png'"
                     alt="app-ios"
                   />
                 </a>
               </div>
               <div class="app-market__qr-code">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                  :src="urlPantus + '/app/assets/images/qr-code-ios.png'"
                   alt="app-ios-qr"
                   @click="openModal('ios')"
                 />
@@ -100,7 +100,7 @@
             <div class="demonstrations__row reverse-column">
               <div class="demonstrations__img img-left">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/section-1.png"
+                  :src="urlPantus + '/app/assets/images/section-1.png'"
                   alt="app-phone-3d"
                 />
               </div>
@@ -134,7 +134,7 @@
               </div>
               <div class="demonstrations__img img-right">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/section-2.png"
+                  :src="urlPantus + '/app/assets/images/section-2.png'"
                   alt="app-phone-vr"
                 />
               </div>
@@ -144,7 +144,7 @@
             <div class="demonstrations__row reverse-column">
               <div class="demonstrations__img img-left">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/section-3.png"
+                  :src="urlPantus + '/app/assets/images/section-3.png'"
                   alt="app-phone-catalog"
                 />
               </div>
@@ -176,7 +176,7 @@
               </div>
               <div class="demonstrations__img img-right">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/section-4.png"
+                  :src="urlPantus + '/app/assets/images/section-4.png'"
                   alt="app-phone-news"
                 />
               </div>
@@ -190,7 +190,7 @@
             <div class="footer-logo__ico">
               <img
                 class="logo-ico"
-                src="https://www.pantus.ru/app/assets/images/icon.png"
+                :src="urlPantus + '/app/assets/images/icon.png'"
                 alt="pantus-logo"
               />
             </div>
@@ -204,14 +204,14 @@
                   href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
                 >
                   <img
-                    src="https://www.pantus.ru/app/assets/images/btn-android.png"
+                    :src="urlPantus + '/app/assets/images/btn-android.png'"
                     alt="app-android"
                   />
                 </a>
               </div>
               <div class="app-market__qr-code">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/qr-code-android.png"
+                  :src="urlPantus + '/app/assets/images/qr-code-android.png'"
                   alt="app-android-qr"
                   @click="openModal('android')"
                 />
@@ -224,14 +224,14 @@
                   href="https://apps.apple.com/us/app/pantus/id1475702773"
                 >
                   <img
-                    src="https://www.pantus.ru/app/assets/images/btn-ios.png"
+                    :src="urlPantus + '/app/assets/images/btn-ios.png'"
                     alt="app-ios"
                   />
                 </a>
               </div>
               <div class="app-market__qr-code">
                 <img
-                  src="https://www.pantus.ru/app/assets/images/qr-code-ios.png"
+                  :src="urlPantus + '/app/assets/images/qr-code-ios.png'"
                   alt="app-ios-qr"
                   @click="openModal('ios')"
                 />
@@ -271,6 +271,7 @@ export default {
   data() {
     return {
       qrCodeUrl: null,
+      urlPantus: process.env.pantus,
     };
   },
   head() {
@@ -288,10 +289,8 @@ export default {
   methods: {
     openModal(typeQrCode) {
       typeQrCode === "android"
-        ? (this.qrCodeUrl =
-            "https://www.pantus.ru/app/assets/images/frame-android.png")
-        : (this.qrCodeUrl =
-            "https://www.pantus.ru/app/assets/images/frame-ios.png");
+        ? (this.qrCodeUrl = `${process.env.pantus}/app/assets/images/frame-android.png`)
+        : (this.qrCodeUrl = `${process.env.pantus}/app/assets/images/frame-ios.png`);
       const mdl = this.$refs.myModal;
       mdl.style.display = "block";
     },

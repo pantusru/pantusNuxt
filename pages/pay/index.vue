@@ -27,19 +27,19 @@
               <a href="#cards"
                 ><img
                   alt="Банковские карты"
-                  src="https://www.pantus.ru/media-library/payment/cards.png"
+                  :src="urlPantus + '/media-library/payment/cards.png'"
                   title="Банковские карты"
               /></a>
               <a href="#cash"
                 ><img
-                  src="https://www.pantus.ru/media-library/payment/cash.png"
+                  :src="urlPantus + '/media-library/payment/cash.png'"
                   alt="Наличные"
                   title="Наличные"
               /></a>
               <a href="#bank"
                 ><img
                   alt="Банковский перевод"
-                  src="https://www.pantus.ru/media-library/payment/bank.png"
+                  :src="urlPantus + '/media-library/payment/bank.png'"
                   title="Банковский перевод"
               /></a>
             </div>
@@ -56,25 +56,25 @@
               <a href="#paypal"
                 ><img
                   alt="PayPal"
-                  src="https://www.pantus.ru/media-library/payment/paypal.png"
+                  :src="urlPantus + '/media-library/payment/paypal.png'"
                   title="PayPal"
               /></a>
               <a href="#ewalletsru"
                 ><img
                   alt="Яндекс Деньги"
-                  src="https://www.pantus.ru/media-library/payment/yandexmoney.png"
+                  :src="urlPantus + '/media-library/payment/yandexmoney.png'"
                   title="Яндекс Деньги"
               /></a>
               <a href="#ewalletsru"
                 ><img
                   alt="WebMoney"
-                  src="https://www.pantus.ru/media-library/payment/webmoney.png"
+                  :src="urlPantus + '/media-library/payment/webmoney.png'"
                   title="WebMoney"
               /></a>
               <a href="#ewalletsru"
                 ><img
                   alt="QIWI Кошелек"
-                  src="https://www.pantus.ru/media-library/payment/qiwi.png"
+                  :src="urlPantus + '/media-library/payment/qiwi.png'"
                   title="QIWI Кошелек"
               /></a>
             </div>
@@ -92,19 +92,19 @@
               <a href="#internetbanks"
                 ><img
                   alt="Интернет-банк Альфабанка"
-                  src="https://www.pantus.ru/media-library/payment/alfabank.png"
+                  :src="urlPantus + '/media-library/payment/alfabank.png'"
                   title="Интернет-банк Альфабанка"
               /></a>
               <a href="#internetbanks"
                 ><img
                   alt="Интернет-банк ПромСвязьБанка"
-                  src="https://www.pantus.ru/media-library/payment/psb.png"
+                  :src="urlPantus + '/media-library/payment/psb.png'"
                   title="Интернет-банк ПромСвязьБанка"
               /></a>
               <a href="#internetbanks"
                 ><img
                   alt="Интернет-банк ВТБ"
-                  src="https://www.pantus.ru/media-library/payment/vtb.png"
+                  :src="urlPantus + '/media-library/payment/vtb.png'"
                   title="Интернет-банк ВТБ"
               /></a>
             </div>
@@ -122,13 +122,13 @@
               <a href="#cellshops"
                 ><img
                   alt="Сеть салонов Евросеть"
-                  src="https://www.pantus.ru/media-library/payment/euroset.png"
+                  :src="urlPantus + '/media-library/payment/euroset.png'"
                   title="Сеть салонов Евросеть"
               /></a>
               <a href="#cellshops"
                 ><img
                   alt="Сеть салонов Связной"
-                  src="https://www.pantus.ru/media-library/payment/svyaznoy.png"
+                  :src="urlPantus + '/media-library/payment/svyaznoy.png'"
                   title="Сеть салонов Связной"
               /></a>
             </div>
@@ -145,7 +145,7 @@
               <a href="#question"
                 ><img
                   alt="Дополнительная информация по оплате"
-                  src="https://www.pantus.ru/media-library/payment/question.png"
+                  :src="urlPantus + '/media-library/payment/question.png'"
                   title="Дополнительная информация по оплате"
               /></a>
             </div>
@@ -314,6 +314,11 @@ export default {
   name: "Index",
   components: {
     sidebar,
+  },
+  data() {
+    return {
+      urlPantus: process.env.pantus,
+    };
   },
   mixins: [minix],
   head() {

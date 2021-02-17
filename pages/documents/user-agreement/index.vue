@@ -70,9 +70,9 @@
             выгодоприобретателем, а также для доступа пользователя-физического
             лица к возможностям Сервисов. Политика Компании в отношении
             обработки персональных данных размещена по адресу
-            <a href="https://www.pantus.ru/documents/privacypolicy/"
-              >https://www.pantus.ru/documents/privacypolicy/</a
-            >
+            <nuxt-link href="/documents/privacypolicy/"
+              >https://www.pantus.ru/documents/privacypolicy/
+            </nuxt-link>
           </p>
           <p>
             Пароль – уникальная последовательность символов, которая известна

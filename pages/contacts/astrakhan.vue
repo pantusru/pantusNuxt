@@ -118,7 +118,7 @@
                 <td>Принимаем заказы с сайта</td>
               </tr>
             </tbody>
-          </table>
+          </table>src="https://www.pantus.ru
         </div>
         <div class="col-md-6 col-12" style="padding-left: 0px; margin-top: 20px">
           <h3>Адрес:&nbsp;</h3>
@@ -126,7 +126,7 @@
             <b>Астраханская область, г. Астрахань, ул. Крупской, 3</b><br>
           </p>
           <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/37/astrahan/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Астрахань</a><a href="https://yandex.ru/maps/37/astrahan/house/ulitsa_krupskoy_3/YEEYdgNlTkcPQFpsfX9yeHVrZQ==/?ll=48.045728%2C46.339981&utm_medium=mapframe&utm_source=maps&z=17.3" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Крупской, 3 — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUIjYt6hA" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
-          <img src="https://www.pantus.ru/media-library/branch_office/astrakhan/front_office.jpg" style="width: 100%">
+          <img :src="urlPantus + '/media-library/branch_office/astrakhan/front_office.jpg'" style="width: 100%">
         </div>
         </div>
       </div>
@@ -137,6 +137,11 @@
 <script>
 export default {
   name: "Moscow",
+  data() {
+    return {
+      urlPantus: process.env.pantus,
+    }
+  },
   head() {
     return {
       title: `Автозапчасти в Астрахани - Доставка запчастей оптом и в розницу - Контакты ПАНТУС`,

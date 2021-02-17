@@ -56,7 +56,7 @@
                 <img
                   width="1349"
                   alt="Ссылка на регистрацию"
-                  src="https://www.pantus.ru/upload/medialibrary/f4f/registration.png"
+                  :src="urlPantus +'/upload/medialibrary/f4f/registration.png'"
                   height="173"
                   style="border: 4px solid #8e8f9a"
                   title="Ссылка на регистрацию"
@@ -78,7 +78,7 @@
               <img
                 width="1005"
                 alt="newuser.png"
-                src="https://www.pantus.ru/upload/medialibrary/684/newuser.png"
+                :src="urlPantus +'/upload/medialibrary/684/newuser.png'"
                 height="559"
                 style="border: 4px solid #8e8f9a"
                 title="newuser.png"
@@ -106,7 +106,7 @@
             <img
               width="1024"
               alt="enter.png"
-              src="https://www.pantus.ru/upload/medialibrary/216/enter.png"
+              :src="urlPantus +'/upload/medialibrary/216/enter.png'"
               height="112"
               style="border: 4px solid #8e8f9a"
               title="enter.png"
@@ -157,7 +157,7 @@
                 <img
                   width="1024"
                   alt="search.png"
-                  src="https://www.pantus.ru/upload/medialibrary/61c/search.png"
+                  :src="urlPantus +'/upload/medialibrary/61c/search.png'"
                   height="116"
                   style="border: 4px solid #8e8f9a"
                   title="search.png"
@@ -176,7 +176,7 @@
                 <img
                   width="1003"
                   alt="originalparts.png"
-                  src="https://www.pantus.ru/upload/medialibrary/c03/originalparts.png"
+                  :src="urlPantus +'/upload/medialibrary/c03/originalparts.png'"
                   height="1024"
                   style="border: 4px solid #8e8f9a"
                   title="originalparts.png"
@@ -191,7 +191,7 @@
                 <img
                   width="1024"
                   alt="carparts.png"
-                  src="https://www.pantus.ru/upload/medialibrary/e64/carparts.png"
+                  :src="urlPantus +'/upload/medialibrary/e64/carparts.png'"
                   height="605"
                   style="border: 4px solid #8e8f9a"
                   title="carparts.png"
@@ -211,7 +211,7 @@
                 <img
                   width="1024"
                   alt="parts.png"
-                  src="https://www.pantus.ru/upload/medialibrary/b3a/parts.png"
+                  :src="urlPantus +'/upload/medialibrary/b3a/parts.png'"
                   height="571"
                   style="border: 4px solid #8e8f9a"
                   title="parts.png"
@@ -238,7 +238,7 @@
                 <img
                   width="1024"
                   alt="listparts.png"
-                  src="https://www.pantus.ru/upload/medialibrary/5b1/listparts.png"
+                  :src="urlPantus +'/upload/medialibrary/5b1/listparts.png'"
                   height="521"
                   style="border: 4px solid #8e8f9a"
                   title="listparts.png"
@@ -258,7 +258,7 @@
                 <img
                   width="307"
                   alt="Добавить в корзину"
-                  src="https://www.pantus.ru/upload/medialibrary/c32/2.3. Добавить в корзину.jpg"
+                  :src="urlPantus +'/upload/medialibrary/c32/2.3. Добавить в корзину.jpg'"
                   height="225"
                   class="foto-fancy-img"
                   style="border: 4px solid #8e8f9a"
@@ -269,7 +269,7 @@
                     >Добавление товара в корзину</span
                   ></i
                 >
-              </p/>
+              </p>
               <li>
                 В процессе наполнения корзины вы всегда сможете увидеть
                 количество позиций и сумму заказа рядом со значком корзины, по
@@ -280,7 +280,7 @@
                 <img
                   width="1024"
                   alt="maincart.png"
-                  src="https://www.pantus.ru/upload/medialibrary/d61/maincart.png"
+                  :src="urlPantus +'/upload/medialibrary/d61/maincart.png'"
                   height="251"
                   style="border: 4px solid #8e8f9a"
                   title="maincart.png"
@@ -322,7 +322,7 @@
                 <img
                   width="1024"
                   alt="cart.png"
-                  src="https://www.pantus.ru/upload/medialibrary/391/cart.png"
+                  :src="urlPantus +'/upload/medialibrary/391/cart.png'"
                   height="324"
                   style="border: 4px solid #8e8f9a"
                   title="cart.png"
@@ -340,7 +340,7 @@
                 <img
                   width="263"
                   alt="autorisation.png"
-                  src="https://www.pantus.ru/upload/medialibrary/def/autorisation.png"
+                  :src="urlPantus +'/upload/medialibrary/def/autorisation.png'"
                   height="223"
                   style="border: 4px solid #8e8f9a"
                   title="autorisation.png"
@@ -363,7 +363,7 @@
                 <img
                   width="1024"
                   alt="cartprocess.png"
-                  src="https://www.pantus.ru/upload/medialibrary/ab6/cartprocess.png"
+                  :src="urlPantus +'/upload/medialibrary/ab6/cartprocess.png'"
                   height="568"
                   style="border: 4px solid #8e8f9a"
                   title="cartprocess.png"
@@ -412,7 +412,7 @@
               <img
                 width="1024"
                 alt="favorite.png"
-                src="https://www.pantus.ru/upload/medialibrary/0c2/favorite.png"
+                :src="urlPantus +'/upload/medialibrary/0c2/favorite.png'"
                 height="235"
                 style="border: 4px solid #8e8f9a"
                 title="favorite.png"
@@ -451,7 +451,7 @@
               <img
                 width="1024"
                 alt="dwldprice.png"
-                src="https://www.pantus.ru/upload/medialibrary/88e/dwldprice.png"
+                :src="urlPantus +'/upload/medialibrary/88e/dwldprice.png'"
                 height="228"
                 style="border: 4px solid #8e8f9a"
                 title="dwldprice.png"
@@ -498,7 +498,7 @@
                   <img
                     width="1024"
                     alt="import.png"
-                    src="https://www.pantus.ru/upload/medialibrary/bd3/import.png"
+                    :src="urlPantus +'/upload/medialibrary/bd3/import.png'"
                     height="233"
                     title="import.png"
                     class="foto-fancy-img"
@@ -568,7 +568,7 @@
                 товара" и передать его вместе с товаром на возврат
               </p>
               <span class="elem-file">
-                <a href="https://www.pantus.ru/upload/files/akt_vozvrata.xlsx"
+                <a :href="urlPantus + '/upload/files/akt_vozvrata.xlsx'"
                   >Акт о возврате товара</a
                 >
                 (XLSX, 11,75 Кб)
@@ -625,6 +625,11 @@ export default {
     sidebar,
   },
   mixins: [minix],
+  data() {
+    return {
+      urlPantus: process.env.pantus,
+    }
+  },
 
   head() {
     return {

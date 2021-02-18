@@ -1,13 +1,16 @@
 <template>
-  <div class="d-flex align-items-start metka-filter-product-block">
+  <div
+    class="d-flex align-items-start metka-filter-product-block cursor-pointer mr-2"
+    @click="DeleteCheck"
+  >
     <span class="fz-5">{{ link.name }}</span>
-    <b-badge
-      @click="DeleteCheck"
-      variant="light"
-      pill
-      class="mr-1 cursor-pointer mb-3 close-mark"
-      ><b-icon-x></b-icon-x>
-    </b-badge>
+    <!--    <b-badge-->
+    <!--      variant="light"-->
+    <!--      pill-->
+    <!--      class="mr-1 cursor-pointer mb-3 close-mark mr-2"-->
+    <!--    >-->
+    <!--      <b-icon-x class=""></b-icon-x>-->
+    <!--    </b-badge>-->
   </div>
 </template>
 
@@ -119,8 +122,6 @@ export default {
 }
 .metka-filter-product-block:hover {
   color: #98001f;
+  text-decoration: line-through;
 }
-/*.close-mark {*/
-/*  width: 30px;*/
-/*}*/
 </style>

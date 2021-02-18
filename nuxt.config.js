@@ -2,6 +2,10 @@
 const path = require("path");
 
 export default {
+  env: {
+    api: "https://api.pantus.ru",
+    pantus: "https://www.pantus.ru",
+  },
   storybook: {
     addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
     stories: ["@/stories/**/*.stories.js"],
@@ -63,7 +67,7 @@ export default {
     port: 8000,
     host: "0.0.0.0",
   },
-  head: {
+  head: () => ({
     htmlAttrs: {
       lang: "ru",
     },
@@ -71,17 +75,23 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      // {
+      //   name: "image",
+      //   content:
+      //     process.env.pantus + "/bitrix/templates/main/img/d/smallogo.png",
+      // },
       {
         hid: "og:image",
         property: "og:image",
-        content: `${process.env.pantus}/bitrix/templates/main/img/d/smallogo.png`,
+        content:
+          process.env.pantus + "/bitrix/templates/main/img/d/smallogo.png",
       },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", href: "/icon.png" },
     ],
-  },
+  }),
   /*
    ** Global CSS
    */
@@ -142,9 +152,5 @@ export default {
       // config.resolve.alias['@components_Cart_Blog_blog']= path.resolve(__dirname, "components/Cart/Blog/blog");
     },
     extractCSS: true,
-  },
-  env: {
-    api: "https://api.pantus.ru",
-    pantus: "https://www.pantus.ru",
   },
 };

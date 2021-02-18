@@ -31,7 +31,7 @@ export default {
   },
   router: {
     prefetchLinks: false,
-    middleware: "user",
+    middleware: ["user"],
     scrollBehavior(to, from, savedPosition) {
       if (to.hash) {
         const hash = to.hash.slice(1);

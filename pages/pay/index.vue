@@ -298,7 +298,7 @@
               -
               <a href="mailto:support@pantus.ru">support@pantus.ru</a
               ><br />
-              - 8 800 555 8721 доб. 194
+              <a href="tel:88005558721"> - 8 800 555 8721 доб. 194</a>
             </ul>
           </b-col>
         </b-row>

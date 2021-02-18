@@ -86,8 +86,7 @@
             <div class="section-1__img">
               <img
                 :src="
-                  process.env.pantus +
-                  '/app/assets/images/section_1_bottom_phone.png'
+                  urlPantus + '/app/assets/images/section_1_bottom_phone.png'
                 "
                 alt=""
               />

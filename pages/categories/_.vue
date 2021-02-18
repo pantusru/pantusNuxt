@@ -10,7 +10,7 @@
         <BasePagination :length="getCountProducts" :limit="20" />
       </div>
     </div>
-    <h2 v-else class="text-danger">Товар не найден</h2>
+    <product404 v-if="GetProduct.length === 0" />
   </b-container>
 </template>
 

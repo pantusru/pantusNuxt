@@ -51,7 +51,7 @@
                 :array="Products"
               />
             </div>
-            <h1 v-if="Products.length === 0" class="error">Товар не найден</h1>
+            <product404 v-if="CountProducts === 0" />
             <base-pagination
               v-if="CountProducts !== 0"
               :length="CountProducts"
@@ -80,9 +80,11 @@ import Share from "@/components/modal/share";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import GetCountRes from "@/components/search/getCountRes";
-import PanelVid from "@/components/search/product-panel/index"; // Панель
+import PanelVid from "@/components/search/product-panel/index";
+import Product404 from "@/components/products/404"; // Панель
 export default {
   components: {
+    Product404,
     GetCountRes,
     BasePagination,
     ButtonReplyShow,

@@ -3,9 +3,7 @@
     <div>
       <h2>Запчасти для а/м {{ nameArray.join(" - ") }} по моделям</h2>
       <FilterTop />
-      <h2 v-if="GetProduct.length === 0" class="text-danger mt-4">
-        Товар не найден
-      </h2>
+      <product404 v-if="GetProduct.length === 0" />
       <div class="mt-3 mb-3" v-if="GetProduct.length !== 0">
         <ModalImg />
         <modal-buy-product />
@@ -24,10 +22,12 @@ import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import ModalImg from "@/components/modal/product-img";
 import FilterTop from "~/components/filter-top";
+import Product404 from "@/components/products/404";
 
 export default {
   name: "ApplicabilitiesProduct",
   components: {
+    Product404,
     FilterTop,
     FuncComponents,
     ModalBuyProduct,

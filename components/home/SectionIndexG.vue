@@ -1,5 +1,5 @@
 <template>
-  <section class="section-index">
+  <section class="section-index row">
     <categoriaVue
       src-index="search?filter_applicabilities=3140"
       class="col-12 col-lg-6 mb-3"

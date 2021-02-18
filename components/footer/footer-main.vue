@@ -26,3 +26,6 @@ export default {
   },
 };
 </script>
+<style lang="sass">
+@import "assets/sass/footer/icons"
+</style>

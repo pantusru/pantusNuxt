@@ -33,7 +33,8 @@
           :$v="$v"
         />
         <VInput
-          vmask="+7(###) ###-##-##"
+          type="tel"
+          vmask="+#(###) ###-##-##"
           items="Мобильный телефон"
           name="telephone"
           :error="error.telephone"
@@ -73,6 +74,7 @@
           :$v="$v"
         />
         <VInput
+          type="number"
           vmask="############"
           items="Инн"
           name="inn"

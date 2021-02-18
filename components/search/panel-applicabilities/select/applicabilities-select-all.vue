@@ -16,7 +16,7 @@
             </template>
           </span>
         </div>
-        <div v-else>нет применяемости</div>
+        <div v-else class="not-allowed">Отсутствуют приминяемости</div>
       </div>
       <!-- parent -->
       <div v-else-if="type === 'parent'">
@@ -25,7 +25,7 @@
             {{ Applicabilities.filter(data => data.id === panel)[0].name }}
           </template>
         </div>
-        <div v-else>нет применяемости</div>
+        <div v-else class="not-allowed">Отсутствуют приминяемости</div>
       </div>
     </div>
     <!--          :select-size="4" -->
@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style>
+.not-allowed {
+  cursor: not-allowed;
+}
 .app-select {
   border: 1px solid #666666;
   width: 93%;

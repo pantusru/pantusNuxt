@@ -1,56 +1,65 @@
 <template>
   <section class="mt-5">
     <!-- Модалки -->
-    <ModalImg />
-    <ModalBuy />
-    <share title="Ссылка на страницу" />
-    <!-- Модалки -->
-    <div class="container">
-      <!-- Фильтры применяемости -->
-      <FilterApplicabilities />
-      <b-row>
-        <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
-          <!-- Общие Фильтры -->
-          <FilterForm />
-        </b-col>
-        <b-col lg="9">
-          <get-count-res />
-          <!-- Метки какие бренды и категории выбраны  -->
-          <MetkaFilter />
-          <div class="text-right">
-            <button-reply-show />
-          </div>
-          <!-- Выбран вид не таблица () => показываем table-head -->
-          <b-table-simple
-            v-if="componentsName !== 'TableProduct' && Products.length !== 0"
-            class="text-center fz-5_5"
-          >
-            <PanelVid
-              v-if="Products.length !== 0"
-              class="panelProductFilter mb-0"
+    <b-overlay
+      :show="!getCheckCountProducts"
+      rounded="sm"
+      class="blog-full-content"
+    >
+      <ModalImg />
+      <ModalBuy />
+      <share title="Ссылка на страницу" />
+      <!-- Модалки -->
+      <div class="container">
+        <!-- Фильтры применяемости -->
+        <FilterApplicabilities />
+        <b-row>
+          <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
+            <!-- Общие Фильтры -->
+            <FilterForm />
+          </b-col>
+          <b-col lg="9">
+            <get-count-res />
+            <!-- Метки какие бренды и категории выбраны  -->
+            <MetkaFilter />
+            <div class="text-right">
+              <button-reply-show />
+            </div>
+            <!-- Выбран вид не таблица () => показываем table-head -->
+            <b-table-simple
+              v-if="componentsName !== 'TableProduct' && Products.length !== 0"
+              class="text-center fz-5_5"
+            >
+              <PanelVid
+                v-if="Products.length !== 0"
+                class="panelProductFilter mb-0"
+              />
+            </b-table-simple>
+            <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
+            <div class="d-none d-lg-block">
+              <components
+                :is="componentsName"
+                v-if="Products.length !== 0"
+                :array="Products"
+              />
+            </div>
+            <!-- Для Мобильных ()=>  вид товара блочный -->
+            <div class="d-block d-lg-none">
+              <components
+                :is="'productBlog'"
+                v-if="Products.length !== 0"
+                :array="Products"
+              />
+            </div>
+            <h1 v-if="Products.length === 0" class="error">Товар не найден</h1>
+            <base-pagination
+              v-if="CountProducts !== 0"
+              :length="CountProducts"
             />
-          </b-table-simple>
-          <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
-          <div class="d-none d-lg-block">
-            <components
-              :is="componentsName"
-              v-if="Products.length !== 0"
-              :array="Products"
-            />
-          </div>
-          <!-- Для Мобильных ()=>  вид товара блочный -->
-          <div class="d-block d-lg-none">
-            <components
-              :is="'productBlog'"
-              v-if="Products.length !== 0"
-              :array="Products"
-            />
-          </div>
-          <h1 v-if="Products.length === 0" class="error">Товар не найден</h1>
-          <base-pagination v-if="CountProducts !== 0" :length="CountProducts" />
-        </b-col>
-      </b-row>
-    </div>
+          </b-col>
+        </b-row>
+      </div>
+    </b-overlay>
   </section>
 </template>
 
@@ -217,6 +226,9 @@ export default {
     };
   },
   computed: {
+    getCheckCountProducts() {
+      return this.$store.getters.getCheckCountProducts;
+    },
     /***
      *
      * @returns {Object} - Список продуктов

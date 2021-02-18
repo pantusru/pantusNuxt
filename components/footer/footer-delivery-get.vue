@@ -5,7 +5,7 @@
       <nuxt-link to="/delivery">
         <img
           :src="require('@/assets/img/footer/car-footer.png')"
-          class="w-20 mb-2"
+          class="wrapper-icons-delivery mb-2"
         />
       </nuxt-link>
     </div>

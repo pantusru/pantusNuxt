@@ -41,11 +41,12 @@
           <VInput items="Имя:" name="name" :error="error.name" :$v="$v" />
           <VInput items="Email:" name="Email" :error="error.Email" :$v="$v" />
           <VInput
+            type="tel"
             items="Телефон:"
             name="tlf"
             :error="error.tlf"
             :$v="$v"
-            vmask="+7(###) ###-##-##"
+            vmask="+#(###) ###-##-##"
           />
           <div class="col-12 col-md-6">
             <label>Сообщение:</label>

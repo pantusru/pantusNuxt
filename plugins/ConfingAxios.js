@@ -16,12 +16,12 @@ export default function ({ $axios, redirect, app, request, store }) {
   });
   $axios.onResponse(res => {
     // store.commit("SetShow", false);
-    //  ПЕРЕХВАТЧИК ОТВЕТА
-    // if (res.data !== undefined) {
-    //   return res;
-    // } else {
-    //   return false;
-    // }
+    // ПЕРЕХВАТЧИК ОТВЕТА
+    if (res.data !== undefined) {
+      return res;
+    } else {
+      return false;
+    }
   });
 
   $axios.onError(() => {

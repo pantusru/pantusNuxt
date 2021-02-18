@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <b-overlay :show="show" rounded="sm" class="blog-full-content">
-      <!-- Спиннер для всего сайта компонент bootstrap 4 -->
-      <VueHeader class="mb-5" />
-      <button-scroll-top />
-      <!-- Шапка сайта -->
-      <Nuxt />
-      <VueFooter />
-    </b-overlay>
+    <!--    <b-overlay :show="show" rounded="sm" class="blog-full-content">-->
+    <!-- Спиннер для всего сайта компонент bootstrap 4 -->
+    <VueHeader class="mb-5" />
+    <button-scroll-top />
+    <!-- Шапка сайта -->
+    <Nuxt />
+    <VueFooter />
+    <!--    </b-overlay>-->
   </div>
 </template>
 <script>

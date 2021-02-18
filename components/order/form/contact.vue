@@ -9,10 +9,10 @@
     <vInput :$v="$v" items="Имя:" name="name" :error="error['name']" />
     <vInput
       :$v="$v"
-      vmask="+7(###) ###-##-##"
+      vmask="+#(###) ###-##-##"
       items="Телефон:"
       name="telephone"
-      :name="'telephone'"
+      type="tel"
       :error="error['telephone']"
     />
     <Town :$v="$v" items="Город:" name="Town" :error="error['Town']" />

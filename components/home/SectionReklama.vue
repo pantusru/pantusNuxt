@@ -49,7 +49,7 @@ export default {
     // justify-content: space-between
     align-items: center
     .text
-        margin: 0 15px
+        margin: 5px 15px 0
     .bnt-reklama-more
         background-color: #e1002b
         border: 2px solid #e1002b

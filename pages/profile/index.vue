@@ -33,8 +33,9 @@
             :$v="$v"
           />
           <ElementForm
+            type="tel"
             name="telephone"
-            vmask="+7(###) ###-##-##"
+            vmask="+#(###) ###-##-##"
             :items="'Телефон:'"
             :error="error.telephone"
             :$v="$v"

@@ -2,17 +2,22 @@
   <b-col cols="12" lg="3" md="6">
     <h6 class="mb-3"><b>Мы в соцсетях</b></h6>
     <b-row no-gutters class="mb-3">
-      <a v-for="data in linksImg" :key="data.id" :href="data.href" class="mr-2">
+      <a
+        v-for="data in linksImg"
+        :key="data.id"
+        :href="data.href"
+        class="mr-2 wrapper-icons-social"
+      >
         <img :src="data.src" :alt="data.alt" />
       </a>
     </b-row>
-    <b-row class="flex-md-column mb-2">
-      <b-col cols="3" md="6" class="mb-2">
+    <b-row class="flex-column mb-2">
+      <b-col cols="4" md="6" class="mb-2">
         <a href="https://apps.apple.com/us/app/pantus/id1475702773">
           <img src="@img/footer/googleplay.svg" alt="googleplay" />
         </a>
       </b-col>
-      <b-col cols="3" md="6">
+      <b-col cols="4" md="6">
         <a
           href="https://play.google.com/store/apps/details?id=ru.sigmadigital.pantus"
         >
@@ -70,3 +75,6 @@ export default {
   },
 };
 </script>
+<style lang="sass">
+//@import "assets/";
+</style>

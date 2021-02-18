@@ -1,6 +1,6 @@
 <template>
   <section class="section-index row no-gutters">
-    <div class="content-categoria col-md-9 col-12 row">
+    <div class="content-categoria col-md-9 col-12 row ml-auto ml-lg-0">
       <categoriaVue
         srcIndex="/search?filter_applicabilities=3138"
         class="col-12 col-lg-8 mb-2 mb-lg-0"

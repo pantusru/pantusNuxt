@@ -66,12 +66,12 @@
             </nuxt-link>
           </table-product-cart-td>
           <!--          <b-td class="position-absolute border-0 p-0 pt-3">-->
-          <Chosen
-            v-if="CheckAnalogs === false && CheckUser === true"
-            :id="table.ProductCard.id"
-            class="position-absolute border-0 p-0 pt-3"
-            :link="table"
-          />
+          <!--                    <Chosen-->
+          <!--            v-if="CheckAnalogs === false && CheckUser === true"-->
+          <!--            :id="table.ProductCard.id"-->
+          <!--            class="position-absolute border-0 p-0 pt-3"-->
+          <!--            :link="table"-->
+          <!--          />-->
           <!--          </b-td>-->
         </b-tr>
         <template v-if="table.productOffer.length !== 0">

@@ -1,7 +1,10 @@
 <template>
   <div :class="addClass">
-    <label :for="name">{{ items }}</label>
+    <label :for="name"
+      >{{ items }}<span class="text-danger" v-if="request"> *</span></label
+    >
     <b-form-input
+      v-bind="{ maxlength: maxlength }"
       v-if="getInput === true"
       :id="name"
       v-model.trim="$v.Form[name].$model"

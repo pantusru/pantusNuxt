@@ -1,7 +1,9 @@
 <template>
   <div class="mb-2">
-    <div class="d-flex justify-content-between">
-      <label class="mr-3 pl-0" :for="name">{{ items }}</label>
+    <div class="d-flex justify-content-between flex-column flex-sm-row">
+      <label class="mr-3 pl-0" :for="name"
+        >{{ items }} <span class="text-danger"> *</span></label
+      >
       <autocomplete add-class="w-75" :$v="$v" @input="SetValue" />
       <!-- <b-input class="w-75" v-on:input="goTown" v-model="value" size="sm" :id="name"></b-input> -->
     </div>

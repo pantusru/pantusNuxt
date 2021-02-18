@@ -8,7 +8,7 @@ export default {
   },
   pwa: {
     manifest: {
-      name: "Pantus интернет магазин",
+      // name: "Pantus интернет магазин",
       short_name: "Pantus",
       lang: "ru",
       useWebmanifestExtension: false,
@@ -67,7 +67,7 @@ export default {
     htmlAttrs: {
       lang: "ru",
     },
-    // title: process.env.npm_package_name || "",
+    title: "Pantus интернет магазин",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },

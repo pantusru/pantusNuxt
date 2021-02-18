@@ -31,8 +31,10 @@
 </template>
 
 <script>
+import ContactMenu from "@/components/static/elements/contact-menu";
 export default {
   name: "ContactsGoroda",
+  components: { ContactMenu },
   head() {
     return {
       title: `Автозапчасти по категориям - Интернет-магазин запчастей`,

@@ -19,6 +19,9 @@ a.link-decoration-none:hover {
 .text-decoration {
   text-decoration: underline;
 }
+.text-decoration-none{
+  text-decoration: none;
+}
 button.link-light:hover {
   color: var(--light) !important;
 }

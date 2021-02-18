@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <Vinput
-      class="col-12 col-lg-3 mx-auto"
+      class="col-12 col-lg-3 px-0"
       :data="dataset"
       :placeholders="'Поиск по применимостям'"
     />

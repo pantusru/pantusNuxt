@@ -52,7 +52,7 @@ export default {
             data: "errorOrder",
             value: false,
           });
-          // await this.$router.push("/profile/orders/" + res.success.order_id);
+          await this.$router.push("/profile/orders/" + res.success.order_id);
         }
       }
     },

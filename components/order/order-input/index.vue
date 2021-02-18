@@ -1,16 +1,17 @@
 <template>
   <div :class="addClass">
-    <div class="d-flex justify-content-between">
-      <label class="mr-3 pl-0" :for="name">{{ items }}</label>
+    <div class="d-flex justify-content-between flex-column flex-sm-row">
+      <label class="mr-3 pl-0" :for="name"
+        >{{ items }}<span v-if="request" class="text-danger"> *</span></label
+      >
       <b-form-input
+        :id="name"
+        v-model.trim="$v.Form[name].$model"
         v-mask="Vmask"
         :type="type"
-        v-model.trim="$v.Form[name].$model"
-        :id="name"
         class="w-75"
         size="sm"
-      >
-      </b-form-input>
+      />
     </div>
     <base-errors-valid
       class="text-center"

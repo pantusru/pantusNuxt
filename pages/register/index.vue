@@ -5,13 +5,24 @@
       <radioForm :buyer.sync="buyer" />
       <b-form-group>
         <VInput
+          :maxlength="128"
+          :request="true"
           items="Фамилия:"
           name="surname"
           :error="error.surname"
           :$v="$v"
         />
-        <VInput items="Имя:" name="name" :error="error.name" :$v="$v" />
         <VInput
+          :maxlength="128"
+          :request="true"
+          items="Имя:"
+          name="name"
+          :error="error.name"
+          :$v="$v"
+        />
+        <VInput
+          :maxlength="128"
+          :request="true"
           items="Email:"
           name="email"
           :error="error.email"
@@ -19,6 +30,8 @@
           @input="ofValidate"
         />
         <VInput
+          :maxlength="128"
+          :request="true"
           type="password"
           items="Пароль:"
           name="password"
@@ -26,6 +39,8 @@
           :$v="$v"
         />
         <VInput
+          :maxlength="128"
+          :request="true"
           type="password"
           items=" Повторите Пароль:"
           name="password2"
@@ -33,6 +48,7 @@
           :$v="$v"
         />
         <VInput
+          :request="true"
           type="tel"
           vmask="+#(###) ###-##-##"
           items="Мобильный телефон"
@@ -68,6 +84,7 @@
           />
         </VInput>
         <VInput
+          :request="true"
           items="Название организации"
           name="organization"
           :error="error.organization"

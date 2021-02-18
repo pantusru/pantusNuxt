@@ -806,14 +806,14 @@
         </div>
         <div class="promotruck" />
         <div style="display: flex; justify-content: flex-end">
-          <div class="deliverymethod text-right">
+          <div class="deliverymethod">
             <h3 class="text-center">Способы доставки:</h3>
             <p class="w-75 ml-auto">
               В распоряжении нашей транспортной службы 43 грузовых автомобиля, а
               в случае необходимости мы отправим товар любой службой доставки,
               доступной на территории нашей страны
             </p>
-            <div class="justify-content-sm-end row">
+            <div class="row">
               <div class="col-sm-4">
                 <p>
                   <strong
@@ -821,7 +821,7 @@
                     нашим транспортом</strong
                   >
                 </p>
-                <ul>
+                <ul class="d-inline-block">
                   <li>
                     <nuxt-link to="/contacts/goroda">Список городов</nuxt-link>
                   </li>
@@ -1338,9 +1338,9 @@ export default {
   background-size: 50% auto;
 }
 .promoleftpict {
-  background: url("https://www.pantus.ru/opt/media/promodeliv.jpg") no-repeat
-    bottom left;
-  background-size: contain;
+  /*background: url("https://www.pantus.ru/opt/media/promodeliv.jpg") no-repeat*/
+  /*  bottom left;*/
+  /*background-size: contain;*/
 }
 .container-static ol {
   counter-reset: chapter 0;

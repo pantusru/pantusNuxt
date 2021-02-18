@@ -49,10 +49,10 @@ const email = [
   },
 ];
 const inn = [
-  {
-    ifv: "required",
-    text: "Укажите ваш ИНН",
-  },
+  // {
+  //   ifv: "required",
+  //   text: "Укажите ваш ИНН",
+  // },
   {
     ifv: "minLength",
     text: "Укажите корректный ИНН",
@@ -65,10 +65,10 @@ const organization = [
   },
 ];
 const country = [
-  {
-    ifv: "required",
-    text: "Укажите название вашей страны",
-  },
+  // {
+  //   ifv: "required",
+  //   text: "Укажите название вашей страны",
+  // },
 ];
 const telephone = [
   {
@@ -81,10 +81,10 @@ const telephone = [
   },
 ];
 const address = [
-  {
-    ifv: "required",
-    text: "Укажите ваш адрес",
-  },
+  // {
+  //   ifv: "required",
+  //   text: "Укажите ваш адрес",
+  // },
 ];
 const checbox = [
   {

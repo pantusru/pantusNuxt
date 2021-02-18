@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <Vinput
-      class="col-12 col-lg-3 mx-auto"
+      class="col-12 col-lg-3 px-0"
       :get-name="'Brand/BrandAll/GetBrand'"
       :placeholders="'Поиск по брендам'"
       @Vsearch="ValueSet"

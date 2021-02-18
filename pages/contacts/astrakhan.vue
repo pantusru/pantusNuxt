@@ -118,7 +118,7 @@
                 <td>Принимаем заказы с сайта</td>
               </tr>
             </tbody>
-          </table>src="https://www.pantus.ru
+          </table>
         </div>
         <div class="col-md-6 col-12" style="padding-left: 0px; margin-top: 20px">
           <h3>Адрес:&nbsp;</h3>

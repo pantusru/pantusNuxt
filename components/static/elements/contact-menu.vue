@@ -1,26 +1,51 @@
 <template>
   <div class="row mb-3 mt-3 align-items-center" style="">
     <div class="col-md-2" style="">
-      <nuxt-link to="/contacts" class="fz-5">Балаково</nuxt-link>
+      <nuxt-link
+        :exact-active-class="'text-decoration-none'"
+        to="/contacts"
+        class="fz-5"
+        >Балаково</nuxt-link
+      >
     </div>
     <div class="col-md-2" style="">
       <h4>
-        <nuxt-link to="/contacts/moscow/" class="fz-5">Москва</nuxt-link>
+        <nuxt-link
+          :exact-active-class="'text-decoration-none'"
+          to="/contacts/moscow/"
+          class="fz-5"
+          >Москва</nuxt-link
+        >
       </h4>
     </div>
     <div class="col-md-2" style="">
       <h4>
-        <nuxt-link to="/contacts/tolyatti/" class="fz-5">Тольятти</nuxt-link>
+        <nuxt-link
+          :exact-active-class="'text-decoration-none'"
+          to="/contacts/tolyatti/"
+          class="fz-5"
+          >Тольятти</nuxt-link
+        >
       </h4>
     </div>
     <div class="col-md-2" style="">
       <h4>
-        <nuxt-link to="/contacts/astrakhan/" class="fz-5">Астрахань</nuxt-link>
+        <nuxt-link
+          :exact-active-class="'text-decoration-none'"
+          to="/contacts/astrakhan/"
+          class="fz-5"
+          >Астрахань</nuxt-link
+        >
       </h4>
     </div>
     <div class="col-md-2" style="">
       <h4>
-        <nuxt-link to="/contacts/goroda/" class="fz-5">Все города</nuxt-link>
+        <nuxt-link
+          :exact-active-class="'text-decoration-none'"
+          to="/contacts/goroda/"
+          class="fz-5"
+          >Все города</nuxt-link
+        >
       </h4>
     </div>
   </div>

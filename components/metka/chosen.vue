@@ -1,29 +1,16 @@
 <template>
-  <component :title="title" :is="'td'">
+  <component :is="'td'" :title="title">
     <b-icon-bookmark-plus
-      @click="SetChosen"
       :class="{ activ: selected }"
       class="cursor-pointer h4 d-none-chosen fz-5"
-    >
-    </b-icon-bookmark-plus>
+      @click="SetChosen"
+    />
   </component>
 </template>
 
 <script>
 export default {
-  name: "filter-metka",
-  data() {
-    return {
-      /**
-       * @property Флаг выбран ли товар в израбранных
-       */
-      selected: false,
-      /**
-       * @property что отображать при наведение на иконку
-       */
-      title: "Добавить в избранное",
-    };
-  },
+  name: "FilterMetka",
   props: {
     /**
      * @property Id Товара
@@ -37,6 +24,37 @@ export default {
     link: {
       type: Object,
     },
+  },
+  data() {
+    return {
+      /**
+       * @property Флаг выбран ли товар в израбранных
+       */
+      selected: false,
+      /**
+       * @property что отображать при наведение на иконку
+       */
+      title: "Добавить в избранное",
+    };
+  },
+  computed: {
+    /**
+     * @property Массив всех выбранных товаров
+     */
+    SelectedProducts() {
+      return this.$store.getters["Selected/selected/GetSelected"];
+    },
+  },
+  created() {
+    const data = this.SelectedProducts;
+    for (const key in data) {
+      // Проверяем есть ли этот товар в избранных
+      if (data[key].ProductCard.id == this.id) {
+        this.selected = true;
+        this.title = "Удалить из избранного";
+        break;
+      }
+    }
   },
   methods: {
     /**
@@ -58,25 +76,6 @@ export default {
         this.title = "Удалить из избранного";
       }
     },
-  },
-  computed: {
-    /**
-     * @property Массив всех выбранных товаров
-     */
-    SelectedProducts() {
-      return this.$store.getters["Selected/selected/GetSelected"];
-    },
-  },
-  created() {
-    const data = this.SelectedProducts;
-    for (const key in data) {
-      // Проверяем есть ли этот товар в избранных
-      if (data[key].ProductCard.id == this.id) {
-        this.selected = true;
-        this.title = "Удалить из избранного";
-        break;
-      }
-    }
   },
 };
 </script>

@@ -13,7 +13,7 @@
         class="catalog-blog-link text-decoration"
         >О брэнде
       </nuxt-link>
-      <span v-else>О брэнде</span>
+      <!--      <span v-else>О брэнде</span>-->
     </div>
   </b-col>
 </template>

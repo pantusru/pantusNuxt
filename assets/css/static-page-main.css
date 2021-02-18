@@ -99,5 +99,7 @@
 }
 
 
-
+.container-static td{
+  vertical-align: baseline;
+}
 

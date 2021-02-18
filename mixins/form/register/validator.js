@@ -34,7 +34,7 @@ const telephone = {
   minLength: minLength(17),
 };
 const inn = {
-  required,
+  // required,
   minLength: minLength(12),
 };
 const organization = {
@@ -44,7 +44,7 @@ const country = {
   // required,
 };
 const address = {
-  required,
+  // required,
 };
 const checbox = {
   required: value => value === true,

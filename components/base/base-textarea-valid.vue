@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="d-flex flex-row align-items-lg-center mb-2 flex-column flex-lg-row justify-content-between"
-  >
-    <div class="mr-4">
-      <label :for="name"> {{ items }}</label>
-    </div>
+  <div class="row no-gutters mb-2 flex-column flex-sm-row">
+    <label class="mr-4" :for="name"> {{ items }}</label>
 
     <b-textarea
       :id="name"
@@ -12,7 +8,7 @@
       v-mask="Vmask"
       :autocomplete="'off'"
       :type="type"
-      class="w-75 ml-auto"
+      class="w-75 ml-sm-auto ml-0"
       size="sm"
     />
     <base-errors-valid :name="name" :error="error" :$v="$v" />

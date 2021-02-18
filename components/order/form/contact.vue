@@ -1,13 +1,21 @@
 <template>
   <b-form class="pt-3">
     <vInput
+      :request="true"
       :$v="$v"
       items="Фамилия:"
       name="surname"
       :error="error['surname']"
     />
-    <vInput :$v="$v" items="Имя:" name="name" :error="error['name']" />
     <vInput
+      :request="true"
+      :$v="$v"
+      items="Имя:"
+      name="name"
+      :error="error['name']"
+    />
+    <vInput
+      :request="true"
       :$v="$v"
       vmask="+#(###) ###-##-##"
       items="Телефон:"
@@ -31,6 +39,7 @@
       <!--        :error="error['companyCountry']"-->
       <!--      />-->
       <vInput
+        :request="true"
         :$v="$v"
         items="Название:"
         name="companyName"

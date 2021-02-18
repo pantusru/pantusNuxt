@@ -7,13 +7,13 @@
         <Contact :$v="$v" class="pr-5" />
       </b-col>
       <b-col cols="12" lg="6">
-        <h3 class="mb-2">Способ оплаты</h3>
+        <h3 class="mb-2">Способ оплаты <span class="text-danger">*</span></h3>
         <Payment :$v="$v" :error="error" />
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="12" lg="6" class="mt-lg-5 mt-3">
-        <h3 class="mb-3">Способ доставки</h3>
+        <h3 class="mb-3">Способ доставки <span class="text-danger">*</span></h3>
         <Dostavka :$v="$v" :error="error" />
         <base-textarea-valid
           items="Комментарий:"
@@ -23,7 +23,7 @@
         />
         <!--        <div></div>-->
       </b-col>
-      <b-col cols="6" class="mt-lg-5 mt-3">
+      <b-col cols="12" sm="6" class="mt-lg-5 mt-3">
         <Product :$v="$v" />
         <h5 v-if="getError" class="error mt-3">Ошибка сервера</h5>
       </b-col>

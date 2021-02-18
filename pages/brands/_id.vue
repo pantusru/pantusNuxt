@@ -5,6 +5,7 @@
       class="container-static"
       v-html="brand.description"
     />
+    <h2 v-if="!brand.active" class="text-danger">Нету описания бренда</h2>
   </b-container>
 </template>
 

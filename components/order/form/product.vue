@@ -6,7 +6,12 @@
     <b-button class="bg-danger border-0" @click="formGo"
       >Отправить заказ</b-button
     >
-    <base-alert />
+    <base-alert
+      text="Заказ успешно оформлен"
+      class="w-25"
+      :get-alert.sync="getAlert"
+      :router-home="false"
+    />
   </b-form>
 </template>
 
@@ -16,6 +21,12 @@ export default {
   components: { BaseAlert },
   props: {
     $v: {},
+  },
+  data() {
+    return {
+      getAlert: false,
+      idOrder: undefined,
+    };
   },
   computed: {
     GetCostProduct() {
@@ -27,6 +38,13 @@ export default {
     GetCostOrder() {
       const data = this.GetCostProduct + this.GetCostDostavka;
       return data.toFixed(2);
+    },
+  },
+  watch: {
+    async getAlert(newValue) {
+      if (newValue === false) {
+        await this.$router.push("/profile/orders/" + this.idOrder);
+      }
     },
   },
   methods: {
@@ -52,7 +70,8 @@ export default {
             data: "errorOrder",
             value: false,
           });
-          await this.$router.push("/profile/orders/" + res.success.order_id);
+          this.getAlert = true;
+          this.idOrder = res.success.order_id;
         }
       }
     },

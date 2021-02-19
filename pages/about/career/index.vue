@@ -148,8 +148,7 @@ export default {
         { to: "/about/career/", name: "Работа в компании" },
         { to: "/about/career/jobs/", name: "Вакансии" },
         {
-          to:
-            "/upload/files/%D0%90%D0%9D%D0%9A%D0%95%D0%A2%D0%90%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0.docx",
+          to: "/about/career/form/",
           name: "Анкета для соискателя",
         },
       ],

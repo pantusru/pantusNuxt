@@ -91,6 +91,20 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", href: "/icon.png" },
     ],
+    script: [
+      // {
+      //   src:
+      //     "https://cdn-ru.bitrix24.ru/b1644873/crm/tag/call.tracker.js?26895593",
+      //   async: true,
+      //   defer: true,
+      // },
+      {
+        src:
+          "https://cdn.bitrix24.ru/b1644873/crm/site_button/loader_2_9exs8l.js?1613735583",
+        async: true,
+        defer: true,
+      },
+    ],
   }),
   /*
    ** Global CSS

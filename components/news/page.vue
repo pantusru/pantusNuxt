@@ -5,6 +5,7 @@
     </b-row>
     <div v-if="Count > 1" class="overflow-auto">
       <b-pagination-nav
+        size="sm"
         :link-gen="linkGen"
         :number-of-pages="Count"
         use-router

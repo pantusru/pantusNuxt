@@ -35,7 +35,9 @@ export const actions = {
   async _Authorization({}, data) {
     return await this.$axios.get(`${process.env.api}/auth`, {
       headers: {
-        Authorization: `Basic ${window.btoa(data.login + `:` + data.password)}`,
+        Authorization: `Basic ${window.btoa(
+          escape(decodeURIComponent(data.login + `:` + data.password))
+        )}`,
       },
     });
   },

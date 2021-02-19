@@ -1,14 +1,15 @@
 <template>
-  <b-button v-if="show" @click="AddPanel">+</b-button>
+  <b-button
+    title="Добавить применяемость"
+    v-if="show"
+    class="filter_applicabilities-button_add-input"
+    @click="AddPanel"
+    >+</b-button
+  >
 </template>
 
 <script>
 export default {
-  methods: {
-    AddPanel() {
-      this.$store.dispatch("Applicabilities/Panel/SetPanelNew");
-    },
-  },
   computed: {
     lengthApplicabilitiess() {
       return this.$store.getters[
@@ -22,7 +23,15 @@ export default {
       return this.lengthApplicabilitiess > this.lengthPanel;
     },
   },
+  methods: {
+    AddPanel() {
+      this.$store.dispatch("Applicabilities/Panel/SetPanelNew");
+    },
+  },
 };
 </script>
 
-<style></style>
+<style lang="sass">
+.filter_applicabilities-button_add-input
+  padding: 2px 8px
+</style>

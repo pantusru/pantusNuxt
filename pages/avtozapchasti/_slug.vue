@@ -11,7 +11,7 @@ export default {
     if (res.id !== null) {
       redirect(`/products/${res.id}`);
     } else {
-      // redirect("/404");
+      redirect("/404");
     }
   },
 };

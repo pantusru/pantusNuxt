@@ -1,10 +1,10 @@
 <template>
   <b-modal id="authorization" centered @hidden="reset">
     <template #modal-header>
-      <div class="d-flex aling-items-center justify-content-between w-100">
+      <div class="d-flex align-items-center justify-content-between w-100">
         <h3>Вход</h3>
         <b-button
-          class="font-weight-bolder"
+          class="font-weight-bolder button-modal_authorization-close"
           variant="outline-danger"
           @click="hidden"
         >
@@ -190,3 +190,9 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+.button-modal_authorization-close
+  font-size: 13px
+  padding: 6px 10px
+</style>

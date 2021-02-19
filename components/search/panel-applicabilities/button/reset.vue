@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-2">
+  <div class="mt-2 mb-1">
     <span
-      v-on:click.prevent="ResetApplicabilities"
       class="link-danger cursor-pointer"
+      @click.prevent="ResetApplicabilities"
     >
       Сброс фильтры
     </span>
@@ -11,6 +11,9 @@
 
 <script>
 export default {
+  destroyed() {
+    this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
+  },
   methods: {
     async ResetApplicabilities() {
       this.$store.commit("SetcheckFilterClick", "resetApplicabilities");
@@ -28,9 +31,6 @@ export default {
         await this.$store.dispatch("Applicabilities/Panel/ResetAll");
       }
     },
-  },
-  destroyed() {
-    this.$store.commit("Applicabilities/Panel/DeleteAllPanel");
   },
 };
 </script>

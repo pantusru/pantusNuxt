@@ -4,13 +4,13 @@
     @click="DeleteCheck"
   >
     <span class="fz-5">{{ link.name }}</span>
-    <!--    <b-badge-->
-    <!--      variant="light"-->
-    <!--      pill-->
-    <!--      class="mr-1 cursor-pointer mb-3 close-mark mr-2"-->
-    <!--    >-->
-    <!--      <b-icon-x class=""></b-icon-x>-->
-    <!--    </b-badge>-->
+    <b-badge
+      variant="light"
+      pill
+      class="mr-1 cursor-pointer mb-3 close-mark mr-2"
+    >
+      <b-icon-x class=""></b-icon-x>
+    </b-badge>
   </div>
 </template>
 

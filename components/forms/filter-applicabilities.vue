@@ -1,9 +1,9 @@
 <template>
   <div class="mb-4">
     <button
-      @click.prevent="showAll = true"
       v-show="showAll === false"
       :class="BntClass"
+      @click.prevent="showAll = true"
     >
       Указать применяемости
     </button>
@@ -15,10 +15,10 @@
       <b-card-body class="px-3 py-2">
         <span class="cursor-pointer link-danger" @click="showAll = false">
           Указать применяемости
-          <b-icon-arrow-up></b-icon-arrow-up>
+          <b-icon-arrow-up />
         </span>
         <div class="mt-3 mb-2">
-          <Vpanel v-for="data in Panels" :key="data.id" :PanelId="data.id" />
+          <Vpanel v-for="data in Panels" :key="data.id" :panel-id="data.id" />
           <ButtonAdd />
           <ButtonReset />
           <ButtonSubmit />
@@ -34,19 +34,19 @@ import ButtonAdd from "@/components/search/panel-applicabilities/button/button-a
 import ButtonReset from "@/components/search/panel-applicabilities/button/reset";
 import ButtonSubmit from "@/components/search/buttons/button-submit";
 export default {
-  name: "filter-applicabilities",
+  name: "FilterApplicabilities",
+  components: {
+    Vpanel,
+    ButtonAdd,
+    ButtonReset,
+    ButtonSubmit,
+  },
   data() {
     return {
       BntClass:
         "text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer",
       showAll: false,
     };
-  },
-  components: {
-    Vpanel,
-    ButtonAdd,
-    ButtonReset,
-    ButtonSubmit,
   },
   computed: {
     Panels() {

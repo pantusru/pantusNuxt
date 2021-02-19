@@ -6,7 +6,7 @@
     <!--      :check-recaptcha.sync="checkRecaptcha"-->
     <!--    />-->
     <b-button class="border bg-danger" @click="SetDataUser">Изменить</b-button>
-    <base-alert class="w-25" :get-alert.sync="getAlert" :routerHome="false" />
+    <base-alert :get-alert.sync="getAlert" :routerHome="false" />
   </div>
 </template>
 

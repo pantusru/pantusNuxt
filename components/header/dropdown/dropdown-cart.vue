@@ -18,22 +18,26 @@
       <template v-for="(dataset, index) in CartProduct.slice(0, 5)">
         <tr :key="dataset.id">
           <td class="w-50 border-0" :rowspan="dataset.productOffer.length + 1">
-            <span
-              class="reset-title reset-title-line-2 mb-1"
-              :title="dataset.ProductCard.sku.original"
-              >{{ dataset.ProductCard.sku.original }}</span
-            >
-            <span
-              :title="dataset.ProductCard.name"
-              class="reset-title reset-title-line-2"
-              >{{ dataset.ProductCard.name }}</span
-            >
+            <nuxt-link class="text-body" to="/cart">
+              <span
+                class="reset-title reset-title-line-2 mb-1"
+                :title="dataset.ProductCard.sku.original"
+                >{{ dataset.ProductCard.sku.original }}</span
+              >
+              <span
+                :title="dataset.ProductCard.name"
+                class="reset-title reset-title-line-2"
+                >{{ dataset.ProductCard.name }}</span
+              >
+            </nuxt-link>
           </td>
         </tr>
         <template v-for="offers in dataset.productOffer">
           <tr>
-            <td class="border-0">{{ offers.prices }} Р</td>
-            <td class="border-0">{{ offers.Count }}</td>
+            <nuxt-link to="/cart" class="text-body">
+              <td class="border-0">{{ offers.prices }} Р</td>
+              <td class="border-0">{{ offers.Count }}</td>
+            </nuxt-link>
             <td class="border-0">
               <DeleteCart
                 :id="offers.id"

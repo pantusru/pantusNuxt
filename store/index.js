@@ -17,10 +17,14 @@ export const state = () => ({
   cookie: "",
   AuthorizationOrder: false,
   orderUpdateCity: false,
+  setCartGuest: false,
 });
 export const mutations = {
   SetCheckCountProducts(store, data) {
     store.CheckCountProducts = data;
+  },
+  setCartGuest(store, data) {
+    store.setCartGuest = data;
   },
   SetCookie(store, data) {
     store.cookie = data;
@@ -62,4 +66,5 @@ export const getters = {
   getAuthorizationOrder: s => s.AuthorizationOrder,
   getOrderUpdateCity: s => s.orderUpdateCity,
   getErrorOrder: s => s.Form.errorOrder,
+  getSetCartGuest: s => s.setCartGuest,
 };

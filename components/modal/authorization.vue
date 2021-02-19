@@ -78,20 +78,26 @@ import MixinsValidations from "@/mixins/form/authorization/validator";
 import VInput from "@/components/input/input-validate";
 import vueRecaptcha from "@/components/recaptcha/index";
 import BaseButton from "@/components/base/button/base-button";
-
+import MixinSetCart from "@/mixins/cart-set/index";
 export default {
   components: {
     BaseButton,
     VInput,
     vueRecaptcha,
   },
-  mixins: [MixinsError, MixinsValidations],
+  mixins: [MixinsError, MixinsValidations, MixinSetCart],
   computed: {
+    GetCart() {
+      return this.$store.getters["Cart/CartAll/GetCartProduct"];
+    },
     GetcheckAuthorization() {
       return this.$store.getters.GetcheckAuthorization;
     },
     getAuthorizationOrder() {
       return this.$store.getters.getAuthorizationOrder;
+    },
+    getSetCartGuest() {
+      return this.$store.getters.getSetCartGuest;
     },
   },
   methods: {
@@ -151,7 +157,18 @@ export default {
             data: "checkAuthorization",
             value: false,
           });
+          const oldCart = this.$store.getters["Cart/CartAll/GetCartProduct"];
           await this.$store.dispatch("Cart/CartAll/_CartProduct", true);
+          if (oldCart.length > 0 && this.GetCart.length !== 0) {
+            // нужно спросить user о добавление товара
+            this.$store.commit("setCartGuest", oldCart);
+            this.$bvModal.show("SetCart");
+          } else if (oldCart.length > 0) {
+            // Нужно сохранить товар
+            const Cart = [...oldCart, ...this.Cart];
+            await this.updateCart(Cart);
+            this.$store.commit("setCartGuest", false);
+          }
           if (this.getAuthorizationOrder) {
             await this.$router.push("/order");
           } else {

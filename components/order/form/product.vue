@@ -8,7 +8,6 @@
     >
     <base-alert
       text="Заказ успешно оформлен"
-      class="w-25"
       :get-alert.sync="getAlert"
       :router-home="false"
     />

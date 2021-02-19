@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <SetCart />
     <!--    <b-overlay :show="show" rounded="sm" class="blog-full-content">-->
     <!-- Спиннер для всего сайта компонент bootstrap 4 -->
     <VueHeader class="mb-5" />
@@ -14,8 +15,10 @@
 import VueHeader from "@/components/header/index";
 import VueFooter from "@/components/footer/footer-main";
 import ButtonScrollTop from "~/components/base/button/button-scroll-top";
+import SetCart from "@/components/modal/set-cart";
 export default {
   components: {
+    SetCart,
     ButtonScrollTop,
     VueHeader,
     VueFooter,
@@ -23,6 +26,11 @@ export default {
   computed: {
     show() {
       return this.$store.getters.GetshowLoader;
+    },
+  },
+  watch: {
+    $route() {
+      this.$store.commit("SetNavMobile", false);
     },
   },
 };

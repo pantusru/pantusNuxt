@@ -24,8 +24,7 @@ export default {
     },
   },
   methods: {
-    async deleteProduct() {
-      console.log(this.id);
+    async deleteProduct(event) {
       // await Запрос на удаление товара с корзины
       await this.$store.dispatch("Cart/CartAll/DeleteCartProduct", this.id);
       if (this.$route.name === "order" && this.getCart.length === 0) {

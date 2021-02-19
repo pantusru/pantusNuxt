@@ -3,7 +3,7 @@
     v-if="getAlert === true"
     :variant="variant"
     dismissible
-    class="mt-3"
+    class="mt-3 base-alert"
     :show="dismissCountDown"
     @dismiss-count-down="countDownChanged"
   >
@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: "base-alert",
   props: {
     /**
      * Внешний вид alert
@@ -35,7 +36,6 @@ export default {
       default: false,
       type: Boolean,
     },
-    name: "base-alert",
     /**
      * Текст который вставлен в alert
      */
@@ -82,4 +82,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="sass">
+@import "assets/sass-mixin/index"
+.base-alert
+  +grid(12)
+  +grid-md(4)
+</style>

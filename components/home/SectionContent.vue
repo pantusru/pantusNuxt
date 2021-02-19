@@ -1,11 +1,9 @@
 <template>
   <section class="section-content row">
     <div class="blog-catalogs col-md-4 col-12">
-      <h2>
-        <nuxt-link class="title-content link-hover" to="catalog/"
-          >Оригинальные каталоги
-        </nuxt-link>
-      </h2>
+      <nuxt-link class="title-content link-hover" to="catalog/"
+        >Оригинальные каталоги
+      </nuxt-link>
       <img
         class="img-100-auto"
         :src="require('@/assets/img/home/zapchasti.png')"
@@ -13,11 +11,9 @@
       />
     </div>
     <div class="blog-brand col-12 col-md-8">
-      <h2>
-        <nuxt-link to="/brands" class="title-content link-hover"
-          >Бренды запчастей</nuxt-link
-        >
-      </h2>
+      <nuxt-link to="/brands" class="title-content link-hover"
+        >Бренды запчастей</nuxt-link
+      >
       <div class="table-brand">
         <div v-for="data in table" :key="data.id" class="brand-tr row">
           <div

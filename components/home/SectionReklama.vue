@@ -1,5 +1,5 @@
 <template>
-  <section class="section-reklama flex-column flex-md-row">
+  <section class="section-reklama flex-column flex-lg-row">
     <div class="row">
       <div class="img-reklama col-6">
         <img
@@ -59,5 +59,5 @@ export default {
         &:hover
           background-color: #ec0e1d
 .img-reklama
-  //max-width: 150px
+  max-width: 150px
 </style>

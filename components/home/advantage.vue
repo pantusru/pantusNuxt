@@ -54,7 +54,7 @@
           to="/pay"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
-          <div class="col-8 mx-auto mb-3">
+          <div class="col-8 mx-auto mb-3 advantage">
             <b-img
               :src="require('@img/advantage/feature-new-04.png')"
               class="img-advantage-h120px"
@@ -95,7 +95,7 @@ export default {
 .home-advantage-content-text {
   font-size: 13px;
 }
-.img-advantage-h120px {
-  max-height: 120px;
+.img-advantage {
+  max-width: 100px;
 }
 </style>

@@ -1,3 +1,5 @@
+import { encode } from "js-base64";
+
 export const actions = {
   async _User({ dispatch, rootGetters }) {
     console.log(rootGetters.GetCookie);
@@ -35,9 +37,7 @@ export const actions = {
   async _Authorization({}, data) {
     return await this.$axios.get(`${process.env.api}/auth`, {
       headers: {
-        Authorization: `Basic ${window.btoa(
-          escape(decodeURIComponent(data.login + `:` + data.password))
-        )}`,
+        Authorization: "Basic " + encode(data.login + ":" + data.password),
       },
     });
   },

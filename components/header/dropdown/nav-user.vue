@@ -2,10 +2,13 @@
   <b-nav-item-dropdown
     id="my-nav-user"
     no-caret
-    :text="userName"
     toggle-class="nav-link-custom fz-5 my-nav-user"
     center
   >
+    <template #button-content>
+      <div>{{ userSurname }}</div>
+      <span>{{ userName }}</span>
+    </template>
     <b-dropdown-item
       v-for="data in links"
       :key="data.id"
@@ -24,6 +27,9 @@ export default {
   components: { BaseExitUser },
   props: {
     userName: {
+      type: String,
+    },
+    userSurname: {
       type: String,
     },
   },

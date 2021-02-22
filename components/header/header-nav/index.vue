@@ -10,7 +10,7 @@
       <!-- right   -->
       <!-- user  -->
       <b-navbar-nav
-        class="d-flex ml-0 ml-lg-auto flex-row align-items-center justify-content-between"
+        class="d-flex ml-0 ml-lg-auto flex-row align-items-center justify-content-between nav-user"
       >
         <div class="d-flex mr-2 align-items-center">
           <!-- icons -->
@@ -48,7 +48,7 @@
             </nuxt-link>
           </div>
           <div v-if="CheckUser === true" class="d-lg-block d-none">
-            <NavUser :user-name="User.surname + ' ' + User.name" />
+            <NavUser :user-surname="User.surname" :user-name="User.name" />
           </div>
         </div>
         <!-- user -->
@@ -124,5 +124,8 @@ export default {
 <style>
 .logo {
   min-width: 120px;
+}
+.nav-user {
+  flex: 0 0 auto;
 }
 </style>

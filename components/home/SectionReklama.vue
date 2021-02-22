@@ -1,6 +1,6 @@
 <template>
   <section class="section-reklama flex-column flex-lg-row">
-    <div class="row">
+    <div class="row col-3">
       <div class="img-reklama col-6">
         <img
           class="img-100-auto"

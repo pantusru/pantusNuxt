@@ -54,11 +54,12 @@
         <!--        >-->
       </div>
       <div class="w100">
-        <!--        <b-button-->
-        <!--          class="border-0 p-0 bg-white text-dark link-danger"-->
-        <!--          @click="registration"-->
-        <!--          >Регистрация</b-button-->
-        <!--        >-->
+        <b-button
+          class="border-0 p-0 bg-white text-dark link-danger d-block d-sm-none"
+          @click="registration"
+        >
+          Регистрация
+        </b-button>
       </div>
       <b-row no-gutters class="flex-column">
         <!-- <vueRecaptcha

@@ -80,7 +80,6 @@ export default {
 <style>
 .dropdown-cart {
   padding: 20px;
-  top: 25px;
   width: 400px;
   position: absolute;
   right: 0;

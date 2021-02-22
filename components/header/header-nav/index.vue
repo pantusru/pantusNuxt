@@ -53,32 +53,49 @@
         </div>
         <!-- user -->
         <!-- Корзина-->
-        <div
-          class="position-relative"
-          @mouseenter="getDropCart = true"
-          @mouseleave="getDropCart = false"
+        <nuxt-link
+          to="/cart"
+          class="d-flex align-items-center link-decoration-none d-block d-md-none"
         >
-          <nuxt-link
-            to="/cart"
-            class="d-flex align-items-center link-decoration-none"
-          >
-            <div class="icons-nav-w20">
-              <img
-                src="@img/icons/icon-shopping-cart.png"
-                alt="icon-shopping"
-              />
+          <div class="icons-nav-w20">
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />
+          </div>
+          <div class="d-flex flex-column text-secondary pl-10px">
+            <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
+              <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
             </div>
-            <div class="d-flex flex-column text-secondary pl-10px">
-              <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
-                <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
+            <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
+              >{{ stoimost }} р</strong
+            >
+          </div>
+        </nuxt-link>
+        <b-nav-item-dropdown
+          :menu-class="'border-0'"
+          class="position-relative d-none d-md-block"
+          no-caret
+          d-none
+          d-md-table
+        >
+          <template #button-content>
+            <div class="d-flex align-items-center link-decoration-none">
+              <div class="icons-nav-w20">
+                <img
+                  src="@img/icons/icon-shopping-cart.png"
+                  alt="icon-shopping"
+                />
               </div>
-              <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
-                >{{ stoimost }} р</strong
-              >
+              <div class="d-flex flex-column text-secondary pl-10px">
+                <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
+                  <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
+                </div>
+                <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
+                  >{{ stoimost }} р</strong
+                >
+              </div>
             </div>
-          </nuxt-link>
-          <dropdown-cart v-if="getDropCart" />
-        </div>
+          </template>
+          <dropdown-cart />
+        </b-nav-item-dropdown>
         <!-- Корзина-->
       </b-navbar-nav>
     </b-navbar>
@@ -118,6 +135,9 @@ export default {
     GetLength() {
       return this.$store.getters["Cart/CartAll/GetLength"];
     },
+  },
+  methods: {
+    ToggleBodyFunction() {},
   },
 };
 </script>

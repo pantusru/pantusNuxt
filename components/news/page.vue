@@ -1,15 +1,18 @@
 <template>
   <div class="page-news">
     <b-row>
-      <VueBlogNews v-for="data in dataset" :key="data.id" :data="data" />
+      <VueBlogNews class='col-12 col-md-6 col-lg-4' v-for="data in dataset" :key="data.id" :data="data" />
     </b-row>
     <div v-if="Count > 1" class="overflow-auto">
       <b-pagination-nav
         size="sm"
+        last-number
+        first-number
         :link-gen="linkGen"
         :number-of-pages="Count"
         use-router
         align="center"
+        limit='5'
       />
     </div>
   </div>

@@ -38,11 +38,11 @@ export default {
     };
   },
   async fetch({ store, params }) {
-    await store.dispatch("jobs/actionsJobsId", params.id);
+    await store.dispatch("jobs/actionsJobs");
   },
   computed: {
     jobsId() {
-      return this.$store.getters["jobs/getJobsId"];
+      return this.$store.getters["jobs/getJobsId"](this.$route.params.id);
     },
   },
 };

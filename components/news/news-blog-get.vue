@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="12" md="6" lg="4" class="mb-4 news-border">
+  <b-col class="mb-4 news-border">
     <b-row no-gutters>
       <b-col v-if="data.preview.image !== null" cols="5">
         <b-img class="" :src="data.preview.image" alt="" />

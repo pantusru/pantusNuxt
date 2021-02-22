@@ -1,13 +1,9 @@
 export const state = () => ({
   jobs: undefined,
-  jobsId: undefined,
 });
 export const mutations = {
   SetJobs(store, data) {
     store.jobs = data;
-  },
-  SetJobsId(store, data) {
-    store.jobsId = data;
   },
 };
 export const actions = {
@@ -22,5 +18,5 @@ export const actions = {
 };
 export const getters = {
   getJobs: s => s.jobs,
-  getJobsId: s => s.jobsId,
+  getJobsId: s => id => s.jobs.filter(elem => elem.id === id),
 };

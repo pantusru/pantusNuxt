@@ -2,6 +2,36 @@
 const path = require("path");
 
 export default {
+  robots: [
+    {
+      UserAgent: "AhrefsBot",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "SemrushBot",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "DotBot",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "PetalBot ",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "bingbot ",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "bingbot/2.0",
+      Disallow: "/",
+    },
+    {
+      UserAgent: "Mail.Ru",
+      Disallow: "/",
+    },
+  ],
   env: {
     api: "https://api.pantus.ru",
     pantus: "https://www.pantus.ru",
@@ -139,6 +169,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // https://www.npmjs.com/package/@nuxtjs/robots
+    "@nuxtjs/robots",
     [
       "bootstrap-vue/nuxt",
       {

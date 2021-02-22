@@ -37,6 +37,13 @@ export default {
       }
     }
   },
+  mounted() {
+    const img = document.querySelectorAll(".content-static img");
+    img.forEach(elem => {
+      const w = elem.getAttribute("width");
+      elem.style = `width:${w};padding-right: 5px`;
+    });
+  },
   // computed: {
   //   NewsPage() {
   //     return this.$store.getters["News/NewsCategoriesPage/GetNewsVisible"];
@@ -55,3 +62,4 @@ export default {
   },
 };
 </script>
+<style></style>

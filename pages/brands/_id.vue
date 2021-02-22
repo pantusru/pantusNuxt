@@ -47,6 +47,11 @@ export default {
         this.$router.push(`/search?filter_brands=${this.brand.id}`);
       };
     });
+    const img = document.querySelectorAll("img");
+    img.forEach(elem => {
+      const w = elem.getAttribute("width");
+      elem.style = `width:${w}`;
+    });
   },
 };
 </script>

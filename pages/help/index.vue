@@ -28,7 +28,7 @@
           <h3><a name="registration">Регистрация</a></h3>
           <iframe
             title="Регистрация на сайте pantus.ru"
-            width="459"
+            style="max-width: 100%; width: 459px;"
             height="344"
             src="https://www.youtube.com/embed/Da1p9WpIZuo?feature=oembed"
             frameborder="0"
@@ -129,7 +129,7 @@
           <div class="col-md-12" style="padding-left: 0px">
             <iframe
               src="//player.vimeo.com/video/274460111?app_id=122963"
-              width="580"
+              style="max-width: 100%; width: 580px;"
               height="330"
               frameborder="0"
               title="Регистрация на сайте pantus.ru"
@@ -298,7 +298,7 @@
           <div class="col-md-12" style="padding-left: 0px">
             <iframe
               src="//player.vimeo.com/video/274479599?app_id=122963"
-              width="580"
+              style="max-width: 100%; width: 580px;"
               height="330"
               frameborder="0"
               title="Регистрация на сайте pantus.ru"
@@ -467,7 +467,7 @@
             <div class="col-md-6" style="padding-left: 0px">
               <iframe
                 src="https://www.youtube.com/embed/wlyMZGHbFBE"
-                width="580"
+                style="width: 580px; max-width: 100%"
                 height="330"
                 frameborder="0"
                 title="Регистрация на сайте pantus.ru"
@@ -520,7 +520,7 @@
             <div class="col-md-6" style="padding-left: 0px">
               <iframe
                 src="https://www.youtube.com/embed/wlyMZGHbFBE?start=85"
-                width="580"
+                style="width: 580px; max-width: 100%"
                 height="330"
                 frameborder="0"
                 title="Регистрация на сайте pantus.ru"

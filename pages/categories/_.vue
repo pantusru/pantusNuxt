@@ -21,10 +21,12 @@ import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import FilterTop from "~/components/filter-top";
 import ModalImg from "~/components/modal/product-img";
+import Product404 from "@/components/products/404";
 
 export default {
   name: "CategoriesProduct",
   components: {
+    Product404,
     FilterTop,
     FuncComponents,
     ModalBuyProduct,

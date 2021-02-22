@@ -1,7 +1,17 @@
-// eslint-disable-next-line nuxt/no-cjs-in-config
-const path = require("path");
+import path from "path";
+import routesMy from "./plugins/siteMap";
 
 export default {
+  env: {
+    api: "https://api.pantus.ru",
+    pantus: "https://www.pantus.ru",
+  },
+  sitemap: () => ({
+    exclude: ["/search-result", "/avtozapchasti", "/test"],
+    routes: async () => {
+      return await routesMy();
+    },
+  }),
   robots: [
     {
       UserAgent: "AhrefsBot",
@@ -16,26 +26,10 @@ export default {
       Disallow: "/",
     },
     {
-      UserAgent: "PetalBot ",
-      Disallow: "/",
-    },
-    {
-      UserAgent: "bingbot ",
-      Disallow: "/",
-    },
-    {
-      UserAgent: "bingbot/2.0",
-      Disallow: "/",
-    },
-    {
-      UserAgent: "Mail.Ru",
+      UserAgent: "PetalBot",
       Disallow: "/",
     },
   ],
-  env: {
-    api: "https://api.pantus.ru",
-    pantus: "https://www.pantus.ru",
-  },
   storybook: {
     addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
     stories: ["@/stories/**/*.stories.js"],
@@ -169,6 +163,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // https://www.npmjs.com/package/@nuxtjs/sitemap
+    "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots
     "@nuxtjs/robots",
     [

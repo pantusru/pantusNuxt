@@ -9,9 +9,8 @@
         frameborder="0"
         marginheight="0"
         marginwidth="0"
-        width="1160"
+        style="max-width: 100%; width: 1160px; overflow: hidden; height: 100vh"
         name="lxmfrm"
-        style="overflow: hidden; height: 1104px height: 100vh"
       />
     </div>
   </b-container>

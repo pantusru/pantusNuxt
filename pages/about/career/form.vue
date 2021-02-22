@@ -5,7 +5,7 @@
       src="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/?iframe=1"
       frameborder="0"
       name="ya-form-602b62b1b12901c5491424fb"
-      width="650"
+      style="max-width: 100%; width: 650px"
     />
   </b-container>
 </template>

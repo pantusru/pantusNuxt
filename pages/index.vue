@@ -10,8 +10,8 @@
       <SectionContentVue />
       <Abvantage />
     </b-container>
-    <!--    <claider-popular :popular="popular.slice(0, 10)" />-->
-    <!--    <VueNewsIndex class="mb-5 mt-4" />-->
+    <claider-popular :popular="popular.slice(0, 10)" />
+    <VueNewsIndex class="mb-5 mt-4" />
     <b-container>
       <SectionAboutVue />
     </b-container>

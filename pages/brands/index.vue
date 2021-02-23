@@ -11,6 +11,7 @@
       <Brand v-for="source in SearchElem" :key="source.id" :source="source" />
     </b-row>
     <b-pagination-nav
+
       v-if="CountPages !== 1"
       use-router
       :number-of-pages="CountPages"

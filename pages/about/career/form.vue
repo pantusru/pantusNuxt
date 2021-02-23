@@ -1,25 +1,29 @@
 <template>
   <b-container>
-    <div class='row'>
+    <div class="row">
       <side-bar :items-menu="sideBarItems" />
-      <script src="https://yastatic.net/q/forms-frontend-ext/_/embed.js" />
-      <iframe
-        class='col'
-        src="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/?iframe=1"
-        frameborder="0"
-        name="ya-form-602b62b1b12901c5491424fb"
-        style="max-width: 100%; width: 650px"
-      />
       <div>
-        Если форма с анкетой не загрузилась, Вы можете заполнить ее по <a href="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/">ссылке</a>
+        <script src="https://yastatic.net/q/forms-frontend-ext/_/embed.js" />
+        <iframe
+          class="col"
+          src="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/?iframe=1"
+          frameborder="0"
+          name="ya-form-602b62b1b12901c5491424fb"
+          style="max-width: 100%; width: 650px"
+        />
+        <div class="col">
+          Если форма с анкетой не загрузилась, Вы можете заполнить ее по
+          <a href="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/"
+            >ссылке</a
+          >
+        </div>
       </div>
     </div>
-
   </b-container>
 </template>
 
 <script>
-import SideBar from '~/components/static/elements/sidebar'
+import SideBar from "~/components/static/elements/sidebar";
 export default {
   name: "AboutForm",
   components: { SideBar },

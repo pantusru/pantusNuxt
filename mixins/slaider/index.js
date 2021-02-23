@@ -12,7 +12,6 @@ export default {
     },
     applyResponsiveSettings() {
       this.settings.responsive = this.responsiveSettings;
-      this.settings.slidesToShow = 5;
       this.areResponsiveSettingsApplied = true;
     },
   },

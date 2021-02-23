@@ -6,6 +6,10 @@ export default {
     api: "https://api.pantus.ru",
     pantus: "https://www.pantus.ru",
   },
+  loading: {
+    color: "#e1002b",
+    height: "5px",
+  },
   sitemap: () => ({
     exclude: ["/search-result", "/avtozapchasti", "/test"],
     routes: async () => {

@@ -10,6 +10,9 @@
         name="ya-form-602b62b1b12901c5491424fb"
         style="max-width: 100%; width: 650px"
       />
+      <div>
+        Если форма с анкетой не загрузилась, Вы можете заполнить ее по <a href="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/">ссылке</a>
+      </div>
     </div>
 
   </b-container>

@@ -22,7 +22,7 @@ export default {
     if (!isNaN(params.id)) {
       await Promise.all([
         store.dispatch("News/NewsId/_NewsId", params.id),
-        store.dispatch("News/NewsIndex/_NewsIndex")
+        store.dispatch("News/NewsIndex/_NewsIndex"),
       ]);
     } else {
       await store.dispatch("News/CategoriesAll/_NewsCategories"); // Все категории
@@ -58,4 +58,3 @@ export default {
   },
 };
 </script>
-<style></style>

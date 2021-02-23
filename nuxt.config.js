@@ -56,22 +56,22 @@ export default {
   router: {
     prefetchLinks: false,
     middleware: ["user"],
-    scrollBehavior(to, from, savedPosition) {
-      if (to.hash) {
-        const hash = to.hash.slice(1);
-        const elem = document.querySelector(`[name = ${hash}]`);
-        if (elem) {
-          const Rect = elem.getBoundingClientRect();
-          // window.location.href =
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve({ x: 0, y: Rect.y });
-            }, 500);
-          });
-        }
-      }
-      return { x: 0, y: 0 };
-    },
+    // scrollBehavior(to, from, savedPosition) {
+    //   if (to.hash) {
+    //     const hash = to.hash.slice(1);
+    //     const elem = document.querySelector(`[name = ${hash}]`);
+    //     if (elem) {
+    //       const Rect = elem.getBoundingClientRect();
+    //       // window.location.href =
+    //       return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //           resolve({ x: 0, y: Rect.y });
+    //         }, 500);
+    //       });
+    //     }
+    //   }
+    //   return { x: 0, y: 0 };
+    // },
   },
   /*
    ** Nuxt rendering mode

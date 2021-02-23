@@ -103,3 +103,8 @@
   vertical-align: baseline;
 }
 
+.container-static .btn.red {
+  color: #fff;
+  background: darkred;
+  text-decoration: none;
+}

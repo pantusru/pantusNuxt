@@ -3,9 +3,9 @@
     <h6 class="mb-3"><b>Пантус</b></h6>
     <b-row no-gutters class="flex-column mb-lg-4 mb-1">
       <nuxt-link
-        class="text-666 text-decoration-none mb-2"
         v-for="link in links"
         :key="link.id"
+        class="text-666 text-decoration-none mb-2"
         :to="link.href"
         >{{ link.name }}
       </nuxt-link>
@@ -13,9 +13,9 @@
     <h6><b>Партнерство</b></h6>
     <b-row no-gutters class="flex-column">
       <nuxt-link
-        class="text-666 text-decoration-none mb-2"
         v-for="link in links_bottom"
         :key="link.id"
+        class="text-666 text-decoration-none mb-2"
         :to="link.href"
         >{{ link.name }}
       </nuxt-link>
@@ -25,12 +25,12 @@
 
 <script>
 export default {
-  name: "footer-pantus",
+  name: "FooterPantus",
   data() {
     return {
       links: [
         { name: "О компании", href: "/about" },
-        // { name: "Вакансии", href: "" },
+        { name: "Вакансии", href: "/about/career/jobs/" },
         { name: "Помощь", href: "/help" },
         { name: "Возврат", href: "/help#returns" },
         { name: "Единая служба качества ", href: "help/feedback/" },

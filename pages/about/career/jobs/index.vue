@@ -12,8 +12,8 @@
           </b-col>
           <b-col cols="4" lg="2"><h4>Вакансии</h4></b-col>
         </b-row>
-        <template v-for="data in jobsAll">
-          <jobs :jobs="data" :key="data.id" />
+        <template v-if='jobsAll.length !== 0' >
+          <jobs :jobs="data" :key="data.id"  v-for="data in jobsAll"/>
         </template>
         <!--        СЮДА ВАКАНСИИ! -->
       </b-col>

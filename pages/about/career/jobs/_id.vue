@@ -12,7 +12,7 @@
           </b-col>
           <b-col cols="4" lg="2"><h4>Вакансии</h4></b-col>
         </b-row>
-        <jobs-id :jobs="jobsId" />
+        <jobs-id />
       </b-col>
     </b-row>
   </b-container>
@@ -37,13 +37,11 @@ export default {
       ],
     };
   },
-  async fetch({ store, params }) {
+  async fetch({ store,  params, redirect }) {
     await store.dispatch("jobs/actionsJobs");
-  },
-  computed: {
-    jobsId() {
-      return this.$store.getters["jobs/getJobsId"](this.$route.params.id);
-    },
+    if(!store.getters["jobs/getJobsId"](params.id)[0]){
+      redirect("/404");
+    }
   },
 };
 </script>

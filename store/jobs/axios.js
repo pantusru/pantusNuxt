@@ -1,11 +1,10 @@
 export const actions = {
   async axiosJobs({ dispatch }) {
-    const data =  this.$axios.get(`${process.env.api}/api.pantus.ru/vacancies`)
+    const { data }  =  await this.$axios.get(`${process.env.api}/vacancies`)
     return await dispatch("_init_MapJobs", data);
   },
   _init_MapJobs({}, data) {
-    console.log(data);
-    if (data.length === 0) {
+    if (data.length !== 0) {
       const result = [];
       data.forEach(elem => {
         result.push({
@@ -14,7 +13,10 @@ export const actions = {
           title: elem.name,
           text: elem.preview_text,
           active: elem.active,
-          content: elem.detail_text,
+          requirements: elem.requirements,
+          charge: elem.charge,
+          conditions: elem.conditions,
+          payment: elem.payment,
         });
       });
       return result;

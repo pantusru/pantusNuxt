@@ -24,6 +24,8 @@ export default {
       this.$cookies.set("Authorization", token);
       this.$store.commit("User/AuthorizationFalse");
       await this.$router.push({ name: "index" });
+
+      this.$store.commit("Order/Form/SetCostDostavka", 0);
       this.$store.commit("MyOrder/SetMyOrder", []);
       this.$store.commit("Cart/CartAll/ResetCartProduct");
       this.$store.commit("User/ResetForm");

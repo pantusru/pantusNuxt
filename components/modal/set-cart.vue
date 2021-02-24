@@ -1,5 +1,5 @@
 <template>
-  <b-modal :id="'SetCart'">
+  <b-modal :id="'SetCart'" no-close-on-backdrop>
     <template #modal-header="{ close }">
       <h5>Сохранить товары в вашу корзину?</h5>
       <b-button

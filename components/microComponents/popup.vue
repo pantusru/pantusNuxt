@@ -2,13 +2,13 @@
   <div class="blog-hover" @mouseover="check = true" @mouseleave="check = false">
     <a :href="href" class="popul-link">{{ name }}</a>
     <div v-if="check" class="get-blog" @mouseover="check = true">
-      <a
+      <nuxt-link
         v-for="data in ul"
         :key="data.id"
-        :href="data.href"
+        :to="data.href"
         class="popul-link get-brand"
         >{{ data.name }}
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>

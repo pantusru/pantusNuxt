@@ -30,7 +30,7 @@
           <ul>
             <li>
               Веб-портал “Pantus” расположенный на сайте
-              <a href="http://www.pantus.ru">www.pantus.ru</a> (далее "Сайт",
+              <nuxt-link to="/">www.pantus.ru</nuxt-link> (далее "Сайт",
               "Интернет-магазин");
             </li>
             <li>Мобильное приложение “Pantus” на платформе iOS;</li>
@@ -70,7 +70,7 @@
             выгодоприобретателем, а также для доступа пользователя-физического
             лица к возможностям Сервисов. Политика Компании в отношении
             обработки персональных данных размещена по адресу
-            <nuxt-link href="/documents/privacypolicy/"
+            <nuxt-link to="/documents/privacypolicy/"
               >https://www.pantus.ru/documents/privacypolicy/
             </nuxt-link>
           </p>

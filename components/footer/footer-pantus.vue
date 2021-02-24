@@ -33,7 +33,7 @@ export default {
         { name: "Вакансии", href: "/about/career/jobs/" },
         { name: "Помощь", href: "/help" },
         { name: "Возврат", href: "/help#returns" },
-        { name: "Единая служба качества ", href: "help/feedback/" },
+        //{ name: "Единая служба качества ", href: "help/feedback/" },
         { name: "Контакты", href: "/contacts" },
       ],
       links_bottom: [

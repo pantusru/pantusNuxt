@@ -10,9 +10,9 @@
 
     <div class="w-100 px-3">
       <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
-        <b-row cols="2">
-          <nav v-for="item in itemsMenu" class="nav-sidebar">
-            <b-col>
+        <b-row>
+          <nav class="nav-sidebar">
+            <b-col class="col-12" v-for="item in itemsMenu">
               <nuxt-link :to="{ path: item.to, hash: item.hash }"
                 >{{ item.name }}
               </nuxt-link>

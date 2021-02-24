@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */

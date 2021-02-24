@@ -14,10 +14,10 @@ export default {
       }
       return id;
     },
-    async SetProductVue(id, filter) {
+    async SetProductVue(id, filter, filterName) {
       this.$store.commit("product-static/SetFilter", filter);
       await this.$store.dispatch("product-static/RequestProduct", {
-        filter_applicabilities: id,
+        [filterName]: id,
         page_number: this.$route.query.page_number,
       });
     },

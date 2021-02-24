@@ -10,7 +10,10 @@
         <FuncComponents :array="GetProduct" />
         <BasePagination :length="getCountProducts" :limit="20" />
       </div>
-      <div class="container-static" v-html="getGetApplicabilitiesDescription.description" />
+      <div
+        class="container-static"
+        v-html="getGetApplicabilitiesDescription.description"
+      />
     </div>
   </b-container>
 </template>
@@ -119,7 +122,11 @@ export default {
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
       const applicabilities = this.functionSearch(data, dataset, 0);
-      await this.SetProductVue(applicabilities.id, applicabilities);
+      await this.SetProductVue(
+        applicabilities.id,
+        applicabilities,
+        "filter_applicabilities"
+      );
       window.scrollTo(0, 0);
     },
   },

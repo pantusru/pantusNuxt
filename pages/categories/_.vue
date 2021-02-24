@@ -16,12 +16,12 @@
 
 <script>
 import ModalBuyProduct from "@/components/modal/buy-product";
-// import mixin from "@/mixins/product-static/index";
+import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
+import Product404 from "@/components/products/404";
 import FilterTop from "~/components/filter-top";
 import ModalImg from "~/components/modal/product-img";
-import Product404 from "@/components/products/404";
 
 export default {
   name: "CategoriesProduct",
@@ -33,6 +33,7 @@ export default {
     BasePagination,
     ModalImg,
   },
+  mixins: [mixin],
   async asyncData({ params, store, getters, commit, query, redirect }) {
     const AllCategories = [];
     let nameCategories;
@@ -106,7 +107,7 @@ export default {
         "Categories/CategoriesAll/GetCategories"
       ];
       const categories = this.functionSearch(data, dataset, 0);
-      await this.SetProductVue(categories.id, categories);
+      await this.SetProductVue(categories.id, categories, "filter_categories");
       window.scrollTo(0, 0);
     },
   },

@@ -1,5 +1,4 @@
 const axios = require("axios");
-
 const getBrands = async () => {
   const { data } = await axios.get("https://api.pantus.ru/product_brands");
   return data.map(brand => `brands/${brand.code}`);
@@ -51,19 +50,29 @@ const getNewsCategories = async () => {
   const { data } = await axios.get("https://api.pantus.ru/news/categories");
   return data.map(news => `news/${news.code}`);
 };
-
+// const getContacts = () => {
+//   const mapContacts = [];
+//   this.$store.getters["contacts/getContactsAll"].forEach(elem => {
+//     elem.cities.forEach(elemCity => {
+//       mapContacts.push(`/contacts/${elemCity.code}`);
+//     });
+//   });
+//   return mapContacts;
+// };
 const all = async () => {
   const brand = await getBrands();
   const categories = await getCategories();
   const acceptability = await getAcceptability();
   const news = await getNews();
   const newsCategories = await getNewsCategories();
+  // const contacts = await getContacts();
   return [
     ...brand,
     ...categories,
     ...acceptability,
     ...news,
     ...newsCategories,
+    // ...contacts,
   ];
 };
 export default all;

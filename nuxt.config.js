@@ -11,7 +11,14 @@ export default {
     height: "5px",
   },
   sitemap: () => ({
-    exclude: ["/search-result", "/avtozapchasti", "/test"],
+    exclude: [
+      "/search-result",
+      "/avtozapchasti",
+      "/test",
+      "/contacts/astrakhan",
+      "/contacts/moscow",
+      "/contacts/tolyatti",
+    ],
     routes: async () => {
       return await routesMy();
     },

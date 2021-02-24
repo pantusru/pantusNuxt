@@ -21,19 +21,19 @@
               to="/profile/orders"
               >История заказов</nuxt-link
             >
-            <nuxt-link
-              :exact-active-class="ActiveClass"
-              :class="classMain"
-              to="/profile/selected"
-              >Избранные товары</nuxt-link
-            >
-            <nuxt-link
-              :exact-active-class="ActiveClass"
-              :class="classMain"
-              to="/profile/new_password"
-            >
-              Изменить пароль</nuxt-link
-            >
+<!--            <nuxt-link-->
+<!--              :exact-active-class="ActiveClass"-->
+<!--              :class="classMain"-->
+<!--              to="/profile/selected"-->
+<!--              >Избранные товары</nuxt-link-->
+<!--            >-->
+<!--            <nuxt-link-->
+<!--              :exact-active-class="ActiveClass"-->
+<!--              :class="classMain"-->
+<!--              to="/profile/new_password"-->
+<!--            >-->
+<!--              Изменить пароль</nuxt-link-->
+<!--            >-->
             <base-exit-user
               components="div"
               class="cursor-pointer"

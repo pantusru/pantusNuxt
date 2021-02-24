@@ -74,7 +74,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import "assets/css/static-page-main.css";
 .image-box {
   /*margin: 0 auto;*/

@@ -16,14 +16,14 @@ import mixinsNav from "@/mixins/nav-mobule/index";
 import BaseNavMobule from "@/components/base/nav-mobule/base-nav-mobule";
 
 export default {
-  name: "nav-mobile",
+  name: "NavMobile",
   components: { BaseNavMobule },
   mixins: [mixinsNav],
   data() {
     return {
       nav: [
         { data: { text: "Автозапчасти" }, components: "div", value: "catalog" },
-        { data: { text: "О компании", to: "/about" } },
+        { data: { text: "О компании", to: "/about" }, components: "div", value: "about" },
         { data: { text: "Новости", to: "/news" } },
         { data: { text: "Помощь", to: "/help" } },
         { data: { text: "Контакты", to: "/contacts" } },

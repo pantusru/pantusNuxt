@@ -17,7 +17,8 @@ export const actions = {
     const res = await this.$axios.get(
       `${process.env.api}/rupost?sumoc=${symma}&to=${to}&weight=${weight}`
     );
-    if (res.data.error || !res) {
+
+    if (res?.data?.error || !res) {
       console.log("errors");
       const others = rootGetters["Order/Payment/Index/GetCostDostavkaId"](3)[0];
       const email = rootGetters["Order/Payment/Index/GetCostDostavkaId"](4)[0];

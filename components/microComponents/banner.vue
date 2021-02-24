@@ -3,7 +3,7 @@
     <VueSlickCarousel v-bind="Settings">
       <div v-for="data in img" :key="data.id">
         <nuxt-link :to="data.href" class="banner_img">
-          <img :src="data.src" :alt="data.alt" />
+          <img :src="data.src" :alt="data.alt" class="mh-512px" />
         </nuxt-link>
       </div>
     </VueSlickCarousel>
@@ -36,6 +36,9 @@ export default {
 };
 </script>
 <style>
+.mh-512px {
+  max-height: 512px;
+}
 .pointer-event {
   /*pointer-events: none;*/
 }

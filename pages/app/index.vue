@@ -7,12 +7,12 @@
           <div class="header">
             <div class="header-logo-panel">
               <div class="header-logo-panel__col header-logo-panel_left">
-                <a href="https://pantus.ru"
+                <nuxt-link to="/"
                   ><img
                     class="logo-ico"
                     :src="urlPantus + '/app/assets/images/pantus_logo.jpg'"
                     alt="pantus"
-                /></a>
+                /></nuxt-link>
               </div>
               <div class="header-logo-panel__col">
                 <img
@@ -34,9 +34,9 @@
             <div class="header_text">
               <article class="header_description">
                 Отсканируйте упаковку товара с помощью этого приложения, чтобы
-                увидеть <br />
+                увидеть <br >
                 его 3D-модели на экране смартфона в дополненной реальности и
-                <br />получить информацию о его особенностях и преимуществах.
+                <br >получить информацию о его особенностях и преимуществах.
               </article>
             </div>
           </div>
@@ -252,7 +252,7 @@
             <span ref="close" class="close" @click="closeModal">&times;</span>
           </div>
           <div class="modal-image-block">
-            <img :src="qrCodeUrl" alt="modal-qr-code" />
+            <img :src="qrCodeUrl" alt="modal-qr-code" >
           </div>
           <div class="modal-text-block">
             ОТСКАНИРУЙТЕ QR-CODE ДЛЯ ТОГО ЧТОБЫ СКАЧАТЬ ПРИЛОЖЕНИЕ
@@ -265,7 +265,7 @@
 
 <script>
 export default {
-  name: "page-app",
+  name: "PageApp",
   layout: "app",
   data() {
     return {

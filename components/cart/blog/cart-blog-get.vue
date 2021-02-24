@@ -53,9 +53,9 @@
           </div>
           <div class="d-flex align-items-start justify-content-between">
             <vInput
-              :AddClassInput="'col-7'"
+              :add-class-input="'col-7'"
               :multiplicity="datasetProduct.productOffer[index].multiplicity"
-              :CountProps="datasetProduct.productOffer[index].Count"
+              :count-props="datasetProduct.productOffer[index].Count"
               :array="datasetProduct.productOffer[index]"
               @Count="SetCount($event, datasetProduct.productOffer[index])"
             />
@@ -90,7 +90,7 @@ import ProductElementRowGet from "@/components/products/product/element/product-
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 
 export default {
-  name: "cart-blog-get",
+  name: "CartBlogGet",
   components: {
     CartButtonUpdateProduct,
     ImgGetModal,

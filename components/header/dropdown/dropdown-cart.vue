@@ -22,22 +22,28 @@
               <span
                 class="reset-title reset-title-line-2 mb-1"
                 :title="dataset.ProductCard.sku.original"
-                >{{ dataset.ProductCard.sku.original }}</span
-              >
+                >{{ dataset.ProductCard.sku.original }}
+              </span>
               <span
                 :title="dataset.ProductCard.name"
                 class="reset-title reset-title-line-2"
-                >{{ dataset.ProductCard.name }}</span
-              >
+                >{{ dataset.ProductCard.name }}
+              </span>
             </nuxt-link>
           </td>
         </tr>
         <template v-for="offers in dataset.productOffer">
           <tr>
-            <nuxt-link to="/cart" class="text-body">
-              <td class="border-0">{{ offers.prices }} Р</td>
-              <td class="border-0">{{ offers.Count }}</td>
-            </nuxt-link>
+            <td class="border-0">
+              <nuxt-link to="/cart" class="text-body"
+                >{{ offers.prices }} Р
+              </nuxt-link>
+            </td>
+            <td class="border-0">
+              <nuxt-link to="/cart" class="text-body">
+                {{ offers.Count }}
+              </nuxt-link>
+            </td>
             <td class="border-0">
               <DeleteCart
                 :id="offers.id"

@@ -2,9 +2,9 @@
   <div class="container">
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
-      <b-navbar-brand to="/" class="logo"
-        ><img src="@img/logo.png" alt="Логотип сайта"
-      /></b-navbar-brand>
+      <b-navbar-brand to="/" class="logo">
+        <img src="@img/logo.png" alt="Логотип сайта" />
+      </b-navbar-brand>
       <!-- center -->
       <VButtonSearch />
       <!-- right   -->
@@ -65,8 +65,8 @@
               <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
             </div>
             <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
-              >{{ stoimost }} р</strong
-            >
+              >{{ stoimost }} р
+            </strong>
           </div>
         </nuxt-link>
         <b-nav-item-dropdown

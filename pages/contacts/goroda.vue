@@ -35,6 +35,9 @@ import ContactMenu from "@/components/static/elements/contact-menu";
 export default {
   name: "ContactsGoroda",
   components: { ContactMenu },
+  async fetch({ dispatch }) {
+    await dispatch("contacts/actionsContacts");
+  },
   head() {
     return {
       title: `Автозапчасти по категориям - Интернет-магазин запчастей`,

@@ -138,13 +138,14 @@ export default {
         brand = Array.from(new Set(brand));
         brand.forEach(element => {
           const id = Number(element);
-          if (
-            store.getters["Brand/BrandAll/GetBrand"].findIndex(
-              data => data.id === id
-            ) !== -1
-          ) {
-            store.commit("formSearch/SetBrandsChecked", id);
-          }
+          store.commit("formSearch/SetBrandsChecked", id);
+          // if (
+          //   store.getters["Brand/BrandAll/GetBrand"].findIndex(
+          //     data => data.id === id
+          //  ) !== -1
+          // ) {
+          //   store.commit("formSearch/SetBrandsChecked", id);
+          // }
         });
         await store.dispatch("Catalog/Metks/SetMetksBrand", {
           ids: brand,

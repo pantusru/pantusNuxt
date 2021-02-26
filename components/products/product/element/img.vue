@@ -24,8 +24,6 @@ export default {
     };
   },
   created() {
-    // if(){}
-    // this.urlSeo  =
     if (
       this.product.ProductCard.ProductCardImage.url !==
       `${process.env.pantus}/bitrix/images/iblock/no_product.png`

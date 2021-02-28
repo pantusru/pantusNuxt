@@ -55,6 +55,7 @@
             <base-pagination
               v-if="CountProducts !== 0"
               :length="CountProducts"
+              :limit="30"
             />
           </b-col>
         </b-row>

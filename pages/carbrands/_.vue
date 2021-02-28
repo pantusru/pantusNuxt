@@ -8,7 +8,7 @@
         <ModalImg />
         <modal-buy-product />
         <FuncComponents :array="GetProduct" />
-        <BasePagination :length="getCountProducts" :limit="20" />
+        <BasePagination :length="getCountProducts" :limit="21" />
       </div>
       <div
         class="container-static"

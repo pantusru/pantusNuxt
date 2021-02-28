@@ -50,10 +50,6 @@ export default {
       Disallow: "/",
     },
   ],
-  storybook: {
-    addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
-    stories: ["@/stories/**/*.stories.js"],
-  },
   pwa: {
     manifest: {
       name: "Pantus интернет магазин",

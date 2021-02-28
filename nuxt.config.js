@@ -7,6 +7,14 @@ export default {
     api: "https://api.pantus.ru",
     pantus: "https://www.pantus.ru",
   },
+  yandexMetrika: {
+    id: 21081355,
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    ecommerce: "dataLayer",
+  },
   loading: {
     color: "#e1002b",
     height: "5px",
@@ -170,11 +178,16 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/pwa"],
+  buildModules: ["@nuxtjs/pwa", "@nuxtjs/google-analytics"],
+  googleAnalytics: {
+    id: "3071624",
+  },
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // https://www.npmjs.com/package/@nuxtjs/yandex-metrika
+    "@nuxtjs/yandex-metrika",
     // https://www.npmjs.com/package/@nuxtjs/sitemap
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots

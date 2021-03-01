@@ -20,6 +20,7 @@ export default {
     height: "5px",
   },
   sitemap: () => ({
+    hostname: "https://www.pantus.ru/",
     exclude: [
       "/search-result",
       "/avtozapchasti",

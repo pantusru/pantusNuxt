@@ -47,7 +47,7 @@ export default {
 .btn.red {
   color: #fff !important;
   background: transparent
-    url(https://www.pantus.ru/bitrix/templates/main/img/d/btn-red-bg.png) 50% 0
+    url(https://bx.pantus.ru/bitrix/templates/main/img/d/btn-red-bg.png) 50% 0
     no-repeat;
   text-align: center;
   justify-content: center;

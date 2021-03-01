@@ -142,7 +142,7 @@ export default {
   width: 18px;
   height: 22px;
   background: transparent
-    url(https://www.pantus.ru/bitrix/templates/main/img/i/sprite.png) -56px -21px
+    url(https://bx.pantus.ru/bitrix/templates/main/img/i/sprite.png) -56px -21px
     no-repeat;
   left: 0;
   position: absolute;

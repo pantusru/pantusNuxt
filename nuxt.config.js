@@ -5,7 +5,7 @@ export default {
   serverMiddleware: ["@/api/index.js"],
   env: {
     api: "https://api.pantus.ru",
-    pantus: "https://bx.pantus.ru/",
+    pantus: "https://bx.pantus.ru",
   },
   yandexMetrika: {
     id: 21081355,

@@ -4,7 +4,7 @@
       class="link-danger cursor-pointer"
       @click.prevent="ResetApplicabilities"
     >
-      Сброс фильтры
+      Сброс применяемостей
     </span>
   </div>
 </template>

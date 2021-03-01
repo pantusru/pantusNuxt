@@ -8,7 +8,7 @@
         <div class="container-static" v-html="NewsId.content" />
       </div>
       <div class="col-4 d-none d-lg-block">
-        <h2 class="mb-3">Новости</h2>
+        <h2 class="mb-3 px-15px">Новости</h2>
         <VueBlogNews
           v-for="data in NewsAll.slice(0, 3)"
           :key="data.id"

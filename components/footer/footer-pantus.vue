@@ -5,7 +5,7 @@
       <nuxt-link
         v-for="link in links"
         :key="link.id"
-        class="text-666 text-decoration-none mb-2"
+        class="text-666 text-decoration-none mb-2 link-danger"
         :to="link.href"
         >{{ link.name }}
       </nuxt-link>

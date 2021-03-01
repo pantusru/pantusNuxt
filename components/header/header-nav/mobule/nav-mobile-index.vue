@@ -24,6 +24,7 @@ export default {
       nav: [
         { data: { text: "Автозапчасти" }, components: "div", value: "catalog" },
         { data: { text: "О компании", to: "/about" }, components: "div", value: "about" },
+        { data: { text: "Мобильное приложение", to: "/app" } },
         { data: { text: "Новости", to: "/news" } },
         { data: { text: "Помощь", to: "/help" } },
         { data: { text: "Контакты", to: "/contacts" } },

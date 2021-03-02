@@ -1,5 +1,6 @@
 export default async ({ route, store, getters, dispatch, app }) => {
   if (!app.$cookies.get("Authorization")) {
+    console.log("user all");
     // если нету токена
     const token = await store.dispatch(
       "User/axios/getToken",

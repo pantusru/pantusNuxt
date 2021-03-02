@@ -12,7 +12,7 @@
     <template v-if="data">
       <b-tbody>
         <b-tr v-for="offer in data.offers" :key="offer.id">
-          <b-td>{{ offer.guid }}</b-td>
+          <b-td class="w-15">{{ offer.guid }}</b-td>
           <b-td class="d-none d-md-table-cell width-td-name">{{
             offer.name
           }}</b-td>

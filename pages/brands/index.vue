@@ -1,107 +1,30 @@
 <template>
-  <b-container>
-    <Vinput
-      class="col-12 col-lg-3 px-0"
-      :get-name="'Brand/BrandAll/GetBrand'"
-      :placeholders="'Поиск по брендам'"
-      @Vsearch="ValueSet"
+  <div class="container">
+    <h1 class="h1 brand-catalog-title">Все бренды автозапчастей</h1>
+    <div v-if="getBrandPage.length > 0" class="row row-catalog-brand">
+      <brand-id-catalog
+        v-for="brand in getBrandPage"
+        :key="brand.id"
+        :brand="brand"
+      />
+    </div>
+    <base-pagination
+      :count-element="getBrand.length"
+      :limit-element="getLimitPage"
+      :limit-pagination="6"
     />
-    <base-title-catalog text="Бренды" />
-    <b-row class="mt-3 mt-lg-5">
-      <Brand v-for="source in SearchElem" :key="source.id" :source="source" />
-    </b-row>
-    <b-pagination-nav
-
-      v-if="CountPages !== 1"
-      use-router
-      :number-of-pages="CountPages"
-      :link-gen="linkGen"
-      align="center"
-      first-number
-      last-number
-      hide-goto-end-buttons
-      limit="3"
-      size="sm"
-    />
-  </b-container>
+  </div>
 </template>
 
 <script>
-import Vinput from "@/components/search/panel-brand/input/index";
-import Brand from "@/components/catalog/brand/brand-blog-get";
-import PageMixins from "@/mixins/page/index";
-import BaseTitleCatalog from "@/components/base/title/base-title-catalog";
+import { PageBrand } from '@/composition/brand/pageBrand'
+import BasePagination from '~/components/base/pagination/base-pagination'
+
 export default {
-  components: {
-    BaseTitleCatalog,
-    Vinput,
-    Brand,
+  name: 'PagesBrands',
+  components: { BasePagination },
+  setup() {
+    return { ...PageBrand() }
   },
-  mixins: [PageMixins],
-  data() {
-    return {
-      CountPages: this.$store.getters["Brand/BrandAll/GetBrandLength"],
-      NameComponents: Brand,
-      SearchElem: "",
-    };
-  },
-  async fetch({ store, getters, commit, query }) {
-    await store.dispatch("Brand/BrandAll/_Brands");
-  },
-  head() {
-    return {
-      title: `Все бренды автозапчастей. Pantus.ru - Интернет-магазин запчастей`,
-      meta: [
-        {
-          name: "description",
-          content: `Бренды автозапчастей. Полный список производителей запчастей в алфавитном порядке. Подобрать и купить автозапчастей по бренду`,
-        },
-        {
-          name: "keywords",
-          content: `производители автозапчастей, бренды автозапчастей, запчасти по бренду`,
-        },
-      ],
-    };
-  },
-  computed: {
-    BrandLength() {
-      return this.$store.getters["Brand/BrandAll/GetBrandLength"];
-    },
-  },
-  watch: {
-    $route() {
-      window.scrollTo(0, 0);
-      if (this.$route.query.page !== undefined) {
-        this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-          this.$route.query.page
-        );
-      } else {
-        this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
-      }
-    },
-  },
-  created() {
-    if (this.$route.query.page !== undefined) {
-      this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-        this.$route.query.page
-      );
-    } else {
-      this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](1);
-    }
-  },
-  methods: {
-    // получение результата от компонента поиска
-    ValueSet(data) {
-      if (data.search > 0) {
-        this.SearchElem = data.data;
-        this.CountPages = 1;
-      } else {
-        this.SearchElem = this.$store.getters["Brand/BrandAll/GetBrandPage"](
-          this.$route.query.page || 1
-        );
-        this.CountPages = this.BrandLength;
-      }
-    },
-  },
-};
+}
 </script>

@@ -32,7 +32,7 @@ export function Pagination(props: paginationPropsInterface) {
       let add = 1
       if (active >= countPagination.value - 1) {
         add = countPagination.value - props.limitPagination + 1
-      } else if (active <= 2) {
+      } else if (active <= Math.ceil(props.limitPagination / 2)) {
         add = 1
       } else {
         add = active - Math.ceil((props.limitPagination - 1) / 2)

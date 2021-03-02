@@ -1,0 +1,39 @@
+<template>
+  <div class="header-top">
+    <div class="container">
+      <div class="row-gutters header-top-row">
+        <nav>
+          <nuxt-link
+            v-for="data in link"
+            :key="data.id"
+            class="link-hover-main header-top-link"
+            :to="data.to"
+          >
+            {{ data.text }}
+          </nuxt-link>
+        </nav>
+        <div>
+          <nuxt-link class="header-top-tlf_link link-hover-main" :to="tlf.to">
+            {{ tlf.text }}
+          </nuxt-link>
+          <span class="header-top-tlf_text">Звонок по РФ - бесплатный</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { HeaderTop } from '@/composition/header/header-top'
+
+export default Vue.extend({
+  name: 'TheHeaderTop',
+  setup() {
+    return { ...HeaderTop() }
+  },
+})
+</script>
+<style lang="sass">
+@import "assets/sass/header/header-top"
+</style>

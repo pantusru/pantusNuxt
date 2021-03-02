@@ -11,7 +11,7 @@
     <base-pagination
       :count-element="getBrand.length"
       :limit-element="getLimitPage"
-      :limit-pagination="6"
+      :limit-pagination="5"
     />
   </div>
 </template>

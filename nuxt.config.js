@@ -1,0 +1,70 @@
+export default {
+  env: {
+    api: 'https://api.pantus.ru',
+  },
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    title:
+      'ПАНТУС - Интернет-магазин запчастей c низкими ценами и доставкой по России',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: ['./assets/fonts/font-awesome/index.css', './assets/sass/default.sass'],
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://composition-api.nuxtjs.org/
+    '@nuxtjs/composition-api',
+    // https://go.nuxtjs.dev/typescript
+    '@nuxt/typescript-build',
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module',
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
+    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/pwa',
+  ],
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {},
+
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  pwa: {
+    manifest: {
+      name: 'Pantus интернет магазин',
+      short_name: 'Pantus',
+      lang: 'ru',
+      useWebmanifestExtension: false,
+      background_color: '#000',
+      theme_color: '#000',
+      // start_url: "http://test2.pantus.ru:8083/",
+      icons: [
+        {
+          src: '/icon.png',
+          type: 'image/png',
+          sizes: '192x192',
+        },
+      ],
+    },
+    workbox: {},
+  },
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    extractCSS: true,
+  },
+}

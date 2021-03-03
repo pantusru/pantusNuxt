@@ -1,0 +1,35 @@
+@import "assets/sass-mixin/index"
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+a:focus
+  outline: 0
+.container
+  max-width: 1110px
+  width: 100%
+  padding: 0 30px
+  margin: 0 auto
+
+.h1,.h2,.h3,.h4,.h5,.h6
+  color: #515151
+  font-weight: 600
+  line-height: 1.1
+.h1
+  font-size: 30px
+.h3
+  font-size: 18px
+.row
+  +row()
+.row-gutters
+  +row-no-gutters()
+.link
+  color: #436174
+  text-decoration: none
+.link-hover-main
+  &:hover, &:focus
+    color: #dc3545
+    text-decoration: none
+
+.box-shadow
+  box-shadow: 5px 5px 9px 1px #ccc

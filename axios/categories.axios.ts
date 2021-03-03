@@ -19,7 +19,6 @@ const categoriesMainMap = (
     code: data.code,
     id: data.id,
     children: [],
-    parentId: data.depthLevel,
   })
 }
 

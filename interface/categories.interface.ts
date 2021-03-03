@@ -1,17 +1,10 @@
-export interface CategoriesInterface {
-  id: number
-  name: string
-  code: string
-  children: CategoriesInterface[]
-  parentId: number
-}
-export interface CategoriesInterfaceApi {
-  id: number
-  name: string
-  code: string
-  depthLevel: number
-  childs: CategoriesInterfaceApi[]
-}
+import {
+  CatalogInterface,
+  CatalogInterfaceApi,
+} from '@/interface/catalog/catalog.interface'
+
+export interface CategoriesInterface extends CatalogInterface {}
+export interface CategoriesInterfaceApi extends CatalogInterfaceApi {}
 export interface CategoriesInterfaceStore {
   categories: CategoriesInterface[] | []
 }

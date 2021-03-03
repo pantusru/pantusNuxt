@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import TheHeaderTop from '@/components/header/the-header-top'
+import TheHeaderTop from '@/components/header/the-header-top.vue'
 export default Vue.extend({
   name: 'TheHeader',
   components: {

@@ -1,4 +1,6 @@
 @import "assets/sass-mixin/index.sass"
+.row-catalog-brand
+  +mb(20px)
 .brand-id-catalog
   +grid(12)
   +grid-xs(6)
@@ -7,8 +9,9 @@
   +col-padding()
   +mb(12px)
 .brand-id-catalog-link
+  text-decoration: underline
   +d-display(block)
-  &:hover
+  &:hover, &:focus
     text-decoration: none
 .brand-catalog-title
   +mb(28px)

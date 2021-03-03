@@ -1,0 +1,31 @@
+@import "assets/sass-mixin/index"
+.row-catalog-categories
+  grid-column-gap: 30px
+  column-count: 1
+  +sm(column-count, 2)
+  +md(column-count, 3)
+  +lg(column-count, 4)
+
+.categories-id-catalog
+  page-break-inside: avoid
+  break-inside: avoid
+  width: 100%
+  +px(15px)
+  +py(15px)
+  +mb(15px)
+
+.categories-id-link-main
+  color: #dc3545
+  +d-display(block)
+  +mb(10px)
+
+.categories-id-link-children
+  color: #436174
+  +ml(10px)
+  +mb(5px)
+  +d-display(block)
+  &:hover, &:focus
+    text-decoration: none
+
+
+

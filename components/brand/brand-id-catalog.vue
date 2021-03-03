@@ -29,6 +29,3 @@ export default {
   },
 }
 </script>
-<style lang="sass">
-@import "assets/sass/brand/brand-catalog"
-</style>

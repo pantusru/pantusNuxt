@@ -10,11 +10,11 @@ export function PageBrand() {
   useFetch(async () => {
     await store.dispatch('brand/actionsBrand')
   })
-
+  const setBrand = async () => {
+    await store.dispatch('brand/actionsBrand')
+  }
   const getBrandPage = computed(() => {
-    return store.getters['brand/getBrandPage'](
-      Number(route.value.query.page)
-    )
+    return store.getters['brand/getBrandPage'](Number(route.value.query.page))
   })
   const getBrand = computed(() => {
     return store.getters['brand/getBrand']
@@ -22,5 +22,5 @@ export function PageBrand() {
   const getLimitPage = computed(() => {
     return store.getters['brand/getLimitPage']
   })
-  return { getBrandPage, getLimitPage, getBrand }
+  return { getBrandPage, getLimitPage, getBrand, setBrand }
 }

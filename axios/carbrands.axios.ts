@@ -1,10 +1,12 @@
-import axios from 'axios'
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import {
   CarbrandsInterface,
   CarbrandsInterfaceApi,
 } from '@/interface/carbrands.interface'
-export const carbrandsAxios = async (): Promise<CarbrandsInterface[]> => {
-  const { data } = await axios.get(
+export const carbrandsAxios = async (
+  $axios: NuxtAxiosInstance
+): Promise<CarbrandsInterface[]> => {
+  const { data } = await $axios.get(
     `${process.env.api}/product_applicabilities?view=tree`
   )
   return carbrandsMap(data)

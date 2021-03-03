@@ -20,7 +20,7 @@ export const mutations: MutationTree<RootState> = {
 }
 export const actions: ActionTree<RootState, RootState> = {
   async actionsCategories({ commit }) {
-    const data: CategoriesInterface[] = await categoriesAxios()
+    const data: CategoriesInterface[] = await categoriesAxios(this.$axios)
     commit('setCategories', data)
   },
 }

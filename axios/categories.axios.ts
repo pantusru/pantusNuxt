@@ -1,10 +1,12 @@
-import axios from 'axios'
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import {
   CategoriesInterface,
   CategoriesInterfaceApi,
 } from '@/interface/categories.interface'
-export const categoriesAxios = async (): Promise<CategoriesInterface[]> => {
-  const { data } = await axios.get(
+export const categoriesAxios = async (
+  $axios: NuxtAxiosInstance
+): Promise<CategoriesInterface[]> => {
+  const { data } = await $axios.get(
     `${process.env.api}/product_categories?view=tree`
   )
   return categoriesMap(data)

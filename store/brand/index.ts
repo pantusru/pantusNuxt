@@ -18,7 +18,7 @@ export const mutations: MutationTree<RootState> = {
 }
 export const actions: ActionTree<RootState, RootState> = {
   async actionsBrand({ commit }) {
-    const data: brandInterface[] = await BrandAxios()
+    const data: brandInterface[] = await BrandAxios(this.$axios)
     commit('setBrand', data)
   },
 }

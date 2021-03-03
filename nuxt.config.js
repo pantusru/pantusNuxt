@@ -18,7 +18,7 @@ export default {
   css: ['./assets/fonts/font-awesome/index.css', './assets/sass/default.sass'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '@/plugins/axios.ts' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -39,6 +39,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    ['cookie-universal-nuxt'],
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -66,5 +68,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,
+  },
+  router: {
+    prefetchLinks: false,
+    middleware: ['server-user-data'],
   },
 }

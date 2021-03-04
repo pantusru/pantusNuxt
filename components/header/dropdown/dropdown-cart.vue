@@ -12,9 +12,12 @@
         <th>Цена</th>
         <th>Кол-во</th>
         <th>
-          <nuxt-link to="/cart" class="text-body link-danger"
-            >В корзину</nuxt-link
+          <nuxt-link
+            to="/cart"
+            class="bg-danger _baseBnt d-block btn text-white text-nowrap"
           >
+            В корзину
+          </nuxt-link>
         </th>
         <th />
       </tr>

@@ -23,7 +23,7 @@ export const mutations: MutationTree<RootState> = {
 
 export const actions: ActionTree<RootState, RootState> = {
   async actionsAuthorization(
-    { commit },
+    { commit, dispatch },
     authorization?: AuthorizationInterfaceDto
   ): Promise<boolean> {
     const data: AuthorizationInterface = await AuthorizationAxios(
@@ -34,6 +34,7 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('setLoaderUser', true)
     if (data.id) {
       // Запрос на получение user
+      await dispatch('profile/actionsProfile', {}, { root: true })
       commit('setUserAuthorization', true)
       return true
     }

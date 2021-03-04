@@ -1,5 +1,5 @@
 import { ref } from '@nuxtjs/composition-api'
-import { LinkPropsInterface } from '@/interface/base/link-props.interface'
+import { LinkPropsInterface } from '~/interface/base/props/link-props.interface'
 
 export function HeaderTop() {
   const link = ref<LinkPropsInterface[]>([

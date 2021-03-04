@@ -1,11 +1,11 @@
 import { computed, ssrRef, useRoute, useFetch } from '@nuxtjs/composition-api'
-import { paginationPropsInterface } from '~/interface/base/pagination-props.interface'
+import { PaginationPropsInterface } from '~/interface/base/props/pagination-props.interface'
 
 interface pageData {
   to: string | number | null | undefined
   text: string | number
 }
-export function Pagination(props: paginationPropsInterface) {
+export function Pagination(props: PaginationPropsInterface) {
   const route = useRoute()
   const arrayPagination = ssrRef<pageData[]>([])
   const countPagination = computed(() => {

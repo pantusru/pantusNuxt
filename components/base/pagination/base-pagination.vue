@@ -14,7 +14,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Pagination } from '~/composition/base/pagination'
-import { paginationPropsInterface } from '~/interface/base/pagination-props.interface'
+import { PaginationPropsInterface } from '~/interface/base/props/pagination-props.interface'
 
 export default Vue.extend({
   name: 'BasePagination',
@@ -36,7 +36,7 @@ export default Vue.extend({
       default: 'page',
     },
   },
-  setup(props: paginationPropsInterface) {
+  setup(props: PaginationPropsInterface) {
     return { ...Pagination(props) }
   },
 })

@@ -1,4 +1,4 @@
-export interface paginationPropsInterface {
+export interface PaginationPropsInterface {
   limitPagination?: number
   name?: string
   limitElement?: number

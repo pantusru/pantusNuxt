@@ -35,6 +35,14 @@ export default {
   }),
   robots: [
     {
+      UserAgent: "*",
+    },
+    {
+      Sitemap: "https://www.pantus.ru/sitemap.xml",
+      Host: "https://www.pantus.ru",
+      CrawlDelay: 1,
+    },
+    {
       UserAgent: "AhrefsBot",
       Disallow: "/",
     },

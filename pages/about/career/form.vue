@@ -5,6 +5,7 @@
       <div>
         <script src="https://yastatic.net/q/forms-frontend-ext/_/embed.js" />
         <iframe
+          seamless
           class="col"
           src="https://forms.yandex.ru/u/602b62b1b12901c5491424fb/?iframe=1"
           frameborder="0"

@@ -3,6 +3,7 @@
     <div class="base-input-item" :class="classItem">
       <label class="base-input-label" :class="classLabel">{{ text }}</label>
       <input
+        :value="validateInput.value"
         class="base-input"
         :class="{ 'base-input-error': !validateInput.validate, classInput }"
         :type="type"
@@ -22,8 +23,10 @@ import {
   TypeFormData,
 } from '@/composition/_validate/validate-type'
 import { InputPropsInterface } from '@/interface/base/props/input-props.interface'
+import BaseError from '~/components/base/error/base-error.vue'
 export default Vue.extend({
   name: 'BaseInput',
+  components: { BaseError },
   props: {
     type: {
       default: 'text',

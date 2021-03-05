@@ -23,5 +23,5 @@ export interface ProfileInterfaceApi {
   }
 }
 export interface ProfileInterfaceStore {
-  profile: ProfileInterface | {}
+  profile: ProfileInterface | undefined
 }

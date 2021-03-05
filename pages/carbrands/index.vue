@@ -14,9 +14,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { PageCarbrands } from '@/composition/carbrands/pageCarbrands'
+import CarbrandsIdCatalog from '~/components/carbrands/carbrands-id-catalog.vue'
 
 export default Vue.extend({
   name: 'PagesCarbrands',
+  components: { CarbrandsIdCatalog },
   setup() {
     return { ...PageCarbrands() }
   },

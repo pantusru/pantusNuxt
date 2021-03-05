@@ -13,9 +13,11 @@
 
 <script>
 import { PageCategories } from '@/composition/categories/pageCategories'
+import CategoriesIdCatalog from '@/components/categories/categories-id-catalog'
 
 export default {
   name: 'PagesCategories',
+  components: { CategoriesIdCatalog },
   setup() {
     return { ...PageCategories() }
   },

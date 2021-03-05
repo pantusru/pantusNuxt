@@ -31,9 +31,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import { AuthorizationForm } from '~/composition/authorization/authorization-form'
+import BaseInput from '~/components/base/input/base-input.vue'
 
 export default Vue.extend({
   name: 'AuthorizationForm',
+  components: { BaseInput },
   setup() {
     return { ...AuthorizationForm() }
   },

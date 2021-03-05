@@ -20,11 +20,12 @@
 
 <script>
 import { PageBrand } from '@/composition/brand/pageBrand'
-import BasePagination from '~/components/base/pagination/base-pagination'
+import BasePagination from '@/components/base/pagination/base-pagination'
+import BrandIdCatalog from '@/components/brand/brand-id-catalog'
 
 export default {
   name: 'PagesBrands',
-  components: { BasePagination },
+  components: { BrandIdCatalog, BasePagination },
   setup() {
     return { ...PageBrand() }
   },

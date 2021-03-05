@@ -5,7 +5,7 @@ import {
 import { ActionTree, MutationTree } from 'vuex'
 import { ProfileAxios } from '@/axios/profile/profile.axios'
 export const state = (): ProfileInterfaceStore => ({
-  profile: {},
+  profile: undefined,
 })
 
 export type RootState = ReturnType<typeof state>

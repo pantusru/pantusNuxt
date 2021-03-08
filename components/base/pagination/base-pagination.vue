@@ -15,11 +15,11 @@
 import Vue from 'vue'
 import { Pagination } from '~/composition/base/pagination'
 import { PaginationPropsInterface } from '~/interface/base/props/pagination-props.interface'
-import BasePaginationItem from "~/components/base/pagination/base-pagination-item.vue";
+import BasePaginationItem from '~/components/base/pagination/base-pagination-item.vue'
 
 export default Vue.extend({
   name: 'BasePagination',
-  components: {BasePaginationItem},
+  components: { BasePaginationItem },
   props: {
     limitPagination: {
       default: 5,

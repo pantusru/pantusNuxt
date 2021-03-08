@@ -1,5 +1,9 @@
 <template>
-  <HeaderDropdown :array="link" target="link-hover-main header-top-link" />
+  <HeaderDropdown
+    :array="link"
+    target="link-hover-main header-top-link"
+    class-items="header-dropdown header-top-dropdown"
+  />
 </template>
 
 <script lang="ts">

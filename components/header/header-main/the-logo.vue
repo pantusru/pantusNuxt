@@ -13,5 +13,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../../assets/sass/logo/logo"
+@import "assets/sass/logo/logo"
 </style>

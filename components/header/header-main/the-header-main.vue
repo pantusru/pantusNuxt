@@ -19,5 +19,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../../assets/sass/header/header-main/header-main"
+@import "assets/sass/header/header-main/header-main"
 </style>

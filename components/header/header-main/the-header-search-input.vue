@@ -21,5 +21,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../../../assets/sass/header/header-main/header-search-input"
+@import "assets/sass/header/header-main/header-search-input"
 </style>

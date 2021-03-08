@@ -1,31 +1,23 @@
 <template>
-  <div v-if="getToggle" class="header-user-dropdown">
-    <nuxt-link
-      v-for="data in link"
-      :key="data.id"
-      class="header-user-dropdown-link"
-      :to="data.to"
-    >
-      {{ data.text }}
-    </nuxt-link>
-    <div class="header-user-dropdown-link">Выход</div>
-  </div>
+  <HeaderDropdown target="header-user-name" :array="link">
+    <div class="header-dropdown-link">Выход</div>
+  </HeaderDropdown>
 </template>
 
 <script lang="ts">
 import { HeaderUserDropdown } from '~/composition/header/header-user/header-user-dropdown'
-import { ToggleBody } from '~/composition/_toggle/toggle-body'
+import HeaderDropdown from '~/components/header/header-dropdown.vue'
 export default {
   name: 'TheHeaderDropdownUser',
+  components: { HeaderDropdown },
   setup() {
     return {
       ...HeaderUserDropdown(),
-      ...ToggleBody(false, 'header-user-name'),
     }
   },
 }
 </script>
 
 <style lang="sass">
-@import "assets/sass/header/header-main/header-dropdown-user"
+@import "assets/sass/header/header-main/header-dropdown"
 </style>

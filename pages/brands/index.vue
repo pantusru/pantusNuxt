@@ -14,7 +14,6 @@
       :limit-pagination="5"
       @click="setBrand"
     />
-    <button @click="setBrand">Клик</button>
   </div>
 </template>
 

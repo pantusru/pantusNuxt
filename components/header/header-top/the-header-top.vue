@@ -2,7 +2,9 @@
   <div class="header-top">
     <div class="container">
       <div class="row-gutters header-top-row">
-        <nav>
+        <nav class="header-top-nav">
+          <span class="link-hover-main header-top-link">О компании</span>
+          <TheHeaderTopDropdown />
           <nuxt-link
             v-for="data in link"
             :key="data.id"
@@ -25,10 +27,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { HeaderTop } from '@/composition/header/header-top'
+import { HeaderTop } from '~/composition/header/header-top/header-top'
+import TheHeaderTopDropdown from '~/components/header/header-top/the-header-top-dropdown.vue'
 
 export default Vue.extend({
   name: 'TheHeaderTop',
+  components: { TheHeaderTopDropdown },
   setup() {
     return { ...HeaderTop() }
   },

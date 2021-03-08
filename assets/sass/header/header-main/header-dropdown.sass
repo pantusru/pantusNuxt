@@ -1,5 +1,5 @@
 @import "assets/sass-mixin/index"
-.header-user-dropdown
+.header-dropdown
   position: absolute
   top: 100%
   background-color: #fff
@@ -7,13 +7,14 @@
   border: 1px solid rgba(0,0,0,0.15)
   border-radius: 0.25rem
   z-index: 1
-  width: 170px
-.header-user-dropdown-link
+  min-width: 170px
+.header-dropdown-link
   text-decoration: none
   color: #4a4a4a
   cursor: pointer
   +d-display(block)
   +px(24px)
   +py(8px)
+  +fz(12px)
   &:hover, &:focus
     background-color: #f8f9fa

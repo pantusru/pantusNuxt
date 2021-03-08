@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
       <b-navbar-brand to="/" class="logo">
-        <img src="@img/logo.png" alt="Логотип сайта" />
+        <img src="@img/logo.png" alt="Логотип сайта" >
       </b-navbar-brand>
       <!-- center -->
       <VButtonSearch />
@@ -58,7 +58,7 @@
           class="d-flex align-items-center link-decoration-none d-block d-md-none"
         >
           <div class="icons-nav-w20">
-            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" >
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
@@ -77,7 +77,7 @@
           d-md-table
         >
           <template #button-content>
-            <div class="d-flex align-items-center link-decoration-none">
+            <nuxt-link to="/cart" class="d-flex align-items-center link-decoration-none">
               <div class="icons-nav-w20">
                 <img
                   src="@img/icons/icon-shopping-cart.png"
@@ -92,9 +92,9 @@
                   >{{ stoimost }} р</strong
                 >
               </div>
-            </div>
+            </nuxt-link>
           </template>
-          <dropdown-cart />
+          <!--          <dropdown-cart />-->
         </b-nav-item-dropdown>
         <!-- Корзина-->
       </b-navbar-nav>

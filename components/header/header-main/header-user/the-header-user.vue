@@ -1,11 +1,10 @@
 <template>
   <div class="header-user-row row-gutters">
     <div class="header-user-items row-gutters">
-      <the-header-dropdown-user />
       <div class="header-user-img">
         <img
           class="img"
-          :src="require('@/assets/img/icons/icon-avatar.png')"
+          :src="require('~/assets/img/icons/icon-avatar.png')"
           alt="icons-avatar"
         />
       </div>
@@ -19,19 +18,14 @@
           {{ data.text }}
         </nuxt-link>
       </div>
-      <div
-        v-if="getProfile"
-        class="link-hover-main link header-user-items-link"
-      >
-        <div>{{ getProfile.surname }}</div>
-        <div>{{ getProfile.name }}</div>
-      </div>
+      <TheHeaderUserName />
+      <TheHeaderDropdownUser />
     </div>
     <div class="header-user-items row-gutters">
       <div class="header-user-img">
         <img
           class="img"
-          :src="require('@/assets/img/icons/icon-shopping-cart.png')"
+          :src="require('~/assets/img/icons/icon-shopping-cart.png')"
           alt="icon-cart"
         />
       </div>
@@ -45,12 +39,13 @@
 </template>
 
 <script lang="ts">
-import { HeaderUser } from '~/composition/header/header-user'
-import TheHeaderDropdownUser from '~/components/header/header-main/the-header-dropdown-user.vue'
+import { HeaderUser } from '~/composition/header/header-user/header-user'
+import TheHeaderDropdownUser from '~/components/header/header-main/header-user/the-header-dropdown-user.vue'
+import TheHeaderUserName from '~/components/header/header-main/header-user/the-header-user-name.vue'
 
 export default {
   name: 'TheHeaderUser',
-  components: { TheHeaderDropdownUser },
+  components: { TheHeaderUserName, TheHeaderDropdownUser },
   setup() {
     return { ...HeaderUser() }
   },

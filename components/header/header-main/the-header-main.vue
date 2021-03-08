@@ -11,7 +11,7 @@
 <script>
 import TheLogo from '~/components/header/header-main/the-logo'
 import TheHeaderSearchInput from '~/components/header/header-main/the-header-search-input'
-import TheHeaderUser from '~/components/header/header-main/the-header-user'
+import TheHeaderUser from '~/components/header/header-main/header-user/the-header-user'
 export default {
   name: 'TheHeaderMain',
   components: { TheHeaderUser, TheHeaderSearchInput, TheLogo },

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { PageCategories } from '@/composition/categories/pageCategories'
+import { PageCategories } from '~/composition/categories/page-categories'
 import CategoriesIdCatalog from '@/components/categories/categories-id-catalog'
 
 export default {

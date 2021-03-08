@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { PageBrand } from '@/composition/brand/pageBrand'
+import { PageBrand } from '@/composition/brand/page-brand'
 import BasePagination from '@/components/base/pagination/base-pagination'
 import BrandIdCatalog from '@/components/brand/brand-id-catalog'
 

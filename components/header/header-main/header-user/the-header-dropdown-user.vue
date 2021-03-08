@@ -20,7 +20,7 @@ export default {
   setup() {
     return {
       ...HeaderUserDropdown(),
-      ...ToggleBody(undefined, 'header-user-name'),
+      ...ToggleBody(false, 'header-user-name'),
     }
   },
 }

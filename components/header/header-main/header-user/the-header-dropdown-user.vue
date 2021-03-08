@@ -1,5 +1,5 @@
 <template>
-  <div class="header-user-dropdown" v-if="getToggle">
+  <div v-if="getToggle" class="header-user-dropdown">
     <nuxt-link
       v-for="data in link"
       :key="data.id"
@@ -18,7 +18,10 @@ import { ToggleBody } from '~/composition/_toggle/toggle-body'
 export default {
   name: 'TheHeaderDropdownUser',
   setup() {
-    return { ...HeaderUserDropdown(), ...ToggleBody(undefined, 'header-user-name' ) }
+    return {
+      ...HeaderUserDropdown(),
+      ...ToggleBody(undefined, 'header-user-name'),
+    }
   },
 }
 </script>

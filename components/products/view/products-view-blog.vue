@@ -1,30 +1,32 @@
 <template>
-  <div class="product-view-blog">
-    <!--    <product-blog-->
-    <!--      v-for="elem in product"-->
-    <!--      :key="elem.id"-->
-    <!--      class="product-blog-index"-->
-    <!--      :product="elem"-->
-    <!--    />-->
+  <div class="row product-view-blog">
+    <product-blog
+      v-for="elem in product"
+      :key="elem.productCard.id"
+      :product="elem"
+    />
   </div>
 </template>
 
 <script lang="ts">
-// import ProductBlog from '@/components/products/blog/product-blog.vue'
 import { PropType } from 'vue'
-// import { TypeCartProduct } from '~/store/products/products-type.ts'
+import ProductBlog from '~/components/products/product/product-blog.vue'
+import { TypeProductVuex } from '~/interface/products/products.interface'
+
 export default {
   name: 'ProductsViewBlog',
+  components: { ProductBlog },
   // components: { ProductBlog },
   props: {
-    // product: {
-    // type: Array as () => PropType<TypeCartProduct>,
-    // },
+    product: {
+      type: Array as () => PropType<TypeProductVuex>,
+    },
   },
 }
 </script>
 
 <style lang="sass">
+@import "assets/sass/products/product-element"
 //@import "assets/sass/products/blog/product-blog"
 //@import "assets/sass/products/blog/product-blog-elem"
 //@import "assets/sass/products/blog/product-blog-offers"

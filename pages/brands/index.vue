@@ -9,6 +9,7 @@
       />
     </div>
     <base-pagination
+      v-if="getBrandPage.length > 0"
       :count-element="getBrand.length"
       :limit-element="getLimitPage"
       :limit-pagination="5"

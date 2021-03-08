@@ -18,6 +18,7 @@ export type TypeBrandProduct = {
   id: number
   name: string
   deliveryDelay: number
+  code: string
 }
 /***
  *  @type skuProduct - артикуль для продукта

@@ -29,6 +29,7 @@ export const ProductsMap = (data: TypeProductApi[]): TypeProductVuex[] => {
             id: elem.brand.id,
             name: elem.brand.name,
             deliveryDelay: elem.brand.deliveryDelay,
+            code: elem.brand.code,
           },
           categories: [],
           applicabilities: [],

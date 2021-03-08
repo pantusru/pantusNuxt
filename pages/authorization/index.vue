@@ -7,11 +7,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AuthorizationForm from "~/components/authorization/authorization-form.vue";
+import AuthorizationForm from '~/components/authorization/authorization-form.vue'
 
 export default Vue.extend({
   name: 'PageAuthorization',
-  components: {AuthorizationForm},
+  components: { AuthorizationForm },
   middleware: 'check-user-authorization',
 })
 </script>

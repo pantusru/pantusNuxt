@@ -21,7 +21,10 @@
       <TheHeaderUserName />
       <TheHeaderDropdownUser />
     </div>
-    <div class="header-user-items row-gutters">
+    <nuxt-link
+      to="/cart"
+      class="header-user-items row-gutters link-hover-main link"
+    >
       <div class="header-user-img">
         <img
           class="img"
@@ -30,11 +33,9 @@
         />
       </div>
       <div class="header-user-items-link">
-        <nuxt-link class="link-hover-main link header-user-link" to="/cart">
-          Корзина
-        </nuxt-link>
+        <div>Корзина</div>
       </div>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 

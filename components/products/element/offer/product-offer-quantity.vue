@@ -5,7 +5,10 @@
       {{ linkProduct.params.measure }}
     </span>
     <!-- под заказ сколько дней -->
-    <span v-else-if="linkProduct.brand.deliveryDelay != 0" class="product-offer-blog-delivery">
+    <span
+      v-else-if="linkProduct.brand.deliveryDelay != 0"
+      class="product-offer-blog-delivery"
+    >
       Под заказ:
       {{ linkProduct.brand.deliveryDelay }} дн.
     </span>

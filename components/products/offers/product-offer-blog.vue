@@ -10,7 +10,7 @@
     </div>
     <div class="row-gutters product-offer-row">
       <div class="product-offer-price">{{ offer.prices }}</div>
-      <!-- button -->
+      <ProductButtonBuy />
     </div>
   </div>
 </template>
@@ -22,9 +22,10 @@ import {
   TypeProductVuex,
 } from '~/interface/products/products.interface'
 import ProductOfferQuantity from '~/components/products/element/offer/product-offer-quantity.vue'
+import ProductButtonBuy from '~/components/products/element/product-button.vue'
 export default {
   name: 'ProductOfferBlog',
-  components: { ProductOfferQuantity },
+  components: { ProductButtonBuy, ProductOfferQuantity },
   props: {
     product: {
       type: Object as () => PropType<TypeProductVuex>,

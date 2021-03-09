@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="header">
     <TheHeaderTop />
     <TheHeaderMain />
     <TheHeaderBottom />

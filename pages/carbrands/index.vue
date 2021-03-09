@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="h1 catalog-title">Запчасти для автомобилей по их маркам</h1>
+    <h1 class="h1">Запчасти для автомобилей по их маркам</h1>
     <div class="row">
       <carbrands-id-catalog
         v-for="data in getCarbrands"
@@ -26,5 +26,4 @@ export default Vue.extend({
 </script>
 <style lang="sass">
 @import "assets/sass/carbrands/carbrands-catalog"
-@import "assets/sass/catalog/catalog"
 </style>

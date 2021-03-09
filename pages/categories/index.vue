@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="h1 catalog-title">Все категории автозапчастей</h1>
+    <h1 class="h1">Все категории автозапчастей</h1>
     <div v-if="getCategories.length > 0" class="row-catalog-categories">
       <categories-id-catalog
         v-for="data in getCategories"
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import { PageCategories } from '~/composition/categories/page-categories'
 import CategoriesIdCatalog from '@/components/categories/categories-id-catalog'
+import { PageCategories } from '~/composition/categories/page-categories'
 
 export default {
   name: 'PagesCategories',
@@ -25,5 +25,4 @@ export default {
 </script>
 <style lang="sass">
 @import "assets/sass/categories/categories-catalog"
-@import "assets/sass/catalog/catalog"
 </style>

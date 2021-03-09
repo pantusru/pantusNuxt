@@ -16,28 +16,28 @@ module.exports = {
     'no-duplicate-selectors': true, // Запретить дубликаты селекторов
     'no-extra-semicolons': true, // Запретить лишние точки с запятыми
     'declaration-no-important': true, // Запрещать !important в объявлениях.
-    'order/order': [
-      'declarations',
-      {
-        type: 'at-rule',
-        name: 'media',
-      },
-      {
-        type: 'rule',
-        selector: '^&::(before|after)',
-      },
-      {
-        type: 'rule',
-        selector: '^&:\\w',
-      },
-      {
-        type: 'rule',
-        selector: '^&_',
-      },
-      {
-        type: 'rule',
-        selector: '^.',
-      },
-    ],
+    // 'order/order': [
+    //   'declarations',
+    //   {
+    //     type: 'at-rule',
+    //     name: 'media',
+    //   },
+    //   {
+    //     type: 'rule',
+    //     selector: '^&::(before|after)',
+    //   },
+    //   {
+    //     type: 'rule',
+    //     selector: '^&:\\w',
+    //   },
+    //   {
+    //     type: 'rule',
+    //     selector: '^&_',
+    //   },
+    //   {
+    //     type: 'rule',
+    //     selector: '^.',
+    //   },
+    // ],
   },
 }

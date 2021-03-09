@@ -33,6 +33,11 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
         validateInput.value.length <= inputData.params.minLength
     }
   }
+  const errorLength = (inputData: UnwrapRef<TypeValidateRegulations>) => {
+    if (inputData.params && inputData.params.length) {
+      inputData.active = validateInput.value.length !== inputData.params.length
+    }
+  }
   const errorMaxLength = (inputData: UnwrapRef<TypeValidateRegulations>) => {
     if (inputData.params && inputData.params.maxLength) {
       inputData.active =
@@ -76,6 +81,9 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
           break
         case 'maxLength':
           errorMaxLength(validateInput.regulations[keyReg])
+          break
+        case 'length':
+          errorLength(validateInput.regulations[keyReg])
           break
         default:
           break

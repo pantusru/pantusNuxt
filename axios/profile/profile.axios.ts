@@ -1,6 +1,7 @@
 import {
   ProfileInterface,
   ProfileInterfaceApi,
+  ProfileInterfaceDto,
 } from '@/interface/profile.interface'
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
@@ -11,6 +12,17 @@ export const ProfileAxios = async (
   if (!data.error) {
     return ProfileMap(data)
   }
+}
+
+export const ProfileUpdateAxios = async (
+  $axios: NuxtAxiosInstance,
+  profileInterfaceDto: ProfileInterfaceDto
+): Promise<boolean> => {
+  const { data } = await $axios.patch(
+    `${process.env.api}/users`,
+    profileInterfaceDto
+  )
+  return !!data.success
 }
 
 const ProfileMap = (data: ProfileInterfaceApi): ProfileInterface => {

@@ -5,6 +5,7 @@ export enum TypeRegulations {
   ValueFalse = 'valueFalse',
   MinLength = 'minLength',
   MaxLength = 'maxLength',
+  Length = 'length',
 }
 export type TypeValueCheck = {
   value1: string
@@ -15,6 +16,7 @@ export type TypeValueCheck = {
 export type TypeValidateParamsAll = {
   minLength?: number
   maxLength?: number
+  length?: number
   regExp?: RegExp
   valueTrue?: TypeValueCheck
   valueFalse?: TypeValueCheck

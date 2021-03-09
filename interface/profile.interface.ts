@@ -22,6 +22,20 @@ export interface ProfileInterfaceApi {
     patronymic: string
   }
 }
+
+export interface ProfileInterfaceDto {
+  contacts: {
+    phone: {
+      personal: string
+    }
+  }
+  name: {
+    first: string
+    last: string
+    patronymic: string
+  }
+}
+
 export interface ProfileInterfaceStore {
   profile: ProfileInterface | undefined
 }

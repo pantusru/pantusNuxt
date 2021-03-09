@@ -1,5 +1,5 @@
 <template>
-  <nav class="profile-nav">
+  <nav v-if="getProfile" class="profile-nav">
     <div class="profile-nav-data_user">
       <div class="profile-nav-name_user">
         {{ getProfile.surname }} {{ getProfile.name }}
@@ -16,7 +16,9 @@
         >{{ data.text }}
       </nuxt-link>
     </div>
-    <div class="profile-nav-link" @click="exitUser">Выйти</div>
+    <!--    <nuxt-link to="" class="profile-nav-link">-->
+    <div @click="exitUser">Выйти</div>
+    <!--    </nuxt-link>-->
   </nav>
 </template>
 

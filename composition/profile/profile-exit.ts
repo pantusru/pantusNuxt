@@ -9,7 +9,6 @@ export function ProfileExit() {
     app.$axios.setToken(false)
     store.commit('authorization/setUserAuthorization', false)
     store.commit('profile/setProfile', undefined)
-    await store.dispatch('authorization/actionsAuthorization')
   }
   return { exitUser }
 }

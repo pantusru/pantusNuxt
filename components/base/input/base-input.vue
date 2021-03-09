@@ -5,7 +5,7 @@
       <input
         :value="validateInput.value"
         class="base-input"
-        :class="{ 'base-input-error': !validateInput.validate, classInput }"
+        :class="[!validateInput.validate ? 'base-input-error' : '', classInput]"
         :type="type"
         :placeholder="placeholder"
         @input="onSwitch($event.target.value)"

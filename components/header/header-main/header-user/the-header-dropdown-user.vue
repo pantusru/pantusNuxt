@@ -1,18 +1,20 @@
 <template>
   <HeaderDropdown target="header-user-name" :array="link">
-    <div class="header-dropdown-link">Выход</div>
+    <div class="header-dropdown-link" @click="exitUser">Выход</div>
   </HeaderDropdown>
 </template>
 
 <script lang="ts">
-import { HeaderUserDropdown } from '~/composition/header/header-user/header-user-dropdown'
+import { ProfileLink } from '~/composition/profile/profile-link'
 import HeaderDropdown from '~/components/header/header-dropdown.vue'
+import { ProfileExit } from '~/composition/profile/profile-exit'
 export default {
   name: 'TheHeaderDropdownUser',
   components: { HeaderDropdown },
   setup() {
     return {
-      ...HeaderUserDropdown(),
+      ...ProfileLink(),
+      ...ProfileExit(),
     }
   },
 }

@@ -1,4 +1,4 @@
-import { ref, useContext, useRouter } from '@nuxtjs/composition-api'
+import { ref, useContext } from '@nuxtjs/composition-api'
 import {
   TypeFormData,
   TypeRegulations,

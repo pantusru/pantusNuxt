@@ -1,6 +1,34 @@
 @import "assets/sass-mixin/index"
 .profile-form
-  +col(6)
+  flex: 1
+  +col-padding()
+//.row-profile
+
+.profile-input
+  width: 100%
+  max-width: 300px
 .profile-button
   +px(8px)
   +py(5px)
+
+//  profile-nav
+.profile-nav
+  +col-padding()
+  +fz(13px)
+  +mb(20px)
+.profile-nav-data_user
+  color: #4a4a4a
+.profile-nav-item
+  +mt(45px)
+.profile-nav-name_user
+  font-weight: 800
+  +mb(15px)
+.profile-nav-link
+  cursor: pointer
+  text-decoration: underline
+  color: #4a4a4a
+  +mb(5px)
+  +d-display(block)
+  &.active, &:hover
+    text-decoration: none
+    font-weight: 800

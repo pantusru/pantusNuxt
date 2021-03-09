@@ -4,6 +4,8 @@ export default ({ $axios, app }) => {
     const token = app.$cookies.get('Authorization')
     if (token) {
       $axios.setToken(token, 'Bearer')
+    } else {
+      $axios.setToken(token, false)
     }
   })
 }

@@ -1,6 +1,6 @@
 import { LinkPropsInterface } from '~/interface/base/props/link-props.interface'
 
-export function HeaderUserDropdown() {
+export function ProfileLink() {
   const link: LinkPropsInterface[] = [
     {
       id: 1,

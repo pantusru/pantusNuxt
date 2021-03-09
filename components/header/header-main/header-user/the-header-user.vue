@@ -33,7 +33,7 @@
         />
       </div>
       <div class="header-user-items-link">
-        <div>Корзина</div>
+        <div class="header-user-text">Корзина</div>
       </div>
     </nuxt-link>
   </div>

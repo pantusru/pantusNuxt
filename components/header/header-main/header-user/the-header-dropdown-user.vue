@@ -1,5 +1,5 @@
 <template>
-  <HeaderDropdown target="header-user-name" :array="link">
+  <HeaderDropdown target="header-user-text header-user-name" :array="link">
     <div class="header-dropdown-link" @click="exitUser">Выход</div>
   </HeaderDropdown>
 </template>

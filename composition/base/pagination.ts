@@ -53,7 +53,7 @@ export function Pagination(props: PaginationPropsInterface) {
       }
 
       for (let i = 0; i < props.limitPagination - 1; i++) {
-        if (add > 0) {
+        if (add > 0 && add < countPagination.value) {
           arrayPagination.value.push({
             text: add,
             to: `${route.value.path}${query}&${props.name}=${add}`,

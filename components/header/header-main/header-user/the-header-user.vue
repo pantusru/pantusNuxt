@@ -1,5 +1,5 @@
 <template>
-  <div class="header-user-row row-gutters">
+  <div class="header-user-row row-gutters col">
     <div class="header-user-items row-gutters">
       <div class="header-user-img">
         <img

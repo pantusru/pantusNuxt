@@ -1,5 +1,5 @@
 <template>
-  <div class="logo-img-items">
+  <div class="logo-img-items col">
     <nuxt-link to="/">
       <img :src="require('~/assets/img/logo.png')" class="img" alt="logo" />
     </nuxt-link>

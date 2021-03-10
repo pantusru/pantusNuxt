@@ -1,5 +1,5 @@
 <template>
-  <form class="profile-form">
+  <form class="profile-form col">
     <h3 class="h3">Личные данные</h3>
     <base-input
       text="Имя:"

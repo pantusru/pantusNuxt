@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="getProfile" class="profile-nav">
+  <nav v-if="getProfile" class="profile-nav col">
     <div class="profile-nav-data_user">
       <div class="profile-nav-name_user">
         {{ getProfile.surname }} {{ getProfile.name }}

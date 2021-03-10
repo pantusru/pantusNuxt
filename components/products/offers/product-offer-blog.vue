@@ -1,5 +1,5 @@
 <template>
-  <div class="product-offer-blog">
+  <div class="product-offer-blog col">
     <div class="row-gutters product-offer-row">
       <div class="product-offer-blog-price-text">Цена</div>
       <product-offer-quantity

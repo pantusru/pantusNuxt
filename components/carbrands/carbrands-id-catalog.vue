@@ -1,5 +1,5 @@
 <template>
-  <div class="carbrands-id-catalog">
+  <div class="carbrands-id-catalog col">
     <nuxt-link :to="'/carbrands/' + carbrands.code" class="carbrands-id-link">
       {{ carbrands.name }}
     </nuxt-link>

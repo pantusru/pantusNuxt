@@ -1,7 +1,7 @@
 import {
   OrdersInterface,
   OrdersInterfaceStore,
-} from '@/interface/Orders.interface'
+} from '@/interface/orders.interface'
 import { ActionTree, MutationTree } from 'vuex'
 import { orderAxios } from '@/axios/order/order.axios'
 export const state = (): OrdersInterfaceStore => ({

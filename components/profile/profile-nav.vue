@@ -17,7 +17,7 @@
       </nuxt-link>
     </div>
     <!--    <nuxt-link to="" class="profile-nav-link">-->
-    <div @click="exitUser">Выйти</div>
+    <div class="profile-nav-link" @click="exitUser">Выйти</div>
     <!--    </nuxt-link>-->
   </nav>
 </template>
@@ -35,4 +35,6 @@ export default {
 }
 </script>
 
-<!--<style></style>-->
+<style lang="sass">
+@import "assets/sass/profile/profile-nav"
+</style>

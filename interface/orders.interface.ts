@@ -31,4 +31,6 @@ export interface OrdersInterfaceApi {
 }
 export interface OrdersInterfaceStore {
   orders: OrdersInterface[] | []
+  countOrders: number
+  limit: number
 }

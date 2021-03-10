@@ -7,6 +7,12 @@
         <orders-id v-for="data in getOrder" :key="data.id" :order="data" />
       </div>
     </div>
+    <base-pagination
+      v-if="getCountOrders"
+      :count-element="getCountOrders"
+      :limit-element="getLimit"
+      @click="paginationOrder"
+    />
   </div>
 </template>
 
@@ -14,10 +20,11 @@
 import { PageOrders } from '~/composition/orders/page-orders'
 import ProfileNav from '~/components/profile/profile-nav.vue'
 import OrdersId from '~/components/orders/orders-id.vue'
+import BasePagination from '~/components/base/pagination/base-pagination.vue'
 
 export default {
   name: 'PageOrder',
-  components: { OrdersId, ProfileNav },
+  components: { BasePagination, OrdersId, ProfileNav },
   setup() {
     return { ...PageOrders() }
   },

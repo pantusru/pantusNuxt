@@ -6,13 +6,18 @@ import {
 
 export const orderAxios = async (
   $axios: NuxtAxiosInstance,
-  limit: number = 15,
+  limit: number,
   page: number = 1
 ): Promise<OrdersInterface[]> => {
   const { data } = await $axios.get(
     `${process.env.api}/personal/orders?sort_order=desc&page_size=${limit}&page_number=${page}`
   )
   return orderMap(data)
+}
+
+export const orderCountAxios = async ($axios: NuxtAxiosInstance) => {
+  const { data } = await $axios.get(`${process.env.api}/personal/orders/count`)
+  return data
 }
 
 const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] => {

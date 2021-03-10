@@ -6,6 +6,7 @@ interface pageData {
   text: string | number
 }
 export function Pagination(props: PaginationPropsInterface) {
+  let query: string = ''
   const route = useRoute()
   const arrayPagination = ssrRef<pageData[]>([])
   const countPagination = computed(() => {
@@ -20,8 +21,21 @@ export function Pagination(props: PaginationPropsInterface) {
   const setArrayPaginationLast = () => {
     arrayPagination.value.push({
       text: countPagination.value,
-      to: `${route.value.name}?${props.name}=${countPagination.value}`,
+      to: `${route.value.path}${query}&${props.name}=${countPagination.value}`,
     })
+  }
+  const SetQueryPagination = () => {
+    if (props && props.name) {
+      query = '?'
+      for (const queryKey in route.value.query) {
+        if (queryKey !== props.name) {
+          if (query !== '?') {
+            query += '&'
+          }
+          query += `${queryKey}=${route.value.query[queryKey]}`
+        }
+      }
+    }
   }
   const startPagination = () => {
     if (props && props.limitPagination && props.name && route.value.query) {
@@ -37,19 +51,27 @@ export function Pagination(props: PaginationPropsInterface) {
       } else {
         add = active - Math.ceil((props.limitPagination - 1) / 2)
       }
+
       for (let i = 0; i < props.limitPagination - 1; i++) {
-        arrayPagination.value.push({
-          text: add,
-          to: `${route.value.name}?${props.name}=${add}`,
-        })
+        if (add > 0) {
+          arrayPagination.value.push({
+            text: add,
+            to: `${route.value.path}${query}&${props.name}=${add}`,
+          })
+        }
         add++
       }
       arrayPagination.value[0].text = 1
-      arrayPagination.value[0].to = route.value.name
+      if (query === '?') {
+        arrayPagination.value[0].to = route.value.path
+      } else {
+        arrayPagination.value[0].to = route.value.path + query
+      }
     }
   }
   const setArrayPagination = () => {
     resetArrayPagination()
+    SetQueryPagination()
     startPagination()
     setArrayPaginationLast()
   }

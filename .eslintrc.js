@@ -14,5 +14,6 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'vue/require-default-prop': 0,
+    'no-empty-source': 0,
   },
 }

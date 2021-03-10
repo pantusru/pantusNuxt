@@ -1,3 +1,5 @@
+import {OrdersIdInterface} from "~/interface/orders/orders-id.interface";
+
 export interface OrdersInterface {
   id: number
   date: string
@@ -31,6 +33,7 @@ export interface OrdersInterfaceApi {
 }
 export interface OrdersInterfaceStore {
   orders: OrdersInterface[] | []
+  orderId: OrdersIdInterface | []
   countOrders: number
   limit: number
 }

@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { PropType } from 'vue'
-import { OrdersInterface } from '~/interface/orders.interface'
+import { OrdersInterface } from '~/interface/orders/orders.interface'
 
 export default {
   name: 'OrdersId',

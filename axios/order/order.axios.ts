@@ -2,7 +2,11 @@ import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import {
   OrdersInterface,
   OrdersInterfaceApi,
-} from '~/interface/orders.interface.ts'
+} from '~/interface/orders/orders.interface.ts'
+import {
+  OrdersIdInterface,
+  OrdersInterfaceIdApi,
+} from '~/interface/orders/orders-id.interface'
 
 export const orderAxios = async (
   $axios: NuxtAxiosInstance,
@@ -20,6 +24,11 @@ export const orderCountAxios = async ($axios: NuxtAxiosInstance) => {
   return data
 }
 
+export const orderIdAxios = async ($axios: NuxtAxiosInstance, id: number) => {
+  const { data } = await $axios.get(`${process.env.api}/personal/orders/${id}`)
+  return orderIdMap(data)
+}
+
 const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] => {
   const order: OrdersInterface[] = []
   data.forEach((array) => {
@@ -33,4 +42,50 @@ const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] => {
     })
   })
   return order
+}
+const orderIdMap = (data: OrdersInterfaceIdApi): OrdersIdInterface => {
+  const orderId: OrdersIdInterface = {
+    id: data.id,
+    price: data.price,
+    offers: [],
+    user: {
+      name: data.user.name.first,
+      surname: data.user.name.last,
+      phone: data.user.phone,
+    },
+    status: {
+      name: data.status.name,
+      code: data.status.code,
+    },
+    address: {
+      city: data.address.city,
+      detailed: data.address.detailed,
+    },
+    date: data.dates.created,
+    delivery: {
+      price: data.delivery.price,
+      service: {
+        id: data.delivery.service.id,
+        name: data.delivery.service.name,
+      },
+    },
+    paySystem: {
+      id: data.paysystem.id,
+      name: data.paysystem.name,
+    },
+    paySystemType: {
+      id: data.payerType.id,
+      name: data.payerType.name,
+    },
+  }
+  data.offers.forEach((elemOffer) => {
+    orderId.offers.push({
+      name: elemOffer.name,
+      id: elemOffer.id,
+      sku: elemOffer.sku,
+      quantity: elemOffer.quantity,
+      price: elemOffer.price,
+    })
+  })
+  return orderId
 }

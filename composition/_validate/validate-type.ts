@@ -1,6 +1,7 @@
 export enum TypeRegulations {
   RegExp = 'regExp',
   Undefined = 'undefined',
+  CheckTrue = 'checkTrue',
   ValueTrue = 'valueTrue',
   ValueFalse = 'valueFalse',
   MinLength = 'minLength',
@@ -34,7 +35,7 @@ export type TypeValidateRegulations = {
 export type TypeValidateInput = {
   validate: boolean
   regulations: TypeValidateRegulations[]
-  value: string
+  value: any
   req?: boolean
 }
 

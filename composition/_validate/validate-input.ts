@@ -32,6 +32,9 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
       errorValidateInputAll(inputData.params.valueFalse.valueSet)
     }
   }
+  const errorCheckTrue = (inputData: UnwrapRef<TypeValidateRegulations>) => {
+    inputData.active = validateInput.value !== true
+  }
 
   const errorMinLength = (inputData: UnwrapRef<TypeValidateRegulations>) => {
     if (inputData.params && inputData.params.minLength) {
@@ -70,9 +73,9 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
     }
   }
 
-  const onSwitch = (value?: string) => {
+  const onSwitch = (value?: any) => {
     validateInput.validate = true
-    if (typeof value === 'string') {
+    if (value) {
       validateInput.value = value
     }
     for (const keyReg in validateInput.regulations) {
@@ -101,6 +104,9 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
           break
         case 'length':
           errorLength(validateInput.regulations[keyReg])
+          break
+        case 'checkTrue':
+          errorCheckTrue(validateInput.regulations[keyReg])
           break
         default:
           break

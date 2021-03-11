@@ -1,24 +1,20 @@
-+ +
 <template>
-  <div class="base-input-blog">
-    <div class="base-input-item" :class="classItem">
-      <label class="base-input-label" :class="classLabel" :for="id"
-        >{{ text }}
-        <span v-if="validateInput.req" class="base-input-icons-req">*</span>
-      </label>
+  <div>
+    <div :class="classItem">
       <ElementValidate
+        v-bind="$attrs"
         :id="id"
         :validate-input="validateInput"
         :validate-form="validateForm"
         :name="name"
-        :value="validateInput.value"
-        :class="'base-input' + classInput"
-        class-error="base-input-error"
-        :type="type"
-        :placeholder="placeholder"
+        :value="value"
+        :class="'base-radio' + classInput"
+        type="radio"
       />
+      <label class="base-radio-label" :class="classLabel" :for="id"
+        >{{ text }}
+      </label>
     </div>
-    <BaseError :validate-input="validateInput" />
   </div>
 </template>
 
@@ -28,24 +24,18 @@ import {
   TypeValidateInput,
   TypeFormData,
 } from '@/composition/_validate/validate-type'
-import BaseError from '~/components/base/error/base-error.vue'
 import ElementValidate from '~/components/base/input/element-validate.vue'
 export default Vue.extend({
-  name: 'BaseInput',
-  components: { ElementValidate, BaseError },
+  name: 'BaseCheckbox',
+  components: { ElementValidate },
   props: {
+    value: {
+      type: String,
+    },
     id: {
       type: String,
     },
     name: {
-      default: '',
-      type: String,
-    },
-    type: {
-      default: 'text',
-      type: String,
-    },
-    placeholder: {
       default: '',
       type: String,
     },
@@ -76,6 +66,3 @@ export default Vue.extend({
   },
 })
 </script>
-<style lang="sass">
-@import "assets/sass/base/base-input"
-</style>

@@ -113,8 +113,8 @@ export default {
         ],
         [
           { name: "Trialli", href: "/search?filter_brands=2004" },
-          { name: "Luzar", href: "/search?filter_applicabilities=706" },
-          { name: "Hofer", href: "/search?filter_applicabilities=1507" },
+          { name: "Luzar", href: "/search?filter_brands=706" },
+          { name: "Hofer", href: "/search?filter_brands=1507" },
         ],
       ],
     };

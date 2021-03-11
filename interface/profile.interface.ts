@@ -39,3 +39,24 @@ export interface ProfileInterfaceDto {
 export interface ProfileInterfaceStore {
   profile: ProfileInterface | undefined
 }
+export interface ProfileInterfaceCreateDto {
+  passwd: string
+  organization?: {
+    name: string
+    address: string
+    tin: string
+  }
+  name: {
+    first: string
+    last: string
+  }
+  contacts: {
+    email: string
+    phone: {
+      personal: string
+    }
+  }
+  account: {
+    type: string
+  }
+}

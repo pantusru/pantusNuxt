@@ -4,13 +4,15 @@ import {
   TypeRegulations,
 } from '@/composition/_validate/validate-type'
 import { ValidateForm } from '@/composition/_validate/validate-form'
+import { ProfileInterfaceCreateDto } from '~/interface/profile.interface'
+import { ProfileCreateAxios } from '~/axios/profile/profile.axios'
 
 export function RegisterForm() {
-  // const { store } = useContext()
-  // const router = useRouter()
+  const { $axios } = useContext()
+  const router = useRouter()
   const formDataRetail = ref<TypeFormData>({
     checkbox: {
-      value: '',
+      value: false,
       regulations: [
         {
           id: 1,
@@ -20,7 +22,7 @@ export function RegisterForm() {
           type: TypeRegulations.CheckTrue,
         },
       ],
-      validate: false,
+      validate: true,
     },
     type: {
       value: 'retail',
@@ -73,6 +75,7 @@ export function RegisterForm() {
           active: false,
           server: true,
         },
+        { id: 3, server: true, text: '', active: false, params: [] },
       ],
       validate: true,
     },
@@ -157,30 +160,72 @@ export function RegisterForm() {
   formDataRetail.value.password.regulations[2].params =
     formDataRetail.value.passwordRepeat.regulations[1].params
 
-  const formData = formDataRetail
+  const formDataWholesale = ref<TypeFormData>({
+    organization: {
+      value: '',
+      req: true,
+      validate: true,
+      regulations: [
+        {
+          id: 1,
+          type: TypeRegulations.Undefined,
+          params: [],
+          text: 'Вы не указали название своей организации',
+          active: false,
+        },
+      ],
+    },
+    inn: {
+      value: '',
+      validate: true,
+      regulations: [],
+    },
+    address: {
+      value: '',
+      validate: true,
+      regulations: [],
+    },
+  })
 
   const registerValidateForm = async () => {
-    console.log(formData)
     let validateClient: boolean
-    if (formData.value.type.value === 'retail') {
+    if (formDataRetail.value.type.value === 'retail') {
       validateClient = ValidateForm(formDataRetail.value).validateForm()
     } else {
-      validateClient = ValidateForm(formData.value).validateForm()
+      const validateRetail = ValidateForm(formDataRetail.value).validateForm()
+      const validateWholesale = ValidateForm(
+        formDataWholesale.value
+      ).validateForm()
+      validateClient = validateRetail && validateWholesale
     }
     if (validateClient) {
-      // const validateServer = await store.dispatch(
-      //   'authorization/actionsAuthorization',
-      //   {
-      //     login: formData.value.login.value,
-      //     password: formData.value.password.value,
-      //   }
-      // )
-      // if (validateServer) {
-      //   await router.push('/')
-      // } else {
-      //   formData.value.login.regulations[1].active = true
-      // }
+      const profileInterfaceCreateDto: ProfileInterfaceCreateDto = {
+        passwd: formDataRetail.value.password.value,
+        account: { type: formDataRetail.value.type.value },
+        contacts: {
+          email: formDataRetail.value.email.value,
+          phone: {
+            personal: formDataRetail.value.telephone.value,
+          },
+        },
+        name: {
+          first: formDataRetail.value.name.value,
+          last: formDataRetail.value.surname.value,
+        },
+        organization: {
+          name: formDataWholesale.value.organization.value,
+          address: formDataWholesale.value.address.value,
+          tin: formDataWholesale.value.inn.value,
+        },
+      }
+      const res = await ProfileCreateAxios($axios, profileInterfaceCreateDto)
+      if (!res.error) {
+        await router.push('/')
+      } else {
+        formDataRetail.value.email.regulations[2].active = true
+        formDataRetail.value.email.regulations[2].text = res.error
+      }
     }
   }
-  return { formData, registerValidateForm }
+  return { formDataRetail, formDataWholesale, registerValidateForm }
 }

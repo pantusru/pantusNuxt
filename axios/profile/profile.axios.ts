@@ -1,6 +1,7 @@
 import {
   ProfileInterface,
   ProfileInterfaceApi,
+  ProfileInterfaceCreateDto,
   ProfileInterfaceDto,
 } from '@/interface/profile.interface'
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
@@ -13,7 +14,13 @@ export const ProfileAxios = async (
     return ProfileMap(data)
   }
 }
-
+export const ProfileCreateAxios = async (
+  $axios: NuxtAxiosInstance,
+  dataset: ProfileInterfaceCreateDto
+) => {
+  const { data } = await $axios.post(`${process.env.api}/users`, dataset)
+  return data
+}
 export const ProfileUpdateAxios = async (
   $axios: NuxtAxiosInstance,
   profileInterfaceDto: ProfileInterfaceDto

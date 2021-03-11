@@ -1,6 +1,7 @@
 <template>
   <form class="authorization-form">
     <base-input
+      :id="'login'"
       :validate-form="formData"
       :validate-input="formData.login"
       class-input="authorization-input"
@@ -8,8 +9,11 @@
       class-label="authorization-label"
       text="Логин"
       placeholder="Введите ваш логин"
+      :name="'login'"
     />
     <base-input
+      :id="'password'"
+      :name="'password'"
       type="password"
       :validate-form="formData"
       :validate-input="formData.password"

@@ -32,9 +32,9 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
   ],
-  styleResources: {
-    sass: ['@/assets/sass-mixin/index.sass'],
-  },
+  // styleResources: {
+  //   sass: ['@/assets/sass-mixin/index.sass'],
+  // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -44,7 +44,7 @@ export default {
     // https://www.npmjs.com/package/cookie-universal-nuxt
     ['cookie-universal-nuxt'],
     // https://www.npmjs.com/package/@nuxtjs/style-resources
-    '@nuxtjs/style-resources',
+    // '@nuxtjs/style-resources',
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

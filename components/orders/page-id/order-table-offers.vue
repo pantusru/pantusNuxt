@@ -52,7 +52,7 @@ export default {
   name: 'OrderTableOffers',
   components: { ProductSymma },
   props: {
-    offers: Array as PropType<OrdersIdOffersInterface>,
+    offers: Array as PropType<OrdersIdOffersInterface[]>,
     getOrderId: {
       type: Object as PropType<OrdersIdInterface>,
     },

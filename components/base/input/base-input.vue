@@ -1,4 +1,3 @@
-+ +
 <template>
   <div class="base-input-blog">
     <div class="base-input-item" :class="classItem">
@@ -8,11 +7,12 @@
       </label>
       <ElementValidate
         :id="id"
+        :component-name="componentsName"
         :validate-input="validateInput"
         :validate-form="validateForm"
         :name="name"
         :value="validateInput.value"
-        :class="'base-input' + classInput"
+        :class="'base-input ' + classInput"
         class-error="base-input-error"
         :type="type"
         :placeholder="placeholder"
@@ -34,6 +34,10 @@ export default Vue.extend({
   name: 'BaseInput',
   components: { ElementValidate, BaseError },
   props: {
+    componentsName: {
+      type: String,
+      default: 'input',
+    },
     id: {
       type: String,
     },
@@ -55,7 +59,6 @@ export default Vue.extend({
     },
     validateForm: {
       type: Object as () => PropType<TypeFormData>,
-      required: true,
     },
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,

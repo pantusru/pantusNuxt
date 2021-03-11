@@ -3,7 +3,7 @@
     :is="componentName"
     v-bind="$listeners"
     :class="[!validateInput.validate ? classError : '']"
-    @input="onSwitch($event.target.value)"
+    @input="onSwitch($event.target[nameTarget])"
   />
 </template>
 
@@ -16,7 +16,7 @@ import {
 } from '@/composition/_validate/validate-type'
 import { InputPropsInterface } from '@/interface/base/props/input-props.interface'
 export default Vue.extend({
-  name: 'InputValidate',
+  name: 'ElementValidate',
   props: {
     componentName: {
       type: String,
@@ -24,7 +24,6 @@ export default Vue.extend({
     },
     validateForm: {
       type: Object as () => PropType<TypeFormData>,
-      required: true,
     },
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,
@@ -33,6 +32,10 @@ export default Vue.extend({
     classError: {
       type: String,
       default: '',
+    },
+    nameTarget: {
+      type: String,
+      default: 'value',
     },
   },
   setup(props: InputPropsInterface) {

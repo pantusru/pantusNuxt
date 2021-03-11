@@ -2,6 +2,7 @@
   <div>
     <div :class="classItem">
       <ElementValidate
+        :checked="checked"
         v-bind="$attrs"
         :id="id"
         :validate-input="validateInput"
@@ -26,9 +27,13 @@ import {
 } from '@/composition/_validate/validate-type'
 import ElementValidate from '~/components/base/input/element-validate.vue'
 export default Vue.extend({
-  name: 'BaseCheckbox',
+  name: 'BaseRadio',
   components: { ElementValidate },
   props: {
+    checked: {
+      type: Boolean,
+      default: false,
+    },
     value: {
       type: String,
     },

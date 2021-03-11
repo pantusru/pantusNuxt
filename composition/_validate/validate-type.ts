@@ -8,10 +8,12 @@ export enum TypeRegulations {
   Length = 'length',
 }
 export type TypeValueCheck = {
-  value1: string
-  value2: string
   // eslint-disable-next-line no-use-before-define
-  valueSet: TypeValidateRegulations
+  valueSet: TypeValidateInput
+  // eslint-disable-next-line no-use-before-define
+  valueCheck: TypeValidateInput
+  // eslint-disable-next-line no-use-before-define
+  RegSet: TypeValidateRegulations
 }
 export type TypeValidateParamsAll = {
   minLength?: number
@@ -33,6 +35,7 @@ export type TypeValidateInput = {
   validate: boolean
   regulations: TypeValidateRegulations[]
   value: string
+  req?: boolean
 }
 
 export type TypeFormData = {

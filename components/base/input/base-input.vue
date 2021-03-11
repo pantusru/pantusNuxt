@@ -1,7 +1,10 @@
 <template>
   <div class="base-input-blog">
     <div class="base-input-item" :class="classItem">
-      <label class="base-input-label" :class="classLabel">{{ text }}</label>
+      <label class="base-input-label" :class="classLabel"
+        >{{ text }}
+        <span v-if="validateInput.req" class="base-input-icons-req">*</span>
+      </label>
       <input
         :value="validateInput.value"
         class="base-input"

@@ -15,15 +15,21 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
   }
   const errorValueTrue = (inputData: UnwrapRef<TypeValidateRegulations>) => {
     if (inputData.params && inputData.params.valueTrue) {
-      inputData.params.valueTrue.valueSet.active =
-        inputData.params.valueTrue.value1 === inputData.params.valueTrue.value2
+      inputData.params.valueTrue.RegSet.active =
+        inputData.params.valueTrue.valueSet.value ===
+        inputData.params.valueTrue.valueCheck.value
+      errorValidateInput(
+        inputData.params.valueTrue.RegSet,
+        inputData.params.valueTrue.valueSet
+      )
     }
   }
   const errorValueFalse = (inputData: UnwrapRef<TypeValidateRegulations>) => {
     if (inputData.params && inputData.params.valueFalse) {
-      inputData.params.valueFalse.valueSet.active =
-        inputData.params.valueFalse.value1 !==
-        inputData.params.valueFalse.value2
+      inputData.params.valueFalse.RegSet.active =
+        inputData.params.valueFalse.valueSet.value !==
+        inputData.params.valueFalse.valueCheck.value
+      errorValidateInputAll(inputData.params.valueFalse.valueSet)
     }
   }
 
@@ -44,12 +50,23 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
         validateInput.value.length <= inputData.params.maxLength
     }
   }
-
-  const errorValidateInput = (
-    regulations: UnwrapRef<TypeValidateRegulations>
+  const errorValidateInputAll = (
+    inputValue: UnwrapRef<TypeValidateInput> = validateInput
   ) => {
-    if (validateInput.validate) {
-      validateInput.validate = !regulations.active
+    inputValue.validate = true
+    for (const key in inputValue.regulations) {
+      if (inputValue.regulations[key].active) {
+        inputValue.validate = false
+        break
+      }
+    }
+  }
+  const errorValidateInput = (
+    regulations: UnwrapRef<TypeValidateRegulations>,
+    inputValue: UnwrapRef<TypeValidateInput> = validateInput
+  ) => {
+    if (inputValue.validate) {
+      inputValue.validate = !regulations.active
     }
   }
 

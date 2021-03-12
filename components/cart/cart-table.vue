@@ -1,6 +1,6 @@
 <template>
-  <table class="cart-table">
-    <thead>
+  <table class="cart-table base-table">
+    <thead class="base-table-thead">
       <tr class="base-table-tr-th">
         <th class="cart-table-th base-table-th">Брэнд</th>
         <th class="cart-table-th base-table-th">Артикул</th>
@@ -14,39 +14,43 @@
     </thead>
     <tbody>
       <template v-for="data in cart">
-        <tr :key="data.productCard.id" class="cart-table-tr">
+        <tr :key="data.productCard.id" class="cart-table-tr base-table-tr">
           <td
+            data-label="Брэнд"
             :rowspan="data.productOffer.length"
             class="base-table-td cart-table-td"
           >
             {{ data.productCard.brand.name }}
           </td>
           <td
+            data-label="Артикул"
             :rowspan="data.productOffer.length"
             class="cart-table-td base-table-td"
           >
             {{ data.productCard.sku.original }}
           </td>
           <td
+            data-label="Название товара"
             :rowspan="data.productOffer.length"
             class="cart-table-td cart-table-td-name base-table-td"
           >
             {{ data.productCard.name }}
           </td>
           <template v-if="data.productOffer.length > 0">
-            <td class="cart-table-td base-table-td">
+            <td class="cart-table-td base-table-td" data-label="Поставщик">
               {{ data.productOffer[0].supplier.name }}
             </td>
-            <td class="cart-table-td base-table-td">
+            <td class="cart-table-td base-table-td" data-label="Остаток">
               {{ data.productOffer[0].quantity }}
             </td>
-            <td class="cart-table-td base-table-td">
+            <td class="cart-table-td base-table-td" data-label="Цена">
               {{ data.productOffer[0].prices }}
             </td>
-            <td class="cart-table-td base-table-td">
+            <td class="cart-table-td base-table-td" data-label="Количество">
               {{ data.productOffer[0].count }}
             </td>
             <product-symma
+              data-label="Сумма"
               class="base-table-td"
               :component="'td'"
               :symma="data.productOffer[0].count * data.productOffer[0].prices"

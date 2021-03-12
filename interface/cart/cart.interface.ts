@@ -17,4 +17,5 @@ export interface CartInterface {
 }
 export interface CartInterfaceStore {
   cart: CartInterface[] | []
+  loaderCart: boolean
 }

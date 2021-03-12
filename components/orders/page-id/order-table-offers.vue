@@ -1,38 +1,49 @@
 <template>
   <table class="order-offer-table">
     <thead>
-      <tr class="orders-offer-tr">
-        <th class="orders-offer-th">Артикул</th>
-        <th class="orders-offer-th">Наименование</th>
-        <th class="orders-offer-th">Цена</th>
-        <th class="orders-offer-th">Кол-во</th>
-        <th class="orders-offer-th orders-offer-left">Сумма</th>
+      <tr class="orders-offer-tr base-table-tr-th">
+        <th class="orders-offer-th base-table-th">Артикул</th>
+        <th class="orders-offer-th base-table-th">Наименование</th>
+        <th class="orders-offer-th base-table-th">Цена</th>
+        <th class="orders-offer-th base-table-th">Кол-во</th>
+        <th class="orders-offer-th base-table-th orders-offer-right">Сумма</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="data in offers" :key="data.id" class="orders-offer-tr">
-        <td class="orders-offer-td">{{ data.sku }}</td>
-        <td class="orders-offer-td orders-offer-td-name">{{ data.name }}</td>
-        <td class="orders-offer-td">{{ data.price }}</td>
-        <td class="orders-offer-td">{{ data.quantity }}</td>
+        <td class="orders-offer-td base-table-td">{{ data.sku }}</td>
+        <td class="orders-offer-td base-table-td orders-offer-td-name">
+          {{ data.name }}
+        </td>
+        <td class="orders-offer-td base-table-td">{{ data.price }}</td>
+        <td class="orders-offer-td base-table-td">{{ data.quantity }}</td>
         <product-symma
           component="td"
-          class="orders-offer-td orders-offer-left"
+          class="base-table-td orders-offer-td orders-offer-right"
           :symma="data.price * data.quantity"
         />
       </tr>
       <tr class="orders-offer-tr">
-        <td colspan="5" class="orders-offer-td orders-offer-left">
+        <td
+          colspan="5"
+          class="base-table-td orders-offer-td orders-offer-right"
+        >
           Стоимость товаров: {{ getOrderId.price }} ₽
         </td>
       </tr>
       <tr class="orders-offer-tr">
-        <td colspan="5" class="orders-offer-td orders-offer-left">
+        <td
+          colspan="5"
+          class="base-table-td orders-offer-td orders-offer-right"
+        >
           Доставка: {{ getOrderId.delivery.price }} ₽
         </td>
       </tr>
       <tr class="orders-offer-tr">
-        <td colspan="5" class="orders-offer-td orders-offer-left">
+        <td
+          colspan="5"
+          class="base-table-td orders-offer-td orders-offer-right"
+        >
           Итого: {{ getOrderId.price + getOrderId.delivery.price }} ₽
         </td>
       </tr>
@@ -61,5 +72,6 @@ export default {
 </script>
 
 <style lang="sass">
+@import "assets/sass/base/base-table"
 @import "assets/sass/order/page/order-table-offers"
 </style>

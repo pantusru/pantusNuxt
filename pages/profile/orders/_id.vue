@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <profile-nav />
-      <div class="orders-page-id col">
+      <div v-if="getOrderId" class="orders-page-id col">
         <OrderParamsAll :get-order-id="getOrderId" />
         <OrderTableOffers
           :offers="getOrderId.offers"

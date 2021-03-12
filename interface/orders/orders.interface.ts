@@ -32,8 +32,8 @@ export interface OrdersInterfaceApi {
   }
 }
 export interface OrdersInterfaceStore {
-  orders: OrdersInterface[] | []
-  orderId: OrdersIdInterface | []
+  orders: OrdersInterface[] | null
+  orderId: OrdersIdInterface | null
   countOrders: number
   limit: number
 }

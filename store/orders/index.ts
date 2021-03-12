@@ -10,10 +10,10 @@ import {
 } from '~/interface/orders/orders.interface'
 import { OrdersIdInterface } from '~/interface/orders/orders-id.interface'
 export const state = (): OrdersInterfaceStore => ({
-  orders: [],
+  orders: null,
   countOrders: 0,
   limit: 15,
-  orderId: [],
+  orderId: null,
 })
 
 export type RootState = ReturnType<typeof state>

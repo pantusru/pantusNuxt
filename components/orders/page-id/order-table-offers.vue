@@ -1,7 +1,7 @@
 <template>
-  <table class="order-offer-table">
-    <thead>
-      <tr class="orders-offer-tr base-table-tr-th">
+  <table class="order-offer-table base-table">
+    <thead class="base-table-thead">
+      <tr class="base-table-tr-th">
         <th class="orders-offer-th base-table-th">Артикул</th>
         <th class="orders-offer-th base-table-th">Наименование</th>
         <th class="orders-offer-th base-table-th">Цена</th>
@@ -10,40 +10,45 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="data in offers" :key="data.id" class="orders-offer-tr">
-        <td class="orders-offer-td base-table-td">{{ data.sku }}</td>
-        <td class="orders-offer-td base-table-td orders-offer-td-name">
+      <tr
+        v-for="data in offers"
+        :key="data.id"
+        class="base-table-tr orders-offer-tr"
+      >
+        <td data-label="Артикул" class="orders-offer-td base-table-td">
+          {{ data.sku }}
+        </td>
+        <td
+          data-label="Наименование"
+          class="orders-offer-td base-table-td orders-offer-td-name"
+        >
           {{ data.name }}
         </td>
-        <td class="orders-offer-td base-table-td">{{ data.price }}</td>
-        <td class="orders-offer-td base-table-td">{{ data.quantity }}</td>
+        <td data-label="Цена" class="orders-offer-td base-table-td">
+          {{ data.price }}
+        </td>
+        <td data-label="Кол-во" class="orders-offer-td base-table-td">
+          {{ data.quantity }}
+        </td>
         <product-symma
+          data-label="Сумма"
           component="td"
-          class="base-table-td orders-offer-td orders-offer-right"
+          class="base-table-td orders-offer-td orders-offer-right base-table-td-last"
           :symma="data.price * data.quantity"
         />
       </tr>
-      <tr class="orders-offer-tr">
-        <td
-          colspan="5"
-          class="base-table-td orders-offer-td orders-offer-right"
-        >
+      <tr class="">
+        <td colspan="5" class="base-table-td orders-offer-right">
           Стоимость товаров: {{ getOrderId.price }} ₽
         </td>
       </tr>
-      <tr class="orders-offer-tr">
-        <td
-          colspan="5"
-          class="base-table-td orders-offer-td orders-offer-right"
-        >
+      <tr class="">
+        <td colspan="5" class="base-table-td orders-offer-right">
           Доставка: {{ getOrderId.delivery.price }} ₽
         </td>
       </tr>
-      <tr class="orders-offer-tr">
-        <td
-          colspan="5"
-          class="base-table-td orders-offer-td orders-offer-right"
-        >
+      <tr class="">
+        <td colspan="5" class="base-table-td orders-offer-right">
           Итого: {{ getOrderId.price + getOrderId.delivery.price }} ₽
         </td>
       </tr>

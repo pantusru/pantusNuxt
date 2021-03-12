@@ -6,4 +6,5 @@ export default async ({ store, app }) => {
   ) {
     await store.dispatch('authorization/actionsAuthorization')
   }
+  await store.dispatch('cart/actionsCart')
 }

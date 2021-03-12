@@ -16,6 +16,7 @@ module.exports = {
     'no-duplicate-selectors': true, // Запретить дубликаты селекторов
     'no-extra-semicolons': true, // Запретить лишние точки с запятыми
     'declaration-no-important': true, // Запрещать !important в объявлениях.
+    'declaration-empty-line-before': null,
     // 'order/order': [
     //   'declarations',
     //   {

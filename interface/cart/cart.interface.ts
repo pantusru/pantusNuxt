@@ -3,10 +3,12 @@ import {
   TypeOfferProduct,
 } from '~/interface/products/products.interface'
 
-export interface CartOfferInterface extends TypeOfferProduct {}
+export interface CartOfferInterface extends TypeOfferProduct {
+  count?: number
+}
 
 export interface CartCartInterface extends TypeCartProduct {
-  count?: number
+
 }
 
 export interface CartInterface {

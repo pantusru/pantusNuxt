@@ -1,0 +1,87 @@
+<template>
+  <table class="cart-table">
+    <thead>
+      <tr class="base-table-tr-th">
+        <th class="cart-table-th base-table-th">Брэнд</th>
+        <th class="cart-table-th base-table-th">Артикул</th>
+        <th class="cart-table-th base-table-th">Название товара</th>
+        <th class="cart-table-th base-table-th">Поставщик</th>
+        <th class="cart-table-th base-table-th">Остаток</th>
+        <th class="cart-table-th base-table-th">Цена</th>
+        <th class="cart-table-th base-table-th">Количество</th>
+        <th class="cart-table-th base-table-th">Сумма</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template v-for="data in cart">
+        <tr :key="data.productCard.id" class="cart-table-tr">
+          <td
+            :rowspan="data.productOffer.length"
+            class="base-table-td cart-table-td"
+          >
+            {{ data.productCard.brand.name }}
+          </td>
+          <td
+            :rowspan="data.productOffer.length"
+            class="cart-table-td base-table-td"
+          >
+            {{ data.productCard.sku.original }}
+          </td>
+          <td
+            :rowspan="data.productOffer.length"
+            class="cart-table-td cart-table-td-name base-table-td"
+          >
+            {{ data.productCard.name }}
+          </td>
+          <template v-if="data.productOffer.length > 0">
+            <td class="cart-table-td base-table-td">
+              {{ data.productOffer[0].supplier.name }}
+            </td>
+            <td class="cart-table-td base-table-td">
+              {{ data.productOffer[0].quantity }}
+            </td>
+            <td class="cart-table-td base-table-td">
+              {{ data.productOffer[0].prices }}
+            </td>
+            <td class="cart-table-td base-table-td">
+              {{ data.productOffer[0].count }}
+            </td>
+            <product-symma
+              class="base-table-td"
+              :component="'td'"
+              :symma="data.productOffer[0].count * data.productOffer[0].prices"
+            />
+          </template>
+        </tr>
+        <template v-if="data.productOffer.length > 1">
+          <CartTableTrOffers
+            v-for="offers in data.productOffer.slice(1)"
+            :key="offers.id"
+            :offers="offers"
+          />
+        </template>
+      </template>
+    </tbody>
+  </table>
+</template>
+
+<script lang="ts">
+import { PropType } from 'vue'
+import { CartInterface } from '~/interface/cart/cart.interface'
+import CartTableTrOffers from '~/components/cart/cart-table-tr-offers.vue'
+import ProductSymma from '~/components/products/element/product-symma.vue'
+export default {
+  name: 'CartTable',
+  components: { ProductSymma, CartTableTrOffers },
+  props: {
+    cart: {
+      type: Array as PropType<CartInterface[]>,
+    },
+  },
+}
+</script>
+
+<style lang="sass">
+@import "assets/sass/base/base-table"
+@import "assets/sass/cart/cart-table"
+</style>

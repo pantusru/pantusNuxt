@@ -8,9 +8,7 @@ export const CartAxios = async (
   $axios: NuxtAxiosInstance
 ): Promise<CartInterface[]> => {
   const { data } = await $axios.get(`${process.env.api}/personal/cart`)
-  console.log(data)
   const product = ProductsMap(data)
-  console.log(product)
   return CartMap(product, data)
 }
 
@@ -21,8 +19,7 @@ const CartMap = (
   const result: CartInterface[] = data
   api.forEach((elem, index) => {
     elem.offers.forEach((elemOffers, indexOffers) => {
-      result[index].productOffer[indexOffers].quantity =
-        elemOffers.quantityInCart
+      result[index].productOffer[indexOffers].count = elemOffers.quantityInCart
     })
   })
   return result

@@ -2,9 +2,9 @@
   <div>
     <div :class="classItem">
       <ElementValidate
-        :checked="checked"
         v-bind="$attrs"
         :id="id"
+        :checked="checked"
         :validate-input="validateInput"
         :validate-form="validateForm"
         :name="name"

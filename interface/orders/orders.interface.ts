@@ -1,4 +1,4 @@
-import {OrdersIdInterface} from "~/interface/orders/orders-id.interface";
+import { OrdersIdInterface } from '~/interface/orders/orders-id.interface'
 
 export interface OrdersInterface {
   id: number

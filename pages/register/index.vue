@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="register-form">
+    <form class="register-form" autocomplete="off">
       <div class="register-form-type-user">
         <h3 class="h3">Зарегистрироваться как:</h3>
         <div class="row-gutters">
@@ -47,12 +47,13 @@
           text="Email:"
         />
         <base-input
-          id="password"
+          id="password-2"
           :class-input="'register-form-input'"
           type="password"
           :validate-input="formDataRetail.password"
           :validate-form="formDataRetail"
           text="Пароль:"
+          autocomplete="new-password"
         />
         <base-input
           id="passwordRepeat"

@@ -1,6 +1,7 @@
 <template>
   <component
     :is="componentName"
+    :autocomplete="autocomplete"
     v-bind="$listeners"
     :class="[!validateInput.validate ? classError : '']"
     @input="onSwitch($event.target[nameTarget])"
@@ -18,6 +19,9 @@ import { InputPropsInterface } from '@/interface/base/props/input-props.interfac
 export default Vue.extend({
   name: 'ElementValidate',
   props: {
+    autocomplete: {
+      type: String,
+    },
     componentName: {
       type: String,
       default: 'input',

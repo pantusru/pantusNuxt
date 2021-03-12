@@ -16,6 +16,7 @@
         class-error="base-input-error"
         :type="type"
         :placeholder="placeholder"
+        :autocomplete="autocomplete"
       />
     </div>
     <BaseError :validate-input="validateInput" />
@@ -34,6 +35,9 @@ export default Vue.extend({
   name: 'BaseInput',
   components: { ElementValidate, BaseError },
   props: {
+    autocomplete: {
+      type: String,
+    },
     componentsName: {
       type: String,
       default: 'input',

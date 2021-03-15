@@ -20,7 +20,8 @@
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.3",
     "js-base64": "^3.6.0",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "v-mask": "^2.2.4"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",

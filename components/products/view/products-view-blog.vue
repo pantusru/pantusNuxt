@@ -27,7 +27,4 @@ export default {
 
 <style lang="sass">
 @import "assets/sass/products/product-element"
-//@import "assets/sass/products/blog/product-blog"
-//@import "assets/sass/products/blog/product-blog-elem"
-//@import "assets/sass/products/blog/product-blog-offers"
 </style>

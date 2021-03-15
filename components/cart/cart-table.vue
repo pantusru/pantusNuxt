@@ -81,7 +81,7 @@ import { PropType } from 'vue'
 import { CartInterface } from '~/interface/cart/cart.interface'
 import CartTableTrOffers from '~/components/cart/cart-table-tr-offers.vue'
 import ProductSymma from '~/components/products/element/product-symma.vue'
-import CartDeleteOffers from "~/components/cart/cart-delete-offers.vue";
+import CartDeleteOffers from '~/components/cart/cart-delete-offers.vue'
 export default {
   name: 'CartTable',
   components: { CartDeleteOffers, ProductSymma, CartTableTrOffers },

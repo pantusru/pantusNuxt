@@ -9,9 +9,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass-mixin/index"
-.cart-delete-offers
-  +px(5px)
-  +py(5px)
-  +fz(10px)
+@import "assets/sass/cart/cart-delete-offers"
 </style>

@@ -25,7 +25,7 @@
           {{ data.name }}
         </td>
         <td data-label="Цена" class="orders-offer-td base-table-td">
-          {{ data.price }}
+          {{ data.price }} ₽
         </td>
         <td data-label="Кол-во" class="orders-offer-td base-table-td">
           {{ data.quantity }}
@@ -48,9 +48,14 @@
         </td>
       </tr>
       <tr class="">
-        <td colspan="5" class="base-table-td orders-offer-right">
-          Итого: {{ getOrderId.price + getOrderId.delivery.price }} ₽
-        </td>
+        <product-symma
+          colspan="5"
+          class="base-table-td orders-offer-right"
+          :component="'td'"
+          :symma="getOrderId.price + getOrderId.delivery.price"
+        >
+          <template #start> Итого: </template>
+        </product-symma>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,9 @@
 <template>
-  <component :is="component"> {{ symma.toFixed(2) }} ₽</component>
+  <component :is="component">
+    <slot name="start" />
+    {{ symma.toFixed(2) }} ₽
+    <slot name="end" />
+  </component>
 </template>
 
 <script>

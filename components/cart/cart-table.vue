@@ -10,6 +10,7 @@
         <th class="cart-table-th base-table-th">Цена</th>
         <th class="cart-table-th base-table-th">Количество</th>
         <th class="cart-table-th base-table-th">Сумма</th>
+        <th class="cart-table-th base-table-th"></th>
       </tr>
     </thead>
     <tbody>
@@ -37,14 +38,17 @@
             {{ data.productCard.name }}
           </td>
           <template v-if="data.productOffer.length > 0">
-            <td class="cart-table-td base-table-td" data-label="Поставщик">
+            <td
+              class="cart-table-td base-table-td cart-table-td-supplier"
+              data-label="Поставщик"
+            >
               {{ data.productOffer[0].supplier.name }}
             </td>
             <td class="cart-table-td base-table-td" data-label="Остаток">
               {{ data.productOffer[0].quantity }}
             </td>
             <td class="cart-table-td base-table-td" data-label="Цена">
-              {{ data.productOffer[0].prices }}
+              {{ data.productOffer[0].prices }} ₽
             </td>
             <td class="cart-table-td base-table-td" data-label="Количество">
               {{ data.productOffer[0].count }}
@@ -55,6 +59,9 @@
               :component="'td'"
               :symma="data.productOffer[0].count * data.productOffer[0].prices"
             />
+            <td class="base-table-td">
+              <cart-delete-offers />
+            </td>
           </template>
         </tr>
         <template v-if="data.productOffer.length > 1">
@@ -74,9 +81,10 @@ import { PropType } from 'vue'
 import { CartInterface } from '~/interface/cart/cart.interface'
 import CartTableTrOffers from '~/components/cart/cart-table-tr-offers.vue'
 import ProductSymma from '~/components/products/element/product-symma.vue'
+import CartDeleteOffers from "~/components/cart/cart-delete-offers.vue";
 export default {
   name: 'CartTable',
-  components: { ProductSymma, CartTableTrOffers },
+  components: { CartDeleteOffers, ProductSymma, CartTableTrOffers },
   props: {
     cart: {
       type: Array as PropType<CartInterface[]>,

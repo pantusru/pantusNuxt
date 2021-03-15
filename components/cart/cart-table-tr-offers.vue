@@ -1,13 +1,16 @@
 <template>
   <tr class="base-table-tr cart-table-tr">
-    <td class="cart-table-td base-table-td" data-label="Поставщик">
+    <td
+      class="cart-table-td base-table-td cart-table-td-supplier"
+      data-label="Поставщик"
+    >
       {{ offers.supplier.name }}
     </td>
     <td class="cart-table-td base-table-td" data-label="Остаток">
       {{ offers.quantity }}
     </td>
     <td class="cart-table-td base-table-td" data-label="Цена">
-      {{ offers.prices }}
+      {{ offers.prices }} ₽
     </td>
     <td class="cart-table-td base-table-td" data-label="Количество">
       {{ offers.count }}
@@ -18,6 +21,9 @@
       :component="'td'"
       :symma="offers.count * offers.prices"
     />
+    <td class="base-table-td">
+      <cart-delete-offers />
+    </td>
   </tr>
 </template>
 
@@ -25,9 +31,10 @@
 import { PropType } from 'vue'
 import ProductSymma from '~/components/products/element/product-symma.vue'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
+import CartDeleteOffers from '~/components/cart/cart-delete-offers.vue'
 export default {
   name: 'CartTableTrOffers',
-  components: { ProductSymma },
+  components: { CartDeleteOffers, ProductSymma },
   props: {
     offers: {
       type: Object as PropType<CartOfferInterface>,

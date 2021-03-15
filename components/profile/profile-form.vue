@@ -27,6 +27,7 @@
     />
     <base-input
       :id="'telephone'"
+      mask="+# (###) ###-##-##"
       text="Телефон:"
       :validate-form="formData"
       :validate-input="formData.telephone"

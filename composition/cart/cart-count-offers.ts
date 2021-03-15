@@ -38,7 +38,6 @@ export function CartCountOffers(offer: CartOfferInterface) {
     return count
   }
   const cartCountOffers = (count: string) => {
-    offer.multiplicity = 3
     error.value.check = false
     let countNumber = Number(count.replace(/[^\d]/g, ''))
     countNumber = lengthCount(countNumber)

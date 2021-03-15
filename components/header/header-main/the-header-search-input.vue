@@ -1,5 +1,5 @@
 <template>
-  <div class="header-search-items">
+  <div class="header-search-items col">
     <div class="header-search-input-items">
       <input type="text" class="header-search-input" />
       <button class="header-search-button" @click.prevent="pushSearch">

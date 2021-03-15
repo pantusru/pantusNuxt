@@ -65,6 +65,7 @@
         />
         <base-input
           id="telephone"
+          mask="+# (###) ###-##-##"
           :class-input="'register-form-input'"
           :validate-input="formDataRetail.telephone"
           :validate-form="formDataRetail"

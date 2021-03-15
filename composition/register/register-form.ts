@@ -142,7 +142,7 @@ export function RegisterForm() {
         {
           id: 2,
           text: 'Вы указали номер телефона не корректно',
-          params: { length: 17 },
+          params: { length: 18 },
           active: false,
           type: TypeRegulations.Length,
         },

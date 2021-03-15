@@ -1,7 +1,6 @@
 <template>
   <component
     :is="componentName"
-    v-maks="mask"
     :autocomplete="autocomplete"
     v-bind="$listeners"
     :class="[!validateInput.validate ? classError : '']"

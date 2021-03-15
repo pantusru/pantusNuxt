@@ -14,7 +14,5 @@ export default {
 }
 </script>
 <style lang="sass">
-.fontawesome
-  font-family: "font-awesome", serif
-  display: inline-block
+@import "assets/sass/base/font-awesome"
 </style>

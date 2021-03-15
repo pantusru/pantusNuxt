@@ -12,6 +12,28 @@ export const CartAxios = async (
   return CartMap(product, data)
 }
 
+export const CartDeleteAxios = async (
+  $axios: NuxtAxiosInstance,
+  id: number
+): Promise<CartInterface[]> => {
+  const { data } = await $axios.delete(`${process.env.api}/personal/cart/${id}`)
+  const product = ProductsMap(data)
+  return CartMap(product, data)
+}
+export const CartUpdateOfferAxios = async (
+  $axios: NuxtAxiosInstance,
+  id?: number,
+  quantity?: number
+): Promise<{ error: object } | undefined> => {
+  const { data } = await $axios.put(`${process.env.api}/personal/cart/${id}`, {
+    quantity,
+  })
+  if (!data.error) {
+    return undefined
+  }
+  return data
+}
+
 const CartMap = (
   data: TypeProductVuex[],
   api: CartInterfaceApi[]
@@ -20,6 +42,8 @@ const CartMap = (
   api.forEach((elem, index) => {
     elem.offers.forEach((elemOffers, indexOffers) => {
       result[index].productOffer[indexOffers].count = elemOffers.quantityInCart
+      result[index].productOffer[indexOffers].defaultCount =
+        elemOffers.quantityInCart
     })
   })
   return result

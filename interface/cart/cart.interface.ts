@@ -5,11 +5,10 @@ import {
 
 export interface CartOfferInterface extends TypeOfferProduct {
   count?: number
+  defaultCount?: number
 }
 
-export interface CartCartInterface extends TypeCartProduct {
-
-}
+export interface CartCartInterface extends TypeCartProduct {}
 
 export interface CartInterface {
   productCard: CartCartInterface

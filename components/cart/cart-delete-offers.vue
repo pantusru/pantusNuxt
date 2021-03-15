@@ -1,10 +1,26 @@
 <template>
-  <button class="button link-hover-button cart-delete-offers">X</button>
+  <button
+    title="удалить"
+    class="button link-hover-button cart-delete-offers"
+    @click="cartDelete(id)"
+  >
+    X
+  </button>
 </template>
 
-<script>
+<script lang="ts">
+import { CartDelete } from '~/composition/cart/cart-delete'
+
 export default {
   name: 'CartDeleteOffers',
+  props: {
+    id: {
+      type: Number,
+    },
+  },
+  setup() {
+    return { ...CartDelete() }
+  },
 }
 </script>
 

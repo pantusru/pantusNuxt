@@ -7,6 +7,7 @@
       </label>
       <ElementValidate
         :id="id"
+        v-mask="mask"
         :component-name="componentsName"
         :validate-input="validateInput"
         :validate-form="validateForm"
@@ -35,6 +36,9 @@ export default Vue.extend({
   name: 'BaseInput',
   components: { ElementValidate, BaseError },
   props: {
+    mask: {
+      type: String,
+    },
     autocomplete: {
       type: String,
     },

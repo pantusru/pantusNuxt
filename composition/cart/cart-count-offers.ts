@@ -13,7 +13,7 @@ export function CartCountOffers(offer: CartOfferInterface) {
     })
     store.commit('cart/setCountOfferCart', {
       offer,
-       count,
+      count,
     })
   }
   const lengthCount = (count: number): number => {
@@ -49,7 +49,7 @@ export function CartCountOffers(offer: CartOfferInterface) {
     count = multiplicityCount(count)
     count = lengthCount(count)
     count = nullCount(count)
-    commitCount(count)
+    commitCount(Number(count))
     error.value.check = false
   }
 

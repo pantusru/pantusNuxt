@@ -10,9 +10,9 @@
 
     <div class="w-100 px-3">
       <nav class="d-block d-lg-none w-100 side-bar-mobile-box">
-        <b-row cols="2">
-          <nav v-for="item in itemsMenu" class="nav-sidebar">
-            <b-col>
+        <b-row>
+          <nav class="nav-sidebar">
+            <b-col class="col-12" v-for="item in itemsMenu">
               <nuxt-link :to="{ path: item.to, hash: item.hash }"
                 >{{ item.name }}
               </nuxt-link>
@@ -60,7 +60,7 @@ export default {
 .sidebar-box {
   /*max-width: 228px;*/
   background: #a7d2ee
-    url(https://www.pantus.ru/bitrix/templates/main/img/d/bg-sidebar.jpg) 0 0
+    url(https://bx.pantus.ru/bitrix/templates/main/img/d/bg-sidebar.jpg) 0 0
     no-repeat;
   position: relative;
   padding: 20px 13px 10px 13px;
@@ -81,7 +81,7 @@ export default {
   width: 100%;
   height: 52px;
   background: transparent
-    url(https://www.pantus.ru/bitrix/templates/main/img/d/bg-sidebar-01.png) 0 0
+    url(https://bx.pantus.ru/bitrix/templates/main/img/d/bg-sidebar-01.png) 0 0
     no-repeat;
   bottom: -52px;
   left: 0;

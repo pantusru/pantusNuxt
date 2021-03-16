@@ -23,11 +23,9 @@ export default {
 .button-scroll-top
   border: 3px solid #576b77
   border-radius: 120px
-
   font-size: 20px
-
   position: fixed
-  bottom: 15px
+  bottom: 65px
   left: 15px
   z-index: 1000
 </style>

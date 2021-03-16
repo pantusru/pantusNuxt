@@ -4,9 +4,10 @@
       <nuxt-link class="text-dark" to="/popular">Популярные товары</nuxt-link>
     </h2>
     <VueSlickCarousel
-      v-if="popular"
+      v-if="popular.length !== 0"
       class="blog-popular-claider"
       v-bind="settings"
+      @init="initHandler"
     >
       <!--      <template #prevArrow> <div>вперед</div> </template>-->
       <b-col v-for="data in popular" :key="data.id" class="mb-3">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import slaider from "@/mixins/slaider/index";
 import BlogProduct from "@/components/products/popular/blog";
 // import ModalImg from "@/components/modal/product-img";
 // import ModalBuy from "@/components/modal/buy-product";
@@ -27,6 +29,7 @@ export default {
     // ModalImg,
     // ModalBuy,
   },
+  mixins: [slaider],
   props: {
     popular: {
       type: Array,
@@ -42,23 +45,24 @@ export default {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-        ],
+        responsive: [],
       },
+      responsiveSettings: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+      ],
     };
   },
 };

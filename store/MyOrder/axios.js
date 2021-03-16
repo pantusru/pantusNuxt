@@ -79,7 +79,7 @@ export const actions = {
     if (data.offers.length !== 0) {
       data.offers.forEach(elem => {
         order.offers.push({
-          guid: elem.id,
+          guid: elem.sku,
           name: elem.name,
           price: elem.price,
           quantity: elem.quantity,

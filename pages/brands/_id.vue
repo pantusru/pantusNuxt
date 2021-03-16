@@ -5,13 +5,17 @@
       class="container-static"
       v-html="brand.description"
     />
-    <h2 v-if="!brand.active" class="text-danger">Нету описания бренда</h2>
+    <h2 v-if="!brand.active" class="text-danger">Нет описания бренда</h2>
   </b-container>
 </template>
 
 <script>
+import Img from "@/mixins/document-selector/img";
+import Row from "@/mixins/document-selector/row";
+import LinkBrand from "@/mixins/document-selector/link";
 export default {
   name: "IdVue",
+  mixins: [Img, Row, LinkBrand],
   async fetch({ params, store, getters, commit, redirect }) {
     await store.dispatch("Brand/BrandAll/_Brands");
     await store.dispatch("Brand/BrandAll/_BrandId", params.id);
@@ -40,35 +44,12 @@ export default {
     },
   },
   mounted() {
-    const link = document.querySelectorAll(".btn.red");
-    link.forEach(elem => {
-      elem.onclick = event => {
-        event.preventDefault();
-        this.$router.push(`/search?filter_brands=${this.brand.id}`);
-      };
-    });
-    const img = document.querySelectorAll("img");
-    img.forEach(elem => {
-      const w = elem.getAttribute("width");
-      elem.style = `width:${w}`;
-    });
+    this.imgAll();
+    this.rowAll();
+    this.linkBrand();
   },
 };
 </script>
 <style>
-.container-static li::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  margin-left: -12px;
-  margin-top: 8px;
-  border-radius: 5px;
-  background: #c8312b;
-  position: absolute;
-  color: #c8312b;
-}
-.container-static .btn {
-  color: #fff;
-  background: darkred;
-}
+@import "assets/css/static-page-main.css";
 </style>

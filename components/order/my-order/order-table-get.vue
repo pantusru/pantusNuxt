@@ -12,19 +12,20 @@
     <template v-if="data">
       <b-tbody>
         <b-tr v-for="offer in data.offers" :key="offer.id">
-          <b-td>{{ offer.guid }}</b-td>
+          <b-td class="w-15">{{ offer.guid }}</b-td>
           <b-td class="d-none d-md-table-cell width-td-name">{{
             offer.name
           }}</b-td>
           <b-td>{{ offer.price }} </b-td>
           <b-td> {{ offer.quantity }}</b-td>
-          <b-td>{{ offer.price * offer.quantity }} р </b-td>
+          <b-td>{{ (offer.price * offer.quantity).toFixed(2) }} р </b-td>
         </b-tr>
-        <b-tr
-          ><b-td :colspan="5" class="text-right"
-            >Стоимость товаров: {{ data.price - data.service.price }}р
-          </b-td></b-tr
-        >
+        <b-tr>
+          <b-td :colspan="5" class="text-right">
+            Стоимость товаров:
+            {{ (data.price - data.service.price).toFixed(2) }}р
+          </b-td>
+        </b-tr>
         <b-tr
           ><b-td :colspan="5" class="text-right"
             >Доставка: {{ data.service.price }} р
@@ -42,7 +43,7 @@
 
 <script>
 export default {
-  name: "order-table-get",
+  name: "OrderTableGet",
   props: {
     data: {
       type: Object,

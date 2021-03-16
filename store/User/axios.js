@@ -2,7 +2,6 @@ import { encode } from "js-base64";
 
 export const actions = {
   async _User({ dispatch, rootGetters }) {
-    console.log(rootGetters.GetCookie);
     const User = await this.$axios.get(`${process.env.api}/personal/profile`, {
       headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
     });

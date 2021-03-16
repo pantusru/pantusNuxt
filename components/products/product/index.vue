@@ -82,7 +82,8 @@
           class="justify-content-between align-items-center mb-2"
         >
           <h4><b>Предложение</b></h4>
-          <div>Уровень цен: Розничный</div>
+          <div v-if="userType === 'wholesale'">Уровень цен: Оптовый</div>
+          <div v-else>Уровень цен: Розничный</div>
         </b-row>
         <TableOffer
           :linkoffset="dataset.productOffer"
@@ -147,6 +148,9 @@ export default {
   computed: {
     analogs() {
       return this.$store.getters["Products/analogs/GetProducts"];
+    },
+    userType() {
+      return this.$store.getters["User/FormData"].type;
     },
   },
   created() {

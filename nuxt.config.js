@@ -2,17 +2,46 @@ import path from "path";
 import routesMy from "./plugins/siteMap";
 
 export default {
+  serverMiddleware: ["@/api/index.js"],
   env: {
     api: "https://api.pantus.ru",
-    pantus: "https://www.pantus.ru",
+    pantus: "https://bx.pantus.ru",
+  },
+  yandexMetrika: {
+    id: 21081355,
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+    ecommerce: "dataLayer",
+  },
+  loading: {
+    color: "#e1002b",
+    height: "5px",
   },
   sitemap: () => ({
-    exclude: ["/search-result", "/avtozapchasti", "/test"],
+    hostname: "https://www.pantus.ru/",
+    exclude: [
+      "/search-result",
+      "/avtozapchasti",
+      "/test",
+      "/contacts/astrakhan",
+      "/contacts/moscow",
+      "/contacts/tolyatti",
+    ],
     routes: async () => {
       return await routesMy();
     },
   }),
   robots: [
+    {
+      UserAgent: "*",
+    },
+    {
+      Sitemap: "https://www.pantus.ru/sitemap.xml",
+      Host: "https://www.pantus.ru",
+      CrawlDelay: 1,
+    },
     {
       UserAgent: "AhrefsBot",
       Disallow: "/",
@@ -30,10 +59,6 @@ export default {
       Disallow: "/",
     },
   ],
-  storybook: {
-    addons: ["@/storybook/addon-controls", "@storybook/addon-docs"],
-    stories: ["@/stories/**/*.stories.js"],
-  },
   pwa: {
     manifest: {
       name: "Pantus интернет магазин",
@@ -56,22 +81,22 @@ export default {
   router: {
     prefetchLinks: false,
     middleware: ["user"],
-    scrollBehavior(to, from, savedPosition) {
-      if (to.hash) {
-        const hash = to.hash.slice(1);
-        const elem = document.querySelector(`[name = ${hash}]`);
-        if (elem) {
-          const Rect = elem.getBoundingClientRect();
-          // window.location.href =
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve({ x: 0, y: Rect.y });
-            }, 500);
-          });
-        }
-      }
-      return { x: 0, y: 0 };
-    },
+    // scrollBehavior(to, from, savedPosition) {
+    //   if (to.hash) {
+    //     const hash = to.hash.slice(1);
+    //     const elem = document.querySelector(`[name = ${hash}]`);
+    //     if (elem) {
+    //       const Rect = elem.getBoundingClientRect();
+    //       // window.location.href =
+    //       return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //           resolve({ x: 0, y: Rect.y });
+    //         }, 500);
+    //       });
+    //     }
+    //   }
+    //   return { x: 0, y: 0 };
+    // },
   },
   /*
    ** Nuxt rendering mode
@@ -158,11 +183,16 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/pwa"],
+  buildModules: ["@nuxtjs/pwa", "@nuxtjs/google-analytics"],
+  googleAnalytics: {
+    id: "UA-112630194-1",
+  },
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // https://www.npmjs.com/package/@nuxtjs/yandex-metrika
+    "@nuxtjs/yandex-metrika",
     // https://www.npmjs.com/package/@nuxtjs/sitemap
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots

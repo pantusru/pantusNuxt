@@ -31,7 +31,8 @@ export const actions = {
         active: array.contains_description,
       });
     });
-    return dataset;
+    const datasetSort = dataset.sort(function(a,b){return b.active-a.active});
+    return datasetSort;
   },
   _init_BrandsId({}, data) {
     return {

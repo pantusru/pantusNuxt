@@ -1,8 +1,8 @@
 <template>
   <section class="section-index row no-gutters">
-    <div class="content-categoria col-md-9 col-12 row ml-auto ml-lg-0">
+    <div class="h-100 content-categoria col-md-9 col-12 row ml-auto ml-lg-0">
       <categoriaVue
-        srcIndex="/search?filter_applicabilities=3138"
+        src-index="/search?filter_applicabilities=3138"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
@@ -33,7 +33,7 @@
       </div>
 
       <categoriaVue
-        srcIndex="/search?filter_applicabilities=4837,4798,4800"
+        src-index="/search?filter_applicabilities=4837,4798,4800"
         class-img="w-250px img-100-auto"
         class="col-12 col-lg-8 mb-2 mb-lg-0"
         title="Новые бренды на Pantus.ru"
@@ -103,7 +103,7 @@ export default {
             href: "/search?filter_applicabilities=4864",
           },
           {
-            name: "Запчасти для а/м а Весту",
+            name: "Запчасти для а/м Весту",
             href: "/search?filter_applicabilities=4973",
           },
           {
@@ -112,9 +112,9 @@ export default {
           },
         ],
         [
-          { name: "Daewoo", href: "/search?filter_applicabilities=4798" },
-          { name: "Hyundai", href: "/search?filter_applicabilities=4800" },
-          { name: "Kia", href: "/search?filter_applicabilities=4837" },
+          { name: "Trialli", href: "/search?filter_brands=2004" },
+          { name: "Luzar", href: "/search?filter_brands=706" },
+          { name: "Hofer", href: "/search?filter_brands=1507" },
         ],
       ],
     };

@@ -10,6 +10,12 @@ export const mutations = {
   SetDostavka(store, data) {
     store.Dostavka = data;
   },
+  ResetAll(store) {
+    store.Dostavka.forEach(elem => {
+      elem.price = elem.default_price;
+      elem.description = elem.default_description;
+    });
+  },
   SetDostavkaExtra(store, data) {
     // console.log(data);
     if (data.value !== false) {
@@ -19,6 +25,10 @@ export const mutations = {
       data.data.description = data.text;
       data.data.price = Number(data.price);
     }
+  },
+  SetDostavkaData(store, data) {
+    data.data.description = data.text;
+    data.data.price = Number(data.price);
   },
   SetActive(store, data) {
     data.data.active = data.value;

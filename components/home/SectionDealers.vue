@@ -5,21 +5,23 @@
     </h2>
 
     <div class="blog-dealerts">
-      <VueSlickCarousel v-bind="Settings" class="banner-dealerts">
-        <nuxt-link
-          v-for="data in brandCarousel"
-          :key="data.id"
-          :to="'/brands/' + data.code"
-          class="dealerts-img"
-        >
-          <img :src="data.img" />
-        </nuxt-link>
+      <VueSlickCarousel
+        v-bind="settings"
+        class="banner-dealerts"
+        @init="initHandler"
+      >
+        <div v-for="data in brandCarousel" :key="data.id">
+          <nuxt-link :to="'/brands/' + data.code" class="dealerts-img">
+            <b-img :src="data.img" />
+          </nuxt-link>
+        </div>
       </VueSlickCarousel>
     </div>
   </section>
 </template>
 
 <script>
+import slaider from "@/mixins/slaider/index";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
@@ -28,32 +30,34 @@ export default {
   components: {
     VueSlickCarousel,
   },
+  mixins: [slaider],
   data() {
     return {
-      Settings: {
+      settings: {
         speed: 500,
         slidesToShow: 7,
         arrows: false,
         infinite: true,
         initialSlide: 4,
         swipeToSlide: true,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 4,
-            },
-          },
-        ],
+        responsive: [],
       },
+      responsiveSettings: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+          },
+        },
+      ],
     };
   },
   computed: {

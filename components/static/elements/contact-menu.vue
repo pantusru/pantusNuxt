@@ -1,12 +1,15 @@
 <template>
   <div class="row mb-3 mt-3 align-items-center" style="">
     <div class="col-md-2" style="">
-      <nuxt-link
-        :exact-active-class="'text-decoration-none'"
-        to="/contacts"
-        class="fz-5"
-        >Балаково</nuxt-link
-      >
+      <h4>
+        <nuxt-link
+          :exact-active-class="'text-decoration-none'"
+          to="/contacts"
+          class="fz-5"
+        >
+          Балаково
+        </nuxt-link>
+      </h4>
     </div>
     <div class="col-md-2" style="">
       <h4>

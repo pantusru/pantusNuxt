@@ -41,7 +41,7 @@
                 <div class="promoblock_left-wrap">
                   <div class="promoblock_left col-12 col-md-8">
                     <div>
-                      <h2>
+                      <h2 style="font-size: 20px">
                         Поставляем 30 000 000 автозапчастей в год по всей России
                         собственным транспортом
                       </h2>

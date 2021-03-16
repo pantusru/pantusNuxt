@@ -1,6 +1,6 @@
 export default async ({ route, store, getters, dispatch, app }) => {
   if (!app.$cookies.get("Authorization")) {
-    console.log("user false");
+    console.log("user all");
     // если нету токена
     const token = await store.dispatch(
       "User/axios/getToken",
@@ -11,7 +11,6 @@ export default async ({ route, store, getters, dispatch, app }) => {
     store.commit("SetCookie", token);
     await store.dispatch("Cart/CartAll/_CartProduct", {}, { root: true });
   } else if (store.getters["User/Loader"] === false) {
-    console.log("user true");
     // если пользователь не загружен
     store.commit("SetCookie", app.$cookies.get("Authorization"));
     await store.dispatch("User/_User", {}, { root: true });

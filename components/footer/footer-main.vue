@@ -17,7 +17,7 @@ import footerPaymentVue from "@/components/footer/footer-payment";
 import footerDeliveryVue from "@/components/footer/footer-delivery-get";
 import footerSocialVue from "@/components/footer/footer-social";
 export default {
-  name: "footer-main",
+  name: "FooterMain",
   components: {
     footerPantusVue,
     footerPaymentVue,

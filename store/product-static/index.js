@@ -18,7 +18,7 @@ export const actions = {
   async RequestProduct({ commit, dispatch }, filter) {
     const dataset = await dispatch(
       "Products/axios/_ProductFilter",
-      { data: filter, limit: 20 },
+      { data: filter, limit: 21 },
       { root: true }
     );
     commit("setCountProducts", dataset.count);

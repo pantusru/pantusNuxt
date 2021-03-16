@@ -4,13 +4,16 @@
       <h2>Запчасти для а/м {{ nameArray.join(" - ") }} по моделям</h2>
       <FilterTop />
       <product404 v-if="GetProduct.length === 0" />
-      <div class="mt-3 mb-3" v-if="GetProduct.length !== 0">
+      <div v-if="GetProduct.length !== 0" class="mt-3 mb-3">
         <ModalImg />
         <modal-buy-product />
         <FuncComponents :array="GetProduct" />
-        <BasePagination :length="getCountProducts" :limit="20" />
+        <BasePagination :length="getCountProducts" :limit="21" />
       </div>
-      <div v-html="getGetApplicabilitiesDescription.description" />
+      <div
+        class="container-static"
+        v-html="getGetApplicabilitiesDescription.description"
+      />
     </div>
   </b-container>
 </template>
@@ -21,8 +24,8 @@ import mixin from "@/mixins/product-static/index";
 import FuncComponents from "@/components/func/product-blogs-get";
 import BasePagination from "@/components/base/pagination/base-pagination-filter";
 import ModalImg from "@/components/modal/product-img";
-import FilterTop from "~/components/filter-top";
 import Product404 from "@/components/products/404";
+import FilterTop from "~/components/filter-top";
 
 export default {
   name: "ApplicabilitiesProduct",
@@ -119,9 +122,16 @@ export default {
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
       const applicabilities = this.functionSearch(data, dataset, 0);
-      await this.SetProductVue(applicabilities.id, applicabilities);
+      await this.SetProductVue(
+        applicabilities.id,
+        applicabilities,
+        "filter_applicabilities"
+      );
       window.scrollTo(0, 0);
     },
   },
 };
 </script>
+<style>
+@import "assets/css/static-page-main.css";
+</style>

@@ -5,6 +5,7 @@
     <VueNavBottom />
     <nav-mobile />
     <nav-mobile-avto />
+    <nav-mobile-about />
   </header>
 </template>
 
@@ -15,7 +16,7 @@ import VueNav from "@/components/header/header-nav/index";
 import NavMobile from "@/components/header/header-nav/mobule/nav-mobile-index";
 import NavMobileAvto from "@/components/header/header-nav/mobule/nav-mobile-avto";
 export default {
-  name: "the-header",
+  name: "TheHeader",
   components: {
     NavMobileAvto,
     NavMobile,

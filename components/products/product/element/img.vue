@@ -4,7 +4,7 @@
       :class="{ 'cursor-pointer': getModal }"
       class="w-75"
       fluid
-      :src="product.ProductCard.ProductCardImage.url"
+      :src="this.product.ProductCard.ProductCardImage.url"
       :alt="product.ProductCard.name"
       @click="getImg"
     />

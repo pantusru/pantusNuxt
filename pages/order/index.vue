@@ -65,6 +65,7 @@ export default {
   },
   destroyed() {
     this.$store.commit("SetFormApi", { data: "errorOrder", value: false });
+    this.$store.commit("Order/Payment/Index/ResetAll");
   },
   // created() {},
 };

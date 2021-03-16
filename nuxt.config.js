@@ -2,7 +2,7 @@ import path from "path";
 import routesMy from "./plugins/siteMap";
 
 export default {
-  serverMiddleware: ["@/api/index.js"],
+  serverMiddleware: ["@/api/index.js", "@/api/avtozapchasti.js"],
   env: {
     api: "https://api.pantus.ru",
     pantus: "https://bx.pantus.ru",

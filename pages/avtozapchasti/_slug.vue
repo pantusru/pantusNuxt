@@ -9,9 +9,9 @@ export default {
       route.params.slug
     );
     if (res.id !== null) {
-      redirect(`/products/${res.id}`);
+      redirect(301, `/products/${res.id}`);
     } else {
-      redirect("/404");
+      redirect(302, "/404");
     }
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <b-col cols="12" lg="3" md="6">
     <h6 class="mb-3"><b>Доставка</b></h6>
-    <div>
+    <div class="mb-4">
       <nuxt-link to="/delivery">
         <img
           :src="require('@/assets/img/footer/car-footer.png')"

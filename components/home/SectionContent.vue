@@ -1,5 +1,5 @@
 <template>
-  <section class="section-content row">
+  <section class="section-content row px-3">
     <div class="blog-catalogs col-md-4 col-12">
       <nuxt-link class="title-content link-hover" to="catalog/"
         >Оригинальные каталоги

@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <div class="blog-categoria">
-      <h2 class="pt-4">
+    <div class="blog-categoria py-3">
+      <h2 class="">
         <nuxt-link :to="srcIndex" class="categoria-title">
           {{ title }}</nuxt-link
         >
@@ -64,8 +64,10 @@ export default {
             color: #fff
             background: linear-gradient(to right, rgba(224,107,117,1) 0%, rgba(255,255,255,1) 120%)
 .blog-categoria
-    box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
+    box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 7%)
     position: relative
+    //padding-left: 24px
+    min-height: 100%
     //display: flex
     //justify-content: space-between
     .categoria-content

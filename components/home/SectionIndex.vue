@@ -1,17 +1,17 @@
 <template>
   <section class="section-index row no-gutters">
-    <div class="h-100 content-categoria col-md-9 col-12 row ml-auto ml-lg-0">
+    <div class="content-categoria col-md-9 col-12 row ml-auto mr-auto ml-lg-0 pr-0 pr-lg-3">
       <categoriaVue
         src-index="/search?filter_applicabilities=3138"
-        class="col-12 col-lg-8 mb-2 mb-lg-0"
+        class="col-12 col-lg-8 mb-2 mb-lg-0 px-0 pr-lg-3"
         title="Автозапчасти для а/м ВАЗ"
         :ul="categoriaUrl[0]"
         :src="urlPantus + '/bitrix/templates/main/img/home/home-car-1.png'"
         alt="home-car-1"
       />
-      <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-        <div class="blog-mini-categoria">
-          <h2 class="pt-4">
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0 px-0">
+        <div class="blog-mini-categoria py-3">
+          <h2 class="">
             <nuxt-link
               to="/search?filter_brands=453"
               class="categoria-title link-hover"
@@ -35,15 +35,15 @@
       <categoriaVue
         src-index="/search?filter_applicabilities=4837,4798,4800"
         class-img="w-250px img-100-auto"
-        class="col-12 col-lg-8 mb-2 mb-lg-0"
+        class="col-12 col-lg-8 mb-2 mb-lg-0 px-0 pr-lg-3"
         title="Новые бренды на Pantus.ru"
         :ul="categoriaUrl[1]"
         :src="urlPantus + '/upload/medialibrary/4ae/4457741.jpg'"
         alt="home-car-3"
       />
-      <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-        <div class="blog-mini-categoria">
-          <h2 class="pt-4">
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0 px-0">
+        <div class="blog-mini-categoria py-3">
+          <h2 class="">
             <nuxt-link
               to="search?filter_applicabilities=4802"
               class="categoria-title link-hover"
@@ -130,9 +130,10 @@ export default {
     justify-content: space-between
     flex-wrap: wrap
 .blog-mini-categoria
-    box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
+    box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 7%)
     height: 100%
     display: flex
     flex-direction: column
     justify-content: space-between
+    min-height: 100%
 </style>

@@ -37,7 +37,7 @@ export default {
 </script>
 <style>
 .mh-512px {
-  max-height: 512px;
+  max-height: 100%;
 }
 .pointer-event {
   /*pointer-events: none;*/

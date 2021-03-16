@@ -41,11 +41,11 @@ export default {
 
 <style lang="sass">
 .section-reklama
-    margin: 20px -20px
+    margin: 20px 0
     padding: 20px
     display: flex
     //flex-wrap: wrap
-    box-shadow: 10px 17px 30px rgba(0, 0, 0, 0.05)
+    box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 7%)
     // justify-content: space-between
     align-items: center
     .text

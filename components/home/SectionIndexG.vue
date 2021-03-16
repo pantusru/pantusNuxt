@@ -86,6 +86,7 @@ export default {
 .bg-cover
   background-size: cover
   background-color: #cb444e
+  box-shadow: 5px 5px 10px 0 rgb(0 0 0 / 20%)
 .w-200px
   width: 200px
 .w-230px

@@ -11,6 +11,6 @@ app.get("/:slug", (req, res) => {
 });
 
 module.exports = {
-  path: "/avtozapchasti",
+  path: "/test",
   handler: app,
 };

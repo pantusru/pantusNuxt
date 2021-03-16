@@ -5,8 +5,8 @@
       <b-row v-if="NewsIndex">
         <VueBlogNews class='col-12 col-md-6 col-lg-4' v-for="data in NewsIndex" :key="data.id" :data="data" />
       </b-row>
-      <b-link to="news/" class="d-block text-center text-body link-danger">
-        <b>Все новости</b></b-link
+      <b-link to="news/" class="d-block text-center text-body link-danger fz-5">
+        <u>Все новости</u></b-link
       >
     </div>
   </section>

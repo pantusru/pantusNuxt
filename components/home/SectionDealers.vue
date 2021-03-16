@@ -1,5 +1,5 @@
 <template>
-  <section class="section-dealers mt-3">
+  <section class="section-dealers mt-5">
     <h2 class="title-dealers">
       Мы официальные дилеры 45-ти производителей автозапчастей
     </h2>
@@ -79,4 +79,6 @@ export default {
     margin-bottom: 30px
 .slick-prev:before, .slick-next:before
   color: black
+.slick-track
+  left: -20px !important
 </style>

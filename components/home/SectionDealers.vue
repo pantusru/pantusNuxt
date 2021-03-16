@@ -82,6 +82,6 @@ export default {
 
 //#__layout > div > main > div:nth-child(1) > section.section-dealers.mt-5 > div > div > div > div
 
-section.section-dealers .slick-track
-  left: -35px !important
+//section.section-dealers .slick-track
+//  left: -35px !important
 </style>

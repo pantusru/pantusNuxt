@@ -1,9 +1,9 @@
 <template>
   <div>
-    <base-button v-if="NavMobile === false" @click="GetMainNav('main')">
+    <base-button v-if="NavMobile === false" @click="GetMainNav('main')" class="btn-size">
       <b-icon-list class="fz-3" />
     </base-button>
-    <base-button v-if="NavMobile !== false" @click="GetMainNav(false)">
+    <base-button v-if="NavMobile !== false" @click="GetMainNav(false)" class="btn-size">
       <b-icon-x class="fz-3" />
     </base-button>
   </div>
@@ -19,4 +19,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn-size{
+  font-size: 16px;
+}
+</style>

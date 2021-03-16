@@ -79,6 +79,9 @@ export default {
     margin-bottom: 30px
 .slick-prev:before, .slick-next:before
   color: black
-.slick-track
-  left: -20px !important
+
+//#__layout > div > main > div:nth-child(1) > section.section-dealers.mt-5 > div > div > div > div
+
+section.section-dealers .slick-track
+  left: -35px !important
 </style>

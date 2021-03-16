@@ -1,13 +1,15 @@
-import { computed, useContext } from '@nuxtjs/composition-api'
+import { computed, onUnmounted, useContext } from '@nuxtjs/composition-api'
 export function PageCart() {
   const { store } = useContext()
-  // useFetch(async () => {
-  //   await store.dispatch('cart/actionsCart')
-  // })
-
+  onUnmounted(async () => {
+    await store.dispatch('cart/count/actionsResetOfferCart')
+  })
   const getCart = computed(() => {
     return store.getters['cart/getCart']
   })
+  const getCartAxios = computed(() => {
+    return store.getters['cart/getCartAxios']
+  })
 
-  return { getCart }
+  return { getCart, getCartAxios }
 }

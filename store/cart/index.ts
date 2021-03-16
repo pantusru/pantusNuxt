@@ -1,17 +1,13 @@
 import { ActionTree, MutationTree } from 'vuex'
-import {
-  CartAxios,
-  CartDeleteAxios,
-  CartUpdateOfferAxios,
-} from '@/axios/cart/cart.axios'
+import { CartAxios, CartDeleteAxios } from '@/axios/cart/cart.axios'
 import {
   CartInterfaceStore,
   CartInterface,
-  CartOfferInterface,
 } from '~/interface/cart/cart.interface'
 export const state = (): CartInterfaceStore => ({
   cart: [],
   loaderCart: false,
+  cartAxios: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -23,44 +19,43 @@ export const mutations: MutationTree<RootState> = {
   setLoaderCart(store: CartInterfaceStore, loader: boolean) {
     store.loaderCart = loader
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setCountOfferCart(store, data: { offer: CartOfferInterface; count: number }) {
-    data.offer.count = data.count
-  },
-  updateCountOfferCart(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    store,
-    offer: CartOfferInterface
-  ) {
-    offer.defaultCount = offer.count
-  },
   resetCart(store: CartInterfaceStore) {
     store.cart = []
   },
+  setCartAxios(store: CartInterfaceStore, check: boolean) {
+    store.cartAxios = check
+  },
+  deleteOfferCart(store, data: { indexOffer: number; indexProduct: number }) {
+    store.cart[data.indexProduct].productOffer.splice(data.indexOffer, 1)
+    if (store.cart[data.indexProduct].productOffer.length === 0) {
+      store.cart.splice(data.indexProduct, 1)
+    }
+  },
 }
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsCart({ commit }) {
-    if (!state().loaderCart) {
+  async actionsCart({ state, commit }) {
+    if (!state.loaderCart) {
       const data: CartInterface[] = await CartAxios(this.$axios)
       commit('setCart', data)
       commit('setLoaderCart', true)
     }
   },
-  async actionsDeleteCart({ commit }, id: number) {
-    const data: CartInterface[] = await CartDeleteAxios(this.$axios, id)
-    commit('setCart', data)
-  },
-  async actionsUpdateOfferCart({ commit }, offers: CartOfferInterface) {
-    const data: { error: object } | undefined = await CartUpdateOfferAxios(
-      this.$axios,
-      offers.id,
-      offers.count
-    )
+  async actionsDeleteCart({ state, commit, dispatch }, id: number) {
+    const data: object = await CartDeleteAxios(this.$axios, id)
     if (!data) {
-      commit('updateCountOfferCart', offers)
+      state.cart.forEach((product, indexProduct) => {
+        const indexOffer = product.productOffer.findIndex(
+          (offer) => offer.id === id
+        )
+        if (indexOffer !== -1) {
+          commit('deleteOfferCart', { indexOffer, indexProduct })
+        }
+      })
+      await dispatch('count/actionsResetOfferCart')
     }
   },
 }
 export const getters = {
-  getCart: (s: CartInterfaceStore) => s.cart,
+  getCart: (s: CartInterfaceStore): CartInterface[] => s.cart,
+  getCartAxios: (s: CartInterfaceStore): boolean => s.cartAxios,
 }

@@ -2,6 +2,9 @@
   <div class="container">
     <CartTable v-if="getCart.length > 0" :cart="getCart" />
     <Error404 v-else :text="'Корзина пустая'" />
+    <!--    <button v-if="getCartAxios" class="link-hover-button button">-->
+    <!--      Обновить корзину-->
+    <!--    </button>-->
   </div>
 </template>
 
@@ -18,7 +21,3 @@ export default {
   },
 }
 </script>
-
-<!--<style lang="sass">-->
-
-<!--</style>-->

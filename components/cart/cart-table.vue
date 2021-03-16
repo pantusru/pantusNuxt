@@ -11,7 +11,6 @@
         <th class="cart-table-th base-table-th">Количество</th>
         <th class="cart-table-th base-table-th">Сумма</th>
         <th class="cart-table-th base-table-th"></th>
-        <th class="cart-table-th base-table-th"></th>
       </tr>
     </thead>
     <tbody>

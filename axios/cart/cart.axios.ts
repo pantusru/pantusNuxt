@@ -15,10 +15,9 @@ export const CartAxios = async (
 export const CartDeleteAxios = async (
   $axios: NuxtAxiosInstance,
   id: number
-): Promise<CartInterface[]> => {
+): Promise<object> => {
   const { data } = await $axios.delete(`${process.env.api}/personal/cart/${id}`)
-  const product = ProductsMap(data)
-  return CartMap(product, data)
+  return data.error
 }
 export const CartUpdateOfferAxios = async (
   $axios: NuxtAxiosInstance,

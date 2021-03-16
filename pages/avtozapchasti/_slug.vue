@@ -1,8 +1,8 @@
-<template></template>
+<template />
 
 <script>
 export default {
-  name: "avtozapchastiSlug",
+  name: "AvtozapchastiSlug",
   async fetch({ store, redirect, dispatch, route }) {
     const res = await store.dispatch(
       "avtozapchasti/axios/_avtozapchasti",
@@ -16,5 +16,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

@@ -27,5 +27,10 @@ export function ToggleBodyFalse(Toggle = false) {
   }
   onUnmounted(DeleteBody)
   onMounted(SetBody)
-  return { ToggleBody, ToggleBodyFunctionClick, ToggleBodyFunctionSelectClick, ToggleFalse }
+  return {
+    ToggleBody,
+    ToggleBodyFunctionClick,
+    ToggleBodyFunctionSelectClick,
+    ToggleFalse,
+  }
 }

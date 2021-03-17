@@ -1,6 +1,7 @@
 import { ssrRef } from '@nuxtjs/composition-api'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
 export function ProductInputCountOffers() {
+  const count = ssrRef(1)
   const error = ssrRef({
     check: false,
     text: 'Не валидное кол-во товара',
@@ -51,5 +52,6 @@ export function ProductInputCountOffers() {
     countOffers,
     errorFalse,
     error,
+    count,
   }
 }

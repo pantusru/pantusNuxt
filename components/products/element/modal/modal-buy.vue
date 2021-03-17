@@ -19,12 +19,8 @@
           name="Кратность:"
         />
         <modal-buy-params name="Количество:">
-          {{ count }}
-          <product-count-offers
-            v-if="!active"
-            :offers="linkOffers"
-            :count.sync="count"
-          />
+          <product-count-offers v-if="!active" :offers="linkOffers" />
+          <cart-count-offers v-if="active" :offers="cartOffer" />
         </modal-buy-params>
 
         <modal-buy-params name="Итог:">
@@ -47,10 +43,13 @@ import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
 import ModalBuyParams from '~/components/products/element/modal/modal-buy-params.vue'
 import ProductSymma from '~/components/products/element/product-symma.vue'
 import ProductCountOffers from '~/components/products/element/offer/product-count-offers.vue'
+import { CartOfferInterface } from '~/interface/cart/cart.interface'
+import CartCountOffers from '~/components/cart/cart-count-offers.vue'
 
 export default {
   name: 'ModalBuy',
   components: {
+    CartCountOffers,
     ProductCountOffers,
     ProductSymma,
     ModalBuyParams,
@@ -67,6 +66,9 @@ export default {
     linkOffers: {
       request: true,
       type: Object as PropType<TypeOfferProduct>,
+    },
+    cartOffer: {
+      type: Object as PropType<CartOfferInterface>,
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

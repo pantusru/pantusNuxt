@@ -33,6 +33,7 @@
       :active="activeButton"
       :link-product="linkProduct"
       :link-offers="linkOffers"
+      :cart-offer="cartOffer"
       @close="ToggleFalse"
       @click="ToggleBodyFunctionSelectClick"
     />

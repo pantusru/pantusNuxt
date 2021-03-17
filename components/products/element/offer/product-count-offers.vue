@@ -4,8 +4,8 @@
       class="base-input"
       type="number"
       :value="count"
-      @input="$emit('update:count', countOffers(offers, $event.target.value))"
-      @blur="$emit('update:count', errorFalse(offers, $event.target.value))"
+      @input="countOffers(offers, $event.target.value)"
+      @blur="errorFalse(offers, $event.target.value)"
     />
     <div v-if="error.check" class="text-error">
       {{ error.text }}
@@ -23,10 +23,6 @@ export default {
   props: {
     offers: {
       type: Object as PropType<CartOfferInterface>,
-    },
-    count: {
-      type: Number,
-      default: 1,
     },
   },
   setup() {

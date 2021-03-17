@@ -17,10 +17,10 @@
         <b-row>
           <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
             <!-- Общие Фильтры -->
-            <FilterForm />
+            <FilterForm class="block-shadow"/>
           </b-col>
-          <b-col lg="9">
-            <get-count-res />
+          <b-col lg="9" class="block-shadow">
+            <get-count-res class="mt-4 d-block"/>
             <!-- Метки какие бренды и категории выбраны  -->
             <MetkaFilter />
             <div class="text-right">
@@ -37,7 +37,7 @@
               />
             </b-table-simple>
             <!-- Для ПК ВЕРСИИ ()=> Выбор вида товара -->
-            <div class="d-none d-lg-block">
+            <div class="d-none d-lg-block ">
               <components
                 :is="componentsName"
                 v-if="Products.length !== 0"
@@ -45,7 +45,7 @@
               />
             </div>
             <!-- Для Мобильных ()=>  вид товара блочный -->
-            <div class="d-block d-lg-none">
+            <div class="d-block d-lg-none ">
               <components
                 :is="'productBlog'"
                 v-if="Products.length !== 0"
@@ -309,4 +309,9 @@ export default {
   left: 48%;
   top: 40vh;
 }
+
+.block-shadow{
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
 </style>

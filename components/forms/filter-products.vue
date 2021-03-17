@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="filter-box filter-box__shadow">
     <b-button
       class="text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer"
       @click="show = true"
@@ -70,3 +70,9 @@ export default {
   },
 };
 </script>
+
+<style>
+
+
+
+</style>

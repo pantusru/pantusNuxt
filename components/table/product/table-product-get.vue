@@ -195,6 +195,10 @@ tbody tr:last-child {
 
 }
 
+.table thead th{
+  vertical-align: middle;
+}
+
 .text-offers-none{
   color: #8e8f9a;
 }

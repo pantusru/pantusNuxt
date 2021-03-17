@@ -1,11 +1,9 @@
-import { useContext, ssrRef } from '@nuxtjs/composition-api'
+import { useContext } from '@nuxtjs/composition-api'
+import { ProductInputCountOffers } from '@/composition/products/product-input-count-offers'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
 export function CartCountOffers() {
+  const { error, errorFalse, countOffers } = ProductInputCountOffers()
   const { store } = useContext()
-  const error = ssrRef({
-    check: false,
-    text: 'Не валидное кол-во товара',
-  })
   const commitCount = async (offer: CartOfferInterface, count: number) => {
     store.commit('cart/count/setCountOfferCart', {
       offer,
@@ -16,45 +14,16 @@ export function CartCountOffers() {
       count,
     })
   }
-  const lengthCount = (offer: CartOfferInterface, count: number): number => {
-    if (count.toString().length >= 8) {
-      return Number(count.toString().slice(0, 8))
-    }
-    return count
-  }
-  const nullCount = (offer: CartOfferInterface, count: number): number => {
-    if (count <= 0 || !count) {
-      error.value.check = true
-      return offer.multiplicity
-    }
-    return count
-  }
-  const multiplicityCount = (
-    offer: CartOfferInterface,
-    count: number
-  ): number => {
-    const ost = count % offer.multiplicity
-    if (ost > 0) {
-      count = count - ost
-      error.value.check = true
-    }
-    return count
-  }
+
   const cartCountOffers = async (offer: CartOfferInterface, count: string) => {
-    error.value.check = false
-    let countNumber = Number(count.replace(/[^\d]/g, ''))
-    countNumber = lengthCount(offer, countNumber)
-    const check = multiplicityCount(offer, countNumber)
-    nullCount(offer, check)
+    const countNumber = countOffers(offer, count)
     await commitCount(offer, countNumber)
   }
-  const errorFalse = async (offer: CartOfferInterface, count: number) => {
-    count = multiplicityCount(offer, count)
-    count = lengthCount(offer, count)
-    count = nullCount(offer, count)
-    await commitCount(offer, Number(count))
-    error.value.check = false
+
+  const cartErrorFalse = async (offer: CartOfferInterface, count: number) => {
+    const countNumber = errorFalse(offer, count)
+    await commitCount(offer, countNumber)
   }
 
-  return { cartCountOffers, error, errorFalse }
+  return { cartCountOffers, error, cartErrorFalse }
 }

@@ -1,11 +1,11 @@
 <template>
   <div>
     <input
-      class="base-input cart-count-offers-input"
-      type="text"
-      :value="offers.count"
-      @input="cartCountOffers(offers, $event.target.value)"
-      @blur="cartErrorFalse(offers, $event.target.value)"
+      class="base-input"
+      type="number"
+      :value="count"
+      @input="$emit('update:count', countOffers(offers, $event.target.value))"
+      @blur="$emit('update:count', errorFalse(offers, $event.target.value))"
     />
     <div v-if="error.check" class="text-error">
       {{ error.text }}
@@ -15,23 +15,26 @@
 
 <script lang="ts">
 import { PropType } from 'vue'
+import { ProductInputCountOffers } from '~/composition/products/product-input-count-offers'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
-import { CartCountOffers } from '~/composition/cart/cart-count-offers'
 
 export default {
-  name: 'CartCountOffers',
+  name: 'ProductCountOffers',
   props: {
     offers: {
       type: Object as PropType<CartOfferInterface>,
     },
+    count: {
+      type: Number,
+      default: 1,
+    },
   },
   setup() {
-    return { ...CartCountOffers() }
+    return { ...ProductInputCountOffers() }
   },
 }
 </script>
 
 <style lang="sass">
 @import "assets/sass/base/base-input"
-@import "assets/sass/cart/cart-count-offers"
 </style>

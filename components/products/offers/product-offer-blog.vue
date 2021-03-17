@@ -10,7 +10,7 @@
     </div>
     <div class="row-gutters product-offer-row">
       <div class="product-offer-price">{{ offer.prices }}</div>
-      <ProductButtonBuy />
+      <ProductButtonBuy :link-offers="offer" :link-product="product" />
     </div>
   </div>
 </template>

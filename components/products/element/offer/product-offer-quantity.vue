@@ -17,7 +17,13 @@
   </component>
 </template>
 
-<script>
+<script lang="ts">
+import { PropType } from 'vue'
+import {
+  TypeCartProduct,
+  TypeOfferProduct,
+} from '~/interface/products/products.interface'
+
 export default {
   name: 'ProductOfferQuantity',
   props: {
@@ -27,11 +33,11 @@ export default {
     },
     linkProduct: {
       request: true,
-      type: Object,
+      type: Object as PropType<TypeCartProduct>,
     },
     linkOffers: {
       request: true,
-      type: Object,
+      type: Object as PropType<TypeOfferProduct>,
     },
   },
 }

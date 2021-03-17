@@ -1,5 +1,5 @@
 <template>
-  <h2 class="error-404">{{ text }}</h2>
+  <h2 class="text-error">{{ text }}</h2>
 </template>
 
 <script>
@@ -12,7 +12,3 @@ export default {
   },
 }
 </script>
-
-<style lang="sass">
-@import "assets/sass/base/error-404.sass"
-</style>

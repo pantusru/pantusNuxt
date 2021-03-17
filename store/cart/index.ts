@@ -56,6 +56,6 @@ export const actions: ActionTree<RootState, RootState> = {
   },
 }
 export const getters = {
-  getCart: (s: CartInterfaceStore): CartInterface[] => s.cart,
+  getCart: (s: CartInterfaceStore) => s.cart,
   getCartAxios: (s: CartInterfaceStore): boolean => s.cartAxios,
 }

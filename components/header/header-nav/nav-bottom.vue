@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <b-nav class="d-none d-lg-flex align-items-center">
+    <div class="d-none d-lg-flex align-items-center">
       <!-- Выплывающий список все запчасти -->
-      <VueDropdown />
+
       <!-- Выплывающий список все запчасти -->
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between w-100 align-items-center">
+        <VueDropdown />
         <b-button
           v-for="data in links"
           :key="data.id"
@@ -16,7 +17,7 @@
           {{ data.text }}
         </b-button>
       </div>
-    </b-nav>
+    </div>
   </div>
 </template>
 

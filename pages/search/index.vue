@@ -5,6 +5,7 @@
       :show="!getCheckCountProducts"
       rounded="sm"
       class="blog-full-content"
+      no-center
     >
       <ModalImg />
       <ModalBuy />
@@ -102,12 +103,6 @@ export default {
   },
   mixins: [ResetFilter, CheckQueryFilter, SubmitFilter],
   async fetch({ query, store }) {
-    await Promise.all([
-      store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
-      store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
-      store.dispatch("Brand/BrandAll/_Brands"), // бренды
-      store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
-    ]);
     //   ПРОВЕРКА QUERY
     if (query !== undefined) {
       this.form = {};
@@ -134,6 +129,7 @@ export default {
         }
       }
       if (query.filter_brands !== undefined) {
+        await  store.dispatch("Brand/BrandAll/_Brands");
         // ПРОВЕРКА БРЕНДА
         let brand = query.filter_brands.split(",");
         brand = Array.from(new Set(brand));
@@ -161,6 +157,7 @@ export default {
       }
       if (query.filter_categories !== undefined) {
         // ПРОВЕРКА КАТЕГОРИИ
+        await store.dispatch("Categories/CategoriesAll/_Categories")
         const ids = query.filter_categories.split(",");
         await store.dispatch("Catalog/All/_AllChexboxTrue", {
           data: store.getters["Categories/CategoriesAll/GetCategories"],
@@ -179,6 +176,7 @@ export default {
       }
       if (query.filter_applicabilities !== undefined) {
         // ПРОВЕРКА ПРИМИНИМОСТИ
+        await  store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"); // применяемости
         const ids = query.filter_applicabilities.split(",");
         await store.dispatch("Applicabilities/PanelUrl/SetId_Url", {
           data:
@@ -211,7 +209,13 @@ export default {
         this.form.page_number = query.page_number;
       }
       // Запрос для получение товара
-      await store.dispatch("Products/_ProductAll", this.form);
+      await Promise.all([
+        store.dispatch("Categories/CategoriesAll/_Categories"), // Категории
+        store.dispatch("Applicabilities/ApplicabilitiessAll/_Applicabilitiess"), // применяемости
+        store.dispatch("Brand/BrandAll/_Brands"), // бренды
+        store.dispatch("Selected/selected/_Selected"), // запрос избранные товары user
+        store.dispatch("Products/_ProductAll", this.form),
+      ]);
       this.form = {};
       store.commit("SetCheckCountProducts", true);
     }
@@ -264,6 +268,7 @@ export default {
   },
   watch: {
     async $route() {
+      window.scrollTo(0, 0);
       this.$store.commit("SetCheckCountProducts", false);
       // Изменение route
       if (this.checkFilterClick !== false) {
@@ -278,7 +283,6 @@ export default {
         await this.pushParamsFilter();
         await this.pushParamsSort();
         await this.$store.dispatch("Products/_ProductAll", this.form);
-        window.scrollTo(0, 0);
       } else if (this.checkFilterClick === false) {
         // Кнопка поиск
         this.form.filter_substr = this.$store.getters["formSearch/GetSearch"];
@@ -299,3 +303,10 @@ export default {
   },
 };
 </script>
+<style >
+.spinner-border{
+  position: absolute;
+  left: 48%;
+  top: 40vh;
+}
+</style>

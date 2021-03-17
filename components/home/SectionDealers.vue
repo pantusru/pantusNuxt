@@ -34,7 +34,8 @@ export default {
   data() {
     return {
       settings: {
-        speed: 500,
+        autoplay: true,
+        speed: 2000,
         slidesToShow: 7,
         arrows: false,
         infinite: true,

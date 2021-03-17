@@ -69,15 +69,17 @@
             </strong>
           </div>
         </nuxt-link>
-        <b-nav-item-dropdown
-          :menu-class="'border-0'"
-          class="position-relative d-none d-md-block"
-          no-caret
-          d-none
-          d-md-table
-        >
-          <template #button-content>
-            <nuxt-link to="/cart" class="d-flex align-items-center link-decoration-none">
+
+<!--        <b-nav-item-dropdown-->
+<!--          :menu-class="'border-0'"-->
+<!--          class="position-relative d-none d-md-block"-->
+<!--          no-caret-->
+<!--          d-none-->
+<!--          d-md-table-->
+<!--        >-->
+<!--          <b-dropdown-item href="#">EN</b-dropdown-item>-->
+<!--          <template #button-content>-->
+            <nuxt-link to="/cart" class="d-none d-md-flex align-items-center link-decoration-none ">
               <div class="icons-nav-w20">
                 <img
                   src="@img/icons/icon-shopping-cart.png"
@@ -85,7 +87,7 @@
                 />
               </div>
               <div class="d-flex flex-column text-secondary pl-10px">
-                <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
+                <div class="d-lg-block d-none fz-5 w-100 justify-content-end link-ec0e1d">
                   <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
                 </div>
                 <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
@@ -93,9 +95,9 @@
                 >
               </div>
             </nuxt-link>
-          </template>
+<!--          </template>-->
           <!--          <dropdown-cart />-->
-        </b-nav-item-dropdown>
+<!--        </b-nav-item-dropdown>-->
         <!-- Корзина-->
       </b-navbar-nav>
     </b-navbar>

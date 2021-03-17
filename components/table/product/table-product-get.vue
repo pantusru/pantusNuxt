@@ -130,7 +130,7 @@
               <b-td class="border-top-0 w-30px">
                 <div class="d-lg-flex d-none justify-content-end">
                   <!--                    <base-button text="Купить"  class="btn-outline-secondary btn-secondary bg-secondary py-1 px-2 "/>-->
-                  <b-button disabled variant="secondary" class="_baseBnt py-1 px-2">Купить</b-button>
+                  <b-button disabled variant="danger" class="_baseBnt py-1 px-2">Купить</b-button>
                 </div>
               </b-td>
 

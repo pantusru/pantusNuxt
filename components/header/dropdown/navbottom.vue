@@ -8,7 +8,7 @@
     <!-- Using 'button-content' slot -->
     <template slot="button-content">
       <b-icon-justify></b-icon-justify>
-      <em>Все запчасти</em>
+      <b>Все запчасти</b>
     </template>
     <b-dropdown-item :to="data.to" v-for="data in links" :key="data.id">{{
       data.text

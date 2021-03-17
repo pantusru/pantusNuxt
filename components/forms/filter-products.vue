@@ -17,7 +17,7 @@
       <!-- ЦЕНА-->
       <!-- БРЭНД -->
       <PanelBrand
-        items="Брэнд"
+        items="Бренд"
         name="brand"
         GetName="Brand/BrandAll/GetBrand"
         SetChecbox="formSearch/SetAllBrandsChecked"

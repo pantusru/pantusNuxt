@@ -9,7 +9,7 @@
     <b-table-simple class="mt-4 text-center">
       <b-thead>
         <b-tr>
-          <b-th>Брэнд</b-th>
+          <b-th>Бренд</b-th>
           <b-th>Артикул</b-th>
           <b-th>Название товара</b-th>
           <b-th />

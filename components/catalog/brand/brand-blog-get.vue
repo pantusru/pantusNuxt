@@ -11,7 +11,7 @@
         v-if="source.active"
         :to="'brands/' + source.code"
         class="catalog-blog-link text-decoration"
-        >О брэнде
+        >О бренде
       </nuxt-link>
       <!--      <span v-else>О брэнде</span>-->
     </div>

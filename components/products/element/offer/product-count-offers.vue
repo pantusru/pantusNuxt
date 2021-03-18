@@ -1,11 +1,10 @@
 <template>
   <div>
     <input
+      v-model="count"
       class="base-input"
-      type="number"
-      :value="count"
-      @input="countOffers(offers, $event.target.value)"
-      @blur="errorFalse(offers, $event.target.value)"
+      @input="countOffers(offers)"
+      @blur="errorFalse(offers)"
     />
     <div v-if="error.check" class="text-error">
       {{ error.text }}

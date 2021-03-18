@@ -1,8 +1,14 @@
 import { useContext } from '@nuxtjs/composition-api'
-import { ProductInputCountOffers } from '@/composition/products/product-input-count-offers'
+import { ValidateCountOffers } from '@/composition/products/_validate-count-offers'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
 export function CartCountOffers() {
-  const { error, errorFalse, countOffers } = ProductInputCountOffers()
+  const {
+    error,
+    multiplicityCount,
+    lengthCount,
+    replaceNumber,
+    nullCount,
+  } = ValidateCountOffers()
   const { store } = useContext()
   const commitCount = async (offer: CartOfferInterface, count: number) => {
     store.commit('cart/count/setCountOfferCart', {
@@ -14,14 +20,21 @@ export function CartCountOffers() {
       count,
     })
   }
-
   const cartCountOffers = async (offer: CartOfferInterface, count: string) => {
-    const countNumber = countOffers(offer, count)
+    error.value.check = false
+    let countNumber = replaceNumber(count)
+    countNumber = lengthCount(countNumber)
+    countNumber = multiplicityCount(offer, countNumber)
+    countNumber = nullCount(offer, countNumber)
     await commitCount(offer, countNumber)
   }
 
   const cartErrorFalse = async (offer: CartOfferInterface, count: number) => {
-    const countNumber = errorFalse(offer, count)
+    error.value.check = false
+    let countNumber = lengthCount(count)
+    countNumber = multiplicityCount(offer, Number(count))
+    countNumber = nullCount(offer, countNumber)
+    countNumber = multiplicityCount(offer, countNumber)
     await commitCount(offer, countNumber)
   }
 

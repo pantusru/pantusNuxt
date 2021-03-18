@@ -1,5 +1,5 @@
 <template>
-  <section class="section-dealers mt-5">
+  <section v-if="brandCarousel.length > 0" class="section-dealers mt-5">
     <h2 class="title-dealers">
       Мы официальные дилеры 45-ти производителей автозапчастей
     </h2>
@@ -34,21 +34,29 @@ export default {
   data() {
     return {
       settings: {
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        centerPadding: "20px",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        variableWidth: true,
+
         autoplay: true,
         speed: 2000,
-        slidesToShow: 7,
+        // slidesToShow: 7,
         arrows: false,
-        infinite: true,
+        // infinite: true,
         initialSlide: 4,
-        swipeToSlide: true,
-        responsive: [],
+        // swipeToSlide: true,
+        // responsive: [],
       },
       responsiveSettings: [
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
           },
         },
         {
@@ -70,11 +78,23 @@ export default {
 </script>
 
 <style lang="sass">
+.blog-dealerts
+  padding-bottom: 20px
+  .slick-track
+    display: flex
+    align-items: center
+  .slick-dots
+    margin-top: 20px
+    position: static
 .dealerts-img
+  display: block
+  margin: 0 20px
+  max-width: 120px
+  //margin:  0 15px
   img
     pointer-events: none
-    margin: 0 50px
-    width: 70%
+    //margin: 0 50px
+    //width: 70%
 .title-dealers
     text-align: center
     margin-bottom: 30px
@@ -83,6 +103,6 @@ export default {
 
 //#__layout > div > main > div:nth-child(1) > section.section-dealers.mt-5 > div > div > div > div
 
-//section.section-dealers .slick-track
-//  left: -35px !important
+section.section-dealers .slick-track
+  left: -18px !important
 </style>

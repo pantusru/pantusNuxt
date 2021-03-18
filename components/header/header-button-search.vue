@@ -44,6 +44,14 @@ export default {
           await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
           await this.$store.dispatch("Applicabilities/Panel/ResetAll");
         }
+        console.log(this.$route.query.filter_substr, this.search)
+        if(this.search === this.$route.query.filter_substr){
+          this.$store.commit("SetCheckCountProducts", false);
+          const form = {};
+          form.filter_substr = this.$store.getters["formSearch/GetSearch"];
+          await this.$store.dispatch("Products/_ProductAll", form);
+          this.$store.commit("SetCheckCountProducts", true);
+        }
         await this.$router.push({
           name: "search",
           query: {

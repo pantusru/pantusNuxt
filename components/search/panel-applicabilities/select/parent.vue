@@ -4,6 +4,7 @@
     :panel.sync="PanelData"
     :multiple="false"
     :type="'parent'"
+    :place-holder-text="placeHolderText"
   />
 </template>
 
@@ -22,6 +23,7 @@ export default {
      * @property id текущей Panel в которой находится select
      */
     PanelId: {},
+    placeHolderText: {},
   },
   computed: {
     /**

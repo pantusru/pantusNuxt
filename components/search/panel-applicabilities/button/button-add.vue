@@ -1,11 +1,23 @@
 <template>
-  <b-button
-    title="Добавить применяемость"
-    v-if="show"
-    class="filter_applicabilities-button_add-input"
-    @click="AddPanel"
-    >+</b-button
-  >
+<!--  <b-button-->
+<!--    title="Добавить применяемость"-->
+<!--    v-if="show"-->
+<!--    class="filter_applicabilities-button_add-input"-->
+<!--    @click="AddPanel"-->
+<!--    >+-->
+<!--  </b-button>-->
+
+  <b-button variant="success" class="btn _baseBnt py-1 px-2 btn-secondary" @click="AddPanel">Добавить</b-button>
+
+<!--  <b-icon-plus-circle-fill-->
+
+<!--    v-if="show"-->
+<!--    class="filter_applicabilities-button_add-input text-success"-->
+<!--    @click="AddPanel"-->
+<!--  >-->
+
+<!--  </b-icon-plus-circle-fill>-->
+
 </template>
 
 <script>
@@ -32,6 +44,12 @@ export default {
 </script>
 
 <style lang="sass">
-.filter_applicabilities-button_add-input
-  padding: 2px 8px
+  .filter_applicabilities-button_add-input
+    font-size: 31px
+    cursor: pointer
+
+    &:hover, &:focus
+      color: #1e7e34 !important
+
+
 </style>

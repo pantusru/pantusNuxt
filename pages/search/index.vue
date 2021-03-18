@@ -14,12 +14,12 @@
       <div class="container">
         <!-- Фильтры применяемости -->
         <FilterApplicabilities />
-        <b-row>
+        <b-row class="pr-lg-3">
           <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
             <!-- Общие Фильтры -->
-            <FilterForm class="block-shadow"/>
+            <FilterForm class="block-shadow "/>
           </b-col>
-          <b-col lg="9" class="block-shadow">
+          <b-col lg="9" class="block-shadow border block-radius">
             <get-count-res class="mt-4 d-block"/>
             <!-- Метки какие бренды и категории выбраны  -->
             <MetkaFilter />
@@ -313,5 +313,7 @@ export default {
 .block-shadow{
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
-
+.block-radius{
+  border-radius: 6px;
+}
 </style>

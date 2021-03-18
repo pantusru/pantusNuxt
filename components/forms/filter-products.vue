@@ -6,7 +6,11 @@
       v-if="show === false"
       >Показать всё фильтры</b-button
     >
-    <b-form class="border p-3" v-show="show">
+    <b-form class="border p-3 block-radius" v-show="show">
+
+
+
+
       <b-button
         class="d-block d-lg-none text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer mb-2"
         @click="show = false"

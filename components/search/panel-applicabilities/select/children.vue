@@ -1,11 +1,12 @@
 <template>
-  <applicabilities-select-all :PanelData="PanelData" :panel.sync="Panel" />
+  <applicabilities-select-all :PanelData="PanelData" :panel.sync="Panel" :place-holder-text="placeHolderText"/>
 </template>
 <script>
 import ApplicabilitiesSelectAll from "@/components/search/panel-applicabilities/select/applicabilities-select-all";
 export default {
   components: { ApplicabilitiesSelectAll },
   props: {
+    placeHolderText: {},
     /**
      * @property названия подкатегории текущей select Data
      */

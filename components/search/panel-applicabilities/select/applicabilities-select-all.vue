@@ -1,31 +1,45 @@
 <template>
-  <b-col cols="3" class="mb-3 mb-md-0">
+  <b-col cols="3" class="mb-3 mb-md-0" >
     <div
       v-on-clickaway="hiddenForm"
-      class="mr-3 form-control h-30px"
+      class="mr-3 form-control fz-5_5"
+      :class="{'isdisabled': !PanelData.length > 0}"
       @click="show = true"
     >
       <!-- children -->
-      <div v-if="type === 'children'">
+      <div v-if="type === 'children'" >
+
         <div v-if="PanelData.length !== 0">
-          <span v-for="id in panel" :key="id">
+          <span v-for="id in panel" :key="id" class="font-weight-bold cursor-pointer">
             <template
               v-if="PanelData.filter(data => data.id == id)[0] !== undefined"
             >
+
               {{ PanelData.filter(data => data.id == id)[0].name }}
             </template>
+
+
           </span>
+
+          <span v-if="panel.length ===0">{{placeHolderText}}</span>
+
         </div>
-        <div v-else class="not-allowed">Отсутствуют приминяемости</div>
+        <div v-else class="not-allowed fz-5_5 text-muted cursor-pointer">{{placeHolderText}}</div>
       </div>
+
       <!-- parent -->
-      <div v-else-if="type === 'parent'">
+      <div v-else-if="type === 'parent'" >
         <div v-if="PanelData.length !== 0">
+
           <template v-if="panel.length !== 0">
-            {{ Applicabilities.filter(data => data.id === panel)[0].name }}
+            <span class="font-weight-bold"> {{ Applicabilities.filter(data => data.id === panel)[0].name }}</span>
+
+          </template>
+          <template v-else>
+            <span class="text-muted">{{placeHolderText}}</span>
           </template>
         </div>
-        <div v-else class="not-allowed">Отсутствуют приминяемости</div>
+
       </div>
     </div>
     <!--          :select-size="4" -->
@@ -67,10 +81,15 @@ export default {
     type: {
       default: "children",
     },
+    placeHolderText: {
+      type: String,
+      default: 'Не выбрано'
+    },
   },
   data() {
     return {
       show: false,
+      isActiveInput: true,
     };
   },
   computed: {
@@ -79,6 +98,7 @@ export default {
         "Applicabilities/ApplicabilitiessAll/GetApplicabilities"
       ];
     },
+
   },
   methods: {
     hiddenForm(event) {
@@ -112,4 +132,9 @@ export default {
   z-index: 2;
   background-color: #fff;
 }
+.isdisabled{
+  opacity: 0.65;
+  background-color: #e9ecef;
+}
+
 </style>

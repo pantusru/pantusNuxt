@@ -81,7 +81,5 @@ export default {
 };
 </script>
 
-<style lang="sass">
-section.section-dealers .slick-track
-  left: -35px !important
-</style>
+<!--<style lang="sass">-->
+<!--</style>-->

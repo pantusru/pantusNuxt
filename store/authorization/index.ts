@@ -36,6 +36,9 @@ export const actions: ActionTree<RootState, RootState> = {
       // Запрос на получение user
       await dispatch('profile/actionsProfile', {}, { root: true })
       commit('setUserAuthorization', true)
+      // Получение корзины
+      commit('cart/setLoaderCart', false, { root: true })
+      await dispatch('cart/actionsCart', undefined, { root: true })
       return true
     }
     return false

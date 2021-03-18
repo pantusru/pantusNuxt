@@ -12,6 +12,6 @@ export interface brandInterfaceApi {
   contains_description: boolean
 }
 export interface brandInterfaceStore {
-  brand: brandInterface[] | []
+  brand: brandInterface[] | null
   limitPage: number
 }

@@ -5,7 +5,7 @@ import {
 import { BrandAxios } from '@/axios/brand.axios'
 import { ActionTree, MutationTree } from 'vuex'
 export const state = (): brandInterfaceStore => ({
-  brand: [],
+  brand: null,
   limitPage: 50,
 })
 
@@ -28,7 +28,7 @@ export const getters = {
     if (isNaN(id)) {
       id = 1
     }
-    return s.brand.slice((id - 1) * s.limitPage, s.limitPage * id)
+    return s.brand?.slice((id - 1) * s.limitPage, s.limitPage * id)
   },
   getLimitPage: (s: brandInterfaceStore) => s.limitPage,
 }

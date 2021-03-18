@@ -5,13 +5,17 @@ import {
   useRoute,
 } from '@nuxtjs/composition-api'
 export function PageOrdersId() {
-  const { store } = useContext()
+  const { store, redirect } = useContext()
   const route = useRoute()
-  useFetch(async () => {
-    await store.dispatch('orders/actionsOrderId', route.value.params.id)
-  })
   const getOrderId = computed(() => {
     return store.getters['orders/getOrderId']
   })
+  useFetch(async () => {
+    await store.dispatch('orders/actionsOrderId', route.value.params.id)
+    if (!getOrderId.value) {
+      redirect('/404')
+    }
+  })
+
   return { getOrderId }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="h1">Все бренды автозапчастей</h1>
-    <div v-if="getBrandPage.length > 0" class="row row-catalog-brand">
+    <div v-if="getBrandPage" class="row row-catalog-brand">
       <brand-id-catalog
         v-for="brand in getBrandPage"
         :key="brand.id"

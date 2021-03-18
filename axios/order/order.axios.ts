@@ -12,7 +12,7 @@ export const orderAxios = async (
   $axios: NuxtAxiosInstance,
   limit: number,
   page: number = 1
-): Promise<OrdersInterface[]> => {
+): Promise<OrdersInterface[] | null> => {
   const { data } = await $axios.get(
     `${process.env.api}/personal/orders?sort_order=desc&page_size=${limit}&page_number=${page}`
   )
@@ -24,12 +24,15 @@ export const orderCountAxios = async ($axios: NuxtAxiosInstance) => {
   return data
 }
 
-export const orderIdAxios = async ($axios: NuxtAxiosInstance, id: number) => {
+export const orderIdAxios = async (
+  $axios: NuxtAxiosInstance,
+  id: number
+): Promise<OrdersIdInterface | null> => {
   const { data } = await $axios.get(`${process.env.api}/personal/orders/${id}`)
   return orderIdMap(data)
 }
 
-const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] => {
+const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] | null => {
   const order: OrdersInterface[] = []
   data.forEach((array) => {
     order.push({
@@ -41,9 +44,15 @@ const orderMap = (data: OrdersInterfaceApi[]): OrdersInterface[] => {
       },
     })
   })
+  if (order.length === 0) {
+    return null
+  }
   return order
 }
-const orderIdMap = (data: OrdersInterfaceIdApi): OrdersIdInterface => {
+const orderIdMap = (data: OrdersInterfaceIdApi): OrdersIdInterface | null => {
+  if (!data.id) {
+    return null
+  }
   const orderId: OrdersIdInterface = {
     id: data.id,
     price: data.price,

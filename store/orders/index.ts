@@ -19,6 +19,11 @@ export const state = (): OrdersInterfaceStore => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
+  resetOrders(store: OrdersInterfaceStore) {
+    store.orderId = null
+    store.orders = null
+    store.countOrders = 0
+  },
   setOrders(store: OrdersInterfaceStore, orders: OrdersInterface[]) {
     store.orders = orders
   },
@@ -31,7 +36,7 @@ export const mutations: MutationTree<RootState> = {
 }
 export const actions: ActionTree<RootState, RootState> = {
   async actionsOrder({ commit }, page: number) {
-    const data: OrdersInterface[] = await orderAxios(
+    const data: OrdersInterface[] | null = await orderAxios(
       this.$axios,
       state().limit,
       page
@@ -41,7 +46,7 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('setCountOrders', count)
   },
   async actionsOrderId({ commit }, id: number) {
-    const data: OrdersIdInterface = await orderIdAxios(this.$axios, id)
+    const data: OrdersIdInterface | null = await orderIdAxios(this.$axios, id)
     commit('setOrderId', data)
   },
 }

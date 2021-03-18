@@ -9,6 +9,8 @@ export function ProfileExit() {
     app.$axios.setToken(false)
     store.commit('authorization/setUserAuthorization', false)
     store.commit('profile/setProfile', undefined)
+    store.commit('cart/resetCart')
+    store.commit('orders/ResetOrders')
   }
   return { exitUser }
 }

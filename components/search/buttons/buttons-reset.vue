@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click.prevent="Reset" class="border link-danger">Сброс фильтров</button>
+  <b-button v-on:click.prevent="Reset" class="_baseBnt py-1 px-2">Сбросить</b-button>
 </template>
 
 <script>

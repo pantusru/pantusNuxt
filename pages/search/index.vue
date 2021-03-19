@@ -15,7 +15,7 @@
         <!-- Фильтры применяемости -->
         <FilterApplicabilities />
         <b-row class="pr-lg-3">
-          <b-col cols="12" lg="3" class="mb-lg-0 mb-3">
+          <b-col cols="12" lg="3" class="mb-lg-0 mb-4">
             <!-- Общие Фильтры -->
             <FilterForm class="block-shadow "/>
           </b-col>

@@ -12,8 +12,8 @@
 <!--      <div class="motionblur">-->
 <!--        <div class="box">-->
           <img
-            class="icon-applicabilities mr-3"
-            src="@img/icons/vectorpaint.svg"
+            class="icon-filters mr-3"
+            src="@img/icons/filters-applicabilities-red-6.svg"
             alt="Icon Applicabilities"
           />
 <!--        </div>-->
@@ -23,11 +23,11 @@
       <span class="fz-5 font-weight-bold">Указать применяемости</span>
       <b-icon-arrow-down-circle
         v-if="!showAll"
-        class="cursor-pointer fz-4 link-danger ml-3"
+        class="cursor-pointer arrow-icon-filters link-danger ml-3"
       />
       <b-icon-arrow-up-circle
       v-else
-      class="cursor-pointer fz-4 link-danger ml-3"
+      class="cursor-pointer arrow-icon-filters link-danger ml-3"
       />
 
     </button>
@@ -89,12 +89,12 @@ export default {
 };
 </script>
 <style>
-.icon-applicabilities{
-  height: 50px !important;
+.icon-filters{
+  height: 45px !important;
   width: auto !important;
   display: block;
 }
-.applicabilities-btn:hover .icon-applicabilities{
+.applicabilities-btn:hover .icon-filters{
   transform: rotate( -360deg );
   transition: all 1s ease-out;
 }

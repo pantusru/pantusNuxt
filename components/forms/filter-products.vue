@@ -1,21 +1,36 @@
 <template>
-  <div class="filter-box filter-box__shadow">
+  <div class="filter-box filter-box__shadow block-radius">
     <b-button
-      class="text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer"
-      @click="show = true"
-      v-if="show === false"
-      >Показать всё фильтры</b-button
+      class="text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-0 cursor-pointer d-flex align-items-center justify-content-between w-100 block-shadow block-radius other-filters-btn"
+      @click="show = !show"
+      v-show="show === false"
+      >
+      <img
+        class="icon-filters mr-3"
+        src="@img/icons/other-filters-red-5.svg"
+        alt="Icon OtherFilters"
+      />
+      <span class="fz-5 font-weight-bold">Все фильтры</span>
+      <b-icon-arrow-down-circle
+        v-if="!show"
+        class="cursor-pointer link-danger ml-3 arrow-icon-filters"
+      />
+      <b-icon-arrow-up-circle
+        v-else
+        class="cursor-pointer link-danger ml-3 arrow-icon-filters"
+      />
+    </b-button
     >
     <b-form class="border p-3 block-radius" v-show="show">
 
 
 
 
-      <b-button
-        class="d-block d-lg-none text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-2 cursor-pointer mb-2"
-        @click="show = false"
-        >X</b-button
-      >
+<!--      <b-button-->
+<!--        class="d-block d-lg-none text-666 border-e1 bg-transparent link-danger border-link-danger px-2 py-0 cursor-pointer mb-2"-->
+<!--        @click="show = false"-->
+<!--        >X</b-button-->
+<!--      >-->
       <!-- <Submit /> -->
       <!--      <VueRange />-->
       <!-- ЦЕНА-->
@@ -35,18 +50,12 @@
         SetValue="Categories/CategoriesAll/SetCategories"
       >
       </Panel>
-      <!-- ПРиминимости -->
-      <!-- <Panel
-            items="Применимость"
-            ArrayData="Applicabilities/ApplicabilitiessAll/GetApplicabilities"
-            name="applicabilities"
-            SetValue="Applicabilities/ApplicabilitiessAll/SetApplicabilities"
-            >
-        </Panel> -->
 
-      <b-button-group>
-        <Submit />
-        <Reset />
+      <b-button-group class="w-100 px-3">
+        <div class="d-flex justify-content-between w-100 flex-wrap-reverse">
+          <Submit />
+          <Reset />
+        </div>
       </b-button-group>
     </b-form>
   </div>
@@ -76,6 +85,16 @@ export default {
 </script>
 
 <style>
+
+.arrow-icon-filters{
+  font-size: 20px;
+}
+
+.other-filters-btn:hover .icon-filters{
+  transform: rotate( -360deg );
+  transition: all 1s ease-out;
+}
+
 
 
 

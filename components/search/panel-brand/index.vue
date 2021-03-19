@@ -1,5 +1,5 @@
 <template>
-  <b-form-group class="border px-3 py-2 border-light">
+  <b-form-group class="border px-3 py-2 border-light mb-2">
     <GetFilter :items="items" :get-filter.sync="getFilter" />
     <template v-if="getFilter">
       <Vinput :get-name="GetName" @Vsearch="ValueSet" />

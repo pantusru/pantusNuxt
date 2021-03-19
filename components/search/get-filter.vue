@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex align-items-end mb-3">
+  <div class="d-flex align-items-center mb-3">
     <base-title-filter
       class="cursor-pointer link-danger"
       :text="items"

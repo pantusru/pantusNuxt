@@ -1,5 +1,5 @@
 <template>
-  <h4 class="mb-0 fz-5 font-weight-bold" v-on="$listeners">{{ text }}</h4>
+  <h4 class=" fz-5 font-weight-bold my-1" v-on="$listeners">{{ text }}</h4>
 </template>
 
 <script>

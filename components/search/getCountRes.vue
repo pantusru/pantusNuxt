@@ -1,6 +1,6 @@
 <template>
-  <span>
-    <h5 v-if="checkCountProducts" class="mb-3">
+  <span class="my-auto">
+    <h5 v-if="checkCountProducts" class="fz-5 my-auto">
       <b> По запросу {{ string }} найдено: {{ countProducts }} </b>
     </h5>
     <h5 v-if="!checkCountProducts">Ожидайте идет загрузка товара</h5>

@@ -16,10 +16,9 @@ export const mutations = {
   },
 };
 export const actions = {
-  actionsContacts({ dispatch, getters }) {
-    if (getters.getContactsAll.length === 0) {
-      dispatch("axios/AxiosContacts");
-    }
+  async actionsContacts({ dispatch, getters, commit }) {
+      const data = await dispatch("axios/AxiosContacts");
+      commit('setContactsAll', data)
   },
 };
 export const getters = {

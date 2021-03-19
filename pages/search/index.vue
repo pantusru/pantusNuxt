@@ -20,12 +20,17 @@
             <FilterForm class="block-shadow "/>
           </b-col>
           <b-col lg="9" class="block-shadow border block-radius">
-            <get-count-res class="mt-4 d-block"/>
+            <div class="mb-3 d-flex result-title justify-content-between reset-title">
+              <get-count-res class="d-block" />
+
+              <div class="text-right d-flex align-items-center">
+                <button-reply-show />
+              </div>
+            </div>
+
             <!-- Метки какие бренды и категории выбраны  -->
             <MetkaFilter />
-            <div class="text-right">
-              <button-reply-show />
-            </div>
+
             <!-- Выбран вид не таблица () => показываем table-head -->
             <b-table-simple
               v-if="componentsName !== 'TableProduct' && Products.length !== 0"
@@ -315,5 +320,9 @@ export default {
 }
 .block-radius{
   border-radius: 6px;
+}
+
+.result-title{
+  height: 47px;
 }
 </style>

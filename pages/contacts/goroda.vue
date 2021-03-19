@@ -35,8 +35,8 @@ import ContactMenu from "@/components/static/elements/contact-menu";
 export default {
   name: "ContactsGoroda",
   components: { ContactMenu },
-  async fetch({ dispatch }) {
-    await dispatch("contacts/actionsContacts");
+  async fetch({ store }) {
+    await store.dispatch("contacts/actionsContacts", undefined ,{root: true});
   },
   head() {
     return {

@@ -88,11 +88,15 @@ export default {
 
 .arrow-icon-filters{
   font-size: 20px;
+
+}
+
+.icon-filters{
+  opacity: 0.7;
 }
 
 .other-filters-btn:hover .icon-filters{
-  transform: rotate( -360deg );
-  transition: all 1s ease-out;
+  opacity: 1;
 }
 
 

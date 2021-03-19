@@ -95,8 +95,7 @@ export default {
   display: block;
 }
 .applicabilities-btn:hover .icon-filters{
-  transform: rotate( -360deg );
-  transition: all 1s ease-out;
+  opacity: 1;
 }
 
 </style>

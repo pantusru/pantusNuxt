@@ -2,11 +2,11 @@
   <b-row class="align-items-start mb-3 px-3">
     <Parent
       :panel-id="PanelId"
-      class="col-12 col-md-3"
+      class="col-12 col-md-3 col-lg-3"
       place-holder-text="Марка автомобиля"
     />
     <Children
-      class="col-12 col-md-4"
+      class="col-12 col-md-3 col-lg-4"
       :panel-id="PanelId"
       data="DataModel"
       name-data="DataGenerations"
@@ -15,13 +15,13 @@
       place-holder-text="Модели"
     />
     <Children
-      class="col-12 col-md-4"
+      class="col-12 col-md-3 col-lg-4"
       :panel-id="PanelId"
       data="DataGenerations"
       name-selected="SelectedGenerations"
       place-holder-text="Модификации"
     />
-    <b-col cols="1">
+    <b-col cols="2" lg="1">
       <b-button
         v-if="PanelLength !== 1"
         class="btn bg-danger _baseBnt py-1 px-2 btn-secondary"

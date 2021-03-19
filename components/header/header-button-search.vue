@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     async SetSearch() {
-      if (this.search.length !== 0) {
         if (this.$route.name === "search") {
           await this.ResetNoApplicabilitiess(false); // Поиск не удаляется
           await this.$store.dispatch("Applicabilities/Panel/ResetAll");
@@ -59,7 +58,7 @@ export default {
           },
         });
         this.$store.commit("SetcheckFilterClick", false);
-      }
+    
     },
   },
 };

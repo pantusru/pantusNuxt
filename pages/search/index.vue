@@ -20,14 +20,14 @@
             <FilterForm class="block-shadow "/>
           </b-col>
           <b-col lg="9" class="block-shadow border block-radius">
-            <div class="mb-3 d-flex result-title justify-content-between reset-title">
+            <div class="d-flex result-title justify-content-between reset-title">
               <get-count-res class="d-block" />
 
               <div class="text-right d-flex align-items-center">
                 <button-reply-show />
               </div>
             </div>
-
+            <hr class="my-0 mb-3">
             <!-- Метки какие бренды и категории выбраны  -->
             <MetkaFilter />
 

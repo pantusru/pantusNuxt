@@ -70,4 +70,12 @@ export const actions: ActionTree<{}, {}> = {
       }
     }
   },
+  async actionsPostCart({ commit }, offers: { id: number; count: number }) {
+    const data: { error: object } | undefined = await CartUpdateOfferAxios(
+      this.$axios,
+      offers.id,
+      offers.count
+    )
+    commit('cart/setCart', data, { root: true })
+  },
 }

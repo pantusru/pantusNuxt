@@ -18,16 +18,22 @@
           :value="linkOffers.multiplicity.toString()"
           name="Кратность:"
         />
+        {{ count }}
         <modal-buy-params name="Количество:">
-          <product-count-offers v-if="!active" :offers="linkOffers" />
-          <cart-count-offers v-if="active" :offers="cartOffer" />
+          <product-count-offers
+            :offers="linkOffers"
+            :cart="cartOffer"
+            @update:count="count = $event"
+          />
         </modal-buy-params>
 
         <modal-buy-params name="Итог:">
           <product-symma :symma="linkOffers.prices" />
         </modal-buy-params>
       </div>
-      <div class="modal-footer"></div>
+      <div class="modal-footer">
+        <ProductPostOffers :id="linkOffers.id" :count="count" />
+      </div>
     </div>
   </div>
 </template>
@@ -44,12 +50,12 @@ import ModalBuyParams from '~/components/products/element/modal/modal-buy-params
 import ProductSymma from '~/components/products/element/product-symma.vue'
 import ProductCountOffers from '~/components/products/element/offer/product-count-offers.vue'
 import { CartOfferInterface } from '~/interface/cart/cart.interface'
-import CartCountOffers from '~/components/cart/cart-count-offers.vue'
+import ProductPostOffers from '~/components/products/element/product-post-offers.vue'
 
 export default {
   name: 'ModalBuy',
   components: {
-    CartCountOffers,
+    ProductPostOffers,
     ProductCountOffers,
     ProductSymma,
     ModalBuyParams,

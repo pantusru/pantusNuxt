@@ -30,7 +30,6 @@
     </template>
     <ModalBuy
       v-if="ToggleBody"
-      :active="activeButton"
       :link-product="linkProduct"
       :link-offers="linkOffers"
       :cart-offer="cartOffer"

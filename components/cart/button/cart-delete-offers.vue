@@ -25,5 +25,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass/cart/cart-delete-offers"
+@import "../../../assets/sass/cart/cart-delete-offers"
 </style>

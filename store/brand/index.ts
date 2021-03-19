@@ -5,7 +5,7 @@ import {
 import { BrandAxios } from '@/axios/brand.axios'
 import { ActionTree, MutationTree } from 'vuex'
 export const state = (): brandInterfaceStore => ({
-  brand: null,
+  brand: [],
   limitPage: 50,
 })
 

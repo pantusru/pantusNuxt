@@ -9,14 +9,14 @@ import { CartOfferInterface } from '~/interface/cart/cart.interface'
 export function ProductButtonBuy(id: number) {
   const { store } = useContext()
   const activeButton = ssrRef<boolean>(false)
-  const cartOffer = ssrRef<CartOfferInterface | []>([])
+  const cartOffer = ssrRef<CartOfferInterface | undefined>(undefined)
 
   const getCart = computed(() => {
     return store.getters['cart/getCart']
   })
   const checkProduct = () => {
     activeButton.value = false
-    cartOffer.value = []
+    cartOffer.value = undefined
     for (const keyCart in getCart.value) {
       const checkProduct = getCart.value[keyCart].productOffer.filter(
         (elem: CartOfferInterface) => elem.id === id

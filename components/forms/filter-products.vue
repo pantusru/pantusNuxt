@@ -1,7 +1,7 @@
 <template>
   <div class="filter-box filter-box__shadow block-radius">
     <b-button
-      class="text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-0 cursor-pointer d-flex align-items-center justify-content-between w-100 block-shadow block-radius other-filters-btn"
+      class="text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-0 cursor-pointer d-flex align-items-center justify-content-between w-100 block-shadow block-radius filters-btn"
       @click="show = !show"
       v-show="show === false"
       >
@@ -95,8 +95,22 @@ export default {
   opacity: 0.7;
 }
 
-.other-filters-btn:hover .icon-filters{
-  opacity: 1;
+.filters-btn{
+  height: 50px;
+}
+
+.filters-btn:hover .icon-filters{
+  opacity: 0.8;
+  -webkit-animation: anim1 0.3s linear;
+
+}
+
+@-webkit-keyframes anim1{
+  0% { -webkit-transform: rotate(0deg); }
+  25% { -webkit-transform: rotate(15deg); }
+  50% {-webkit-transform: rotate(0deg); }
+  75% {-webkit-transform: rotate(-15deg); }
+  100% { -webkit-transform: rotate(0deg); }
 }
 
 

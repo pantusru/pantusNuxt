@@ -20,7 +20,7 @@
             <FilterForm class="block-shadow "/>
           </b-col>
           <b-col lg="9" class="block-shadow border block-radius">
-            <div class="d-flex result-title justify-content-between reset-title">
+            <div class="d-flex result-title justify-content-between reset-title mb-1">
               <get-count-res class="d-block" />
 
               <div class="text-right d-flex align-items-center">

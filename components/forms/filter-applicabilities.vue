@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       BntClass:
-        "text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-0 cursor-pointer w-100 block-shadow block-radius d-flex align-items-center justify-content-between applicabilities-btn",
+        "text-666 border-e1 bg-transparent link-danger border-link-danger px-3 py-0 cursor-pointer w-100 block-shadow block-radius d-flex align-items-center justify-content-between filters-btn",
       showAll: false,
     };
   },
@@ -90,12 +90,12 @@ export default {
 </script>
 <style>
 .icon-filters{
-  height: 45px !important;
+  height: 35px !important;
   width: auto !important;
   display: block;
 }
-.applicabilities-btn:hover .icon-filters{
-  opacity: 1;
+.filters-btn:hover .icon-filters{
+  opacity: 0.8;
 }
 
 </style>

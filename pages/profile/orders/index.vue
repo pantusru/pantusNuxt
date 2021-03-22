@@ -4,14 +4,17 @@
       <ProfileNav />
       <div class="orders-item col">
         <h1 class="h1">Мои заказы</h1>
-        <template v-if="getOrder !== null">
+        <template v-if="getOrderActive">
           <orders-id v-for="data in getOrder" :key="data.id" :order="data" />
         </template>
-        <error404 v-else text="У вас нету заказов" />
+        <error404
+          v-if="getOrderActive && getOrder.length === 0"
+          text="У вас нету заказов"
+        />
       </div>
     </div>
     <base-pagination
-      v-if="getCountOrders"
+      v-if="getOrderActive"
       :count-element="getCountOrders"
       :limit-element="getLimit"
       @click="paginationOrder"

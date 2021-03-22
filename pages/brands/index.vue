@@ -1,20 +1,26 @@
 <template>
   <div class="container">
     <h1 class="h1">Все бренды автозапчастей</h1>
-    <div v-if="getBrandPage.length" class="row row-catalog-brand">
-      <brand-id-catalog
-        v-for="brand in getBrandPage"
-        :key="brand.id"
-        :brand="brand"
+    <template v-if="getBrandActive">
+      <div class="row row-catalog-brand">
+        <brand-id-catalog
+          v-for="brand in getBrandPage"
+          :key="brand.id"
+          :brand="brand"
+        />
+      </div>
+      <error404
+        v-if="getBrandPage.length < 0"
+        text="Бредны на этой странице не найдены"
       />
-    </div>
-    <error404 v-else text="Бредны на этой странице не найдены" />
-    <base-pagination
-      :count-element="getBrand.length"
-      :limit-element="getLimitPage"
-      :limit-pagination="5"
-      @click="setBrand"
-    />
+      <base-pagination
+        v-if="getBrandPage.length > 0"
+        :count-element="getBrand.length"
+        :limit-element="getLimitPage"
+        :limit-pagination="5"
+        @click="setBrand"
+      />
+    </template>
   </div>
 </template>
 

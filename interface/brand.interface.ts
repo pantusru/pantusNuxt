@@ -14,4 +14,5 @@ export interface brandInterfaceApi {
 export interface brandInterfaceStore {
   brand: brandInterface[] | []
   limitPage: number
+  activeBrand: boolean
 }

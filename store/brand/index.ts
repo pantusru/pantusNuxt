@@ -7,6 +7,7 @@ import { ActionTree, MutationTree } from 'vuex'
 export const state = (): brandInterfaceStore => ({
   brand: [],
   limitPage: 50,
+  activeBrand: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -14,6 +15,7 @@ export type RootState = ReturnType<typeof state>
 export const mutations: MutationTree<RootState> = {
   setBrand(store: brandInterfaceStore, brand: brandInterface[]) {
     store.brand = brand
+    store.activeBrand = true
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
@@ -24,6 +26,7 @@ export const actions: ActionTree<RootState, RootState> = {
 }
 export const getters = {
   getBrand: (s: brandInterfaceStore) => s.brand,
+  getBrandActive: (s: brandInterfaceStore) => s.activeBrand,
   getBrandPage: (s: brandInterfaceStore) => (id: number) => {
     if (isNaN(id)) {
       id = 1

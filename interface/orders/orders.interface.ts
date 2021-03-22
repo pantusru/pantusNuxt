@@ -36,4 +36,5 @@ export interface OrdersInterfaceStore {
   orderId: OrdersIdInterface | null
   countOrders: number
   limit: number
+  activeOrders: boolean
 }

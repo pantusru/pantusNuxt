@@ -26,5 +26,8 @@ export function PageOrders() {
   const getCountOrders = computed(() => {
     return store.getters['orders/getCountOrders']
   })
-  return { getOrder, getLimit, getCountOrders, paginationOrder }
+  const getOrderActive = computed(() => {
+    return store.getters['orders/getOrderActive']
+  })
+  return { getOrder, getLimit, getCountOrders, paginationOrder, getOrderActive }
 }

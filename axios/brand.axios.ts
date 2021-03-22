@@ -5,7 +5,10 @@ export const BrandAxios = async (
   $axios: NuxtAxiosInstance
 ): Promise<brandInterface[]> => {
   const { data } = await $axios.get(`${process.env.api}/product_brands`)
-  return brandMap(data)
+  return brandMap(data).sort(function (a, b) {
+    // @ts-ignore
+    return b.active - a.active
+  })
 }
 
 const brandMap = (data: brandInterfaceApi[]): brandInterface[] => {

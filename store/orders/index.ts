@@ -14,6 +14,7 @@ export const state = (): OrdersInterfaceStore => ({
   countOrders: 0,
   limit: 15,
   orderId: null,
+  activeOrders: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -23,9 +24,11 @@ export const mutations: MutationTree<RootState> = {
     store.orderId = null
     store.orders = null
     store.countOrders = 0
+    store.activeOrders = false
   },
   setOrders(store: OrdersInterfaceStore, orders: OrdersInterface[]) {
     store.orders = orders
+    store.activeOrders = true
   },
   setCountOrders(store: OrdersInterfaceStore, count: number) {
     store.countOrders = count
@@ -52,6 +55,7 @@ export const actions: ActionTree<RootState, RootState> = {
 }
 export const getters = {
   getOrder: (s: OrdersInterfaceStore) => s.orders,
+  getOrderActive: (s: OrdersInterfaceStore) => s.activeOrders,
   getOrderId: (s: OrdersInterfaceStore) => s.orderId,
   getOrderLimit: (s: OrdersInterfaceStore) => s.limit,
   getCountOrders: (s: OrdersInterfaceStore) => s.countOrders,

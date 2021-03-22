@@ -8,7 +8,10 @@
       >
         Перейти к товарам
       </nuxt-link>
-      <nuxt-link class="link brand-id-catalog-link" :to="'brand/' + brand.code"
+      <nuxt-link
+        v-if="brand.active"
+        class="link brand-id-catalog-link"
+        :to="'brand/' + brand.code"
         >Информация</nuxt-link
       >
     </div>

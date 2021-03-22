@@ -61,7 +61,7 @@
             <b class="fz-4">{{ datasetProduct.productOffer[0].prices }} Р</b>
           </div>
         </b-col>
-        <b-col class="text-right">
+        <b-col class="text-right d-flex flex-column justify-content-between">
           <availability-offers
             class="mb-2 fz-5_5"
             component="div"

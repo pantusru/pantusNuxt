@@ -8,50 +8,71 @@
         class="py-1 px-2"
         @click="ModalProduct()"
       />
-      <!--  Кнопка купить если товар в корзине   -->
-<!--      <base-button-->
-<!--        v-else-if="userBasket"-->
-<!--        :text="text"-->
-<!--        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"-->
-<!--        @mouseout="text = 'В корзине'"-->
-<!--        @mouseover="text = 'Добавить'"-->
-<!--        @click="ModalProduct()"-->
-<!--      />-->
+      <div v-else>
+        <b-button
+          variant="outline-success"
 
-      <b-button
-        variant="outline-danger"
-        v-else-if="userBasket"
-        class="py-1 px-1"
-        @click="deleteCartProduct"
-        style="font-size: 12px;"
-      >Удалить</b-button>
+          class="py-1 px-1"
+          @click="ModalProduct()"
+          style="font-size: 14px;"
+        >
+          <b-icon-cart-4 />
+        </b-button>
 
-<!--      <b-button-->
-<!--        v-if="userBasket"-->
-<!--        class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"-->
-<!--        @click.once="deleteCartProduct"-->
-<!--        >X-->
-<!--      </b-button>-->
+        <b-button
+          variant="outline-danger"
+
+          class="py-1 px-1"
+          @click="deleteCartProduct"
+          style="font-size: 14px;"
+        >
+          <b-icon-x />
+        </b-button>
+      </div>
     </div>
+
     <!--  Кнопка купить если товара нет в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">
       <base-button v-if="!userBasket" class="py-1 px-2" @click="ModalProduct()">
         <b-icon-cart-4 />
       </base-button>
       <!--  Кнопка купить если товар в корзине мобильная версия   -->
-      <base-button
-        v-else-if="userBasket"
-        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
-        @click="ModalProduct()"
-      >
-        <b-icon-cart-4 />
-      </base-button>
-      <b-button
-        v-if="userBasket"
-        class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"
-        @click.once="deleteCartProduct"
-        >X
-      </b-button>
+<!--      <base-button-->
+<!--        v-else-if="userBasket"-->
+<!--        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"-->
+<!--        @click="ModalProduct()"-->
+<!--      >-->
+<!--        <b-icon-cart-4 />-->
+<!--      </base-button>-->
+<!--      <b-button-->
+<!--        v-if="userBasket"-->
+<!--        class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"-->
+<!--        @click.once="deleteCartProduct"-->
+<!--        >X-->
+<!--      </b-button>-->
+
+      <div v-else>
+        <b-button
+          variant="outline-success"
+
+          class="py-1 px-1"
+          @click="ModalProduct()"
+          style="font-size: 14px;"
+        >
+          <b-icon-cart-4 />
+        </b-button>
+
+        <b-button
+          variant="outline-danger"
+
+          class="py-1 px-1"
+          @click="deleteCartProduct"
+          style="font-size: 14px;"
+        >
+          <b-icon-x />
+        </b-button>
+      </div>
+
     </div>
   </div>
 </template>

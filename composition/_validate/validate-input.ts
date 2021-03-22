@@ -76,7 +76,9 @@ export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
   const onSwitch = (value?: any) => {
     validateInput.validate = true
     if (typeof value === 'string' || typeof value === 'boolean') {
-      validateInput.value = value
+      if (typeof value === 'string') {
+        validateInput.value = value.trim()
+      }
     }
     for (const keyReg in validateInput.regulations) {
       if (validateInput.regulations[keyReg].server) {

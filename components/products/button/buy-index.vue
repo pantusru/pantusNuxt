@@ -9,20 +9,29 @@
         @click="ModalProduct()"
       />
       <!--  Кнопка купить если товар в корзине   -->
-      <base-button
-        v-else-if="userBasket"
-        :text="text"
-        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"
-        @mouseout="text = 'В корзине'"
-        @mouseover="text = 'Добавить'"
-        @click="ModalProduct()"
-      />
+<!--      <base-button-->
+<!--        v-else-if="userBasket"-->
+<!--        :text="text"-->
+<!--        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"-->
+<!--        @mouseout="text = 'В корзине'"-->
+<!--        @mouseover="text = 'Добавить'"-->
+<!--        @click="ModalProduct()"-->
+<!--      />-->
+
       <b-button
-        v-if="userBasket"
-        class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"
-        @click.once="deleteCartProduct"
-        >X
-      </b-button>
+        variant="outline-danger"
+        v-else-if="userBasket"
+        class="py-1 px-1"
+        @click="deleteCartProduct"
+        style="font-size: 12px;"
+      >Удалить</b-button>
+
+<!--      <b-button-->
+<!--        v-if="userBasket"-->
+<!--        class="border-0 text-danger ml-1 py-0 px-0 bg-transparent"-->
+<!--        @click.once="deleteCartProduct"-->
+<!--        >X-->
+<!--      </b-button>-->
     </div>
     <!--  Кнопка купить если товара нет в корзине мобильная версия  -->
     <div class="d-flex d-lg-none justify-content-end">

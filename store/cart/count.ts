@@ -47,7 +47,7 @@ export const actions: ActionTree<{}, {}> = {
     { commit, dispatch },
     offers: CartOfferInterface
   ) {
-    const data: { error: object } | undefined = await CartUpdateOfferAxios(
+    const data: CartInterface[] | undefined = await CartUpdateOfferAxios(
       this.$axios,
       offers.id,
       offers.count
@@ -71,11 +71,13 @@ export const actions: ActionTree<{}, {}> = {
     }
   },
   async actionsPostCart({ commit }, offers: { id: number; count: number }) {
-    const data: { error: object } | undefined = await CartUpdateOfferAxios(
+    const data: CartInterface[] | undefined = await CartUpdateOfferAxios(
       this.$axios,
       offers.id,
       offers.count
     )
-    commit('cart/setCart', data, { root: true })
+    if (data) {
+      commit('cart/setCart', data, { root: true })
+    }
   },
 }

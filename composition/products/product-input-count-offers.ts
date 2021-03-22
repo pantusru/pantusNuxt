@@ -15,7 +15,7 @@ export function ProductInputCountOffers(
   const count = ssrRef(1)
   if (cart && cart.count) {
     count.value = cart.count
-    emit('count:update', count)
+    emit('update:count', count.value)
   }
   const countOffers = (offer: CartOfferInterface) => {
     error.value.check = false
@@ -23,7 +23,7 @@ export function ProductInputCountOffers(
     count.value = lengthCount(count.value)
     count.value = multiplicityCount(offer, count.value)
     count.value = nullCount(offer, count.value)
-    emit('count:update', count.value)
+    emit('update:count', count.value)
   }
 
   const errorFalse = (offer: CartOfferInterface) => {
@@ -31,7 +31,7 @@ export function ProductInputCountOffers(
     count.value = lengthCount(count.value)
     error.value.check = false
     count.value = nullCount(offer, count.value)
-    emit('count:update', count)
+    emit('update:count', count.value)
   }
   return {
     lengthCount,

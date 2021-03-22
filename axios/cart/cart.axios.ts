@@ -23,14 +23,15 @@ export const CartUpdateOfferAxios = async (
   $axios: NuxtAxiosInstance,
   id?: number,
   quantity?: number
-): Promise<{ error: object } | undefined> => {
+): Promise<CartInterface[] | undefined> => {
   const { data } = await $axios.put(`${process.env.api}/personal/cart/${id}`, {
     quantity,
   })
-  if (!data.error) {
+  if (data.error) {
     return undefined
   }
-  return data
+  const product = ProductsMap(data)
+  return CartMap(product, data)
 }
 
 const CartMap = (

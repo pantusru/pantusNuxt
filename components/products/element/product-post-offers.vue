@@ -1,5 +1,9 @@
 <template>
-  <button class="button link-hover-button" @click="cartPostOffers(id, count)">
+  <button
+    class="product-button-buy"
+    v-on="$listeners"
+    @click="cartPostOffers(id, count)"
+  >
     Купить
   </button>
 </template>
@@ -23,4 +27,6 @@ export default {
 }
 </script>
 
-<!--<style scoped></style>-->
+<style lang="sass">
+@import "assets/sass/products/product-button"
+</style>

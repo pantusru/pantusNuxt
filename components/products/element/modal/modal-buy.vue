@@ -18,21 +18,20 @@
           :value="linkOffers.multiplicity.toString()"
           name="Кратность:"
         />
-        {{ count }}
         <modal-buy-params name="Количество:">
           <product-count-offers
             :offers="linkOffers"
             :cart="cartOffer"
-            @update:count="count = $event"
+            :count.sync="count"
           />
         </modal-buy-params>
 
         <modal-buy-params name="Итог:">
-          <product-symma :symma="linkOffers.prices" />
+          <product-symma :symma="linkOffers.prices * count" />
         </modal-buy-params>
       </div>
       <div class="modal-footer">
-        <ProductPostOffers :id="linkOffers.id" :count="count" />
+        <ProductPostOffers :id="linkOffers.id" :count="count" @click="close" />
       </div>
     </div>
   </div>

@@ -52,7 +52,7 @@ export const actions: ActionTree<{}, {}> = {
       offers.id,
       offers.count
     )
-    if (!data) {
+    if (data) {
       commit('updateCountOfferCart', offers)
       await dispatch('actionsCheckCountOffer')
     }

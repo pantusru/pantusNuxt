@@ -10,7 +10,7 @@ export function ProfileExit() {
     store.commit('authorization/setUserAuthorization', false)
     store.commit('profile/setProfile', undefined)
     store.commit('cart/resetCart')
-    store.commit('orders/ResetOrders')
+    store.commit('orders/resetOrders')
   }
   return { exitUser }
 }

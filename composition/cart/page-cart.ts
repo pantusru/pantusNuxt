@@ -7,9 +7,6 @@ export function PageCart() {
   const getCart = computed(() => {
     return store.getters['cart/getCart']
   })
-  const getCartAxios = computed(() => {
-    return store.getters['cart/getCartAxios']
-  })
 
-  return { getCart, getCartAxios }
+  return { getCart }
 }

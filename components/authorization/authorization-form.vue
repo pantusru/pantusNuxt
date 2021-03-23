@@ -2,26 +2,20 @@
   <form class="authorization-form">
     <base-input
       :id="'login'"
-      :validate-form="formData"
-      :validate-input="formData.login"
-      class-input="authorization-input"
-      class-item="authorization-item"
-      class-label="authorization-label"
-      text="Логин"
-      placeholder="Введите ваш логин"
       :name="'login'"
+      placeholder="Введите ваш логин"
+      text="Логин"
+      :validate-input="formData.login"
+      @value="ValidateInput(formData.login).onSwitch($event)"
     />
     <base-input
       :id="'password'"
       :name="'password'"
       type="password"
-      :validate-form="formData"
-      :validate-input="formData.password"
-      class-input="authorization-input"
-      class-item="authorization-item"
-      class-label="authorization-label"
-      text="Пароль"
       placeholder="Введите ваш пароль"
+      text="Пароль"
+      :validate-input="formData.password"
+      @value="ValidateInput(formData.password).onSwitch($event)"
     />
     <button
       class="authorization-button link-hover-button"
@@ -36,12 +30,13 @@
 import Vue from 'vue'
 import { AuthorizationForm } from '~/composition/authorization/authorization-form'
 import BaseInput from '~/components/base/input/base-input.vue'
+import { ValidateInput } from '~/composition/_validate/validate-input'
 
 export default Vue.extend({
   name: 'AuthorizationForm',
   components: { BaseInput },
   setup() {
-    return { ...AuthorizationForm() }
+    return { ...AuthorizationForm(), ValidateInput }
   },
 })
 </script>

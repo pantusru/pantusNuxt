@@ -1,13 +1,12 @@
 <template>
   <div class="checkbox-data-user-blog">
     <div class="row-gutters">
-      <ElementValidate
+      <input
         id="input-data-user"
-        :checked="validateInput.value"
-        :validate-input="validateInput"
-        type="checkbox"
+        v-model.trim="propsValue"
         name="checkbox-data-user"
-        :name-target="'checked'"
+        type="checkbox"
+        v-bind="$attrs"
       />
       <label for="input-data-user" class="checkbox-text">
         Я принимаю условия
@@ -29,6 +28,7 @@ import Vue, { PropType } from 'vue'
 import { TypeValidateInput } from '~/composition/_validate/validate-type'
 import BaseError from '~/components/base/error/base-error.vue'
 import ElementValidate from '~/components/base/input/element-validate.vue'
+import { ValidateProps } from '~/composition/_validate/validate-props'
 
 export default Vue.extend({
   name: 'CheckboxDataUser',
@@ -38,6 +38,9 @@ export default Vue.extend({
       type: Object as () => PropType<TypeValidateInput>,
       required: true,
     },
+  },
+  setup(props: any, { emit }: { emit: Function }) {
+    return { ...ValidateProps(props.validateInput, emit) }
   },
 })
 </script>

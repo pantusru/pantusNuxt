@@ -6,96 +6,107 @@
         <div class="row-gutters">
           <BaseRadio
             :id="'typeUserRetail'"
-            :checked="true"
+            :value="'retail'"
             :class-item="'register-form-radio-items'"
             name="typeUser"
-            :value="'retail'"
-            :validate-form="formDataRetail"
             :validate-input="formDataRetail.type"
             :text="'Розничный покупатель'"
+            @value="ValidateInput(formDataRetail.type).onSwitch($event)"
           />
           <BaseRadio
             :id="'typeUserWholesale'"
+            :value="'wholesale'"
             name="typeUser"
-            value="wholesale"
-            :validate-form="formDataRetail"
-            :validate-input="formDataRetail.type"
             :text="'Оптовый покупатель'"
+            :validate-input="formDataRetail.type"
+            @value="ValidateInput(formDataRetail.type).onSwitch($event)"
           />
         </div>
       </div>
       <div class="register-form-user-data">
         <base-input
-          id="name"
+          :id="'name'"
+          :name="'name'"
           :class-input="'register-form-input'"
-          :validate-input="formDataRetail.name"
-          :validate-form="formDataRetail"
           text="Имя:"
+          :validate-input="formDataRetail.name"
+          @value="ValidateInput(formDataRetail.name).onSwitch($event)"
         />
         <base-input
           id="surname"
+          :name="'surname'"
           :class-input="'register-form-input'"
-          :validate-input="formDataRetail.surname"
-          :validate-form="formDataRetail"
           text="Фамилия:"
+          :validate-input="formDataRetail.surname"
+          @value="ValidateInput(formDataRetail.surname).onSwitch($event)"
         />
         <base-input
           id="email"
+          :name="'email'"
           :class-input="'register-form-input'"
-          :validate-input="formDataRetail.email"
-          :validate-form="formDataRetail"
           text="Email:"
+          :validate-input="formDataRetail.email"
+          @value="ValidateInput(formDataRetail.email).onSwitch($event)"
         />
         <base-input
-          id="password-2"
+          id="password"
+          name="password"
           :class-input="'register-form-input'"
           type="password"
-          :validate-input="formDataRetail.password"
-          :validate-form="formDataRetail"
           text="Пароль:"
           autocomplete="new-password"
+          :validate-input="formDataRetail.password"
+          @value="ValidateInput(formDataRetail.password).onSwitch($event)"
         />
         <base-input
           id="passwordRepeat"
+          name="passwordRepeat"
           :class-input="'register-form-input'"
           type="password"
-          :validate-input="formDataRetail.passwordRepeat"
-          :validate-form="formDataRetail"
           text="Повторите Пароль:"
+          :validate-input="formDataRetail.passwordRepeat"
+          @value="ValidateInput(formDataRetail.passwordRepeat).onSwitch($event)"
         />
         <base-input
           id="telephone"
           mask="+# (###) ###-##-##"
           :class-input="'register-form-input'"
-          :validate-input="formDataRetail.telephone"
-          :validate-form="formDataRetail"
           text="Номер телефона:"
+          :validate-input="formDataRetail.telephone"
+          @value="ValidateInput(formDataRetail.telephone).onSwitch($event)"
         />
         <div v-if="formDataRetail.type.value === 'wholesale'">
           <base-input
             :id="'organization'"
             :class-input="'register-form-input'"
             :name="'organization'"
-            :validate-input="formDataWholesale.organization"
             :text="'Названия организации'"
+            :validate-input="formDataWholesale.organization"
+            @value="
+              ValidateInput(formDataWholesale.organization).onSwitch($event)
+            "
           />
-          <base-input
+          <base-textarea
             :id="'address'"
-            :class-input="'register-form-input register-form-textarea'"
-            :components-name="'textarea'"
             :name="'address'"
-            :validate-input="formDataWholesale.address"
             :text="'Адрес: '"
+            :class-textarea="'register-form-input register-form-textarea'"
+            :validate-input="formDataWholesale.address"
+            @value="ValidateInput(formDataWholesale.address).onSwitch($event)"
           />
           <base-input
             :id="'inn'"
-            :class-input="'register-form-input'"
             :name="'inn'"
-            :validate-input="formDataWholesale.inn"
             :text="'Инн: '"
+            :class-input="'register-form-input'"
+            :validate-input="formDataWholesale.inn"
+            @value="ValidateInput(formDataWholesale.inn).onSwitch($event)"
           />
         </div>
-        <CheckboxDataUser :validate-input="formDataRetail.checkbox" />
+        <CheckboxDataUser
+          :validate-input="formDataRetail.checkbox"
+          @value="ValidateInput(formDataRetail.checkbox).onSwitch($event)"
+        />
         <button
           class="button link-hover-button register-form-button"
           @click.prevent="registerValidateForm"
@@ -113,12 +124,14 @@ import BaseInput from '~/components/base/input/base-input.vue'
 import { RegisterForm } from '~/composition/register/register-form'
 import BaseRadio from '~/components/base/input/base-radio.vue'
 import CheckboxDataUser from '~/components/register/checkbox-data-user.vue'
+import { ValidateInput } from '~/composition/_validate/validate-input'
+import BaseTextarea from "~/components/base/input/base-textarea.vue";
 
 export default Vue.extend({
   name: 'PageRegister',
-  components: { CheckboxDataUser, BaseRadio, BaseInput },
+  components: { BaseTextarea, CheckboxDataUser, BaseRadio, BaseInput },
   setup() {
-    return { ...RegisterForm() }
+    return { ...RegisterForm(), ValidateInput }
   },
 })
 </script>

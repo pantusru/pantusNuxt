@@ -28,6 +28,7 @@ export function AuthorizationForm() {
         },
       ],
       validate: true,
+      req: true,
     },
     password: {
       value: '',
@@ -41,6 +42,7 @@ export function AuthorizationForm() {
         },
       ],
       validate: true,
+      req: true,
     },
   })
   const authorizationValidateForm = async () => {

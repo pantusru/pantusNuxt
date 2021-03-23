@@ -4,35 +4,35 @@
     <base-input
       :id="'name'"
       text="Имя:"
-      :validate-form="formData"
       :validate-input="formData.name"
       class-input="profile-input"
       :name="'name'"
+      @value="ValidateInput(formData.name).onSwitch($event)"
     />
     <base-input
       :id="'surname'"
       text="Фамилия:"
-      :validate-form="formData"
-      :validate-input="formData.surname"
       class-input="profile-input"
       :name="'surname'"
+      :validate-input="formData.surname"
+      @value="ValidateInput(formData.surname).onSwitch($event)"
     />
     <base-input
       :id="'patronymic'"
       text="Отчество:"
-      :validate-form="formData"
-      :validate-input="formData.patronymic"
       class-input="profile-input"
       :name="'patronymic'"
+      :validate-input="formData.patronymic"
+      @value="ValidateInput(formData.patronymic).onSwitch($event)"
     />
     <base-input
       :id="'telephone'"
       mask="+# (###) ###-##-##"
       text="Телефон:"
-      :validate-form="formData"
-      :validate-input="formData.telephone"
       class-input="profile-input"
       :name="'telephone'"
+      :validate-input="formData.telephone"
+      @value="ValidateInput(formData.telephone).onSwitch($event)"
     />
     <button
       class="profile-button button link-hover-button"
@@ -47,16 +47,12 @@
 import { ProfileForm } from '@/composition/profile/profile-form'
 import Vue from 'vue'
 import BaseInput from '~/components/base/input/base-input.vue'
+import { ValidateInput } from '~/composition/_validate/validate-input'
 export default Vue.extend({
   name: 'ProfileForm',
   components: { BaseInput },
   setup() {
-    return { ...ProfileForm() }
-  },
-  methods: {
-    reset() {
-      this.formData.name.value = ''
-    },
+    return { ...ProfileForm(), ValidateInput }
   },
 })
 </script>

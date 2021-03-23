@@ -5,10 +5,10 @@
         >{{ text }}
         <span v-if="validateInput.req" class="base-input-icons-req">*</span>
       </label>
-      <input
+      <textarea
         v-model.trim="propsValue"
         v-mask="mask"
-        :class="classInput"
+        :class="classTextarea"
         v-bind="$attrs"
       />
     </div>
@@ -22,7 +22,7 @@ import { TypeValidateInput } from '@/composition/_validate/validate-type'
 import { ValidateProps } from '~/composition/_validate/validate-props'
 import BaseError from '~/components/base/error/base-error.vue'
 export default {
-  name: 'BaseInput',
+  name: 'BaseTextarea',
   components: { BaseError },
   props: {
     mask: {
@@ -47,8 +47,8 @@ export default {
       type: String,
       default: '',
     },
-    // class input
-    classInput: {
+    // class textarea
+    classTextarea: {
       type: String,
       default: '',
     },

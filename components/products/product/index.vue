@@ -33,7 +33,7 @@
             <b>Производитель</b> :
             <nuxt-link
               class="text-decoration-none text-436174 link-danger"
-              :to="'/search?filter_brand=' + dataset.ProductCard.brand.id"
+              :to="'/search?filter_brands=' + dataset.ProductCard.brand.id"
             >
               {{ dataset.ProductCard.brand.name }}
             </nuxt-link>

@@ -72,6 +72,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,
+    transpile: ['vee-validate/dist/rules'],
   },
   router: {
     prefetchLinks: false,

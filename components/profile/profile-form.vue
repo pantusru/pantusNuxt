@@ -53,6 +53,11 @@ export default Vue.extend({
   setup() {
     return { ...ProfileForm() }
   },
+  methods: {
+    reset() {
+      this.formData.name.value = ''
+    },
+  },
 })
 </script>
 

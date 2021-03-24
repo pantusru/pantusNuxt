@@ -20,11 +20,15 @@ export const mutations: MutationTree<RootState> = {
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsOrder({ commit }) {
+  async actionsOrder({ commit, rootGetters }) {
     const data: OrdersRulesInterface[] | null = await orderRulesAxios(
       this.$axios
     )
-    commit('setOrderRules', data)
+    const userType = rootGetters['profile/getProfile'].type
+    commit(
+      'setOrderRules',
+      data?.filter((data) => data.user === userType)
+    )
   },
 }
 export const getters = {

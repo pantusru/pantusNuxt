@@ -8,6 +8,7 @@
       <input
         v-model.trim="propsValue"
         v-mask="mask"
+        class="base-input"
         :class="classInput"
         v-bind="$attrs"
       />
@@ -24,6 +25,7 @@ import BaseError from '~/components/base/error/base-error.vue'
 export default {
   name: 'BaseInput',
   components: { BaseError },
+  inheritAttrs: false,
   props: {
     mask: {
       type: String,

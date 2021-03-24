@@ -20,6 +20,7 @@ import { TypeValidateInput } from '@/composition/_validate/validate-type'
 import { ValidateProps } from '~/composition/_validate/validate-props'
 export default Vue.extend({
   name: 'BaseRadio',
+  inheritAttrs: false,
   props: {
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,

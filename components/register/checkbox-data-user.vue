@@ -27,12 +27,11 @@
 import Vue, { PropType } from 'vue'
 import { TypeValidateInput } from '~/composition/_validate/validate-type'
 import BaseError from '~/components/base/error/base-error.vue'
-import ElementValidate from '~/components/base/input/element-validate.vue'
 import { ValidateProps } from '~/composition/_validate/validate-props'
 
 export default Vue.extend({
   name: 'CheckboxDataUser',
-  components: { ElementValidate, BaseError },
+  components: { BaseError },
   props: {
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,

@@ -24,6 +24,7 @@ import BaseError from '~/components/base/error/base-error.vue'
 export default {
   name: 'BaseTextarea',
   components: { BaseError },
+  inheritAttrs: false,
   props: {
     mask: {
       type: String,

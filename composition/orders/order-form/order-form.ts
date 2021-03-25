@@ -82,7 +82,7 @@ export function OrderForm() {
       ],
       validate: true,
     },
-    dostavka: {
+    delivery: {
       value: '',
       regulations: [
         {

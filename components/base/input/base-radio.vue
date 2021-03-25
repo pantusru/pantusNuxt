@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <div :class="classItem">
-      <input
-        v-model="propsValue"
-        type="radio"
-        v-bind="$attrs"
-        :value="$attrs.value"
-      />
-      <label class="base-radio-label" :class="classLabel" :for="$attrs.id"
-        >{{ text }}
-      </label>
-    </div>
+  <div :class="classItem" class="base-radio">
+    <input
+      v-model="propsValue"
+      type="radio"
+      v-bind="$attrs"
+      :value="valueRadio"
+    />
+    <label class="base-radio-label" :class="classLabel" :for="$attrs.id"
+      >{{ text }}
+    </label>
   </div>
 </template>
 
@@ -22,6 +20,9 @@ export default Vue.extend({
   name: 'BaseRadio',
   inheritAttrs: false,
   props: {
+    valueRadio: {
+      type: null,
+    },
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,
       required: true,

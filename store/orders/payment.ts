@@ -23,6 +23,7 @@ export const mutations: MutationTree<RootState> = {
     data: { index: number; check: boolean }
   ) {
     if (store.orderPayment) {
+      // console.log(store.orderPayment[data.index])
       store.orderPayment[data.index].active = data.check
     }
   },

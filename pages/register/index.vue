@@ -6,7 +6,7 @@
         <div class="row-gutters">
           <BaseRadio
             :id="'typeUserRetail'"
-            :value="'retail'"
+            :value-radio="'retail'"
             :class-item="'register-form-radio-items'"
             name="typeUser"
             :validate-input="formDataRetail.type"
@@ -15,7 +15,7 @@
           />
           <BaseRadio
             :id="'typeUserWholesale'"
-            :value="'wholesale'"
+            :value-radio="'wholesale'"
             name="typeUser"
             :text="'Оптовый покупатель'"
             :validate-input="formDataRetail.type"

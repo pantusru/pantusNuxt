@@ -1,16 +1,16 @@
 <template>
   <div class="">
-    <h3 class="h3">Способ оплаты <span class="text-error">*</span></h3>
-    <template v-for="data in getOrderPayment">
+    <h3 class="h3">Способ доставки <span class="text-error">*</span></h3>
+    <template v-for="data in getOrderDelivery">
       <BaseRadio
         v-if="data.active"
-        :id="'payment-' + data.id"
+        :id="'delivery-' + data.id"
         :key="data.id"
         :value-radio="data.id"
         :text="data.name"
-        name="payment"
+        name="delivery"
         :validate-input="$v"
-        @value="setPaySystem($event)"
+        @value="setCity($event)"
       />
     </template>
   </div>
@@ -19,10 +19,10 @@
 <script lang="ts">
 import BaseRadio from '~/components/base/input/base-radio.vue'
 import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
-import { OrderPayment } from '~/composition/orders/order-form/order-payment'
+import { OrderDelivery } from '~/composition/orders/order-form/order-delivery'
 
 export default {
-  name: 'OrderFormPayment',
+  name: 'OrderFormDelivery',
   components: { BaseRadio },
   props: {
     $v: {
@@ -32,7 +32,7 @@ export default {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props: any, { emit }: { emit: Function }) {
-    return { ...GetOrderForm(), ...OrderPayment(emit) }
+    return { ...GetOrderForm(), ...OrderDelivery(emit) }
   },
 }
 </script>

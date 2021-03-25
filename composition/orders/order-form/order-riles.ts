@@ -12,18 +12,18 @@ enum typeName {
 export function OrderRiles() {
   const { store } = useContext()
   const { getOrderRules, getOrderDelivery, getOrderPayment } = GetOrderForm()
-  const setRilesDelivery = (id: number = 2) => {
+  const setRilesDelivery = (id: number) => {
     rilesCheck(
-      getOrderDelivery.value,
+      getOrderPayment.value,
       id,
       typeName.deliveryId,
       typeName.paySystemId
     )
   }
 
-  const setRilesPaySystem = (id: number = 2) => {
+  const setRilesPaySystem = (id: number) => {
     rilesCheck(
-      getOrderPayment.value,
+      getOrderDelivery.value,
       id,
       typeName.paySystemId,
       typeName.deliveryId
@@ -52,9 +52,9 @@ export function OrderRiles() {
     check: boolean
   ) => {
     if (name === 'deliveryId') {
-      store.commit('orders/delivery/activeOrderDelivery', { index, check })
-    } else if (name === 'paySystemId') {
       store.commit('orders/payment/activeOrderPayment', { index, check })
+    } else if (name === 'paySystemId') {
+      store.commit('orders/delivery/activeOrderDelivery', { index, check })
     }
   }
 

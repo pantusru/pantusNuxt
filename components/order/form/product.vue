@@ -63,8 +63,10 @@ export default {
             value: true,
           });
         } else {
-          this.$store.commit("Cart/CartAll/ResetCartProduct");
           // Гут
+          window.ym(21081355, "reachGoal", "2LfGXNqwcWNUd4jM");
+          this.$store.commit("Cart/CartAll/ResetCartProduct");
+
           this.$store.commit("SetFormApi", {
             data: "errorOrder",
             value: false,

@@ -48,6 +48,7 @@ export default {
             value: res.data.error,
           });
         } else {
+          window.ym(21081355, "reachGoal", "HYHdMZA3RNZ5xAtS");
           this.get = true;
           this.$store.commit("SetFormApi", {
             data: "errorRegister",

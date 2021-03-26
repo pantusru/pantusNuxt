@@ -49,7 +49,7 @@ export default {
           text: "Рти",
         },
         { to: "/popular", text: "Популярные" },
-        // { to: "", text: "Новинки" },
+        { to: "/sale", text: "Акции" },
       ],
     };
   },

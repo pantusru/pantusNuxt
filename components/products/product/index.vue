@@ -61,7 +61,7 @@
             class="mb-2"
             cols="12"
           >
-            <b>Применяемость</b> :
+            <b>Применяемость (для а/м)</b> :
             <nuxt-link
               v-for="dataApplicabilities in dataset.ProductCard.applicabilities"
               :key="dataApplicabilities.id"

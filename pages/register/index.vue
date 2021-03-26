@@ -125,7 +125,7 @@ import { RegisterForm } from '~/composition/register/register-form'
 import BaseRadio from '~/components/base/input/base-radio.vue'
 import CheckboxDataUser from '~/components/register/checkbox-data-user.vue'
 import { ValidateInput } from '~/composition/_validate/validate-input'
-import BaseTextarea from "~/components/base/input/base-textarea.vue";
+import BaseTextarea from '~/components/base/input/base-textarea.vue'
 
 export default Vue.extend({
   name: 'PageRegister',

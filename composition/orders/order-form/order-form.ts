@@ -3,7 +3,7 @@ import {
   TypeFormData,
   TypeRegulations,
 } from '~/composition/_validate/validate-type'
-import { ValidateForm } from '~/composition/_validate/validate-form'
+// import { ValidateForm } from '~/composition/_validate/validate-form'
 
 export function OrderForm() {
   const { store } = useContext()

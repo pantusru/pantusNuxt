@@ -4,6 +4,7 @@ import {
   TypeRegulations,
 } from '@/composition/_validate/validate-type'
 import { ValidateForm } from '@/composition/_validate/validate-form'
+import { BlockInfoType } from '~/interface/base/block-info'
 
 export function AuthorizationForm() {
   const { store } = useContext()
@@ -56,6 +57,11 @@ export function AuthorizationForm() {
         }
       )
       if (validateServer) {
+        store.commit('blog-info/setBlockInfo', {
+          text: `Добро пожаловать ${store.getters['profile/getProfile'].name}`,
+          active: true,
+          type: BlockInfoType.Good,
+        })
         await router.push('/')
       } else {
         formData.value.login.regulations[1].active = true

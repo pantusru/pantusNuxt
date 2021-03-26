@@ -21,7 +21,7 @@ export default Vue.extend({
   inheritAttrs: false,
   props: {
     valueRadio: {
-      type: null,
+      type: String,
     },
     validateInput: {
       type: Object as () => PropType<TypeValidateInput>,

@@ -9,6 +9,7 @@
     <label class="base-radio-label" :class="classLabel" :for="$attrs.id"
       >{{ text }}
     </label>
+    <slot></slot>
   </div>
 </template>
 

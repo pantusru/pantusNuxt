@@ -87,12 +87,17 @@ export function OrderForm() {
       regulations: [
         {
           id: 1,
-          text: 'Вы не указали способ оплаты',
+          text: 'Вы не указали способ доставки',
           params: {},
           active: false,
           type: TypeRegulations.Undefined,
         },
       ],
+      validate: true,
+    },
+    zip: {
+      regulations: [],
+      value: '',
       validate: true,
     },
   })

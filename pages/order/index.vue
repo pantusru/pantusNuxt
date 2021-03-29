@@ -20,6 +20,12 @@
           :validate-input="formDataRetail.telephone"
           @value="ValidateInput(formDataRetail.telephone).onSwitch($event)"
         />
+        <order-form-city
+          :zip="formDataRetail.zip.value"
+          :$v="formDataRetail.city"
+          @value="ValidateInput(formDataRetail.city).onSwitch($event)"
+          @zip="ValidateInput(formDataRetail.zip).onSwitch($event)"
+        />
       </div>
       <order-form-payment
         class="order-form-items"
@@ -31,6 +37,7 @@
         :$v="formDataRetail.delivery"
         @value="ValidateInput(formDataRetail.delivery).onSwitch($event)"
         @city="ValidateInput(formDataRetail.city).onSwitch($event)"
+        @zip="ValidateInput(formDataRetail.zip).onSwitch($event)"
       />
     </form>
   </div>
@@ -44,10 +51,11 @@ import { PageOrderForm } from '~/composition/orders/order-form/page-order-form'
 import OrderFormPayment from '~/components/orders/form-orders/order-form-payment.vue'
 import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
 import OrderFormDelivery from '~/components/orders/form-orders/order-form-delivery.vue'
+import OrderFormCity from '~/components/orders/form-orders/order-form-city.vue'
 
 export default {
   name: 'PageOrder',
-  components: { OrderFormDelivery, OrderFormPayment, BaseInput },
+  components: { OrderFormCity, OrderFormDelivery, OrderFormPayment, BaseInput },
   setup() {
     return {
       ...OrderForm(),
@@ -59,5 +67,5 @@ export default {
 }
 </script>
 <style lang="sass">
-@import "assets/sass/order/order-form"
+@import "assets/sass/order/form/order-form"
 </style>

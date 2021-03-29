@@ -1,18 +1,20 @@
 <template>
   <div class="">
     <h3 class="h3">Способ доставки <span class="text-error">*</span></h3>
-    <template v-for="data in getOrderDelivery">
+    <div v-for="data in getOrderDelivery" :key="data.id" class="row">
       <BaseRadio
         v-if="data.active"
         :id="'delivery-' + data.id"
         :key="data.id"
+        class="col order-form-delivery-input"
         :value-radio="data.id"
         :text="data.name"
         name="delivery"
         :validate-input="$v"
         @value="setCity($event)"
       />
-    </template>
+      <div class="col">{{ data.extra }}</div>
+    </div>
   </div>
 </template>
 
@@ -37,4 +39,6 @@ export default {
 }
 </script>
 
-<!--<style lang="sass"></style>-->
+<style lang="sass">
+@import "assets/sass/order/form/order-form-delivery"
+</style>

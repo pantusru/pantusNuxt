@@ -5,5 +5,6 @@ export const ApiTownAxios = async (
   params: string
 ) => {
   const { data } = await $axios.get(`${process.env.api}/kladr?query=${params}`)
-  return data
+  data.result.splice(0, 1)
+  return data.result
 }

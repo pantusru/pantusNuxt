@@ -5,11 +5,11 @@ export enum BlockInfoType {
   Null = '',
 }
 
-export interface BlockInfo {
+export interface BlockInfoInterface {
   active: boolean
   text: string
   type: BlockInfoType | null
 }
 export interface BlockInfoStore {
-  blockInfo: BlockInfo
+  blockInfo: BlockInfoInterface
 }

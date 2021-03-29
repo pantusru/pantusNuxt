@@ -11,6 +11,7 @@
         class="base-input"
         :class="classInput"
         v-bind="$attrs"
+        v-on="$listeners"
       />
     </div>
     <BaseError :validate-input="validateInput" />

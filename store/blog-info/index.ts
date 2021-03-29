@@ -1,8 +1,8 @@
 import {
-  BlockInfo,
+  BlockInfoInterface,
   BlockInfoStore,
   BlockInfoType,
-} from '@/interface/base/block-info'
+} from '~/interface/base/block-info.interface'
 import { MutationTree } from 'vuex'
 export const state = (): BlockInfoStore => ({
   blockInfo: {
@@ -15,7 +15,7 @@ export const state = (): BlockInfoStore => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  setBlockInfo(store: BlockInfoStore, blockInfo: BlockInfo) {
+  setBlockInfo(store: BlockInfoStore, blockInfo: BlockInfoInterface) {
     store.blockInfo.text = blockInfo.text
     store.blockInfo.type = blockInfo.type
     store.blockInfo.active = blockInfo.active

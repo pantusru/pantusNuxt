@@ -122,7 +122,7 @@ export default {
     },
 
     meta: [
-      {name: "google-site-verification", content: "c4817e76b00ff13a"},
+      {name: "google-site-verification", content: "5UlQSQrRDt3LXuV6nmNxXtWvKNTLfKrbWapNeo5UEWY"},
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       // {

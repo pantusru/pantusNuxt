@@ -1,19 +1,23 @@
 <template>
-  <div class="">
+  <div class="order-form-delivery-wrapper">
     <h3 class="h3">Способ доставки <span class="text-error">*</span></h3>
-    <div v-for="data in getOrderDelivery" :key="data.id" class="row">
-      <BaseRadio
-        v-if="data.active"
-        :id="'delivery-' + data.id"
-        :key="data.id"
-        class="col order-form-delivery-input"
-        :value-radio="data.id"
-        :text="data.name"
-        name="delivery"
-        :validate-input="$v"
-        @value="setCity($event)"
-      />
-      <div class="col">{{ data.extra }}</div>
+    <div v-for="data in getOrderDelivery" :key="data.id">
+      <div class="row order-form-delivery-row">
+        <BaseRadio
+          v-if="data.active"
+          :id="'delivery-' + data.id"
+          :key="data.id"
+          class="col order-form-delivery-input"
+          :value-radio="data.id"
+          :text="data.name"
+          name="delivery"
+          :validate-input="$v"
+          @value="setCity($event)"
+        >
+          <div class="order-form-description">{{ data.description }}</div>
+        </BaseRadio>
+        <div class="col order-form-extra">{{ data.extra }}</div>
+      </div>
     </div>
   </div>
 </template>

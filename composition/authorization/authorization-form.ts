@@ -4,7 +4,7 @@ import {
   TypeRegulations,
 } from '@/composition/_validate/validate-type'
 import { ValidateForm } from '@/composition/_validate/validate-form'
-import { BlockInfoType } from '~/interface/base/block-info'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 
 export function AuthorizationForm() {
   const { store } = useContext()

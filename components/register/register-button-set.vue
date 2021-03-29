@@ -49,7 +49,7 @@ export default {
           });
         } else {
           window.ym(21081355,'reachGoal','HYHdMZA3RNZ5xAtS');
-          conole.log("222");
+          console.log("222");
           this.get = true;
           this.$store.commit("SetFormApi", {
             data: "errorRegister",

@@ -99,11 +99,11 @@ export default {
       categoriaUrl: [
         [
           {
-            name: "Запчасти для а/м Приору",
+            name: "Запчасти для а/м Приора",
             href: "/search?filter_applicabilities=4864",
           },
           {
-            name: "Запчасти для а/м Весту",
+            name: "Запчасти для а/м Веста",
             href: "/search?filter_applicabilities=4973",
           },
           {

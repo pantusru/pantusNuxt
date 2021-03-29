@@ -46,7 +46,7 @@ export default {
         },
         {
           to: "/categories/rti",
-          text: "Рти",
+          text: "РТИ",
         },
         { to: "/popular", text: "Популярные" },
         { to: "/sale", text: "Акции" },

@@ -915,7 +915,7 @@
     <div class="promofullwidth promogradient">
       <div class="container promoadvantage">
         <div style="text-align: center">
-          <h2 class="mt-3">
+          <h2 class="mt-3 mb-5 text-white">
             Помогаем зарабатывать <strong>больше, быстрее</strong>
           </h2>
         </div>

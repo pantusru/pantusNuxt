@@ -18,7 +18,6 @@
         :count-element="getBrand.length"
         :limit-element="getLimitPage"
         :limit-pagination="5"
-        @click="setBrand"
       />
     </template>
   </div>

@@ -58,4 +58,22 @@ export const actions: ActionTree<RootState, RootState> = {
 export const getters = {
   getCart: (s: CartInterfaceStore) => s.cart,
   getCartAxios: (s: CartInterfaceStore): boolean => s.cartAxios,
+  getSumma: (s: CartInterfaceStore) => {
+    let summa = 0
+    s.cart.forEach((elem) => {
+      elem.productOffer.forEach((offers) => {
+        if (offers.count) {
+          summa += offers.count * offers.prices
+        }
+      })
+      return summa
+    })
+  },
+  getWeight: (s: CartInterfaceStore) => {
+    let weight = 0
+    s.cart.forEach((elem) => {
+      weight += elem.productCard.params.weight
+    })
+    return weight
+  }
 }

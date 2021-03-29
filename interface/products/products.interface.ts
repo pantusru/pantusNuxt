@@ -10,6 +10,7 @@ export type CatalogProductType = {
  */
 export type TypeParamsProduct = {
   measure: string
+  weight: number
 }
 /***
  *  @type brandProduct - Бренд для продукта

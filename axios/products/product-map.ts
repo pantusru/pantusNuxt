@@ -13,6 +13,7 @@ export const ProductsMap = (data: TypeProductApi[]): TypeProductVuex[] => {
           params: {
             // Параметры товара
             measure: elem.params.measure,
+            weight: elem.params.weight,
           },
           sku: {
             // Артикуль товара

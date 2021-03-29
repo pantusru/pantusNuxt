@@ -3,7 +3,7 @@ import {
   MailRussiaInterface,
 } from '@/interface/api/mail-russia-interface'
 import { ActionTree, MutationTree } from 'vuex'
-import { ApiTownAxios } from '~/axios/api/town.axios'
+import { ApiMainRussiaAxios } from '~/axios/api/mail-russia.axios'
 
 export const state = (): MailRussiaInterfaceStore => ({
   mailRussia: null,
@@ -17,8 +17,15 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsMailRussia({ commit }, search: string): Promise<void> {
-    const data: MailRussiaInterface = await ApiTownAxios(this.$axios, search)
+  async actionsMailRussia({ commit, rootGetters }, zip: string): Promise<void> {
+    const summa = rootGetters['cart/getSumma']
+    const weight = rootGetters['cart/getWeight']
+    const data: MailRussiaInterface = await ApiMainRussiaAxios(
+      this.$axios,
+      summa,
+      zip,
+      weight
+    )
     commit('setTown', data)
   },
 }

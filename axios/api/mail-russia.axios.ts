@@ -1,6 +1,6 @@
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
-export const ApiTownAxios = async (
+export const ApiMainRussiaAxios = async (
   $axios: NuxtAxiosInstance,
   symma: string,
   to: string,

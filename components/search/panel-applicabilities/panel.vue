@@ -2,11 +2,11 @@
   <b-row class="align-items-start mb-3 px-3">
     <Parent
       :panel-id="PanelId"
-      class="col-12 col-md-3 col-lg-3"
+      class="col-12 col-md-4"
       place-holder-text="Марка автомобиля"
     />
     <Children
-      class="col-12 col-md-3 col-lg-4"
+      class="col-12 col-md-4"
       :panel-id="PanelId"
       data="DataModel"
       name-data="DataGenerations"
@@ -15,7 +15,7 @@
       place-holder-text="Модели"
     />
     <Children
-      class="col-12 col-md-3 col-lg-4"
+      class="col-12 col-md-4"
       :panel-id="PanelId"
       data="DataGenerations"
       name-selected="SelectedGenerations"

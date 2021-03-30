@@ -2,7 +2,7 @@
   <b-col cols="3" class="mb-3 mb-md-0" >
     <div
       v-on-clickaway="hiddenForm"
-      class="mr-3 form-control fz-5_5"
+      class="mr-3 form-control fz-5_5 h-100"
       :class="{'isdisabled': !PanelData.length > 0}"
       @click="show = true"
     >

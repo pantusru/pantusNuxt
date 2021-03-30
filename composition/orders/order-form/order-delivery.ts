@@ -15,6 +15,10 @@ export function OrderDelivery(emit: Function) {
       emit('city', city.city)
       emit('zip', city.zip)
       await store.dispatch('api/town/actionsTown', city.city)
+      await store.dispatch(
+        'orders/delivery/actionsSetMailRussiaDelivery',
+        city.zip
+      )
     }
     emit('value', id)
   }

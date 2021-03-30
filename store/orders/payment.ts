@@ -29,7 +29,7 @@ export const mutations: MutationTree<RootState> = {
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsOrder({ commit }, userTypeId: number) {
+  async actionsOrderPayment({ commit }, userTypeId: number) {
     const data: OrdersPaymentInterface[] | null = await orderPaymentAxios(
       this.$axios,
       userTypeId

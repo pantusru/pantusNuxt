@@ -66,8 +66,8 @@ export const getters = {
           summa += offers.count * offers.prices
         }
       })
-      return summa
     })
+    return summa
   },
   getWeight: (s: CartInterfaceStore) => {
     let weight = 0

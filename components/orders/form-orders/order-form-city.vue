@@ -34,7 +34,7 @@ export default {
       require: true,
     },
     zip: {
-      type: String,
+      type: Number,
       require: true,
     },
   },

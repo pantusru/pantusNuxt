@@ -1,34 +1,17 @@
-import {
-  MailRussiaInterfaceStore,
-  MailRussiaInterface,
-} from '@/interface/api/mail-russia-interface'
-import { ActionTree, MutationTree } from 'vuex'
+import { ActionTree } from 'vuex'
 import { ApiMainRussiaAxios } from '~/axios/api/mail-russia.axios'
+import { MailRussiaInterface } from '~/interface/api/mail-russia-interface'
 
-export const state = (): MailRussiaInterfaceStore => ({
-  mailRussia: null,
-})
+export const state = () => ({})
 export type RootState = ReturnType<typeof state>
 
-export const mutations: MutationTree<RootState> = {
-  setMailRussia(store: MailRussiaInterfaceStore, data: MailRussiaInterface) {
-    store.mailRussia = data
-  },
-}
-
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsMailRussia({ commit, rootGetters }, zip: string): Promise<void> {
-    const summa = rootGetters['cart/getSumma']
+  async actionsMailRussia(
+    { rootGetters },
+    zip: string
+  ): Promise<MailRussiaInterface> {
+    const summa = rootGetters['cart/getSumma'] * 100
     const weight = rootGetters['cart/getWeight']
-    const data: MailRussiaInterface = await ApiMainRussiaAxios(
-      this.$axios,
-      summa,
-      zip,
-      weight
-    )
-    commit('setTown', data)
+    return await ApiMainRussiaAxios(this.$axios, summa, zip, weight)
   },
-}
-export const getters = {
-  getMailRussia: (s: MailRussiaInterfaceStore) => s.mailRussia,
 }

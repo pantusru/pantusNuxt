@@ -8,8 +8,8 @@ export function PageOrderForm() {
   }
   useFetch(async () => {
     await store.dispatch('orders/rules/actionsOrder')
-    await store.dispatch('orders/delivery/actionsOrder', typeIdUser)
-    await store.dispatch('orders/payment/actionsOrder', typeIdUser)
+    await store.dispatch('orders/delivery/actionsOrderDelivery', typeIdUser)
+    await store.dispatch('orders/payment/actionsOrderPayment', typeIdUser)
   })
   return {}
 }

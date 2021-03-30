@@ -27,10 +27,10 @@ const orderDelivery = (
     orderDelivery.push({
       active: true,
       city: array.default_city,
-      defaultDescription: array.description,
       description: array.description,
       defaultPrice: array.default_price,
       price: array.default_price,
+      defaultExtra: array.extra,
       extra: array.extra,
       id: array.id,
       name: array.name,

@@ -3,7 +3,7 @@ export interface OrdersDeliveryInterface {
   name: string
   active: boolean
   description: string
-  defaultDescription: string
+  defaultExtra: string
   price: number
   defaultPrice: number
   extra: string

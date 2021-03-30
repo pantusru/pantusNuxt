@@ -97,7 +97,7 @@ export function OrderForm() {
     },
     zip: {
       regulations: [],
-      value: '',
+      value: undefined,
       validate: true,
     },
   })

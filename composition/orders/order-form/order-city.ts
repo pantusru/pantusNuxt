@@ -7,9 +7,10 @@ export function OrderCity(emit: Function) {
     return store.getters['api/town/getTown']
   })
 
-  const searchCity = (name: string) => {
+  const searchCity = async (name: string) => {
     emit('value', name)
-    emit('zip', '')
+    emit('zip', undefined)
+    await store.commit('orders/delivery/ResetOrderDelivery')
     if (timerId.value !== null) {
       clearTimeout(timerId.value)
     }
@@ -17,7 +18,8 @@ export function OrderCity(emit: Function) {
       await store.dispatch('api/town/actionsTown', name)
     }, 1000)
   }
-  const setCityOrder = (name: string, zip: string) => {
+  const setCityOrder = async (name: string, zip: string) => {
+    await store.dispatch('orders/delivery/actionsSetMailRussiaDelivery', zip)
     emit('value', name)
     emit('zip', zip)
   }

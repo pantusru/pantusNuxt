@@ -6,6 +6,8 @@ export default {
   env: {
     api: "https://api.pantus.ru",
     pantus: "https://bx.pantus.ru",
+    apiAbcp: "http://abcp.ru",
+    
   },
   yandexMetrika: {
     id: 21081355,

@@ -798,7 +798,7 @@
     <div class="promofullwidth promoleftpict">
       <div class="container promodelivery">
         <div style="text-align: center">
-          <h2 class="mt-3 text-left fz-3">
+          <h2 class="mt-3 text-left fz-3 mb-4">
             Бесплатно доставляем заказы в 140 городов России, 5 городов
             Казахстана и не берем деньги за доставку до терминала транспортной
             компании
@@ -1300,7 +1300,7 @@ export default {
   padding: 70px 0;
 }
 .promocenterpict {
-  background-image: url("https://www.pantus.ru/opt/media/optmain.jpg");
+  background-image: url("https://bx.pantus.ru/opt/media/optmain.jpg");
   background-size: cover;
   background-position: center bottom;
   margin-top: 33px;
@@ -1320,7 +1320,7 @@ export default {
   text-decoration: none !important;
 }
 .promorightpict {
-  background: url("https://www.pantus.ru/opt/media/products.jpg") right center;
+  background: url("https://bx.pantus.ru/opt/media/products.jpg") right center;
   margin-bottom: 50px;
 }
 .promoblock_left-wrap {

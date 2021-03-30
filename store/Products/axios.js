@@ -49,6 +49,7 @@ export const actions = {
     const dataProduct = await dispatch("_init_Product", product);
     return dataProduct;
   },
+
   /***
    * ### map Продуктов
    * @param {Array} data - Массив товара

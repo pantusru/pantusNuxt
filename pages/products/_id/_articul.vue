@@ -12,16 +12,6 @@ export default {
     Product,
   },
   async asyncData({ store, params, getters, redirect }) {
-    // const ProductAll = store.getters["Products/GetProducts"]; // Все подгруженные товары
-    // if (ProductAll.length !== 0) {
-    //   const datasetCheck = ProductAll.filter(
-    //     data => data.ProductCard.id == params.id
-    //   );
-    //   if (datasetCheck !== undefined) {
-    //     store.commit("Products/SetProduct", datasetCheck);
-    //     return;
-    //   }
-    // }
     await store.dispatch("Products/_ProductId", params.id);
     const Productid = store.getters["Products/GetProduct"];
     const res = `${Productid[0].ProductCard.sku.normalized}-${Productid[0].ProductCard.brand.code}`;
@@ -40,12 +30,14 @@ export default {
       meta: [
         {
           name: "description",
-          content: `${this.ProductData[0]?.ProductCard?.name}
-          . Производитель - ${this.ProductData[0]?.ProductCard?.brand?.name}.
-          Артикул -  ${
+          content: `${
+            this.ProductData[0]?.ProductCard?.name
+          }. Производитель - ${
+            this.ProductData[0]?.ProductCard?.brand?.name
+          }.Артикул -  ${
             this.ProductData[0]?.ProductCard?.sku?.original
           }. OEM - ${this.ProductData[0]?.ProductCard?.ProductCardOem?.join(
-            ", "
+            " "
           )}`,
         },
         {
@@ -63,6 +55,14 @@ export default {
     ProductData() {
       return this.$store.getters["Products/GetProduct"];
     },
+  },
+  async mounted() {
+    const brand = this.ProductData[0]?.ProductCard?.brand?.name;
+    const number = this.ProductData[0]?.ProductCard?.sku?.original;
+    await this.$store.dispatch("Products/analogs/_ProductAll", {
+      brand,
+      number,
+    });
   },
 };
 </script>

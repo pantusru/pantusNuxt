@@ -42,7 +42,10 @@
           ValidateInput(formDataRetail.deliverySumma).onSwitch($event)
         "
       />
-      <order-form-product :delivery="formDataRetail.deliverySumma.value" />
+      <order-form-product
+        :delivery="formDataRetail.deliverySumma.value"
+        @click.prevent="orderSet"
+      />
     </form>
   </div>
 </template>

@@ -2,6 +2,7 @@ import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import {
   OrdersInterface,
   OrdersInterfaceApi,
+  OrdersSetInterface,
 } from '~/interface/orders/orders.interface.ts'
 import {
   OrdersIdInterface,
@@ -19,11 +20,22 @@ export const orderAxios = async (
   return orderMap(data)
 }
 
-export const orderCountAxios = async ($axios: NuxtAxiosInstance) => {
+export const orderCountAxios = async (
+  $axios: NuxtAxiosInstance
+): Promise<number> => {
   const { data } = await $axios.get(`${process.env.api}/personal/orders/count`)
   return data
 }
-
+export const orderSetAxios = async (
+  $axios: NuxtAxiosInstance,
+  order: OrdersSetInterface
+): Promise<number | { error: object }> => {
+  const { data } = await $axios.post(
+    `${process.env.api}/personal/orders`,
+    order
+  )
+  return data
+}
 export const orderIdAxios = async (
   $axios: NuxtAxiosInstance,
   id: number

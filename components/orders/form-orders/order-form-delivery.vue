@@ -19,6 +19,7 @@
         <div class="col order-form-extra">{{ data.extra }}</div>
       </div>
     </div>
+    <base-error :validate-input="$v" />
   </div>
 </template>
 
@@ -26,10 +27,11 @@
 import BaseRadio from '~/components/base/input/base-radio.vue'
 import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
 import { OrderDelivery } from '~/composition/orders/order-form/order-delivery'
+import BaseError from '~/components/base/error/base-error.vue'
 
 export default {
   name: 'OrderFormDelivery',
-  components: { BaseRadio },
+  components: { BaseError, BaseRadio },
   props: {
     $v: {
       type: Object,

@@ -1,14 +1,15 @@
-import { ref, useContext } from '@nuxtjs/composition-api'
+import { ref, useContext, useRouter } from '@nuxtjs/composition-api'
 import {
   TypeFormData,
   TypeRegulations,
 } from '~/composition/_validate/validate-type'
-// import { ValidateForm } from '~/composition/_validate/validate-form'
+import { OrdersSetInterface } from '~/interface/orders/orders.interface'
+import { ValidateForm } from '~/composition/_validate/validate-form'
 
 export function OrderForm() {
   const { store } = useContext()
   const profile = store.getters['profile/getProfile']
-  // const router = useRouter()
+  const router = useRouter()
   const formDataRetail = ref<TypeFormData>({
     name: {
       value: profile.name,
@@ -106,5 +107,26 @@ export function OrderForm() {
       validate: true,
     },
   })
-  return { formDataRetail }
+  const orderSet = async () => {
+    const validateClient = ValidateForm(formDataRetail.value).validateForm()
+    if (validateClient) {
+      const orderSet: OrdersSetInterface = {
+        delivery_type_id: formDataRetail.value.delivery.value,
+        paysystem_type_id: formDataRetail.value.payment.value,
+        city_name: formDataRetail.value.city.value,
+        city_zip: formDataRetail.value.zip.value,
+        first_name: formDataRetail.value.name.value,
+        last_name: formDataRetail.value.surname.value,
+        phone_number: formDataRetail.value.telephone.value,
+        company_name: undefined,
+        detailed_adress: undefined,
+        user_comment: undefined,
+      }
+      const res = await store.dispatch('orders/actionsSetOrder', orderSet)
+      if (!res.error) {
+        await router.push(`/profile/orders/${res.success.order_id}`)
+      }
+    }
+  }
+  return { formDataRetail, orderSet }
 }

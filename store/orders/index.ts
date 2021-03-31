@@ -3,10 +3,12 @@ import {
   orderAxios,
   orderCountAxios,
   orderIdAxios,
+  orderSetAxios,
 } from '@/axios/order/order.axios'
 import {
   OrdersInterface,
   OrdersInterfaceStore,
+  OrdersSetInterface,
 } from '~/interface/orders/orders.interface'
 import { OrdersIdInterface } from '~/interface/orders/orders-id.interface'
 export const state = (): OrdersInterfaceStore => ({
@@ -51,6 +53,13 @@ export const actions: ActionTree<RootState, RootState> = {
   async actionsOrderId({ commit }, id: number) {
     const data: OrdersIdInterface | null = await orderIdAxios(this.$axios, id)
     commit('setOrderId', data)
+  },
+  async actionsSetOrder({}, form: OrdersSetInterface) {
+    const data: number | { error: object } = await orderSetAxios(
+      this.$axios,
+      form
+    )
+    return data
   },
 }
 export const getters = {

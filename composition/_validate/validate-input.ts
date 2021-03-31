@@ -6,7 +6,8 @@ import { UnwrapRef } from '@nuxtjs/composition-api'
 
 export function ValidateInput(validateInput: UnwrapRef<TypeValidateInput>) {
   const errorUndefined = (inputData: UnwrapRef<TypeValidateRegulations>) => {
-    inputData.active = validateInput.value === ''
+    inputData.active =
+      validateInput.value === '' || validateInput.value === null
   }
   const errorRegExp = (inputData: UnwrapRef<TypeValidateRegulations>) => {
     if (inputData.params && inputData.params.regExp) {

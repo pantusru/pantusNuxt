@@ -1,3 +1,6 @@
+// eslint-disable-next-line eslint-disable-next-line
+/* eslint-disable eslint-disable-next-line, camelcase */
+
 import { OrdersIdInterface } from '~/interface/orders/orders-id.interface'
 
 export interface OrdersInterface {
@@ -7,6 +10,18 @@ export interface OrdersInterface {
     name: string
     code: string
   }
+}
+export interface OrdersSetInterface {
+  first_name: string
+  last_name: string
+  phone_number: string
+  city_name: string
+  city_zip?: number
+  company_name?: string
+  detailed_adress?: string
+  paysystem_type_id: number
+  delivery_type_id: number
+  user_comment?: string
 }
 export interface OrdersInterfaceApi {
   id: number

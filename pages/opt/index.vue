@@ -1333,7 +1333,7 @@ export default {
   margin-bottom: -2px;
 }
 .antipicture {
-  background-image: url("https://www.pantus.ru/opt/media/hider.png");
+  background-image: url("https://bx.pantus.ru/opt/media/hider.png");
   background-repeat: repeat-y;
   background-size: 50% auto;
 }

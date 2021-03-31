@@ -38,7 +38,11 @@
         @value="ValidateInput(formDataRetail.delivery).onSwitch($event)"
         @city="ValidateInput(formDataRetail.city).onSwitch($event)"
         @zip="ValidateInput(formDataRetail.zip).onSwitch($event)"
+        @deliverySumma="
+          ValidateInput(formDataRetail.deliverySumma).onSwitch($event)
+        "
       />
+      <order-form-product :delivery="formDataRetail.deliverySumma.value" />
     </form>
   </div>
 </template>
@@ -52,10 +56,17 @@ import OrderFormPayment from '~/components/orders/form-orders/order-form-payment
 import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
 import OrderFormDelivery from '~/components/orders/form-orders/order-form-delivery.vue'
 import OrderFormCity from '~/components/orders/form-orders/order-form-city.vue'
+import OrderFormProduct from '~/components/orders/form-orders/order-form-product.vue'
 
 export default {
   name: 'PageOrder',
-  components: { OrderFormCity, OrderFormDelivery, OrderFormPayment, BaseInput },
+  components: {
+    OrderFormProduct,
+    OrderFormCity,
+    OrderFormDelivery,
+    OrderFormPayment,
+    BaseInput,
+  },
   setup() {
     return {
       ...OrderForm(),

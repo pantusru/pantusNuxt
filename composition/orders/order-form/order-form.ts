@@ -70,7 +70,7 @@ export function OrderForm() {
       validate: true,
     },
     payment: {
-      value: '',
+      value: null,
       regulations: [
         {
           id: 1,
@@ -83,7 +83,7 @@ export function OrderForm() {
       validate: true,
     },
     delivery: {
-      value: '',
+      value: null,
       regulations: [
         {
           id: 1,
@@ -98,6 +98,11 @@ export function OrderForm() {
     zip: {
       regulations: [],
       value: undefined,
+      validate: true,
+    },
+    deliverySumma: {
+      regulations: [],
+      value: 0,
       validate: true,
     },
   })

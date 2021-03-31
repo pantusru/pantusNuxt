@@ -11,6 +11,7 @@ export function OrderDelivery(emit: Function) {
     const city: OrdersDeliveryInterface = getOrderDelivery.value.filter(
       (elem: OrdersDeliveryInterface) => elem.id === id
     )[0]
+    emit('deliverySumma', city.price)
     if (city?.city) {
       emit('city', city.city)
       emit('zip', city.zip)

@@ -15,6 +15,7 @@ export default {
     trackLinks: true,
     accurateTrackBounce: true,
     webvisor: true,
+    defer: true,
     ecommerce: "dataLayer",
   },
   loading: {
@@ -189,6 +190,7 @@ export default {
   buildModules: ["@nuxtjs/pwa", "@nuxtjs/google-analytics"],
   googleAnalytics: {
     id: "UA-112630194-1",
+    defer: true
   },
   /*
    ** Nuxt.js modules

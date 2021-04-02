@@ -20,6 +20,7 @@
       </div>
     </div>
     <base-error :validate-input="$v" />
+    <slot />
   </div>
 </template>
 

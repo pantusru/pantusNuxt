@@ -26,6 +26,17 @@
           @value="ValidateInput(formDataRetail.city).onSwitch($event)"
           @zip="ValidateInput(formDataRetail.zip).onSwitch($event)"
         />
+        <base-textarea
+          text="Адрес"
+          :validate-input="formDataRetail.address"
+          @value="ValidateInput(formDataRetail.address).onSwitch($event)"
+        />
+        <base-input
+          v-if="getProfileType === 'wholesale'"
+          text="Названия"
+          :validate-input="formDataWholesale.companyName"
+          @value="ValidateInput(formDataWholesale.companyName).onSwitch($event)"
+        />
       </div>
       <order-form-payment
         class="order-form-items"
@@ -41,7 +52,12 @@
         @deliverySumma="
           ValidateInput(formDataRetail.deliverySumma).onSwitch($event)
         "
-      />
+      >
+        <base-input
+          text="Комментарии"
+          :validate-input="formDataRetail.comment"
+        />
+      </order-form-delivery>
       <order-form-product
         :delivery="formDataRetail.deliverySumma.value"
         @click.prevent="orderSet"
@@ -60,10 +76,12 @@ import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
 import OrderFormDelivery from '~/components/orders/form-orders/order-form-delivery.vue'
 import OrderFormCity from '~/components/orders/form-orders/order-form-city.vue'
 import OrderFormProduct from '~/components/orders/form-orders/order-form-product.vue'
+import BaseTextarea from '~/components/base/input/base-textarea.vue'
 
 export default {
   name: 'PageOrder',
   components: {
+    BaseTextarea,
     OrderFormProduct,
     OrderFormCity,
     OrderFormDelivery,

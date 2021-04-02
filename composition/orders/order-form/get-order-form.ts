@@ -10,5 +10,8 @@ export function GetOrderForm() {
   const getOrderDelivery = computed(() => {
     return store.getters['orders/delivery/getOrderDelivery']
   })
-  return { getOrderRules, getOrderPayment, getOrderDelivery }
+  const getProfileType = computed(() => {
+    return store.getters['profile/getProfile'].type
+  })
+  return { getOrderRules, getOrderPayment, getOrderDelivery, getProfileType }
 }

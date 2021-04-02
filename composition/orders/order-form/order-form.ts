@@ -106,9 +106,47 @@ export function OrderForm() {
       value: 0,
       validate: true,
     },
+    address: {
+      value: '',
+      validate: true,
+      req: false,
+      regulations: [],
+    },
+    comment: {
+      value: '',
+      validate: true,
+      req: false,
+      regulations: [],
+    },
+  })
+  const formDataWholesale = ref<TypeFormData>({
+    companyName: {
+      value: '',
+      req: true,
+      validate: true,
+      regulations: [
+        {
+          id: 1,
+          text: 'Вы не указали название компании',
+          params: {},
+          active: false,
+          type: TypeRegulations.Undefined,
+        },
+      ],
+    },
   })
   const orderSet = async () => {
-    const validateClient = ValidateForm(formDataRetail.value).validateForm()
+    let validateClient: boolean
+    const typeUser = store.getters['profile/getProfile'].type
+    if (typeUser === 'retail') {
+      validateClient = ValidateForm(formDataRetail.value).validateForm()
+    } else {
+      const validateRetail = ValidateForm(formDataRetail.value).validateForm()
+      const validateWholesale = ValidateForm(
+        formDataWholesale.value
+      ).validateForm()
+      validateClient = validateRetail && validateWholesale
+    }
     if (validateClient) {
       const orderSet: OrdersSetInterface = {
         delivery_type_id: formDataRetail.value.delivery.value,
@@ -128,5 +166,5 @@ export function OrderForm() {
       }
     }
   }
-  return { formDataRetail, orderSet }
+  return { formDataRetail, formDataWholesale, orderSet }
 }

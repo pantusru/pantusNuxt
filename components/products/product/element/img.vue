@@ -1,16 +1,17 @@
 <template>
   <div class="text-center">
-    <b-img
-      :class="{ 'cursor-pointer': getModal }"
-      class="w-75"
-      fluid
-      :src="this.product.ProductCard.ProductCardImage.url"
-      :alt="product.ProductCard.name"
-      @click="getImg"
-    />
+    <a :href="product.ProductCard.ProductCardImage.url" @click.prevent="" />
+    <div @click="getImg">
+      <b-img-lazy
+        :class="{ 'cursor-pointer': getModal }"
+        class="w-75"
+        fluid
+        :src="product.ProductCard.ProductCardImage.url"
+        :alt="product.ProductCard.name"
+      />
+    </div>
   </div>
 </template>
-
 <script>
 import Mixin from "@/mixins/modal/product-img";
 export default {

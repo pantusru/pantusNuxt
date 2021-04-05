@@ -1,9 +1,9 @@
+import { MutationTree } from 'vuex'
 import {
   BlockInfoInterface,
   BlockInfoStore,
   BlockInfoType,
 } from '~/interface/base/block-info.interface'
-import { MutationTree } from 'vuex'
 export const state = (): BlockInfoStore => ({
   blockInfo: {
     text: '',

@@ -35,17 +35,21 @@ const userFilter: ProfileInterface = {
 const { setProfile, updateProfile } = mutations
 
 describe('store profile', () => {
-  const state: ProfileInterfaceStore = { profile: undefined }
   test('mutations setProfile ', function () {
+    const state: ProfileInterfaceStore = { profile: undefined }
+
     setProfile(state, user)
     expect(state.profile).toEqual(user)
   })
-})
-describe('store profile', () => {
-  const state: ProfileInterfaceStore = { profile: undefined }
   test('mutations updateProfile ', function () {
+    const state: ProfileInterfaceStore = { profile: undefined }
     setProfile(state, user)
     updateProfile(state, profileInterfaceDto)
     expect(state.profile).toEqual(userFilter)
+  })
+  test('getters getProfile', function () {
+    const state: ProfileInterfaceStore = { profile: user }
+    const getProfile = getters.getProfile(state)
+    expect(getProfile).toEqual(user)
   })
 })

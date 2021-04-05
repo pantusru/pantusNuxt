@@ -78,19 +78,19 @@ export default {
       urlPantus: process.env.pantus,
       dataImg: [
         {
-          src: `${process.env.pantus}/bitrix/images/site/optbanner2.jpg`,
+          src: `${process.env.pantus}/bitrix/images/site/optbanner2.webp`,
           alt: "Специальное предложение оптовикам",
           href: "/opt",
           id: 1,
         },
         {
-          src: `${process.env.pantus}/bitrix/images/site/banner.1millionproducts.jpg`,
+          src: `${process.env.pantus}/bitrix/images/site/banner.1millionproducts.webp`,
           alt: "Новый товар в каталогах",
           href: "/news/3416139",
           id: 2,
         },
         {
-          src: `${process.env.pantus}/bitrix/images/site/appbanner.jpg`,
+          src: `${process.env.pantus}/bitrix/images/site/appbanner.webp`,
           alt: "Слайдер мобильного приложения",
           href: "/app",
           id: 3,

@@ -28,11 +28,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { HeaderTop } from '~/composition/header/header-top/header-top'
-import TheHeaderTopDropdown from '~/components/header/header-top/the-header-top-dropdown.vue'
 
 export default Vue.extend({
   name: 'TheHeaderTop',
-  components: { TheHeaderTopDropdown },
+  components: {
+    TheHeaderTopDropdown: () =>
+      import('~/components/header/header-top/the-header-top-dropdown.vue'),
+  },
   setup() {
     return { ...HeaderTop() }
   },

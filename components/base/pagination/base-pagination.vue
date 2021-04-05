@@ -12,12 +12,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import { Pagination } from '~/composition/base/pagination'
 import { PaginationPropsInterface } from '~/interface/base/props/pagination-props.interface'
 import BasePaginationItem from '~/components/base/pagination/base-pagination-item.vue'
 
-export default Vue.extend({
+export default {
   name: 'BasePagination',
   components: { BasePaginationItem },
   props: {
@@ -41,7 +40,7 @@ export default Vue.extend({
   setup(props: PaginationPropsInterface) {
     return { ...Pagination(props) }
   },
-})
+}
 </script>
 <style lang="sass">
 @import "assets/sass/base/base-pagination"

@@ -1338,7 +1338,7 @@ export default {
   background-size: 50% auto;
 }
 .promoleftpict {
-  /*background: url("https://www.pantus.ru/opt/media/promodeliv.jpg") no-repeat*/
+  /*background: url("https://bx.pantus.ru/opt/media/promodeliv.jpg") no-repeat*/
   /*  bottom left;*/
   /*background-size: contain;*/
 }

@@ -83,18 +83,18 @@ export default {
           href: "/opt",
           id: 1,
         },
-        {
-          src: `${process.env.pantus}/bitrix/images/site/banner.1millionproducts.webp`,
-          alt: "Новый товар в каталогах",
-          href: "/news/3416139",
-          id: 2,
-        },
-        {
-          src: `${process.env.pantus}/bitrix/images/site/appbanner.webp`,
-          alt: "Слайдер мобильного приложения",
-          href: "/app",
-          id: 3,
-        },
+        // {
+        //   src: `${process.env.pantus}/bitrix/images/site/banner.1millionproducts.webp`,
+        //   alt: "Новый товар в каталогах",
+        //   href: "/news/3416139",
+        //   id: 2,
+        // },
+        // {
+        //   src: `${process.env.pantus}/bitrix/images/site/appbanner.webp`,
+        //   alt: "Слайдер мобильного приложения",
+        //   href: "/app",
+        //   id: 3,
+        // },
       ],
       categoriaUrl: [
         [

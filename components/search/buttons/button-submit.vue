@@ -1,5 +1,5 @@
 <template>
-  <b-button v-on:click="All" variant="danger" class="btn bg-danger _baseBnt py-1 px-2 btn-secondary">Отправить</b-button>
+  <b-button v-on:click="All" variant="danger" class="btn bg-danger _baseBnt py-1 px-2 btn-secondary">Показать</b-button>
 </template>
 
 <script>

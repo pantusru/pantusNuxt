@@ -1,3 +1,4 @@
+import Vue from "vue";
 export const state = () => ({
   MyOrder: [],
   MyOrderId: [],
@@ -15,6 +16,10 @@ export const mutations = {
   },
   SetCount(store, data) {
     store.count = data;
+  },
+  pushMyOrder(store, data) {
+    Vue.set(store.MyOrder[data.index], "offers", data.value);
+    // store.MyOrder[data.index].offers = data.value;
   },
   /**
    * ###Изменить order действия клиента
@@ -42,9 +47,23 @@ export const actions = {
     commit("SetMyOrder", data);
   },
   async _MyOrderId({ dispatch, commit }, id) {
+    // const id = dataset.id;
+    // const check = dataset.check;
     // Добавить data page, и передавать в API ЗАпрос
     const data = await dispatch("MyOrder/axios/_MyOrderId", id, { root: true });
     commit("SetMyOrderId", data);
+  },
+  async _MyOrderOffer({ dispatch, commit, rootState }, dataset) {
+    const index = dataset.index;
+    const id = dataset.id;
+    if (!rootState.MyOrder.MyOrder[index].offers) {
+      const data = await dispatch(
+        "MyOrder/axios/_MyOrderId",
+        { id, check: true },
+        { root: true }
+      );
+      commit("pushMyOrder", { value: data, index });
+    }
   },
 };
 export const getters = {

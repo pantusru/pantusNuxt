@@ -24,14 +24,16 @@
         <!--        <order-button-cancel :data="data" />-->
       </b-col>
     </b-row>
-    <nuxt-link
-      :to="'/profile/orders/' + data.id"
+    <span
+      v-b-toggle="'myOrder' + data.id"
+      to=""
       class="bg-transparent text-e1002b border-0 mt-2 pl-0"
+      @click.prevent="myOrderOffers({ id: data.id, index })"
       >Подробнее
-    </nuxt-link>
-    <!--    <b-collapse :id="'myOrder' + data.id">-->
-    <!--      <order-table-get v-if="false" :data="data" />-->
-    <!--    </b-collapse>-->
+    </span>
+    <b-collapse :id="'myOrder' + data.id">
+      <order-table-get v-if="data.offers" :data="data" />
+    </b-collapse>
   </div>
   <!--  компонент -->
 </template>
@@ -45,6 +47,14 @@ export default {
   components: { OrderButtonCopyCart, OrderButtonCancel, OrderTableGet },
   props: {
     data: {},
+    index: {
+      type: Number,
+    },
+  },
+  methods: {
+    async myOrderOffers(data) {
+      await this.$store.dispatch("MyOrder/_MyOrderOffer", data);
+    },
   },
 };
 </script>

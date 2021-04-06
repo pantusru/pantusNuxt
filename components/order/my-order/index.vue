@@ -1,7 +1,12 @@
 <template>
   <div class="mt-4">
     <template v-if="MyOrder !== null">
-      <MyOrderBLog v-for="data in MyOrder" :key="data.id" :data="data" />
+      <MyOrderBLog
+        v-for="(data, index) in MyOrder"
+        :key="data.id"
+        :data="data"
+        :index="index"
+      />
     </template>
     <b-pagination-nav
       v-if="MyOrder !== null && countPage !== 1"

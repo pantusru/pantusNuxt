@@ -14,14 +14,32 @@ export const actions = {
     });
   },
 
-  async _MyOrderId({ rootGetters, dispatch }, id) {
+  async _MyOrderId({ rootGetters, dispatch }, dataset) {
+    const id = dataset.id;
+    const check = dataset.check ?? false;
     const data = await this.$axios.$get(
       `${process.env.api}/personal/orders/${id}`,
       {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
-    return await dispatch("MapMyOrderId", data);
+    let result;
+    if (!check) {
+      result = await dispatch("MapMyOrderId", data);
+    } else {
+      result = await dispatch("MapMyOrderOffer", data);
+    }
+    return result;
+  },
+
+  async _MyOrderOffer({ rootGetters, dispatch }, id) {
+    const data = await this.$axios.$get(
+      `${process.env.api}/personal/orders/${id}`,
+      {
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
+      }
+    );
+    return dispatch("MapMyOrderOffer", data);
   },
 
   MapMyOrder({}, data) {
@@ -29,6 +47,10 @@ export const actions = {
     data.forEach(order => {
       dataset.push({
         id: order.id,
+        price: order.price,
+        service: {
+          price: order.delivery.price,
+        },
         dates: {
           created: order.dates.created,
         },
@@ -41,7 +63,7 @@ export const actions = {
     return dataset;
   },
 
-  MapMyOrderId({}, data) {
+  MapMyOrderId({ dispatch }, data) {
     const order = {
       id: data.id,
       price: data.price,
@@ -75,7 +97,7 @@ export const actions = {
         name: data.payerType.name,
       },
     };
-    order.offers = [];
+    order.offers = dispatch("MapMyOrderOffer", data);
     if (data.offers.length !== 0) {
       data.offers.forEach(elem => {
         order.offers.push({
@@ -87,6 +109,20 @@ export const actions = {
       });
     }
     return order;
+  },
+  MapMyOrderOffer({}, data) {
+    const offer = [];
+    if (data.offers.length !== 0) {
+      data.offers.forEach(elem => {
+        offer.push({
+          guid: elem.sku,
+          name: elem.name,
+          price: elem.price,
+          quantity: elem.quantity,
+        });
+      });
+    }
+    return offer;
   },
 
   _CancelMyOrder() {

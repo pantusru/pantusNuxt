@@ -14,11 +14,11 @@ export default {
   async asyncData({ store, params, getters, redirect }) {
     await store.dispatch("Products/_ProductId", params.id);
     const Productid = store.getters["Products/GetProduct"];
-    const res = `${Productid[0].ProductCard.sku.normalized}-${Productid[0].ProductCard.brand.code}`;
     if (Productid.length === 0) {
       // Товар не найден
       redirect("/404");
     }
+    const res = `${Productid[0].ProductCard.sku.normalized}-${Productid[0].ProductCard.brand.code}`;
     if (res !== params.articul) {
       // Товар с не коретным артикулем
       redirect(`/products/${Productid[0].ProductCard.id}/${res}`);

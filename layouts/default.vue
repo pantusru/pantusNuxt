@@ -14,8 +14,8 @@
 <script>
 import VueHeader from "@/components/header/index";
 import VueFooter from "@/components/footer/footer-main";
-import ButtonScrollTop from "~/components/base/button/button-scroll-top";
 import SetCart from "@/components/modal/set-cart";
+import ButtonScrollTop from "~/components/base/button/button-scroll-top";
 export default {
   components: {
     SetCart,
@@ -32,6 +32,9 @@ export default {
     $route() {
       this.$store.commit("SetNavMobile", false);
     },
+  },
+  async mounted() {
+    await this.$store.dispatch("Cart/CartAll/_CartProduct", {}, { root: true });
   },
 };
 </script>

@@ -14,7 +14,7 @@ export default async ({ route, store, getters, dispatch, app }) => {
     // если пользователь не загружен
     store.commit("SetCookie", app.$cookies.get("Authorization"));
     await store.dispatch("User/_User", {}, { root: true });
-    await store.dispatch("Cart/CartAll/_CartProduct", {}, { root: true });
+    // await store.dispatch("Cart/CartAll/_CartProduct", {}, { root: true });
   }
   if (store.getters["Cart/CartAll/GetCartActual"] === false) {
     // если корзина не обновилась

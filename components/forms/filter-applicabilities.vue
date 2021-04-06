@@ -1,24 +1,19 @@
 <template>
-  <div class="mb-4 ">
-
-
-
+  <div class="mb-4">
     <button
       v-show="showAll === false"
-      :class="BntClass"
+      :class="[{ 'border-bottom-radius-0': showAll }, BntClass]"
       @click.prevent="showAll = !showAll"
     >
-
-<!--      <div class="motionblur">-->
-<!--        <div class="box">-->
-          <img
-            class="icon-filters mr-3"
-            src="@img/icons/filters-applicabilities-red-6.svg"
-            alt="Icon Applicabilities"
-          />
-<!--        </div>-->
-<!--      </div>-->
-
+      <!--      <div class="motionblur">-->
+      <!--        <div class="box">-->
+      <img
+        class="icon-filters mr-3"
+        src="@img/icons/filters-applicabilities-red-6.svg"
+        alt="Icon Applicabilities"
+      >
+      <!--        </div>-->
+      <!--      </div>-->
 
       <span class="fz-5 font-weight-bold">Указать применяемости</span>
       <b-icon-arrow-down-circle
@@ -26,35 +21,31 @@
         class="cursor-pointer arrow-icon-filters link-danger ml-3"
       />
       <b-icon-arrow-up-circle
-      v-else
-      class="cursor-pointer arrow-icon-filters link-danger ml-3"
+        v-else
+        class="cursor-pointer arrow-icon-filters link-danger ml-3"
       />
-
     </button>
     <b-card
       v-show="showAll === true"
-      class="text-666 border-e1 bg-transparen block-shadow"
+      class="text-666 border-e1 bg-transparen block-shadow border-top-radius-0"
       no-body
     >
-      <b-card-body class="px-3 py-2">
-<!--        <span class="cursor-pointer link-danger" @click="showAll = false">-->
-<!--          Указать применяемости-->
-<!--          <b-icon-arrow-up />-->
-<!--        </span>-->
+      <b-card-body class="px-3 py-2 border-top-radius-0">
+        <!--        <span class="cursor-pointer link-danger" @click="showAll = false">-->
+        <!--          Указать применяемости-->
+        <!--          <b-icon-arrow-up />-->
+        <!--        </span>-->
         <div class="mt-3 mb-2">
-
           <div class="px-3 mb-3">
-            <ButtonAdd class="mr-2"/>
+            <ButtonAdd class="mr-2" />
             <ButtonReset />
-
           </div>
-          <hr>
+          <hr >
           <Vpanel v-for="data in Panels" :key="data.id" :panel-id="data.id" />
-          <hr>
+          <hr >
           <div class="px-3">
             <ButtonSubmit />
           </div>
-
         </div>
       </b-card-body>
     </b-card>
@@ -89,13 +80,12 @@ export default {
 };
 </script>
 <style>
-.icon-filters{
+.icon-filters {
   height: 35px !important;
   width: auto !important;
   display: block;
 }
-.filters-btn:hover .icon-filters{
+.filters-btn:hover .icon-filters {
   opacity: 0.8;
 }
-
 </style>

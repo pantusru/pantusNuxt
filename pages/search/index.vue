@@ -29,7 +29,7 @@
                 <button-reply-show />
               </div>
             </div>
-            <hr class="my-0 mb-3" >
+            <hr class="my-0 mb-3">
             <!-- Метки какие бренды и категории выбраны  -->
             <MetkaFilter v-if="getFilter" />
 
@@ -314,7 +314,6 @@ export default {
     );
   },
   mounted() {
-    console.log("1");
     this.getFilter = true;
   },
 };
@@ -332,8 +331,15 @@ export default {
 .block-radius {
   border-radius: 6px;
 }
-
+.border-bottom-radius-0 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .result-title {
   height: 47px;
+}
+.border-top-radius-0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 </style>

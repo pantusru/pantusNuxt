@@ -6,15 +6,18 @@
           to="/search"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
-          <div class="col-8 mx-auto mb-3">
-            <b-img :src="require('@img/advantage/feature-new-01.png')" />
+          <div class="col-8 mx-auto mb-3 text-center">
+            <b-img
+              :src="require('@img/advantage/feature-new-01.png')"
+              class="img-advantage"
+            />
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title"
               >Более
               <span class="home-advantage-content-link"> 22000 </span>
             </b>
-            <br />
+            <br >
             <p class="home-advantage-content-text text-body">
               автозапчастей в каталогах
             </p>
@@ -24,15 +27,18 @@
           to="/delivery"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
-          <div class="col-8 mx-auto mb-3">
-            <b-img :src="require('@img/advantage/feature-new-02.png')" />
+          <div class="col-8 mx-auto mb-3 text-center">
+            <b-img
+              :src="require('@img/advantage/feature-new-02.png')"
+              class="img-advantage"
+            />
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title">
               Доставка
               <span class="home-advantage-content-link"> по всему миру </span>
             </b>
-            <br />
+            <br >
             <p class="home-advantage-content-text text-body">
               От 0 руб. по России
             </p>
@@ -41,12 +47,15 @@
         <b-col
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
-          <div class="col-8 mx-auto mb-3">
-            <b-img :src="require('@img/advantage/feature-new-03.png')" />
+          <div class="col-8 mx-auto mb-3 text-center">
+            <b-img
+              :src="require('@img/advantage/feature-new-03.png')"
+              class="img-advantage"
+            />
           </div>
           <div class="text-center">
             <b class="home-advantage-content-title"> ИНДИВИДУАЛЬНОЕ </b>
-            <br />
+            <br >
             <p class="home-advantage-content-text">производство деталей</p>
           </div>
         </b-col>
@@ -54,10 +63,10 @@
           to="/pay"
           class="col-12 col-sm-6 col-lg-3 d-flex align-self-center justify-content-center flex-column mb-2"
         >
-          <div class="col-8 mx-auto mb-3 advantage">
+          <div class="col-8 mx-auto mb-3 text-center">
             <b-img
               :src="require('@img/advantage/feature-new-04.png')"
-              class="img-advantage-h120px"
+              class="img-advantage bag-img"
             />
           </div>
           <div class="text-center">
@@ -65,7 +74,7 @@
               <span to="/pay" class="home-advantage-content-link"> 20 </span>
               СПОСОБОВ ОПЛАТЫ
             </b>
-            <br />
+            <br >
             <p class="home-advantage-content-text text-body">
               с возможностью отсрочки и оплаты при получении
             </p>
@@ -96,6 +105,9 @@ export default {
   font-size: 13px;
 }
 .img-advantage {
-  max-width: 100px;
+  height: 95px;
+}
+.bag-img {
+  max-width: 86px;
 }
 </style>

@@ -166,7 +166,12 @@ export default {
             this.$bvModal.show("SetCart");
           } else if (oldCart.length > 0) {
             // Нужно сохранить товар
-            const Cart = [...oldCart, ...this.Cart];
+            let Cart;
+            if (!this.Cart) {
+              Cart = oldCart;
+            } else {
+              Cart = [...oldCart, ...this.Cart];
+            }
             await this.updateCart(Cart);
             this.$store.commit("setCartGuest", false);
           }

@@ -57,8 +57,8 @@ export default {
     },
   },
   async mounted() {
-    const brand = this.ProductData[0]?.ProductCard?.brand?.name;
-    const number = this.ProductData[0]?.ProductCard?.sku?.original;
+    // const brand = this.ProductData[0]?.ProductCard?.brand?.name;
+    // const number = this.ProductData[0]?.ProductCard?.sku?.original;
     // await this.$store.dispatch("Products/analogs/_ProductAll", {
     //   brand,
     //   number,

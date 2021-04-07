@@ -3,18 +3,25 @@
     tabindex="-1"
     center
     no-caret
-    :toggle-class="[{ 'dropdown-menu-color': isDropDown }, 'text-body link-danger font-weight-bold fz-5 px-0 w-100']"
-    @shown="isDropDown = true" @hidden="isDropDown = false"
-
+    :toggle-class="[
+      { 'dropdown-menu-color': isDropDown },
+      'text-body link-danger font-weight-bold fz-5 px-0 w-100',
+    ]"
+    @shown="isDropDown = true"
+    @hidden="isDropDown = false"
   >
     <!-- Using 'button-content' slot -->
     <template slot="button-content">
-      <b-icon-justify></b-icon-justify>
+      <b-icon-justify />
       <b>Все запчасти</b>
     </template>
-    <b-dropdown-item :to="data.to" v-for="data in links" :key="data.id">{{
-      data.text
-    }}</b-dropdown-item>
+    <b-dropdown-item
+      v-for="data in links"
+      :key="data.id"
+      :link-class="'fz-5_5'"
+      :to="data.to"
+      >{{ data.text }}</b-dropdown-item
+    >
   </b-nav-item-dropdown>
 </template>
 
@@ -37,9 +44,7 @@ export default {
 </script>
 
 <style>
-.dropdown-menu-color{
+.dropdown-menu-color {
   color: #e1002b !important;
 }
 </style>
-
-

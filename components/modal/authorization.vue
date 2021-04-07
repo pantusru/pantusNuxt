@@ -45,6 +45,15 @@
       </VInput>
     </b-form>
     <template #modal-footer>
+      <div class="w100 mr-auto fz-4 d-flex align-items-center">
+        <div class="pr-10px">Нет аккаунта?</div>
+        <b-button
+          class="border-0 p-0 bg-white text-dark link-danger"
+          @click="registration"
+        >
+          Зарегистрироваться
+        </b-button>
+      </div>
       <div>
         <base-button class="mr-3" text="Воити" @click="check" />
         <!--        <b-button-->
@@ -52,14 +61,6 @@
         <!--          @click="password"-->
         <!--          >Забыли пароль</b-button-->
         <!--        >-->
-      </div>
-      <div class="w100">
-        <b-button
-          class="border-0 p-0 bg-white text-dark link-danger d-block d-sm-none"
-          @click="registration"
-        >
-          Регистрация
-        </b-button>
       </div>
       <b-row no-gutters class="flex-column">
         <!-- <vueRecaptcha

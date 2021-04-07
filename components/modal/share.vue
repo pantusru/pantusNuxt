@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     value() {
-      return process.env.pantus + this.$route.fullPath;
+      return process.env.hostName + this.$route.fullPath;
     },
   },
   methods: {

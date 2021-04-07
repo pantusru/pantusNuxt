@@ -15,6 +15,12 @@
             <b-img :src="data.img" />
           </nuxt-link>
         </div>
+        <!--        <template #prevArrow="arrowOption">-->
+        <!--          <b-icon-arrow-left class="slick-arrow slick-next" />-->
+        <!--        </template>-->
+        <!--        <template #nextArrow>-->
+        <!--          <div class="slick-arrow slick-prev">-></div>-->
+        <!--        </template>-->
       </VueSlickCarousel>
     </div>
   </section>
@@ -34,7 +40,7 @@ export default {
   data() {
     return {
       settings: {
-        dots: true,
+        // dots: true,
         infinite: true,
         centerMode: true,
         centerPadding: "20px",
@@ -45,7 +51,7 @@ export default {
         autoplay: true,
         speed: 2000,
         // slidesToShow: 7,
-        arrows: false,
+        arrows: true,
         // infinite: true,
         initialSlide: 4,
         // swipeToSlide: true,
@@ -102,7 +108,21 @@ export default {
   color: black
 
 //#__layout > div > main > div:nth-child(1) > section.section-dealers.mt-5 > div > div > div > div
-
+.section-dealers
+  margin-bottom: 25px
 section.section-dealers .slick-track
   left: -18px !important
+
+section.section-dealers .slick-arrow
+  top: calc(100% + 15px)
+  color: black
+  //&::after
+  //  content: ""
+  //&::before
+  //  content: ""
+
+section.section-dealers .slick-next
+  right: 20px
+section.section-dealers .slick-prev
+  left: 20px
 </style>

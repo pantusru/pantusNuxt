@@ -7,11 +7,16 @@ export const mutations = {
   },
 };
 export const actions = {
-  async _ProductAll({ store, dispatch, commit, getters }, dataset) {
+  async _abcp_Analogs({ store, dispatch, commit, getters }, dataset) {
     const data = await dispatch("Products/abcp/_Analogs", dataset, {
       root: true,
     });
-    commit("SetProducts", data);
+    if (data.length > 0) {
+      const product = await dispatch("Products/axios/_AnalogsAxios", data, {
+        root: true,
+      });
+      commit("SetProducts", product);
+    }
   },
 };
 export const getters = {

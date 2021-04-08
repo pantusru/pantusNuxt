@@ -50,6 +50,15 @@ export const actions = {
     return dataProduct;
   },
 
+  async _AnalogsAxios({ dispatch }, data) {
+    const dataset = await this.$axios.$post(
+      `${process.env.api}/products/get_by_list`,
+      {
+        data,
+      }
+    );
+    return dispatch("Products/axios/_init_Product", dataset, { root: true });
+  },
   /***
    * ### map Продуктов
    * @param {Array} data - Массив товара

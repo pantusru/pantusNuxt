@@ -132,9 +132,11 @@ import TableOffer from "@/components/table/table-offset-get";
 import Share from "@/components/modal/share";
 import mixins from "@/mixins/product/album";
 import ButtonReplyShow from "@/components/base/button/button-reply-show";
+import TableProductGet from "~/components/table/product/table-product-get";
 
 export default {
   components: {
+    TableProductGet,
     ButtonReplyShow,
     Share,
     TableOffer,

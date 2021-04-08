@@ -5,13 +5,7 @@ export const actions = {
     const analog = await this.$axios.$get(
       `${process.env.api}/abcp/articles/info?brand=${brand}&sku=${sku}`
     );
-    const mapAnalogs = await dispatch("_mapAnalogs", analog);
-    console.log(mapAnalogs);
-    return []
-    // const dataset = await this.$axios.$post(`${process.env.api}/`, {
-    //   mapAnalogs,
-    // });
-    // return dispatch("Products/axios/_init_Product", dataset, { root: true });
+    return await dispatch("_mapAnalogs", analog);
   },
   _mapAnalogs({}, data) {
     const crosses = [];

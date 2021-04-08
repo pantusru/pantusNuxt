@@ -14,7 +14,6 @@ export const actions = {
         { offets: 0, limit: 9 },
         { root: true }
       );
-      console.log(data);
       commit("SetNewsIndex", data);
     }
   },

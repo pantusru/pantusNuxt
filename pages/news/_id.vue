@@ -21,6 +21,7 @@ export default {
   async fetch({ query, store, getters, params, redirect }) {
     if (!isNaN(params.id)) {
       await store.dispatch("News/NewsId/_NewsId", params.id); // 1 новость
+      await store.dispatch("News/NewsIndex/_NewsIndex");
     } else {
       await store.dispatch("News/CategoriesAll/_NewsCategories"); // Все категории
       const id = store.getters["News/CategoriesAll/GetNewsCategoriesCode"](

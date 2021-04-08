@@ -2,7 +2,7 @@
   <b-col class="mb-4 news-border">
     <b-row no-gutters>
       <b-col v-if="data.preview.image !== null" cols="5">
-        <b-img class="" :src="data.preview.image" alt="" />
+        <b-img class="img-news" :src="data.preview.image" alt="" />
       </b-col>
       <b-col cols="7" class="pl-3">
         <!--        <div class="date"> -->
@@ -39,5 +39,9 @@ export default {
   color: #436174;
   text-decoration: underline;
   font-size: 14px;
+}
+.img-news {
+  max-height: 107px;
+  max-width: 160px;
 }
 </style>

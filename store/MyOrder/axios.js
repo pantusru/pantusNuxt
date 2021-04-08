@@ -25,8 +25,10 @@ export const actions = {
     );
     let result;
     if (!check) {
+      console.log("OrderId");
       result = await dispatch("MapMyOrderId", data);
     } else {
+      console.log("OrderOffers");
       result = await dispatch("MapMyOrderOffer", data);
     }
     return result;
@@ -42,7 +44,7 @@ export const actions = {
     return dispatch("MapMyOrderOffer", data);
   },
 
-  MapMyOrder({}, data) {
+  async MapMyOrder({}, data) {
     const dataset = [];
     data.forEach(order => {
       dataset.push({
@@ -63,7 +65,7 @@ export const actions = {
     return dataset;
   },
 
-  MapMyOrderId({ dispatch }, data) {
+  async MapMyOrderId({ dispatch }, data) {
     const order = {
       id: data.id,
       price: data.price,
@@ -97,23 +99,24 @@ export const actions = {
         name: data.payerType.name,
       },
     };
-    order.offers = dispatch("MapMyOrderOffer", data);
-    if (data.offers.length !== 0) {
-      data.offers.forEach(elem => {
-        order.offers.push({
-          guid: elem.sku,
-          name: elem.name,
-          price: elem.price,
-          quantity: elem.quantity,
-        });
-      });
-    }
+    order.offers = await dispatch("MapMyOrderOffer", data);
+    // if (data.offers.length !== 0) {
+    //   data.offers.forEach(elem => {
+    //     order.offers.push({
+    //       guid: elem.sku,
+    //       name: elem.name,
+    //       price: elem.price,
+    //       quantity: elem.quantity,
+    //     });
+    //   });
+    // }
     return order;
   },
   MapMyOrderOffer({}, data) {
     const offer = [];
     if (data.offers.length !== 0) {
       data.offers.forEach(elem => {
+        console.log(elem)
         offer.push({
           guid: elem.sku,
           name: elem.name,

@@ -50,7 +50,11 @@ export const actions = {
     // const id = dataset.id;
     // const check = dataset.check;
     // Добавить data page, и передавать в API ЗАпрос
-    const data = await dispatch("MyOrder/axios/_MyOrderId", id, { root: true });
+    const data = await dispatch(
+      "MyOrder/axios/_MyOrderId",
+      { id },
+      { root: true }
+    );
     commit("SetMyOrderId", data);
   },
   async _MyOrderOffer({ dispatch, commit, rootState }, dataset) {

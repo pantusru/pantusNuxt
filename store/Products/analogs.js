@@ -15,7 +15,9 @@ export const actions = {
       const product = await dispatch("Products/axios/_AnalogsAxios", data, {
         root: true,
       });
-      commit("SetProducts", product);
+      if (!product.error) {
+        commit("SetProducts", product);
+      }
     }
   },
 };

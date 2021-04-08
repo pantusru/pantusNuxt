@@ -50,11 +50,15 @@ export const actions = {
     return dataProduct;
   },
 
-  async _AnalogsAxios({ dispatch }, data) {
+  async _AnalogsAxios({ dispatch, rootGetters }, data) {
+    console.log(data);
     const dataset = await this.$axios.$post(
       `${process.env.api}/products/get_by_list`,
       {
         data,
+      },
+      {
+        headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },
       }
     );
     return dispatch("Products/axios/_init_Product", dataset, { root: true });

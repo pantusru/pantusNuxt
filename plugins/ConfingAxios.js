@@ -26,6 +26,7 @@ export default function ({ $axios, redirect, app, request, store }) {
 
   $axios.onError(() => {
     store.commit("SetShow", false);
+    // console.log()
     // ПЕРЕХВАТЧИК ОШИБКИ
     redirect("/404");
   });

@@ -5,20 +5,16 @@ export const mutations = {
   SetProducts(store, data) {
     store.Products = data;
   },
+  ResetProducts(store) {
+    store.Products = [];
+  },
 };
 export const actions = {
-  async _abcp_Analogs({ store, dispatch, commit, getters }, dataset) {
-    const data = await dispatch("Products/abcp/_Analogs", dataset, {
+  async _Analogs({ store, dispatch, commit, getters }, dataset) {
+    const product = await dispatch("Products/axios/_AnalogsAxios", dataset, {
       root: true,
     });
-    if (data.length > 0) {
-      const product = await dispatch("Products/axios/_AnalogsAxios", data, {
-        root: true,
-      });
-      if (!product.error) {
-        commit("SetProducts", product);
-      }
-    }
+    commit("SetProducts", product);
   },
 };
 export const getters = {

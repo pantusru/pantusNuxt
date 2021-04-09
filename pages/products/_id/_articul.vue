@@ -56,13 +56,18 @@ export default {
       return this.$store.getters["Products/GetProduct"];
     },
   },
+  destroyed() {
+    this.$store.commit("Products/analogs/ResetProducts");
+  },
   async mounted() {
-    // const brand = this.ProductData[0]?.ProductCard?.brand?.name;
-    // const number = this.ProductData[0]?.ProductCard?.sku?.original;
-    // await this.$store.dispatch("Products/analogs/_abcp_Analogs", {
-    //   brand,
-    //   number,
-    // });
+    const brand = this.ProductData[0]?.ProductCard?.brand?.name;
+    const sku = this.ProductData[0]?.ProductCard?.sku?.original;
+    if (brand && sku) {
+      await this.$store.dispatch("Products/analogs/_Analogs", {
+        brand,
+        sku,
+      });
+    }
   },
 };
 </script>

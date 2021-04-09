@@ -51,11 +51,15 @@ export const actions = {
   },
 
   async _AnalogsAxios({ dispatch, rootGetters }, data) {
-    console.log(data);
-    const dataset = await this.$axios.$post(
-      `${process.env.api}/products/get_by_list`,
+    const brand = data.brand;
+    const sku = data.sku;
+    const dataset = await this.$axios.$get(
+      `${process.env.api}/products/analogs`,
       {
-        data,
+        params: {
+          brand,
+          sku,
+        },
       },
       {
         headers: { Authorization: `Bearer ${rootGetters.GetCookie}` },

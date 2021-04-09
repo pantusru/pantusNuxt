@@ -11,7 +11,7 @@
             <nuxt-link
               class="text-576b77 link-danger font-weight-bold"
               :to="
-                'search?filter_brands=' + table.ProductCard.brand.id.toString()
+                '/search?filter_brands=' + table.ProductCard.brand.id.toString()
               "
               >{{ table.ProductCard.brand.name }}
             </nuxt-link>
@@ -25,7 +25,7 @@
               :title="table.ProductCard.sku.original"
               class="text-576b77 link-danger reset-title"
               :to="
-                'products/' +
+                '/products/' +
                 table.ProductCard.id.toString() +
                 '/' +
                 table.ProductCard.sku.normalized +
@@ -54,7 +54,7 @@
               :title="table.ProductCard.name"
               class="text-576b77 link-danger reset-title"
               :to="
-                'products/' +
+                '/products/' +
                 table.ProductCard.id.toString() +
                 '/' +
                 table.ProductCard.sku.normalized +

@@ -36,19 +36,19 @@
         <b-col>
           <span class="elem-file">
             <a
-              :href="PantusUrl + 'upload/files/Договор ООО ПАНТУС (шаблон).doc'"
+              :href="PantusUrl + '/upload/files/Договор ООО ПАНТУС (шаблон).doc'"
               >Договор ООО ПАНТУС (шаблон)</a
             >
             (DOC, 73 Кб) </span
           ><br />
           <span class="elem-file">
-            <a :href="PantusUrl + 'upload/files/Карта партнера ПАНТУС.doc'"
+            <a :href="PantusUrl + '/upload/files/Карта партнера ПАНТУС.doc'"
               >Карта партнера ПАНТУС</a
             >
             (DOC, 29 Кб) </span
           ><br />
           <span class="elem-file">
-            <a :href="PantusUrl + 'upload/files/Акт о возврате товара.xlsx'"
+            <a :href="PantusUrl + '/upload/files/Акт о возврате товара.xlsx'"
               >Акт о возврате товара</a
             >
             (XLSX, 11,75 Кб)

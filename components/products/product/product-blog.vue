@@ -45,7 +45,7 @@ import { PropType } from 'vue'
 import { TypeProductVuex } from '~/interface/products/products.interface'
 import ProductLinkId from '~/components/products/element/product-link-id.vue'
 import ProductImg from '~/components/products/element/product-img.vue'
-import ProductParams from '~/components/products/element/product-params.vue'
+import ProductParams from '~/components/products/element/params/product-params.vue'
 import ProductParamsValue from '~/components/products/element/params/product-params-value.vue'
 import ProductOfferBlog from '~/components/products/offers/product-offer-blog.vue'
 

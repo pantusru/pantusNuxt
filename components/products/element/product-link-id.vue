@@ -5,6 +5,8 @@
     :class="classLink"
     :to="
       'products/' +
+      product.productCard.id +
+      '/' +
       product.productCard.sku.normalized +
       '-' +
       product.productCard.brand.code

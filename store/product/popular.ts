@@ -18,7 +18,7 @@ export const mutations: MutationTree<RootState> = {
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsCategories({ commit }) {
+  async actionsProductPopular({ commit }) {
     const data: TypeProductVuex[] = await ProductPopularAxios(this.$axios)
     commit('setProductPopular', data)
   },

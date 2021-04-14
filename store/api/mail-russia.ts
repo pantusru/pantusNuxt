@@ -11,7 +11,7 @@ export const actions: ActionTree<RootState, RootState> = {
     zip: string
   ): Promise<MailRussiaInterface> {
     const summa = rootGetters['cart/getSumma'] * 100
-    const weight = rootGetters['cart/getWeight']
+    const weight = rootGetters['cart/getWeight'] * 100
     return await ApiMainRussiaAxios(this.$axios, summa, zip, weight)
   },
 }

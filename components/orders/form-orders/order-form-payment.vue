@@ -21,7 +21,7 @@
 import BaseRadio from '~/components/base/input/base-radio.vue'
 import { GetOrderForm } from '~/composition/orders/order-form/get-order-form'
 import { OrderPayment } from '~/composition/orders/order-form/order-payment'
-import BaseError from "~/components/base/error/base-error.vue";
+import BaseError from '~/components/base/error/base-error.vue'
 
 export default {
   name: 'OrderFormPayment',

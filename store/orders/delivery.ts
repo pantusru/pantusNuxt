@@ -67,7 +67,7 @@ export const actions: ActionTree<RootState, RootState> = {
       price = mailRussia.paynds / 100
       extra = `${price} р.`
     } else {
-      extra = mailRussia.error
+      extra = mailRussia.caption
     }
     commit('ExtraOrderDelivery', {
       delivery: deliveryMailRussia,

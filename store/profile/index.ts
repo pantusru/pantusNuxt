@@ -5,6 +5,7 @@ import {
 } from '@/interface/profile.interface'
 import { ActionTree, MutationTree } from 'vuex'
 import { ProfileAxios, ProfileUpdateAxios } from '@/axios/profile/profile.axios'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 export const state = (): ProfileInterfaceStore => ({
   profile: undefined,
 })
@@ -41,6 +42,15 @@ export const actions: ActionTree<RootState, RootState> = {
     )
     if (check) {
       commit('updateProfile', profileInterfaceDto)
+      commit(
+        'blog-info/setBlockInfo',
+        {
+          text: 'Данные удачно измененны',
+          active: true,
+          type: BlockInfoType.Good,
+        },
+        { root: true }
+      )
     }
   },
 }

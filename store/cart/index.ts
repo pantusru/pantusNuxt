@@ -67,13 +67,13 @@ export const getters = {
         }
       })
     })
-    return summa
+    return summa.toFixed(2)
   },
   getWeight: (s: CartInterfaceStore) => {
     let weight = 0
     s.cart.forEach((elem) => {
       weight += elem.productCard.params.weight
     })
-    return weight
-  }
+    return weight.toFixed(2)
+  },
 }

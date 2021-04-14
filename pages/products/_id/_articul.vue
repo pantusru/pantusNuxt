@@ -57,6 +57,10 @@
             <product-offer-id />
           </div>
         </div>
+        <div class="row-gutters product_id-row_offers">
+          <h2 class="h2">Предложение</h2>
+          <div>Уровень цен: Розничный</div>
+        </div>
         <product-offer-id :product="getProductId" />
       </div>
     </div>

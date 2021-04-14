@@ -8,6 +8,7 @@
       <textarea
         v-model.trim="propsValue"
         v-mask="mask"
+        class="base-input"
         :class="classTextarea"
         v-bind="$attrs"
       />

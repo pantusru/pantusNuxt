@@ -54,7 +54,6 @@
             >
               {{ applicabilities.name }}
             </nuxt-link>
-            <product-offer-id />
           </div>
         </div>
         <div class="row-gutters product_id-row_offers">

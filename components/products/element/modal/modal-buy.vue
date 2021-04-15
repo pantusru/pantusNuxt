@@ -30,7 +30,7 @@
           <product-symma :symma="linkOffers.prices * count" />
         </modal-buy-params>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer modal-footer-product-buy">
         <ProductPostOffers :id="linkOffers.id" :count="count" @click="close" />
       </div>
     </div>
@@ -85,4 +85,6 @@ export default {
 
 <style lang="sass">
 @import "assets/sass/base/base-modal"
+.modal-footer-product-buy
+  text-align: right
 </style>

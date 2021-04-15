@@ -2,15 +2,15 @@
   <table class="cart-table base-table">
     <thead class="base-table-thead">
       <tr class="base-table-tr-th">
-        <th class="cart-table-th base-table-th">Брэнд</th>
-        <th class="cart-table-th base-table-th">Артикул</th>
-        <th class="cart-table-th base-table-th">Название товара</th>
-        <th class="cart-table-th base-table-th">Поставщик</th>
-        <th class="cart-table-th base-table-th">Остаток</th>
-        <th class="cart-table-th base-table-th">Цена</th>
-        <th class="cart-table-th base-table-th">Количество</th>
-        <th class="cart-table-th base-table-th">Сумма</th>
-        <th class="cart-table-th base-table-th"></th>
+        <th class="base-table-th">Брэнд</th>
+        <th class="base-table-th">Артикул</th>
+        <th class="base-table-th">Название товара</th>
+        <th class="base-table-th">Поставщик</th>
+        <th class="base-table-th">Остаток</th>
+        <th class="base-table-th">Цена</th>
+        <th class="base-table-th">Количество</th>
+        <th class="base-table-th">Сумма</th>
+        <th class="base-table-th"></th>
       </tr>
     </thead>
     <tbody>
@@ -19,50 +19,50 @@
           <td
             data-label="Брэнд"
             :rowspan="data.productOffer.length"
-            class="base-table-td cart-table-td"
+            class="base-table-td base-table-td-top"
           >
             {{ data.productCard.brand.name }}
           </td>
           <td
             data-label="Артикул"
             :rowspan="data.productOffer.length"
-            class="cart-table-td base-table-td"
+            class="base-table-td base-table-td-top"
           >
             {{ data.productCard.sku.original }}
           </td>
           <td
             data-label="Название товара"
             :rowspan="data.productOffer.length"
-            class="cart-table-td cart-table-td-name base-table-td"
+            class="base-table-td base-table-td-top cart-table-td-name"
           >
             {{ data.productCard.name }}
           </td>
           <template v-if="data.productOffer.length > 0">
             <td
-              class="cart-table-td base-table-td cart-table-td-supplier"
+              class="base-table-td-top base-table-td cart-table-td-supplier"
               data-label="Поставщик"
             >
               {{ data.productOffer[0].supplier.name }}
             </td>
-            <td class="cart-table-td base-table-td" data-label="Остаток">
+            <td class="base-table-td-top base-table-td" data-label="Остаток">
               {{ data.productOffer[0].quantity }}
             </td>
-            <td class="cart-table-td base-table-td" data-label="Цена">
+            <td class="base-table-td-top base-table-td" data-label="Цена">
               {{ data.productOffer[0].prices }} ₽
             </td>
             <td
               data-label="Количество"
-              class="cart-table-td base-table-td cart-table-td-count"
+              class="base-table-td-top base-table-td cart-table-td-count"
             >
               <cart-count-offers :offers="data.productOffer[0]" />
             </td>
             <product-symma
               data-label="Сумма"
-              class="base-table-td"
+              class="base-table-td base-table-td-top"
               :component="'td'"
               :symma="data.productOffer[0].count * data.productOffer[0].prices"
             />
-            <td class="base-table-td">
+            <td class="base-table-td base-table-td-top">
               <cart-delete-offers :id="data.productOffer[0].id" />
             </td>
             <td class="">

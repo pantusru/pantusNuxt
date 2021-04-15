@@ -2,27 +2,33 @@ import {
   computed,
   useContext,
   useFetch,
+  onUnmounted,
 } from '@nuxtjs/composition-api'
-import { TypeProductVuex } from '~/interface/products/products.interface'
 export function PageProductsId() {
   const { store, route, redirect } = useContext()
+  const getProductId = computed(() => {
+    return store.getters['product/id/getProductId']
+  })
+
   useFetch(async () => {
     const id = route.value.params.id
     await store.dispatch('product/id/actionsProductId', id)
-    const ProductId: TypeProductVuex = store.getters['product/id/getProductId']
-    if (ProductId) {
-      const articul = `${ProductId.productCard.sku.original}-${ProductId.productCard.brand.name}`
+    if (getProductId.value) {
+      const articul = `${getProductId.value.productCard.sku.normalized}-${getProductId.value.productCard.brand.code}`
       if (articul !== route.value.params.articul) {
-        // redirect(`/products/${ProductId.productCard.id}/${articul}`)
+        redirect(`/products/${getProductId.value.productCard.id}/${articul}`)
       }
     } else {
       redirect(404, `/404`)
     }
   })
 
-  const getProductId = computed(() => {
-    return store.getters['product/id/getProductId']
+  const getActiveProductId = computed(() => {
+    return store.getters['product/id/getActiveProductId']
   })
 
-  return { getProductId }
+  onUnmounted(() => {
+    store.commit('product/id/resetProductId')
+  })
+  return { getProductId, getActiveProductId }
 }

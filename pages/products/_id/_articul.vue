@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="getProductId" class="product_id row">
+    <div v-if="getActiveProductId" class="product_id row">
       <div class="product_id-img col">
         <img
           class="img"
@@ -61,10 +61,10 @@
           <h2 class="h2">Предложение</h2>
           <div>Уровень цен: Розничный</div>
         </div>
-        <!--        <product-offer-id-->
-        <!--          v-if="getProductId.productOffer.length > 0"-->
-        <!--          :product="getProductId"-->
-        <!--        />-->
+        <product-offer-id
+          v-if="getProductId.productOffer.length > 0"
+          :product="getProductId"
+        />
       </div>
     </div>
   </div>
@@ -72,11 +72,13 @@
 
 <script lang="ts">
 import { PageProductsId } from '~/composition/products/page-product-id'
-import ProductOfferId from '~/components/products/offers/product-offer-id.vue'
 
 export default {
   name: 'PageProductsId',
-  components: { ProductOfferId },
+  components: {
+    ProductOfferId: () =>
+      import('~/components/products/offers/product-offer-id.vue'),
+  },
   setup() {
     return { ...PageProductsId() }
   },

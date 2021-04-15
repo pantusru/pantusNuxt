@@ -61,7 +61,10 @@
           <h2 class="h2">Предложение</h2>
           <div>Уровень цен: Розничный</div>
         </div>
-        <product-offer-id :product="getProductId" />
+        <!--        <product-offer-id-->
+        <!--          v-if="getProductId.productOffer.length > 0"-->
+        <!--          :product="getProductId"-->
+        <!--        />-->
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <table class="base-table">
-    <thead>
+    <thead class="base-table-thead">
       <tr>
         <th class="base-table-th base-table-th-full">Поставщик</th>
         <th class="base-table-th base-table-th-full">Наличие</th>
@@ -11,16 +11,16 @@
     </thead>
     <tbody>
       <tr v-for="offer in product.productOffer" :key="offer.id">
-        <td class="base-table-td base-table-td-full">
+        <td class="base-table-td base-table-td-full" data-label="Поставщик">
           {{ offer.supplier.name }}
         </td>
-        <td class="base-table-td base-table-td-full">
+        <td class="base-table-td base-table-td-full" data-label="Наличие">
           {{ offer.quantity }}
         </td>
-        <td class="base-table-td base-table-td-full">
+        <td class="base-table-td base-table-td-full" data-label="Срок">
           {{ offer.supplier.deliveryDelay }}
         </td>
-        <td class="base-table-td base-table-td-full">
+        <td class="base-table-td base-table-td-full" data-label="Цена">
           <product-symma :symma="offer.prices" />
         </td>
         <td class="base-table-td base-table-td-full">

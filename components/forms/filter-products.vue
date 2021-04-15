@@ -45,13 +45,11 @@
         name="categories"
         set-value="Categories/CategoriesAll/SetCategories"
       />
-
-      <b-button-group class="w-100 px-3">
+ 
         <div class="d-flex justify-content-between w-100 flex-wrap-reverse">
           <Submit />
           <Reset />
         </div>
-      </b-button-group>
     </b-form>
   </div>
 </template>

@@ -9,6 +9,5 @@ export function PageProductsPopular() {
     return store.getters['product/popular/getProductPopular']
   })
 
-
   return { getProductsPopular }
 }

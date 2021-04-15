@@ -54,6 +54,7 @@ export const actions: ActionTree<RootState, RootState> = {
     const data: OrdersIdInterface | null = await orderIdAxios(this.$axios, id)
     commit('setOrderId', data)
   },
+  // eslint-disable-next-line no-empty-pattern
   async actionsSetOrder({}, form: OrdersSetInterface) {
     const data: number | { error: object } = await orderSetAxios(
       this.$axios,

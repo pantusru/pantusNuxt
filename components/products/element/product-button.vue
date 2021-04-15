@@ -42,7 +42,6 @@
 <script lang="ts">
 import { PropType } from 'vue'
 import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
-import ModalBuy from '~/components/products/element/modal/modal-buy.vue'
 import {
   TypeOfferProduct,
   TypeProductVuex,
@@ -52,7 +51,10 @@ import { CartDelete } from '~/composition/cart/cart-delete'
 import { ToggleBodyFalse } from '~/composition/_toggle/toggle-body-false'
 export default {
   name: 'ProductButtonBuy',
-  components: { ModalBuy, FontAwesome },
+  components: {
+    ModalBuy: () => import('~/components/products/element/modal/modal-buy.vue'),
+    FontAwesome,
+  },
   props: {
     linkProduct: {
       type: Object as () => PropType<TypeProductVuex>,

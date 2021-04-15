@@ -38,18 +38,12 @@
         />
       </tr>
       <tr class="">
-        <td
-          colspan="5"
-          class="base-table-td orders-offer-right"
-        >
+        <td colspan="5" class="base-table-td orders-offer-right">
           Стоимость товаров: {{ getOrderId.price }} ₽
         </td>
       </tr>
       <tr class="">
-        <td
-          colspan="5"
-          class="base-table-td orders-offer-right"
-        >
+        <td colspan="5" class="base-table-td orders-offer-right">
           Доставка: {{ getOrderId.delivery.price }} ₽
         </td>
       </tr>

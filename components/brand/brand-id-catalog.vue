@@ -1,4 +1,3 @@
-
 <template>
   <div class="brand-id-catalog col">
     <h3 class="h3 brand-id-title">{{ brand.name }}</h3>

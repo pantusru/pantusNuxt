@@ -65,6 +65,25 @@
           :product="getProductId"
         />
       </div>
+      <div
+        v-if="getProductId.productCard.oem.length > 0"
+        class="product_id-oem"
+      >
+        <h2 class="h2">Кроссы по ОЕМ-номерам и аналогам</h2>
+        <div class="row">
+          <div
+            v-for="(oem, index) in getProductId.productCard.oem"
+            :key="index"
+            class="col product_id-col_oem"
+          >
+            <nuxt-link
+              :to="'/search?filter_substr=' + oem"
+              class="link link-hover-main"
+              >{{ oem }}</nuxt-link
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

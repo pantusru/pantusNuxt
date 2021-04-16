@@ -3,6 +3,9 @@ import {
   CarbrandsInterface,
   CarbrandsInterfaceApi,
 } from '@/interface/carbrands.interface'
+
+import { SearchApplicabilitiesInterface } from '~/interface/search/data/search-applicabilities.interface'
+
 export const carbrandsAxios = async (
   $axios: NuxtAxiosInstance
 ): Promise<CarbrandsInterface[]> => {
@@ -11,7 +14,6 @@ export const carbrandsAxios = async (
   )
   return carbrandsMap(data)
 }
-
 const carbrandsMainMap = (
   data: CarbrandsInterfaceApi,
   result: CarbrandsInterface[]
@@ -30,4 +32,37 @@ const carbrandsMap = (data: CarbrandsInterfaceApi[]): CarbrandsInterface[] => {
     carbrandsMainMap(array, carbrands)
   })
   return carbrands
+}
+
+// filter
+export const carbrandsFilterAxios = async (
+  $axios: NuxtAxiosInstance
+): Promise<CarbrandsInterface[]> => {
+  const { data } = await $axios.get(
+    `${process.env.api}/product_applicabilities?view=tree`
+  )
+  const dataset: SearchApplicabilitiesInterface[] = []
+  carbrandsFilterMap(data, dataset)
+  return dataset
+}
+
+const carbrandsFilterMap = (
+  data: CarbrandsInterfaceApi[],
+  res?: SearchApplicabilitiesInterface[]
+): void => {
+  data.forEach((array, index) => {
+    res?.push({
+      id: array.id,
+      code: array.code,
+      name: array.name,
+      level: array.depthLevel,
+      children: [],
+      parentId: array.parentId,
+      visible: false,
+      selectCheck: false,
+    })
+    if (array.childs.length > 0) {
+      carbrandsFilterMap(array.childs, res?.[index].children)
+    }
+  })
 }

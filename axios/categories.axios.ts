@@ -36,3 +36,39 @@ const categoriesMap = (
   })
   return categories
 }
+
+export const categoriesFilterAxios = async (
+  $axios: NuxtAxiosInstance
+): Promise<CategoriesInterface[]> => {
+  const { data } = await $axios.get(
+    `${process.env.api}/product_categories?view=tree`
+  )
+  return categoriesFilterMap(data, [], undefined)
+}
+
+const categoriesFilterMap = (
+  data: CategoriesInterfaceApi[],
+  dataset: any = [],
+  topParent: number | undefined
+) => {
+  data.forEach((array, index) => {
+    if (array.parentId !== null && topParent === undefined) {
+      topParent = array.parentId
+    }
+    dataset.push({
+      id: array.id,
+      parentId: array.parentId,
+      name: array.name,
+      level: array.depthLevel,
+      children: [],
+      visible: true,
+      topParent,
+      checkedType: false,
+      indeterminate: false,
+    })
+    if (array.childs.length > 0) {
+      categoriesFilterMap(array.childs, dataset[index].children, topParent)
+    }
+  })
+  return dataset
+}

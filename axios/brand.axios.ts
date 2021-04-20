@@ -1,7 +1,7 @@
 import { brandInterface, brandInterfaceApi } from '@/interface/brand.interface'
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 
-export const BrandAxios = async (
+export const brandAxios = async (
   $axios: NuxtAxiosInstance
 ): Promise<brandInterface[]> => {
   const { data } = await $axios.get(`${process.env.api}/product_brands`)

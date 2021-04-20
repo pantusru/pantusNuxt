@@ -1,4 +1,4 @@
-export type SearchCategoriesInterface = {
+export interface SearchCategoriesInterface {
   id: number
   parentId: number
   name: string

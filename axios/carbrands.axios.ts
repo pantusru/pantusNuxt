@@ -58,7 +58,7 @@ const carbrandsFilterMap = (
       level: array.depthLevel,
       children: [],
       parentId: array.parentId,
-      visible: false,
+      visible: true,
       selectCheck: false,
     })
     if (array.childs.length > 0) {

@@ -2,7 +2,7 @@ import {
   brandInterfaceStore,
   brandInterface,
 } from '@/interface/brand.interface'
-import { BrandAxios } from '@/axios/brand.axios'
+import { brandAxios } from '@/axios/brand.axios'
 import { ActionTree, MutationTree } from 'vuex'
 export const state = (): brandInterfaceStore => ({
   brand: [],
@@ -20,7 +20,7 @@ export const mutations: MutationTree<RootState> = {
 }
 export const actions: ActionTree<RootState, RootState> = {
   async actionsBrand({ commit }) {
-    const data: brandInterface[] = await BrandAxios(this.$axios)
+    const data: brandInterface[] = await brandAxios(this.$axios)
     commit('setBrand', data)
   },
 }

@@ -1,0 +1,57 @@
+.filter-applicabilities-form
+  border: 1px solid #e1e1e1
+  +py(10px)
+  +px(15px)
+  +d-display(inline-block)
+
+.filter-applicabilities-form-get
+  +d-display(block)
+
+.filter-applicabilities-title
+  cursor: pointer
+  color: #666
+  font-weight: 400
+  +fz(12px)
+
+.filter-applicabilities-wrapper-panel
+  +mt(25px)
+
+.filter-applicabilities-panel
+  +row-no-gutters()
+  +align-items-center()
+  +mb(10px)
+
+.filter-appicabilities-wrapper-input
+  position: relative
+  +grid(3)
+  +mr(30px)
+
+.filter-appicabilities-input
+  min-height: 25px
+  border: 1px solid #ced4da
+  cursor: pointer
+  +pl(5px)
+  +py(5px)
+  +fz(12px)
+
+.filter-appicabilities-ul
+  position: absolute
+  width: 100%
+  overflow-y: auto
+  max-height: 200px
+  overflow-x: hidden
+  border: 1px solid #666
+  background-color: #fff
+  z-index: 10
+  +pt(10px)
+
+.filter-appicabilities-li
+  list-style: none
+  cursor: pointer
+  +pl(10px)
+  +py(5px)
+  +fz(12px)
+  &:hover
+    background-color: #666
+.filter-appicabilities-li-active
+  background-color: #666

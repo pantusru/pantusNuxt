@@ -1,4 +1,7 @@
-import { SearchFormInterfaceStore } from '@/interface/search/search-form.interface'
+import {
+  SearchFormInterface,
+  SearchFormInterfaceStore,
+} from '@/interface/search/search-form.interface'
 import { MutationTree } from 'vuex'
 
 export const state = (): SearchFormInterfaceStore => ({
@@ -7,11 +10,15 @@ export const state = (): SearchFormInterfaceStore => ({
     search: '',
     categoriesChecked: [],
     applicabilitiesChecked: [],
+    page: 1,
   },
 })
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
+  setForm(store: SearchFormInterfaceStore, data: SearchFormInterface) {
+    store.formFilterProduct = data
+  },
   setSearch(store: SearchFormInterfaceStore, value: string) {
     store.formFilterProduct.search = value
   },
@@ -47,6 +54,7 @@ export const mutations: MutationTree<RootState> = {
       brandChecked: [],
       categoriesChecked: [],
       search: '',
+      page: 1,
     }
   },
 

@@ -3,6 +3,7 @@ export type SearchFormInterface = {
   search: string
   categoriesChecked: number[]
   applicabilitiesChecked: number[]
+  page: number
 }
 export type SearchFormInterfaceStore = {
   formFilterProduct: SearchFormInterface

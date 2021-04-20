@@ -9,11 +9,12 @@ export function FilterSubmit() {
   const categories = computed(() => {
     return store.getters['search/data/getCategories']
   })
-  const FilterSubmit = () => {
+  const FilterSubmit = async () => {
     CategoriesCheckedTrue(store).CategoriesCheckedTrueAll(categories.value)
     ApplicabilitiesCheckedTrue(store).ApplicabilitiesCheckedTrueAll(
       panelApplicabilities.value
     )
+    await store.dispatch('product/filter/actionsProductFilter')
   }
   return { FilterSubmit }
 }

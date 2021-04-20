@@ -1,22 +1,29 @@
-import { computed, useContext, useFetch } from '@nuxtjs/composition-api'
+import {
+  computed,
+  useContext,
+  useFetch,
+} from '@nuxtjs/composition-api'
 
 export function PageSearch() {
-  const { store } = useContext()
+  const { store, route } = useContext()
   useFetch(async () => {
-    await store.dispatch('search/data/actionsFilter')
+    const filter = {
+      brandChecked: route.value.params?.filter_brands?.split(',') ?? [],
+      categoriesChecked:
+        route.value.params?.filter_applicabilities?.split(',') ?? [],
+      applicabilitiesChecked:
+        route.value.params?.filter_categories?.split(',') ?? [],
+      page: route.value.params.page ?? 1,
+      search: route.value.params.filter_substr ?? '',
+    }
+    store.commit('search/form/setForm', filter)
+    await Promise.all([
+      store.dispatch('search/data/actionsFilter'),
+      store.dispatch('product/filter/actionsProductFilter'),
+    ])
   })
-  const pageSearch = () => {
-    const { store } = useContext()
-    const ApplicabilitiesFilterVuex = computed(() => {
-      return store.getters['search/data/getCarbrands']
-    })
-    const BrandVuex = computed(() => {
-      return store.getters['search/data/getBrands']
-    })
-    const CategoriesFilterVuex = computed(() => {
-      return store.getters['search/data/getCategories']
-    })
-    return { ApplicabilitiesFilterVuex, BrandVuex, CategoriesFilterVuex }
-  }
-  return { pageSearch }
+  const productFilter = computed(() => {
+    return store.getters['product/filter/getProductFilter']
+  })
+  return { productFilter }
 }

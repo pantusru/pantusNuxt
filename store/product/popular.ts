@@ -12,9 +12,9 @@ export type RootState = ReturnType<typeof state>
 export const mutations: MutationTree<RootState> = {
   setProductPopular(
     store: ProductsPopularInterface,
-    categories: TypeProductVuex[]
+    data: TypeProductVuex[]
   ) {
-    store.popular = categories
+    store.popular = data
   },
 }
 export const actions: ActionTree<RootState, RootState> = {

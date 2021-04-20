@@ -1,5 +1,5 @@
 import { ActionTree, MutationTree } from 'vuex'
-import vue from 'Vue'
+// import vue from 'Vue'
 import { SearchApplicabilitiesInterface } from '~/interface/search/data/search-applicabilities.interface'
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
 import { SearchDataInterface } from '~/interface/search/data/search-data.interface'

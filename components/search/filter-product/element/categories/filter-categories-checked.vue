@@ -39,7 +39,7 @@ import { ToggleClick } from '~/composition/_toggle/toggle-click'
 import { FilterCategoriesChecked } from '~/composition/search/filter-categories/filter-categories-checked.ts'
 import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
-
+import {useContext} from "@nuxtjs/composition-api"
 export default {
   name: 'FilterCategoriesChecked',
   components: { FontAwesome },
@@ -49,7 +49,7 @@ export default {
     },
   },
   setup() {
-    return { ...ToggleClick(), ...FilterCategoriesChecked() }
+    return { ...ToggleClick(), ...FilterCategoriesChecked(useContext().store) }
   },
 }
 </script>

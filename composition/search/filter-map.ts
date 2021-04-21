@@ -21,7 +21,7 @@ export function FilterMap() {
       applicabilitiesChecked: checkValidateFilter(
         route.value.query.filter_applicabilities
       ),
-      page: +route.value.query.page ?? 1,
+      page: route.value.query?.page?.parseInt() ?? 1,
       search: route.value.query.filter_substr ?? '',
     }
   }

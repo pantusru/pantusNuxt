@@ -3,7 +3,7 @@ import { FilterCategoriesChecked } from '~/composition/search/filter-categories/
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
 export function ResetCategories() {
   const store = useStore()
-  const { CategoriesCheckedClick } = FilterCategoriesChecked()
+  const { CategoriesCheckedClick } = FilterCategoriesChecked(store)
   const resetCategories = () => {
     const data: SearchCategoriesInterface[] =
       store.getters['search/data/getCategories']

@@ -1,5 +1,6 @@
 import { computed, useContext, useFetch } from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
+import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
 
 export function PageSearch() {
   const { store, route } = useContext()
@@ -11,6 +12,7 @@ export function PageSearch() {
       store.dispatch('search/data/actionsFilter'),
       store.dispatch('product/filter/actionsProductFilter'),
     ])
+    FilterCategoriesSetUrl(store).filterCategoriesSetUrl()
   })
   const productFilter = computed(() => {
     return store.getters['product/filter/getProductFilter']

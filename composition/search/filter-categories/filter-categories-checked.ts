@@ -1,11 +1,11 @@
-import { useContext, computed } from '@nuxtjs/composition-api'
+import { computed } from '@nuxtjs/composition-api'
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
 import { CategoriesCheckedChildren } from '~/composition/search/filter-categories/filter-categories-children-value'
 import { CategoriesParentCheckChildren } from '~/composition/search/filter-categories/filter-categories-parentCheckChildren'
 import { CategoriesParent } from '~/composition/search/filter-categories/filter-categories-parentAll'
 
-export function FilterCategoriesChecked() {
-  const { store } = useContext()
+export function FilterCategoriesChecked(store: any) {
+  // const { store } = useContext()
   const CategoriesFilterVuex = computed(() => {
     return store.getters['search/data/getCategories']
   })

@@ -3,6 +3,7 @@
     <filter-product-brand />
     <filter-product-categories />
     <button @click="FilterSubmit()">Отправить</button>
+    <button @click="resetCategories">Сбросить</button>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import FilterProductBrand from '~/components/search/filter-product/blog/filter-product-brand.vue'
 import FilterProductCategories from '~/components/search/filter-product/blog/filter-product-categories.vue'
 import { FilterSubmit } from '~/composition/search/filter-submit/filter-submit'
+import { ResetCategories } from '~/composition/search/filter-categories/filter-categories-reset'
 
 export default {
   name: 'FilterProduct',
@@ -18,7 +20,7 @@ export default {
     FilterProductBrand,
   },
   setup() {
-    return { ...FilterSubmit() }
+    return { ...FilterSubmit(), ...ResetCategories() }
   },
 }
 </script>

@@ -18,6 +18,7 @@ export function FilterCategoriesChecked() {
       checkedType: value,
       indeterminate: false,
     })
+    // прогнать всех потомков в true
     CategoriesCheckedChildren(store).CategoriesCheckedChildrenValue(data, value)
     if (data.level !== 1) {
       const DataParentTop = CategoriesFilterVuex.value.filter(

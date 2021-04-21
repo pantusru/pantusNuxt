@@ -1,9 +1,17 @@
-import { useContext, computed, ref } from '@nuxtjs/composition-api'
+import { useContext, computed, ref, watch, Ref } from '@nuxtjs/composition-api'
 export function FilterBrandChecked(id: number) {
   const { store } = useContext()
   const Checked = ref(false)
-  const BrandChecked = computed(
+  const BrandChecked: Ref<number[]> = computed(
     () => store.getters['search/form/getBrandChecked']
+  )
+  watch(
+    () => BrandChecked.value,
+    (value) => {
+      if (value?.length === 0) {
+        Checked.value = false
+      }
+    }
   )
   const FilterBrandChecked = BrandChecked.value.indexOf(id)
   if (FilterBrandChecked !== -1) {

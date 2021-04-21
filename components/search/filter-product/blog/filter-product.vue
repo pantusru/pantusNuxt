@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-product-wrapper">
+  <div class="filter-product-wrapper col">
     <filter-product-brand />
     <filter-product-categories />
     <button @click="FilterSubmit()">Отправить</button>

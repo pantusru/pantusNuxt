@@ -1,21 +1,11 @@
-import {
-  computed,
-  useContext,
-  useFetch,
-} from '@nuxtjs/composition-api'
+import { computed, useContext, useFetch } from '@nuxtjs/composition-api'
+import { FilterMap } from '~/composition/search/filter-map'
 
 export function PageSearch() {
   const { store, route } = useContext()
+
+  const filter = FilterMap().queryToVuex(route)
   useFetch(async () => {
-    const filter = {
-      brandChecked: route.value.params?.filter_brands?.split(',') ?? [],
-      categoriesChecked:
-        route.value.params?.filter_applicabilities?.split(',') ?? [],
-      applicabilitiesChecked:
-        route.value.params?.filter_categories?.split(',') ?? [],
-      page: route.value.params.page ?? 1,
-      search: route.value.params.filter_substr ?? '',
-    }
     store.commit('search/form/setForm', filter)
     await Promise.all([
       store.dispatch('search/data/actionsFilter'),

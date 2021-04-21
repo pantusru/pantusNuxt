@@ -8,12 +8,11 @@ export const ProductFilterAxios = async (
   $axios: NuxtAxiosInstance,
   searchFilter: SearchFormInterface
 ): Promise<TypeProductVuex[]> => {
-  console.log(searchFilter)
   const { data } = await $axios.get(`${process.env.api}/products_filter`, {
     params: {
-      filter_categories: searchFilter.categoriesChecked,
-      filter_brands: searchFilter.brandChecked,
-      filter_applicabilities: searchFilter.applicabilitiesChecked,
+      filter_categories: searchFilter.categoriesChecked.join(),
+      filter_brands: searchFilter.brandChecked.join(),
+      filter_applicabilities: searchFilter.applicabilitiesChecked.join(),
       page_number: searchFilter.page,
       filter_substr: searchFilter.search,
       page_size: 50,

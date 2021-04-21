@@ -1,4 +1,3 @@
-import { ProductsPopularInterface } from '@/interface/products/products-popular.interface'
 import { TypeProductVuex } from '@/interface/products/products.interface'
 import { ActionTree, MutationTree } from 'vuex'
 import { ProductFilterAxios } from '~/axios/products/product-filter'

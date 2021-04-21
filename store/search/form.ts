@@ -22,7 +22,9 @@ export const mutations: MutationTree<RootState> = {
   setSearch(store: SearchFormInterfaceStore, value: string) {
     store.formFilterProduct.search = value
   },
-
+  setPage(store: SearchFormInterfaceStore, data: number) {
+    store.formFilterProduct.page = data
+  },
   pushCategoriesChecked(store: SearchFormInterfaceStore, data: number) {
     store.formFilterProduct.categoriesChecked.push(data)
   },

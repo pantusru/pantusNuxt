@@ -2,9 +2,12 @@
   <section class="section">
     <div class="container">
       <filter-applicabilities />
-      <div class="search-wrapper">
+      <div class="search-row">
         <filter-product />
-        <products-view-blog :product="productFilter" />
+        <products-view-blog
+          class="product-view-blog__filter"
+          :product="productFilter"
+        />
       </div>
     </div>
   </section>
@@ -24,3 +27,12 @@ export default {
   },
 }
 </script>
+<style lang="sass">
+@import "assets/sass-mixin/index"
+.search-row
+  +row-no-gutters()
+  +justify-content-between()
+
+.product-view-blog__filter
+  +grid(9)
+</style>

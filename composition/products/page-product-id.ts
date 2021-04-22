@@ -9,6 +9,9 @@ export function PageProductsId() {
   const getProductId = computed(() => {
     return store.getters['product/id/getProductId']
   })
+  const userProfile = computed(() => {
+    return store.getters['profile/getProfile']
+  })
 
   useFetch(async () => {
     const id = route.value.params.id
@@ -30,5 +33,5 @@ export function PageProductsId() {
   onUnmounted(() => {
     store.commit('product/id/resetProductId')
   })
-  return { getProductId, getActiveProductId }
+  return { getProductId, getActiveProductId, userProfile }
 }

@@ -34,7 +34,7 @@
             <nuxt-link
               v-for="categories in getProductId.productCard.categories"
               :key="categories.id"
-              :to="'/search?filter_categories' + categories.id"
+              :to="'/search?filter_categories=' + categories.id"
               class="product_id-params_value link link-hover-main"
             >
               {{ categories.name }}
@@ -49,7 +49,7 @@
               v-for="applicabilities in getProductId.productCard
                 .applicabilities"
               :key="applicabilities.id"
-              :to="'/search?filter_applicabilities' + applicabilities.id"
+              :to="'/search?filter_applicabilities=' + applicabilities.id"
               class="product_id-params_value link link-hover-main"
             >
               {{ applicabilities.name }}
@@ -58,7 +58,14 @@
         </div>
         <div class="row-gutters product_id-row_offers">
           <h2 class="h2">Предложение</h2>
-          <div>Уровень цен: Розничный</div>
+          {{ userProfile }}
+          <div>
+            Уровень цен:
+            <template v-if="userProfile.type === 'wholesale'">
+              Оптовый
+            </template>
+            <template v-else>Розничный</template>
+          </div>
         </div>
         <product-offer-id
           v-if="getProductId.productOffer.length > 0"

@@ -36,7 +36,7 @@ export function FilterMap() {
     if (getForm.applicabilitiesChecked.length > 0) {
       url.filter_applicabilities = getForm.applicabilitiesChecked.join()
     }
-    if (getForm.search?.length > 0) {
+    if (getForm.search?.length > 0 || getForm.search !== '') {
       url.filter_substr = getForm.search
     }
     if (getForm.page && getForm.page > 1) {

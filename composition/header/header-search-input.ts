@@ -10,9 +10,13 @@ export function HeaderSearchInput() {
   })
   const pushSearch = async () => {
     if (route.value.name !== 'search') {
-      await router.push(`/search?filter_substr=${search.value}`)
-    } else {
-
+      // вы не находитесь в фильрах
+      if (search.value) {
+        // поиск указан
+        await router.push(`/search?filter_substr=${search.value}`)
+        return
+      }
+      await router.push(`/search`)
     }
   }
   return { pushSearch, search }

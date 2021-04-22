@@ -17,7 +17,7 @@
       <product-params
         name="Артикуль"
         :value="product.productCard.sku.original"
-        :to="'search?filter_brands=' + product.productCard.sku.original"
+        :to="'search?filter_substr=' + product.productCard.sku.original"
       />
       <product-params
         name="OEM"

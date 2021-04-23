@@ -1,12 +1,19 @@
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
 export function CategoriesCheckedTrue(store: any) {
-  const CategoriesCheckedTrue = (dataset: SearchCategoriesInterface) => {
-    if (dataset.checkedType || dataset.indeterminate) {
-      if (dataset.checkedType) {
-        store.commit('search/form/pushCategoriesChecked', dataset.id)
-      }
+  const CategoriesCheckedTrue = (
+    dataset: SearchCategoriesInterface,
+    searchMetka: boolean = true
+  ) => {
+    if (dataset.checkedType) {
+      // выбранная категория
+      store.commit('search/form/pushCategoriesChecked', dataset.id)
+      //  Логика меток
+      searchMetka = false
+    }
+    if (dataset.indeterminate || dataset.checkedType) {
+      // искать в потомках
       dataset.children.forEach((element) => {
-        CategoriesCheckedTrue(element)
+        CategoriesCheckedTrue(element, searchMetka)
       })
     }
   }

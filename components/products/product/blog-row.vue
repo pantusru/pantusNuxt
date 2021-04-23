@@ -165,7 +165,10 @@ export default {
       const index = this.SelectedProducts.findIndex(
         s => s.ProductCard.id == this.Product.ProductCard.id
       );
-      this.$store.commit("Selected/selected/DeleteSelected", index);
+      this.$store.dispatch("Selected/selected/_DeleteSelected", {
+        id: this.Product.ProductCard.id,
+        index,
+      });
     },
   },
 };

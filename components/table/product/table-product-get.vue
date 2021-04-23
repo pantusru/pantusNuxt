@@ -65,6 +65,9 @@
               {{ table.ProductCard.name }}
             </nuxt-link>
           </table-product-cart-td>
+          <td>
+            <Chosen :id="table.ProductCard.id" :link="table" />
+          </td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">
           <b-tr

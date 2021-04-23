@@ -7,7 +7,6 @@
 <script>
 export default {
   asyncData({ redirect, route }) {
-    console.log(route);
     if (route.path !== "/404") {
       redirect("/404");
     }

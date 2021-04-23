@@ -28,6 +28,22 @@ export const actions = {
       commit("LoaderTrue");
     }
   },
+  async _DeleteSelected({ dispatch, commit }, dataset) {
+    const data = await dispatch("Selected/axios/_ProductDelete", dataset.id, {
+      root: true,
+    });
+    if (!data.error) {
+      commit("DeleteSelected", dataset.index);
+    }
+  },
+  async _AddSelected({ dispatch, commit }, dataset) {
+    const data = await dispatch("Selected/axios/_ProductPost", [dataset.id], {
+      root: true,
+    });
+    if (!data.error) {
+      commit("PushSelected", dataset.data);
+    }
+  },
 };
 export const getters = {
   GetSelected: s => s.Selected,

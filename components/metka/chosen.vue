@@ -1,11 +1,9 @@
 <template>
-  <component :is="'td'" :title="title">
-    <b-icon-bookmark-plus
-      :class="{ activ: selected }"
-      class="cursor-pointer h4 d-none-chosen fz-5"
-      @click="SetChosen"
-    />
-  </component>
+  <b-icon-bookmark-plus
+    :class="{ activ: selected }"
+    class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
+    @click="SetChosen"
+  />
 </template>
 
 <script>
@@ -67,12 +65,18 @@ export default {
         const index = this.SelectedProducts.findIndex(
           s => s.ProductCard.id == this.id
         );
-        this.$store.commit("Selected/selected/DeleteSelected", index);
+        this.$store.dispatch("Selected/selected/_DeleteSelected", {
+          id: this.id,
+          index,
+        });
         this.title = "Добавить в избранное Удалить из избранного";
       } else {
         // Добавить товар  в selected
         this.selected = true;
-        this.$store.commit("Selected/selected/PushSelected", this.link);
+        this.$store.dispatch("Selected/selected/_AddSelected", {
+          data: this.link,
+          id: this.id,
+        });
         this.title = "Удалить из избранного";
       }
     },
@@ -81,6 +85,10 @@ export default {
 </script>
 
 <style>
+.icons-chosen {
+  position: absolute;
+  border: 0;
+}
 svg.d-none-chosen {
   display: none !important;
   /*left: -20px;*/

@@ -116,7 +116,6 @@ export const actions = {
     const offer = [];
     if (data.offers.length !== 0) {
       data.offers.forEach(elem => {
-        console.log(elem)
         offer.push({
           guid: elem.sku,
           name: elem.name,

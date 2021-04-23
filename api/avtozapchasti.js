@@ -6,7 +6,6 @@ app.get("/:slug", (req, res) => {
   const { data } = axios.get(
     `http://api.pantus.ru//products/redirect/${req.params.slug}`
   );
-  console.log(data);
   res.send("1");
 });
 

@@ -1,4 +1,5 @@
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
+import { TypeMark } from '~/interface/search/data/search-metks.interface'
 export function CategoriesCheckedTrue(store: any) {
   const CategoriesCheckedTrue = (
     dataset: SearchCategoriesInterface,
@@ -8,6 +9,13 @@ export function CategoriesCheckedTrue(store: any) {
       // выбранная категория
       store.commit('search/form/pushCategoriesChecked', dataset.id)
       //  Логика меток
+      if (searchMetka) {
+        store.commit('search/data/pushMark', {
+          id: dataset.id,
+          name: dataset.name,
+          type: TypeMark.categories,
+        })
+      }
       searchMetka = false
     }
     if (dataset.indeterminate || dataset.checkedType) {

@@ -2,6 +2,7 @@ import { useContext, computed, useRouter } from '@nuxtjs/composition-api'
 import { CategoriesCheckedTrue } from '~/composition/search/filter-categories/filter-categories-checked-true'
 import { ApplicabilitiesCheckedTrue } from '~/composition/search/filter-applicabilities/filter-appicabilites-checked-true'
 import { FilterMap } from '~/composition/search/filter-map'
+import { FilterBrandMark } from '~/composition/search/filter-brand/filter-brand-mark'
 export function FilterSubmit() {
   const { store } = useContext()
   const router = useRouter()
@@ -23,6 +24,7 @@ export function FilterSubmit() {
     ApplicabilitiesCheckedTrue(store).ApplicabilitiesCheckedTrueAll(
       panelApplicabilities.value
     )
+    FilterBrandMark(store).markBrand()
     store.commit('search/form/setPage', 1)
     await store.dispatch('product/filter/actionsProductFilter')
     await routerPush()

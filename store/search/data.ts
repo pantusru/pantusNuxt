@@ -8,15 +8,28 @@ import { brandInterface } from '~/interface/brand.interface'
 import { brandAxios } from '~/axios/brand.axios'
 import { carbrandsFilterAxios } from '~/axios/carbrands.axios'
 import { categoriesFilterAxios } from '~/axios/categories.axios'
+import { SearchMarkInterface } from '~/interface/search/data/search-metks.interface'
 export const state = (): SearchDataInterface => ({
   brands: [],
   carbrands: [],
   categories: [],
+  mark: [],
 })
 
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
+  // mark
+  pushMark(store: SearchDataInterface, data: SearchMarkInterface) {
+    store.mark.push(data)
+  },
+  resetMark(store: SearchDataInterface) {
+    store.mark = []
+  },
+  deleteMark(store: SearchDataInterface, index: number) {
+    store.mark.splice(index, 1)
+  },
+  // Carbrands
   setFilterCarbrands(
     store: SearchDataInterface,
     data: SearchApplicabilitiesInterface[]
@@ -27,7 +40,7 @@ export const mutations: MutationTree<RootState> = {
   setCarbrandsTopSelect(store: SearchDataInterface, index: number) {
     store.carbrands[index].selectCheck = !store.carbrands[index].selectCheck
   },
-
+  // Categories
   setFilterCategories(
     store: SearchDataInterface,
     data: SearchCategoriesInterface[]
@@ -46,6 +59,7 @@ export const mutations: MutationTree<RootState> = {
     data.data.indeterminate = data.indeterminate
     data.data.checkedType = data.checkedType
   },
+  // Brands
   setFilterBrands(store: SearchDataInterface, data: brandInterface[]) {
     store.brands = data
   },
@@ -68,4 +82,5 @@ export const getters = {
   getCarbrands: (s: SearchDataInterface) => s.carbrands,
   getCategories: (s: SearchDataInterface) => s.categories,
   getBrands: (s: SearchDataInterface) => s.brands,
+  getMark: (s: SearchDataInterface) => s.mark,
 }

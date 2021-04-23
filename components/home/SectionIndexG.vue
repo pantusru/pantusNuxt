@@ -21,7 +21,7 @@
       <div class="bg-cover d-flex flex-column justify-content-between h-100">
         <h2 class="pt-4 text-center">
           <nuxt-link
-            to="search/filter_brands=636,791"
+            to="search?filter_brands=636,791"
             class="text-light categoria-title"
             >Автомасла автокосметика автохимия</nuxt-link
           >

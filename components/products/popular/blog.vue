@@ -6,7 +6,7 @@
     body-class="d-flex flex-column justify-content-between"
   >
     <template #header>
-      <h6 class="mb-0">
+      <h6 class="mb-0 pr-1">
         <nuxt-link
           :title="datasetProduct.ProductCard.name"
           class="text-436174 text-decoration-none reset-title"

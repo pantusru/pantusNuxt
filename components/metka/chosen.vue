@@ -1,5 +1,5 @@
 <template>
-  <div :title="title">
+  <div v-if="CheckUser" :title="title">
     <b-icon-bookmark-plus
       :class="[{ activ: selected }, classChosen]"
       class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
@@ -46,6 +46,9 @@ export default {
      */
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
+    },
+    CheckUser() {
+      return this.$store.getters["User/CheckUser"];
     },
   },
   created() {

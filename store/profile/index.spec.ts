@@ -1,4 +1,4 @@
-import { actions, getters, mutations } from '@/store/profile/index'
+import { getters, mutations } from '@/store/profile/index'
 import {
   ProfileInterface,
   ProfileInterfaceDto,

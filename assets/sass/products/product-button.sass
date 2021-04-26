@@ -1,9 +1,11 @@
 @import "assets/sass-mixin/index"
 .product-button-buy-img
+  +fz(12px)
   +d-display(block)
   +d-display-lg(none)
   &.active
-    color: #dc3545
+    color:  green
+    +d-display(block)
 
 .product-button-buy-text
   +fz(12px)
@@ -22,7 +24,9 @@
   +py(5px)
   &.active
     background-color: #fff
-    border: 1px solid #dc3545
+    border: 1px solid green
+    &:hover
+      background-color: green
   &:hover , &:focus
     outline-color:  #a0252c
     background-color: #a0252c
@@ -31,8 +35,16 @@
     .product-button-buy-text
       color: #fff
 .product-button-delete
+  border-radius: 5px
+  border: 1px solid #dc3545
   color: #dc3545
   cursor: pointer
+  +px(8px)
+  +py(5px)
   +fz(13px)
   &:hover, &:focus
-    color: #a0252c
+    color: #fff
+    background-color: #dc3545
+
+
+

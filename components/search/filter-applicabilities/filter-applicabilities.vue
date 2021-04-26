@@ -4,7 +4,7 @@
     :class="{ 'filter-applicabilities-form-get': toggle }"
   >
     <h3 class="filter-applicabilities-title" @click="toggleClick">
-      Укажите применяемости
+      <span>Укажите применяемости</span>
     </h3>
     <div v-show="toggle" class="filter-applicabilities-wrapper-panel">
       <FilterAppicabilitiesPanel

@@ -40,7 +40,6 @@ export const mutations: MutationTree<RootState> = {
   pushBrandChecked(store: SearchFormInterfaceStore, data: number) {
     store.formFilterProduct.brandChecked.push(data)
   },
-
   deleteBrandChecked(store: SearchFormInterfaceStore, index: number) {
     store.formFilterProduct.brandChecked.splice(index, 1)
   },

@@ -10,10 +10,7 @@ export const state = (): ProductsPopularInterface => ({
 export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
-  setProductPopular(
-    store: ProductsPopularInterface,
-    data: TypeProductVuex[]
-  ) {
+  setProductPopular(store: ProductsPopularInterface, data: TypeProductVuex[]) {
     store.popular = data
   },
 }

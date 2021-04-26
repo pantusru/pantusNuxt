@@ -17,7 +17,6 @@
         class="product-button-buy active"
         @click="ToggleBodyFunctionClick"
       >
-        <div class="product-button-buy-text active">В корзине</div>
         <span class="product-button-buy-img active">
           <FontAwesome unicode="&#xf07a;" />
         </span>

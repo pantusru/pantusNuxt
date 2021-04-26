@@ -1,7 +1,4 @@
-// eslint-disable-next-line eslint-disable-next-line
-
-/* eslint-disable eslint-disable-next-line, camelcase */
-
+/* eslint camelcase: 0 */
 import { OrdersIdInterface } from '~/interface/orders/orders-id.interface'
 
 export interface OrdersInterface {

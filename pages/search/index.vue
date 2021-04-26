@@ -3,11 +3,12 @@
     <div class="container">
       <filter-applicabilities />
       <div class="search-row">
-        <filter-product />
-        <products-view-blog
-          class="product-view-blog__filter"
-          :product="productFilter"
-        />
+        <filter-product class="filter-product-col" />
+        <div class="product-view-blog__filter col">
+          <div class="search-query-count">По запросу найдено:</div>
+          <filter-marks />
+          <products-view-blog :product="productFilter" />
+        </div>
       </div>
     </div>
   </section>
@@ -19,9 +20,15 @@ import { PageSearch } from '~/composition/search/page-search'
 import FilterProduct from '~/components/search/filter-product/blog/filter-product.vue'
 
 import ProductsViewBlog from '~/components/products/view/products-view-blog.vue'
+import FilterMarks from '~/components/search/filter-mark/filter-marks.vue'
 export default {
   name: 'PageSearch',
-  components: { ProductsViewBlog, FilterProduct, FilterApplicabilities },
+  components: {
+    FilterMarks,
+    ProductsViewBlog,
+    FilterProduct,
+    FilterApplicabilities,
+  },
   setup() {
     return { ...PageSearch() }
   },
@@ -32,7 +39,10 @@ export default {
 .search-row
   +row-no-gutters()
   +justify-content-between()
-
+.filter-product-col
+  +grid(12)
+  +grid-lg(3)
 .product-view-blog__filter
-  +grid(9)
+  +grid(12)
+  +grid-lg(9)
 </style>

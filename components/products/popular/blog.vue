@@ -20,6 +20,12 @@
           "
         >
           {{ datasetProduct.ProductCard.name }}
+          <Chosen
+            v-if="CheckUser"
+            :id="datasetProduct.ProductCard.id"
+            class-chosen="icons-chosen__blog"
+            :link="datasetProduct"
+          />
         </nuxt-link>
       </h6>
     </template>
@@ -82,6 +88,7 @@
 </template>
 
 <script>
+import Chosen from "@/components/metka/chosen"; // Метка избранный товар
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
@@ -93,9 +100,15 @@ export default {
     ProductElementRowGet,
     BuyButton,
     ImgGetModal,
+    Chosen,
   },
   props: {
     datasetProduct: {},
+  },
+  computed: {
+    CheckUser() {
+      return this.$store.getters["User/CheckUser"];
+    },
   },
 };
 </script>

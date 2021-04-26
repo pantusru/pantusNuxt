@@ -1,18 +1,20 @@
 <template>
-  <div :title="title"> 
+  <div :title="title">
     <b-icon-bookmark-plus
-      :class="{ activ: selected }"
+      :class="[{ activ: selected }, classChosen]"
       class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
       @click="SetChosen"
     />
   </div>
- 
 </template>
 
 <script>
 export default {
   name: "FilterMetka",
   props: {
+    classChosen: {
+      type: String,
+    },
     /**
      * @property Id Товара
      */
@@ -88,14 +90,27 @@ export default {
 </script>
 
 <style>
-.icons-chosen {
-  position: absolute;
-  top: 35%;
-  border: 0;
+.icons-chosen__blog {
+  top: 10px;
+  right: 10px;
+}
+.icons-chosen__row {
+  right: 10px;
+}
+.icons-chosen__table {
   right: -10px;
+  top: 10px;
+}
+.icons-chosen {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  z-index: 2;
+  /*top: 35%;*/
+  border: 0;
 }
 svg.d-none-chosen {
-  display: none !important;
+  /*display: none !important;*/
   /*left: -20px;*/
 }
 

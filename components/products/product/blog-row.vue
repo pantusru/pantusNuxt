@@ -26,6 +26,12 @@
             <base-button v-if="Selected" class="ml-3" @click="DeleteSelected">
               X
             </base-button>
+            <Chosen
+              class-chosen="icons-chosen__row"
+              v-if="CheckUser && !Selected"
+              :id="Product.ProductCard.id"
+              :link="Product"
+            />
           </div>
         </b-row>
       </b-row>
@@ -140,7 +146,7 @@ import ImgGetModal from "@/components/products/product/element/img";
 import RowAtr from "@/components/products/product/element/product-element-row-get";
 import TableOffset from "@/components/table/table-offset-get";
 import BaseButton from "@/components/base/button/base-button";
-
+import Chosen from "@/components/metka/chosen"; // Метка избранный товар
 export default {
   name: "ProductBlogRow",
   components: {
@@ -148,6 +154,7 @@ export default {
     RowAtr,
     TableOffset,
     ImgGetModal,
+    Chosen,
   },
   props: {
     Product: {},
@@ -158,6 +165,9 @@ export default {
   computed: {
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
+    },
+    CheckUser() {
+      return this.$store.getters["User/CheckUser"];
     },
   },
   methods: {

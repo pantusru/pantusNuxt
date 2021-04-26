@@ -15,6 +15,10 @@ export const mutations = {
   LoaderTrue(store) {
     store.Loader = true;
   },
+  resetSelected(store) {
+    store.Selected = []
+    store.Loader = false;
+  }
 };
 export const actions = {
   async _Selected({ store, dispatch, commit, getters }) {

@@ -64,7 +64,12 @@
             >
               {{ table.ProductCard.name }}
             </nuxt-link>
-            <Chosen :id="table.ProductCard.id" :link="table" />
+            <Chosen
+              v-if="CheckUser"
+              :id="table.ProductCard.id"
+              :link="table"
+              class-chosen="icons-chosen__table"
+            />
           </table-product-cart-td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">
@@ -157,9 +162,6 @@ export default {
 </script>
 
 <style>
-.hover-true:hover .d-none-chosen {
-  display: block !important;
-}
 tbody tr:last-child {
   border-bottom: 0 !important;
 }

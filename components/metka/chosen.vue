@@ -1,9 +1,12 @@
 <template>
-  <b-icon-bookmark-plus
-    :class="{ activ: selected }"
-    class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
-    @click="SetChosen"
-  />
+  <div :title="title"> 
+    <b-icon-bookmark-plus
+      :class="{ activ: selected }"
+      class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
+      @click="SetChosen"
+    />
+  </div>
+ 
 </template>
 
 <script>
@@ -87,7 +90,9 @@ export default {
 <style>
 .icons-chosen {
   position: absolute;
+  top: 35%;
   border: 0;
+  right: -10px;
 }
 svg.d-none-chosen {
   display: none !important;

@@ -46,7 +46,7 @@
             </div>
           </table-product-cart-td>
           <table-product-cart-td
-            class="w-15 pr-2"
+            class="w-15 pr-2 position-relative"
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
             :length-offer="table.productOffer.length"
           >
@@ -64,10 +64,8 @@
             >
               {{ table.ProductCard.name }}
             </nuxt-link>
-          </table-product-cart-td>
-          <td>
             <Chosen :id="table.ProductCard.id" :link="table" />
-          </td>
+          </table-product-cart-td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">
           <b-tr

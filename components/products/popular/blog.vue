@@ -20,13 +20,13 @@
           "
         >
           {{ datasetProduct.ProductCard.name }}
-          <Chosen
-            v-if="CheckUser"
-            :id="datasetProduct.ProductCard.id"
-            class-chosen="icons-chosen__blog"
-            :link="datasetProduct"
-          />
         </nuxt-link>
+        <Chosen
+          v-if="CheckUser"
+          :id="datasetProduct.ProductCard.id"
+          class-chosen="icons-chosen__blog"
+          :link="datasetProduct"
+        />
       </h6>
     </template>
     <ImgGetModal :product="datasetProduct" />

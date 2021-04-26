@@ -20,6 +20,7 @@ export function FilterSubmit() {
     })
   }
   const FilterSubmit = async () => {
+    store.commit('search/data/resetMark')
     CategoriesCheckedTrue(store).CategoriesCheckedTrueAll(categories.value)
     ApplicabilitiesCheckedTrue(store).ApplicabilitiesCheckedTrueAll(
       panelApplicabilities.value

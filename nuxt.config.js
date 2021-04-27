@@ -2,6 +2,12 @@ export default {
   env: {
     api: 'https://api.pantus.ru',
   },
+  mode: 'universal',
+  target: 'server',
+  server: {
+    port: 8000,
+    host: '0.0.0.0',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title:
@@ -14,7 +20,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
+  // Global CSS: https://go.nuxtjs.dev/config-modecss
   css: ['./assets/fonts/font-awesome/index.css', './assets/sass/default.sass'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

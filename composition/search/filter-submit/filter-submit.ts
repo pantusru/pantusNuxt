@@ -22,6 +22,7 @@ export function FilterSubmit() {
     FilterBrandMark(store).markBrand()
     store.commit('search/form/setPage', 1)
     await store.dispatch('product/filter/actionsProductFilter')
+    store.commit('product/filter/setSearchStart', false)
     await FilterRouter(store, router).routerPush()
   }
   return { FilterSubmit }

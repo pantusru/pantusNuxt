@@ -1,5 +1,6 @@
 .filter-product-wrapper
   border: 1px solid #dee2e6
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
   +grid(3)
   +px(15px)
   +pt(10px)
@@ -13,4 +14,19 @@
   +pt(10px)
 
 
+.filter-product__get
+  cursor: pointer
+  color: #666
+  font-weight: 700
+  +fz(14px)
+
+  //+pb(10px)
+.filter-product-catalog-wrapper
+  +pt(15px)
+.filter-product-buttons-wrapper
+  +justify-content-between()
+.filter-product-button__reset
+  background-color: #436174
+  &:hover
+    background-color: #5a6268
 

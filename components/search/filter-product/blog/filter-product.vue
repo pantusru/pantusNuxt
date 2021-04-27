@@ -1,9 +1,21 @@
 <template>
-  <div class="filter-product-wrapper col">
-    <filter-product-brand />
-    <filter-product-categories />
-    <button @click="FilterSubmit()">Отправить</button>
-    <button @click="resetCategories">Сбросить</button>
+  <div class="filter-product-wrapper">
+    <div class="filter-product__get" @click="toggleClick"><span>Все фильтры</span></div>
+    <div v-show="toggle" class="filter-product-catalog-wrapper">
+      <filter-product-brand />
+      <filter-product-categories />
+      <div class="row-gutters filter-product-buttons-wrapper">
+        <button class="button link-hover-button" @click="FilterSubmit()">
+          Отправить
+        </button>
+        <button
+          class="button filter-product-button__reset"
+          @click="resetCategories"
+        >
+          Сбросить
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,6 +24,7 @@ import FilterProductBrand from '~/components/search/filter-product/blog/filter-p
 import FilterProductCategories from '~/components/search/filter-product/blog/filter-product-categories.vue'
 import { FilterSubmit } from '~/composition/search/filter-submit/filter-submit'
 import { ResetCategories } from '~/composition/search/filter-categories/filter-categories-reset'
+import { ToggleClick } from '~/composition/_toggle/toggle-click'
 
 export default {
   name: 'FilterProduct',
@@ -20,7 +33,7 @@ export default {
     FilterProductBrand,
   },
   setup() {
-    return { ...FilterSubmit(), ...ResetCategories() }
+    return { ...FilterSubmit(), ...ResetCategories(), ...ToggleClick() }
   },
 }
 </script>

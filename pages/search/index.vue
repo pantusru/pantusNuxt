@@ -4,7 +4,7 @@
       <filter-applicabilities />
       <div class="search-row">
         <filter-product class="filter-product-col" />
-        <div class="product-view-blog__filter col">
+        <div class="product-view-blog__filter">
           <div class="search-query-count">По запросу найдено:</div>
           <filter-marks />
           <products-view-blog :product="productFilter" />
@@ -35,14 +35,5 @@ export default {
 }
 </script>
 <style lang="sass">
-@import "assets/sass-mixin/index"
-.search-row
-  +row-no-gutters()
-  +justify-content-between()
-.filter-product-col
-  +grid(12)
-  +grid-lg(3)
-.product-view-blog__filter
-  +grid(12)
-  +grid-lg(9)
+@import "assets/sass/search/page-search"
 </style>

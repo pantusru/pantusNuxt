@@ -1,13 +1,17 @@
 <template>
   <div class="filter-appicabilities-wrapper-input">
-    <div class="filter-appicabilities-input" @click="ToggleBodyFunctionClick">
+    <div
+      class="filter-appicabilities-input"
+      :class="{ 'filter-appicabilities-input__disable': dataset.length === 0 }"
+      @click="ToggleBodyFunctionClick"
+    >
+      <template v-if="selected.length === 0 || selected[0] === null">
+        {{ text }}
+      </template>
       <template v-if="dataset.length > 0 && selected.length > 0">
         <span v-for="item in SelectedNamePanel" :key="item.id">
           {{ item }}
         </span>
-      </template>
-      <template v-else-if="dataset.length === 0">
-        Нету применяемостей
       </template>
     </div>
     <ul
@@ -37,6 +41,9 @@ export default {
   name: 'FilterAppicabilitiesInput',
   components: { FilterFilterAppicabilitiesLi },
   props: {
+    text: {
+      type: String,
+    },
     selected: {
       type: Array,
     },

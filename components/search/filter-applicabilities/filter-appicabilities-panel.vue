@@ -4,18 +4,25 @@
       :dataset="ApplicabilitiesVuex"
       :selected="[panel.selectedMarka]"
       :index-panel="index"
+      text="Марка автомобиля"
     />
     <FilterAppicabilitiesInput
       :dataset="panel.dataModel"
       :selected="panel.selectedModel"
       :index-panel="index"
+      text="Модели"
     />
     <FilterAppicabilitiesInput
       :dataset="panel.dataGenerations"
       :selected="panel.selectedGenerations"
       :index-panel="index"
+      text="Модификации"
     />
-    <button v-if="PanelAll.length > 1" @click.prevent="DeletePanel(index)">
+    <button
+      v-if="PanelAll.length > 1"
+      class="panel-button__delete"
+      @click.prevent="DeletePanel(index)"
+    >
       Удалить
     </button>
   </div>
@@ -42,3 +49,12 @@ export default {
   },
 }
 </script>
+<style lang="sass">
+.panel-button__delete
+  background: transparent
+  border: 0
+  color: #dc3545
+  cursor: pointer
+  &:hover
+    color: #a0252c
+</style>

@@ -13,8 +13,13 @@
         :panel="data"
         :index="index"
       />
-      <button @click.prevent="addPanel">Добавить применяемость</button>
-      <button @click.prevent="resetPanel">Сбросить</button>
+      <button @click.prevent="addPanel" class="button filter-appicabilities-button__add">Добавить</button>
+      <button
+        class="button filter-product-button__reset"
+        @click.prevent="resetPanel"
+      >
+        Сбросить
+      </button>
     </div>
   </form>
 </template>

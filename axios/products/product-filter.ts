@@ -1,13 +1,14 @@
 // import { TypeProductApi } from '@/interface/products/products-api.interface'
-import { TypeProductVuex } from '@/interface/products/products.interface'
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { ProductsMap } from '~/axios/products/product-map'
 import { SearchFormInterface } from '~/interface/search/search-form.interface'
+import { InterfaceFilterProductMap } from '~/store/product/filter'
 
 export const ProductFilterAxios = async (
   $axios: NuxtAxiosInstance,
-  searchFilter: SearchFormInterface
-): Promise<TypeProductVuex[]> => {
+  searchFilter: SearchFormInterface,
+  limit: number
+): Promise<InterfaceFilterProductMap> => {
   const { data } = await $axios.get(`${process.env.api}/products_filter`, {
     params: {
       filter_categories: searchFilter.categoriesChecked.join(),
@@ -15,8 +16,8 @@ export const ProductFilterAxios = async (
       filter_applicabilities: searchFilter.applicabilitiesChecked.join(),
       page_number: searchFilter.page,
       filter_substr: searchFilter.search,
-      page_size: 50,
+      page_size: limit,
     },
   })
-  return ProductsMap(data.data)
+  return { data: ProductsMap(data.data), count: data.meta.count }
 }

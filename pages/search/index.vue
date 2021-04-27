@@ -9,6 +9,11 @@
           <filter-marks />
           <products-view-blog :product="productFilter" />
         </div>
+        <base-pagination
+          class="search-pagination"
+          :limit-element="getProductLimit"
+          :count-element="getProductCount"
+        />
       </div>
     </div>
   </section>
@@ -21,9 +26,11 @@ import FilterProduct from '~/components/search/filter-product/blog/filter-produc
 
 import ProductsViewBlog from '~/components/products/view/products-view-blog.vue'
 import FilterMarks from '~/components/search/filter-mark/filter-marks.vue'
+import BasePagination from '~/components/base/pagination/base-pagination.vue'
 export default {
   name: 'PageSearch',
   components: {
+    BasePagination,
     FilterMarks,
     ProductsViewBlog,
     FilterProduct,

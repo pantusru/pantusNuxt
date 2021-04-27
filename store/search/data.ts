@@ -14,6 +14,7 @@ export const state = (): SearchDataInterface => ({
   carbrands: [],
   categories: [],
   mark: [],
+  loader: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -36,7 +37,9 @@ export const mutations: MutationTree<RootState> = {
   ) {
     store.carbrands = data
   },
-
+  setLoader(store: SearchDataInterface, data: boolean) {
+    store.loader = data
+  },
   setCarbrandsTopSelect(store: SearchDataInterface, index: number) {
     store.carbrands[index].selectCheck = !store.carbrands[index].selectCheck
   },
@@ -66,15 +69,18 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async actionsFilter({ commit }) {
-    const data = await Promise.all([
-      brandAxios(this.$axios),
-      categoriesFilterAxios(this.$axios),
-      carbrandsFilterAxios(this.$axios),
-    ])
-    commit('setFilterBrands', data[0])
-    commit('setFilterCategories', data[1])
-    commit('setFilterCarbrands', data[2])
+  async actionsFilter({ commit, state }) {
+    if (!state.loader) {
+      const data = await Promise.all([
+        brandAxios(this.$axios),
+        categoriesFilterAxios(this.$axios),
+        carbrandsFilterAxios(this.$axios),
+      ])
+      commit('setFilterBrands', data[0])
+      commit('setFilterCategories', data[1])
+      commit('setFilterCarbrands', data[2])
+      commit('setLoader', true)
+    }
   },
 }
 

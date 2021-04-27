@@ -1,8 +1,8 @@
 import { useContext, computed, useRouter } from '@nuxtjs/composition-api'
 import { CategoriesCheckedTrue } from '~/composition/search/filter-categories/filter-categories-checked-true'
 import { ApplicabilitiesCheckedTrue } from '~/composition/search/filter-applicabilities/filter-appicabilites-checked-true'
-import { FilterMap } from '~/composition/search/filter-map'
 import { FilterBrandMark } from '~/composition/search/filter-brand/filter-brand-mark'
+import { FilterRouter } from '~/composition/search/filter-router'
 export function FilterSubmit() {
   const { store } = useContext()
   const router = useRouter()
@@ -12,13 +12,7 @@ export function FilterSubmit() {
   const categories = computed(() => {
     return store.getters['search/data/getCategories']
   })
-  const routerPush = async () => {
-    const filter = FilterMap().vuexToQuery(store.getters['search/form/getForm'])
-    await router.push({
-      name: 'search',
-      query: { ...filter },
-    })
-  }
+
   const FilterSubmit = async () => {
     store.commit('search/data/resetMark')
     CategoriesCheckedTrue(store).CategoriesCheckedTrueAll(categories.value)
@@ -28,7 +22,7 @@ export function FilterSubmit() {
     FilterBrandMark(store).markBrand()
     store.commit('search/form/setPage', 1)
     await store.dispatch('product/filter/actionsProductFilter')
-    await routerPush()
+    await FilterRouter(store, router).routerPush()
   }
   return { FilterSubmit }
 }

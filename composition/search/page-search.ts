@@ -1,4 +1,4 @@
-import { computed, useContext, useFetch } from '@nuxtjs/composition-api'
+import { computed, useContext, useFetch, watch } from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
 import { FilterApplicabilitiesSetUrl } from '~/composition/search/filter-set-url/filter-applicabilities-set-url'
@@ -22,11 +22,22 @@ export function PageSearch() {
   useFetch(async () => {
     await filterStart()
   })
-  // onMounted(async () => {
-  //   await filterStart()
-  // })
+  watch(route, async () => {
+    if (getSearchStart.value) {
+      await filterStart()
+    }
+  })
   const productFilter = computed(() => {
     return store.getters['product/filter/getProductFilter']
   })
-  return { productFilter }
+  const getProductLimit = computed(() => {
+    return store.getters['product/filter/getProductLimit']
+  })
+  const getProductCount = computed(() => {
+    return store.getters['product/filter/getProductCount']
+  })
+  const getSearchStart = computed(() => {
+    return store.getters['product/filter/getSearchStart']
+  })
+  return { productFilter, getProductLimit, getProductCount, getSearchStart }
 }

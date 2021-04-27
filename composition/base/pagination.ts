@@ -61,11 +61,13 @@ export function Pagination(props: PaginationPropsInterface) {
         }
         add++
       }
-      arrayPagination.value[0].text = 1
-      if (query === '?') {
-        arrayPagination.value[0].to = route.value.path
-      } else {
-        arrayPagination.value[0].to = route.value.path + query
+      if (arrayPagination.value[0]){
+        arrayPagination.value[0].text = 1
+        if (query === '?') {
+          arrayPagination.value[0].to = route.value.path
+        } else {
+          arrayPagination.value[0].to = route.value.path + query
+        }
       }
     }
   }

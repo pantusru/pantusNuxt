@@ -8,4 +8,5 @@ export interface SearchDataInterface {
   brands: brandInterface[]
   carbrands: SearchApplicabilitiesInterface[]
   mark: SearchMarkInterface[]
+  loader: boolean
 }

@@ -10,7 +10,7 @@
         </button>
         <button
           class="button filter-product-button__reset"
-          @click="resetCategories"
+          @click="resetCategories()"
         >
           Сбросить
         </button>

@@ -1,11 +1,18 @@
-import { computed, useContext, useFetch, watch } from '@nuxtjs/composition-api'
+import {
+  computed,
+  useContext,
+  useFetch,
+  useRoute,
+  watch,
+} from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
 import { FilterApplicabilitiesSetUrl } from '~/composition/search/filter-set-url/filter-applicabilities-set-url'
 import { FilterBrandMark } from '~/composition/search/filter-brand/filter-brand-mark'
 
 export function PageSearch() {
-  const { store, route } = useContext()
+  const { store } = useContext()
+  const route = useRoute()
 
   const filterStart = async () => {
     const filter = FilterMap().queryToVuex(route)
@@ -24,7 +31,9 @@ export function PageSearch() {
   })
   watch(route, async () => {
     if (getSearchStart.value) {
+      console.log(route.value)
       await filterStart()
+      store.commit('product/filter/setSearchStart', true)
     }
   })
   const productFilter = computed(() => {

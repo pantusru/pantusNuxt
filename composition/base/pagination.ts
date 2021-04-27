@@ -1,4 +1,12 @@
-import { computed, ssrRef, useRoute, useFetch } from '@nuxtjs/composition-api'
+import {
+  computed,
+  ssrRef,
+  useRoute,
+  useFetch,
+  watch,
+  ref,
+  Ref,
+} from '@nuxtjs/composition-api'
 import { PaginationPropsInterface } from '~/interface/base/props/pagination-props.interface'
 
 interface pageData {
@@ -6,8 +14,14 @@ interface pageData {
   text: string | number
 }
 export function Pagination(props: PaginationPropsInterface) {
-  let query: string = ''
+  const query: Ref<string> = ref('')
   const route = useRoute()
+  watch(route, () => {
+    setArrayPagination()
+  })
+  watch(props, () => {
+    setArrayPagination()
+  })
   const arrayPagination = ssrRef<pageData[]>([])
   const countPagination = computed(() => {
     if (props && props.countElement && props.limitElement) {
@@ -21,18 +35,18 @@ export function Pagination(props: PaginationPropsInterface) {
   const setArrayPaginationLast = () => {
     arrayPagination.value.push({
       text: countPagination.value,
-      to: `${route.value.path}${query}&${props.name}=${countPagination.value}`,
+      to: `${route.value.path}${query.value}&${props.name}=${countPagination.value}`,
     })
   }
   const SetQueryPagination = () => {
     if (props && props.name) {
-      query = '?'
+      query.value = '?'
       for (const queryKey in route.value.query) {
         if (queryKey !== props.name) {
-          if (query !== '?') {
-            query += '&'
+          if (query.value !== '?') {
+            query.value += '&'
           }
-          query += `${queryKey}=${route.value.query[queryKey]}`
+          query.value += `${queryKey}=${route.value.query[queryKey]}`
         }
       }
     }
@@ -56,17 +70,17 @@ export function Pagination(props: PaginationPropsInterface) {
         if (add > 0 && add < countPagination.value) {
           arrayPagination.value.push({
             text: add,
-            to: `${route.value.path}${query}&${props.name}=${add}`,
+            to: `${route.value.path}${query.value}&${props.name}=${add}`,
           })
         }
         add++
       }
-      if (arrayPagination.value[0]){
+      if (arrayPagination.value[0]) {
         arrayPagination.value[0].text = 1
-        if (query === '?') {
+        if (query.value === '?') {
           arrayPagination.value[0].to = route.value.path
         } else {
-          arrayPagination.value[0].to = route.value.path + query
+          arrayPagination.value[0].to = route.value.path + query.value
         }
       }
     }

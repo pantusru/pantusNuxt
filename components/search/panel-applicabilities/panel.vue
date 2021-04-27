@@ -21,7 +21,7 @@
       name-selected="SelectedGenerations"
       place-holder-text="Модификации"
     />
-    <b-col cols="2" lg="1">
+    <b-col cols="2" lg="1" class="pt-4">
       <b-button
         v-if="PanelLength !== 1"
         class="btn bg-danger _baseBnt py-1 px-2 btn-secondary"

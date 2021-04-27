@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h1 class="d-lg-none wbba h2">{{ dataset.ProductCard.name }}</h1>
+    <h1 class="d-lg-none wbba h2 position-relative pr-2">
+      {{ dataset.ProductCard.name }}
+      <Chosen
+        :id="dataset.ProductCard.id"
+        class-chosen="icons-chosen__blog"
+        :link="dataset"
+      />
+    </h1>
     <b-row v-if="dataset !== undefined" class="mt-5 mb-3">
       <b-col cols="12" sm="8" lg="4" class="d-flex flex-wrap">
         <!-- БЛОК с альбомом -->
@@ -27,7 +34,14 @@
         </b-col>
       </b-col>
       <b-col class="mt-lg-0 mt-2" lg="7" cols="12">
-        <h2 class="d-none d-lg-block wbba">{{ dataset.ProductCard.name }}</h2>
+        <h2 class="d-none d-lg-block wbba">
+          {{ dataset.ProductCard.name }}
+          <Chosen
+            :id="dataset.ProductCard.id"
+            class-chosen="icons-chosen__blog"
+            :link="dataset"
+          />
+        </h2>
         <b-row class="mb-3 align-items-center mt-3">
           <b-col class="mb-2" cols="12">
             <b>Производитель</b> :

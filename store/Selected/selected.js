@@ -15,6 +15,10 @@ export const mutations = {
   LoaderTrue(store) {
     store.Loader = true;
   },
+  resetSelected(store) {
+    store.Selected = []
+    store.Loader = false;
+  }
 };
 export const actions = {
   async _Selected({ store, dispatch, commit, getters }) {
@@ -26,6 +30,22 @@ export const actions = {
       );
       commit("SetSelected", data);
       commit("LoaderTrue");
+    }
+  },
+  async _DeleteSelected({ dispatch, commit }, dataset) {
+    const data = await dispatch("Selected/axios/_ProductDelete", dataset.id, {
+      root: true,
+    });
+    if (!data.error) {
+      commit("DeleteSelected", dataset.index);
+    }
+  },
+  async _AddSelected({ dispatch, commit }, dataset) {
+    const data = await dispatch("Selected/axios/_ProductPost", [dataset.id], {
+      root: true,
+    });
+    if (!data.error) {
+      commit("PushSelected", dataset.data);
     }
   },
 };

@@ -21,13 +21,12 @@
               to="/profile/orders"
               >История заказов</nuxt-link
             >
-<!--            <nuxt-link-->
-<!--              :exact-active-class="ActiveClass"-->
-<!--              :class="classMain"-->
-<!--              to="/profile/selected"-->
-<!--              >Избранные товары</nuxt-link-->
-<!--            >-->
-<!--            <nuxt-link-->
+           <nuxt-link
+             :exact-active-class="ActiveClass"
+             :class="classMain"
+             to="/profile/selected"
+             >Избранные товары</nuxt-link>
+           <!-- <nuxt-link -->
 <!--              :exact-active-class="ActiveClass"-->
 <!--              :class="classMain"-->
 <!--              to="/profile/new_password"-->

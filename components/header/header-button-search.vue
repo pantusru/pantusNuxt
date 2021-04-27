@@ -51,12 +51,19 @@ export default {
           await this.$store.dispatch("Products/_ProductAll", form);
           this.$store.commit("SetCheckCountProducts", true);
         }
-        await this.$router.push({
-          name: "search",
-          query: {
-            filter_substr: this.search,
-          },
-        });
+        if(this.search !== ""){
+          await this.$router.push({
+            name: "search",
+            query: {
+              filter_substr: this.search,
+            },
+          });
+        } else {
+          await this.$router.push({
+            name: "search",
+          });
+        }
+ 
         this.$store.commit("SetcheckFilterClick", false);
     
     },

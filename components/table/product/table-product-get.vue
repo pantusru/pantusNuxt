@@ -46,7 +46,7 @@
             </div>
           </table-product-cart-td>
           <table-product-cart-td
-            class="w-15 pr-2"
+            class="w-15 pr-2 position-relative"
             :class="{ 'd-none d-sm-table-cell': CheckAnalogs }"
             :length-offer="table.productOffer.length"
           >
@@ -64,6 +64,12 @@
             >
               {{ table.ProductCard.name }}
             </nuxt-link>
+            <Chosen
+              v-if="CheckUser"
+              :id="table.ProductCard.id"
+              :link="table"
+              class-chosen="icons-chosen__table"
+            />
           </table-product-cart-td>
         </b-tr>
         <template v-if="table.productOffer.length !== 0">
@@ -156,9 +162,6 @@ export default {
 </script>
 
 <style>
-.hover-true:hover .d-none-chosen {
-  display: block !important;
-}
 tbody tr:last-child {
   border-bottom: 0 !important;
 }

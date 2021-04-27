@@ -38,7 +38,7 @@ export default {
       links: [
         { to: "/profile", text: "Личный кабинет" },
         { to: "/profile/orders", text: "История заказов" },
-       // { to: "/profile/selected", text: "Избранные товары" },
+        { to: "/profile/selected", text: "Избранные товары" },
       //  { to: "/profile/new_password", text: "Изменить пароль" },
       ],
     };

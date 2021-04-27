@@ -9,7 +9,6 @@ export const mutations = {
 export const actions = {
   async actionsJobs({ commit, dispatch }) {
     const data = await dispatch("axios/axiosJobs");
-    console.log(data);
     commit("SetJobs", data);
   },
 };

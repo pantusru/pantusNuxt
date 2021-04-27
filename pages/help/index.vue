@@ -570,7 +570,7 @@
                 товара" и передать его вместе с товаром на возврат
               </p>
               <span class="elem-file">
-                <a :href="urlPantus + '/upload/files/akt_vozvrata.xlsx'"
+                <a :href="urlPantus + '/upload/files/Акт о возврате товара.xlsx'"
                   >Акт о возврате товара</a
                 >
                 (XLSX, 11,75 Кб)

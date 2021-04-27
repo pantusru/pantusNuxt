@@ -1,17 +1,20 @@
 <template>
-  <component :is="'td'" :title="title">
+  <div v-if="CheckUser" :title="title">
     <b-icon-bookmark-plus
-      :class="{ activ: selected }"
-      class="cursor-pointer h4 d-none-chosen fz-5"
+      :class="[{ activ: selected }, classChosen]"
+      class="icons-chosen cursor-pointer h4 d-none-chosen fz-5"
       @click="SetChosen"
     />
-  </component>
+  </div>
 </template>
 
 <script>
 export default {
   name: "FilterMetka",
   props: {
+    classChosen: {
+      type: String,
+    },
     /**
      * @property Id Товара
      */
@@ -44,6 +47,9 @@ export default {
     SelectedProducts() {
       return this.$store.getters["Selected/selected/GetSelected"];
     },
+    CheckUser() {
+      return this.$store.getters["User/CheckUser"];
+    },
   },
   created() {
     const data = this.SelectedProducts;
@@ -67,12 +73,18 @@ export default {
         const index = this.SelectedProducts.findIndex(
           s => s.ProductCard.id == this.id
         );
-        this.$store.commit("Selected/selected/DeleteSelected", index);
+        this.$store.dispatch("Selected/selected/_DeleteSelected", {
+          id: this.id,
+          index,
+        });
         this.title = "Добавить в избранное Удалить из избранного";
       } else {
         // Добавить товар  в selected
         this.selected = true;
-        this.$store.commit("Selected/selected/PushSelected", this.link);
+        this.$store.dispatch("Selected/selected/_AddSelected", {
+          data: this.link,
+          id: this.id,
+        });
         this.title = "Удалить из избранного";
       }
     },
@@ -81,8 +93,27 @@ export default {
 </script>
 
 <style>
+.icons-chosen__blog {
+  top: 10px;
+  right: 10px;
+}
+.icons-chosen__row {
+  right: 10px;
+}
+.icons-chosen__table {
+  right: -10px;
+  top: 10px;
+}
+.icons-chosen {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  z-index: 2;
+  /*top: 35%;*/
+  border: 0;
+}
 svg.d-none-chosen {
-  display: none !important;
+  /*display: none !important;*/
   /*left: -20px;*/
 }
 

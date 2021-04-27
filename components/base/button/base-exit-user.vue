@@ -29,6 +29,7 @@ export default {
       this.$store.commit("MyOrder/SetMyOrder", []);
       this.$store.commit("Cart/CartAll/ResetCartProduct");
       this.$store.commit("User/ResetForm");
+      this.$store.commit("Selected/selected/resetSelected");
     },
   },
 };

@@ -6,7 +6,7 @@
     body-class="d-flex flex-column justify-content-between"
   >
     <template #header>
-      <h6 class="mb-0">
+      <h6 class="mb-0 pr-1">
         <nuxt-link
           :title="datasetProduct.ProductCard.name"
           class="text-436174 text-decoration-none reset-title"
@@ -21,6 +21,12 @@
         >
           {{ datasetProduct.ProductCard.name }}
         </nuxt-link>
+        <Chosen
+          v-if="CheckUser"
+          :id="datasetProduct.ProductCard.id"
+          class-chosen="icons-chosen__blog"
+          :link="datasetProduct"
+        />
       </h6>
     </template>
     <ImgGetModal :product="datasetProduct" />
@@ -82,6 +88,7 @@
 </template>
 
 <script>
+import Chosen from "@/components/metka/chosen"; // Метка избранный товар
 import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
@@ -93,9 +100,15 @@ export default {
     ProductElementRowGet,
     BuyButton,
     ImgGetModal,
+    Chosen,
   },
   props: {
     datasetProduct: {},
+  },
+  computed: {
+    CheckUser() {
+      return this.$store.getters["User/CheckUser"];
+    },
   },
 };
 </script>

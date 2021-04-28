@@ -10,6 +10,7 @@ export function FilterApplicabiliriesButtonReset() {
   const resetPanel = async () => {
     store.commit('search/panel/resetPanel')
     store.commit('search/form/resetApplicabilities')
+    store.commit('search/data/resetCarbrandsTopSelect')
     await FilterRouter(store, router).routerPush()
   }
   return { PanelAll, resetPanel }

@@ -6,10 +6,20 @@ export const FilterApplicabilitiesSetAllFirst = (
   element: SearchApplicabilitiesInterface,
   store: any
 ) => {
+  const panelId: SearchApplicabilitiesPanelInterface =
+    store.getters['search/panel/getSearchApplicabilitiesPanel'][index]
+  if (panelId.selectedMarka !== null) {
+    // вернуть элемент в массив который был выбран
+    const IndexApplicabilities = store.getters[
+      'search/data/getCarbrands'
+    ].findIndex((elem: any) => elem.id === panelId.selectedMarka)
+    store.commit('search/data/setCarbrandsTopSelect', IndexApplicabilities)
+  }
   const IndexApplicabilities = store.getters[
     'search/data/getCarbrands'
   ].findIndex((elem: any) => elem.id === element.id)
   store.commit('search/data/setCarbrandsTopSelect', IndexApplicabilities)
+
   const data: SearchApplicabilitiesPanelInterface = {
     selectedMarka: element.id,
     dataGenerations: [],

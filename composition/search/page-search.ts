@@ -54,6 +54,7 @@ export function PageSearch() {
   onUnmounted(() => {
     store.commit('search/form/resetAll')
     store.commit('search/panel/deletePanel')
+    store.commit('search/data/resetCarbrandsTopSelect')
   })
   return {
     scrollTop,

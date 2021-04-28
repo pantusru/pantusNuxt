@@ -43,6 +43,9 @@ export const mutations: MutationTree<RootState> = {
   deleteBrandChecked(store: SearchFormInterfaceStore, index: number) {
     store.formFilterProduct.brandChecked.splice(index, 1)
   },
+  deleteCategoriesChecked(store: SearchFormInterfaceStore, index: number) {
+    store.formFilterProduct.categoriesChecked.splice(index, 1)
+  },
   onlyResetCategories(store: SearchFormInterfaceStore) {
     store.formFilterProduct.categoriesChecked = []
   },

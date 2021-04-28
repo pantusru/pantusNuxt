@@ -10,9 +10,11 @@
           <products-view-blog :product="productFilter" />
         </div>
         <base-pagination
+          v-if="getProductCount > 0"
           class="search-pagination"
           :limit-element="getProductLimit"
           :count-element="getProductCount"
+          @click="scrollTop"
         />
       </div>
     </div>

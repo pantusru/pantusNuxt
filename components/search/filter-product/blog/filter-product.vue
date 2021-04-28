@@ -1,13 +1,17 @@
 <template>
   <div class="filter-product-wrapper">
-    <div class="filter-product__get" @click="toggleClick"><span>Все фильтры</span></div>
+    <div
+      class="filter-product__get filter-catalog-get-row"
+      @click="toggleClick"
+    >
+      <span>Все фильтры</span>
+      <filter-button-get :toggle="toggle" />
+    </div>
     <div v-show="toggle" class="filter-product-catalog-wrapper">
       <filter-product-brand />
       <filter-product-categories />
       <div class="row-gutters filter-product-buttons-wrapper">
-        <button class="button link-hover-button" @click="FilterSubmit()">
-          Отправить
-        </button>
+        <filter-button-submit />
         <button
           class="button filter-product-button__reset"
           @click="resetCategories()"
@@ -25,10 +29,14 @@ import FilterProductCategories from '~/components/search/filter-product/blog/fil
 import { FilterSubmit } from '~/composition/search/filter-submit/filter-submit'
 import { ResetCategories } from '~/composition/search/filter-categories/filter-categories-reset'
 import { ToggleClick } from '~/composition/_toggle/toggle-click'
+import FilterButtonSubmit from '~/components/search/filter-button/filter-button-submit.vue'
+import FilterButtonGet from '~/components/search/filter-button/filter-button-get.vue'
 
 export default {
   name: 'FilterProduct',
   components: {
+    FilterButtonGet,
+    FilterButtonSubmit,
     FilterProductCategories,
     FilterProductBrand,
   },

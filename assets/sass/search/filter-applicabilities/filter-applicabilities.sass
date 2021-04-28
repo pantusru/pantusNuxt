@@ -26,18 +26,23 @@
 
 .filter-appicabilities-wrapper-input
   position: relative
-  +grid(3)
+  +grid-md(3)
+  +grid(12)
   +mr(30px)
 
+  +mb(10px)
+  +mb-md(0)
 
 .filter-appicabilities-input
   min-height: 25px
   border: 1px solid #ced4da
   color: #555
   cursor: pointer
+  +fz(12px)
+
   +pl(5px)
   +py(5px)
-  +fz(12px)
+
 
 .filter-appicabilities-input__disable
   opacity: 0.65
@@ -71,3 +76,5 @@
   background-color: #28a745
   &:hover
     background-color: #218838
+.filter-applicabilities-buttons
+  +mb(15px)

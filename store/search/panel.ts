@@ -28,8 +28,10 @@ export const mutations: MutationTree<RootState> = {
   deleteIndexPanel(state: SearchApplicabilitiesPanelStore, index: number) {
     state.searchApplicabilitiesPanel.splice(index, 1)
   },
-
   deletePanel(state: SearchApplicabilitiesPanelStore) {
+    state.searchApplicabilitiesPanel = []
+  },
+  resetPanel(state: SearchApplicabilitiesPanelStore) {
     state.searchApplicabilitiesPanel = [
       {
         selectedMarka: null,

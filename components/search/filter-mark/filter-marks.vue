@@ -1,7 +1,7 @@
 <template>
   <div class="filter-marks-wrapper row">
-    <template v-for="(mark, index) in getMark">
-      <div :key="mark.id" class="filter-mark" @click="deleteMark(mark, index)">
+    <template v-for="mark in getMark">
+      <div :key="mark.id" class="filter-mark" @click="deleteMark(mark)">
         {{ mark.name }}
         <FontAwesome unicode="&#xf00d;" class="filter-mark-delete" />
       </div>

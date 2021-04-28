@@ -75,7 +75,7 @@ export function Pagination(props: PaginationPropsInterface) {
         }
         add++
       }
-      if (arrayPagination.value[0]) {
+      if (arrayPagination.value.length > 0) {
         arrayPagination.value[0].text = 1
         if (query.value === '?') {
           arrayPagination.value[0].to = route.value.path

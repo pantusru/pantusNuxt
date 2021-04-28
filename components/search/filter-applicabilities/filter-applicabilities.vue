@@ -3,23 +3,35 @@
     class="filter-applicabilities-form"
     :class="{ 'filter-applicabilities-form-get': toggle }"
   >
-    <h3 class="filter-applicabilities-title" @click="toggleClick">
+    <h3
+      class="filter-applicabilities-title filter-catalog-get-row"
+      @click="toggleClick"
+    >
       <span>Укажите применяемости</span>
+      <filter-button-get :toggle="toggle" />
     </h3>
     <div v-show="toggle" class="filter-applicabilities-wrapper-panel">
+      <div class="filter-applicabilities-buttons">
+        <button
+          class="button filter-appicabilities-button__add"
+          @click.prevent="addPanel"
+        >
+          Добавить
+        </button>
+        <button
+          class="button filter-product-button__reset"
+          @click.prevent="resetPanel"
+        >
+          Сбросить
+        </button>
+      </div>
       <FilterAppicabilitiesPanel
         v-for="(data, index) in Panel"
         :key="data.id"
         :panel="data"
         :index="index"
       />
-      <button @click.prevent="addPanel" class="button filter-appicabilities-button__add">Добавить</button>
-      <button
-        class="button filter-product-button__reset"
-        @click.prevent="resetPanel"
-      >
-        Сбросить
-      </button>
+      <filter-button-submit />
     </div>
   </form>
 </template>
@@ -29,9 +41,15 @@ import { ToggleClick } from '~/composition/_toggle/toggle-click'
 import FilterAppicabilitiesPanel from '~/components/search/filter-applicabilities/filter-appicabilities-panel.vue'
 import { FilterApplicabiliries } from '~/composition/search/filter-applicabilities/filter-applicabilities'
 import { FilterApplicabiliriesButtonReset } from '~/composition/search/filter-applicabilities/filter-applicabilities-button-reset'
+import FilterButtonSubmit from '~/components/search/filter-button/filter-button-submit.vue'
+import FilterButtonGet from '~/components/search/filter-button/filter-button-get.vue'
 export default {
   name: 'FilterApplicabilities',
-  components: { FilterAppicabilitiesPanel },
+  components: {
+    FilterButtonGet,
+    FilterButtonSubmit,
+    FilterAppicabilitiesPanel,
+  },
   setup() {
     return {
       ...ToggleClick(),

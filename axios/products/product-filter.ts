@@ -1,4 +1,5 @@
-// import { TypeProductApi } from '@/interface/products/products-api.interface'
+/* eslint camelcase: 0 */
+
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { ProductsMap } from '~/axios/products/product-map'
 import { SearchFormInterface } from '~/interface/search/search-form.interface'
@@ -11,13 +12,33 @@ export const ProductFilterAxios = async (
 ): Promise<InterfaceFilterProductMap> => {
   const { data } = await $axios.get(`${process.env.api}/products_filter`, {
     params: {
-      filter_categories: searchFilter.categoriesChecked.join(),
-      filter_brands: searchFilter.brandChecked.join(),
-      filter_applicabilities: searchFilter.applicabilitiesChecked.join(),
-      page_number: searchFilter.page,
-      filter_substr: searchFilter.search,
-      page_size: limit,
+      ...mapFilter(searchFilter, limit),
     },
   })
   return { data: ProductsMap(data.data), count: data.meta.count }
+}
+const mapFilter = (searchFilter: SearchFormInterface, limit: number) => {
+  const value: {
+    page_size?: number
+    page_number?: string
+    filter_substr?: string
+    filter_brands?: string
+    filter_applicabilities?: string
+    filter_categories?: string
+  } = {
+    page_size: limit,
+  }
+  if (searchFilter.search !== '') {
+    value.filter_substr = searchFilter.search
+  }
+  if (searchFilter.categoriesChecked.join() !== '') {
+    value.filter_categories = searchFilter.categoriesChecked.join()
+  }
+  if (searchFilter.applicabilitiesChecked.join() !== '') {
+    value.filter_applicabilities = searchFilter.applicabilitiesChecked.join()
+  }
+  if (searchFilter.brandChecked.join() !== '') {
+    value.filter_brands = searchFilter.brandChecked.join()
+  }
+  return value
 }

@@ -4,6 +4,7 @@ import {
   useFetch,
   useRoute,
   watch,
+  onUnmounted,
 } from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
@@ -31,11 +32,13 @@ export function PageSearch() {
   })
   watch(route, async () => {
     if (getSearchStart.value) {
-      console.log(route.value)
       await filterStart()
-      store.commit('product/filter/setSearchStart', true)
     }
+    store.commit('product/filter/setSearchStart', true)
   })
+  const scrollTop = () => {
+    window.scrollTo({ top: 0 })
+  }
   const productFilter = computed(() => {
     return store.getters['product/filter/getProductFilter']
   })
@@ -48,5 +51,15 @@ export function PageSearch() {
   const getSearchStart = computed(() => {
     return store.getters['product/filter/getSearchStart']
   })
-  return { productFilter, getProductLimit, getProductCount, getSearchStart }
+  onUnmounted(() => {
+    store.commit('search/form/resetAll')
+    store.commit('search/panel/deletePanel')
+  })
+  return {
+    scrollTop,
+    productFilter,
+    getProductLimit,
+    getProductCount,
+    getSearchStart,
+  }
 }

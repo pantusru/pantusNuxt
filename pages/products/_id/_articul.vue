@@ -61,7 +61,7 @@
           {{ userProfile }}
           <div>
             Уровень цен:
-            <template v-if="userProfile.type === 'wholesale'">
+            <template v-if="userProfile && userProfile.type === 'wholesale'">
               Оптовый
             </template>
             <template v-else>Розничный</template>

@@ -15,7 +15,7 @@ export interface InterfaceFilterProductMap {
 
 export const state = (): InterfaceFilterProduct => ({
   filter: [],
-  limit: 50,
+  limit: 51,
   count: 0,
   searchStart: true,
 })

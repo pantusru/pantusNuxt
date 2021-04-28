@@ -13,7 +13,7 @@ export function FilterMap() {
     return []
   }
   const queryToVuex = (route: Ref<any>) => {
-    return {
+    const vuex = {
       brandChecked: checkValidateFilter(route.value.query.filter_brands),
       categoriesChecked: checkValidateFilter(
         route.value.query.filter_categories
@@ -24,6 +24,10 @@ export function FilterMap() {
       page: Number(route.value.query?.page) ?? 1,
       search: route.value.query.filter_substr ?? '',
     }
+    if (isNaN(vuex.page)) {
+      vuex.page = 1
+    }
+    return vuex
   }
   const vuexToQuery = (getForm: SearchFormInterface) => {
     const url: SearchUrlInterface = {}

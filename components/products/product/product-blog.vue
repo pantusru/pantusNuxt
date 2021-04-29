@@ -4,10 +4,10 @@
       :product="product"
       class-link="link link-hover-main product-blog-link"
     />
-<!--    <product-img-->
-<!--      :alt="product.productCard.name"-->
-<!--      :src="product.productCard.productCardImage.url"-->
-<!--    />-->
+    <product-img
+      :alt="product.productCard.name"
+      :src="product.productCard.productCardImage.url"
+    />
     <div class="product-blog-params-all">
       <product-params
         name="Бренд"

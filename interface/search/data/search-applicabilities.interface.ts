@@ -7,4 +7,5 @@ export type SearchApplicabilitiesInterface = {
   parentId: number
   visible: boolean
   selectCheck: boolean
+  parentTop: number | null
 }

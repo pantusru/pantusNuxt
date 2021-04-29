@@ -42,13 +42,14 @@ export const carbrandsFilterAxios = async (
     `${process.env.api}/product_applicabilities?view=tree`
   )
   const dataset: SearchApplicabilitiesInterface[] = []
-  carbrandsFilterMap(data, dataset)
+  carbrandsFilterMap(data, dataset, null)
   return dataset
 }
 
 const carbrandsFilterMap = (
   data: CarbrandsInterfaceApi[],
-  res?: SearchApplicabilitiesInterface[]
+  res: SearchApplicabilitiesInterface[],
+  parentTop: number | null
 ): void => {
   data.forEach((array, index) => {
     res?.push({
@@ -59,10 +60,14 @@ const carbrandsFilterMap = (
       children: [],
       parentId: array.parentId,
       visible: true,
+      parentTop,
       selectCheck: false,
     })
+    if (parentTop === null) {
+      parentTop = array.id
+    }
     if (array.childs.length > 0) {
-      carbrandsFilterMap(array.childs, res?.[index].children)
+      carbrandsFilterMap(array.childs, res?.[index].children, parentTop)
     }
   })
 }

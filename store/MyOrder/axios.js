@@ -93,6 +93,7 @@ export const actions = {
         id: data?.delivery?.service?.id,
         name: data?.delivery.service?.name,
         price: data?.delivery.price,
+        trackingNumber: data?.delivery.trackingNumber,
       },
       payerType: {
         id: data.payerType.id,

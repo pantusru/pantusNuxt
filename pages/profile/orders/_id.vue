@@ -34,6 +34,10 @@
           text="Служба доставки:"
           :value="GetMyOrderId.service.name"
         />
+        <order-id-row
+          text="Идентификатор отправления:"
+          :value="GetMyOrderId.service.trackingNumber"
+        />
         <order-table-get :data="GetMyOrderId" />
       </div>
       <div v-else><h2>Заказ не найден</h2></div>

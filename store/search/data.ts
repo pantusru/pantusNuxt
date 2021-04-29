@@ -46,7 +46,7 @@ export const mutations: MutationTree<RootState> = {
 
   resetCarbrandsTopSelect(store: SearchDataInterface) {
     store.carbrands.forEach((elem) => {
-      elem.selectCheck = true
+      elem.selectCheck = false
     })
   },
   // Categories

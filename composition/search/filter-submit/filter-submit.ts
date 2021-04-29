@@ -14,6 +14,7 @@ export function FilterSubmit() {
   })
 
   const FilterSubmit = async () => {
+    await store.dispatch('search/panel/fixPanel')
     store.commit('search/data/resetMark')
     CategoriesCheckedTrue(store).CategoriesCheckedTrueAll(categories.value)
     ApplicabilitiesCheckedTrue(store).ApplicabilitiesCheckedTrueAll(

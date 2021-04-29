@@ -22,7 +22,7 @@ export type TypeBrandProduct = {
   code: string
 }
 /***
- *  @type skuProduct - артикуль для продукта
+ *  @type skuProduct - Артикул для продукта
  */
 export type TypeSkuProduct = {
   normalized: string

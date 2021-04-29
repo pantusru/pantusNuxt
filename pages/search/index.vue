@@ -11,6 +11,7 @@
             v-if="productFilter.length > 0"
             :product="productFilter"
           />
+          <div v-else>Товара нет!</div>
         </div>
         <base-pagination
           v-if="getProductCount > 0 && getProductCount > getProductLimit"

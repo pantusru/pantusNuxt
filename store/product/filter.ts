@@ -7,6 +7,7 @@ interface InterfaceFilterProduct {
   limit: number
   count: number
   searchStart: boolean
+  flagProduct: boolean
 }
 export interface InterfaceFilterProductMap {
   data: TypeProductVuex[]
@@ -18,6 +19,7 @@ export const state = (): InterfaceFilterProduct => ({
   limit: 51,
   count: 0,
   searchStart: true,
+  flagProduct: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -32,6 +34,9 @@ export const mutations: MutationTree<RootState> = {
   },
   setSearchStart(store: InterfaceFilterProduct, data: boolean) {
     store.searchStart = data
+  },
+  setFlagProduct(store: InterfaceFilterProduct, data: boolean) {
+    store.flagProduct = data
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
@@ -49,4 +54,5 @@ export const getters = {
   getProductLimit: (s: InterfaceFilterProduct) => s.limit,
   getProductCount: (s: InterfaceFilterProduct) => s.count,
   getSearchStart: (s: InterfaceFilterProduct) => s.searchStart,
+  getFlagProduct: (s: InterfaceFilterProduct) => s.flagProduct,
 }

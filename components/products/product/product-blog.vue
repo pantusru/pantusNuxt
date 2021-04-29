@@ -15,7 +15,7 @@
         :to="'search?filter_brands=' + product.productCard.brand.id"
       />
       <product-params
-        name="Артикуль"
+        name="Артикул"
         :value="product.productCard.sku.original"
         :to="'search?filter_substr=' + product.productCard.sku.original"
       />

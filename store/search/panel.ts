@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { MutationTree } from 'vuex'
+import { MutationTree, ActionTree } from 'vuex'
 import { SearchApplicabilitiesPanelStore } from '~/interface/search/search-applicabilities-panel.interface'
 import { SearchApplicabilitiesInterface } from '~/interface/search/data/search-applicabilities.interface'
 
@@ -31,8 +31,8 @@ export const mutations: MutationTree<RootState> = {
   deletePanel(state: SearchApplicabilitiesPanelStore) {
     state.searchApplicabilitiesPanel = []
   },
-  resetPanel(state: SearchApplicabilitiesPanelStore) {
-    state.searchApplicabilitiesPanel = [
+  resetPanel(store: SearchApplicabilitiesPanelStore) {
+    store.searchApplicabilitiesPanel = [
       {
         selectedMarka: null,
         selectedModel: [],
@@ -43,7 +43,20 @@ export const mutations: MutationTree<RootState> = {
     ]
   },
 }
-
+export const actions: ActionTree<RootState, RootState> = {
+  fixPanel({ commit, state }) {
+    const indexDelete: number[] = []
+    state.searchApplicabilitiesPanel.forEach((elem, index) => {
+      if (elem.selectedMarka === null) {
+        indexDelete.push(index)
+      }
+    })
+    indexDelete.sort((a, b) => b - a)
+    indexDelete.forEach((index) => {
+      commit('deleteIndexPanel', index)
+    })
+  },
+}
 export const getters = {
   getSearchApplicabilitiesPanel: (s: SearchApplicabilitiesPanelStore) =>
     s.searchApplicabilitiesPanel,

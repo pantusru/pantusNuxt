@@ -65,7 +65,7 @@ export function PageSearch() {
     store.commit('search/form/resetAll')
     store.commit('search/panel/deletePanel')
     store.commit('search/data/resetCarbrandsTopSelect')
-    store.commit('product/filter/setProductFilter', [])
+    store.commit('product/filter/setProductFilter', { data: [], count: 0 })
   })
   return {
     productFilter,

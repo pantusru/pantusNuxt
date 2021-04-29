@@ -20,7 +20,7 @@ export const ProductFilterAxios = async (
 const mapFilter = (searchFilter: SearchFormInterface, limit: number) => {
   const value: {
     page_size?: number
-    page_number?: string
+    page_number?: number
     filter_substr?: string
     filter_brands?: string
     filter_applicabilities?: string
@@ -39,6 +39,9 @@ const mapFilter = (searchFilter: SearchFormInterface, limit: number) => {
   }
   if (searchFilter.brandChecked.join() !== '') {
     value.filter_brands = searchFilter.brandChecked.join()
+  }
+  if (searchFilter.page) {
+    value.page_number = searchFilter.page
   }
   return value
 }

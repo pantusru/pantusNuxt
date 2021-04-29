@@ -2,7 +2,6 @@ export default {
   env: {
     api: 'https://api.pantus.ru',
   },
-  mode: 'universal',
   target: 'server',
   server: {
     port: 8000,

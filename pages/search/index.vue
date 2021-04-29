@@ -7,14 +7,17 @@
         <div class="product-view-blog__filter">
           <div class="search-query-count">По запросу найдено:</div>
           <filter-marks />
-          <products-view-blog :product="productFilter" />
+          <products-view-blog
+            v-if="productFilter.length > 0"
+            :product="productFilter"
+          />
         </div>
         <base-pagination
-          v-if="getProductCount > 0"
+          v-if="getProductCount > 0 && getProductCount > getProductLimit"
           class="search-pagination"
           :limit-element="getProductLimit"
           :count-element="getProductCount"
-          @click="scrollTop"
+          @click="pageSet"
         />
       </div>
     </div>
@@ -26,15 +29,15 @@ import FilterApplicabilities from '~/components/search/filter-applicabilities/fi
 import { PageSearch } from '~/composition/search/page-search'
 import FilterProduct from '~/components/search/filter-product/blog/filter-product.vue'
 
-import ProductsViewBlog from '~/components/products/view/products-view-blog.vue'
 import FilterMarks from '~/components/search/filter-mark/filter-marks.vue'
-import BasePagination from '~/components/base/pagination/base-pagination.vue'
 export default {
   name: 'PageSearch',
   components: {
-    BasePagination,
+    BasePagination: () =>
+      import('~/components/base/pagination/base-pagination.vue'),
     FilterMarks,
-    ProductsViewBlog,
+    ProductsViewBlog: () =>
+      import('~/components/products/view/products-view-blog.vue'),
     FilterProduct,
     FilterApplicabilities,
   },

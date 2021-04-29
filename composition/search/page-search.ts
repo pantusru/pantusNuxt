@@ -22,10 +22,16 @@ export function PageSearch() {
       store.dispatch('search/data/actionsFilter'),
       store.dispatch('product/filter/actionsProductFilter'),
     ])
+    store.commit('search/panel/deletePanel')
     store.commit('search/data/resetMark')
     FilterCategoriesSetUrl(store).filterCategoriesSetUrl()
     FilterApplicabilitiesSetUrl(store).setUrlApplicabilities()
     FilterBrandMark(store).markBrand()
+    if (
+      store.getters['search/panel/getSearchApplicabilitiesPanel'].length === 0
+    ) {
+      store.commit('search/panel/resetPanel')
+    }
   }
   useFetch(async () => {
     await filterStart()
@@ -38,6 +44,10 @@ export function PageSearch() {
   })
   const scrollTop = () => {
     window.scrollTo({ top: 0 })
+  }
+  const pageSet = (value: number) => {
+    scrollTop()
+    store.commit('search/form/setPage', value)
   }
   const productFilter = computed(() => {
     return store.getters['product/filter/getProductFilter']
@@ -55,12 +65,13 @@ export function PageSearch() {
     store.commit('search/form/resetAll')
     store.commit('search/panel/deletePanel')
     store.commit('search/data/resetCarbrandsTopSelect')
+    store.commit('product/filter/setProductFilter', [])
   })
   return {
-    scrollTop,
     productFilter,
     getProductLimit,
     getProductCount,
     getSearchStart,
+    pageSet,
   }
 }

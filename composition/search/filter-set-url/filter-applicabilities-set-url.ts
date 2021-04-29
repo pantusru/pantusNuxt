@@ -26,10 +26,6 @@ export function FilterApplicabilitiesSetUrl(store: any) {
     const carbrandsElem = carbrandsFilter.value.filter(
       (elem) => elem === carbrands.id
     )[0]
-    if (carbrands.level === 1 && !carbrandsElem) {
-      // выход с рекурсии при старте
-      return
-    }
     if (carbrandsElem) {
       if (carbrands.level === 1) {
         store.commit('search/panel/setNewPanel')

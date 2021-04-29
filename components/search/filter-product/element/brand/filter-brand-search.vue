@@ -17,10 +17,10 @@ export default {
   name: 'FilterBrandSearch',
   props: {
     dataset: {
-      type: Array as PropType<brandInterface>,
+      type: Array as PropType<brandInterface[]>,
     },
   },
-  setup(props, { emit }: { emit: Function }) {
+  setup(props: any, { emit }: { emit: Function }) {
     return { ...FilterBrandSearch(props.dataset, emit) }
   },
 }

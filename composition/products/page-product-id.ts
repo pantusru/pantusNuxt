@@ -22,7 +22,7 @@ export function PageProductsId() {
         redirect(`/products/${getProductId.value.productCard.id}/${articul}`)
       }
     } else {
-      redirect(404, `/404`)
+      redirect(`/404`)
     }
   })
 

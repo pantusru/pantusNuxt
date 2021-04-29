@@ -45,6 +45,9 @@ export const mutations: MutationTree<RootState> = {
 }
 export const actions: ActionTree<RootState, RootState> = {
   fixPanel({ commit, state }) {
+    if (state.searchApplicabilitiesPanel.length === 1) {
+      return
+    }
     const indexDelete: number[] = []
     state.searchApplicabilitiesPanel.forEach((elem, index) => {
       if (elem.selectedMarka === null) {
@@ -55,6 +58,9 @@ export const actions: ActionTree<RootState, RootState> = {
     indexDelete.forEach((index) => {
       commit('deleteIndexPanel', index)
     })
+    if (state.searchApplicabilitiesPanel.length === 0) {
+      commit('setNewPanel')
+    }
   },
 }
 export const getters = {

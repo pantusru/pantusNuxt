@@ -58,7 +58,6 @@
         </div>
         <div class="row-gutters product_id-row_offers">
           <h2 class="h2">Предложение</h2>
-          {{ userProfile }}
           <div>
             Уровень цен:
             <template v-if="userProfile && userProfile.type === 'wholesale'">

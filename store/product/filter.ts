@@ -6,8 +6,8 @@ interface InterfaceFilterProduct {
   filter: TypeProductVuex[]
   limit: number
   count: number
-  searchStart: boolean
-  flagProduct: boolean
+  searchStart: boolean // Требуется ли загружить товары
+  flagProduct: boolean // были ли загружены товары
 }
 export interface InterfaceFilterProductMap {
   data: TypeProductVuex[]
@@ -31,16 +31,18 @@ export const mutations: MutationTree<RootState> = {
   ) {
     store.filter = data.data
     store.count = data.count
+    store.flagProduct = true
   },
   setSearchStart(store: InterfaceFilterProduct, data: boolean) {
     store.searchStart = data
   },
-  setFlagProduct(store: InterfaceFilterProduct, data: boolean) {
-    store.flagProduct = data
+  flagProductFalse(store: InterfaceFilterProduct) {
+    store.flagProduct = false
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
   async actionsProductFilter({ state, commit, rootGetters }) {
+    commit('flagProductFalse')
     const data: InterfaceFilterProductMap = await ProductFilterAxios(
       this.$axios,
       rootGetters['search/form/getForm'],

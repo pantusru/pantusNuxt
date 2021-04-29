@@ -5,10 +5,10 @@
       <filter-button-get :toggle="toggle" />
     </div>
     <div v-show="toggle">
-      <filter-brand-search />
+      <filter-brand-search :dataset.sync="brandView" />
       <div class="filter-overflow">
         <filter-brand-checked
-          v-for="brand in BrandVuex"
+          v-for="brand in brandView"
           :key="brand.id"
           :brand="brand"
         />
@@ -18,18 +18,17 @@
 </template>
 
 <script lang="ts">
-import { useContext, computed } from '@nuxtjs/composition-api'
 import FilterBrandSearch from '@/components/search/filter-product/element/brand/filter-brand-search.vue'
 import FilterBrandChecked from '@/components/search/filter-product/element/brand/filter-brand-checked.vue'
 import { ToggleClick } from '~/composition/_toggle/toggle-click'
 import FilterButtonGet from '~/components/search/filter-button/filter-button-get.vue'
+import { FilterBrand } from '~/composition/search/filter-brand/filter-brand'
+
 export default {
   name: 'FilterProductBrand',
   components: { FilterButtonGet, FilterBrandChecked, FilterBrandSearch },
   setup() {
-    const { store } = useContext()
-    const BrandVuex = computed(() => store.getters['search/data/getBrands'])
-    return { BrandVuex, ...ToggleClick() }
+    return { ...FilterBrand(), ...ToggleClick() }
   },
 }
 </script>

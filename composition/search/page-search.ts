@@ -61,6 +61,9 @@ export function PageSearch() {
   const getSearchStart = computed(() => {
     return store.getters['product/filter/getSearchStart']
   })
+  const getFlagProduct = computed(() => {
+    return store.getters['product/filter/getFlagProduct']
+  })
   onUnmounted(() => {
     store.commit('search/form/resetAll')
     store.commit('search/panel/deletePanel')
@@ -72,6 +75,7 @@ export function PageSearch() {
     getProductLimit,
     getProductCount,
     getSearchStart,
+    getFlagProduct,
     pageSet,
   }
 }

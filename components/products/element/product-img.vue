@@ -1,12 +1,16 @@
 <template>
   <div :class="classImg">
-    <img class="img" :src="src" alt="" />
+    <v-lazy-image class="img" :src="src" alt="" />
+    <nuxt-link :to="src" />
   </div>
 </template>
 
 <script>
+import VLazyImage from 'v-lazy-image'
+
 export default {
   name: 'ProductImg',
+  components: { VLazyImage },
   props: {
     classImg: {
       type: String,

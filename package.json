@@ -23,6 +23,7 @@
     "core-js": "^3.8.3",
     "js-base64": "^3.6.0",
     "nuxt": "^2.14.12",
+    "v-lazy-image": "^1.4.0",
     "v-mask": "^2.2.4",
     "vue-virtual-scroll-list": "^2.3.1"
   },

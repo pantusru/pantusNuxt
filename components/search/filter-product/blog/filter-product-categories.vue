@@ -6,19 +6,23 @@
     </div>
     <div v-show="toggle">
       <filter-categories-search />
-      <VirtualList
-        ref="scroll"
-        class="filter-overflow"
-        :keeps="15"
-        :data-key="'id'"
-        :data-sources="CategoriesFilterVuex"
-        :data-component="componentsName"
-      />
-      <!--      <filter-categories-checked-->
-      <!--        v-for="categories in CategoriesFilterVuex"-->
-      <!--        :key="categories.id"-->
-      <!--        :categories="categories"-->
+      <!--      <VirtualList-->
+      <!--        ref="scroll"-->
+      <!--        class="filter-overflow"-->
+      <!--        :keeps="15"-->
+      <!--        :data-key="'id'"-->
+      <!--        :data-sources="CategoriesFilterVuex"-->
+      <!--        :data-component="componentsName"-->
       <!--      />-->
+      <div class="filter-overflow">
+        <template v-for="categories in CategoriesFilterVuex">
+          <filter-categories-checked
+            v-if="categories.visible"
+            :key="categories.id"
+            :source="categories"
+          />
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -34,6 +38,7 @@ import FilterButtonGet from '~/components/search/filter-button/filter-button-get
 export default {
   name: 'FilterProductCategories',
   components: {
+    FilterCategoriesChecked,
     FilterButtonGet,
     FilterCategoriesSearch,
     VirtualList,

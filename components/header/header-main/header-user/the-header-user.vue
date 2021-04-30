@@ -3,6 +3,8 @@
     <div class="header-user-items row-gutters">
       <div class="header-user-img">
         <img
+          width="21"
+          height="21"
           class="img"
           :src="require('~/assets/img/icons/icon-avatar.png')"
           alt="icons-avatar"
@@ -27,6 +29,8 @@
     >
       <div class="header-user-img">
         <img
+          width="21"
+          height="21"
           class="img"
           :src="require('~/assets/img/icons/icon-shopping-cart.png')"
           alt="icon-cart"

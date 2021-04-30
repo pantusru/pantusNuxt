@@ -68,6 +68,16 @@ export const mutations: MutationTree<RootState> = {
     data.data.indeterminate = data.indeterminate
     data.data.checkedType = data.checkedType
   },
+  setCategoriesActive(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    store: SearchDataInterface,
+    data: {
+      data: SearchCategoriesInterface
+      visible: boolean
+    }
+  ) {
+    data.data.visible = data.visible
+  },
   // Brands
   setFilterBrands(store: SearchDataInterface, data: brandInterface[]) {
     store.brands = data

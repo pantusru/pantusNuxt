@@ -4,7 +4,7 @@
       <font-awesome v-if="checked === false" unicode="&#xf096;" />
       <font-awesome v-if="checked === true" unicode="&#xf14a;" />
       <!--    <font-awesome unicode="&#xf146;" />-->
-      <span class="filter-input-name">{{ brand.name }}</span>
+      <span class="filter-input-name">{{ source.name }}</span>
     </div>
   </div>
 </template>
@@ -18,12 +18,12 @@ export default {
   name: 'FilterBrandChecked',
   components: { FontAwesome },
   props: {
-    brand: {
+    source: {
       type: Object as () => PropType<brandInterface>,
     },
   },
   setup(props: any) {
-    return { ...FilterBrandChecked(props.brand.id) }
+    return { ...FilterBrandChecked(props.source.id) }
   },
 }
 </script>

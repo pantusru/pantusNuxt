@@ -6,27 +6,32 @@
     </div>
     <div v-show="toggle">
       <filter-brand-search :dataset.sync="brandView" />
-      <div class="filter-overflow">
-        <filter-brand-checked
-          v-for="brand in brandView"
-          :key="brand.id"
-          :brand="brand"
-        />
-      </div>
+      <VirtualList
+        ref="scroll"
+        class="filter-overflow"
+        :keeps="15"
+        :data-key="'id'"
+        :data-sources="brandView"
+        :data-component="componentsName"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import VirtualList from 'vue-virtual-scroll-list'
 import FilterBrandSearch from '@/components/search/filter-product/element/brand/filter-brand-search.vue'
-import FilterBrandChecked from '@/components/search/filter-product/element/brand/filter-brand-checked.vue'
 import { ToggleClick } from '~/composition/_toggle/toggle-click'
 import FilterButtonGet from '~/components/search/filter-button/filter-button-get.vue'
 import { FilterBrand } from '~/composition/search/filter-brand/filter-brand'
 
 export default {
   name: 'FilterProductBrand',
-  components: { FilterButtonGet, FilterBrandChecked, FilterBrandSearch },
+  components: {
+    FilterButtonGet,
+    FilterBrandSearch,
+    VirtualList,
+  },
   setup() {
     return { ...FilterBrand(), ...ToggleClick() }
   },

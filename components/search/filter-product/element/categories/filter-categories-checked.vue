@@ -3,31 +3,28 @@
     <div class="filter-input-wrapper">
       <div
         class="filter-input"
-        @click="CategoriesCheckedClick(categories, !categories.checkedType)"
+        @click="CategoriesCheckedClick(source, !source.checkedType)"
       >
-        <font-awesome
-          v-if="categories.checkedType === true"
-          unicode="&#xf14a;"
-        />
-        <font-awesome v-else-if="categories.indeterminate" unicode="&#xf146;" />
+        <font-awesome v-if="source.checkedType === true" unicode="&#xf14a;" />
+        <font-awesome v-else-if="source.indeterminate" unicode="&#xf146;" />
         <font-awesome v-else class="" unicode="&#xf096;" />
-        <span class="filter-input-name">{{ categories.name }}</span>
+        <span class="filter-input-name">{{ source.name }}</span>
       </div>
       <font-awesome
-        v-if="categories.children.length !== 0"
+        v-if="source.children.length !== 0"
         class="filter-icons-dropdown"
         unicode="&#xf078;"
         @click="toggleClick"
       />
     </div>
     <div
-      v-if="categories.children.length !== 0 && toggle === true"
+      v-if="source.children.length !== 0 && toggle === true"
       class="catalog-categories-children-wrapper"
     >
       <filter-categories-checked
-        v-for="categoriesElem in categories.children"
+        v-for="categoriesElem in source.children"
         :key="categoriesElem.id"
-        :categories="categoriesElem"
+        :source="categoriesElem"
       />
     </div>
   </div>
@@ -44,7 +41,7 @@ export default {
   name: 'FilterCategoriesChecked',
   components: { FontAwesome },
   props: {
-    categories: {
+    source: {
       type: Object as () => PropType<SearchCategoriesInterface>,
     },
   },

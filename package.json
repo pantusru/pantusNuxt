@@ -24,7 +24,7 @@
     "js-base64": "^3.6.0",
     "nuxt": "^2.14.12",
     "v-mask": "^2.2.4",
-    "vee-validate": "^3.4.5"
+    "vue-virtual-scroll-list": "^2.3.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",

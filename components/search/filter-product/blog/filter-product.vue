@@ -4,6 +4,11 @@
       class="filter-product__get filter-catalog-get-row"
       @click="toggleClick"
     >
+      <img
+        width="40"
+        height="40"
+        :src="require('~/assets/img/search/other-filters-red-5.a9edc5e.svg')"
+      />
       <span>Все фильтры</span>
       <filter-button-get :toggle="toggle" />
     </div>

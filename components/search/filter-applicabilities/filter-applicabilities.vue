@@ -7,6 +7,13 @@
       class="filter-applicabilities-title filter-catalog-get-row"
       @click="toggleClick"
     >
+      <img
+        width="40"
+        height="40"
+        :src="
+          require('~/assets/img/search/filters-applicabilities-red-6.e88322f.svg')
+        "
+      />
       <span>Укажите применяемости</span>
       <filter-button-get :toggle="toggle" />
     </h3>

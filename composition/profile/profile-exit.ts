@@ -11,6 +11,7 @@ export function ProfileExit() {
     store.commit('profile/setProfile', undefined)
     store.commit('cart/resetCart')
     store.commit('orders/resetOrders')
+    store.commit('favorites/resetFavorites')
   }
   return { exitUser }
 }

@@ -38,7 +38,7 @@ export const mutations: MutationTree<RootState> = {
   },
   resetFavorites(store: favoritesStore) {
     store.favorites = []
-    store.loader = false
+    store.favoritesId = []
   },
 }
 export const actions: ActionTree<RootState, RootState> = {
@@ -46,8 +46,8 @@ export const actions: ActionTree<RootState, RootState> = {
     const data: TypeProductVuex[] = await FavoritesAxios(this.$axios)
     commit('setFavorites', data)
   },
-  async actionsFavoritesId({ commit, getters }) {
-    if (!getters.getFavoritesLoader) {
+  async actionsFavoritesId({ commit, getters }, check: boolean = false) {
+    if (!getters.getFavoritesLoader || check) {
       const data: number[] = await FavoritesAxiosId(this.$axios)
       commit('setFavoritesId', data)
     }

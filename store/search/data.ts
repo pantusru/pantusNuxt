@@ -76,6 +76,7 @@ export const mutations: MutationTree<RootState> = {
       visible: boolean
     }
   ) {
+    // console.log('1')
     data.data.visible = data.visible
   },
   // Brands

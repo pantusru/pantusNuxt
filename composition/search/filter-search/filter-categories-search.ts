@@ -7,23 +7,31 @@ export function FilterCategoriesSearch() {
     () => store.getters['search/data/getCategories']
   )
   const value = ref('')
+
   const searchCategories = () => {
-    forCategoriesAll(categoriesVuex.value)
+    if (value.value.length < 3) {
+      return
+    }
+    forCategoriesAll(categoriesVuex.value, false)
   }
   const searchCategoriesName = (elem: SearchCategoriesInterface) => {
     return elem.name.toLowerCase().search(value.value.toLowerCase()) !== -1
   }
-  const forCategoriesAll = (data: SearchCategoriesInterface[]): boolean => {
+  const forCategoriesAll = (
+    data: SearchCategoriesInterface[],
+    check: boolean
+  ): boolean => {
     let checkParent = false
     for (const elem of data) {
       if (searchCategoriesName(elem)) {
         checkParent = true
+        check = true
         categoriesActive(elem, checkParent)
       } else {
         if (elem.children.length > 0) {
-          checkParent = forCategoriesAll(elem.children)
+          check = forCategoriesAll(elem.children, check)
         }
-        categoriesActive(elem, checkParent)
+        categoriesActive(elem, check)
       }
     }
     return checkParent
@@ -39,30 +47,5 @@ export function FilterCategoriesSearch() {
       })
     }
   }
-  // const categoriesActiveAll = (
-  //   data: SearchCategoriesInterface,
-  //   value: boolean
-  // ) => {
-  //   categoriesActive(data, value)
-  //   if (data.children.length > 0) {
-  //     for (const children of data.children) {
-  //       categoriesActiveAll(children, value)
-  //     }
-  //   }
-  // }
-  // data.forEach((elem) => {
-  //   if (elem.children.length !== 0) {
-  //     checkParent = search(elem.children)
-  //   }
-  //   if (elem.name.toLowerCase().search(value.value.toLowerCase()) !== -1) {
-  //     checkParent = true
-  //   }
-  //   store.commit('search/data/setCategoriesActive', {
-  //     data: elem,
-  //     visible: checkParent,
-  //   })
-  // })
-  // return checkParent
-
   return { value, searchCategories }
 }

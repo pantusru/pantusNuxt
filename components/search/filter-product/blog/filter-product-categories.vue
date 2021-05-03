@@ -4,7 +4,7 @@
       <span>Категории</span>
       <filter-button-get :toggle="toggle" />
     </div>
-    <div v-show="toggle">
+    <div v-if="toggle">
       <filter-categories-search />
       <!--      <VirtualList-->
       <!--        ref="scroll"-->

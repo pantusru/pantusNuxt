@@ -1,11 +1,14 @@
 <template>
-  <input
-    v-model="value"
-    class="filter-search"
-    type="text"
-    placeholder="Поиск по списку"
-    @input="emitStart"
-  />
+  <div>
+    <input
+      v-model="value"
+      class="filter-search"
+      type="text"
+      placeholder="Поиск по списку"
+      @input="emitStart"
+    />
+    <div v-if="errors" class="text-error">Указан не корретный символ</div>
+  </div>
 </template>
 
 <script lang="ts">

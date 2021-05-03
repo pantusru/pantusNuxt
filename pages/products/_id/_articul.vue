@@ -10,6 +10,7 @@
       </div>
       <div class="product_id-data col">
         <h1 class="h1">{{ getProductId.productCard.name }}</h1>
+        <favorites-icons :id="getProductId.productCard.id" />
         <div class="product_id-params_all">
           <div class="product_id-params">
             <div class="product_id-params_name">Производитель:</div>
@@ -96,10 +97,12 @@
 
 <script lang="ts">
 import { PageProductsId } from '~/composition/products/page-product-id'
+import FavoritesIcons from '~/components/favorites/favorites-icons.vue'
 
 export default {
   name: 'PageProductsId',
   components: {
+    FavoritesIcons,
     ProductOfferId: () =>
       import('~/components/products/offers/product-offer-id.vue'),
   },

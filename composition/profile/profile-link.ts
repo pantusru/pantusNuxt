@@ -12,6 +12,11 @@ export function ProfileLink() {
       to: '/profile/orders',
       text: 'История заказов',
     },
+    {
+      id: 3,
+      to: '/profile/selected',
+      text: 'Избранные товары',
+    },
   ]
   return { link }
 }

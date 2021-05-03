@@ -4,7 +4,7 @@
     class="product-link-main"
     :class="classLink"
     :to="
-      'products/' +
+      '/products/' +
       product.productCard.id +
       '/' +
       product.productCard.sku.normalized +

@@ -4,6 +4,7 @@
       :product="product"
       class-link="link link-hover-main product-blog-link"
     />
+    <favorites-icons :id="product.productCard.id" />
     <product-img
       :alt="product.productCard.name"
       :src="product.productCard.productCardImage.url"
@@ -12,23 +13,23 @@
       <product-params
         name="Бренд"
         :value="product.productCard.brand.name"
-        :to="'search?filter_brands=' + product.productCard.brand.id"
+        :to="'/search?filter_brands=' + product.productCard.brand.id"
       />
       <product-params
         name="Артикул"
         :value="product.productCard.sku.original"
-        :to="'search?filter_substr=' + product.productCard.sku.original"
+        :to="'/search?filter_substr=' + product.productCard.sku.original"
       />
       <product-params
         name="OEM"
         :value="product.productCard.oem[0]"
-        :to="'search?filter_substr=' + product.productCard.oem[0]"
+        :to="'/search?filter_substr=' + product.productCard.oem[0]"
       />
       <product-params-value
         v-for="oem in product.productCard.oem.slice(1, 5)"
         :key="oem"
         class="product-params-value-array"
-        :to="'search?filter_substr=' + oem"
+        :to="'/search?filter_substr=' + oem"
         :value="oem"
       />
     </div>
@@ -48,10 +49,12 @@ import ProductImg from '~/components/products/element/product-img.vue'
 import ProductParams from '~/components/products/element/params/product-params.vue'
 import ProductParamsValue from '~/components/products/element/params/product-params-value.vue'
 import ProductOfferBlog from '~/components/products/offers/product-offer-blog.vue'
+import FavoritesIcons from '~/components/favorites/favorites-icons.vue'
 
 export default {
   name: 'ProductBlog',
   components: {
+    FavoritesIcons,
     ProductOfferBlog,
     ProductParamsValue,
     ProductParams,

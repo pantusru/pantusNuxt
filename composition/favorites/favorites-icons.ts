@@ -34,5 +34,11 @@ export function FavoritesIcons(id: number) {
   getCheck.value = getFavorites.value.includes(id)
   setTextTitle()
 
-  return { getCheck, textTitle, deleteFavorites, putFavorites, getUserAuthorization }
+  return {
+    getCheck,
+    textTitle,
+    deleteFavorites,
+    putFavorites,
+    getUserAuthorization,
+  }
 }

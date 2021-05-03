@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import FontAwesome from '~/components/base/font-awesome/font-awesome'
+import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
 import { FavoritesIcons } from '~/composition/favorites/favorites-icons'
 export default {
   name: 'FavoritesIcons',

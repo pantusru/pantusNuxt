@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import VirtualList from 'vue-virtual-scroll-list'
+// import VirtualList from 'vue-virtual-scroll-list'
 import { computed, useContext } from '@nuxtjs/composition-api'
 import FilterCategoriesSearch from '~/components/search/filter-product/element/categories/filter-categories-search.vue'
 import FilterCategoriesChecked from '~/components/search/filter-product/element/categories/filter-categories-checked.vue'
@@ -41,7 +41,7 @@ export default {
     FilterCategoriesChecked,
     FilterButtonGet,
     FilterCategoriesSearch,
-    VirtualList,
+    // VirtualList,
   },
   setup() {
     const { store } = useContext()

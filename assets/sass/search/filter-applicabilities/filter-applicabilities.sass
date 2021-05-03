@@ -1,11 +1,17 @@
+.filter-applicabilities
+  +mb(15px)
 .filter-applicabilities-form
+  width: 100%
+
   border: 1px solid #e1e1e1
   box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
   +py(10px)
   +px(15px)
   +d-display(inline-block)
-  +mb(15px)
-  width: 100%
+  &:hover
+    border: 1px solid #ec0e1d
+    .link-hover-main
+      color: #ec0e1d
 
 .filter-applicabilities-form-get
   +d-display(block)
@@ -17,7 +23,11 @@
   +fz(14px)
 
 .filter-applicabilities-wrapper-panel
-  +mt(25px)
+  border: 1px solid #e1e1e1
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
+  +pt(25px)
+  +px(15px)
+  +pb(20px)
 
 .filter-applicabilities-panel
   +row-no-gutters()

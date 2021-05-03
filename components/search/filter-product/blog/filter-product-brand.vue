@@ -1,7 +1,7 @@
 <template>
   <div class="filter-catalog-wrapper">
     <div class="filter-title filter-catalog-get-row" @click="toggleClick">
-      <span>Бренд</span>
+      <span class="link-hover-main">Бренд</span>
       <filter-button-get :toggle="toggle" />
     </div>
     <div v-show="toggle">

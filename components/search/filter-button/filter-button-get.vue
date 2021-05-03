@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="link-hover-main">
     <font-awesome v-if="!toggle" unicode="&#xf0ab;" />
     <font-awesome v-if="toggle" unicode="&#xf0aa;" />
   </div>

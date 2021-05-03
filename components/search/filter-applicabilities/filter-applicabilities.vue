@@ -1,22 +1,24 @@
 <template>
-  <form
-    class="filter-applicabilities-form"
-    :class="{ 'filter-applicabilities-form-get': toggle }"
-  >
-    <h3
-      class="filter-applicabilities-title filter-catalog-get-row"
-      @click="toggleClick"
+  <div class="filter-applicabilities">
+    <form
+      class="filter-applicabilities-form"
+      :class="{ 'filter-applicabilities-form-get': toggle }"
     >
-      <img
-        width="40"
-        height="40"
-        :src="
-          require('~/assets/img/search/filters-applicabilities-red-6.e88322f.svg')
-        "
-      />
-      <span>Укажите применяемости</span>
-      <filter-button-get :toggle="toggle" />
-    </h3>
+      <h3
+        class="filter-applicabilities-title filter-catalog-get-row"
+        @click="toggleClick"
+      >
+        <img
+          width="40"
+          height="40"
+          :src="
+            require('~/assets/img/search/filters-applicabilities-red-6.e88322f.svg')
+          "
+        />
+        <span class="link-hover-main">Укажите применяемости</span>
+        <filter-button-get :toggle="toggle" />
+      </h3>
+    </form>
     <div v-show="toggle" class="filter-applicabilities-wrapper-panel">
       <div class="filter-applicabilities-buttons">
         <button
@@ -40,7 +42,7 @@
       />
       <filter-button-submit />
     </div>
-  </form>
+  </div>
 </template>
 
 <script lang="ts">

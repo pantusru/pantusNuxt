@@ -1,8 +1,5 @@
 .filter-product-wrapper
-  border: 1px solid #dee2e6
-  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
   +grid(3)
-  +px(15px)
   +pt(10px)
   +pb(10px)
   +mb(20px)
@@ -15,14 +12,24 @@
 
 
 .filter-product__get
+  border: 1px solid #dee2e6
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
   cursor: pointer
   color: #666
   font-weight: 700
   +fz(14px)
+  +py(10px)
+  &:hover
+    border: 1px solid #ec0e1d
+    .link-hover-main
+      color: #ec0e1d
 
   //+pb(10px)
 .filter-product-catalog-wrapper
+  border: 1px solid #dee2e6
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.2)
   +pt(15px)
+  +px(15px)
 .filter-product-buttons-wrapper
   +justify-content-between()
 .filter-product-button__reset
@@ -31,6 +38,7 @@
     background-color: #5a6268
 
 .filter-catalog-get-row
+  +px(15px)
   +row-no-gutters()
   +justify-content-between()
   +align-items-center()

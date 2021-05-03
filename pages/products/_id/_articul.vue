@@ -10,7 +10,10 @@
       </div>
       <div class="product_id-data col">
         <h1 class="h1">{{ getProductId.productCard.name }}</h1>
-        <favorites-icons :id="getProductId.productCard.id" />
+        <favorites-icons
+          v-if="getUserAuthorization"
+          :id="getProductId.productCard.id"
+        />
         <div class="product_id-params_all">
           <div class="product_id-params">
             <div class="product_id-params_name">Производитель:</div>
@@ -97,17 +100,17 @@
 
 <script lang="ts">
 import { PageProductsId } from '~/composition/products/page-product-id'
-import FavoritesIcons from '~/components/favorites/favorites-icons.vue'
+import { UserAuthorization } from '~/lib/get-user-aruthorization'
 
 export default {
   name: 'PageProductsId',
   components: {
-    FavoritesIcons,
+    FavoritesIcons: () => import('~/components/favorites/favorites-icons.vue'),
     ProductOfferId: () =>
       import('~/components/products/offers/product-offer-id.vue'),
   },
   setup() {
-    return { ...PageProductsId() }
+    return { ...PageProductsId(), ...UserAuthorization() }
   },
 }
 </script>

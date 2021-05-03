@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="getUserAuthorization"
-    class="favorites-icons-wrapper"
-    :title="textTitle"
-  >
+  <div class="favorites-icons-wrapper" :title="textTitle">
     <font-awesome
       v-if="!getCheck"
       unicode="&#xf097;"

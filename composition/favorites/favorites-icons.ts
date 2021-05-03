@@ -5,9 +5,6 @@ export function FavoritesIcons(id: number) {
   const getFavorites: Ref<number[]> = computed(() => {
     return store.getters['favorites/getFavoritesId']
   })
-  const getUserAuthorization = computed(() => {
-    return store.getters['authorization/getUserAuthorization']
-  })
   const deleteFavorites = async () => {
     const check = await store.dispatch('favorites/actionsDeleteFavorites', id)
     if (check) {
@@ -31,7 +28,7 @@ export function FavoritesIcons(id: number) {
   }
   const getCheck = ssrRef(false)
   const textTitle = ssrRef('')
-  getCheck.value = getFavorites.value.includes(id)
+  getCheck.value = getFavorites.value?.includes(id)
   setTextTitle()
 
   return {
@@ -39,6 +36,5 @@ export function FavoritesIcons(id: number) {
     textTitle,
     deleteFavorites,
     putFavorites,
-    getUserAuthorization,
   }
 }

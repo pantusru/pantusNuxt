@@ -4,7 +4,7 @@
       :product="product"
       class-link="link link-hover-main product-blog-link"
     />
-    <favorites-icons :id="product.productCard.id" />
+    <favorites-icons v-if="getUserAuthorization" :id="product.productCard.id" />
     <product-img
       :alt="product.productCard.name"
       :src="product.productCard.productCardImage.url"
@@ -49,12 +49,12 @@ import ProductImg from '~/components/products/element/product-img.vue'
 import ProductParams from '~/components/products/element/params/product-params.vue'
 import ProductParamsValue from '~/components/products/element/params/product-params-value.vue'
 import ProductOfferBlog from '~/components/products/offers/product-offer-blog.vue'
-import FavoritesIcons from '~/components/favorites/favorites-icons.vue'
+import { UserAuthorization } from '~/lib/get-user-aruthorization'
 
 export default {
   name: 'ProductBlog',
   components: {
-    FavoritesIcons,
+    FavoritesIcons: () => import('~/components/favorites/favorites-icons.vue'),
     ProductOfferBlog,
     ProductParamsValue,
     ProductParams,
@@ -65,6 +65,9 @@ export default {
     product: {
       type: Object as () => PropType<TypeProductVuex>,
     },
+  },
+  setup() {
+    return { ...UserAuthorization() }
   },
 }
 </script>

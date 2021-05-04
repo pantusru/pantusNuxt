@@ -22,6 +22,11 @@ const categoriesMainMap = (
     id: data.id,
     children: [],
   })
+  if (data.childs.length > 0) {
+    for (const children of data.childs) {
+      categoriesMainMap(children, result[result.length - 1].children)
+    }
+  }
 }
 
 const categoriesMap = (
@@ -30,9 +35,6 @@ const categoriesMap = (
   const categories: CategoriesInterface[] = []
   data.forEach((array) => {
     categoriesMainMap(array, categories)
-    array.childs.forEach((children) => {
-      categoriesMainMap(children, categories[categories.length - 1].children)
-    })
   })
   return categories
 }

@@ -1,7 +1,7 @@
 <template>
   <div :class="classImg">
     <v-lazy-image class="img" :src="src" alt="" />
-    <a :to="src"  @click.prevent=""/>
+    <a :to="src" @click.prevent="" />
   </div>
 </template>
 

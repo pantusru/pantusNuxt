@@ -24,6 +24,11 @@ const carbrandsMainMap = (
     id: data.id,
     children: [],
   })
+  if (data.childs.length > 0) {
+    for (const children of data.childs) {
+      carbrandsMainMap(children, result?.[result.length - 1].children)
+    }
+  }
 }
 
 const carbrandsMap = (data: CarbrandsInterfaceApi[]): CarbrandsInterface[] => {

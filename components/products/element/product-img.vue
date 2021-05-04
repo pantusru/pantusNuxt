@@ -1,7 +1,7 @@
 <template>
   <div :class="classImg">
     <v-lazy-image class="img" :src="src" alt="" />
-    <nuxt-link :to="src" />
+    <a :to="src"  @click.prevent=""/>
   </div>
 </template>
 

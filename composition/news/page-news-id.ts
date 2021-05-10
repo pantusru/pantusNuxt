@@ -5,10 +5,16 @@ export function PageNewsId() {
 
   useFetch(async () => {
     const id = route.value.params.id
-    await store.dispatch('news/actionsNewsId', id)
+    await Promise.all([
+      store.dispatch('news/actionsNewsId', id),
+      store.dispatch('news/actionsNewsPopular'),
+    ])
   })
   const newsId = computed(() => {
     return store.getters['news/getNewsId']
   })
-  return { newsId }
+  const newsPopular = computed(() => {
+    return store.getters['news/getNewsPopular'].slice(0, 3)
+  })
+  return { newsId, newsPopular }
 }

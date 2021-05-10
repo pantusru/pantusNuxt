@@ -32,8 +32,8 @@ export const mutations: MutationTree<RootState> = {
   setCategories(store: NewsInterfaceStore, data: NewsCategoriesInterface[]) {
     store.categories = data
   },
-  setNewsPopular(store: NewsInterfaceStore, data: NewsInterface[]) {
-    store.newsPopular = data
+  setNewsPopular(store: NewsInterfaceStore, data: ResultNewsInterface) {
+    store.newsPopular = data.data
   },
   setNewsId(store: NewsInterfaceStore, data: NewsInterface) {
     store.newsId = data

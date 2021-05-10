@@ -7,7 +7,7 @@ export function HeaderBottomDropdown() {
     { id: 3, to: '', text: 'ОПТ' },
     { id: 4, to: '', text: 'Поставщикам' },
     { id: 5, to: '', text: 'Документы и реквизиты' },
-    { id: 6, to: '', text: 'Дилерские сертификаты' },
+    { id: 6, to: '/about/certificates', text: 'Дилерские сертификаты' },
   ]
   return { link }
 }

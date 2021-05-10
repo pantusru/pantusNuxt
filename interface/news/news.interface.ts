@@ -24,7 +24,7 @@ export interface NewsApiInterface {
   name: string
   activity: boolean
   content: string
-  categories: NewsCategoriesIdApiInterface
+  category: NewsCategoriesIdApiInterface
   dates: {
     // eslint-disable-next-line camelcase
     active_from: string

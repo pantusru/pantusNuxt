@@ -15,6 +15,7 @@ export interface ParamsNewsApiInterface {
   page_size?: number
   // eslint-disable-next-line camelcase
   page_number?: number
+  // eslint-disable-next-line camelcase
   filter_categories?: number
 }
 export interface ResultNewsInterface {
@@ -62,16 +63,16 @@ const newsIdMap = (data: NewsApiInterface): NewsIdInterface | null => {
     return null
   }
   return {
-    name: data.name,
     id: data.id,
+    name: data.name,
     preview: {
       image: data.preview.image,
       text: data.preview.text,
     },
     categories: {
-      id: data.categories.id,
-      name: data.categories.name,
-      code: data.categories.code,
+      id: data.category.id,
+      name: data.category.name,
+      code: data.category.code,
     },
     content: data.content,
     dates: {

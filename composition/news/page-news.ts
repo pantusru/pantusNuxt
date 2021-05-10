@@ -11,4 +11,5 @@ export function PageNews() {
       store.dispatch('news/actionsNewsCategories'),
     ])
   })
+  return {}
 }

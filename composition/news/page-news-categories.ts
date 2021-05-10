@@ -34,4 +34,5 @@ export function PageNewsCategories() {
     )
     await store.dispatch('news/actionsNews', { page, categories: categoriesId })
   })
+  return {}
 }

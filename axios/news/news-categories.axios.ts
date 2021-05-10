@@ -7,7 +7,7 @@ import {
 export const NewsCategoriesAxios = async (
   $axios: NuxtAxiosInstance
 ): Promise<NewsCategoriesInterface[]> => {
-  const { data } = await $axios.$get(`${process.env.api}/news/categories`)
+  const { data } = await $axios.get(`${process.env.api}/news/categories`)
   return newsCategoriesMap(data)
 }
 const newsCategoriesMap = (

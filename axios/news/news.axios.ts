@@ -7,7 +7,7 @@ import {
 
 export interface ParamsNewsInterface {
   limit: number
-  offers: number
+  page: number
   categories?: number
 }
 export interface ParamsNewsApiInterface {
@@ -15,7 +15,7 @@ export interface ParamsNewsApiInterface {
   page_size?: number
   // eslint-disable-next-line camelcase
   page_number?: number
-  categories?: number
+  filter_categories?: number
 }
 export interface ResultNewsInterface {
   data: NewsInterface[]
@@ -29,8 +29,8 @@ export const newsAxios = async (
   const { data } = await $axios.get(`${process.env.api}/news`, {
     params: { ...paramsApi, sort_order: 'desc' },
   })
-  const news = newsMap(data)
   const count = await newsCountAxios($axios, params.categories)
+  const news = newsMap(data)
   return { data: news, count }
 }
 
@@ -39,7 +39,6 @@ const newsMap = (data: NewsApiInterface[]): NewsInterface[] => {
   data.forEach((array) => {
     news.push({
       name: array.name,
-      code: array.code,
       id: array.id,
       preview: {
         image: array.preview.image,
@@ -64,7 +63,6 @@ const newsIdMap = (data: NewsApiInterface): NewsIdInterface | null => {
   }
   return {
     name: data.name,
-    code: data.code,
     id: data.id,
     preview: {
       image: data.preview.image,
@@ -85,13 +83,13 @@ const newsIdMap = (data: NewsApiInterface): NewsIdInterface | null => {
 const mapParamsNews = (data: ParamsNewsInterface): ParamsNewsApiInterface => {
   const params: ParamsNewsApiInterface = {}
   if (data.categories) {
-    params.categories = data.categories
+    params.filter_categories = data.categories
   }
   if (data.limit) {
     params.page_size = data.limit
   }
-  if (data.offers) {
-    params.page_number = data.offers
+  if (data.page) {
+    params.page_number = data.page
   }
   return params
 }

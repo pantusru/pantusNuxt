@@ -1,6 +1,6 @@
-import { ActionTree, MutationTree } from 'vuex'
+import { ActionTree, MutationTree, GetterTree } from 'vuex'
 import { NewsInterface } from '~/interface/news/news.interface'
-import { CategoriesInterface } from '~/interface/categories.interface'
+import { NewsCategoriesInterface } from '~/interface/news/news-categories.interface'
 import {
   ResultNewsInterface,
   newsAxios,
@@ -11,7 +11,7 @@ export interface NewsInterfaceStore {
   count: number
   news: NewsInterface[]
   newsId: NewsInterface | null
-  categories: CategoriesInterface[]
+  categories: NewsCategoriesInterface[]
   newsPopular: NewsInterface[]
   limit: number
 }
@@ -29,7 +29,7 @@ export const mutations: MutationTree<RootState> = {
     store.news = data.data
     store.count = data.count
   },
-  setCategories(store: NewsInterfaceStore, data: CategoriesInterface[]) {
+  setCategories(store: NewsInterfaceStore, data: NewsCategoriesInterface[]) {
     store.categories = data
   },
   setNewsPopular(store: NewsInterfaceStore, data: NewsInterface[]) {
@@ -42,11 +42,11 @@ export const mutations: MutationTree<RootState> = {
 export const actions: ActionTree<RootState, RootState> = {
   async actionsNews(
     { commit, state },
-    params: { offers: number; categories?: number }
+    params: { page: number; categories?: number }
   ) {
     const data = await newsAxios(this.$axios, {
-      categories: params.categories,
-      offers: params.offers,
+      categories: params?.categories,
+      page: params.page,
       limit: state.limit,
     })
     commit('setNews', data)
@@ -56,11 +56,19 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('setNewsId', data)
   },
   async actionsNewsPopular({ commit }) {
-    const data = await newsAxios(this.$axios, { limit: 9, offers: 0 })
+    const data = await newsAxios(this.$axios, { limit: 9, page: 1 })
     commit('setNewsPopular', data)
   },
   async actionsNewsCategories({ commit }) {
     const data = await NewsCategoriesAxios(this.$axios)
     commit('setCategories', data)
   },
+}
+export const getters: GetterTree<RootState, RootState> = {
+  getCount: (s: NewsInterfaceStore) => s.count,
+  getNews: (s: NewsInterfaceStore) => s.news,
+  getCategories: (s: NewsInterfaceStore) => s.categories,
+  getLimit: (s: NewsInterfaceStore) => s.limit,
+  getNewsPopular: (s: NewsInterfaceStore) => s.newsPopular,
+  getNewsId: (s: NewsInterfaceStore) => s.newsId,
 }

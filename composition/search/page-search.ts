@@ -10,6 +10,7 @@ import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
 import { FilterApplicabilitiesSetUrl } from '~/composition/search/filter-set-url/filter-applicabilities-set-url'
 import { FilterBrandMark } from '~/composition/search/filter-brand/filter-brand-mark'
+import { scrollTop } from '~/lib/scroll-top'
 
 export function PageSearch() {
   const { store } = useContext()
@@ -42,9 +43,7 @@ export function PageSearch() {
     }
     store.commit('product/filter/setSearchStart', true)
   })
-  const scrollTop = () => {
-    window.scrollTo({ top: 0 })
-  }
+
   const pageSet = (value: number) => {
     scrollTop()
     store.commit('search/form/setPage', value)

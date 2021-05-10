@@ -6,31 +6,22 @@ import {
 export interface NewsInterface {
   id: number
   name: string
-  code: string
   // categories: NewsCategoriesIdInterface
   preview: {
     image: string
     text: string
   }
 }
-export interface NewsIdInterface {
-  id: number
-  name: string
-  code: string
+export interface NewsIdInterface extends NewsInterface {
   categories: NewsCategoriesIdInterface
   dates: {
     created: string
   }
   content: string
-  preview: {
-    image: string
-    text: string
-  }
 }
 export interface NewsApiInterface {
   id: number
   name: string
-  code: string
   activity: boolean
   content: string
   categories: NewsCategoriesIdApiInterface

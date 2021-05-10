@@ -4,6 +4,7 @@ import {
   useFetch,
   useRoute,
 } from '@nuxtjs/composition-api'
+import { CheckPageUrl } from '~/lib/check-page-url'
 export function PageOrders() {
   const { store } = useContext()
   const route = useRoute()
@@ -11,10 +12,7 @@ export function PageOrders() {
     await paginationOrder()
   })
   const paginationOrder = async () => {
-    let page = 1
-    if (route.value.query.page && route.value.query) {
-      page = Number(route.value.query.page)
-    }
+    const page = CheckPageUrl(route.value.query.page)
     await store.dispatch('orders/actionsOrder', page)
   }
   const getOrder = computed(() => {

@@ -4,6 +4,7 @@ import {
   useFetch,
   onUnmounted,
 } from '@nuxtjs/composition-api'
+import { RedirectCode } from '~/lib/redirect-code'
 export function PageProductsId() {
   const { store, route, redirect } = useContext()
   const getProductId = computed(() => {
@@ -18,9 +19,12 @@ export function PageProductsId() {
     await store.dispatch('product/id/actionsProductId', id)
     if (getProductId.value) {
       const articul = `${getProductId.value.productCard.sku.normalized}-${getProductId.value.productCard.brand.code}`
-      if (articul !== route.value.params.articul) {
-        redirect(`/products/${getProductId.value.productCard.id}/${articul}`)
-      }
+      RedirectCode().checkRedirectCode(
+        redirect,
+        route.value.params.articul,
+        articul,
+        `/products/${getProductId.value.productCard.id}`
+      )
     } else {
       redirect(`/404`)
     }

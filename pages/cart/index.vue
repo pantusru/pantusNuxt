@@ -5,10 +5,14 @@
       Доступные способы доставки и оплаты вы сможете выбрать при оформлении
       заказа
     </b>
-    <div class="mt-3 text-right">
-      <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
-      <CartButtonUpdate v-if="CartActual === false" />
+    <div class="mt-3">
+      <div class="row no-gutters align-items-center justify-content-end">
+        <CartActiveAll class="mr-2" />
+        <vButton v-if="CartActual === true && CartLength !== 0" />
+        <CartButtonUpdate v-if="CartActual === false" />
+      </div>
     </div>
+
     <template v-if="CartLength !== 0">
       <vTable class="d-none d-lg-block" />
       <VBlogCart class="d-flex d-lg-none" />
@@ -17,9 +21,12 @@
     <div v-if="CartLength === 0" class="mt-3">
       <base-title-info text="Корзина пустая" />
     </div>
-    <div class="text-right">
-      <vButton v-if="CartActual === true && CartLength !== 0" class="mt-3" />
-      <CartButtonUpdate v-if="CartActual === false" />
+    <div class="mt-3">
+      <div class="row no-gutters align-items-center justify-content-end">
+        <CartActiveAll class="mr-2" />
+        <vButton v-if="CartActual === true && CartLength !== 0" />
+        <CartButtonUpdate v-if="CartActual === false" />
+      </div>
     </div>
     <advantage />
   </b-container>
@@ -31,8 +38,10 @@ import vTable from "@/components/table/table-cart-get";
 import VBlogCart from "@/components/cart/blog/cart-row-get";
 import BaseTitleInfo from "@/components/base/title/base-title-info";
 import Advantage from "@/components/home/advantage";
+import CartActiveAll from "~/components/cart/cart-active/cart-active-all";
 export default {
   components: {
+    CartActiveAll,
     Advantage,
     BaseTitleInfo,
     vTable,

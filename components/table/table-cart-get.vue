@@ -127,7 +127,7 @@
                 <p v-if="offer.active">
                   {{ (Number(offer.Count) * offer.prices).toFixed(2) }} Р
                 </p>
-                <cart-active v-if="!offer.active" :id="offer.id" />
+                <cart-active v-if="!offer.active" :id="offer.id + 'des'" />
               </b-td>
               <b-td class="border-top-0">
                 <DeleteCart
@@ -159,7 +159,7 @@ import mixinsEmit from "@/mixins/input/count-product/emit";
 import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
-import CartActive from "~/components/cart/cart-active";
+import CartActive from "~/components/cart/cart-active/cart-active";
 export default {
   components: {
     CartActive,

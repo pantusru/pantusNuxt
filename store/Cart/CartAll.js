@@ -12,10 +12,15 @@ export const state = () => ({
    */
   CartUpdateCount: 0,
   // CheckCartCount: null,
+  CartActiveAll: true,
 });
 export const mutations = {
   ResetCartProduct(store) {
     store.CartProduct = [];
+    store.CartActiveAll = true;
+  },
+  setCartActiveAll(store, data) {
+    store.CartActiveAll = data;
   },
   // /**
   //  * #Сохраняет в Vuex количество измененных товаров
@@ -244,4 +249,5 @@ export const getters = {
    */
   GetCartActual: s => s.CartActual,
   GetCartUpdateCount: s => s.CartUpdateCount,
+  GetCartActiveAll: s => s.CartActiveAll,
 };

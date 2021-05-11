@@ -82,7 +82,8 @@ export const actions = {
     //   }
     // }
   },
-  MapCart({}, data) {
+  MapCart({ commit }, data) {
+    let cartActiveAll = true;
     if (data.dataCart.length > 0) {
       for (const keyCart in data.dataApi) {
         if (data.dataCart[keyCart].productOffer.length !== 0) {
@@ -92,10 +93,22 @@ export const actions = {
             data.dataCart[keyCart].productOffer[keyOffer].checkCount = false;
             data.dataCart[keyCart].productOffer[keyOffer].active =
               data.dataApi[keyCart].offers[keyOffer].activity;
+            if (!data.dataApi[keyCart].offers[keyOffer].activity) {
+              cartActiveAll = false;
+            }
           }
         }
       }
-      return data.dataCart;
+      // return data.dataCart;
+      commit("Cart/CartAll/setCartActiveAll", cartActiveAll, { root: true });
+      return data.dataCart.sort(a => {
+        for (const offers of a.productOffer) {
+          if (offers.active) {
+            return 1;
+          }
+        }
+        return -1;
+      });
     } else {
       return [];
     }

@@ -1,16 +1,25 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col row section1__block-carbrands">
-        <home-block-carbrands
-          v-for="(link, index) in link1"
-          :key="index"
-          :link="link"
-        />
+  <section class="section1">
+    <div class="container">
+      <div class="row">
+        <div class="row-gutters section1__block-carbrands">
+          <home-block-carbrands
+            v-for="(link, index) in link1"
+            :key="index"
+            :link="link"
+          />
+        </div>
+        <div class="col section1-banner">
+          <nuxt-link to="/opt">
+            <img
+              class="img"
+              src="https://bx.pantus.ru/bitrix/images/site/optbanner2.webp"
+              alt="Специальное предложение оптовикам"
+          /></nuxt-link>
+        </div>
       </div>
-      <div class="col section1-banner">Баннер</div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -25,3 +34,6 @@ export default {
   },
 }
 </script>
+<style lang="sass">
+@import "assets/sass/home/section/section1"
+</style>

@@ -73,6 +73,7 @@ export function HomeSection1() {
         url:
           'https://bx.pantus.ru//bitrix/templates/main/img/home/home-car-4.png',
         alt: 'Запчасти для а/м Renault',
+        class: 'home-block-img__carbrands__2',
       },
       className: 'home-block__minCarbrands',
       linkMain: {

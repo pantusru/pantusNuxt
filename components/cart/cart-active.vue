@@ -19,7 +19,7 @@ export default {
   name: "CartActive",
   props: {
     id: {
-      type: Number,
+      type: String,
     },
   },
 };

@@ -45,7 +45,11 @@
       />
     </div>
     <template #footer>
-      <b-row align-h="between" class="mt-1">
+      <b-row
+        v-if="datasetProduct.productOffer[index].active"
+        align-h="between"
+        class="mt-1"
+      >
         <b-col>
           <div class="mb-2">
             <span class="mb-3">Цена:</span>
@@ -77,6 +81,7 @@
           </div>
         </b-col>
       </b-row>
+      <cart-active :id="datasetProduct.productOffer[index].id + 'mob'" v-else />
     </template>
   </b-card>
 </template>
@@ -88,10 +93,12 @@ import DeleteCart from "@/components/cart/button/cart-button-delete";
 import ImgGetModal from "@/components/products/product/element/img";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
+import CartActive from "~/components/cart/cart-active";
 
 export default {
   name: "CartBlogGet",
   components: {
+    CartActive,
     CartButtonUpdateProduct,
     ImgGetModal,
     DeleteCart,

@@ -90,6 +90,8 @@ export const actions = {
             data.dataCart[keyCart].productOffer[keyOffer].Count =
               data.dataApi[keyCart].offers[keyOffer].quantityInCart;
             data.dataCart[keyCart].productOffer[keyOffer].checkCount = false;
+            data.dataCart[keyCart].productOffer[keyOffer].active =
+              data.dataApi[keyCart].offers[keyOffer].activity;
           }
         }
       }

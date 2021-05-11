@@ -76,6 +76,7 @@ export const actions = {
     if (data.length === 0 || data.error !== undefined) {
       return [];
     }
+    console.log(data);
     data.forEach(elem => {
       dataset.push({
         ProductCard: {

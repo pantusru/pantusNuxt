@@ -37,21 +37,44 @@
               class="w-15 border-bottom"
               :length-offer="table.productOffer.length"
             >
-              <span class="text-576b77 reset-title">
+              <nuxt-link
+                :title="table.ProductCard.name"
+                class="text-436174 text-decoration-none reset-title"
+                :to="
+                  '/products/' +
+                  table.ProductCard.id +
+                  '/' +
+                  table.ProductCard.sku.normalized +
+                  '-' +
+                  table.ProductCard.brand.code
+                "
+              >
                 {{ table.ProductCard.sku.original }}
-              </span>
+              </nuxt-link>
             </table-product-cart-td>
 
             <table-product-cart-td
               class="w-15 border-bottom"
               :length-offer="table.productOffer.length"
             >
-              <span
+              <nuxt-link
                 :title="table.ProductCard.name"
-                class="text-576b77 reset-title"
+                class="text-436174 text-decoration-none reset-title"
+                :to="
+                  '/products/' +
+                  table.ProductCard.id +
+                  '/' +
+                  table.ProductCard.sku.normalized +
+                  '-' +
+                  table.ProductCard.brand.code
+                "
               >
                 {{ table.ProductCard.name }}
-              </span>
+              </nuxt-link>
+              <!--              <span-->
+              <!--                :title="table.ProductCard.name"-->
+              <!--                class="text-576b77 reset-title"-->
+              <!--              />-->
             </table-product-cart-td>
 
             <table-product-cart-td
@@ -76,8 +99,9 @@
               }}</b-td>
               <b-td
                 class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap"
-                >{{ offer.prices }} Р</b-td
               >
+                <p v-if="offer.active">{{ offer.prices }} Р</p>
+              </b-td>
               <availability-offers
                 class="border-top-0"
                 component="b-td"
@@ -86,6 +110,7 @@
               />
               <b-td class="border-top-0 w-15">
                 <vInput
+                  v-if="offer.active"
                   :multiplicity="offer.multiplicity"
                   :add-class-input="'p-0'"
                   :add-class-form="'justify-content-center'"
@@ -95,9 +120,14 @@
                   @Count="SetCount($event, offer)"
                 />
               </b-td>
-              <b-td class="border-top-0">
-                {{ (Number(offer.Count) * offer.prices).toFixed(2) }}
-                Р
+              <b-td
+                class="border-top-0"
+                :class="{ 'align-middle': !offer.active }"
+              >
+                <p v-if="offer.active">
+                  {{ (Number(offer.Count) * offer.prices).toFixed(2) }} Р
+                </p>
+                <cart-active v-if="!offer.active" :id="offer.id" />
               </b-td>
               <b-td class="border-top-0">
                 <DeleteCart
@@ -129,8 +159,10 @@ import mixinsEmit from "@/mixins/input/count-product/emit";
 import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
+import CartActive from "~/components/cart/cart-active";
 export default {
   components: {
+    CartActive,
     AvailabilityOffers,
     CartButtonUpdateProduct,
     vInput,

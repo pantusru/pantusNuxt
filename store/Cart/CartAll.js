@@ -191,9 +191,11 @@ export const getters = {
     for (const key in s.CartProduct) {
       // console.log(s.CartProduct[key].Count);
       for (const keyOffer in s.CartProduct[key].productOffer) {
-        data +=
-          s.CartProduct[key].productOffer[keyOffer].Count *
-          s.CartProduct[key].productOffer[keyOffer].prices;
+        if (s.CartProduct[key].productOffer[keyOffer].active) {
+          data +=
+            s.CartProduct[key].productOffer[keyOffer].Count *
+            s.CartProduct[key].productOffer[keyOffer].prices;
+        }
       }
     }
     data = data.toFixed(2);
@@ -203,7 +205,16 @@ export const getters = {
   GetWeightAll: s => {
     let data = 0;
     for (const key in s.CartProduct) {
-      data += s.CartProduct[key].ProductCard.params.weight;
+      let flag = false;
+      for (const keyOffer in s.CartProduct[key].productOffer) {
+        if (s.CartProduct[key].productOffer[keyOffer].active) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) {
+        data += s.CartProduct[key].ProductCard.params.weight;
+      }
     }
     return data;
   },
@@ -211,7 +222,22 @@ export const getters = {
    * ### Вывод количество товара в корзине
    * @returns {Number} количество товара в корзине
    */
-  GetLength: s => s.CartProduct.length,
+  GetLength: s => {
+    let count = 0;
+    for (const key in s.CartProduct) {
+      let flag = false;
+      for (const keyOffer in s.CartProduct[key].productOffer) {
+        if (s.CartProduct[key].productOffer[keyOffer].active) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) {
+        count += 1;
+      }
+    }
+    return count;
+  },
   /**
    * ### Вывод флаг требуется ли обновлять корзину
    * @returns {Boolean} флаг обновления корзину

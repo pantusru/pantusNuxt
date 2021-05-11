@@ -1,5 +1,5 @@
 <template>
-  <b-td :rowspan="offer">
+  <b-td :rowspan="offer" class="align-middle">
     <slot />
   </b-td>
 </template>

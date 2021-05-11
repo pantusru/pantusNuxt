@@ -94,21 +94,21 @@
               :key="offer.id"
               class="hover-true border-bottom"
             >
-              <b-td class="border-top-0 text-555">{{
+              <b-td class="border-top-0 text-555 align-middle">{{
                 offer.supplier.name
               }}</b-td>
               <b-td
-                class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap"
+                class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap align-middle"
               >
-                <p v-if="offer.active">{{ offer.prices }} Р</p>
+                <template v-if="offer.active">{{ offer.prices }} Р</template>
               </b-td>
               <availability-offers
-                class="border-top-0"
+                class="border-top-0 align-middle"
                 component="b-td"
                 :link-offers="offer"
                 :link-product="table.ProductCard"
               />
-              <b-td class="border-top-0 w-15">
+              <b-td class="border-top-0 w-15 align-middle">
                 <vInput
                   v-if="offer.active"
                   :multiplicity="offer.multiplicity"
@@ -121,12 +121,12 @@
                 />
               </b-td>
               <b-td
-                class="border-top-0"
+                class="border-top-0 align-middle"
                 :class="{ 'align-middle': !offer.active }"
               >
-                <p v-if="offer.active">
+                <template v-if="offer.active">
                   {{ (Number(offer.Count) * offer.prices).toFixed(2) }} Р
-                </p>
+                </template>
                 <cart-active v-if="!offer.active" :id="offer.id + 'des'" />
               </b-td>
               <b-td class="border-top-0">
@@ -160,8 +160,10 @@ import mixinsImg from "@/mixins/modal/product-img";
 import CartButtonUpdateProduct from "@/components/cart/button/cart-button-update-product";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 import CartActive from "~/components/cart/cart-active/cart-active";
+import TableProductCartTd from "~/components/table/product/components/table-product-cart-td";
 export default {
   components: {
+    TableProductCartTd,
     CartActive,
     AvailabilityOffers,
     CartButtonUpdateProduct,

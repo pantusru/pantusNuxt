@@ -138,6 +138,7 @@ export const actions = {
         elem.offers.forEach(data => {
           // Предложение Товара
           dataset[dataset.length - 1].productOffer.push({
+            active: data.activity,
             id: data.id,
             prices: data.price,
             quantity: data.quantity,

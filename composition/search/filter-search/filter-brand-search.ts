@@ -17,5 +17,6 @@ export function FilterBrandSearch(data: brandInterface[], emit: Function) {
   const emitStart = () => {
     emit('update:dataset', searchBrand())
   }
-  return { value, emitStart, errors }
+  emitStart()
+  return { value, emitStart, errors, searchBrand }
 }

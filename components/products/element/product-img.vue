@@ -1,6 +1,11 @@
 <template>
   <div :class="classImg">
-    <v-lazy-image class="img" :src="src" alt="" />
+    <v-lazy-image
+      class="img"
+      :src="src"
+      alt=""
+      :src-placeholder="require('@/assets/img/Ajux_loader.gif')"
+    />
     <a :to="src" @click.prevent="" />
   </div>
 </template>

@@ -6,6 +6,7 @@
     <section4 :brands="getCarousel" />
     <section5 />
     <section6 />
+    <section7 />
   </div>
 </template>
 
@@ -18,10 +19,19 @@ import { BrandCarousel } from '~/composition/brand/brand-carousel'
 import Section4 from '~/components/home/section/section-4.vue'
 import Section5 from '~/components/home/section/section-5.vue'
 import Section6 from '~/components/home/section/section-6.vue'
+import Section7 from '~/components/home/section/section-7.vue'
 
 export default Vue.extend({
   name: 'PageIndex',
-  components: { Section6, Section5, Section4, Section3, Section2, Section1 },
+  components: {
+    Section7,
+    Section6,
+    Section5,
+    Section4,
+    Section3,
+    Section2,
+    Section1,
+  },
   setup() {
     return { ...BrandCarousel() }
   },

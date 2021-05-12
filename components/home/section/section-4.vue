@@ -37,13 +37,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass-mixin/index"
-.section4
-  +mb(20px)
-.section4-img
-  display: block
-  margin: 0 20px
-  max-width: 120px
-.section4 .swiper-wrapper
-  align-items: center
+@import "assets/sass/home/section/section4"
 </style>

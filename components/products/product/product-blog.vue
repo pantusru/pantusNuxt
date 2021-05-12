@@ -73,5 +73,6 @@ export default {
 </script>
 
 <style lang="sass">
+@import "assets/sass/products/product-element"
 @import "assets/sass/products/product-blog"
 </style>

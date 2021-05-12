@@ -4,7 +4,7 @@
       <span class="link-hover-main">Бренд</span>
       <filter-button-get :toggle="toggle" />
     </div>
-    <div v-show="toggle">
+    <div v-if="toggle">
       <filter-brand-search :dataset.sync="brandView" />
       <VirtualList
         ref="scroll"

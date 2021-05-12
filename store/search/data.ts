@@ -98,6 +98,7 @@ export const actions: ActionTree<RootState, RootState> = {
       commit('setFilterCarbrands', data[2])
       commit('setLoader', true)
     }
+    console.log(1)
   },
 }
 

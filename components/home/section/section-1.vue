@@ -12,7 +12,7 @@
         <div class="col section1-banner">
           <nuxt-link to="/opt">
             <img
-              class="img"
+              class="img section1-banner-img"
               src="https://bx.pantus.ru/bitrix/images/site/optbanner2.webp"
               alt="Специальное предложение оптовикам"
           /></nuxt-link>

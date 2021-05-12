@@ -2,6 +2,8 @@
   <div class="home-block__carbrands box-shadow" :class="link.className">
     <nuxt-link
       :to="link.linkMain.to"
+      :active-class="link.linkMain.activeClass"
+      :class="link.linkMain.class"
       class="link link-hover-main home-link__carbrands"
       >{{ link.linkMain.text }}
     </nuxt-link>
@@ -11,6 +13,8 @@
           v-for="(linkId, index) in link.linkDon"
           :key="index"
           :to="linkId.to"
+          :class="linkId.class"
+          :active-class="linkId.activeClass"
           class="home-link__children__carbrands"
         >
           {{ linkId.text }}

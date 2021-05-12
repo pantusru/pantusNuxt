@@ -72,7 +72,8 @@ export function HomeSection3() {
     {
       img: {
         class: 'home-block-img__carbrands__2',
-        url: 'https://bx.pantus.ru/bitrix/templates/main/img/home/home-car-8.png',
+        url:
+          'https://bx.pantus.ru/bitrix/templates/main/img/home/home-car-8.png',
         alt: 'Автозапчасти для а/м ВАЗ',
       },
       className: 'home-block-carbrands',

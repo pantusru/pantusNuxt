@@ -1,9 +1,16 @@
 <template>
-  <div class="search-query-count">По запросу найдено:</div>
+  <div class="search-query-count">
+    По запросу найдено: {{ getProductCount }}
+  </div>
 </template>
 
-<script>
+<script lang="ts">
+import { SearchQuery } from '~/composition/search/search-query'
+
 export default {
   name: 'SearchQuery',
+  setup() {
+    return { ...SearchQuery() }
+  },
 }
 </script>

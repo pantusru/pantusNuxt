@@ -76,7 +76,6 @@ export const mutations: MutationTree<RootState> = {
       visible: boolean
     }
   ) {
-    // console.log('1')
     data.data.visible = data.visible
   },
   // Brands
@@ -98,7 +97,6 @@ export const actions: ActionTree<RootState, RootState> = {
       commit('setFilterCarbrands', data[2])
       commit('setLoader', true)
     }
-    console.log(1)
   },
 }
 

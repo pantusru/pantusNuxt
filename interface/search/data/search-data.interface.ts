@@ -1,5 +1,5 @@
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
-import { brandInterface } from '~/interface/brand.interface'
+import { brandInterface } from '~/interface/brands/brand.interface'
 import { SearchApplicabilitiesInterface } from '~/interface/search/data/search-applicabilities.interface'
 import { SearchMarkInterface } from '~/interface/search/data/search-metks.interface'
 

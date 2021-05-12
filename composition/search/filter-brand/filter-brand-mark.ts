@@ -1,6 +1,6 @@
 import { computed, Ref } from '@nuxtjs/composition-api'
 
-import { brandInterface } from '~/interface/brand.interface'
+import { brandInterface } from '~/interface/brands/brand.interface'
 import { TypeMark } from '~/interface/search/data/search-metks.interface'
 export function FilterBrandMark(store: any) {
   const brandChecked = computed(() => {

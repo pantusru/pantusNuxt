@@ -14,7 +14,7 @@
 <script lang="ts">
 import { PropType } from 'vue'
 import { FilterBrandSearch } from '~/composition/search/filter-search/filter-brand-search'
-import { brandInterface } from '~/interface/brand.interface'
+import { brandInterface } from '~/interface/brands/brand.interface'
 
 export default {
   name: 'FilterBrandSearch',

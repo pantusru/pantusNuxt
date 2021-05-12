@@ -1,5 +1,5 @@
 import { computed, ref, useContext } from '@nuxtjs/composition-api'
-import { brandInterface } from '~/interface/brand.interface'
+import { brandInterface } from '~/interface/brands/brand.interface'
 import { FilterSearchReg } from '~/composition/search/filter-search/filter-search-reg'
 export function FilterBrandSearch(data: brandInterface[], emit: Function) {
   const { store } = useContext()

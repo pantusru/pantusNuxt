@@ -12,7 +12,7 @@
 <script lang="ts">
 import { PropType } from 'vue'
 import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
-import { brandInterface } from '~/interface/brand.interface'
+import { brandInterface } from '~/interface/brands/brand.interface'
 import { FilterBrandChecked } from '~/composition/search/filter-brand/filter-brand-checked.ts'
 export default {
   name: 'FilterBrandChecked',

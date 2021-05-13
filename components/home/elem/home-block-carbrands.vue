@@ -20,23 +20,29 @@
           {{ linkId.text }}
         </nuxt-link>
       </div>
-      <img
+      <v-lazy-image
         v-if="link.img"
         :src="link.img.url"
         :alt="link.img.alt"
         class="img home-block-img"
         :class="link.img.class"
+        :src-placeholder="require('@/assets/img/Ajux_loader.gif')"
       />
+      <a v-if="link.img" :href="link.img.url" @click.prevent=""></a>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import VLazyImage from 'v-lazy-image'
 import { PropType } from 'vue'
 import { LinkHomePropsInterface } from '~/interface/base/props/link-home-props.interface'
 
 export default {
   name: 'HomeBlockCarbrands',
+  components: {
+    VLazyImage,
+  },
   props: {
     link: {
       type: Object as PropType<LinkHomePropsInterface>,

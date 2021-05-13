@@ -7,8 +7,13 @@
       <swiper :options="swiperOption">
         <swiper-slide v-for="brand in brands" :key="brand.code">
           <nuxt-link :to="brand.code">
-            <img :src="brand.img" class="img section4-img" />
+            <VLazyImage
+              :src="brand.img"
+              class="img section4-img"
+              :src-placeholder="require('@/assets/img/Ajux_loader.gif')"
+            />
           </nuxt-link>
+          <a :href="brand.img" @click.prevent="" />
         </swiper-slide>
       </swiper>
     </div>
@@ -19,6 +24,7 @@
 import 'swiper/swiper.min.css'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import { PropType } from 'vue'
+import VLazyImage from 'v-lazy-image'
 import { BrandCarousel } from '~/interface/brands/brand-carousel'
 import { Section4 } from '~/composition/home/section/section-4'
 export default {
@@ -26,6 +32,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    VLazyImage,
   },
   props: {
     brands: Array as PropType<BrandCarousel[]>,

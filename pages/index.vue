@@ -7,6 +7,7 @@
     <section5 />
     <section6 />
     <section7 />
+    <section8 />
   </div>
 </template>
 
@@ -20,10 +21,12 @@ import Section4 from '~/components/home/section/section-4.vue'
 import Section5 from '~/components/home/section/section-5.vue'
 import Section6 from '~/components/home/section/section-6.vue'
 import Section7 from '~/components/home/section/section-7.vue'
+import Section8 from '~/components/home/section/section-8.vue'
 
 export default Vue.extend({
   name: 'PageIndex',
   components: {
+    Section8,
     Section7,
     Section6,
     Section5,

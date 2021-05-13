@@ -22,11 +22,11 @@ export function Section7() {
     },
     // centeredSlides: true,
     breakpoints: {
-      10: {
+      320: {
         slidesPerView: 1,
         spaceBetween: 15,
       },
-      320: {
+      450: {
         slidesPerView: 2,
         spaceBetween: 20,
       },

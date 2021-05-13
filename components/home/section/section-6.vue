@@ -2,7 +2,7 @@
   <section class="section6">
     <div class="container">
       <div class="row">
-        <div class="section6-col">
+        <nuxt-link to="/search" class="section6-col">
           <img
             :src="require('@/assets/img/advantage/feature-new-01.png')"
             alt=""
@@ -15,8 +15,8 @@
             </b>
             <p class="section6-text">автозапчастей в каталогах</p>
           </div>
-        </div>
-        <div class="section6-col">
+        </nuxt-link>
+        <nuxt-link to="/delivery" class="section6-col">
           <img
             :src="require('@/assets/img/advantage/feature-new-02.png')"
             alt=""
@@ -30,7 +30,7 @@
 
             <p class="section6-text">От 0 руб. по России</p>
           </div>
-        </div>
+        </nuxt-link>
         <div class="section6-col">
           <img
             :src="require('@/assets/img/advantage/feature-new-03.png')"
@@ -42,7 +42,7 @@
             <p class="section6-text">производство деталей</p>
           </div>
         </div>
-        <div class="section6-col">
+        <nuxt-link to="/pay" class="section6-col">
           <img
             :src="require('@/assets/img/advantage/feature-new-04.png')"
             alt=""
@@ -57,7 +57,7 @@
               с возможностью отсрочки и оплаты при получении
             </p>
           </div>
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </section>

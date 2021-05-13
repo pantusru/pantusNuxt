@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       links: [
-        { to: "/catalog", text: "Автокаталоги" },
+        { to: "/catalog/originalpartscatalog", text: "Автокаталоги" },
         {
           to: "/carbrands/zapchasti-vaz",
           text: "Запчасти для а/м ВАЗ",

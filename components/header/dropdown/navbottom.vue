@@ -31,7 +31,7 @@ export default {
     return {
       isDropDown: false,
       links: [
-        { to: "/catalog", text: "Автокаталоги" },
+        { to: "/catalog/originalpartscatalog", text: "Автокаталоги" },
         { to: "/brands", text: "Бренды запчастей" },
         { to: "/carbrands", text: "Марки автомобилей" },
         { to: "/categories", text: "Категории запчастей" },

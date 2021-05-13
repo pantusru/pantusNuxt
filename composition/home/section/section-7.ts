@@ -11,9 +11,14 @@ export function Section7() {
   const swiperOption = ref({
     loop: true,
     slidesPerGroup: 1,
+    autoHeight: true,
     autoplay: {
-      delay: 10,
+      delay: 1500,
       disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     // centeredSlides: true,
     breakpoints: {

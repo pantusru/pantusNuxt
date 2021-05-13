@@ -10,6 +10,8 @@
         <swiper-slide v-for="(product, index) in popular" :key="index">
           <product-blog class="section7-product__100" :product="product" />
         </swiper-slide>
+        <div slot="button-prev" class="swiper-button-prev"></div>
+        <div slot="button-next" class="swiper-button-next"></div>
       </swiper>
     </div>
   </section>

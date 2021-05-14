@@ -107,6 +107,10 @@
           :validate-input="formDataRetail.checkbox"
           @value="ValidateInput(formDataRetail.checkbox).onSwitch($event)"
         />
+        <div class="recaptcha">
+          <recaptcha @success="checkSuccess($event)" />
+        </div>
+        <div v-if="!check" class="text-error">Вы не прошли капчу</div>
         <button
           class="button link-hover-button register-form-button"
           @click.prevent="registerValidateForm"

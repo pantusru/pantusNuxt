@@ -42,6 +42,8 @@ export default {
   // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://github.com/nuxt-community/recaptcha-module
+    '@nuxtjs/recaptcha',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
@@ -82,5 +84,9 @@ export default {
   router: {
     prefetchLinks: false,
     middleware: ['server-user-data'],
+  },
+  recaptcha: {
+    siteKey: '6LdMI94ZAAAAADQt2xBdUxgnhr0QpnezUwkcqiHV',
+    version: 2,
   },
 }

@@ -19,6 +19,7 @@
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/composition-api": "^0.20.2",
     "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/recaptcha": "^1.0.4",
     "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.8.3",
     "js-base64": "^3.6.0",

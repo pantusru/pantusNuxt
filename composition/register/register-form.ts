@@ -6,6 +6,7 @@ import {
 import { ValidateForm } from '@/composition/_validate/validate-form'
 import { ProfileInterfaceCreateDto } from '~/interface/profile.interface'
 import { ProfileCreateAxios } from '~/axios/profile/profile.axios'
+import { Recaptcha } from '~/lib/recaptcha'
 
 export function RegisterForm() {
   const { $axios } = useContext()
@@ -186,8 +187,9 @@ export function RegisterForm() {
       regulations: [],
     },
   })
-
+  const { check, checkRecaptcha, checkSuccess } = Recaptcha()
   const registerValidateForm = async () => {
+    await checkRecaptcha()
     let validateClient: boolean
     if (formDataRetail.value.type.value === 'retail') {
       validateClient = ValidateForm(formDataRetail.value).validateForm()
@@ -199,6 +201,9 @@ export function RegisterForm() {
       validateClient = validateRetail && validateWholesale
     }
     if (validateClient) {
+      if (!check.value) {
+        return
+      }
       const profileInterfaceCreateDto: ProfileInterfaceCreateDto = {
         passwd: formDataRetail.value.password.value,
         account: { type: formDataRetail.value.type.value },
@@ -227,5 +232,11 @@ export function RegisterForm() {
       }
     }
   }
-  return { formDataRetail, formDataWholesale, registerValidateForm }
+  return {
+    formDataRetail,
+    formDataWholesale,
+    registerValidateForm,
+    check,
+    checkSuccess,
+  }
 }

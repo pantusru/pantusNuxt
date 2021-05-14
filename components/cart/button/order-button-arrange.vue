@@ -1,11 +1,11 @@
 <template>
   <div>
     <base-button v-if="!CheckUser" text="Оформить заказ" @click="getModal()" />
-    <base-button v-if="CheckUser">
-      <nuxt-link to="/order" class="text-white link-decoration-none">
+    <!-- <base-button v-if="CheckUser"> -->
+      <nuxt-link style="border-radius: 6px" v-if="CheckUser" to="/order" class="p-2 text-white link-decoration-none bg-danger _baseBnt">
         Оформить заказ
       </nuxt-link>
-    </base-button>
+    <!-- </base-button> -->
   </div>
 </template>
 <script>

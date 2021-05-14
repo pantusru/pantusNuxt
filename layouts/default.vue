@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper-full">
     <TheHeader />
     <main>
       <Nuxt />

@@ -11,6 +11,10 @@
             v-if="productFilter.length > 0"
             :product="productFilter"
           />
+          <products-view-table
+            v-if="productFilter.length > 0"
+            :product="productFilter"
+          />
           <product404 v-else-if="getFlagProduct" />
         </div>
         <base-pagination
@@ -31,9 +35,11 @@ import { PageSearch } from '~/composition/search/page-search'
 import FilterProduct from '~/components/search/filter-product/blog/filter-product.vue'
 import FilterMarks from '~/components/search/filter-mark/filter-marks.vue'
 import SearchQuery from '~/components/search/search-query.vue'
+import ProductsViewTable from '~/components/products/view/products-view-table.vue'
 export default {
   name: 'PageSearch',
   components: {
+    ProductsViewTable,
     SearchQuery,
     Product404: () => import('~/components/products/element/product-404.vue'),
     BasePagination: () =>

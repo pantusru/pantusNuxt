@@ -27,14 +27,16 @@
         @click="cartDelete(linkOffers.id)"
       />
     </template>
-    <ModalBuy
-      v-if="ToggleBody"
-      :link-product="linkProduct"
-      :link-offers="linkOffers"
-      :cart-offer="cartOffer"
-      @close="ToggleFalse"
-      @click="ToggleBodyFunctionSelectClick"
-    />
+    <portal to="body">
+      <ModalBuy
+        v-if="ToggleBody"
+        :link-product="linkProduct"
+        :link-offers="linkOffers"
+        :cart-offer="cartOffer"
+        @close="ToggleFalse"
+        @click="ToggleBodyFunctionSelectClick"
+      />
+    </portal>
   </div>
 </template>
 

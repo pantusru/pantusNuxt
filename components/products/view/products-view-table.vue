@@ -1,20 +1,25 @@
 <template>
   <div class="product-view-table">
-    <div class="row product-table-thead">
-      <div class="col product-table-th">Бренд</div>
-      <div class="col product-table-th product-table-sku">Артикуль</div>
-      <div class="col product-table-th">Фото</div>
-      <div class="col product-table-th product-table-name">Название</div>
-      <div class="col product-table-th">Поставщик</div>
-      <div class="col product-table-th">Наличие</div>
-      <div class="col product-table-th">Срок</div>
-      <div class="col product-table-th">Цена</div>
+    <div class="row-gutters product-table-thead">
+      <div class="product-table-th product-table-brands">Бренд</div>
+      <div class="product-table-th product-table-sku">Артикуль</div>
+      <div class="product-table-th product-table-img">Фото</div>
+      <div class="product-table-th product-table-name">Название</div>
+      <div class="product-table-th product-table-supplier-th">Поставщик</div>
+      <div class="product-table-th product-table-offers-th">Наличие</div>
+      <div class="product-table-th product-table-offers-th">Срок</div>
+      <div class="product-table-th product-table-offers-th">Цена</div>
+      <div class="product-table-th product-table-panel-th">Таб</div>
     </div>
     <div class="product-table-body">
-      <div v-for="elem in product" :key="elem.productCard.id" class="row">
+      <div
+        v-for="elem in product"
+        :key="elem.productCard.id"
+        class="row-gutters product-table-tr"
+      >
         <nuxt-link
           :to="'/search/?filter_brands=' + elem.productCard.brand.id"
-          class="link-hover-main link product-table-td"
+          class="link-hover-main link product-table-td product-table-brands"
         >
           {{ elem.productCard.brand.name }}
         </nuxt-link>
@@ -28,20 +33,35 @@
           :src="elem.productCard.productCardImage.url"
           class-img="product-table-img"
         />
-        <product-link-id :product="elem" class="product-table-name" />
+        <product-link-id
+          :product="elem"
+          class="product-table-name product-table-td"
+        />
         <div v-if="elem.productOffer" class="product-view-table-offers">
-          <div v-for="offer in elem.productOffer" :key="offer.id" class="row">
-            <div class="product-table-td">{{ offer.supplier.name }}</div>
+          <div
+            v-for="offer in elem.productOffer"
+            :key="offer.id"
+            class="row-gutters product-table-offers-row"
+          >
+            <div class="product-table-td product-table-supplier">
+              {{ offer.supplier.name }}
+            </div>
             <product-offer-quantity
+              class="product-table-offers"
               :link-product="elem.productCard"
               :link-offers="offer"
               :component="'div'"
             />
-            <div class="product-offer-price">{{ offer.prices }}</div>
-            <ProductButtonBuy
-              :link-offers="offer"
-              :link-product="elem.productCard"
-            />
+            <div class="product-table-offers"></div>
+            <div class="product-offer-price product-table-price">
+              {{ offer.prices }}
+            </div>
+            <div class="product-table-button">
+              <ProductButtonBuy
+                :link-offers="offer"
+                :link-product="elem.productCard"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -75,4 +95,6 @@ export default {
 
 <style lang="sass">
 @import "assets/sass/products/product-view-table"
+@import "assets/sass/products/product-offer"
+@import "assets/sass/products/product-element"
 </style>

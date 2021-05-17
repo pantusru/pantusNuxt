@@ -42,6 +42,8 @@ export default {
   // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://github.com/LinusBorg/portal-vue
+    'portal-vue/nuxt',
     // https://github.com/nuxt-community/recaptcha-module
     '@nuxtjs/recaptcha',
     // https://go.nuxtjs.dev/axios

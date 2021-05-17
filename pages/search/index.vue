@@ -7,10 +7,10 @@
         <div class="product-view-blog__filter">
           <SearchQuery />
           <filter-marks />
-          <products-view-blog
-            v-if="productFilter.length > 0"
-            :product="productFilter"
-          />
+          <!--          <products-view-blog-->
+          <!--            v-if="productFilter.length > 0"-->
+          <!--            :product="productFilter"-->
+          <!--          />-->
           <products-view-table
             v-if="productFilter.length > 0"
             :product="productFilter"

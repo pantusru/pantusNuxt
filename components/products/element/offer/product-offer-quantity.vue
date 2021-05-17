@@ -43,4 +43,6 @@ export default {
 }
 </script>
 
-<!--<style scoped></style>-->
+<style lang="sass">
+@import "assets/sass/products/product-offer-quantity"
+</style>

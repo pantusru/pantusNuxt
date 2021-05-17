@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper-full">
+    <portal-target name="body" />
     <TheHeader />
     <main>
       <Nuxt />

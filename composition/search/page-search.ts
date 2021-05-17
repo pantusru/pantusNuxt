@@ -5,6 +5,8 @@ import {
   useRoute,
   watch,
   onUnmounted,
+  ssrRef,
+  onMounted,
 } from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'

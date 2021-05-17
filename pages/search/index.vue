@@ -7,14 +7,13 @@
         <div class="product-view-blog__filter">
           <SearchQuery />
           <filter-marks />
-          <!--          <products-view-blog-->
-          <!--            v-if="productFilter.length > 0"-->
-          <!--            :product="productFilter"-->
-          <!--          />-->
-          <products-view-table
-            v-if="productFilter.length > 0"
-            :product="productFilter"
-          />
+          <tempalte v-if="productFilter.length > 0">
+            <products-view-blog class="search-blog" :product="productFilter" />
+            <products-view-table
+              class="search-table"
+              :product="productFilter"
+            />
+          </tempalte>
           <product404 v-else-if="getFlagProduct" />
         </div>
         <base-pagination

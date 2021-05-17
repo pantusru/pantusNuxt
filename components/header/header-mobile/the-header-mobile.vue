@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button class="button link-hover-button header-mobile">
-      <font-awesome v-if="!activeNav" unicode="&#xf0c9;" @click="setStart" />
-      <font-awesome v-if="activeNav" unicode="&#xf00d;" @click="setStart" />
+    <button class="button link-hover-button header-mobile" @click="setStart">
+      <font-awesome v-if="!activeNav" unicode="&#xf0c9;" />
+      <font-awesome v-if="activeNav" unicode="&#xf00d;" />
     </button>
     <the-header-mobile-nav v-if="activeNav" />
   </div>

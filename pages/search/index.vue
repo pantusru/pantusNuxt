@@ -9,11 +9,13 @@
           <filter-marks />
           <template v-if="productFilter.length > 0">
             <products-view-blog
-              :is="vidProduct"
               class="search-blog"
               :product="productFilter"
             />
-            <product-table-head v-if="vidProduct === 'products-view-blog'" />
+            <product-table-head
+              v-if="vidProduct === 'products-view-blog'"
+              :check="false"
+            />
             <component
               :is="vidProduct"
               :class="[

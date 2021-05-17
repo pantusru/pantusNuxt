@@ -15,7 +15,6 @@ export type RootState = ReturnType<typeof state>
 
 export const mutations: MutationTree<RootState> = {
   setVid(store: SearchVidInterfaceStore, data: SearchVid) {
-    console.log(data);
     store.vid = data
   },
 }

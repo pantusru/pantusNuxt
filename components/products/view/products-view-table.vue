@@ -42,7 +42,7 @@
               :link-offers="offer"
               :component="'div'"
             />
-            <div class="product-table-offers"></div>
+            <div class="product-table-offers">{{ offer.supplier.deliveryDelay }}</div>
             <div class="product-offer-price product-table-price">
               {{ offer.prices }}
             </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-panel">
     <font-awesome
       :class="{ active: vidProduct === 'products-view-table' }"
       class="table-panel-icons"
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import FontAwesome from '~/components/base/font-awesome/font-awesome'
+import FontAwesome from '~/components/base/font-awesome/font-awesome.vue'
 import { SearchPageVidProduct } from '~/composition/search/search-page-vid-product'
 export default {
   name: 'TablePanel',

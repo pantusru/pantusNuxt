@@ -1,16 +1,6 @@
 <template>
   <div class="product-view-table">
-    <div class="row-gutters product-table-thead">
-      <div class="product-table-th product-table-brands">Бренд</div>
-      <div class="product-table-th product-table-sku">Артикуль</div>
-      <div class="product-table-th product-table-img">Фото</div>
-      <div class="product-table-th product-table-name">Название</div>
-      <div class="product-table-th product-table-supplier-th">Поставщик</div>
-      <div class="product-table-th product-table-offers-th">Наличие</div>
-      <div class="product-table-th product-table-offers-th">Срок</div>
-      <div class="product-table-th product-table-offers-th">Цена</div>
-      <div class="product-table-th product-table-panel-th">Таб</div>
-    </div>
+    <product-table-head />
     <div class="product-table-body">
       <div
         v-for="elem in product"
@@ -76,10 +66,12 @@ import ProductImg from '~/components/products/element/product-img.vue'
 import ProductLinkId from '~/components/products/element/product-link-id.vue'
 import ProductOfferQuantity from '~/components/products/element/offer/product-offer-quantity.vue'
 import ProductButtonBuy from '~/components/products/element/product-button.vue'
+import ProductTableHead from '~/components/products/table/product-table-head.vue'
 
 export default {
   name: 'ProductsViewTable',
   components: {
+    ProductTableHead,
     ProductButtonBuy,
     ProductOfferQuantity,
     ProductLinkId,

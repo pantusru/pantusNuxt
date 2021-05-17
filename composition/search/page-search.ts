@@ -5,8 +5,6 @@ import {
   useRoute,
   watch,
   onUnmounted,
-  ssrRef,
-  onMounted,
 } from '@nuxtjs/composition-api'
 import { FilterMap } from '~/composition/search/filter-map'
 import { FilterCategoriesSetUrl } from '~/composition/search/filter-set-url/filter-categories-set-url'
@@ -17,7 +15,6 @@ import { scrollTop } from '~/lib/scroll-top'
 export function PageSearch() {
   const { store } = useContext()
   const route = useRoute()
-
   const filterStart = async () => {
     const filter = FilterMap().queryToVuex(route)
     store.commit('search/form/setForm', filter)

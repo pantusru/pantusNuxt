@@ -3,9 +3,10 @@
     <div class="row">
       <div v-if="newsId" class="news-id" v-html="newsId.content" />
       <div v-if="newsPopular.length !== 0" class="news-view-wrapper">
+        <h2 class="h2 col">Новости</h2>
         <news
           v-for="news in newsPopular"
-          :key="news"
+          :key="news.id"
           class="news-view"
           :news="news"
         />

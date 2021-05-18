@@ -35,6 +35,19 @@
         margin-right: 12px
         margin-top: 8px
         border-radius: 5px
-  .col-md-6
-    +col(12)
-    +col-md(6)
+  a
+    color: #436174
+    cursor: pointer
+    &:hover, &:focus
+      color: #dc3545
+      text-decoration: none
+    .col-md-6
+      +col(12)
+      +col-md(6)
+  .btn
+    &.red
+      color: #fff
+      background: #8b0000
+      text-decoration: none
+      padding: 5px
+      margin-bottom: 5px

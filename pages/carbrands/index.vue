@@ -2,6 +2,7 @@
   <div class="container">
     <h1 class="h1">Запчасти для автомобилей по их маркам</h1>
     <filter-brand-search
+      v-if="getCarbrands.length > 0"
       :data="getCarbrands"
       :res="getCarbrands"
       @dataset="getCarbrandsView = $event"

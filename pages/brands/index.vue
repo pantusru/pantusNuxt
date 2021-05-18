@@ -3,6 +3,7 @@
     <h1 class="h1">Все бренды автозапчастей</h1>
     <template v-if="getBrandActive">
       <filter-brand-search
+        v-if="getBrand.length > 0"
         :data="getBrand"
         :res="getBrandPage"
         @dataset="getBrandView = $event"

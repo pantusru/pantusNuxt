@@ -1,7 +1,7 @@
-import { computed, ref, useContext, useFetch } from '@nuxtjs/composition-api'
+import { computed, ssrRef, useContext, useFetch } from '@nuxtjs/composition-api'
 export function PageCarbrands() {
   const { store } = useContext()
-  const getCarbrandsView = ref([])
+  const getCarbrandsView = ssrRef([])
   const getCarbrands = computed(() => {
     return store.getters['carbrands/getCarbrands']
   })

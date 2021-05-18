@@ -32,6 +32,9 @@ export type TypeCartProduct = {
   productCardImage: {
     url: string
   }
+  nomenclature: {
+    code: string
+  }
   params: TypeParamsProduct
   oem: string[]
   album: string[]

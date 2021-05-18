@@ -20,6 +20,10 @@ export type TypeProductApi = {
     main: string
     extra: string[]
   }
+  nomenclature: {
+    code: string
+    type: string
+  }
   sku: {
     origin: string
     custom: string

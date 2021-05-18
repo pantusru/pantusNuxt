@@ -34,6 +34,9 @@ export const ProductsMap = (data: TypeProductApi[]): TypeProductVuex[] => {
           },
           categories: [],
           applicabilities: [],
+          nomenclature: {
+            code: elem.nomenclature?.code,
+          },
         },
         productOffer: [],
       })

@@ -31,6 +31,16 @@
             </div>
           </div>
           <div
+            v-if="getProductId.productCard.nomenclature.code"
+            class="product_id-params"
+          >
+            <div class="product_id-params_name">Код Пантуса:</div>
+            <div class="product_id-params_value">
+              {{ getProductId.productCard.nomenclature.code }}
+            </div>
+          </div>
+
+          <div
             v-if="getProductId.productCard.categories.length > 0"
             class="product_id-params"
           >

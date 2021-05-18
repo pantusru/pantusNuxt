@@ -8,10 +8,7 @@
           <SearchQuery />
           <filter-marks />
           <template v-if="productFilter.length > 0">
-            <products-view-blog
-              class="search-blog"
-              :product="productFilter"
-            />
+            <products-view-blog class="search-blog" :product="productFilter" />
             <product-table-head
               v-if="vidProduct === 'products-view-blog'"
               :check="false"

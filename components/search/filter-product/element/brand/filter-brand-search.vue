@@ -12,19 +12,23 @@
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue'
 import { FilterBrandSearch } from '~/composition/search/filter-search/filter-brand-search'
-import { brandInterface } from '~/interface/brands/brand.interface'
 
 export default {
   name: 'FilterBrandSearch',
   props: {
-    dataset: {
-      type: Array as PropType<brandInterface[]>,
+    data: {
+      type: Array,
+    },
+    res: {
+      type: Array,
     },
   },
   setup(props: any, { emit }: { emit: Function }) {
-    return { ...FilterBrandSearch(props.dataset, emit) }
+    return { ...FilterBrandSearch(emit, props.data, props.res) }
   },
 }
 </script>
+<style lang="sass">
+@import "assets/sass/search/filter-input.sass"
+</style>

@@ -5,7 +5,11 @@
       <filter-button-get :toggle="toggle" />
     </div>
     <div v-if="toggle">
-      <filter-brand-search :dataset.sync="brandView" />
+      <filter-brand-search
+        :data="getBrand"
+        :res="getBrand"
+        @dataset="brandView = $event"
+      />
       <VirtualList
         ref="scroll"
         class="filter-overflow"

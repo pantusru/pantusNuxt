@@ -21,6 +21,7 @@ const categoriesMainMap = (
     code: data.code,
     id: data.id,
     children: [],
+    visible: true,
   })
   if (data.childs.length > 0) {
     for (const children of data.childs) {

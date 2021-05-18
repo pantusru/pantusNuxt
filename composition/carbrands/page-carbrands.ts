@@ -1,13 +1,13 @@
-import { computed, useContext, useFetch } from '@nuxtjs/composition-api'
+import { computed, ref, useContext, useFetch } from '@nuxtjs/composition-api'
 export function PageCarbrands() {
   const { store } = useContext()
-  useFetch(async () => {
-    await store.dispatch('carbrands/actionsCarbrands')
-  })
-
+  const getCarbrandsView = ref([])
   const getCarbrands = computed(() => {
     return store.getters['carbrands/getCarbrands']
   })
-
-  return { getCarbrands }
+  useFetch(async () => {
+    await store.dispatch('carbrands/actionsCarbrands')
+    getCarbrandsView.value = store.getters['carbrands/getCarbrands']
+  })
+  return { getCarbrandsView, getCarbrands }
 }

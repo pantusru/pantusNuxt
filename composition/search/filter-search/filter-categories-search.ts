@@ -2,11 +2,14 @@ import { computed, Ref, ref, useContext } from '@nuxtjs/composition-api'
 import { SearchCategoriesInterface } from '~/interface/search/data/search-categories.interface'
 import { FilterSearchReg } from '~/composition/search/filter-search/filter-search-reg'
 
-export function FilterCategoriesSearch() {
+export function FilterCategoriesSearch(catalog: boolean = false) {
   const { store } = useContext()
   const { checkSearchValue, errors } = FilterSearchReg()
   const categoriesVuex: Ref<SearchCategoriesInterface[]> = computed(
     () => store.getters['search/data/getCategories']
+  )
+  const categoriesPage: Ref<SearchCategoriesInterface[]> = computed(
+    () => store.getters['categories/getCategories']
   )
   const value = ref('')
 
@@ -15,6 +18,12 @@ export function FilterCategoriesSearch() {
     if (value.value.length === 0 && errors.value) {
       categoriesActiveAll(categoriesVuex.value, true)
     } else if (!errors.value) {
+      if (catalog) {
+        categoriesPage.value.forEach((elem) => {
+          forCategoriesAll(elem)
+        })
+        return
+      }
       categoriesVuex.value.forEach((elem) => {
         forCategoriesAll(elem)
       })

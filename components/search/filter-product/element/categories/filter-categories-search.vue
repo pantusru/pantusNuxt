@@ -16,8 +16,14 @@ import { FilterCategoriesSearch } from '~/composition/search/filter-search/filte
 
 export default {
   name: 'FilterCategoriesSearch',
-  setup() {
-    return { ...FilterCategoriesSearch() }
+  props: {
+    catalog: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props: any) {
+    return { ...FilterCategoriesSearch(props.catalog) }
   },
 }
 </script>

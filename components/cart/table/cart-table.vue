@@ -13,7 +13,7 @@
         <th class="base-table-th"></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="base-table-tbody">
       <template v-for="data in cart">
         <tr :key="data.productCard.id" class="cart-table-tr base-table-tr">
           <td
@@ -42,26 +42,41 @@
               class="base-table-td-top base-table-td cart-table-td-supplier"
               data-label="Поставщик"
             >
-              {{ data.productOffer[0].supplier.name }}
+              <template v-if="data.productOffer[0].activity">
+                {{ data.productOffer[0].supplier.name }}</template
+              >
             </td>
             <td class="base-table-td-top base-table-td" data-label="Остаток">
-              {{ data.productOffer[0].quantity }}
+              <template v-if="data.productOffer[0].activity">
+                {{ data.productOffer[0].quantity }}
+              </template>
             </td>
             <td class="base-table-td-top base-table-td" data-label="Цена">
-              {{ data.productOffer[0].prices }} ₽
+              <template v-if="data.productOffer[0].activity">
+                {{ data.productOffer[0].prices }} ₽
+              </template>
             </td>
             <td
               data-label="Количество"
               class="base-table-td-top base-table-td cart-table-td-count"
             >
-              <cart-count-offers :offers="data.productOffer[0]" />
+              <template v-if="data.productOffer[0].activity">
+                <cart-count-offers :offers="data.productOffer[0]" />
+              </template>
             </td>
             <product-symma
+              v-if="data.productOffer[0].activity"
               data-label="Сумма"
               class="base-table-td base-table-td-top"
               :component="'td'"
               :symma="data.productOffer[0].count * data.productOffer[0].prices"
             />
+            <td
+              v-if="!data.productOffer[0].activity"
+              class="base-table-td base-table-td-top"
+            >
+              <cart-not-active />
+            </td>
             <td class="base-table-td base-table-td-top">
               <cart-delete-offers :id="data.productOffer[0].id" />
             </td>
@@ -85,14 +100,16 @@
 <script lang="ts">
 import { PropType } from 'vue'
 import { CartInterface } from '~/interface/cart/cart.interface'
-import CartTableTrOffers from '~/components/cart/cart-table-tr-offers.vue'
+import CartTableTrOffers from '~/components/cart/table/cart-table-tr-offers.vue'
 import ProductSymma from '~/components/products/element/product-symma.vue'
 import CartDeleteOffers from '~/components/cart/button/cart-delete-offers.vue'
 import CartCountOffers from '~/components/cart/cart-count-offers.vue'
 import CartOfferEditCount from '~/components/cart/button/cart-offer-edit-count.vue'
+import CartNotActive from '~/components/cart/cart-not-active.vue'
 export default {
   name: 'CartTable',
   components: {
+    CartNotActive,
     CartOfferEditCount,
     CartCountOffers,
     CartDeleteOffers,
@@ -108,6 +125,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass/base/base-table"
-@import "assets/sass/cart/cart-table"
+@import "../../../assets/sass/base/base-table"
+@import "../../../assets/sass/cart/cart-table"
 </style>

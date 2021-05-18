@@ -56,13 +56,23 @@ export const actions: ActionTree<RootState, RootState> = {
   },
 }
 export const getters = {
+  getActiveCartAll: (s: CartInterfaceStore) => {
+    let check = false
+    for (const cartElement of s.cart) {
+      if (cartElement.productOffer.some((value) => !value.activity)) {
+        check = true
+        break
+      }
+    }
+    return check
+  },
   getCart: (s: CartInterfaceStore) => s.cart,
   getCartAxios: (s: CartInterfaceStore): boolean => s.cartAxios,
   getSumma: (s: CartInterfaceStore) => {
     let summa = 0
     s.cart.forEach((elem) => {
       elem.productOffer.forEach((offers) => {
-        if (offers.count) {
+        if (offers.count && offers.activity) {
           summa += offers.count * offers.prices
         }
       })
@@ -72,7 +82,9 @@ export const getters = {
   getWeight: (s: CartInterfaceStore) => {
     let weight = 0
     s.cart.forEach((elem) => {
-      weight += elem.productCard.params.weight
+      if (!elem.productOffer.some((value) => !value.activity)) {
+        weight += elem.productCard.params.weight
+      }
     })
     return weight.toFixed(2)
   },

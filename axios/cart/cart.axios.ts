@@ -41,6 +41,7 @@ const CartMap = (
   const result: CartInterface[] = data
   api.forEach((elem, index) => {
     elem.offers.forEach((elemOffers, indexOffers) => {
+      result[index].productOffer[indexOffers].activity = elemOffers.activity
       result[index].productOffer[indexOffers].count = elemOffers.quantityInCart
       result[index].productOffer[indexOffers].defaultCount =
         elemOffers.quantityInCart

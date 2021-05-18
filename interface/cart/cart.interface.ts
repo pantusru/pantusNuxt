@@ -6,6 +6,7 @@ import {
 export interface CartOfferInterface extends TypeOfferProduct {
   count?: number
   defaultCount?: number
+  activity?: boolean
 }
 
 export interface CartCartInterface extends TypeCartProduct {}

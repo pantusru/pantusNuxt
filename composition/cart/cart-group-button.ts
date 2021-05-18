@@ -7,5 +7,8 @@ export function CartGroupButton() {
   const getCartAxios = computed(() => {
     return store.getters['cart/getCartAxios']
   })
-  return { getCartAxios, getUserAuthorization }
+  const getActiveCartAll = computed(() => {
+    return store.getters['cart/getActiveCartAll']
+  })
+  return { getCartAxios, getUserAuthorization, getActiveCartAll }
 }

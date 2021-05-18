@@ -88,6 +88,9 @@ export const actions = {
             measure: elem.params.measure,
             weight: elem.params.weight,
           },
+          nomenclature: {
+            code: elem?.nomenclature?.code,
+          },
           sku: {
             // Артикул товара
             original: elem.sku.origin, // Оригинал

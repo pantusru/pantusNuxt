@@ -3,7 +3,9 @@
     <div class="container">
       <div class="row-gutters header-top-row">
         <nav class="header-top-nav">
-          <span class="link-hover-main header-top-link">О компании</span>
+          <span class="link-hover-main header-top-link dropdown-click"
+            >О компании</span
+          >
           <TheHeaderTopDropdown />
           <nuxt-link
             v-for="data in link"

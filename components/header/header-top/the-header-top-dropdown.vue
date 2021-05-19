@@ -1,7 +1,7 @@
 <template>
   <HeaderDropdown
     :array="link"
-    target="link-hover-main header-top-link"
+    target="link-hover-main header-top-link dropdown-click"
     class-items="header-dropdown header-top-dropdown"
   />
 </template>

@@ -11,14 +11,15 @@
     </div>
     <div>
       <template v-for="(link, index) in activeNav.link">
-        <nuxt-link
-          v-if="link.to"
-          :key="index"
-          class="link link-hover-main header-mobile-link"
-          :to="link.to"
-        >
-          {{ link.text }}
-        </nuxt-link>
+        <div v-if="link.to" :key="index" @click="setStart(null)">
+          <nuxt-link
+            class="link link-hover-main header-mobile-link"
+            :to="link.to"
+          >
+            {{ link.text }}
+          </nuxt-link>
+        </div>
+
         <p
           v-if="link.name"
           :key="index"

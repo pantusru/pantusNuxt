@@ -3,11 +3,14 @@
 .profile-nav
   +fz(13px)
   +mb(20px)
-  +grid(4)
+  +grid(12)
   +grid-lg(2)
 .profile-nav-data_user
   color: #4a4a4a
 .profile-nav-item
+  +d-display(flex)
+  +flex-column()
+  +align-items-start()
   +mt(45px)
 .profile-nav-name_user
   font-weight: 800
@@ -17,7 +20,6 @@
   text-decoration: underline
   color: #4a4a4a
   +mb(5px)
-  +d-display(block)
   &.active, &:hover, &:focus
     text-decoration: none
     font-weight: 800

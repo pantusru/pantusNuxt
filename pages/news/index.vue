@@ -7,6 +7,7 @@
         :categories="categories"
       />
     </div>
+    <h1 class="h1">Новости</h1>
     <div class="row">
       <news v-for="newsId in news" :key="newsId.id" :news="newsId" />
     </div>

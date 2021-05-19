@@ -5,6 +5,7 @@ import {
 } from '~/interface/cart/cart.interface'
 import { RootState } from '~/store/cart/index'
 import { CartUpdateOfferAxios } from '~/axios/cart/cart.axios'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 export const mutations: MutationTree<RootState> = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setCountOfferCart(store, data: { offer: CartOfferInterface; count: number }) {
@@ -78,6 +79,15 @@ export const actions: ActionTree<{}, {}> = {
     )
     if (data) {
       commit('cart/setCart', data, { root: true })
+      commit(
+        'blog-info/setBlockInfo',
+        {
+          text: 'Товар удачно добавлен в корзину',
+          type: BlockInfoType.Good,
+          active: true,
+        },
+        { root: true }
+      )
     }
   },
 }

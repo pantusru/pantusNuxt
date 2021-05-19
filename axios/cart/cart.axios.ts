@@ -28,7 +28,7 @@ export const CartUpdateOfferAxios = async (
     quantity,
   })
   if (data.error) {
-    return undefined
+    return data.error
   }
   const product = ProductsMap(data)
   return CartMap(product, data)

@@ -4,6 +4,7 @@ import {
   CartInterfaceStore,
   CartInterface,
 } from '~/interface/cart/cart.interface'
+import { BlockInfoType } from "~/interface/base/block-info.interface";
 export const state = (): CartInterfaceStore => ({
   cart: [],
   loaderCart: false,
@@ -49,6 +50,15 @@ export const actions: ActionTree<RootState, RootState> = {
         )
         if (indexOffer !== -1) {
           commit('deleteOfferCart', { indexOffer, indexProduct })
+          commit(
+            'blog-info/setBlockInfo',
+            {
+              text: 'Товар удачно убран из корзины',
+              type: BlockInfoType.Good,
+              active: true,
+            },
+            { root: true }
+          )
         }
       })
       await dispatch('count/actionsResetOfferCart')

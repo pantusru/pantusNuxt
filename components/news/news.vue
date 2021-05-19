@@ -1,5 +1,5 @@
 <template>
-  <div class="news col">
+  <div class="col">
     <div class="news-preview">
       <img
         v-if="news.preview.image"

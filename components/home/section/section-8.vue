@@ -7,7 +7,7 @@
         </nuxt-link>
       </h2>
       <div class="row">
-        <news v-for="news in popularNews" :key="news.id" :news="news" />
+        <news class="news" v-for="news in popularNews" :key="news.id" :news="news" />
       </div>
       <nuxt-link to="/news" class="link-hover-main link section8-link__news">
         Все Новости

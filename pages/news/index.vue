@@ -9,7 +9,12 @@
     </div>
     <h1 class="h1">Новости</h1>
     <div class="row">
-      <news v-for="newsId in news" :key="newsId.id" :news="newsId" />
+      <news
+        v-for="newsId in news"
+        :key="newsId.id"
+        class="news"
+        :news="newsId"
+      />
     </div>
     <base-pagination
       v-if="newsCount > newsLimit"

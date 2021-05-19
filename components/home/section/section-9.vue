@@ -89,5 +89,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import "assets/sass/static.sass"
+@import "../../../assets/sass/static/static"
 </style>

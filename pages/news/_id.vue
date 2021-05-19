@@ -28,6 +28,7 @@ export default {
 }
 </script>
 <style lang="sass">
-@import "assets/sass/static"
+@import "assets/sass/static/static"
+@import "assets/sass/static/news-static"
 @import "assets/sass/news/news-id"
 </style>

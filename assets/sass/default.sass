@@ -1,8 +1,13 @@
 @import "assets/sass-mixin/index"
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')
 *
   padding: 0
   margin: 0
   box-sizing: border-box
+body
+  color: #555
+  line-height: 1.5
+  font-family: 'Open Sans', sans-serif
 a:focus
   outline: 0
 .container
@@ -29,6 +34,7 @@ a:focus
 .row-gutters
   +row-no-gutters()
 .link
+  transition: color 0.3s linear
   color: #436174
   text-decoration: none
   cursor: pointer
@@ -40,6 +46,7 @@ a:focus
 .button
   +py(5px)
   +px(8px)
+  transition: all 0.3s linear
   background-color: #dc3545
   border: 0
   color: #fff

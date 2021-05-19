@@ -42,6 +42,8 @@ export default {
   // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://github.com/nuxt-community/redirect-module
+    '@nuxtjs/redirect-module',
     // https://github.com/LinusBorg/portal-vue
     'portal-vue/nuxt',
     // https://github.com/nuxt-community/recaptcha-module
@@ -54,6 +56,19 @@ export default {
     ['cookie-universal-nuxt'],
     // https://www.npmjs.com/package/@nuxtjs/style-resources
     // '@nuxtjs/style-resources',
+  ],
+  // https://github.com/nuxt-community/redirect-module
+  redirect: [
+    { from: '^/search-result', to: '/search' },
+    { from: '^/search-result/bestsellers', to: '/popular' },
+    {
+      from: '^/avtozapchasti/(.*)$',
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      to: (from, req) => {
+        const param = req.url.match(/avtozapchasti\/(.*)$/)[1]
+        return `/products/${param}`
+      },
+    },
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

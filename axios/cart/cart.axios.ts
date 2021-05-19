@@ -19,7 +19,7 @@ export const CartDeleteAxios = async (
   const { data } = await $axios.delete(`${process.env.api}/personal/cart/${id}`)
   return data.error
 }
-export const CartUpdateOfferAxios = async (
+export const CartUpdateOfferIdAxios = async (
   $axios: NuxtAxiosInstance,
   id?: number,
   quantity?: number
@@ -27,6 +27,17 @@ export const CartUpdateOfferAxios = async (
   const { data } = await $axios.put(`${process.env.api}/personal/cart/${id}`, {
     quantity,
   })
+  if (data.error) {
+    return data.error
+  }
+  const product = ProductsMap(data)
+  return CartMap(product, data)
+}
+export const CartUpdateOfferAxios = async (
+  $axios: NuxtAxiosInstance,
+  cart: [{ id: number; quantity: number }]
+): Promise<CartInterface[] | string> => {
+  const { data } = await $axios.put(`${process.env.api}/personal/cart`, cart)
   if (data.error) {
     return data.error
   }

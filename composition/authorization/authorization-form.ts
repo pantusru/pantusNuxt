@@ -65,7 +65,18 @@ export function AuthorizationForm() {
         await router.push('/')
       } else {
         formData.value.login.regulations[1].active = true
+        store.commit('blog-info/setBlockInfo', {
+          text: `Не верный логин или пароль`,
+          active: true,
+          type: BlockInfoType.Error,
+        })
       }
+    } else {
+      store.commit('blog-info/setBlockInfo', {
+        text: `Не валидная форма`,
+        active: true,
+        type: BlockInfoType.Error,
+      })
     }
   }
   return { formData, authorizationValidateForm }

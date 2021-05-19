@@ -10,5 +10,8 @@ export function CartGroupButton() {
   const getActiveCartAll = computed(() => {
     return store.getters['cart/getActiveCartAll']
   })
-  return { getCartAxios, getUserAuthorization, getActiveCartAll }
+  const updateCart = async () => {
+    await store.dispatch('cart/actionsUpdateCart')
+  }
+  return { getCartAxios, getUserAuthorization, getActiveCartAll, updateCart }
 }

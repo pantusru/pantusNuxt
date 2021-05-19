@@ -1,4 +1,4 @@
-import { ref, useContext, useRouter } from '@nuxtjs/composition-api'
+import { ref, useContext, useRouter, useStore } from '@nuxtjs/composition-api'
 import {
   TypeFormData,
   TypeRegulations,
@@ -7,10 +7,12 @@ import { ValidateForm } from '@/composition/_validate/validate-form'
 import { ProfileInterfaceCreateDto } from '~/interface/profile.interface'
 import { ProfileCreateAxios } from '~/axios/profile/profile.axios'
 import { Recaptcha } from '~/lib/recaptcha'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 
 export function RegisterForm() {
   const { $axios } = useContext()
   const router = useRouter()
+  const store = useStore()
   const formDataRetail = ref<TypeFormData>({
     checkbox: {
       value: false,
@@ -202,6 +204,15 @@ export function RegisterForm() {
     }
     if (validateClient) {
       if (!check.value) {
+        store.commit(
+          'blog-info/setBlockInfo',
+          {
+            text: `Вы не прошли капчу`,
+            type: BlockInfoType.Error,
+            active: true,
+          },
+          { root: true }
+        )
         return
       }
       const profileInterfaceCreateDto: ProfileInterfaceCreateDto = {
@@ -226,10 +237,42 @@ export function RegisterForm() {
       const res = await ProfileCreateAxios($axios, profileInterfaceCreateDto)
       if (!res.error) {
         await router.push('/')
+        await store.dispatch('authorization/actionsAuthorization', {
+          login: profileInterfaceCreateDto.contacts.email,
+          password: profileInterfaceCreateDto.passwd,
+        })
+        store.commit(
+          'blog-info/setBlockInfo',
+          {
+            text: `Вы удачно зарегистрировали ${profileInterfaceCreateDto.name.first}`,
+            type: BlockInfoType.Good,
+            active: true,
+          },
+          { root: true }
+        )
       } else {
         formDataRetail.value.email.regulations[2].active = true
         formDataRetail.value.email.regulations[2].text = res.error
+        store.commit(
+          'blog-info/setBlockInfo',
+          {
+            text: `${res.error}`,
+            type: BlockInfoType.Error,
+            active: true,
+          },
+          { root: true }
+        )
       }
+    } else {
+      store.commit(
+        'blog-info/setBlockInfo',
+        {
+          text: `Не валидная форма`,
+          type: BlockInfoType.Error,
+          active: true,
+        },
+        { root: true }
+      )
     }
   }
   return {

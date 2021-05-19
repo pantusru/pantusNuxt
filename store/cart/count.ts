@@ -4,7 +4,7 @@ import {
   CartOfferInterface,
 } from '~/interface/cart/cart.interface'
 import { RootState } from '~/store/cart/index'
-import { CartUpdateOfferAxios } from '~/axios/cart/cart.axios'
+import { CartUpdateOfferIdAxios } from '~/axios/cart/cart.axios'
 import { BlockInfoType } from '~/interface/base/block-info.interface'
 export const mutations: MutationTree<RootState> = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -48,13 +48,22 @@ export const actions: ActionTree<{}, {}> = {
     { commit, dispatch },
     offers: CartOfferInterface
   ) {
-    const data: CartInterface[] | undefined = await CartUpdateOfferAxios(
+    const data: CartInterface[] | undefined = await CartUpdateOfferIdAxios(
       this.$axios,
       offers.id,
       offers.count
     )
     if (data) {
       commit('updateCountOfferCart', offers)
+      commit(
+        'blog-info/setBlockInfo',
+        {
+          text: `Выбранный товар в корзине обновлен`,
+          active: true,
+          type: BlockInfoType.Good,
+        },
+        { root: true }
+      )
       await dispatch('actionsCheckCountOffer')
     }
   },
@@ -72,7 +81,7 @@ export const actions: ActionTree<{}, {}> = {
     }
   },
   async actionsPostCart({ commit }, offers: { id: number; count: number }) {
-    const data: CartInterface[] | undefined = await CartUpdateOfferAxios(
+    const data: CartInterface[] | undefined = await CartUpdateOfferIdAxios(
       this.$axios,
       offers.id,
       offers.count

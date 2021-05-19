@@ -1,10 +1,15 @@
 import { ActionTree, MutationTree } from 'vuex'
-import { CartAxios, CartDeleteAxios } from '@/axios/cart/cart.axios'
+import {
+  CartAxios,
+  CartDeleteAxios,
+  CartUpdateOfferAxios,
+} from '@/axios/cart/cart.axios'
 import {
   CartInterfaceStore,
   CartInterface,
+  CartOfferInterface,
 } from '~/interface/cart/cart.interface'
-import { BlockInfoType } from "~/interface/base/block-info.interface";
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 export const state = (): CartInterfaceStore => ({
   cart: [],
   loaderCart: false,
@@ -62,6 +67,29 @@ export const actions: ActionTree<RootState, RootState> = {
         }
       })
       await dispatch('count/actionsResetOfferCart')
+    }
+  },
+  async actionsUpdateCart({ getters, commit }) {
+    const cartId: any = []
+    getters.getCart.forEach((product: CartInterface) => {
+      product.productOffer.forEach((offer: CartOfferInterface) => {
+        if (offer.count && offer.activity) {
+          cartId.push({ id: offer.id, quantity: offer.count })
+        }
+      })
+    })
+    const cart = await CartUpdateOfferAxios(this.$axios, cartId)
+    if (typeof cart !== 'string') {
+      commit('setCart', cart)
+      commit(
+        'blog-info/setBlockInfo',
+        {
+          text: `Корзина обновлена`,
+          active: true,
+          type: BlockInfoType.Good,
+        },
+        { root: true }
+      )
     }
   },
 }

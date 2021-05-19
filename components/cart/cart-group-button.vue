@@ -5,7 +5,11 @@
       class="cart-mot-active__all"
       text="В вашей корзине присутствуют товары не доступные к покупке."
     />
-    <button v-if="getCartAxios" class="link-hover-button button">
+    <button
+      v-if="getCartAxios"
+      class="link-hover-button button"
+      @click="updateCart"
+    >
       Обновить корзину
     </button>
     <nuxt-link

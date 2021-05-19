@@ -53,4 +53,15 @@ export function NewsStatic() {
   for (let i = 0; i < elemNews.length; i++) {
     elemNews[i].classList.add('col')
   }
+  const elemImg = document.querySelectorAll('img')
+  for (let i = 0; i < elemImg.length; i++) {
+    if (elemImg[i].style.marginLeft) {
+      elemImg[i].style.paddingLeft = elemImg[i].style.marginLeft
+      elemImg[i].style.marginLeft = ''
+    }
+    if (elemImg[i].style.marginRight) {
+      elemImg[i].style.paddingRight = elemImg[i].style.marginRight
+      elemImg[i].style.marginRight = ''
+    }
+  }
 }

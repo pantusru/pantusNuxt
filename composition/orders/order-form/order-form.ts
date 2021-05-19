@@ -5,6 +5,7 @@ import {
 } from '~/composition/_validate/validate-type'
 import { OrdersSetInterface } from '~/interface/orders/orders.interface'
 import { ValidateForm } from '~/composition/_validate/validate-form'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 
 export function OrderForm() {
   const { store } = useContext()
@@ -162,8 +163,37 @@ export function OrderForm() {
       }
       const res = await store.dispatch('orders/actionsSetOrder', orderSet)
       if (!res.error) {
+        store.commit(
+          'blog-info/setBlockInfo',
+          {
+            text: 'Заказ удачно оформлен',
+            active: true,
+            type: BlockInfoType.Good,
+          },
+          { root: true }
+        )
         await router.push(`/profile/orders/${res.success.order_id}`)
+      } else {
+        store.commit(
+          'blog-info/setBlockInfo',
+          {
+            text: res.error,
+            active: true,
+            type: BlockInfoType.Error,
+          },
+          { root: true }
+        )
       }
+    } else {
+      store.commit(
+        'blog-info/setBlockInfo',
+        {
+          text: 'Не валидная форма',
+          active: true,
+          type: BlockInfoType.Error,
+        },
+        { root: true }
+      )
     }
   }
   return { formDataRetail, formDataWholesale, orderSet }

@@ -1,4 +1,5 @@
 import { computed, useStore, ssrRef, Ref } from '@nuxtjs/composition-api'
+import { BlockInfoType } from '~/interface/base/block-info.interface'
 
 export function FavoritesIcons(id: number) {
   const store = useStore()
@@ -9,6 +10,15 @@ export function FavoritesIcons(id: number) {
     const check = await store.dispatch('favorites/actionsDeleteFavorites', id)
     if (check) {
       getCheck.value = false
+      store.commit(
+        'blog-info/setBlockInfo',
+        {
+          text: `Избранный товар удален`,
+          active: true,
+          type: BlockInfoType.Good,
+        },
+        { root: true }
+      )
     }
     setTextTitle()
   }
@@ -16,6 +26,15 @@ export function FavoritesIcons(id: number) {
     const check = await store.dispatch('favorites/actionsPutFavorites', id)
     if (check) {
       getCheck.value = true
+      store.commit(
+        'blog-info/setBlockInfo',
+        {
+          text: `Избранный товар удален`,
+          active: true,
+          type: BlockInfoType.Good,
+        },
+        { root: true }
+      )
     }
     setTextTitle()
   }

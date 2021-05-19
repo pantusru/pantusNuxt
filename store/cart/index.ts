@@ -81,6 +81,7 @@ export const actions: ActionTree<RootState, RootState> = {
     const cart = await CartUpdateOfferAxios(this.$axios, cartId)
     if (typeof cart !== 'string') {
       commit('setCart', cart)
+      commit('setCartAxios', false)
       commit(
         'blog-info/setBlockInfo',
         {

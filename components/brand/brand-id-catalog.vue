@@ -11,7 +11,7 @@
       <nuxt-link
         v-if="brand.active"
         class="link brand-id-catalog-link"
-        :to="'brand/' + brand.code"
+        :to="'brands/' + brand.id + '/' + brand.code"
         >Информация</nuxt-link
       >
     </div>

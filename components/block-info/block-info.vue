@@ -1,10 +1,10 @@
 <template>
   <div v-if="getBlockInfo.active" class="block-info" :class="getBlockInfo.type">
     <div class="container">
-      <div class="row block-info-row">
+      <div class="block-info-row">
         <p class="col">{{ getBlockInfo.text }}</p>
         <font-awesome
-          class="col close-block-info"
+          class="close-block-info"
           unicode="&#xf00d;"
           @click="closeBlockInfo"
         />

@@ -5,7 +5,7 @@ import { SearchCategoriesInterface } from '~/interface/search/data/search-catego
 import { SearchDataInterface } from '~/interface/search/data/search-data.interface'
 import { brandInterface } from '~/interface/brands/brand.interface'
 
-import { brandAxios } from '~/axios/brand.axios'
+import { brandAxios } from '~/axios/brand/brand.axios'
 import { carbrandsFilterAxios } from '~/axios/carbrands.axios'
 import { categoriesFilterAxios } from '~/axios/categories.axios'
 import { SearchMarkInterface } from '~/interface/search/data/search-metks.interface'

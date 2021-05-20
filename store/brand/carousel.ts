@@ -1,4 +1,4 @@
-import { brandCarouselAxios } from '@/axios/brand.axios'
+import { brandCarouselAxios } from '~/axios/brand/brand.axios'
 import { ActionTree, MutationTree } from 'vuex'
 import { BrandCarousel } from '~/interface/brands/brand-carousel'
 export interface BrandCarouselStore {

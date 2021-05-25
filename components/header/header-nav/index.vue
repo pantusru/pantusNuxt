@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
       <b-navbar-brand to="/" class="logo">
-        <img src="@img/logo.png" alt="Логотип сайта" >
+        <img src="@img/logo.png" alt="Логотип сайта">
       </b-navbar-brand>
       <!-- center -->
       <VButtonSearch />
@@ -58,7 +58,7 @@
           class="d-flex align-items-center link-decoration-none d-block d-md-none"
         >
           <div class="icons-nav-w20">
-            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" >
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping">
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
@@ -70,34 +70,37 @@
           </div>
         </nuxt-link>
 
-<!--        <b-nav-item-dropdown-->
-<!--          :menu-class="'border-0'"-->
-<!--          class="position-relative d-none d-md-block"-->
-<!--          no-caret-->
-<!--          d-none-->
-<!--          d-md-table-->
-<!--        >-->
-<!--          <b-dropdown-item href="#">EN</b-dropdown-item>-->
-<!--          <template #button-content>-->
-            <nuxt-link to="/cart" class="d-none d-md-flex align-items-center link-decoration-none ">
-              <div class="icons-nav-w20">
-                <img
-                  src="@img/icons/icon-shopping-cart.png"
-                  alt="icon-shopping"
-                />
-              </div>
-              <div class="d-flex flex-column text-secondary pl-10px">
-                <div class="d-lg-block d-none fz-5 w-100 justify-content-end link-ec0e1d">
-                  <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
-                </div>
-                <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
-                  >{{ stoimost }} р</strong
-                >
-              </div>
-            </nuxt-link>
-<!--          </template>-->
-          <!--          <dropdown-cart />-->
-<!--        </b-nav-item-dropdown>-->
+        <!--        <b-nav-item-dropdown-->
+        <!--          :menu-class="'border-0'"-->
+        <!--          class="position-relative d-none d-md-block"-->
+        <!--          no-caret-->
+        <!--          d-none-->
+        <!--          d-md-table-->
+        <!--        >-->
+        <!--          <b-dropdown-item href="#">EN</b-dropdown-item>-->
+        <!--          <template #button-content>-->
+        <nuxt-link
+          v-if="TypeUser"
+          to="/cart"
+          class="d-none d-md-flex align-items-center link-decoration-none"
+        >
+          <div class="icons-nav-w20">
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" >
+          </div>
+          <div class="d-flex flex-column text-secondary pl-10px">
+            <div
+              class="d-lg-block d-none fz-5 w-100 justify-content-end link-ec0e1d"
+            >
+              <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
+            </div>
+            <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
+              >{{ stoimost }} р</strong
+            >
+          </div>
+        </nuxt-link>
+        <!--          </template>-->
+        <!--          <dropdown-cart />-->
+        <!--        </b-nav-item-dropdown>-->
         <!-- Корзина-->
       </b-navbar-nav>
     </b-navbar>
@@ -110,6 +113,7 @@ import VButtonSearch from "@/components/header/header-button-search";
 import NavUser from "@/components/header/dropdown/nav-user";
 import ModalAuthorization from "@/components/modal/authorization";
 import DropdownCart from "@/components/header/dropdown/dropdown-cart";
+import typeUser from "~/mixins/typeUser";
 
 export default {
   name: "NavIndex",
@@ -119,6 +123,7 @@ export default {
     NavUser,
     VButtonSearch,
   },
+  mixins: [typeUser],
   data() {
     return {
       getDropCart: false,

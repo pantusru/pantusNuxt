@@ -50,7 +50,7 @@ export default {
     Product,
   },
   mixins: [mixitValid, Mixin, mixitError],
-  middleware: ["order-check-count-product", "CheckGuest"],
+  middleware: ["order-check-count-product", "CheckGuest", "user-check-opt"],
   async fetch({ store }) {
     await Promise.all([
       store.dispatch("Order/Payment/Index/_Payment"),

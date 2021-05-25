@@ -30,7 +30,7 @@
         label="Срок"
         sort-name="deliverydelay"
       />
-      <tdSort label="Цена" sort-name="prices" />
+      <tdSort  v-if="TypeUser" label="Цена" sort-name="prices" />
       <b-th v-if="CheckAnalogs === false"><PanelVid /></b-th>
       <b-th v-if="CheckAnalogs === true" />
     </b-tr>
@@ -38,9 +38,11 @@
 </template>
 
 <script>
+import typeUser from "~/mixins/typeUser";
 import tdSort from "@/components/search/product-panel/th-sort-get";
 import PanelVid from "@/components/search/product-panel/index"; // Панель
 export default {
+  mixins: [typeUser],
   components: {
     PanelVid,
     tdSort,

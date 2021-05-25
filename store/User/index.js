@@ -114,4 +114,5 @@ export const getters = {
    * @function FormData - Возвращает флаг авторизованный ли user
    */
   CheckUser: s => s.CheckUser,
+  TypeUser: s => s.FormData.type,
 };

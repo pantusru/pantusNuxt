@@ -1,88 +1,102 @@
 <template>
   <div>
-    <!--  Кнопка купить если товара нет в корзине   -->
-    <div class="d-lg-flex d-none justify-content-end">
-      <base-button
-        v-if="!userBasket"
-        text="Купить"
-        class="py-1 px-2"
-        @click="ModalProduct()"
-      />
-      <div v-else>
-        <b-button
-          variant="outline-success"
-
-          class="py-1 px-1"
+    <div v-if="TypeUser">
+      <!--  Кнопка купить если товара нет в корзине   -->
+      <div class="d-lg-flex d-none justify-content-end">
+        <base-button
+          v-if="!userBasket"
+          text="Купить"
+          class="py-1 px-2"
           @click="ModalProduct()"
-          style="font-size: 14px;"
+        />
+        <div v-else>
+          <b-button
+            variant="outline-success"
+            class="py-1 px-1"
+            style="font-size: 14px"
+            @click="ModalProduct()"
+          >
+            <b-icon-cart-4 />
+          </b-button>
+
+          <b-button
+            variant="outline-danger"
+            class="py-1 px-1"
+            style="font-size: 14px"
+            @click="deleteCartProduct"
+          >
+            <b-icon-x />
+          </b-button>
+        </div>
+      </div>
+
+      <!--  Кнопка купить если товара нет в корзине мобильная версия  -->
+      <div class="d-flex d-lg-none justify-content-end">
+        <base-button
+          v-if="!userBasket"
+          class="py-1 px-2"
+          @click="ModalProduct()"
         >
           <b-icon-cart-4 />
-        </b-button>
+        </base-button>
+        <!--  Кнопка купить если товар в корзине мобильная версия   -->
+        <!--      <base-button-->
+        <!--        v-else-if="userBasket"-->
+        <!--        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"-->
+        <!--        @click="ModalProduct()"-->
+        <!--      >-->
+        <!--        <b-icon-cart-4 />-->
+        <!--      </base-button>-->
+        <!--      <b-button-->
+        <!--        v-if="userBasket"-->
+        <!--        class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"-->
+        <!--        @click.once="deleteCartProduct"-->
+        <!--        >X-->
+        <!--      </b-button>-->
 
-        <b-button
-          variant="outline-danger"
+        <div v-else>
+          <b-button
+            variant="outline-success"
+            class="py-1 px-1"
+            style="font-size: 14px"
+            @click="ModalProduct()"
+          >
+            <b-icon-cart-4 />
+          </b-button>
 
-          class="py-1 px-1"
-          @click="deleteCartProduct"
-          style="font-size: 14px;"
-        >
-          <b-icon-x />
-        </b-button>
+          <b-button
+            variant="outline-danger"
+            class="py-1 px-1"
+            style="font-size: 14px"
+            @click="deleteCartProduct"
+          >
+            <b-icon-x />
+          </b-button>
+        </div>
       </div>
     </div>
-
-    <!--  Кнопка купить если товара нет в корзине мобильная версия  -->
-    <div class="d-flex d-lg-none justify-content-end">
-      <base-button v-if="!userBasket" class="py-1 px-2" @click="ModalProduct()">
-        <b-icon-cart-4 />
+    <div v-else>
+      <base-button class="py-1 px-2">
+        <a
+          class="text-white"
+          :href="
+            'https://proavtozap.ru/search/?pcode=' + LinkProduct.sku.original
+          "
+          >узнать цены</a
+        >
       </base-button>
-      <!--  Кнопка купить если товар в корзине мобильная версия   -->
-<!--      <base-button-->
-<!--        v-else-if="userBasket"-->
-<!--        class="text-danger py-1 px-1 border-danger bg-light bg-link-danger link-light"-->
-<!--        @click="ModalProduct()"-->
-<!--      >-->
-<!--        <b-icon-cart-4 />-->
-<!--      </base-button>-->
-<!--      <b-button-->
-<!--        v-if="userBasket"-->
-<!--        class="border-0 text-danger ml-1 py-0 px-1 bg-transparent"-->
-<!--        @click.once="deleteCartProduct"-->
-<!--        >X-->
-<!--      </b-button>-->
-
-      <div v-else>
-        <b-button
-          variant="outline-success"
-
-          class="py-1 px-1"
-          @click="ModalProduct()"
-          style="font-size: 14px;"
-        >
-          <b-icon-cart-4 />
-        </b-button>
-
-        <b-button
-          variant="outline-danger"
-
-          class="py-1 px-1"
-          @click="deleteCartProduct"
-          style="font-size: 14px;"
-        >
-          <b-icon-x />
-        </b-button>
-      </div>
-
     </div>
   </div>
 </template>
 
 <script>
 import BaseButton from "@/components/base/button/base-button";
+import typeUser from "~/mixins/typeUser";
 
 export default {
   name: "BuyButton",
   components: { BaseButton },
+  mixins: [typeUser],
   props: {
     /**
      * @param {Object} LinkOffer - ссылка на предложения продукта

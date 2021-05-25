@@ -49,6 +49,7 @@ export default {
     VBlogCart,
     CartButtonUpdate,
   },
+  middleware: ["user-check-opt"],
   head() {
     return {
       title: `Корзина список товара`,

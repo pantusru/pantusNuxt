@@ -1,5 +1,5 @@
-import { helpers } from "vuelidate/lib/validators";
 import {
+  helpers,
   required,
   minLength,
   maxLength,
@@ -86,19 +86,11 @@ export default {
     };
   },
   validations() {
-    if (this.buyer === "retail") {
-      return {
-        Form: {
-          ...all,
-        },
-      };
-    } else {
-      return {
-        Form: {
-          ...all,
-          ...Wholesale,
-        },
-      };
-    }
+    return {
+      Form: {
+        ...all,
+        ...Wholesale,
+      },
+    };
   },
 };

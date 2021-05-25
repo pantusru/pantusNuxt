@@ -40,7 +40,7 @@ export default {
       if (this.$v.Form.$error === true || this.checkRecaptcha === false) {
       } else {
         const user = this.$v.Form.$model;
-        user.type = this.buyer;
+        user.type = "wholesale";
         const res = await this.$store.dispatch("User/axios/_UserCreate", user);
         if (res.data.error !== undefined) {
           this.$store.commit("SetFormApi", {
@@ -48,7 +48,7 @@ export default {
             value: res.data.error,
           });
         } else {
-          window.ym(21081355,'reachGoal','HYHdMZA3RNZ5xAtS');
+          window.ym(21081355, "reachGoal", "HYHdMZA3RNZ5xAtS");
           console.log("222");
           this.get = true;
           this.$store.commit("SetFormApi", {

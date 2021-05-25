@@ -1,8 +1,7 @@
 <template>
   <b-form class="mb-3">
     <b-container>
-      <h3 class="mb-3">Зарегистрироваться как:</h3>
-      <radioForm :buyer.sync="buyer" />
+      <h3 class="mb-3">Зарегистрироваться как: Оптовый покупатель</h3>
       <b-form-group>
         <VInput
           :maxlength="128"
@@ -57,7 +56,7 @@
           :$v="$v"
         />
       </b-form-group>
-      <b-form-group v-if="buyer === 'wholesale'">
+      <b-form-group>
         <!--        <VInput-->
         <!--          :slots="true"-->
         <!--          items="Страна:"-->

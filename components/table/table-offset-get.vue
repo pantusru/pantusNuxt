@@ -10,7 +10,7 @@
           <b-th>Поставщик</b-th>
           <b-th class="d-none d-lg-table-cell">Наличие</b-th>
           <b-th class="d-none d-sm-table-cell">Срок</b-th>
-          <b-th>Цена</b-th>
+          <b-th v-if="TypeUser">Цена</b-th>
           <b-th />
         </b-tr>
       </b-thead>
@@ -27,7 +27,7 @@
             <td class="d-none d-sm-table-cell">
               {{ data.supplier.deliveryDelayView }}
             </td>
-            <td>{{ data.prices }}Р</td>
+            <td v-if="TypeUser">{{ data.prices }}Р</td>
             <td>
               <BuyButton :link-product="LinkProduct" :link-offer="data" />
             </td>
@@ -40,9 +40,11 @@
 </template>
 
 <script>
+import typeUser from "~/mixins/typeUser";
 import BuyButton from "@/components/products/button/buy-index";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 export default {
+  mixins: [typeUser],
   components: {
     AvailabilityOffers,
     BuyButton,

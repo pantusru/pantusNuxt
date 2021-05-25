@@ -90,6 +90,7 @@
               >{{ offer.supplier.deliveryDelayView }}
             </b-td>
             <b-td
+              v-if="TypeUser"
               class="border-top-0 text-555 fz-5 font-weight-bold text-nowrap"
               >{{ offer.prices }} Р
             </b-td>
@@ -137,6 +138,7 @@ import BuyButton from "@/components/products/button/buy-index";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
 import TableProductCartTd from "@/components/table/product/components/table-product-cart-td";
 import BaseButton from "@/components/base/button/base-button";
+import typeUser from "~/mixins/typeUser";
 export default {
   components: {
     BaseButton,
@@ -147,6 +149,7 @@ export default {
     PanelVid,
     ImgGetModal,
   },
+  mixins: [typeUser],
   props: {
     array: {},
     CheckAnalogs: {

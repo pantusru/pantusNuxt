@@ -62,9 +62,11 @@
     <template v-if="datasetProduct.productOffer.length !== 0" #footer>
       <b-row no-gutters align-h="between" class="mt-1">
         <b-col>
-          <div class="mb-3"><b class="fz-5">Цена</b></div>
+          <div v-if="TypeUser" class="mb-3"><b class="fz-5">Цена</b></div>
           <div>
-            <b class="fz-4">{{ datasetProduct.productOffer[0].prices }} Р</b>
+            <b v-if="TypeUser" class="fz-4"
+              >{{ datasetProduct.productOffer[0].prices }} Р</b
+            >
           </div>
         </b-col>
         <b-col class="text-right d-flex flex-column justify-content-between">
@@ -93,6 +95,7 @@ import ImgGetModal from "@/components/products/product/element/img";
 import BuyButton from "@/components/products/button/buy-index";
 import ProductElementRowGet from "@/components/products/product/element/product-element-row-get";
 import AvailabilityOffers from "@/components/products/product/element/availability-offers";
+import typeUser from "~/mixins/typeUser";
 export default {
   name: "BlogProduct",
   components: {
@@ -102,6 +105,7 @@ export default {
     ImgGetModal,
     Chosen,
   },
+  mixins: [typeUser],
   props: {
     datasetProduct: {},
   },

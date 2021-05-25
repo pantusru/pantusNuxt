@@ -55,7 +55,7 @@
           <b-col class="mb-2" cols="12">
             <b>Артикул</b>: <span>{{ dataset.ProductCard.sku.original }}</span>
           </b-col>
-          <b-col class="mb-2" v-if="dataset.ProductCard.nomenclature.code">
+          <b-col v-if="dataset.ProductCard.nomenclature.code" class="mb-2">
             <b>Код Пантус</b>: {{ dataset.ProductCard.nomenclature.code }}
           </b-col>
           <b-col

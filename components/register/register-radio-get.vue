@@ -5,9 +5,9 @@
       @input="GoEmit($event)"
       class="mb-4"
     >
-      <b-form-radio name="some-radios" value="retail"
-        >Розничный покупатель</b-form-radio
-      >
+<!--      <b-form-radio name="some-radios" value="retail"-->
+<!--        >Розничный покупатель</b-form-radio-->
+<!--      >-->
       <b-form-radio name="some-radios" value="wholesale"
         >Оптовый покупатель</b-form-radio
       >

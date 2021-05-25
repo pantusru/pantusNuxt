@@ -69,7 +69,6 @@
                 >
                 <span itemprop="streetAddress">ул. Транспортная, 11</span><br />
               </p>
-              <h4>Розничные продажи</h4>
               <h6>Точки продаж и выдачи заказов</h6>
               <p>
                 <span itemprop="addressLocality"
@@ -106,23 +105,6 @@
                 <li>
                   <a style="text-decoration: none" href="tel:88005558721pp192"
                     >8 800 555 8721 доб. 192</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6" style="">
-              <h3>Обслуживание розничных продаж</h3>
-              <ul>
-                <li>
-                  <a
-                    style="text-decoration: none"
-                    href="mailto:retail@pantus.ru"
-                    >retail@pantus.ru</a
-                  >
-                </li>
-                <li>
-                  <a style="text-decoration: none" href="tel:88005558721pp321"
-                    >8 800 555 8721 доб. 321</a
                   >
                 </li>
               </ul>
@@ -492,7 +474,7 @@ export default {
   name: "Index",
   head() {
     return {
-      title: `Контакты Пантус - продажа запчастей, РТИ оптом и в розницу`,
+      title: `Контакты Пантус - продажа запчастей, РТИ оптом`,
       meta: [
         {
           name: "description",

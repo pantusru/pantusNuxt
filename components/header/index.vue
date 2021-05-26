@@ -3,15 +3,15 @@
     <div v-if="!TypeUser" class="">
       <div class="bg-danger w-100 z-index-top p-2">
         <div class="container">
-          <a href="https://proavtozap.ru/" class="fz-3 text-white">
+          <div href="https://proavtozap.ru/" class="fz-3 text-white">
             Внимание! Уважаемые клиенты! Сообщаем, что с 01 июня 2021 года
-            розничные заказы будут обслуживаться на сайте proavtozap.ru.
+            розничные заказы будут обслуживаться на сайте
+            <a href="https://proavtozap.ru/" class="text-white text-decoration"><b>proavtozap.ru</b></a>
             Приятных покупок!
-          </a>
+          </div>
         </div>
       </div>
     </div>
-
     <VueNavTop />
     <VueNav />
     <VueNavBottom />

@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" class="px-0">
       <!-- Логотип -->
       <b-navbar-brand to="/" class="logo">
-        <img src="@img/logo.png" alt="Логотип сайта">
+        <img src="@img/logo.png" alt="Логотип сайта" />
       </b-navbar-brand>
       <!-- center -->
       <VButtonSearch />
@@ -19,20 +19,20 @@
               class="d-none d-lg-block"
               src="@img/icons/icon-avatar.png"
               alt="Иконка пользователя"
-            />
+            >
             <nuxt-link v-if="CheckUser === true" to="profile">
               <img
                 class="d-block d-lg-none"
                 src="@img/icons/icon-avatar.png"
                 alt="Иконка пользователя"
-              />
+              >
             </nuxt-link>
             <nuxt-link v-if="CheckUser === false" v-b-modal.authorization to="">
               <img
                 class="d-block d-lg-none"
                 src="@img/icons/icon-avatar.png"
                 alt="Иконка пользователя"
-              />
+              >
             </nuxt-link>
           </div>
           <!--data user -->
@@ -58,7 +58,7 @@
           class="d-flex align-items-center link-decoration-none d-block d-md-none"
         >
           <div class="icons-nav-w20">
-            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping">
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div class="d-lg-block d-none fz-5 w-100 justify-content-end">
@@ -85,7 +85,7 @@
           class="d-none d-md-flex align-items-center link-decoration-none"
         >
           <div class="icons-nav-w20">
-            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" >
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />
           </div>
           <div class="d-flex flex-column text-secondary pl-10px">
             <div
@@ -94,10 +94,51 @@
               <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
             </div>
             <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
-              >{{ stoimost }} р</strong
-            >
+              >{{ stoimost }} р
+            </strong>
           </div>
         </nuxt-link>
+        <div
+          v-if="!TypeUser"
+          to="/cart"
+          class="d-none d-md-flex align-items-center link-decoration-none cursor-pointer"
+          @click="getModal()"
+        >
+          <div class="icons-nav-w20">
+            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />
+          </div>
+          <div class="d-flex flex-column text-secondary pl-10px">
+            <div
+              class="d-lg-block d-none fz-5 w-100 justify-content-end link-ec0e1d"
+            >
+              <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>
+            </div>
+            <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"
+              >{{ stoimost }} р
+            </strong>
+          </div>
+        </div>
+
+        <!--        <div-->
+        <!--           -->
+        <!--          class="d-none d-md-flex align-items-center link-decoration-none cursor-pointer"-->
+        <!--          @click="makeToast('danger')"-->
+        <!--        >-->
+        <!--          <div class="icons-nav-w20">-->
+        <!--            <img src="@img/icons/icon-shopping-cart.png" alt="icon-shopping" />-->
+        <!--          </div>-->
+        <!--          <div class="d-flex flex-column text-secondary pl-10px">-->
+        <!--            <div-->
+        <!--              class="d-lg-block d-none fz-5 w-100 justify-content-end link-ec0e1d"-->
+        <!--            >-->
+        <!--              <span>Корзина</span><b v-if="GetLength">: {{ GetLength }}</b>-->
+        <!--            </div>-->
+        <!--            <strong v-if="stoimost != 0.0" class="fz-5 d-lg-block d-none"-->
+        <!--              >{{ stoimost }} р</strong-->
+        <!--            >-->
+        <!--          </div>-->
+        <!--        </div>-->
+
         <!--          </template>-->
         <!--          <dropdown-cart />-->
         <!--        </b-nav-item-dropdown>-->
@@ -114,10 +155,12 @@ import NavUser from "@/components/header/dropdown/nav-user";
 import ModalAuthorization from "@/components/modal/authorization";
 import DropdownCart from "@/components/header/dropdown/dropdown-cart";
 import typeUser from "~/mixins/typeUser";
+import BaseButton from "~/components/base/button/base-button";
 
 export default {
   name: "NavIndex",
   components: {
+    BaseButton,
     DropdownCart,
     ModalAuthorization,
     NavUser,
@@ -144,7 +187,19 @@ export default {
     },
   },
   methods: {
-    ToggleBodyFunction() {},
+    getModal() {
+      // this.$nextTick(() => {
+      this.$bvModal.show("authorization");
+      this.$store.commit("SetAuthorizationOrder", true);
+      // });
+    },
+    makeToast(variant = null) {
+      this.$bvToast.toast("Корзина доступна только для оптовых покупателей", {
+        title: `Уведомление`,
+        variant,
+        solid: true,
+      });
+    },
   },
 };
 </script>

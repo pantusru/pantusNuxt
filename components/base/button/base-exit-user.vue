@@ -21,15 +21,15 @@ export default {
     async exitUser() {
       const token = await this.$store.dispatch("User/axios/getToken");
       this.$store.commit("SetCookie", token);
-      this.$cookies.set("Authorization", token);
       this.$store.commit("User/AuthorizationFalse");
-      await this.$router.push({ name: "index" });
+      this.$cookies.set("Authorization", token);
 
       this.$store.commit("Order/Form/SetCostDostavka", 0);
       this.$store.commit("MyOrder/SetMyOrder", []);
       this.$store.commit("Cart/CartAll/ResetCartProduct");
       this.$store.commit("User/ResetForm");
       this.$store.commit("Selected/selected/resetSelected");
+      await this.$router.push({ name: "index" });
     },
   },
 };

@@ -75,9 +75,25 @@
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="d-flex align-items-center justify-content-between">
+      <div class="text-left">
+        <div
+          class="link-danger cursor-pointer text-decoration text-555"
+          @click="getModal"
+        >
+          Узнать оптовую цену
+        </div>
+        <a
+          :href="
+            'https://proavtozap.ru/search/?pcode=' + LinkProduct.sku.original
+          "
+          class="text-555 link-danger cursor-pointer text-decoration"
+        >
+          Узнать розничную цену
+        </a>
+      </div>
       <base-button class="py-1 px-2">
-        <div class="text-white" @click="getModal">узнать цены</div>
+        <div class="text-white" @click="getModal">Купить</div>
       </base-button>
     </div>
   </div>

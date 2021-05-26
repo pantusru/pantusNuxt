@@ -61,8 +61,8 @@
     </div>
     <template v-if="datasetProduct.productOffer.length !== 0" #footer>
       <b-row no-gutters align-h="between" class="mt-1">
-        <b-col>
-          <div v-if="TypeUser" class="mb-3"><b class="fz-5">Цена</b></div>
+        <b-col v-if="TypeUser">
+          <div   class="mb-3"><b class="fz-5">Цена</b></div>
           <div>
             <b v-if="TypeUser" class="fz-4"
               >{{ datasetProduct.productOffer[0].prices }} Р</b

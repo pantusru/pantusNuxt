@@ -77,13 +77,7 @@
     </div>
     <div v-else>
       <base-button class="py-1 px-2">
-        <a
-          class="text-white"
-          :href="
-            'https://proavtozap.ru/search/?pcode=' + LinkProduct.sku.original
-          "
-          >узнать цены</a
-        >
+        <div class="text-white" @click="getModal">узнать цены</div>
       </base-button>
     </div>
   </div>
@@ -172,6 +166,12 @@ export default {
     this.checkProductCart();
   },
   methods: {
+    getModal() {
+      // this.$nextTick(() => {
+      this.$bvModal.show("authorization");
+      this.$store.commit("SetAuthorizationOrder", true);
+      // });
+    },
     checkProductCart() {
       this.userBasket = false;
       for (const key in this.CartProduct) {

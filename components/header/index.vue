@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div v-if="!TypeUser" class="">
+    <div v-if="this.$store.getters['User/TypeUser'] !== 'wholesale'" class="">
       <div class="bg-danger w-100 z-index-top p-2">
         <div class="container">
           <div href="https://proavtozap.ru/" class="fz-4 text-white">

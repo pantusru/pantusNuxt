@@ -31,7 +31,7 @@
       name="companyAddress"
       :error="error['companyAddress']"
     />
-    <div v-if="UserStatus === 'wholesale'">
+    <div>
       <!--      <vInput-->
       <!--        :$v="$v"-->
       <!--        items="Страна"-->

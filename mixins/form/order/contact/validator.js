@@ -57,20 +57,12 @@ export default {
     },
   },
   validations() {
-    if (this.UserStatus === "retail") {
-      return {
-        Form: {
-          ...all,
-        },
-      };
-    } else if (this.UserStatus === "wholesale") {
-      return {
-        Form: {
-          ...all,
-          ...company,
-        },
-      };
-    }
+    return {
+      Form: {
+        ...all,
+        ...company,
+      },
+    };
   },
   data() {
     return {

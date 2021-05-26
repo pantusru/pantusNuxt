@@ -96,6 +96,7 @@
             </b-td>
             <b-td class="border-top-0 w-30px">
               <BuyButton
+                :get="false"
                 :link-offer="offer"
                 :link-product="table.ProductCard"
                 class="text-nowrap"

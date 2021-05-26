@@ -75,8 +75,11 @@
         </div>
       </div>
     </div>
-    <div v-else class="d-flex align-items-center justify-content-between">
-      <div class="text-left">
+    <div
+      v-else
+      class="d-flex align-items-center justify-content-between"
+    >
+      <div v-if="get" class="text-left">
         <div
           class="link-danger cursor-pointer text-decoration text-555"
           @click="getModal"
@@ -108,6 +111,9 @@ export default {
   components: { BaseButton },
   mixins: [typeUser],
   props: {
+    get: {
+      default: true,
+    },
     /**
      * @param {Object} LinkOffer - ссылка на предложения продукта
      */

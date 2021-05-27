@@ -4,12 +4,12 @@
     <b-row no-gutters class="mb-4 flex-nowrap">
       <!--      <a class="mr-4" v-for="data in linksImg" :key="data.id" :href="data.href">-->
       <div
-        class="mr-4 wrapper-icons-footer"
-        :class="data.class"
         v-for="data in linksImg"
         :key="data.id"
+        class="mr-4 wrapper-icons-footer"
+        :class="data.class"
       >
-        <img :src="data.src" :alt="data.alt" class="" />
+        <img :src="data.src" :alt="data.alt" class="" >
       </div>
       <!--      </a>-->
     </b-row>
@@ -24,7 +24,7 @@
         class="mr-4 wrapper-icons-footer"
         :class="data.class"
       >
-        <img :src="data.src" :alt="data.alt" />
+        <img :src="data.src" :alt="data.alt" >
       </div>
     </b-row>
   </b-col>
@@ -36,12 +36,12 @@ export default {
   data() {
     return {
       linksImg: [
-        {
-          src: require("@img/footer/cards.png"),
-          href: "",
-          alt: "cards",
-          class: "wrapper-icons-vista_mir",
-        },
+        // {
+        //   src: require("@img/footer/cards.png"),
+        //   href: "",
+        //   alt: "cards",
+        //   class: "wrapper-icons-vista_mir",
+        // },
         {
           src: require("@img/footer/cash.png"),
           href: "",
@@ -55,34 +55,34 @@ export default {
           class: "wrapper-icons-bank",
         },
       ],
-      linksImgManu: [
-        {
-          src: require("@img/footer/paypal.png"),
-          href: "",
-          alt: "paypal",
-          class: "wrapper-icons-paypal",
-        },
-        {
-          src: require("@img/footer/yandexmoney.png"),
-          href: "",
-          alt: "yandexmoney",
-          class: "wrapper-icons-payment_system",
-        },
-        {
-          src: require("@img/footer/webmoney.png"),
-          href: "",
-          alt: "webmoney",
-          class: "wrapper-icons-payment_system",
-        },
-        {
-          src: require("@img/footer/qiwi.png"),
-          href: "",
-          alt: "qiwi",
-          class: "wrapper-icons-payment_system",
-        },
-      ],
+      // linksImgManu: [
+      //   {
+      //     src: require("@img/footer/paypal.png"),
+      //     href: "",
+      //     alt: "paypal",
+      //     class: "wrapper-icons-paypal",
+      //   },
+      //   {
+      //     src: require("@img/footer/yandexmoney.png"),
+      //     href: "",
+      //     alt: "yandexmoney",
+      //     class: "wrapper-icons-payment_system",
+      //   },
+      //   {
+      //     src: require("@img/footer/webmoney.png"),
+      //     href: "",
+      //     alt: "webmoney",
+      //     class: "wrapper-icons-payment_system",
+      //   },
+      //   {
+      //     src: require("@img/footer/qiwi.png"),
+      //     href: "",
+      //     alt: "qiwi",
+      //     class: "wrapper-icons-payment_system",
+      //   },
+      // ],
       text:
-        "Мы принимаем банковские карты Visa, MasterCard и Мир. А также предлагаем 10 других безопасных способов оплаты, включая безналичный расчет, электронные деньги и салоны связи. Возможна оплата товара при получении и отсрочка платежа.",
+        "Гибкая ценовая политика. Возможна оплата товара при получении и отсрочка платежа. Условия оплаты вы можете согласовать с вашим персональным менеджером.",
     };
   },
 };

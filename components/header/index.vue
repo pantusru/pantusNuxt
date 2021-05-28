@@ -4,7 +4,7 @@
       <div class="bg-danger w-100 z-index-top p-2">
         <div class="container">
           <div href="https://proavtozap.ru/" class="fz-4 text-white">
-            Для оформления рознчного заказа, пожалуйста, воспользуйтесь сайтом
+            Для оформления розничного заказа, пожалуйста, воспользуйтесь сайтом
             <a href="https://proavtozap.ru/" class="text-white text-decoration"
               ><b>proavtozap.ru</b></a
             >
